@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T21:43:26+00:00",
+  "generated_at": "2026-10-10T21:46:01+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -18,6 +18,10 @@
     ".continuity-runtime/EMS-20261011-001-20261010T214224Z-continuity.tar.gz": {
       "sha256": "3ed5ceb99c1733dfe0de4adbdb690c60362da651890eee1766171727cbd95e05",
       "size": 13170
+    },
+    ".continuity-runtime/EMS-20261011-001-cp0003-receipts.delta.bundle": {
+      "sha256": "3a1b333a9582890599b59698c3f74e29ffe73b31c42d62b2dccb87cc90f99b19",
+      "size": 3960
     },
     ".continuity-runtime/EMS-20261011-001-cp0003.delta.bundle": {
       "sha256": "8f05e84093bbb57846f7018d2a426d53b8717c0d4396b8df3fc8e8fd8da184e5",
@@ -72,12 +76,12 @@
       "size": 759
     },
     "Makefile": {
-      "sha256": "ad4e77eeb02b74dab99e5fadfd6c93212053c212df31216bc3bf0bd55589f608",
-      "size": 765
+      "sha256": "f24a1cc3df614f7520c73317e9ecd1e5fbc4c8372ae3afd41fb7c999df2d5b7a",
+      "size": 1007
     },
     "README.md": {
-      "sha256": "c4ad4f93bfb4fac23fe903542793c907be5c5b8e0764f5c93dd0be638ea4c03d",
-      "size": 5155
+      "sha256": "f7d21e98d6cb67b85d1c9de22a63d5f457848f63252a3e2897c2b367c0d34710",
+      "size": 5623
     },
     "SECURITY.md": {
       "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
@@ -198,6 +202,10 @@
     "docs/SOURCE_MAP.md": {
       "sha256": "c62b960deecfcd3a16533bcbfaa53a6d9550cc1905c2fea5aba51efccb7586ef",
       "size": 7543
+    },
+    "docs/STORAGE_AND_MATERIALIZATION.md": {
+      "sha256": "e2d612b1d7bee30d473b96b0913f3bbb076f80e991bb9ea186253d6e44a820a6",
+      "size": 2255
     },
     "docs/STYLE_LIBRARY_STANDARD.md": {
       "sha256": "fdd94c29c99ab702cd467f9cc0343b37b52f8e0d455450785379da69760da1b5",
@@ -1436,16 +1444,20 @@
       "size": 3190
     },
     "tests/test_studio.py": {
-      "sha256": "1ad737ad5420a5fcacb70c4436d35005f51f787f9621b2ab981e7bb544384f7d",
-      "size": 4124
+      "sha256": "ccb0c90d7335c9734cc251bbe7bdb1414e83dfb9424c18e4ad7441cdc4015364",
+      "size": 4517
     },
     "tools/README.md": {
-      "sha256": "1b0ed6050de68cd6312c1865b09c09df1313fa90d5aadc2b6580d48895c526d5",
-      "size": 976
+      "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
+      "size": 1279
     },
     "tools/continuity.py": {
       "sha256": "6aa760e7ad2c30d4a4f5231f3522ac704c22e74009c5dc5ba2034f6d9159193c",
       "size": 31602
+    },
+    "tools/materialize.py": {
+      "sha256": "45e72e7f67ef14ee191525bd36ad8a885e50d3e56c7f2b96ef8c08377ae8f584",
+      "size": 2806
     },
     "tools/studio.py": {
       "sha256": "62c77640e7d219136c0273d2fee1e87135990ae267399a0eb1328ffc39ad47b7",

@@ -9,6 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 CLI = [sys.executable, str(ROOT / "tools" / "studio.py")]
+MATERIALIZE = [sys.executable, str(ROOT / "tools" / "materialize.py")]
 
 
 def digest(path: Path) -> str:
@@ -73,6 +74,12 @@ class StudioCliTests(unittest.TestCase):
             "workflows/wf03_monarch_noir_film/src/film_window.py", "--help",
         )
         self.assertIn("--render", help_result.stdout)
+
+    def test_materialization_status_is_read_only(self) -> None:
+        proc = subprocess.run(MATERIALIZE + ["status"], cwd=ROOT, text=True, capture_output=True)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertIn("tracked=", proc.stdout)
+        self.assertIn("sparse_omitted=", proc.stdout)
 
     def test_integrity_manifest_excludes_generated_and_vendor_contents(self) -> None:
         data = json.loads((ROOT / ".studio-manifest.json").read_text())

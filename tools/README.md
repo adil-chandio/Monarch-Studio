@@ -26,3 +26,15 @@ python3 tools/studio.py manifest --write
 ```
 
 Hydration never rewrites permanent historical source; it creates generated copies under `.runtime/`.
+
+## `materialize.py`
+
+Keeps the Arena worktree below snapshot capacity without deleting tracked history.
+
+```bash
+python3 tools/materialize.py status
+python3 tools/materialize.py compact
+python3 tools/materialize.py full
+```
+
+Use full mode before complete renders that need archived audio/plate assets.

@@ -80,6 +80,18 @@ python3 tools/studio.py run wf03 -- \
 
 Generated runtime is under `.runtime/` and is ignored.
 
+## Local storage safety
+
+The committed archive can use a compact sparse worktree in Arena while every tracked file remains in Git and Drive:
+
+```bash
+python3 tools/materialize.py status
+python3 tools/materialize.py compact
+python3 tools/materialize.py full   # before complete render/package rebuilds
+```
+
+See [`docs/STORAGE_AND_MATERIALIZATION.md`](docs/STORAGE_AND_MATERIALIZATION.md).
+
 ## Cross-platform source of truth
 
 - **GitHub:** canonical version history and checkpoint commits.
@@ -107,5 +119,6 @@ Every checkpoint creates an outbox package; each platform is marked independentl
 - [`docs/RECONCILIATION.md`](docs/RECONCILIATION.md)
 - [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md)
 - [`docs/PRIVACY_AND_ASSETS.md`](docs/PRIVACY_AND_ASSETS.md)
+- [`docs/STORAGE_AND_MATERIALIZATION.md`](docs/STORAGE_AND_MATERIALIZATION.md)
 
 Monarch-authored material is proprietary unless separately stated. Third-party submodules and bundled fonts retain their own licenses.

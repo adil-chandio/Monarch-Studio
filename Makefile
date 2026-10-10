@@ -42,3 +42,13 @@ hydrate-wf03:
 
 clean:
 	$(STUDIO) clean all
+
+.PHONY: materialize-status materialize-compact materialize-full
+materialize-status:
+	$(PYTHON) tools/materialize.py status
+
+materialize-compact:
+	$(PYTHON) tools/materialize.py compact
+
+materialize-full:
+	$(PYTHON) tools/materialize.py full
