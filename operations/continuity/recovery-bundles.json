@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-11T02:37:40+05:00",
+  "drive_folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+  "checkpoint_id": "0002-20261010T213606Z",
+  "git_head": "945c2998de1b054cddcd03fd83272adf30346300",
+  "files": [
+    {
+      "name": "editing-monarch-studio-continuity-v1.bundle",
+      "drive_id": "1DBVVqRsJs2Mbg6rWDbEYpR65C0ABsXXj",
+      "size": 63225490,
+      "md5": "5954cf8ad494dfb68929ea1a44fb6e7f",
+      "sha256": "ff4b4b082b7b3a75b9b6fcd8fa1c64116e287edd25893576050e4a6129537dfe",
+      "contents": "complete Git history and all refs through checkpoint 0002"
+    },
+    {
+      "name": "editing-monarch-studio-snapshot-cp0002.zip",
+      "drive_id": "1y2sL-8U1PdzTlqzyryVvHjknCGZRNO9d",
+      "size": 63493099,
+      "md5": "133f30de7f5cb9e49a081741e165852e",
+      "sha256": "bdb06183fda58273178ff8300baf53a3f7b11281e7ec24694d1ba3b60bae3d7d",
+      "contents": "tracked-file snapshot; pinned vendors represented by gitlinks"
+    },
+    {
+      "name": "EMS-20261011-001-cp0002-continuity.tar.gz",
+      "drive_id": "1aCYm1CmdFO3ta9pNYcFC5AbV0leX8Wbw",
+      "size": 8871,
+      "md5": "33f3350a120db6874b7ee02d02579a8b",
+      "contents": "active state, exact resume, linked visible chat, journal, checkpoints and outbox"
+    }
+  ]
+}

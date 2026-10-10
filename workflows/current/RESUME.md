@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261011-001
 
-**Status:** `syncing`  
+**Status:** `waiting_external`  
 **Title:** Style Library + Crash-Proof Continuity System v1  
 **Style:** `studio-operation`  
-**Checkpoint sequence:** 2  
-**Last checkpoint:** 2026-10-10T21:36:06Z
+**Checkpoint sequence:** 3  
+**Last checkpoint:** 2026-10-10T21:42:01Z
 
 ## Goal
 
@@ -20,7 +20,7 @@ Create separately named permanent editing-style libraries, keep only one running
 
 ## Exact next action
 
-Create a portable Git bundle and repository snapshot, upload both to the dedicated Drive continuity folder, mark checkpoint deliveries, then wait only for the user GitHub repository URL/authorization.
+User supplies the GitHub repository URL (and confirms write access); then set origin, push main and tag continuity-v1, mark GitHub synced in the latest outbox, and complete/archive EMS-20261011-001.
 
 ## Running processes
 
@@ -38,6 +38,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0002-20261010T213606Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0003-20261010T214201Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
