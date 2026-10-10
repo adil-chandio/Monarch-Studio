@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T22:17:08+00:00",
+  "generated_at": "2026-10-10T22:19:41+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -20,8 +20,8 @@
       "size": 252
     },
     ".github/workflows/continuity-audit.yml": {
-      "sha256": "7b6938df189370d7d0b1bfc26724a23fb23f879de4cd4a9f5980c470a6ce448b",
-      "size": 846
+      "sha256": "6b7bdaacf91681eda3c99b980dadd65aa617072f0236dc17b7883f44bb408f7e",
+      "size": 867
     },
     ".gitignore": {
       "sha256": "4a03a8415046b19af19ff05cdce6b31653d01a21aad3b89d6c01dc67731b0c25",
@@ -336,8 +336,8 @@
       "size": 2220
     },
     "operations/continuity/remote-targets.json": {
-      "sha256": "27fb706efb76373d1f9c57e23872a89da7cf33f44d6554d90d5c2fd3dd19c2da",
-      "size": 2854
+      "sha256": "d3d6583b775b05e5aba525d893ec4b2481fdf23c7d4aefee0e84a3634570c63b",
+      "size": 3595
     },
     "operations/continuity/sync-policy.json": {
       "sha256": "34902a99f7fe07f28db53cf364913ec9ad579adb947a998b7797c8c78c4da758",
@@ -354,6 +354,10 @@
     "operations/history/EMS-20261011-001/JOURNAL.jsonl": {
       "sha256": "5759a194f72cc291d8794fbf9824c606169f827e841d2e0cec67b5dadeace718",
       "size": 42336
+    },
+    "operations/history/EMS-20261011-001/POST_COMPLETION_VERIFICATION.md": {
+      "sha256": "7c90b710f2d58aadd485b5c32a6d006e24039a465a4ba8cf9fca545d0c612c93",
+      "size": 1728
     },
     "operations/history/EMS-20261011-001/RESUME.md": {
       "sha256": "b985fe0868c415227586e9fa2ae3aa6f6ef0eec629e99cc29a7c129291468a44",
@@ -1504,8 +1508,8 @@
       "size": 3190
     },
     "tests/test_studio.py": {
-      "sha256": "ccb0c90d7335c9734cc251bbe7bdb1414e83dfb9424c18e4ad7441cdc4015364",
-      "size": 4517
+      "sha256": "1a04a0d5c81f855ece9d9cf55fa4c4c081f37a0e17e9f224b3028f026f162aa8",
+      "size": 5171
     },
     "tools/README.md": {
       "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
@@ -1520,8 +1524,8 @@
       "size": 2806
     },
     "tools/studio.py": {
-      "sha256": "533539a4a63a403e3d096cec04461e2e669e4df7475d182be584f4da16762496",
-      "size": 31401
+      "sha256": "e4b1b0e673846f8084a181f35290a4442e815b87407fdcd4ab5a38db7d4f1651",
+      "size": 31853
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",
@@ -1542,18 +1546,6 @@
     "workflows/current/RESUME.md": {
       "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
       "size": 874
-    },
-    "workflows/current/payload/USER_CONFIRM_GITHUB.txt": {
-      "sha256": "6f678cf553c6de62a2e32a8a1c9f00eab54bf4cd9732e0ac6448c0aa574d4682",
-      "size": 104
-    },
-    "workflows/current/payload/USER_MESSAGE_GITHUB_REPO.txt": {
-      "sha256": "5f1a422d857c1530c315570ae9613276649da170b7b0dda42163f57c65ec167d",
-      "size": 2985
-    },
-    "workflows/current/payload/USER_REQUEST.txt": {
-      "sha256": "c09afb13fcee5328be0a558f2a1a479fce639042b3cec2ea92255591389ee3e4",
-      "size": 2925
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

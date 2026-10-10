@@ -89,6 +89,22 @@ class StudioCliTests(unittest.TestCase):
         self.assertFalse(any(path.startswith(".runtime/") for path in paths))
         self.assertFalse(any(path.startswith("vendor/effectcraft/") for path in paths))
 
+    def test_missing_manifest_paths_are_genuine_sparse_omissions(self) -> None:
+        data = json.loads((ROOT / ".studio-manifest.json").read_text())
+        missing = [rel for rel in data["files"] if not (ROOT / rel).exists()]
+        for rel in missing:
+            proc = subprocess.run(
+                ["git", "ls-files", "-v", "--", rel],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            self.assertTrue(
+                proc.stdout.startswith("S "),
+                f"manifest retained a missing path not marked skip-worktree: {rel}",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

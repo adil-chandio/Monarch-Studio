@@ -140,14 +140,28 @@ def git_tracked_paths() -> set[str]:
     return {item.decode("utf-8") for item in proc.stdout.split(b"\0") if item}
 
 
+def git_sparse_omitted_paths() -> set[str]:
+    if not sparse_checkout_enabled():
+        return set()
+    proc = subprocess.run(["git", "ls-files", "-v", "-z"], cwd=ROOT, capture_output=True)
+    if proc.returncode:
+        return set()
+    return {
+        item[2:].decode("utf-8")
+        for item in proc.stdout.split(b"\0")
+        if item.startswith(b"S ")
+    }
+
+
 def make_manifest() -> dict[str, Any]:
     files: dict[str, Any] = {}
     # Sparse Arena checkouts omit archived binaries from the working tree. Preserve
-    # their last verified records while refreshing every materialized file.
+    # only paths explicitly marked skip-worktree; do not preserve materialized paths
+    # that were deleted or moved before the next git add.
     if sparse_checkout_enabled() and MANIFEST_PATH.exists():
         previous = load_json(MANIFEST_PATH).get("files", {})
-        tracked = git_tracked_paths()
-        files.update({rel: record for rel, record in previous.items() if rel in tracked})
+        omitted = git_sparse_omitted_paths()
+        files.update({rel: record for rel, record in previous.items() if rel in omitted})
     for path in eligible_repo_files():
         rel = path.relative_to(ROOT).as_posix()
         files[rel] = {"sha256": hash_file(path), "size": path.stat().st_size}
@@ -482,9 +496,9 @@ def validate_repo_manifest(v: Validation) -> None:
     extra = sorted(set(current) - set(expected))
     sparse_omitted: list[str] = []
     if missing and sparse_checkout_enabled():
-        tracked = git_tracked_paths()
-        sparse_omitted = [rel for rel in missing if rel in tracked]
-        missing = [rel for rel in missing if rel not in tracked]
+        omitted = git_sparse_omitted_paths()
+        sparse_omitted = [rel for rel in missing if rel in omitted]
+        missing = [rel for rel in missing if rel not in omitted]
         if sparse_omitted:
             v.warn(f"manifest verification deferred for {len(sparse_omitted)} sparse-omitted tracked files")
     if missing:
