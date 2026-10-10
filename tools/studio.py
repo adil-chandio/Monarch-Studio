@@ -26,6 +26,7 @@ MANIFEST_PATH = ROOT / ".studio-manifest.json"
 SKIP_PARTS = {
     ".git",
     ".runtime",
+    ".continuity-runtime",
     "vendor",
     "__pycache__",
     "node_modules",

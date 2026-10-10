@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T21:46:01+00:00",
+  "generated_at": "2026-10-10T21:47:05+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -11,30 +11,6 @@
     "build/cache/output directories"
   ],
   "files": {
-    ".continuity-runtime/EMS-20261011-001-20261010T213731Z-continuity.tar.gz": {
-      "sha256": "bd6045390a01191cdfce9fddd82f73bad0457e032dec5dba1d5a3c30fee642c6",
-      "size": 8871
-    },
-    ".continuity-runtime/EMS-20261011-001-20261010T214224Z-continuity.tar.gz": {
-      "sha256": "3ed5ceb99c1733dfe0de4adbdb690c60362da651890eee1766171727cbd95e05",
-      "size": 13170
-    },
-    ".continuity-runtime/EMS-20261011-001-cp0003-receipts.delta.bundle": {
-      "sha256": "3a1b333a9582890599b59698c3f74e29ffe73b31c42d62b2dccb87cc90f99b19",
-      "size": 3960
-    },
-    ".continuity-runtime/EMS-20261011-001-cp0003.delta.bundle": {
-      "sha256": "8f05e84093bbb57846f7018d2a426d53b8717c0d4396b8df3fc8e8fd8da184e5",
-      "size": 9465
-    },
-    ".continuity-runtime/export-cp0003.json": {
-      "sha256": "7c6882e3c6d51a3101d47c219e87a811cea5efb4a4e152b2397c4ff3e71efaec",
-      "size": 158
-    },
-    ".continuity-runtime/last-checkpoint-result.json": {
-      "sha256": "2ae82b9aab09c68dc44a6ac6251a39e18f7bc4c4756f5852ac6869e5ee38f5ea",
-      "size": 280
-    },
     ".continuity.lock": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
@@ -1460,8 +1436,8 @@
       "size": 2806
     },
     "tools/studio.py": {
-      "sha256": "62c77640e7d219136c0273d2fee1e87135990ae267399a0eb1328ffc39ad47b7",
-      "size": 31354
+      "sha256": "3c3b41f13deca426f3828b09574aeabcbf280224f4c495481d4225511a55f03e",
+      "size": 31381
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",
