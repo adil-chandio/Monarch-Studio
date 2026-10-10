@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T22:16:57+00:00",
+  "generated_at": "2026-10-10T22:17:08+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "25acde6634b8f201742bc2fa975b0007d47903cf10d216695c2ce80edc0f47c5",
-      "size": 749
+      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
+      "size": 527
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -251,6 +251,14 @@
       "sha256": "a3dfac901164b825d7490c2a97ffa2555426b82d6b2a827d61f2550a76f79c97",
       "size": 4745
     },
+    "operations/continuity/checkpoints/EMS-20261011-001/0006-20261010T221708Z/HANDOFF.md": {
+      "sha256": "b985fe0868c415227586e9fa2ae3aa6f6ef0eec629e99cc29a7c129291468a44",
+      "size": 1720
+    },
+    "operations/continuity/checkpoints/EMS-20261011-001/0006-20261010T221708Z/checkpoint.json": {
+      "sha256": "f3ecb1d8fcdff09ccead5f2fe8dfce860ed8ca8518703739bbd24cb1b7b2152e",
+      "size": 4425
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -311,6 +319,18 @@
       "sha256": "b6f9eea632f7337b336f5835745a4a24dade277e1ab41f6dd26ec14946d906ce",
       "size": 4745
     },
+    "operations/continuity/outbox/EMS-20261011-001/0006-20261010T221708Z/STATUS.md": {
+      "sha256": "992353cba9818d202b6f092d18a8043bd394daee411acde21d21577c9c5a388d",
+      "size": 946
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0006-20261010T221708Z/SYNC.json": {
+      "sha256": "120906ad45226f4a69e19c7959980ff3e9d243e59c9872b20f62818a388dcfbe",
+      "size": 3581
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0006-20261010T221708Z/checkpoint.json": {
+      "sha256": "913daa3ff10064b521c86c26c1eb2c6dd8a6dd8d3ce8e78b37c0b8ae1b5ffb14",
+      "size": 4425
+    },
     "operations/continuity/recovery-bundles.json": {
       "sha256": "8f2ffd4885f786b9ac32a11a1bd2b4394f485dcc619aa0f12a5153fb57461507",
       "size": 2220
@@ -322,6 +342,34 @@
     "operations/continuity/sync-policy.json": {
       "sha256": "34902a99f7fe07f28db53cf364913ec9ad579adb947a998b7797c8c78c4da758",
       "size": 836
+    },
+    "operations/history/EMS-20261011-001/ACTIVE_TASK.json": {
+      "sha256": "5bd60b84849fb8c45a2b6fc6abe649bec2e337f697ba4599864d48e29a4a9a0a",
+      "size": 1578
+    },
+    "operations/history/EMS-20261011-001/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "f35090effb464fa09ca3fa45f417ccfce2a13e3da9e411d96d04b42b1b7dcd95",
+      "size": 6948
+    },
+    "operations/history/EMS-20261011-001/JOURNAL.jsonl": {
+      "sha256": "5759a194f72cc291d8794fbf9824c606169f827e841d2e0cec67b5dadeace718",
+      "size": 42336
+    },
+    "operations/history/EMS-20261011-001/RESUME.md": {
+      "sha256": "b985fe0868c415227586e9fa2ae3aa6f6ef0eec629e99cc29a7c129291468a44",
+      "size": 1720
+    },
+    "operations/history/EMS-20261011-001/payload/USER_CONFIRM_GITHUB.txt": {
+      "sha256": "6f678cf553c6de62a2e32a8a1c9f00eab54bf4cd9732e0ac6448c0aa574d4682",
+      "size": 104
+    },
+    "operations/history/EMS-20261011-001/payload/USER_MESSAGE_GITHUB_REPO.txt": {
+      "sha256": "5f1a422d857c1530c315570ae9613276649da170b7b0dda42163f57c65ec167d",
+      "size": 2985
+    },
+    "operations/history/EMS-20261011-001/payload/USER_REQUEST.txt": {
+      "sha256": "c09afb13fcee5328be0a558f2a1a479fce639042b3cec2ea92255591389ee3e4",
+      "size": 2925
     },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
@@ -1480,20 +1528,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "082d1111318307d28b6a3aed096bde70c8e88e79d6f8f9eeadfc742b8c589aaf",
-      "size": 1752
+      "sha256": "6e7aec7248cdd6f55a63ad8607dfdd82d98a691c11642546be3fdd0d283789e0",
+      "size": 733
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "f35090effb464fa09ca3fa45f417ccfce2a13e3da9e411d96d04b42b1b7dcd95",
-      "size": 6948
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "23f001bf47a7ac0f97398d62c153c3cf1539e91dbbb2467b50600e2a7bf63798",
-      "size": 41448
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
     },
     "workflows/current/RESUME.md": {
-      "sha256": "056ac85fe96269fd49043783e08eb9647d760462e311d7ba0ce2d93d8fb40afa",
-      "size": 1894
+      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
+      "size": 874
     },
     "workflows/current/payload/USER_CONFIRM_GITHUB.txt": {
       "sha256": "6f678cf553c6de62a2e32a8a1c9f00eab54bf4cd9732e0ac6448c0aa574d4682",

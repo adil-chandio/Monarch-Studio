@@ -1,26 +1,22 @@
-# Resume capsule — EMS-20261011-001
+# Resume capsule — NONE
 
-**Status:** `syncing`  
-**Title:** Style Library + Crash-Proof Continuity System v1  
+**Status:** `idle`  
+**Title:** No active task  
 **Style:** `studio-operation`  
-**Checkpoint sequence:** 5  
-**Last checkpoint:** 2026-10-10T21:58:08Z
+**Checkpoint sequence:** 0  
+**Last checkpoint:** none
 
 ## Goal
 
-Create separately named permanent editing-style libraries, keep only one running task in workflows/current, preserve exact visible chat/actions and resume state, checkpoint at least hourly, and synchronize evidence to GitHub, Drive, Notion, Linear and Google Docs without silent omissions.
+No goal recorded.
 
 ## Acceptance criteria
 
-- [ ] Every permanent editing style has its own complete named folder and knowledge index.
-- [ ] workflows/current contains only the single running task and an exact next action.
-- [ ] Refresh/restart recovery continues from a verified hash-chained checkpoint rather than restarting.
-- [ ] Hourly/event-driven checkpoint packages and five-platform sync ledgers exist.
-- [ ] Repository, tests, authorities and remote records validate without unrecorded drift.
+- None recorded.
 
 ## Exact next action
 
-Record checkpoint-0005 receipts on Drive/Notion/Linear/Docs, commit and push them; then complete/archive EMS-20261011-001, clear workflows/current, push the final completion commit/tag, and publish the GitHub release.
+Start the next task with continuity.py init.
 
 ## Running processes
 
@@ -38,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0005-20261010T215808Z`
+- Latest checkpoint package: `none`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

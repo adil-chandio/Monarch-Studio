@@ -1,31 +1,27 @@
 {
   "schema_version": 1,
-  "task_id": "EMS-20261011-001",
-  "status": "syncing",
-  "title": "Style Library + Crash-Proof Continuity System v1",
+  "task_id": "NONE",
+  "status": "idle",
+  "title": "No active task",
   "style_id": null,
-  "goal": "Create separately named permanent editing-style libraries, keep only one running task in workflows/current, preserve exact visible chat/actions and resume state, checkpoint at least hourly, and synchronize evidence to GitHub, Drive, Notion, Linear and Google Docs without silent omissions.",
-  "acceptance_criteria": [
-    "Every permanent editing style has its own complete named folder and knowledge index.",
-    "workflows/current contains only the single running task and an exact next action.",
-    "Refresh/restart recovery continues from a verified hash-chained checkpoint rather than restarting.",
-    "Hourly/event-driven checkpoint packages and five-platform sync ledgers exist.",
-    "Repository, tests, authorities and remote records validate without unrecorded drift."
-  ],
-  "started_at": "2026-10-10T21:27:20Z",
-  "updated_at": "2026-10-10T22:16:50Z",
-  "checkpoint_sequence": 5,
-  "event_sequence": 51,
-  "journal_head": "1c8de55b661318c99530045a70c8b73dfc4a767b0030256926b1b1cc71037823",
-  "last_checkpoint": "2026-10-10T21:58:08Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-001/0005-20261010T215808Z",
-  "next_action": "Record checkpoint-0005 receipts on Drive/Notion/Linear/Docs, commit and push them; then complete/archive EMS-20261011-001, clear workflows/current, push the final completion commit/tag, and publish the GitHub release.",
+  "goal": "",
+  "acceptance_criteria": [],
+  "started_at": null,
+  "updated_at": "2026-10-10T22:17:08Z",
+  "checkpoint_sequence": 0,
+  "event_sequence": 0,
+  "journal_head": null,
+  "last_checkpoint": null,
+  "last_checkpoint_path": null,
+  "next_action": "Start the next task with continuity.py init.",
   "running_processes": [],
   "remote_sync": {
-    "github": "pending",
-    "google_docs": "pending",
-    "google_drive": "pending",
-    "linear": "pending",
-    "notion": "pending"
-  }
+    "github": "not_configured",
+    "google_docs": "not_configured",
+    "google_drive": "not_configured",
+    "linear": "not_configured",
+    "notion": "not_configured"
+  },
+  "completed_task": "EMS-20261011-001",
+  "completion_checkpoint": "0006-20261010T221708Z"
 }

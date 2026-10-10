@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `EMS-20261011-001`
-- **Status:** `syncing`
-- **Title:** Style Library + Crash-Proof Continuity System v1
-- **Next action:** Record checkpoint-0005 receipts on Drive/Notion/Linear/Docs, commit and push them; then complete/archive EMS-20261011-001, clear workflows/current, push the final completion commit/tag, and publish the GitHub release.
+- **Task:** `NONE`
+- **Status:** `idle`
+- **Title:** No active task
+- **Next action:** Start the next task with continuity.py init.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
