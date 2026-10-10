@@ -116,7 +116,7 @@ def eligible_repo_files() -> Iterable[Path]:
         rel = path.relative_to(ROOT)
         if any(part in SKIP_PARTS for part in rel.parts):
             continue
-        if path.suffix in {".pyc", ".pyo"} or path.name in {".DS_Store"}:
+        if path.suffix in {".pyc", ".pyo"} or path.name in {".DS_Store", ".continuity.lock"}:
             continue
         yield path
 

@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261011-001`
 - **Status:** `syncing`
 - **Title:** Style Library + Crash-Proof Continuity System v1
-- **Next action:** Push main and continuity-v1 to the confirmed GitHub repository, verify remote object identity, sync final receipts, then complete/archive EMS-20261011-001.
+- **Next action:** Record checkpoint-0005 receipts on Drive/Notion/Linear/Docs, commit and push them; then complete/archive EMS-20261011-001, clear workflows/current, push the final completion commit/tag, and publish the GitHub release.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

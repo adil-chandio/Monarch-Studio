@@ -20,7 +20,7 @@ Create separately named permanent editing-style libraries, keep only one running
 
 ## Exact next action
 
-Push main and continuity-v1 to the confirmed GitHub repository, verify remote object identity, sync final receipts, then complete/archive EMS-20261011-001.
+Record checkpoint-0005 receipts on Drive/Notion/Linear/Docs, commit and push them; then complete/archive EMS-20261011-001, clear workflows/current, push the final completion commit/tag, and publish the GitHub release.
 
 ## Running processes
 
