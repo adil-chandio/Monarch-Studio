@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T21:47:05+00:00",
+  "generated_at": "2026-10-10T21:49:44+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -64,8 +64,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "2600600912d7589e848f6f3cde70b3d0e1f3f69dda07781848b46fa0441fdfc7",
-      "size": 739
+      "sha256": "6d5c880d964999f4141a9807ce08e1082055b556a370b1882b94dc8415435261",
+      "size": 777
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -239,6 +239,14 @@
       "sha256": "39c3e0d988ab8ea8c8714d6920fc1b1ea3a65c91f6346c887b668fdf26a571c4",
       "size": 4549
     },
+    "operations/continuity/checkpoints/EMS-20261011-001/0004-20261010T214943Z/HANDOFF.md": {
+      "sha256": "f4a518fac50be5a0705216e46c22ce381887b47eff5745cdbbd117796ed56bdc",
+      "size": 1922
+    },
+    "operations/continuity/checkpoints/EMS-20261011-001/0004-20261010T214943Z/checkpoint.json": {
+      "sha256": "305087d24aff698eac40350b43ed0eb1cbf074a15d6051be12c7814e8b142cd5",
+      "size": 4722
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -275,13 +283,25 @@
       "sha256": "b38043f0cb941abe996fb300ad9895c147160cd16f73f56e9a55563ee7b00ca5",
       "size": 4549
     },
+    "operations/continuity/outbox/EMS-20261011-001/0004-20261010T214943Z/STATUS.md": {
+      "sha256": "dc7bcd691db5b719c0360f34b77d93376885a80e7cd1af6b17cd3c0e6e0a46d7",
+      "size": 1046
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0004-20261010T214943Z/SYNC.json": {
+      "sha256": "ccdbdca29c13cbcf17b39cf5bfd6ce7a52f1180e6d4301ebf5b1b492f9873a62",
+      "size": 3164
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0004-20261010T214943Z/checkpoint.json": {
+      "sha256": "2740e208a6f734223b02c7d2b5f994f543989274dfb99111fdcdb628516b1de8",
+      "size": 4722
+    },
     "operations/continuity/recovery-bundles.json": {
       "sha256": "8f2ffd4885f786b9ac32a11a1bd2b4394f485dcc619aa0f12a5153fb57461507",
       "size": 2220
     },
     "operations/continuity/remote-targets.json": {
-      "sha256": "4c1d6a708438e20cd12c0f7b6b979425915a5f84d65eab121e3054667df38b88",
-      "size": 2169
+      "sha256": "2958d1c6ea3f9e0720b37cd38fc4868d365e485d2c76a24d7c856e6df613d01a",
+      "size": 2449
     },
     "operations/continuity/sync-policy.json": {
       "sha256": "34902a99f7fe07f28db53cf364913ec9ad579adb947a998b7797c8c78c4da758",
@@ -1444,20 +1464,24 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "8a15c457a05990543f86f42ed01e6baca8cd900fbaeaa4570a099e3f71e51451",
-      "size": 1742
+      "sha256": "67aafa3c953aa70500d1caed9bf10b7c286801ac0b8e655d9f9a78a34b3ded33",
+      "size": 1780
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "8811e779986e0dfaf886eac9173894b31f9ea86371cb888d4438c160c11973e6",
-      "size": 3235
+      "sha256": "365edf1cb648a6c5e2e926d91fb0bb7fb9a8a03582d3c1c523390973b42e27de",
+      "size": 6533
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "124f1b4a058510032796892b376dab040898ca8abfe1fd74974e10045c2430c9",
-      "size": 21984
+      "sha256": "210865da045d6df8d74f83a6bae823d3305fac8e0cbbd41f418b98791551131b",
+      "size": 27913
     },
     "workflows/current/RESUME.md": {
-      "sha256": "4b811eff9fb7cd87aa70183be66d82cc824633208f1372ea20370de8c8c3ff77",
-      "size": 1884
+      "sha256": "f4a518fac50be5a0705216e46c22ce381887b47eff5745cdbbd117796ed56bdc",
+      "size": 1922
+    },
+    "workflows/current/payload/USER_MESSAGE_GITHUB_REPO.txt": {
+      "sha256": "5f1a422d857c1530c315570ae9613276649da170b7b0dda42163f57c65ec167d",
+      "size": 2985
     },
     "workflows/current/payload/USER_REQUEST.txt": {
       "sha256": "c09afb13fcee5328be0a558f2a1a479fce639042b3cec2ea92255591389ee3e4",

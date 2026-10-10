@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261011-001`
 - **Status:** `waiting_external`
 - **Title:** Style Library + Crash-Proof Continuity System v1
-- **Next action:** User supplies the GitHub repository URL (and confirms write access); then set origin, push main and tag continuity-v1, mark GitHub synced in the latest outbox, and complete/archive EMS-20261011-001.
+- **Next action:** User confirms whether https://github.com/adil-chandio/Monarch-Studio is the repository and confirms push authorization; then set origin, push main + continuity-v1, verify remote HEAD, synchronize receipts, and complete/archive the task.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

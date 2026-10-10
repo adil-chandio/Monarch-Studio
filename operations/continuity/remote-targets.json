@@ -8,9 +8,11 @@
       "transport": "git",
       "remote": "origin",
       "repo_url": null,
+      "candidate_repo_url": "https://github.com/adil-chandio/Monarch-Studio.git",
+      "candidate_discovered_via": "public GitHub API exact-name search; requires user confirmation",
       "branch": "main",
-      "status": "blocked_waiting_for_user_repository_url_and_authorization",
-      "note": "No remote URL was supplied. Never invent a repository or credentials."
+      "status": "waiting_for_user_confirmation_of_candidate_and_push_authorization",
+      "note": "User supplied the repository name Monarch-Studio. A newly created empty public candidate was found, but owner identity must be confirmed before origin is set."
     },
     "google_drive": {
       "required": true,
