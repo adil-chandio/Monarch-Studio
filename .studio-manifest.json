@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T22:15:05+00:00",
+  "generated_at": "2026-10-10T22:16:57+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -304,8 +304,8 @@
       "size": 932
     },
     "operations/continuity/outbox/EMS-20261011-001/0005-20261010T215808Z/SYNC.json": {
-      "sha256": "9108cc839b3c2dd8e914eaf0a3609b2dad09c638092d673d452041e53740eeb7",
-      "size": 3108
+      "sha256": "9e53b517d477bea6cf3c4bce93c24860ed7aa3479b036358f0412e0208bbb943",
+      "size": 4380
     },
     "operations/continuity/outbox/EMS-20261011-001/0005-20261010T215808Z/checkpoint.json": {
       "sha256": "b6f9eea632f7337b336f5835745a4a24dade277e1ab41f6dd26ec14946d906ce",
@@ -316,8 +316,8 @@
       "size": 2220
     },
     "operations/continuity/remote-targets.json": {
-      "sha256": "b816ca6ffb8fb910b9649de758acefc003c4c773382758276fed1a9fad631bae",
-      "size": 2630
+      "sha256": "27fb706efb76373d1f9c57e23872a89da7cf33f44d6554d90d5c2fd3dd19c2da",
+      "size": 2854
     },
     "operations/continuity/sync-policy.json": {
       "sha256": "34902a99f7fe07f28db53cf364913ec9ad579adb947a998b7797c8c78c4da758",
@@ -1480,7 +1480,7 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "2ae6ed65a3f5576bedc4adb72a59d69a90404218357c92d9d0c547c7d07b6874",
+      "sha256": "082d1111318307d28b6a3aed096bde70c8e88e79d6f8f9eeadfc742b8c589aaf",
       "size": 1752
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
@@ -1488,8 +1488,8 @@
       "size": 6948
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "846c77c8dc5ae873b459eec5dab1bc9c8a6e2ef300413383b5744483d795ffdc",
-      "size": 37018
+      "sha256": "23f001bf47a7ac0f97398d62c153c3cf1539e91dbbb2467b50600e2a7bf63798",
+      "size": 41448
     },
     "workflows/current/RESUME.md": {
       "sha256": "056ac85fe96269fd49043783e08eb9647d760462e311d7ba0ce2d93d8fb40afa",
