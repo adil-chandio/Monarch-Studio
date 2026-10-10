@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261010T212917Z",
+  "task_id": "EMS-20261011-001",
+  "created_at": "2026-10-10T21:29:17Z",
+  "targets": {
+    "github": {
+      "status": "blocked",
+      "target": {
+        "remote": null,
+        "repository": null,
+        "branch_policy": "main plus checkpoint commits",
+        "status": "waiting_for_user_repository_url"
+      },
+      "remote_id": null,
+      "synced_at": "2026-10-10T21:34:45Z",
+      "note": "Waiting for user-supplied GitHub repository URL and authorization; not invented.",
+      "url": null
+    },
+    "google_docs": {
+      "status": "synced",
+      "target": {
+        "studio_registry_doc_id": "1ONXXVp-yYG2P9ldUPBOSAhr8oWkS79qgzdu6eGHTm8Q",
+        "continuity_hub_doc_id": null,
+        "status": "bootstrap_pending"
+      },
+      "remote_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
+      "synced_at": "2026-10-10T21:34:45Z",
+      "note": "Portable recovery hub created; WF-01/WF-03 Docs updated.",
+      "url": "https://docs.google.com/document/d/16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU/edit"
+    },
+    "google_drive": {
+      "status": "synced",
+      "target": {
+        "studio_root_folder_id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
+        "continuity_folder_id": null,
+        "status": "bootstrap_pending"
+      },
+      "remote_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+      "synced_at": "2026-10-10T21:34:45Z",
+      "note": "Dedicated continuity root created; bundle upload follows Git validation.",
+      "url": "https://drive.google.com/drive/folders/1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE"
+    },
+    "linear": {
+      "status": "synced",
+      "target": {
+        "team_id": "7d25e78c-c0f2-46b3-9c73-10bcf9c5a108",
+        "studio_resume_issue": "MON-55",
+        "continuity_project_id": null,
+        "continuity_issue_id": null,
+        "status": "bootstrap_pending"
+      },
+      "remote_id": "7d51bdef-6435-4e3e-93d9-74a41da0b155",
+      "synced_at": "2026-10-10T21:34:45Z",
+      "note": "Project and MON-63 task created; MON-34 and MON-57 updated.",
+      "url": "https://linear.app/monarchmation/issue/MON-63/ems-20261011-001-bootstrap-crash-proof-continuity-permanent-style"
+    },
+    "notion": {
+      "status": "synced",
+      "target": {
+        "studio_hub_page_id": "3f4807e1-e916-813a-9000-e7e94ac0ac53",
+        "continuity_page_id": null,
+        "status": "bootstrap_pending"
+      },
+      "remote_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
+      "synced_at": "2026-10-10T21:34:45Z",
+      "note": "Continuity/style hub created; WF-01 and WF-03 pages updated.",
+      "url": "https://app.notion.com/p/Editing-Monarch-Studio-Continuity-Style-Library-v1-3f5807e1e916819f91a9d0786304b6da"
+    }
+  }
+}

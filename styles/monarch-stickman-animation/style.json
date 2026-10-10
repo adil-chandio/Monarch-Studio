@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-stickman-animation",
+  "name": "Monarch Stickman Animation",
+  "workflow_code": "WF-01",
+  "path": "styles/monarch-stickman-animation",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "primary_renderer": "src/respect2.py",
+  "primary_gate": "src/gate_respect2.py",
+  "current_release": "IZZAT v2",
+  "reproducibility": "R1"
+}

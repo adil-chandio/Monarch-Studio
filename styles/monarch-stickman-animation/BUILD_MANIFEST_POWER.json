@@ -1,0 +1,176 @@
+{
+ "spec_version": "4.1",
+ "project": "stickman_power_42s",
+ "generated": "2026-10-08",
+ "engine": "v9 vertical (clean.py + toon.py) + power.py",
+ "video": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "frames": 1260,
+  "duration_s": 42.0,
+  "codec": "h264 High 4.0",
+  "pix_fmt": "yuv420p",
+  "crf_shard": 16,
+  "crf_delivery": 23,
+  "maxrate": "2800k",
+  "bufsize": "5600k",
+  "faststart": true,
+  "bytes": 15885994,
+  "sha256_16": "4c5a5c79c4408386",
+  "note": "container sha not reproducible across libx264 thread scheduling; first build 3af2f5fda7a99b2d"
+ },
+ "audio": {
+  "sample_rate": 48000,
+  "channels": 2,
+  "codec": "aac",
+  "bitrate": "192k",
+  "chain": "VO EQ/comp/vol1.92 -> asplit; bed .70 -> sidechain .024/5/6/260; amix; treble 3.4@9000; extrastereo 2.4; loudnorm I-11 TP-1.6 LRA9; volume 1.25; alimiter .74 (5/60, level=disabled); apad 42.4; atrim 42.0",
+  "measured": {
+   "lufs": -11.7,
+   "decoded_peak_dBFS": -1.49,
+   "lr_corr": 0.752,
+   "side_mid": 0.376,
+   "short_term_min": -12.7
+  },
+  "bed": {
+   "bpm": 100,
+   "spb": 0.6,
+   "key": "D minor",
+   "chords": [
+    "Dm",
+    "Bb",
+    "F",
+    "C",
+    "Gm",
+    "Dm"
+   ],
+   "events": 316,
+   "swells_measured_holes": 6
+  }
+ },
+ "timeline": {
+  "vo_fit_s": [
+   5.626,
+   5.516,
+   6.516,
+   6.25,
+   6.546,
+   8.122
+  ],
+  "lead": [
+   0.3,
+   0.05,
+   0.05,
+   0.05,
+   0.05,
+   0.05
+  ],
+  "tail": [
+   0.45,
+   0.42,
+   0.42,
+   0.42,
+   0.42,
+   0.744
+  ],
+  "scene_start": [
+   0.0,
+   6.376,
+   12.362,
+   19.348,
+   26.068,
+   33.084
+  ],
+  "scene_end": [
+   6.376,
+   12.362,
+   19.348,
+   26.068,
+   33.084,
+   42.0
+  ],
+  "vo_at": [
+   0.3,
+   6.426,
+   12.412,
+   19.398,
+   26.118,
+   33.134
+  ],
+  "adelay_ms": [
+   300,
+   6426,
+   12412,
+   19398,
+   26118,
+   33134
+  ],
+  "cuts": [
+   6.376,
+   12.362,
+   19.348,
+   26.068,
+   33.084
+  ],
+  "names": [
+   "HOOK",
+   "JISM",
+   "DIMAGH",
+   "CONTROL",
+   "VALUE",
+   "GO"
+  ],
+  "atempo": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ "camera": {
+  "Z0": 1.02,
+  "AMP": [
+   0.02,
+   0.024,
+   0.016,
+   0.024,
+   0.02,
+   0.024
+  ],
+  "pan_px": [
+   7.0,
+   9.0
+  ],
+  "caption_y": 1440,
+  "worst_caption_bottom_Y": 1495,
+  "worst_headline_top_Y": 209
+ },
+ "gates": "src/gate_power.py \u2014 18 gates, ALL PASS (build/gate_power.log)",
+ "voice": {
+  "tts_voice_id": "voice-00",
+  "language": "ur",
+  "fit": "src/vo_fit.py pause cap 0.30 s, no atempo"
+ },
+ "source_hashes": {
+  "src/power.py": "3005a04c9e482ec8",
+  "src/timeline_power.py": "42c7314bb91960f4",
+  "src/make_asmr_power.py": "73ab53718fd88947",
+  "src/mux_power.sh": "5f0a94a47fa86d44",
+  "src/gate_power.py": "795b5e70271654f6",
+  "src/vo_fit.py": "f7205c3e7afb653c",
+  "src/clean.py": "e5ec91956ca9058f",
+  "src/toon.py": "b5515680d5582364",
+  "src/make_asmr.py": "7cf0e61f21e1f705"
+ },
+ "vo_hashes": {
+  "assets/p1_fit.wav": "269d2dd4926bece4",
+  "assets/p2_fit.wav": "b3bd314f83950933",
+  "assets/p3_fit.wav": "b327db779d757d5c",
+  "assets/p4_fit.wav": "ad58be60c7e3d63e",
+  "assets/p5_fit.wav": "ef1de7f07b378b06",
+  "assets/p6_fit.wav": "a8711c634a7538c5"
+ }
+}

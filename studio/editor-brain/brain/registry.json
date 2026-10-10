@@ -1,0 +1,357 @@
+{
+  "_doc": "MONARCH EDITOR BRAIN — memory of what every delivered video USED. Newest LAST. Slot values are ids from brain/library.py, or 'other:<text>' for things outside the library, or null = not logged. The freshness gate reads this file; `concept.py commit` appends to it.",
+  "videos": [
+    {
+      "key": "money_v9",
+      "title": "stickman_money_37s_v9.mp4 — online paise (origin of the engine)",
+      "date": "2026-10-07",
+      "duration_s": 37.0,
+      "drive_id": "in archive v1 1labbEjdk4GO6zgth4Ce_JhP4WDpjZOEM",
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "other:money props (wallet, phone, coins) on the v9 grid",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "other:v9 ASMR bed with room/hiss floor and 0.6 s grid",
+        "type": null,
+        "ending": "other:CTA card"
+      },
+      "signature": "other:v9 engine itself — extruded type, 3-D-rig hero, tinted swipe, ASMR bed",
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell"
+      ],
+      "hook_text": "Jeb khali hai? Ghabrao mat — aaj main tumhe online paise…"
+    },
+    {
+      "key": "episode_hook_16x9",
+      "title": "stickman_wide_episode_full.mp4 263.5 s + stickman_wide_hook_53s.mp4 — The Slowest Predator",
+      "date": "2026-10-08",
+      "duration_s": 263.5,
+      "drive_id": "1MbClU5EuAeWEA-zaS8nNhxPIkBUZxtdW / 1qbCkv36OknO0S-2TFXUSkTLIepjpTn8o",
+      "slots": {
+        "hook": "other:8-beat history hook (sourced facts)",
+        "device": "other:long-form chapters 16:9",
+        "world": "other:ancient survival / persistence hunt",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "other:wide bed (WIDE_AUDIO_LEDGER)",
+        "type": null,
+        "ending": "other:long-form outro"
+      },
+      "signature": "other:16:9 long-form grid + hook architecture",
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell"
+      ],
+      "hook_text": "The Slowest Predator"
+    },
+    {
+      "key": "power_v1",
+      "title": "stickman_power_42s.mp4 — Powerful man kaise bane (voice-00)",
+      "date": "2026-10-08",
+      "duration_s": 42.0,
+      "drive_id": "1uq_xNhjQTcwvAUiHR5fXCnsBrlcJLyCI",
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "gym_desk",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "dminor_pluck_100",
+        "type": "counter_live",
+        "ending": "other:follow + save pill and bookmark"
+      },
+      "signature": "other:6 new rig poses + pose blending + measured camera (ledger 39–45)",
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "click",
+        "shimmer"
+      ],
+      "hook_text": "Powerful man banna hai? Taqat muscles se nahi, aadaton se aati hai."
+    },
+    {
+      "key": "shade_v2",
+      "title": "shade_power_42s.mp4 — same script, SHADE hero, hybrid look",
+      "date": "2026-10-08",
+      "duration_s": 42.0,
+      "drive_id": "1rsJq7Y4wpQaKEsK7Zd7LNhiTqBYBUlJM",
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "gym_desk",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "dminor_pluck_100",
+        "type": "counter_live",
+        "ending": "other:follow + save pill and bookmark"
+      },
+      "signature": "other:hybrid charcoal/paper seam as a character (wedge drops on the beats) + SHADE on the 3-D rig, eyes that ignite",
+      "transitions": [
+        "two_tone_slanted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "click",
+        "shimmer"
+      ],
+      "hook_text": "Powerful man banna hai? (eyes open in the dark, the light arrives)"
+    },
+    {
+      "key": "izzat_v1",
+      "title": "shade_respect_90s.mp4 — Log aapki izzat kyun nahi karte (voice-01, cinematic layer)",
+      "date": "2026-10-08",
+      "duration_s": 90.0,
+      "drive_id": "1FtRyxIvEnBldm6_DGnGPWHcvNRPznzAQ",
+      "slots": {
+        "hook": "social_sting",
+        "device": "mini_story",
+        "world": "ignored_room",
+        "grammar": "long_take_internal",
+        "camera": "push_parallax",
+        "sonic": "other:v1 cinematic bed with room/hiss floor",
+        "type": null,
+        "ending": "other:follow/save end card"
+      },
+      "signature": "other:cinematic layer — measured push/parallax, light rays, particles, slow-mo",
+      "transitions": [
+        "tinted_swipe_cinematic"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "glass",
+        "metal",
+        "shimmer",
+        "click"
+      ],
+      "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?"
+    },
+    {
+      "key": "izzat_v2",
+      "title": "shade_respect_v2.mp4 — IZZAT v2 75.19 s (current cut, 19/19)",
+      "date": "2026-10-09",
+      "duration_s": 75.19,
+      "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
+      "slots": {
+        "hook": "social_sting",
+        "device": "mini_story",
+        "world": "ignored_room",
+        "grammar": "voice_led_inserts",
+        "camera": "push_parallax",
+        "sonic": "cinematic_braam",
+        "type": "numeral_card_3d",
+        "ending": "recap_carousel_card"
+      },
+      "signature": "other:15-kind 3-D transition library, one kind per boundary, voice-led 33-shot cut, bed without a noise floor",
+      "transitions": [
+        "cube_h",
+        "cube_v",
+        "zoom",
+        "whip_h",
+        "whip_v",
+        "iris",
+        "slices",
+        "ink",
+        "wedge",
+        "card",
+        "spin",
+        "sweep",
+        "blur",
+        "doors",
+        "shatter"
+      ],
+      "sfx_voices": [
+        "braam",
+        "reverse_swell",
+        "glass_ting",
+        "metal_ring",
+        "paper_slide",
+        "doppler_whip",
+        "impact",
+        "heartbeat",
+        "glass_burst",
+        "click",
+        "bell",
+        "glass",
+        "metal",
+        "pluck",
+        "glass_hi",
+        "low_chime",
+        "shimmer",
+        "metal_hi",
+        "end_bell",
+        "pad",
+        "swell"
+      ],
+      "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?",
+      "worlds_also": [
+        "scale_plate"
+      ]
+    },
+    {
+      "key": "the_shadow_v1",
+      "title": "THE SHADOW v1",
+      "date": "2026-10-09",
+      "duration_s": 156.9,
+      "drive_id": "16qsEno9sN_p4fggfcTN05W9LUzYsz0u4",
+      "md5": "f8b7e71b9238febd3c60f82463116393",
+      "slots": {
+        "hook": "literary_line_black",
+        "device": "counter_spine",
+        "world": "lantern_corner",
+        "grammar": "holds_dip_burst",
+        "camera": "locked_stage_two_ecus",
+        "sonic": "piano_room",
+        "type": "typewriter_ink",
+        "ending": "title_pun_command"
+      },
+      "signature": "shadow_homothety — the villain is the hero's own lamp-cast shadow, computed physically (k = D/(D−d)); a distance readout is the spine (7.4 → 10.3 → -- → 1.8 → 9.9 → --); carrying the light forward puts the shadow on the floor behind him",
+      "transitions": [
+        "hard_cut",
+        "dip_to_black",
+        "flash_cut",
+        "montage_accelerando",
+        "micro_cut_red_cards",
+        "insert_cutaway",
+        "end_card_fade"
+      ],
+      "sfx_voices": [
+        "room_tone_380",
+        "sub_55_lfo",
+        "sub_e1_dark",
+        "cello_pad_aminor",
+        "piano_motif_90",
+        "heartbeat",
+        "riser_bandsweep",
+        "footstep_pan",
+        "slow_scuff",
+        "typewriter_click",
+        "red_card_stab",
+        "lantern_whump",
+        "lantern_huff",
+        "lantern_crackle",
+        "cut_boom",
+        "wall_thump",
+        "reverse_swell",
+        "lamp_foley"
+      ],
+      "hook_text": "Every night, it was there.",
+      "format": "film",
+      "workflow": "WF-03",
+      "worlds_also": [
+        "shadow_antagonist"
+      ],
+      "callbacks": [
+        "lantern: lit (3.3 s) → out (39.5) → relit (57) → carried (126) → set at the wall (136) → out (143)",
+        "readout: 7.4 → 10.3 → -- → 10.3 → 5.9 → 2.2 → 1.8 → 9.9 → --",
+        "red whispers: stay. / not yet. / what if. → turn back. (climax) → gone after the wall",
+        "corner: hides small (S04) → sits beside the light, same corner wall (S18)"
+      ],
+      "quotable_lines": [
+        "You can't measure what you won't look at.",
+        "Fear is a shadow. Walk toward it — and it is exactly your size."
+      ]
+    },
+    {
+      "key": "the_window_v1",
+      "title": "THE WINDOW v1",
+      "date": "2026-10-10",
+      "duration_s": 155.0,
+      "drive_id": "1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy",
+      "md5": "cfe189f9c09e47e6728d2f2aba017f8d",
+      "slots": {
+        "hook": "clock_readout_face_pov",
+        "device": "windows_comparison_facade",
+        "world": "apartment_facade_real_plates",
+        "grammar": "vo_led_pushins_flurry_inserts",
+        "camera": "crop_camera_pushes_reflection",
+        "sonic": "felt_bells_dminor_72_picardy",
+        "type": "clock_readout_mirror_lines",
+        "ending": "picardy_dawn_two_cards"
+      },
+      "signature": "window_mirror — the villain is a real facade of 31 lit windows (measured rects); four red lines on the glass get four white answers in the same positions; the phone dies and the hero's reflection is laid over all 31 windows; the clock stops at 88.0 and never ticks again; the first amber light in the film is his own lamp; DAY 40 somebody across the street looks up at a new window (Picardy third D minor → D major)",
+      "transitions": [
+        "hard_cut",
+        "dip_to_black",
+        "push_in_crop",
+        "montage_flurry_readouts",
+        "light_state_cut",
+        "reflection_overlay_fade",
+        "reverse_angle_pair"
+      ],
+      "sfx_voices": [
+        "rain_exterior_patter",
+        "rain_interior_glass_drops",
+        "room_tone_300",
+        "sub_d2_lfo",
+        "felt_piano",
+        "music_box_bell",
+        "string_ensemble_swell",
+        "bass_pluck_pulse",
+        "clock_tick_tock_stop",
+        "phone_thumb_tap",
+        "phone_off_whine",
+        "bed_creak",
+        "wood_floor_step",
+        "sneaker_wet_step",
+        "runner_breath",
+        "sheets_fabric",
+        "sink_water",
+        "plate_clink",
+        "paper_shuffle",
+        "sneaker_scuff",
+        "lamp_click_bloom",
+        "dawn_birds",
+        "red_line_sting",
+        "air_swell",
+        "chair_creak",
+        "sub_drop_sine",
+        "typewriter_click",
+        "cut_boom",
+        "riser_bandsweep",
+        "red_card_stab"
+      ],
+      "hook_text": "11:48 PM — It's eleven forty-eight at night. He's lying in the dark, and his face is glowing blue.",
+      "format": "film",
+      "workflow": "WF-03",
+      "worlds_also": [
+        "real_life_plates_ai_painted",
+        "stick_human_3d_hero"
+      ],
+      "callbacks": [
+        "'You only ever see the lit room.' — narration at 49.1 → final card at 146.9",
+        "red lines → white answers in the same glass positions: he's ahead → he's hurting · they're happy → they're quiet · you're late → it's two a.m. · look at them → look at you",
+        "31 windows counted at 7.0 → 'his own reflection, laid over all thirty-one of them' at 83.6 → 31 silhouettes looking back at 127.0",
+        "the three windows return as his days: DAY 1 he is the runner · DAY 23 the couple sees him pass · DAY 40 the man with two monitors looks up",
+        "his window: blue flicker (12.6) → dark (74.9) → amber (121.3) → amber wide (138.4)"
+      ],
+      "quotable_lines": [
+        "Every window you have ever envied has someone standing in it, looking at yours.",
+        "The only window you will ever see from the inside is your own."
+      ]
+    }
+  ]
+}

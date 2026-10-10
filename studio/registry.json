@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "registry_id": "editing-monarch-studio",
+  "title": "Editing Monarch Studio",
+  "normalized_at": "2026-10-11T00:00:00+05:00",
+  "authority_policy": "docs/RECONCILIATION.md",
+  "style_registry": "styles/registry.json",
+  "active_workflow": "workflows/current/ACTIVE_TASK.json",
+  "workflows": [
+    {
+      "code": "WF-01",
+      "style_id": "monarch-stickman-animation",
+      "slug": "wf01",
+      "name": "Monarch Stickman Animation",
+      "path": "styles/monarch-stickman-animation",
+      "trigger": "SHADEGO <topic>",
+      "state": "PARKED",
+      "reconciliation": "aligned",
+      "reproducibility": "R1",
+      "current_delivery": {
+        "title": "IZZAT v2", "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
+        "md5": "8d91be52ab969e0b23f21bf6bab0df85", "duration_seconds": 75.19,
+        "width": 1080, "height": 1920, "fps": 24, "gates": "19/19"
+      },
+      "authorities": {
+        "drive_folder_id": "1Qum7OkUZpRMSt3SMJ6q3WumUUwzezTw-",
+        "notion_project_id": "3f3807e1-e916-819e-aa60-fc633bf61478",
+        "notion_registry_row_id": "3f4807e1-e916-8140-aee5-e1f13ab5b6d7",
+        "linear_project_id": "4d053022-acab-4836-8f13-5ccb7e043c17",
+        "linear_resume_issue": "MON-34", "linear_trigger_issue": "MON-56",
+        "google_doc_hub_id": "1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g",
+        "google_doc_trigger_id": "1EdP_cvptM1GG8dDg_6ld_yjnkc1Ko9-kHtXy3BYXc2A"
+      }
+    },
+    {
+      "code": "WF-03",
+      "style_id": "monarch-noir-film",
+      "slug": "wf03",
+      "name": "Monarch Noir Film",
+      "path": "styles/monarch-noir-film",
+      "trigger": "NOIRGO <topic>",
+      "state": "ACTIVE_WITH_DRIFT",
+      "reconciliation": "required_before_next_numbered_film",
+      "reproducibility": "mixed_R1_R2_R3",
+      "current_fully_sourced_delivery": {
+        "title": "THE WINDOW v1", "film_number": 2,
+        "drive_id": "1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy",
+        "md5": "cfe189f9c09e47e6728d2f2aba017f8d", "duration_seconds": 155.0,
+        "width": 1920, "height": 1080, "fps": 24, "gates": "27/27"
+      },
+      "drift": [
+        "Connected Notion, Linear and Google Doc hubs still name THE SHADOW as latest although complete THE WINDOW evidence is newer.",
+        "4:00 AM v2 and AB KARO ABHI v1 both claim Film #3 with different format and evidence depth.",
+        "Workflow-local brain history and the newer studio brain have different generations."
+      ],
+      "authorities": {
+        "drive_folder_id": "11c194r1f_IMIo5yOmT-j80Iu-sZWP3KP",
+        "notion_project_id": "3f4807e1-e916-8135-b919-ee36b0e39165",
+        "notion_registry_row_id": "3f4807e1-e916-810e-a035-fce9f7cc8f3f",
+        "linear_project_id": "e173192b-b932-4801-ac4d-dcd7445237b8",
+        "linear_resume_issue": "MON-57",
+        "google_doc_hub_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM"
+      }
+    }
+  ],
+  "characters": [{"slug": "monarch", "name": "Monarch", "path": "characters/monarch", "state": "LOCKED", "registry": "characters/monarch/character.json"}],
+  "vendor": [
+    {"name": "EffectCraft", "path": "vendor/effectcraft", "url": "https://github.com/storytold/effectcraft.git", "commit": "f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8", "role": "optional_future_tooling_adapter"},
+    {"name": "awesome-opus5-5-videos", "path": "vendor/awesome-opus5-5-videos", "url": "https://github.com/yihui-dev/awesome-opus5-5-videos.git", "commit": "756290289742535eb0ac3817548f152e9759cc70", "role": "pinned_research_index"}
+  ]
+}

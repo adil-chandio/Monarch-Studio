@@ -1,0 +1,140 @@
+{
+ "0.9 S01 face \u00b7 phone POV": {
+  "luma": 38.0,
+  "dark": 0.701,
+  "chroma": 18.0,
+  "p99": 199.5
+ },
+ "5.0 S02 bed wide \u00b7 lying, glowing": {
+  "luma": 21.3,
+  "dark": 0.767,
+  "chroma": 17.3,
+  "p99": 76.0
+ },
+ "8.4 S03 facade \u00b7 31 windows lit": {
+  "luma": 28.3,
+  "dark": 0.714,
+  "chroma": 15.1,
+  "p99": 155.7
+ },
+ "15.5 S05 his window \u00b7 blue": {
+  "luma": 25.9,
+  "dark": 0.618,
+  "chroma": 10.6,
+  "p99": 79.1
+ },
+ "25.9 S08 the runner": {
+  "luma": 36.0,
+  "dark": 0.547,
+  "chroma": 12.2,
+  "p99": 144.0
+ },
+ "31.8 S10 the couple \u00b7 two plates": {
+  "luma": 41.9,
+  "dark": 0.501,
+  "chroma": 16.8,
+  "p99": 171.3
+ },
+ "41.6 S13 bed \u00b7 he looks up": {
+  "luma": 23.0,
+  "dark": 0.747,
+  "chroma": 17.8,
+  "p99": 96.8
+ },
+ "53.9 S17 runner \u00b7 the knee": {
+  "luma": 37.2,
+  "dark": 0.518,
+  "chroma": 12.6,
+  "p99": 147.3
+ },
+ "62.0 S19 two monitors \u00b7 at the glass": {
+  "luma": 28.6,
+  "dark": 0.689,
+  "chroma": 16.5,
+  "p99": 125.0
+ },
+ "73.5 S22 the phone dies": {
+  "luma": 16.8,
+  "dark": 0.849,
+  "chroma": 15.1,
+  "p99": 67.5
+ },
+ "80.4 S24 he stands \u00b7 the walk": {
+  "luma": 17.4,
+  "dark": 0.856,
+  "chroma": 14.4,
+  "p99": 65.4
+ },
+ "86.5 S26 the reflection": {
+  "luma": 36.1,
+  "dark": 0.432,
+  "chroma": 13.2,
+  "p99": 121.2
+ },
+ "95.8 S29 the bed": {
+  "luma": 25.5,
+  "dark": 0.703,
+  "chroma": 15.1,
+  "p99": 92.0
+ },
+ "98.4 S30 the dishes": {
+  "luma": 32.0,
+  "dark": 0.69,
+  "chroma": 11.1,
+  "p99": 200.6
+ },
+ "101.0 S31 the desk": {
+  "luma": 25.4,
+  "dark": 0.704,
+  "chroma": 14.8,
+  "p99": 94.4
+ },
+ "106.5 S33 DAY 1 \u00b7 the run": {
+  "luma": 28.9,
+  "dark": 0.674,
+  "chroma": 12.9,
+  "p99": 142.6
+ },
+ "110.8 S34 DAY 9 \u00b7 the lamp": {
+  "luma": 44.0,
+  "dark": 0.387,
+  "chroma": 17.8,
+  "p99": 151.4
+ },
+ "115.2 S35 DAY 23 \u00b7 running past": {
+  "luma": 47.6,
+  "dark": 0.461,
+  "chroma": 13.4,
+  "p99": 182.3
+ },
+ "122.4 S37 a new window": {
+  "luma": 34.5,
+  "dark": 0.454,
+  "chroma": 6.1,
+  "p99": 94.9
+ },
+ "129.5 S39 someone standing in it": {
+  "luma": 37.0,
+  "dark": 0.396,
+  "chroma": 8.3,
+  "p99": 105.3
+ },
+ "133.5 S40 from the inside": {
+  "luma": 43.6,
+  "dark": 0.434,
+  "chroma": 8.5,
+  "p99": 144.7
+ },
+ "137.4 S41 Light it.": {
+  "luma": 43.8,
+  "dark": 0.389,
+  "chroma": 17.7,
+  "p99": 150.0
+ },
+ "143.5 S43 end card": {
+  "luma": 5.7,
+  "dark": 0.991,
+  "chroma": 2.0,
+  "p99": 26.1
+ }
+}

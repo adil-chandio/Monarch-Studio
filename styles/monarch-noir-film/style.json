@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-noir-film",
+  "name": "Monarch Noir Film",
+  "workflow_code": "WF-03",
+  "path": "styles/monarch-noir-film",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "primary_renderers": ["src/film_shadow.py", "src/film_window.py"],
+  "primary_gates": ["src/gate_shadow.py", "src/gate_window.py"],
+  "current_fully_sourced_release": "THE WINDOW v1",
+  "reproducibility": "mixed_R1_R2_R3"
+}

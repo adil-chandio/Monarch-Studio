@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "character": "Monarch",
+  "state": "LOCKED",
+  "directive": "USE, DO NOT REDESIGN",
+  "authority_date": "2026-10-10",
+  "variants": {
+    "real": {
+      "face": {"version": 5, "drive_id": "1YTschdKJjpmsl4jIgC15y8yjek0zf1-M", "md5": "020566659864a22ac68e65e3d96c0bd9", "preview": "previews/CUSTOM_HERO_REAL_SHEET_v5_preview.jpg"},
+      "body": {"version": 2, "drive_id": "177bFsA2oy--XSZOqbRycGieIbYJuX8S-", "md5": "9c579848370cd95d95261a1f56b17f87", "preview": "previews/CUSTOM_HERO_REAL_BODY_SHEET_v2_preview.jpg"}
+    },
+    "stick": {
+      "face": {"version": 4, "drive_id": "1aIJEDmwGzRCqyXPm_lA5ArQrUIr2bJST", "md5": "5c18bd13e79fb7274a63a236487ef0d9", "preview": "previews/CUSTOM_HERO_STICK_SHEET_v4_preview.jpg"},
+      "body": {"version": 4, "drive_id": "1uZ9bRPAZzQmnyLeVEs9-NsOxdZ70QcUm", "md5": "c791940a822b52a7dbd00523db1ae0f7", "preview": "previews/CUSTOM_HERO_STICK_BODY_SHEET_v4_preview.jpg"},
+      "face_policy": "Use the studio stickman face, not the realistic human face; preserve recognizable identity cues."
+    }
+  },
+  "consolidated_authority": {
+    "bible": {"version": 2, "path": "CUSTOM_HERO_CHARACTER_BIBLE_v2.pdf", "drive_id": "1H6F4B52gdNgRKPEurwmgAZqEHQwhI1hq", "md5": "24a5d5c3d1a1aa234d4420a34bf6b4ad"},
+    "master_board": {"version": 2, "path": "CUSTOM_HERO_MASTER_BOARD_v2.png", "drive_id": "1UPHezCR57ZMEe6K74He7zcF5MlXDJ7FQ", "md5": "8977b5ee07e381894cffa4470b017759"}
+  },
+  "source_snapshots": {"v10_md5": "6412ba080d089f7982eea5905507f99d", "v11_md5": "fc9efb6af3de085cd3ac4eb3f4fbb691"},
+  "authorities": {
+    "drive_root_id": "1EpH_0IcH34cJmf-s9DbaOQNBy3DXqPHw",
+    "drive_character_folder_id": "1iPXavru1AXiSG5wRHuLKc5VNXhaVcXZK",
+    "notion_page_id": "3f5807e1-e916-816c-9624-f7bdc5dba4b2",
+    "linear_project_id": "eb308dbc-c28d-46e5-ad5e-71ddb601a3b7",
+    "google_doc_hub_id": "1AsFnHq43aYYWORu1MAdrjsnDyPf-ftOg5HrY0Uj40BI"
+  },
+  "excluded_sensitive_assets": ["Side face (video)", "Snapchat-1811422650.mp4", "monarch voice.aac"]
+}

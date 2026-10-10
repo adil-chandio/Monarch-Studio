@@ -1,0 +1,1285 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "generated_at": "2026-10-10T21:00:41+00:00",
+  "excludes": [
+    ".git",
+    ".runtime",
+    "vendor",
+    "build/cache/output directories"
+  ],
+  "files": {
+    ".editorconfig": {
+      "sha256": "57c6e0b59ec87bb3ebda87eb74aa249477ac3150fabec82527823161f7909797",
+      "size": 248
+    },
+    ".gitattributes": {
+      "sha256": "ff3e026655cf1b777e877b4dc13be0950aa13be6ce1fd11c5fa32f9f9c4a3353",
+      "size": 369
+    },
+    ".gitignore": {
+      "sha256": "5662aa0432caa1722d147796652ed5fbbd7a83f29730b09cf9fa5c58a5e054f3",
+      "size": 606
+    },
+    ".gitmodules": {
+      "sha256": "1f235cdd8ca9b6884dfec35a43400f95d033f1bf17c8e3c14dd1738c74454809",
+      "size": 257
+    },
+    "CHANGELOG.md": {
+      "sha256": "bd6647f98f548980a4466de9bf9d7699a52e2c0368fdc60ab9580d4aef39bf93",
+      "size": 605
+    },
+    "CONTRIBUTING.md": {
+      "sha256": "a06541b122dd1188edc95e464d2a5ccf3b18761c95cbb2b0ba71d639d5e7fdd9",
+      "size": 895
+    },
+    "LICENSE": {
+      "sha256": "71b8c3eb3b28f8450977bc6a23fbdcdfe7a8aebe4dba6a33d1e3eb2b797f08da",
+      "size": 759
+    },
+    "Makefile": {
+      "sha256": "1b10ddd64699bfcde001fe027708c35efbbcc203f13a5ac1932d62c2c4cace13",
+      "size": 424
+    },
+    "README.md": {
+      "sha256": "0b47dd4ee1c6e17c6f743f571f906982b3a31ba2f5c0257144373b750236f57d",
+      "size": 5165
+    },
+    "SECURITY.md": {
+      "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
+      "size": 602
+    },
+    "THIRD_PARTY.md": {
+      "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
+      "size": 1108
+    },
+    "characters/README.md": {
+      "sha256": "03f750a229005eeb9a59928db287324f7c604a5ff8e1a1c6eddb9704f6cc78c8",
+      "size": 180
+    },
+    "characters/monarch/CUSTOM_HERO_CHARACTER_BIBLE_v2.pdf": {
+      "sha256": "52a310b2c3450182de21a398934c2d790605c81df757ada79360a64cfa059929",
+      "size": 5431978
+    },
+    "characters/monarch/CUSTOM_HERO_MASTER_BOARD_v2.png": {
+      "sha256": "9208d1ee7758f6226166b2d254f63a1ded67e8acf3da3cc99e6140a5527e5eb1",
+      "size": 1993538
+    },
+    "characters/monarch/CUSTOM_HERO_STATE.md": {
+      "sha256": "c79e6b60a94d86879e0fe7b6176d7fc84033cc6a3c2d37b6fe8cd4d7bf123d24",
+      "size": 26948
+    },
+    "characters/monarch/README.md": {
+      "sha256": "15d269fb5c5925ee3f4810c91e2ed7beb9af190c9b15f37b49c5bfc1a5cc6a28",
+      "size": 3575
+    },
+    "characters/monarch/character.json": {
+      "sha256": "38961b75876a175fc4473f2c17d2d2a32d32d4ac510c22b58d893dd8d7afcee0",
+      "size": 2310
+    },
+    "characters/monarch/previews/CUSTOM_HERO_REAL_BODY_SHEET_v2_preview.jpg": {
+      "sha256": "f40d59d9add4b82d8973875e35f446f4d7fe5d0b5580198732e429da5ba562b6",
+      "size": 599549
+    },
+    "characters/monarch/previews/CUSTOM_HERO_REAL_SHEET_v5_preview.jpg": {
+      "sha256": "ad316a719b192c03ecbd5911b274d5b1594285d30e08a392918edba37952eae9",
+      "size": 213732
+    },
+    "characters/monarch/previews/CUSTOM_HERO_STICK_BODY_SHEET_v4_preview.jpg": {
+      "sha256": "8f6a72ae7a9b3d44c29bc67f903feb996c7c887562a85a8cefef3a5dc552147b",
+      "size": 946055
+    },
+    "characters/monarch/previews/CUSTOM_HERO_STICK_SHEET_v4_preview.jpg": {
+      "sha256": "7f37aaec19f74947eeeab6d39ec386f65c2c371f913267f02b355695b2fe9971",
+      "size": 1280490
+    },
+    "characters/monarch/tooling/SF_proportions_v1.json": {
+      "sha256": "625eacc408101d239c8d0de2acb3647a0cd4132b49413d7f9877389e3fc29314",
+      "size": 731
+    },
+    "characters/monarch/tooling/bible_v2.json": {
+      "sha256": "f131f5cad442b7a74cedb47077386dcb133458011a85ec98432ea5fe15c7816a",
+      "size": 5145
+    },
+    "characters/monarch/tooling/board_v2.json": {
+      "sha256": "17f58c0c7383b4c4f8be2010afb49d58591818db0beb244ef126d267eaacafa2",
+      "size": 2801
+    },
+    "characters/monarch/tooling/compose_master_board.py": {
+      "sha256": "083d2352a749dbdb63732d3e0c7639aa9b684cf5d84ef92f4f2a91589f213905",
+      "size": 3972
+    },
+    "characters/monarch/tooling/compose_sheet_v3.py": {
+      "sha256": "f43e45bcca7d9d44e922fe341f1f304c36375377db36c9c8e8eda3d03e9d434b",
+      "size": 6190
+    },
+    "characters/monarch/tooling/make_bible_pdf.py": {
+      "sha256": "a25d4fc69a1f5fc17be95643b560932460cbb6de460a5cc19efba1efaeb02e99",
+      "size": 7657
+    },
+    "characters/monarch/tooling/measure_proportions.py": {
+      "sha256": "39ac7b4d785d1afb4a9371b344267f575ae2954603f7a10013541a1f06295c3b",
+      "size": 12240
+    },
+    "characters/monarch/tooling/spec_stick_body_v4.json": {
+      "sha256": "26427736881f9c2c3ea951f9b189cb9d911b28e11c725f31d17a529e8ad11e90",
+      "size": 3270
+    },
+    "characters/monarch/tooling/spec_stick_face_v4.json": {
+      "sha256": "366addd6d1f53ae156187f1a9172d845b679da71b9c6fcfb5eaff47ce8b4077a",
+      "size": 4246
+    },
+    "docs/ADDING_A_WORKFLOW.md": {
+      "sha256": "3f28d080ca09a97cae9e820e1ca75a0a98d394e4e5681d78f3b141d1b3a08d3a",
+      "size": 1027
+    },
+    "docs/ARCHITECTURE.md": {
+      "sha256": "1423fd1a295d1e15dafb103c9c652a2bafe4dac51f25767c01b9ed3b8e03a32b",
+      "size": 5342
+    },
+    "docs/PRIVACY_AND_ASSETS.md": {
+      "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
+      "size": 2115
+    },
+    "docs/QUALITY_GATES.md": {
+      "sha256": "819b405f724207c121af60b81bad78ff6f08094610b80b346285fbbb66dd129a",
+      "size": 4287
+    },
+    "docs/RECONCILIATION.md": {
+      "sha256": "e9f1c4ffeac74461866f391a5af687677f5d290398214b3620d351a103228e5d",
+      "size": 5779
+    },
+    "docs/SOURCE_MAP.md": {
+      "sha256": "31bb0fb54c821c5877175308b417d46e744f25ebbdff0045c2228d2088c51dbc",
+      "size": 7534
+    },
+    "docs/VENDOR_INTEGRATION.md": {
+      "sha256": "0c4eb914f5afe0dafe1709d8a9144bc33b2dea1d49fed899cc098dc86741d39a",
+      "size": 1828
+    },
+    "licenses/APACHE-2.0.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "licenses/FONTS.md": {
+      "sha256": "59510ce03900838810060541cac94fe6bb38353608e785cd4f2ebb17d54b2fbc",
+      "size": 788
+    },
+    "licenses/OFL-1.1.txt": {
+      "sha256": "74ba2e8a3e010fa81dc24958b23ad2dc885638b0b2da37ae4a2299e76b6b69f7",
+      "size": 4008
+    },
+    "requirements/dev.txt": {
+      "sha256": "ac7a979587d40f762af7aaa3f420ee2284ab44c762f296490c51ca68357fd482",
+      "size": 110
+    },
+    "requirements/render.txt": {
+      "sha256": "63fcb4f1ce4f5877433b90119b8bcc1cdf9de1f4e91146f0de027fcf78e0f122",
+      "size": 213
+    },
+    "studio/KICKOFF_PROMPT_WF-01.md": {
+      "sha256": "752090b1b0e298c5fc48c42ea9724c667fd3f5dd54af430421f014dbe9310211",
+      "size": 4034
+    },
+    "studio/MONARCH_STUDIO_REGISTRY.snapshot.md": {
+      "sha256": "6a4100c29b639ab12c4d569a4a4de95d4db9f1e614eee8d04dca57b33d5f373e",
+      "size": 10239
+    },
+    "studio/README.md": {
+      "sha256": "8b08e99463f48728d059477022f500d54afd8f6f1b7c17ee1d80d4ae7a5dd3a7",
+      "size": 591
+    },
+    "studio/RESUME_STATE.md": {
+      "sha256": "01e47911ff680a0623a197d07666f8205e27e93272987376be5585b9bc8e41c7",
+      "size": 41850
+    },
+    "studio/WORKFLOW_TEMPLATE.md": {
+      "sha256": "2c2ad443a92bd3b2e2ce6691f74167c99aa4885522f699d3fcdacaad3ac8beb1",
+      "size": 1688
+    },
+    "studio/editor-brain/MONARCH_EDITOR_BRAIN.md": {
+      "sha256": "9e97bad0fe26fd220f2ac04027ab082dfcfdfa80bde6b7e392a837ffe78b7ed9",
+      "size": 19417
+    },
+    "studio/editor-brain/brain/brain_export.json": {
+      "sha256": "b405f7d84eef5073cd2ab090866addcc10e786996a10cb3d6f371aa2b62e3e1a",
+      "size": 48573
+    },
+    "studio/editor-brain/brain/briefs/comparison___stop_watching_other_people__2026-10-09_option1.md": {
+      "sha256": "9eea0758601ac05133302d63ef7de01ee9594bec14bef30769567047f6fb5d93",
+      "size": 4670
+    },
+    "studio/editor-brain/brain/briefs/comparison___stop_watching_other_people__2026-10-09_option2.md": {
+      "sha256": "bca460c15fb6af72d2c7da76c9755827648c6e304241c105910bb85a2b5b8af0",
+      "size": 4595
+    },
+    "studio/editor-brain/brain/briefs/comparison___stop_watching_other_people__2026-10-09_option3.md": {
+      "sha256": "3fcf36b943e395324d93cdd9d7b896b1a090ccbbb6c18bd1a3cf2df66f0e520b",
+      "size": 4663
+    },
+    "studio/editor-brain/brain/concept.py": {
+      "sha256": "53a6a4c1dc38f77ae0ecb2440ff37571d770c39a06db8a0ed102acf0db164a30",
+      "size": 25271
+    },
+    "studio/editor-brain/brain/dna/comparison___stop_watching_other_people__2026-10-09_option1.json": {
+      "sha256": "55bae6fb6da6e00512e3d90fe85cc8768b380d10bf8f0198c082d545293a01b0",
+      "size": 2025
+    },
+    "studio/editor-brain/brain/dna/comparison___stop_watching_other_people__2026-10-09_option2.json": {
+      "sha256": "9e737a9260fab84c388d622c0a76f465acc53efe0e53f63b29dcd380da5a6287",
+      "size": 2011
+    },
+    "studio/editor-brain/brain/dna/comparison___stop_watching_other_people__2026-10-09_option3.json": {
+      "sha256": "d0f89bfff738e5e7aa5d19ab5feec3a737d1c737e1863270be1789c2865b06ab",
+      "size": 2010
+    },
+    "studio/editor-brain/brain/library.py": {
+      "sha256": "f085e7bc8caee5c3a898e100ffbafa59052a4bc90642f34438b746f8b3df285c",
+      "size": 36236
+    },
+    "studio/editor-brain/brain/references.json": {
+      "sha256": "0509cbddce0fa1cba78ce94cb511a4e9f60ea883a80aca197ac8f312e1e1af60",
+      "size": 10552
+    },
+    "studio/editor-brain/brain/registry.json": {
+      "sha256": "05d6c1b03f5776feaceaab1cad3cfbd20a4d3f03825c813255d0e5869715f92d",
+      "size": 12211
+    },
+    "studio/editor-brain/brain/study.py": {
+      "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
+      "size": 16690
+    },
+    "studio/new_workflow_legacy.py": {
+      "sha256": "3564fb7f855683259ef3439db94e4fa98695f3c87854eaf35fa10b44a772bf69",
+      "size": 4939
+    },
+    "studio/registry.json": {
+      "sha256": "36f789f7e7bdff89378b519939a51d16bb2a0b0fd777f34944907c6ada43b600",
+      "size": 3414
+    },
+    "tests/test_studio.py": {
+      "sha256": "6f1f55fd6f20571d9901930b636328fe263f76edaaee13d0c8291b436be491c8",
+      "size": 4124
+    },
+    "tools/README.md": {
+      "sha256": "0e85e4405905399831d9c8d7e9bdbad0143602bf039f50094aa4e12225671615",
+      "size": 456
+    },
+    "tools/studio.py": {
+      "sha256": "eb602fe5b4b8d3b90c64c7623de6d7bca44ae566d1a3cd56bc52acf46a816bb8",
+      "size": 26846
+    },
+    "workflows/README.md": {
+      "sha256": "8cf69679cf6e985536890524ed4bdd9916dd5d981d01d9e3f9b95c40dccc6d8c",
+      "size": 419
+    },
+    "workflows/wf01-stickman-animation/ASMR_EVENT_LEDGER.csv": {
+      "sha256": "cbd064679b5ed981cb08ec2e723c5a1d9d443d67454ce3f2b5745629ea02cdf7",
+      "size": 5549
+    },
+    "workflows/wf01-stickman-animation/ASMR_POWER_LEDGER.csv": {
+      "sha256": "51f42d576fa7c97148d2da02d0d286dea0ff73027134bfef72163c02822cc9bf",
+      "size": 7379
+    },
+    "workflows/wf01-stickman-animation/ASMR_RESPECT2_LEDGER.csv": {
+      "sha256": "1f14e2a9781e1d47d235e0d8b3bb19a5a8eac8331f7bc1662235f0e72d153a7e",
+      "size": 10304
+    },
+    "workflows/wf01-stickman-animation/ASMR_RESPECT_LEDGER.csv": {
+      "sha256": "d91c234f25a6e87e3c54e01772903abb9f1f9fd68d27b19b1450ec86bf8018b2",
+      "size": 12507
+    },
+    "workflows/wf01-stickman-animation/AUDIO_EVENT_LEDGER.csv": {
+      "sha256": "a391eb26267ff824b60324ca02007b16df7fd348cb2e78c415eb9a9485a057fb",
+      "size": 46133
+    },
+    "workflows/wf01-stickman-animation/BUILD_MANIFEST.json": {
+      "sha256": "e08f0af31c2be35d6cd4e997d1ef57ed548628a72360c96674eb2f3138bea1fa",
+      "size": 7848
+    },
+    "workflows/wf01-stickman-animation/BUILD_MANIFEST_POWER.json": {
+      "sha256": "a667a82a642e02a9c631934840cfee68f3ffce368d0102a1fe643567e7ad1f9b",
+      "size": 3098
+    },
+    "workflows/wf01-stickman-animation/CHARACTER_SPEC.md": {
+      "sha256": "fa18599b868db98c986ccbb1398e2f29550bfdc67838450ddcd9cb6c225a0442",
+      "size": 3863
+    },
+    "workflows/wf01-stickman-animation/DRIVE_MANIFEST.md": {
+      "sha256": "641aced0fbfcd40e7a79296d4ba1a4ff3162462cebf625f59ee597e8a7463e29",
+      "size": 2720
+    },
+    "workflows/wf01-stickman-animation/FORENSIC_AUDIT_V7.md": {
+      "sha256": "46ed3182da4e052d33e791a11d04d11330a4fb139c36d738f73edbddc188cc3d",
+      "size": 10821
+    },
+    "workflows/wf01-stickman-animation/FULL_AUDIO_LEDGER.csv": {
+      "sha256": "cef95654258c5713e0f47ca033dfcbb92ed4528ede76cf3943332a6614d844f6",
+      "size": 1978
+    },
+    "workflows/wf01-stickman-animation/MASTER_PROMPT.md": {
+      "sha256": "95ef2ba99caf2a0b6fcf6d1671218983c449aeffae95a313b07e3ef589bd9b6f",
+      "size": 30674
+    },
+    "workflows/wf01-stickman-animation/MASTER_PROMPT_V2.md": {
+      "sha256": "5d020cf830f93dc21c3a392ebcaa5236dd07d0d07841e64c7407c1ff234b250d",
+      "size": 51867
+    },
+    "workflows/wf01-stickman-animation/MASTER_PROMPT_V3.md": {
+      "sha256": "e5ddd43ca508144024ad53df1bb03f272bba8c70568a58d8ab5efd1ec35c039c",
+      "size": 251360
+    },
+    "workflows/wf01-stickman-animation/MASTER_PROMPT_V4.md": {
+      "sha256": "4ad3545e1bd53b9d176a5cbf3f7648092d8cca29ce96e60fea7bd47e04fdaddf",
+      "size": 303238
+    },
+    "workflows/wf01-stickman-animation/MONARCH_EDITOR_BRAIN.md": {
+      "sha256": "b9f54551be8352308da7196aad995883a6600d0cc90585d5e571bc321c1ee8b9",
+      "size": 17987
+    },
+    "workflows/wf01-stickman-animation/MONARCH_SKILL_LONGFORM_16x9.md": {
+      "sha256": "04f57858033664898fcfe67d3b7900f7eb28cd460feab1e935bf27f7b4a9afae",
+      "size": 16942
+    },
+    "workflows/wf01-stickman-animation/MONARCH_SKILL_MOTION_EDIT.md": {
+      "sha256": "441ba58d043e0f274ade89ffb718026e9f905480a6bf59c268bc6ce9d6a0fbde",
+      "size": 43999
+    },
+    "workflows/wf01-stickman-animation/MONARCH_STICKMAN_ANIMATION_SESSION_LOG.md": {
+      "sha256": "9ed6762dd75b993fb69c4641d333f743c79b280de3f754ae426f294c19f1e467",
+      "size": 52036
+    },
+    "workflows/wf01-stickman-animation/MONARCH_STICKMAN_MOTION_ENGINE_COMPLETE.pdf": {
+      "sha256": "6d0dfc80eb2f26cd06f8dd98a5d3cd12eb8397c77c32ba4fce83a7a12b231967",
+      "size": 5723044
+    },
+    "workflows/wf01-stickman-animation/README.md": {
+      "sha256": "0ee43a772ea628b0584c65e9bba5cdc294ae00248bf123188076c7a2783e7c99",
+      "size": 5488
+    },
+    "workflows/wf01-stickman-animation/RESUME_STATE.md": {
+      "sha256": "50ea8d3feb797e66e43224528ae3284b3d6f5a0129998962fc843004f0d1bfa3",
+      "size": 36341
+    },
+    "workflows/wf01-stickman-animation/SCRIPT_HOOK_PERSISTENCE.md": {
+      "sha256": "cb2b1e3228977f212c39d351d78f33e2f94db6510943b823d8cb5be5fb303605",
+      "size": 3044
+    },
+    "workflows/wf01-stickman-animation/SCRIPT_POWER.md": {
+      "sha256": "55e1afeefa9badc4ba447ef7c8d734fa098192bd1bacb840ea0369f3e6fb9e21",
+      "size": 3585
+    },
+    "workflows/wf01-stickman-animation/SCRIPT_RESPECT.md": {
+      "sha256": "07a98558d11a2db72f05b5bf6db800a88a631795ead2d7dc30ea80dbab83d428",
+      "size": 5839
+    },
+    "workflows/wf01-stickman-animation/SHADEGO.md": {
+      "sha256": "108341b390b5faba2ee23fb06b89478bf63599187c65074a8b31682ce76f8bed",
+      "size": 13972
+    },
+    "workflows/wf01-stickman-animation/VIDEO_EPISODE_NOTES.md": {
+      "sha256": "8c320a102821f942321a6969a4fff0bcd164d75f7b7dc8328cfeeef978c5f59b",
+      "size": 14608
+    },
+    "workflows/wf01-stickman-animation/VIDEO_POWER_NOTES.md": {
+      "sha256": "b20bf51852ec90cf15fbc432689fce043ff67f824c4044fb018df81508607d19",
+      "size": 13484
+    },
+    "workflows/wf01-stickman-animation/VIDEO_RESPECT_NOTES.md": {
+      "sha256": "627f6456316f99e33649ea69a061eab7aac8ac0a630aca0c1c12a7ad7d492198",
+      "size": 15356
+    },
+    "workflows/wf01-stickman-animation/VIDEO_SHADE_NOTES.md": {
+      "sha256": "b4242af37747ec32309c64143609c6f94389d8cf6a63bb6632cc438889b30572",
+      "size": 8449
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V4_NOTES.md": {
+      "sha256": "b36d66d1245a3f586aef680164d558b5fcf7c3fd8337ede642e248b236223014",
+      "size": 3908
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V5_NOTES.md": {
+      "sha256": "d751ceed5a586253555519bc20e52a504bc7dbff4522cd6f3da2feb2b2e4f688",
+      "size": 4370
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V6_NOTES.md": {
+      "sha256": "8ab4769e45f52caef6e19fffaf795006c9b61e300f04e2ed6901f50764d5285c",
+      "size": 4252
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V7_NOTES.md": {
+      "sha256": "133b5570eac71d03f44f0755255df290e91621e8e201b600fc75ef4fd370238e",
+      "size": 5716
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V8_NOTES.md": {
+      "sha256": "595914ce40ecfe0d14293dcfd027c8d2102d034d508ab744593ae266289dbd67",
+      "size": 3343
+    },
+    "workflows/wf01-stickman-animation/VIDEO_V9_NOTES.md": {
+      "sha256": "c47bb7508c9f29c8f7a552ce0c0b22996ac7026b4b984c88c1176282e3306ee6",
+      "size": 2742
+    },
+    "workflows/wf01-stickman-animation/VIDEO_WIDE_NOTES.md": {
+      "sha256": "5f55945e2e3069ea93f4a796681b939047b1efe113e46613c9b0982d7693b314",
+      "size": 7301
+    },
+    "workflows/wf01-stickman-animation/WIDE_AUDIO_LEDGER.csv": {
+      "sha256": "3d85e9081c4d0f0fc738f3bd8f35a80d5f5ec93910e04918c0a15929e303a936",
+      "size": 2183
+    },
+    "workflows/wf01-stickman-animation/_body_b.jpg": {
+      "sha256": "4c10f4e008a75d1494aeac9f5f5d20dff56a3daa87efc59882ddb49c8dcb7a78",
+      "size": 299295
+    },
+    "workflows/wf01-stickman-animation/_cta.png": {
+      "sha256": "18563d5fac9bf28903299ad11bfd688d500efde27cc9a5e211cfa6c495c865e0",
+      "size": 279993
+    },
+    "workflows/wf01-stickman-animation/_probe.png": {
+      "sha256": "a00a9e31b587634938ae869a3d7044ead2e84f05e6ed464e10a7b61917fdc35a",
+      "size": 560450
+    },
+    "workflows/wf01-stickman-animation/_t.png": {
+      "sha256": "f8c63685fbf350bdad2b0d0c8bb6b9236137afc6218d5ca11414726a7e8405c8",
+      "size": 306612
+    },
+    "workflows/wf01-stickman-animation/_tr.png": {
+      "sha256": "dbd54bfcf633fe3e23502ffd12de82bbf0e0ef6fea2f95a3bb1855200b09d286",
+      "size": 323610
+    },
+    "workflows/wf01-stickman-animation/_zoom.png": {
+      "sha256": "b049bbf4102a49ddccb69fc2c5fe042719236465b89671bf91c2a346da9daa66",
+      "size": 1661593
+    },
+    "workflows/wf01-stickman-animation/assets/b1.mp3": {
+      "sha256": "6e75ed5da61fd1fd626926cbd1b52fa94bd49afd2ab8258e380c6f8199b244ae",
+      "size": 155916
+    },
+    "workflows/wf01-stickman-animation/assets/b10.mp3": {
+      "sha256": "05c344a2afe499c99758da6c97b413767055b787b8d74d183d58ab4ad5f8a46c",
+      "size": 198757
+    },
+    "workflows/wf01-stickman-animation/assets/b2.mp3": {
+      "sha256": "7cec55b11a519a218f1ed0f56d51fe4903339bfd5218fd521c498db0af34ab13",
+      "size": 171381
+    },
+    "workflows/wf01-stickman-animation/assets/b3.mp3": {
+      "sha256": "faef0e537c1da8588e85b6604a2f4f565a54a27993de486607e6903cdf4c3f19",
+      "size": 156752
+    },
+    "workflows/wf01-stickman-animation/assets/b4.mp3": {
+      "sha256": "a10ea25a15f70bec67e18da284f5c6036f05c00fd29a36d884d74bcafb6560b3",
+      "size": 136690
+    },
+    "workflows/wf01-stickman-animation/assets/b5.mp3": {
+      "sha256": "a4326d691929b87df0ed2f44045e64cbe2d1d9b08a903706572750dc3599d300",
+      "size": 146303
+    },
+    "workflows/wf01-stickman-animation/assets/b6.mp3": {
+      "sha256": "eb8400a0b9e66ce27c32e0128a1fcbe6e278bd429abd19aecf7d203bcaf98a66",
+      "size": 177023
+    },
+    "workflows/wf01-stickman-animation/assets/b7.mp3": {
+      "sha256": "5176b4b7191504abf98c33133f8a80c83089f2e42b8a426fb7d025c7a7a8fe09",
+      "size": 129794
+    },
+    "workflows/wf01-stickman-animation/assets/b8.mp3": {
+      "sha256": "7bd7b511c541cac77c34f51a497ac95ab4e7cf65accbcfddfde2c75ee6b9a346",
+      "size": 150901
+    },
+    "workflows/wf01-stickman-animation/assets/b9.mp3": {
+      "sha256": "b8f59df4c1ebfa828ac09252bbc9061d5303e01bede2a23a97c842a7d791f066",
+      "size": 166783
+    },
+    "workflows/wf01-stickman-animation/assets/p1.mp3": {
+      "sha256": "1b91556e551ec0cabdc6006c514e0dfaef5d02d4a0c1d3444c3b6a5f4388ef33",
+      "size": 27309
+    },
+    "workflows/wf01-stickman-animation/assets/p1_fit.wav": {
+      "sha256": "269d2dd4926bece4bd7b7d117626227e2db132ca784eb445f49ff568deffa73d",
+      "size": 540140
+    },
+    "workflows/wf01-stickman-animation/assets/p2.mp3": {
+      "sha256": "423ef0328f9ea679172439b7e467174ca57d2978c8d3fd6e1badef0e80df0453",
+      "size": 27789
+    },
+    "workflows/wf01-stickman-animation/assets/p2_fit.wav": {
+      "sha256": "b3bd314f839509339b8951d10e7526448084819c4f6c94d9e4b835042bbdb1c8",
+      "size": 529580
+    },
+    "workflows/wf01-stickman-animation/assets/p3.mp3": {
+      "sha256": "43428aa2b71ec0db35ddf248dd809e602c0813dec16d7ccc800accf4820ea8ec",
+      "size": 30861
+    },
+    "workflows/wf01-stickman-animation/assets/p3_fit.wav": {
+      "sha256": "b327db779d757d5c81ffd87105ef0c5c2766a2646c3e7db5f0a02eb0612b4f70",
+      "size": 625580
+    },
+    "workflows/wf01-stickman-animation/assets/p4.mp3": {
+      "sha256": "da33c44d0fc5765b2537fa322aa5e7e47f6afdbd98a0f990e2a7d5f2adeb3d8d",
+      "size": 31533
+    },
+    "workflows/wf01-stickman-animation/assets/p4_fit.wav": {
+      "sha256": "ad58be60c7e3d63e9b953f6f8a90e87dfa50667e189cc64cdb41fedad79543b6",
+      "size": 600044
+    },
+    "workflows/wf01-stickman-animation/assets/p5.mp3": {
+      "sha256": "2391ada87086cba5065e4d0270670f221d9ff6c975eba681a5a13e2bbe98eef9",
+      "size": 33069
+    },
+    "workflows/wf01-stickman-animation/assets/p5_fit.wav": {
+      "sha256": "ef1de7f07b378b060a4ea588f62aebf66cabbd408f96a8d9a093be141c85a870",
+      "size": 628460
+    },
+    "workflows/wf01-stickman-animation/assets/p6.mp3": {
+      "sha256": "7020bef1bab0cb44888180d514d6913331c5dd4f59cc475eb3cd0b32165af369",
+      "size": 39981
+    },
+    "workflows/wf01-stickman-animation/assets/p6_fit.wav": {
+      "sha256": "a8711c634a7538c58cae6fba867951bf76dc2ac40bd1b181eaf4812540ac719e",
+      "size": 779756
+    },
+    "workflows/wf01-stickman-animation/assets/r1.mp3": {
+      "sha256": "7276a169179145f3c09b86e2d04d27fcff7a38626d1d5993efe48ff9faf89a73",
+      "size": 31053
+    },
+    "workflows/wf01-stickman-animation/assets/r1_fit.wav": {
+      "sha256": "f01bcdd548679251569bdb884126ebe7869d0ab89a203aa7858aae08af34e9c7",
+      "size": 608492
+    },
+    "workflows/wf01-stickman-animation/assets/r2.mp3": {
+      "sha256": "3565776feec2827ca98b86aa2c16e0e4446b6cc35783951294ec958757aeaf40",
+      "size": 34413
+    },
+    "workflows/wf01-stickman-animation/assets/r2_fit.wav": {
+      "sha256": "0538ffa2edee5c6f49537a1370f61b1be51487b1d3ce6b86efdd80ffb64f3a25",
+      "size": 732140
+    },
+    "workflows/wf01-stickman-animation/assets/r3.mp3": {
+      "sha256": "a88b40dc5e7353f7bdc4f7a08e310488384476e9c9725a8178604c9947cf6296",
+      "size": 20589
+    },
+    "workflows/wf01-stickman-animation/assets/r3_fit.wav": {
+      "sha256": "83d821fc14a3f8b9629bf0fb15dada5bc99152bb2aeecd96e7e73a7728474b93",
+      "size": 388268
+    },
+    "workflows/wf01-stickman-animation/assets/r4.mp3": {
+      "sha256": "930ce43bb18c5c31c2e87973c0a1ef90d5b386a70565d61ce5e3681d12686f07",
+      "size": 42093
+    },
+    "workflows/wf01-stickman-animation/assets/r4_fit.wav": {
+      "sha256": "4527d1dd83c7154d0f79df290db7bc2247e9e377bbda6790d318b32f8ec3e543",
+      "size": 804524
+    },
+    "workflows/wf01-stickman-animation/assets/r5.mp3": {
+      "sha256": "89a86d7923a15e8a56b0b7a167acba63c5eae0e226022e98ae63e6c4f361912b",
+      "size": 38349
+    },
+    "workflows/wf01-stickman-animation/assets/r5_fit.wav": {
+      "sha256": "cffdad1955deee155450bba0f63721a44274f666530ad951f05f07853885eba1",
+      "size": 716012
+    },
+    "workflows/wf01-stickman-animation/assets/r6.mp3": {
+      "sha256": "9a8d716c13591fdad0bdebdde2ff8db908639488990efedbf2d293020752eeb1",
+      "size": 34893
+    },
+    "workflows/wf01-stickman-animation/assets/r6_fit.wav": {
+      "sha256": "1948c0c7b17209555242ad0703be94256a7ceef00c4d335afea684eda3dead14",
+      "size": 703532
+    },
+    "workflows/wf01-stickman-animation/assets/r7.mp3": {
+      "sha256": "b59301a07e5c452842dc42e3ac92e44981dcf95450a2e70a24045961f8136354",
+      "size": 37101
+    },
+    "workflows/wf01-stickman-animation/assets/r7_fit.wav": {
+      "sha256": "0d2faace6c608ae18e0122ff7780fb39d1d974ac04b627dc0a92c64e39a6aef5",
+      "size": 728684
+    },
+    "workflows/wf01-stickman-animation/assets/r8.mp3": {
+      "sha256": "7e4c9f5bad9b44f1fbc2090aeaa07f3d09436c61c82e3538fab6c0dd827127b7",
+      "size": 36333
+    },
+    "workflows/wf01-stickman-animation/assets/r8_fit.wav": {
+      "sha256": "5850c26bdc49a7d0a334b2f797b436b0da199c52a290b0ff0bbd45470430cb67",
+      "size": 730412
+    },
+    "workflows/wf01-stickman-animation/assets/r9.mp3": {
+      "sha256": "839cae8d2c6dc902239cb2054774e8123301fecdc6045ec1c8390658ea85dcb0",
+      "size": 58221
+    },
+    "workflows/wf01-stickman-animation/assets/r9_fit.wav": {
+      "sha256": "69c97cda617c28d58158a65d1a8916a4a10611c835c66b0a0d1285aabdd3a0a1",
+      "size": 1100972
+    },
+    "workflows/wf01-stickman-animation/assets/s1.mp3": {
+      "sha256": "c82609cbb2f7bc7dc6ee1afa4665aa69dd7a3ffba48bbed5f5b62f58cb99c35e",
+      "size": 31053
+    },
+    "workflows/wf01-stickman-animation/assets/s2.mp3": {
+      "sha256": "625b124dbd90cec76ca44ccc5021b9e1289ff31404935bfe4d87c42fb0a3388e",
+      "size": 40269
+    },
+    "workflows/wf01-stickman-animation/assets/s3.mp3": {
+      "sha256": "561be2b4eef097e662a9c3836b892d0aa59d25c4b789ad31dd85bc5aae603727",
+      "size": 39501
+    },
+    "workflows/wf01-stickman-animation/assets/s4.mp3": {
+      "sha256": "d542172e1e18544ca17b005364ba4bb1af1318c64ffe77b6ba05eaaa0bdeb83b",
+      "size": 29709
+    },
+    "workflows/wf01-stickman-animation/assets/s5.mp3": {
+      "sha256": "b3912db093f607e16d6872bc78d9b746f4ace77996378ed818aa2be7e7f7f98c",
+      "size": 39501
+    },
+    "workflows/wf01-stickman-animation/assets/s6.mp3": {
+      "sha256": "faeb9254551e1f0034d5a7216012c486fc971898a7f2c5dc5ed95fbce89e46ba",
+      "size": 36621
+    },
+    "workflows/wf01-stickman-animation/assets/vo.mp3": {
+      "sha256": "a94e5186dbcf689272e1d1e475fb887d8eed10554139ef04eb3ce7579cd7ac52",
+      "size": 55533
+    },
+    "workflows/wf01-stickman-animation/assets/w1.mp3": {
+      "sha256": "f0c55069a98fa3b9a4c708aa93f5391a1fbfda286bc953c7b4f7efecd29d2304",
+      "size": 49128
+    },
+    "workflows/wf01-stickman-animation/assets/w2.mp3": {
+      "sha256": "0c6a65b8a8a971fb8517a625ed21805293ec3dccdcbfb1b9586901d9cc8b63b5",
+      "size": 42649
+    },
+    "workflows/wf01-stickman-animation/assets/w3.mp3": {
+      "sha256": "ac87527cea4978d21a7be0d28830a921a052d83b16f01bf49248902e443ced7a",
+      "size": 43903
+    },
+    "workflows/wf01-stickman-animation/assets/w4.mp3": {
+      "sha256": "988b990cfcb9e8818bad70445826d298515f7802ef44836a857630c44bd8f5ea",
+      "size": 38888
+    },
+    "workflows/wf01-stickman-animation/assets/w5.mp3": {
+      "sha256": "d6ad8efc7c9703b3436b09f92919d34029d8214952ffb7c635102824846975fd",
+      "size": 95103
+    },
+    "workflows/wf01-stickman-animation/assets/w6.mp3": {
+      "sha256": "dd664b91a4c5e12550b457db9c0e7bf3c8abceea235b363b80dcf8bc2c728e46",
+      "size": 119554
+    },
+    "workflows/wf01-stickman-animation/brain/brain_export.json": {
+      "sha256": "305b9628e6cd97e3fb7e4e87730c9d4e0e63f6990101f90234bf3e2eee9f4db7",
+      "size": 45795
+    },
+    "workflows/wf01-stickman-animation/brain/concept.py": {
+      "sha256": "9271870aae5d6ac30d4729c392d0a8f8de6ba231a755d86ca9bbeb8239659f57",
+      "size": 23621
+    },
+    "workflows/wf01-stickman-animation/brain/library.py": {
+      "sha256": "1a7a40aed1276d45eb75aa880f5b62dc8cd3265a59b917922cf7900b35d60ebe",
+      "size": 35633
+    },
+    "workflows/wf01-stickman-animation/brain/references.json": {
+      "sha256": "0509cbddce0fa1cba78ce94cb511a4e9f60ea883a80aca197ac8f312e1e1af60",
+      "size": 10552
+    },
+    "workflows/wf01-stickman-animation/brain/registry.json": {
+      "sha256": "a63eaf98cbf2f889c015fff4f7e8ca275f9539b4fb1e5b9dd1812dbe6ae375cc",
+      "size": 5567
+    },
+    "workflows/wf01-stickman-animation/brain/study.py": {
+      "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
+      "size": 16690
+    },
+    "workflows/wf01-stickman-animation/build_all.sh": {
+      "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
+      "size": 3527
+    },
+    "workflows/wf01-stickman-animation/build_power.sh": {
+      "sha256": "9643459466c66f51a452bbc5669a8322ec58d447817d83b77d217f112d3fcb98",
+      "size": 1349
+    },
+    "workflows/wf01-stickman-animation/build_respect.sh": {
+      "sha256": "a95da6c08d9b55cf5c6ba866cfec0040a2746ff21c6329a8a35f91e4637bb49c",
+      "size": 1620
+    },
+    "workflows/wf01-stickman-animation/build_respect2.sh": {
+      "sha256": "687a22dea2de85c51accaedfeaa32504ca53b06b137f362392b6415ae9608644",
+      "size": 849
+    },
+    "workflows/wf01-stickman-animation/build_respect2_b.sh": {
+      "sha256": "0611788715fa0b0339f921bc179e94f687720a6fbe1982f5f5fcd16334d711a4",
+      "size": 1062
+    },
+    "workflows/wf01-stickman-animation/build_respect_resume.sh": {
+      "sha256": "66388fe211c68426d2ba6e92b85bbe7fcb351dd8c7c62940e9ef0f5afcfa74a6",
+      "size": 1957
+    },
+    "workflows/wf01-stickman-animation/build_shade.sh": {
+      "sha256": "9edc0b5ecaffd84f72b8ce876efe2462ae0eeafbc1e2a8a9bb9e45470d02c034",
+      "size": 1599
+    },
+    "workflows/wf01-stickman-animation/finish_respect2.sh": {
+      "sha256": "db12f5973cb520f48d5111249137f09d14fdd97af894df2953e0e8a28743f522",
+      "size": 448
+    },
+    "workflows/wf01-stickman-animation/fonts/Caveat-VF.ttf": {
+      "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+      "size": 403648
+    },
+    "workflows/wf01-stickman-animation/fonts/Montserrat-VF.ttf": {
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+      "size": 744936
+    },
+    "workflows/wf01-stickman-animation/fonts/PatrickHand.ttf": {
+      "sha256": "0f173b3e6cb6d1af25babf7f0057c5ac4ee11f9992b0469bb817e967ef4ad0fc",
+      "size": 214772
+    },
+    "workflows/wf01-stickman-animation/fonts/PermanentMarker.ttf": {
+      "sha256": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5",
+      "size": 74632
+    },
+    "workflows/wf01-stickman-animation/records/archive/RESUME_STATE_archive-v3.md": {
+      "sha256": "65a175461ef39650525a4d14b617cac84d1cb8bdcc2381293f515c7767472f14",
+      "size": 18158
+    },
+    "workflows/wf01-stickman-animation/shade_character_sheet.png": {
+      "sha256": "c65fddda33223a9d1afa5cc7b347cbcd02d8616e0f2b7c606d28789e974b4bb8",
+      "size": 1247687
+    },
+    "workflows/wf01-stickman-animation/shade_power_contact.png": {
+      "sha256": "81a06fea1b79bd2a18b42b4578908ff096df1e044002972fb17da23cbaf98dcc",
+      "size": 1218480
+    },
+    "workflows/wf01-stickman-animation/shade_respect_contact.png": {
+      "sha256": "54788466a01ab7a6a1c47400c7cfd8aab5f83facff3a7da2f884286e546e460e",
+      "size": 2073712
+    },
+    "workflows/wf01-stickman-animation/shade_respect_v2_contact.png": {
+      "sha256": "ca4ae076d4737a704d3fe393f32b5bc891f9e4f4ca2bf760425b8d4051353ee6",
+      "size": 1452207
+    },
+    "workflows/wf01-stickman-animation/shade_scene1_preview.png": {
+      "sha256": "808a68afc9dcc8e3cfd88bcccab8b61bd48dbcfc453c3118212ef496fbff029f",
+      "size": 148377
+    },
+    "workflows/wf01-stickman-animation/src/ameasure.py": {
+      "sha256": "a0b613a5f6359c667c9ff4a7949828c82f8babe8ae22cecc35bcd64eb6fa2b4e",
+      "size": 2047
+    },
+    "workflows/wf01-stickman-animation/src/bedbands.py": {
+      "sha256": "cd61f1a6e9c7a3d33f521538838960150582aaa50cac07cf5727f3b1753adbc2",
+      "size": 1040
+    },
+    "workflows/wf01-stickman-animation/src/character.py": {
+      "sha256": "93f8ad1d77348aae8a24241d60c01ef546a4c1f6b3ab9df25c27d1dc057c4434",
+      "size": 15632
+    },
+    "workflows/wf01-stickman-animation/src/charsheet.py": {
+      "sha256": "91b8f7573755dc4cdf4d24b3e7607976704ec135407d5bfc4cb1d73b9f38428d",
+      "size": 17478
+    },
+    "workflows/wf01-stickman-animation/src/clean.py": {
+      "sha256": "e5ec91956ca9058f08f50c9c664559b25d582c3932b3c6ad4e3c85ac142211b0",
+      "size": 26641
+    },
+    "workflows/wf01-stickman-animation/src/clean_v7_backup.py": {
+      "sha256": "79fbbac826044f3270628d853a9db4f9384bf38fe1d225059adbd4d2c62413ec",
+      "size": 21315
+    },
+    "workflows/wf01-stickman-animation/src/fx.py": {
+      "sha256": "b835ccaaa30cde5b78f5280837a4efcfa4198eb1388500465c4b71c7b723ef7b",
+      "size": 22271
+    },
+    "workflows/wf01-stickman-animation/src/gate_full.py": {
+      "sha256": "feef5b3fc7d13aa1b01a1ee0a9988082b253ea2e6439e7208b9ac4bebbcb5c52",
+      "size": 5447
+    },
+    "workflows/wf01-stickman-animation/src/gate_power.py": {
+      "sha256": "795b5e70271654f63a76c1adf44c22ab882f6a3378932cdf8fe4696ac122cb4c",
+      "size": 6479
+    },
+    "workflows/wf01-stickman-animation/src/gate_respect.py": {
+      "sha256": "06660b713b938fe1d91415be95b23a8e6a5972ff7e6f80d7b3bb0fbb9011a192",
+      "size": 6772
+    },
+    "workflows/wf01-stickman-animation/src/gate_respect2.py": {
+      "sha256": "1346c2d7ebef0a470b23ecc3d3d6144ca26371e39daf6c1cbc25da27aaa3d0c9",
+      "size": 7972
+    },
+    "workflows/wf01-stickman-animation/src/gate_shade.py": {
+      "sha256": "e6ce58c205a7dcff8816bc20b47ac95aeba88cfa2d095d9d5e38bf7269e78c8e",
+      "size": 6764
+    },
+    "workflows/wf01-stickman-animation/src/hybrid.py": {
+      "sha256": "a343cc17050b5176d4cc8cf8466992dbddef70e0de6343be7433456dc5004983",
+      "size": 4704
+    },
+    "workflows/wf01-stickman-animation/src/make_asmr.py": {
+      "sha256": "7cf0e61f21e1f705ea2589db9b67c12508e1f5a044bc4e8b1fbebc3aa8a055b4",
+      "size": 17369
+    },
+    "workflows/wf01-stickman-animation/src/make_asmr_power.py": {
+      "sha256": "73ab53718fd88947baee1f124f0af7536d2b325a4c1d9c058faad5eda9201dff",
+      "size": 16211
+    },
+    "workflows/wf01-stickman-animation/src/make_asmr_respect.py": {
+      "sha256": "56964ad5c4c178dac6388e7e381ccaa55920d4552d4ed11216ef42223793fa9b",
+      "size": 12727
+    },
+    "workflows/wf01-stickman-animation/src/make_asmr_respect2.py": {
+      "sha256": "dedf8baea715a5fc900031d6ef3654d19140d932b7b467d6f91cfafb90a1c117",
+      "size": 22629
+    },
+    "workflows/wf01-stickman-animation/src/make_asmr_v7_backup.py": {
+      "sha256": "12a4bcf4bb513543dccebbd76438bcc1511c6b59813186b86a666bce5c169f72",
+      "size": 15844
+    },
+    "workflows/wf01-stickman-animation/src/make_audio4.py": {
+      "sha256": "ac01e65cebcfc8db6914f4caa2c0ef6ce56df5a22426fca062487ba07187e58d",
+      "size": 12257
+    },
+    "workflows/wf01-stickman-animation/src/makepdf.py": {
+      "sha256": "cfc45e69cea1dc0e8abe8d32be6318e2699665adb382905a11e421cfa0740b32",
+      "size": 39262
+    },
+    "workflows/wf01-stickman-animation/src/makepdf_v3_backup.py": {
+      "sha256": "44df2ee191b55528bbecc646ad38d375bedf04d6a9ef45a42f2dd460c2da938d",
+      "size": 27887
+    },
+    "workflows/wf01-stickman-animation/src/mux_full.sh": {
+      "sha256": "748d90f10465979ab081087b1d53c273eaf51ecc5113c42ba505419e9fa39049",
+      "size": 1688
+    },
+    "workflows/wf01-stickman-animation/src/mux_hook.sh": {
+      "sha256": "23e3c53cee6c61fe39aeb71fcb5e90b656082801881b5f16a9f46e9830d9be8b",
+      "size": 1661
+    },
+    "workflows/wf01-stickman-animation/src/mux_power.sh": {
+      "sha256": "5f0a94a47fa86d44d68b44f6fd3bbb381db1a3a2066e8fee531ee7da0b4d8a50",
+      "size": 3017
+    },
+    "workflows/wf01-stickman-animation/src/mux_respect.sh": {
+      "sha256": "0fc0dd64940d7b3c71a78f65d34713e1a9b02f8c30e164522380ea21fd1e7b10",
+      "size": 3548
+    },
+    "workflows/wf01-stickman-animation/src/mux_respect2.sh": {
+      "sha256": "8e70e7a02bcc19f07b7328a969b6035b5a985410168f4f2b00e674b879870c0d",
+      "size": 3774
+    },
+    "workflows/wf01-stickman-animation/src/patch_windows.py": {
+      "sha256": "a3e075ebffc839197e1b482582fbca3fe56c6f24ef405e44c8b7a7b65f6f2e23",
+      "size": 4435
+    },
+    "workflows/wf01-stickman-animation/src/power.py": {
+      "sha256": "2727bb58a62dfb33e64ba0533ba147f405c3b3d40c1797ec9657509cd39456de",
+      "size": 32035
+    },
+    "workflows/wf01-stickman-animation/src/power2.py": {
+      "sha256": "47df61d481043de86ab845b93f6f8c765d911042cab9dab296611ade9556fd28",
+      "size": 35524
+    },
+    "workflows/wf01-stickman-animation/src/respect.py": {
+      "sha256": "2fa629fa58c0a7cd1bd99274b7c7cddd14df5bd4486a5a46f045cedd35c699b8",
+      "size": 39929
+    },
+    "workflows/wf01-stickman-animation/src/respect2.py": {
+      "sha256": "c774cd442f4880f78eee031ea6fcb8874c79d02c261443643e67f2567b6578a0",
+      "size": 49261
+    },
+    "workflows/wf01-stickman-animation/src/shade.py": {
+      "sha256": "4a04111470583ef04150ac7acf92ca7f33f8edada3c554ff6b38de6796a2cda2",
+      "size": 30330
+    },
+    "workflows/wf01-stickman-animation/src/sheet_power.py": {
+      "sha256": "1e822615415132474d1e73431bef610ba5390fa49e909b1c5437e40d085383e3",
+      "size": 908
+    },
+    "workflows/wf01-stickman-animation/src/sheet_shade.py": {
+      "sha256": "8d9de4b8ec5fdb15dc07ed24e80d0501f5ac7fd5b095eb30243364734087ee76",
+      "size": 7084
+    },
+    "workflows/wf01-stickman-animation/src/splice_windows.py": {
+      "sha256": "b4a35c91c903f7fb0de5a1341038f4286706717cdba2f30604a92c0fc56ec91a",
+      "size": 3716
+    },
+    "workflows/wf01-stickman-animation/src/stick2.py": {
+      "sha256": "b76685a05b511d9fa272ed135e63f79c055db7cc5b004758a0f9a90dadc38d51",
+      "size": 35518
+    },
+    "workflows/wf01-stickman-animation/src/stick3.py": {
+      "sha256": "d22ce38d73cc6486599905520f65c5094fc14015ec1881c6676e2abbeccbc05e",
+      "size": 33806
+    },
+    "workflows/wf01-stickman-animation/src/stickbase.py": {
+      "sha256": "6fff2581d5cae2d9514ab58551e32ef9f1287ba647ee1cdb7c025d20a9e88dbc",
+      "size": 14639
+    },
+    "workflows/wf01-stickman-animation/src/timeline.py": {
+      "sha256": "2ea66736d4fd88fe63503f4ee2ba20e370eb7d08cbca6a8460ecd2ffc9b3dba3",
+      "size": 718
+    },
+    "workflows/wf01-stickman-animation/src/timeline_power.py": {
+      "sha256": "42c7314bb91960f4ae306cc4c602dc358d7067b43e15dd0fb91ea39acb3c1c6b",
+      "size": 1477
+    },
+    "workflows/wf01-stickman-animation/src/timeline_respect.py": {
+      "sha256": "be0f6511b16e84999827ddfeeb617aa1dc7d30083bbda3dd8a5f5caca942e433",
+      "size": 3022
+    },
+    "workflows/wf01-stickman-animation/src/timeline_respect2.py": {
+      "sha256": "04f8d9ffb1e0a1578c33659ab3b958ff3d8b1c66d46840c39c3d0f8c32f94eda",
+      "size": 2670
+    },
+    "workflows/wf01-stickman-animation/src/toon.py": {
+      "sha256": "b5515680d55823648a41100a594046ab92399987e228d74787da58904f0798ac",
+      "size": 41535
+    },
+    "workflows/wf01-stickman-animation/src/toon_flat_backup.py": {
+      "sha256": "72dd44e34020612bac95168ed6c085c4d18fb2d7bf492bae226bd159f4604c59",
+      "size": 19723
+    },
+    "workflows/wf01-stickman-animation/src/toonsheet.py": {
+      "sha256": "d366c125a2924bddaa652d54879f4ed807f73a5bc0a46ade7216d30285a9246d",
+      "size": 2718
+    },
+    "workflows/wf01-stickman-animation/src/vo_fit.py": {
+      "sha256": "f7205c3e7afb653cdb01fb7c3097314828f025d31a725ec9cf1113ce5ea1aa3a",
+      "size": 4185
+    },
+    "workflows/wf01-stickman-animation/src/wide.py": {
+      "sha256": "26a9c84ce981bd95c1542b60b758bebd2ffd378a74a338721fa62c621f3e9862",
+      "size": 40788
+    },
+    "workflows/wf01-stickman-animation/src/wide_audio.py": {
+      "sha256": "dd2604e0e9586f31e3e48d4a04db36ff3d2946365f1084c89aaf178ab6a5b61c",
+      "size": 17756
+    },
+    "workflows/wf01-stickman-animation/src/wide_full.py": {
+      "sha256": "e6ea3388e036e4e2bd2ea69e56da693d44dc145ddd241eafe19554bc1196ac6c",
+      "size": 36408
+    },
+    "workflows/wf01-stickman-animation/src/wide_full_audio.py": {
+      "sha256": "63a8043c142cf86b6d80534dd76a34547782f5bb5a78339819be5bf77f4da65c",
+      "size": 22642
+    },
+    "workflows/wf01-stickman-animation/toon_character_sheet.png": {
+      "sha256": "c7f5b09f388accef7767f3b146409964a5539e4b7014add2b1b7b7c27b539361",
+      "size": 272566
+    },
+    "workflows/wf01-stickman-animation/uploads/436649626_1789475045520701.jpg": {
+      "sha256": "8cb6d0e2bd227c2a4a9b5006a6011eeefa2802372d35978282b283727777e049",
+      "size": 66306
+    },
+    "workflows/wf01-stickman-animation/uploads/STICKMAN EXPLAINER ENGINE.pdf": {
+      "sha256": "434635d6de870083142e99fb2458021f2f438d75f83e3ca6ada1982529bbb156",
+      "size": 307814
+    },
+    "workflows/wf01-stickman-animation/uploads/Screenshot_20261008-202149_1.png": {
+      "sha256": "1b366e8026887887ba5dcff7c8dacd5f8807ca576d36d31164e4c80edea9ee50",
+      "size": 82452
+    },
+    "workflows/wf01-stickman-animation/uploads/img/p1_1.jpg": {
+      "sha256": "f7bf56177c13b09d84ec382eaece7c0c359cff8df9c4f6f9bc951fa2b08265cc",
+      "size": 151668
+    },
+    "workflows/wf01-stickman-animation/uploads/pdf_text.txt": {
+      "sha256": "eb362ddc9a25237225614eb363f3a7980f19a907caa2ac98d46faaa2b1b20b82",
+      "size": 18658
+    },
+    "workflows/wf01-stickman-animation/verify.py": {
+      "sha256": "c0c04386f181a6e30bc0b3559dc6a421749aea7de2a3446205e46f9e28c3d512",
+      "size": 10768
+    },
+    "workflows/wf01-stickman-animation/workflow.json": {
+      "sha256": "5d4730483dfde198244fc21ae435156188a931b2b0ca3475a75b2b4f75415404",
+      "size": 2029
+    },
+    "workflows/wf03-noir-film/CHARSHEET_HERO_v2.jpg": {
+      "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
+      "size": 795157
+    },
+    "workflows/wf03-noir-film/CHECKLIST.md": {
+      "sha256": "7adcbe427eb897212e0c479981e53c580ccccaaef4e1b6d7faecb6accdf619b5",
+      "size": 2907
+    },
+    "workflows/wf03-noir-film/DNA_THE_SHADOW.json": {
+      "sha256": "ae944b44bb6027d8059ea744b5bc37b0761b33e03fb2ac1e3b017da66b9f8afb",
+      "size": 3222
+    },
+    "workflows/wf03-noir-film/DNA_THE_WINDOW.json": {
+      "sha256": "41645bbe98fd3c483527f52026dc8b5db54ee84f24a010742c1c7092e36132a4",
+      "size": 4093
+    },
+    "workflows/wf03-noir-film/GATES_THE_SHADOW_v1.md": {
+      "sha256": "132483c05942fc854defbcfaba7420f4dfaa18e400ca1177d812f69748696e03",
+      "size": 13397
+    },
+    "workflows/wf03-noir-film/GATES_THE_WINDOW_v1.md": {
+      "sha256": "b63bf39c1fca857c0a21bb83c101062b08bd8277a783f79924beec2cc49da96c",
+      "size": 12248
+    },
+    "workflows/wf03-noir-film/HERO_v2_motion_test.mp4": {
+      "sha256": "52d5c7e12e18ddd2c7b26e775f94213b2289cd0f5d201911b13026d41a4540b4",
+      "size": 707096
+    },
+    "workflows/wf03-noir-film/HUB.md": {
+      "sha256": "a430266577c2f0eda0c4ceeb0a958801af52d8a03d61f7cad107e3a598e5cdde",
+      "size": 8360
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v0.jpg": {
+      "sha256": "32b21113729300e1c1f09cb02412d2ae0741702589b4d94f15e7ff6b2dfae12f",
+      "size": 295338
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v0_metrics.json": {
+      "sha256": "e89dfa5620b4d6003e068753a938a4b9a99009b864f6baa328de433dd4794946",
+      "size": 1171
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v1_WINDOW.jpg": {
+      "sha256": "70527acbfd8324c6d571dfcbac59bac948eca8ae8ad1e8063e6495bb1cbbc435",
+      "size": 1030092
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v1_WINDOW_metrics.json": {
+      "sha256": "0837d80b674b4d2735f80db4c01e6b8187558266ed86199e4538d6741df0c9fe",
+      "size": 998
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v2_WINDOW.jpg": {
+      "sha256": "d6d72fcd8df4bb0e0cbda3bfea40a5e6e768c319d26e9fff10bbe60005a077e9",
+      "size": 2102382
+    },
+    "workflows/wf03-noir-film/NOIRGO_LOOK_SHEET_v2_WINDOW_metrics.json": {
+      "sha256": "5bb68972600db440b86745c7d7efba64a17db8c312f61b23837c6d8250c48f5c",
+      "size": 2397
+    },
+    "workflows/wf03-noir-film/README.md": {
+      "sha256": "884dd05348139290891241f96c5f49be65fbe88375eea99f5360dfbe90a8a698",
+      "size": 5737
+    },
+    "workflows/wf03-noir-film/RESUME_STATE.md": {
+      "sha256": "c3593d0fb84bb9752fdf636835357d4838416eedf98d23011b0d1431c671a401",
+      "size": 17885
+    },
+    "workflows/wf03-noir-film/SCRIPT_THE_SHADOW.md": {
+      "sha256": "a43626332dd4c96d04a11d7350bd4e020ef09ec59bd6b21596cc1f50f59c3211",
+      "size": 6658
+    },
+    "workflows/wf03-noir-film/SCRIPT_THE_WINDOW.md": {
+      "sha256": "e65592998128823d328dbb0975282755bc22a809f697fa99e84e4a988f4d7eb3",
+      "size": 5133
+    },
+    "workflows/wf03-noir-film/SOURCE_INVENTORY.md": {
+      "sha256": "17c0281e207c7303af88aa97f877a49bae8c9c17f19b2e0fe71d5eba56c3bcd2",
+      "size": 5943
+    },
+    "workflows/wf03-noir-film/data/THE_SHADOW_data.zip": {
+      "sha256": "3b6a513b5edaa8d34e5c12ec1b2a5959061f0df6edf76331e8bb463efbe72976",
+      "size": 6088
+    },
+    "workflows/wf03-noir-film/data/beats.json": {
+      "sha256": "197d248f200f542603d8c7e168cda2dce657a87d45a57cacfb385f467ee0d2d9",
+      "size": 1799
+    },
+    "workflows/wf03-noir-film/data/beats_window.json": {
+      "sha256": "12a281c8fdf6ee235195a5ff0640ea6f57295f20b42c22c35444e0d451fd1b66",
+      "size": 205
+    },
+    "workflows/wf03-noir-film/data/events.json": {
+      "sha256": "1e4e6bc11e3626a9c2293ac914b471c3b665449b63d4a2003e70598d3021b288",
+      "size": 12354
+    },
+    "workflows/wf03-noir-film/data/events_window.json": {
+      "sha256": "8e60cbded5106b7bf32e0c8aa5b5c86fe683a1628ca9bb35ed5591021fbeeb74",
+      "size": 11547
+    },
+    "workflows/wf03-noir-film/data/fix_s16_metrics.json": {
+      "sha256": "b3b23c2db1b97505651a34320dbfffc9ff72f58d6d9c34cb6f1297a1515563ca",
+      "size": 252
+    },
+    "workflows/wf03-noir-film/data/gates_summary.json": {
+      "sha256": "9f85ccaf9872c84b4157302a158f5ede49c6fa4388ef03b17f02ca2a1d808e51",
+      "size": 509
+    },
+    "workflows/wf03-noir-film/data/mix_stats.json": {
+      "sha256": "d60ddc9f6f4e69213eaa77247533b88d273d778c9de06401231318dea08b6fba",
+      "size": 69
+    },
+    "workflows/wf03-noir-film/data/picture_metrics.json": {
+      "sha256": "346da38c80877bdddab696d2dd98498023d21741591d8bd6a4117b76737da351",
+      "size": 4208
+    },
+    "workflows/wf03-noir-film/data/text_reveals.json": {
+      "sha256": "6a441d2ae921f493eb10215e3d03cfffe2154994bc0110637513cceadce18a1c",
+      "size": 974
+    },
+    "workflows/wf03-noir-film/data/vo_window_info.json": {
+      "sha256": "db6669df4ed2ea37e8a445eaa785c48caae1196f527191eb0c6799a162d81233",
+      "size": 3120
+    },
+    "workflows/wf03-noir-film/films/04am/GATES_NOIRGO_4AM_v2.md": {
+      "sha256": "23f2f340b1ba63edd8815005b675864c96f9f737d2977e9ffa18742582290fda",
+      "size": 1559
+    },
+    "workflows/wf03-noir-film/plates/facade_windows.json": {
+      "sha256": "4336501fb4f12e9b5b92bb3e5f37db1384dee99448c766854f57bb5ad079144c",
+      "size": 4974
+    },
+    "workflows/wf03-noir-film/plates/raw_bedroom_amber.png": {
+      "sha256": "8a94543b635891e758c127ce3b25e62865fca609ee49da9034531a0d6da1c151",
+      "size": 2081447
+    },
+    "workflows/wf03-noir-film/plates/raw_bedroom_night.png": {
+      "sha256": "195f8368cb329b6141923015024373680e8d6074b43f465fc4ad6f0462a03e3f",
+      "size": 1981532
+    },
+    "workflows/wf03-noir-film/plates/raw_desk_window.png": {
+      "sha256": "c0baed681d24eaa5d2493f0caa34022ea9c91ced04df9ab18231359a454b6773",
+      "size": 2061805
+    },
+    "workflows/wf03-noir-film/plates/raw_facade_hero.png": {
+      "sha256": "ca6d00f3ffd9e2d2008efbab95d47b1343a987d0663a578f8c957687a64b7923",
+      "size": 1908920
+    },
+    "workflows/wf03-noir-film/plates/raw_facade_night.png": {
+      "sha256": "b55cdadbe44c7c17add56386cbc766ec5bd88a42c9a9ea10ddae97a8808fea72",
+      "size": 2141259
+    },
+    "workflows/wf03-noir-film/plates/raw_kitchen_window.png": {
+      "sha256": "dd43394d85c4b90e98c8385a90b96448d25fb937378890c954365e100efd1e9e",
+      "size": 2191391
+    },
+    "workflows/wf03-noir-film/plates/raw_kitchenette_night.png": {
+      "sha256": "930535fc366024293fa97f65db1d382d32f01dd507b9f2e769768cefee778227",
+      "size": 1936444
+    },
+    "workflows/wf03-noir-film/plates/raw_runner_window.png": {
+      "sha256": "a9fa4856dc4e7a076f9c9a0609f201c4713efe04696317a4bc0c9e8713244e1b",
+      "size": 2175256
+    },
+    "workflows/wf03-noir-film/plates/raw_street_dawn.png": {
+      "sha256": "5650402f65f4f335d0da28f6ca3f65733743dd69450e28193798dcc35ade964d",
+      "size": 2027807
+    },
+    "workflows/wf03-noir-film/plates/raw_window_inside.png": {
+      "sha256": "c41476e0541d0148df578d17836cd33b2b07db7b4dd38d759110ee36bb2b2a3e",
+      "size": 1929854
+    },
+    "workflows/wf03-noir-film/records/archive/RESUME_STATE_turn21.md": {
+      "sha256": "1368aeaa8ae064b723bdbbaedaea9c242713c165e158c0b87770606217dd41fa",
+      "size": 17039
+    },
+    "workflows/wf03-noir-film/src/audio_shadow.py": {
+      "sha256": "96127e39d0d4b6905f290d5ab4641dd19c292bc542e6e676b98d67f7c35ac163",
+      "size": 20252
+    },
+    "workflows/wf03-noir-film/src/audio_window.py": {
+      "sha256": "e3672fae35434f23b905406fe5d197455ac246aa5cb7adb51e7d28c7495181d5",
+      "size": 30183
+    },
+    "workflows/wf03-noir-film/src/charsheet.py": {
+      "sha256": "907b9e1327f80c6e1845c06966eadb2981ac5b3611f276c70b452d7fb15aa1aa",
+      "size": 5438
+    },
+    "workflows/wf03-noir-film/src/charsheet_v2.py": {
+      "sha256": "6d5e02cab4fde9d02acfb219114fa4e7c0c39c2d643a38a8ac7642d2480af02f",
+      "size": 15196
+    },
+    "workflows/wf03-noir-film/src/encode_shadow.sh": {
+      "sha256": "aa6a6679f9b27c27f31e36e5fe7dfcd0f1a8bb7a46c16052c24baa429a175224",
+      "size": 2359
+    },
+    "workflows/wf03-noir-film/src/encode_window.sh": {
+      "sha256": "836d4c5b7bcca7c59c52ee6035ed830bbc37b04f1d9a7eabf009a953d8dfad1e",
+      "size": 1318
+    },
+    "workflows/wf03-noir-film/src/film_shadow.py": {
+      "sha256": "bc09b0f9c2acb95d5026e9e3fcb7914e8be1f37afadd6e176a513767d6f110c0",
+      "size": 43004
+    },
+    "workflows/wf03-noir-film/src/film_window.py": {
+      "sha256": "e69aaeab8e91c17612a8be4cdc79a5868ca1923977d96100138e3acf4bad8e89",
+      "size": 71083
+    },
+    "workflows/wf03-noir-film/src/finish_shadow.sh": {
+      "sha256": "41fea0664eedfcafa3c7ec01ec75afb8ba0d4221b0bfd9125ef9392b81f4f774",
+      "size": 841
+    },
+    "workflows/wf03-noir-film/src/gate_shadow.py": {
+      "sha256": "99a41503b248dc77777a7e3af501a18a3713bdb4e51d1cdd954e3d37ddc2a648",
+      "size": 17475
+    },
+    "workflows/wf03-noir-film/src/gate_window.py": {
+      "sha256": "2aec779920b1ad50257bd4e58bd5d50587a72ad48d41898e0768cd83e5aee5d9",
+      "size": 18202
+    },
+    "workflows/wf03-noir-film/src/human.py": {
+      "sha256": "f25d65230cfb978f9b46cf75fe17c0f687cc4cd842350cd740df26efb5e3d72c",
+      "size": 30277
+    },
+    "workflows/wf03-noir-film/src/look_v0.py": {
+      "sha256": "37ec8849008d2bba6c1fd0351dff756455e183cf390d03caec925e55e025fd6f",
+      "size": 5892
+    },
+    "workflows/wf03-noir-film/src/look_v1.py": {
+      "sha256": "99c25bba40b781073e348adbc6fed1d82c133bcdbbdffba93359e888c41c66f4",
+      "size": 12730
+    },
+    "workflows/wf03-noir-film/src/motion_test_v2.py": {
+      "sha256": "4132af181652bc116b23f35a5849df20b01780c464e90692f2f3ffa957945d7e",
+      "size": 5306
+    },
+    "workflows/wf03-noir-film/src/noir.py": {
+      "sha256": "f96ce90c9a16c319a074704b96841e3e33113fe2e0275439fb166379a3c234f3",
+      "size": 19317
+    },
+    "workflows/wf03-noir-film/src/records_turn18.py": {
+      "sha256": "a81c6e4c22f28e23556c34b326e0a5317e2b7e42166594e8107fdff81140f698",
+      "size": 8641
+    },
+    "workflows/wf03-noir-film/src/stick3d.py": {
+      "sha256": "ba2091d92d794b512b34cd717eff24fe23cc52ad1f311ee9242e2e2c0539a04f",
+      "size": 48788
+    },
+    "workflows/wf03-noir-film/src/world.py": {
+      "sha256": "a8b160e8274b9cc8353cf0cfd660ea4d8cea99d8513f5e74bc81e159ac3124be",
+      "size": 14797
+    },
+    "workflows/wf03-noir-film/vo/vo01.mp3": {
+      "sha256": "833e7e3766e26fe9aa937860b02d22d364eb6908bf77ce5a14283fa5839f4805",
+      "size": 118927
+    },
+    "workflows/wf03-noir-film/vo/vo02.mp3": {
+      "sha256": "831bb9b93cf820185ea0487ba63d2256577bc2c572ae96b06717246079b2a50f",
+      "size": 138362
+    },
+    "workflows/wf03-noir-film/vo/vo03.mp3": {
+      "sha256": "623f0acb1eb35b0b18e559632d7e760786aa8d815f40baa8a982487dd3360128",
+      "size": 58950
+    },
+    "workflows/wf03-noir-film/vo/vo04.mp3": {
+      "sha256": "3f4139ed70a88dc17b012fc1697c795ab13a0bf1969aede86dd3726101db8ff2",
+      "size": 34917
+    },
+    "workflows/wf03-noir-film/vo/vo05.mp3": {
+      "sha256": "a9cb30b68ba1e42692dcdaf7a095fcecb89aa2329a5d4c64ad1e5c96c524c434",
+      "size": 55815
+    },
+    "workflows/wf03-noir-film/vo/vo06.mp3": {
+      "sha256": "a18e39174cc0803f551f29ebdbdeff85fcdf390a6aede17f7c80e4135d3a01ce",
+      "size": 77340
+    },
+    "workflows/wf03-noir-film/vo/vo07.mp3": {
+      "sha256": "bfbfee1222b9536970a521f651129d2d4f5855e4b9874fc50059693f3f7261bf",
+      "size": 136899
+    },
+    "workflows/wf03-noir-film/vo/vo08.mp3": {
+      "sha256": "ec4829630fd57a0ce3fcc00df68e1dcd98ece7b6c0f0740812cd80f785b00334",
+      "size": 105761
+    },
+    "workflows/wf03-noir-film/vo/vo09.mp3": {
+      "sha256": "c7dbb6f3fb9be229ccf20b27070d570aee138210ae1d3b9d35ca001448789d54",
+      "size": 152991
+    },
+    "workflows/wf03-noir-film/vo/vo10.mp3": {
+      "sha256": "0e615ea4ceb49fbdc5bee4d19f28f12d05216f4ca386a7545a6dc701492acf4d",
+      "size": 114329
+    },
+    "workflows/wf03-noir-film/workflow.json": {
+      "sha256": "4c8b08c8a2488f48f82b408371c3080db62a6272b73af734066d7de2e21aded8",
+      "size": 3547
+    }
+  }
+}

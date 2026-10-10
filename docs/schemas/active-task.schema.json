@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://editing-monarch.local/schemas/active-task.schema.json",
+  "title": "Editing Monarch active task",
+  "type": "object",
+  "required": ["schema_version", "task_id", "status", "title", "next_action", "checkpoint_sequence", "event_sequence", "running_processes"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["active", "rendering", "syncing", "paused", "waiting_external", "blocked", "completed", "idle"]},
+    "title": {"type": "string"},
+    "style_id": {"type": ["string", "null"]},
+    "goal": {"type": "string"},
+    "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
+    "next_action": {"type": "string"},
+    "checkpoint_sequence": {"type": "integer", "minimum": 0},
+    "event_sequence": {"type": "integer", "minimum": 0},
+    "journal_head": {"type": ["string", "null"]},
+    "running_processes": {"type": "array"}
+  },
+  "additionalProperties": true
+}

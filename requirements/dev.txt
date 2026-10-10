@@ -1,0 +1,3 @@
+# The repository test suite uses only Python's standard library.
+# Optional local quality tools:
+ruff>=0.8,<1

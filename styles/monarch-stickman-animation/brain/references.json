@@ -1,0 +1,499 @@
+{
+ "_doc": "Reference studies the generator may cite. Each entry: measured numbers (brain/study.py) + extracted principles. References are lessons, never templates — the identity (hero, palette, type, grid, gates) stays ours.",
+ "studies": [
+  {
+   "key": "dayone_discipline",
+   "studied": "2026-10-09",
+   "turn": 13,
+   "source": {
+    "channel": "Day One Films (@dayonefilmsofficial)",
+    "title": "DISCIPLINE | An Animated Short Film",
+    "url": "https://youtu.be/8atK0pF4oJY",
+    "uploaded": "2026-09-27",
+    "views_at_study": 1859185,
+    "likes": 45080,
+    "comments": 910,
+    "channel_subs": 21300,
+    "channel_videos": 8,
+    "catalogue_views": {
+     "DISCIPLINE": 1800000,
+     "DOPAMINE": 178000,
+     "Motivation Will Fail You": 70000,
+     "ROOTS": 69000,
+     "Stop Overthinking": 50000,
+     "READY": 46000,
+     "ONE LAST TIME": 30000,
+     "How One Old Book Fixed His Life": 27000
+    }
+   },
+   "format": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30,
+    "duration_s": 158.08,
+    "aspect": "16:9",
+    "spoken_lines": 8,
+    "on_screen_text_lines": 22,
+    "cta": "none"
+   },
+   "measured": {
+    "shots": 44,
+    "hard_cuts": 30,
+    "dips_to_black": 13,
+    "dissolves": 0,
+    "shot_len": {
+     "median": 1.3,
+     "mean": 3.59,
+     "p10": 0.45,
+     "p90": 9.43,
+     "max": 14.13,
+     "min": 0.2,
+     "over_3s": 14,
+     "over_5s": 13,
+     "under_1s": 8
+    },
+    "luma": {
+     "mean": 18.4,
+     "p10": 11.2,
+     "p90": 30.8,
+     "dark_frames_lt30": 0.889,
+     "black_frames_lt6": 0.032
+    },
+    "motion": {
+     "mean_mad": 1.11,
+     "still_frames_lt0_5": 0.583,
+     "p90": 2.61
+    },
+    "saturation_mean": 0.083,
+    "warm_bias_mean": 4.8,
+    "audio": {
+     "lufs": -16.6,
+     "lra": 4.5,
+     "true_peak_dbfs": 0.9,
+     "bpm_estimate": 93.8,
+     "onsets_total": 270,
+     "onsets_per_s": 1.71,
+     "rms_db_mean": -19.5,
+     "rms_db_p10": -23.3,
+     "rms_db_p90": -14.1,
+     "silence_lt_minus50_share": 0.011,
+     "stereo_corr_mean": 0.85,
+     "bands_mean": {
+      "sub_20_120": 0.527,
+      "lowmid_120_500": 0.3171,
+      "voice_300_3000": 0.2684,
+      "presence_2000_5000": 0.0388,
+      "air_8000_12000": 0.0037
+     }
+    }
+   },
+   "chapters": [
+    {
+     "title": "Every day started the same",
+     "t0": 0.0,
+     "t1": 40.0,
+     "shots": 13,
+     "median_shot": 1.27,
+     "luma": 14.2,
+     "motion": 0.43,
+     "rms_db": -20.8,
+     "onsets_per_s": 2.52
+    },
+    {
+     "title": "The mirror",
+     "t0": 40.0,
+     "t1": 50.0,
+     "shots": 2,
+     "median_shot": 7.9,
+     "luma": 13.6,
+     "motion": 0.48,
+     "rms_db": -19.0,
+     "onsets_per_s": 0.9
+    },
+    {
+     "title": "Rock bottom",
+     "t0": 50.0,
+     "t1": 60.0,
+     "shots": 1,
+     "median_shot": 1.37,
+     "luma": 12.4,
+     "motion": 0.21,
+     "rms_db": -22.2,
+     "onsets_per_s": 0.6
+    },
+    {
+     "title": "Day 1",
+     "t0": 60.0,
+     "t1": 72.0,
+     "shots": 3,
+     "median_shot": 5.3,
+     "luma": 15.1,
+     "motion": 1.08,
+     "rms_db": -19.6,
+     "onsets_per_s": 2.17
+    },
+    {
+     "title": "The grind",
+     "t0": 72.0,
+     "t1": 109.0,
+     "shots": 20,
+     "median_shot": 1.25,
+     "luma": 20.1,
+     "motion": 2.43,
+     "rms_db": -16.0,
+     "onsets_per_s": 2.11
+    },
+    {
+     "title": "The final fight",
+     "t0": 109.0,
+     "t1": 124.0,
+     "shots": 3,
+     "median_shot": 12.5,
+     "luma": 21.7,
+     "motion": 1.7,
+     "rms_db": -16.0,
+     "onsets_per_s": 1.33
+    },
+    {
+     "title": "The summit",
+     "t0": 124.0,
+     "t1": 145.0,
+     "shots": 2,
+     "median_shot": 10.53,
+     "luma": 29.1,
+     "motion": 0.87,
+     "rms_db": -20.0,
+     "onsets_per_s": 1.33
+    },
+    {
+     "title": "Day one or one day",
+     "t0": 145.0,
+     "t1": 158.07999999999998,
+     "shots": 0,
+     "median_shot": null,
+     "luma": 16.8,
+     "motion": 0.35,
+     "rms_db": -26.1,
+     "onsets_per_s": 0.15
+    }
+   ],
+   "timeline_10s": [
+    {
+     "t": 0,
+     "luma": 10.6,
+     "motion": 0.17,
+     "rms_db": -22.1,
+     "cuts": 1,
+     "white": 0.0,
+     "voice_band": 0.2413
+    },
+    {
+     "t": 10,
+     "luma": 12.4,
+     "motion": 0.21,
+     "rms_db": -20.4,
+     "cuts": 1,
+     "white": 0.0,
+     "voice_band": 0.3077
+    },
+    {
+     "t": 20,
+     "luma": 13.6,
+     "motion": 0.31,
+     "rms_db": -20.4,
+     "cuts": 2,
+     "white": 0.0,
+     "voice_band": 0.5448
+    },
+    {
+     "t": 30,
+     "luma": 20.2,
+     "motion": 1.01,
+     "rms_db": -20.4,
+     "cuts": 8,
+     "white": 0.0,
+     "voice_band": 0.4729
+    },
+    {
+     "t": 40,
+     "luma": 13.6,
+     "motion": 0.48,
+     "rms_db": -19.0,
+     "cuts": 2,
+     "white": 0.0,
+     "voice_band": 0.111
+    },
+    {
+     "t": 50,
+     "luma": 12.4,
+     "motion": 0.21,
+     "rms_db": -22.2,
+     "cuts": 1,
+     "white": 0.001,
+     "voice_band": 0.2309
+    },
+    {
+     "t": 60,
+     "luma": 14.4,
+     "motion": 0.84,
+     "rms_db": -20.1,
+     "cuts": 2,
+     "white": 0.01,
+     "voice_band": 0.1658
+    },
+    {
+     "t": 70,
+     "luma": 19.3,
+     "motion": 3.16,
+     "rms_db": -16.6,
+     "cuts": 2,
+     "white": 0.012,
+     "voice_band": 0.0534
+    },
+    {
+     "t": 80,
+     "luma": 13.3,
+     "motion": 1.02,
+     "rms_db": -16.4,
+     "cuts": 2,
+     "white": 0.002,
+     "voice_band": 0.0451
+    },
+    {
+     "t": 90,
+     "luma": 22.8,
+     "motion": 3.09,
+     "rms_db": -15.7,
+     "cuts": 8,
+     "white": 0.582,
+     "voice_band": 0.044
+    },
+    {
+     "t": 100,
+     "luma": 24.6,
+     "motion": 2.24,
+     "rms_db": -15.8,
+     "cuts": 10,
+     "white": 0.002,
+     "voice_band": 0.1817
+    },
+    {
+     "t": 110,
+     "luma": 15.5,
+     "motion": 0.73,
+     "rms_db": -16.2,
+     "cuts": 0,
+     "white": 0.0,
+     "voice_band": 0.0864
+    },
+    {
+     "t": 120,
+     "luma": 43.6,
+     "motion": 2.66,
+     "rms_db": -18.1,
+     "cuts": 2,
+     "white": 0.582,
+     "voice_band": 0.3339
+    },
+    {
+     "t": 130,
+     "luma": 25.8,
+     "motion": 0.42,
+     "rms_db": -19.7,
+     "cuts": 1,
+     "white": 0.003,
+     "voice_band": 0.4937
+    },
+    {
+     "t": 140,
+     "luma": 15.3,
+     "motion": 0.69,
+     "rms_db": -20.0,
+     "cuts": 1,
+     "white": 0.025,
+     "voice_band": 0.3908
+    },
+    {
+     "t": 150,
+     "luma": 17.1,
+     "motion": 0.33,
+     "rms_db": -30.5,
+     "cuts": 0,
+     "white": 0.026,
+     "voice_band": 0.6604
+    }
+   ],
+   "script_on_screen": [
+    [
+     0.5,
+     "white",
+     "Every day started the same."
+    ],
+    [
+     9.5,
+     "red",
+     "just 5 more minutes..."
+    ],
+    [
+     17,
+     "red",
+     "skip the gym."
+    ],
+    [
+     20,
+     "red",
+     "tomorrow."
+    ],
+    [
+     24.5,
+     "red",
+     "you're tired."
+    ],
+    [
+     27.5,
+     "red",
+     "why even try?"
+    ],
+    [
+     45,
+     "red",
+     "you're lazy"
+    ],
+    [
+     48,
+     "red",
+     "you'll never change."
+    ],
+    [
+     51,
+     "white",
+     "He believed it."
+    ],
+    [
+     54,
+     "white",
+     "Day after day."
+    ],
+    [
+     55.5,
+     "white",
+     "But lazy isn't who you are."
+    ],
+    [
+     58.5,
+     "white-bold",
+     "It's what you repeat."
+    ],
+    [
+     70.5,
+     "title",
+     "DAY 1."
+    ],
+    [
+     87,
+     "red",
+     "you're lazy"
+    ],
+    [
+     89.9,
+     "red",
+     "quit."
+    ],
+    [
+     92.4,
+     "red",
+     "nobody cares."
+    ],
+    [
+     94.9,
+     "red",
+     "it's not working."
+    ],
+    [
+     110.5,
+     "white",
+     "Motivation gets you started."
+    ],
+    [
+     114.5,
+     "white",
+     "Discipline keeps you going."
+    ],
+    [
+     118.5,
+     "red",
+     "you can't."
+    ],
+    [
+     127,
+     "white",
+     "Nobody is coming to save you."
+    ],
+    [
+     130,
+     "white",
+     "So save yourself."
+    ],
+    [
+     146.5,
+     "title",
+     "DISCIPLINE"
+    ],
+    [
+     149.5,
+     "white",
+     "Day one, or one day."
+    ],
+    [
+     152.5,
+     "red",
+     "You decide."
+    ]
+   ],
+   "spoken": [
+    "You are the future. (phone, 0:16, 0:44, 1:33)",
+    "Tomorrow. (shadow whisper, 0:19)",
+    "You are the fire. (0:23)",
+    "You are the light. (0:26)",
+    "You are the foundation. (0:46)",
+    "You are the… (1:58)"
+   ],
+   "dna_read": {
+    "hook": "literary_line_black",
+    "device": "counter_spine + shadow_antagonist + callback_ladder (silent_film_text)",
+    "world": "bedroom-couch-desk loop → mirror_wrong_reflection → spotlight → insult_bag → stair_mountain_blocker → summit_first_light → bedroom at dawn",
+    "grammar": "holds_dip_burst (+ beat_locked_montage)",
+    "camera": "locked_stage_two_ecus",
+    "sonic": "sub_drone_94 + text_card_silence",
+    "type": "colour_coded_voices + hud_counter + insult_shattered + full_stop_voice",
+    "ending": "title_pun_command + villain_left_small",
+    "signature": "punch_through_shadow; alarm_slam_from_top; reflection_becomes_you; walk_out_leave_shadow",
+    "transitions": [
+     "dip_black (13)",
+     "hard cut (30)",
+     "white_flash_cut (3)"
+    ],
+    "palette": "black / bone white / one red / amber light → sunrise",
+    "colour_arc": "moon-black → amber → first pink sky (DAY 177) → sunrise (summit) → dawn room"
+   },
+   "principles": [
+    "Emotional architecture beats transition variety: 2 transition kinds, 1.8 M views. Story devices go first in every brief; transitions are seasoning.",
+    "A hold is allowed when something carries it (a line, a light, a music change). A boring second is a hold with no event — not a hold.",
+    "Give the villain a body (the shadow double) so every chapter is a fight you can draw.",
+    "A counter (DAY n) tells time without a word; the false Day 1 → true Day 1 reset is the plot.",
+    "Colour-code the voices (white truth / red critic); the full stop is the tone.",
+    "Colour is the arc: start monochrome, let the first warm colour be an event, end at first light.",
+    "Plant 3–4 motifs and return each once, changed; end on the first scene replayed.",
+    "Write the payoff to be quoted (two short lines) — the comments will repost it.",
+    "Film loudness −16 to −17 LUFS, LRA ≈ 4.5, quiet ending (−30 dB RMS), sub-heavy bed, no air.",
+    "Thumbnail = one light, the hero, 1–3 hand-lettered words with a period."
+   ],
+   "do_not_copy": [
+    "their bean character (ours is the hooded black-suit hero on the SHADE rig)",
+    "their flat 2-D look (ours is hybrid charcoal/paper + 3-D rig)",
+    "their near-black world as a default (ours is paper; a dark 'film' format is an option, not the identity)",
+    "their exact lines or title"
+   ]
+  }
+ ]
+}

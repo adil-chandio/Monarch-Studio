@@ -1,0 +1,8 @@
+# Historical renderer/runtime dependencies.
+# Upper bounds prevent unreviewed major-version behavior changes.
+numpy>=1.24,<3
+Pillow>=10,<13
+scipy>=1.10,<2
+imageio-ffmpeg>=0.4.9,<1
+reportlab>=4,<5
+PyMuPDF>=1.23,<2

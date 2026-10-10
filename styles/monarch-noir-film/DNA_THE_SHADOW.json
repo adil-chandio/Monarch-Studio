@@ -1,0 +1,122 @@
+{
+ "topic": "FEAR — THE SHADOW",
+ "workflow": "WF-03",
+ "format": "film",
+ "duration_s": 156.9,
+ "date": "2026-10-10",
+ "slots": {
+  "hook": "literary_line_black",
+  "device": "counter_spine",
+  "world": "lantern_corner",
+  "grammar": "holds_dip_burst",
+  "camera": "locked_stage_two_ecus",
+  "sonic": "piano_room",
+  "type": "typewriter_ink",
+  "ending": "title_pun_command"
+ },
+ "worlds_also": [
+  "shadow_antagonist"
+ ],
+ "signature": "shadow_homothety — the villain is the hero's own lamp-cast shadow, computed physically (k = D/(D−d)); a distance readout is the spine (7.4 → 10.3 → -- → 1.8 → 9.9 → --); carrying the light forward puts the shadow on the floor behind him",
+ "targets": {
+  "format": "film",
+  "aspect": "1920x1080",
+  "loudness": "-16.5 ± 1.0, LRA ≈ 4.5, last 10 s ≤ −26 dB RMS",
+  "holds": "7–14 s allowed when carried; bursts on the beat between them",
+  "callbacks_min": 3,
+  "quotable_payoff_lines": 2,
+  "duration_s": 156.9,
+  "shots_min": 44,
+  "transitions": 43,
+  "transition_kinds_min": 4,
+  "transition_kinds_note": "film: cut-grammar kinds (hard cut, dip, flash cut, montage accelerando, micro-cuts, insert cutaway…) — no 3-D wipes",
+  "new_transition_kinds_min": 3,
+  "transition_overlap_max": 0.4,
+  "pattern_interrupts_min": 13,
+  "wtf_moments_min": 3,
+  "rehook_at_s": [
+   39.2,
+   78.5,
+   117.7
+  ],
+  "sfx_new_share_min": 0.5,
+  "chapters": [
+   "every night",
+   "hide",
+   "measure",
+   "walk",
+   "touch",
+   "carry",
+   "sit"
+  ],
+  "voice_word_one_by_s": 0.6,
+  "visual_question_by_s": 0.8,
+  "promise_by_s": 3.0,
+  "new_on_screen_every_s": "3–6 (a hold must carry a line, a light or a music change)",
+  "max_still_s": 1.5,
+  "gates": "19 measured gates of IZZAT v2 + gate #20 freshness"
+ },
+ "transitions": [
+  "hard_cut",
+  "dip_to_black",
+  "flash_cut",
+  "montage_accelerando",
+  "micro_cut_red_cards",
+  "insert_cutaway",
+  "end_card_fade"
+ ],
+ "sfx_voices": [
+  "room_tone_380",
+  "sub_55_lfo",
+  "sub_e1_dark",
+  "cello_pad_aminor",
+  "piano_motif_90",
+  "heartbeat",
+  "riser_bandsweep",
+  "footstep_pan",
+  "slow_scuff",
+  "typewriter_click",
+  "red_card_stab",
+  "lantern_whump",
+  "lantern_huff",
+  "lantern_crackle",
+  "cut_boom",
+  "wall_thump",
+  "reverse_swell",
+  "lamp_foley"
+ ],
+ "shots": 33,
+ "pattern_interrupts": 26,
+ "wtf_moments": 3,
+ "rehooks_s": [
+  39.5,
+  73.9,
+  118.4
+ ],
+ "hook_text": "Every night, it was there.",
+ "callbacks": [
+  "lantern: lit (3.3 s) → out (39.5) → relit (57) → carried (126) → set at the wall (136) → out (143)",
+  "readout: 7.4 → 10.3 → -- → 10.3 → 5.9 → 2.2 → 1.8 → 9.9 → --",
+  "red whispers: stay. / not yet. / what if. → turn back. (climax) → gone after the wall",
+  "corner: hides small (S04) → sits beside the light, same corner wall (S18)"
+ ],
+ "quotable_lines": [
+  "You can't measure what you won't look at.",
+  "Fear is a shadow. Walk toward it — and it is exactly your size."
+ ],
+ "title_pun": "THE SHADOW — a short film about a long shadow",
+ "beats": 93,
+ "max_beat_gap_s": 6.4,
+ "beat_kinds": {
+  "text": 21,
+  "cut": 32,
+  "lamp": 4,
+  "readout": 20,
+  "music": 20,
+  "vo": 3,
+  "flash": 2,
+  "wall_touch": 1,
+  "lift": 1,
+  "setdown": 1
+ }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "library_policy": "permanent_append_only_history",
+  "active_workflow_path": "workflows/current",
+  "styles": [
+    {
+      "style_id": "monarch-stickman-animation",
+      "name": "Monarch Stickman Animation",
+      "workflow_code": "WF-01",
+      "trigger": "SHADEGO <topic>",
+      "path": "styles/monarch-stickman-animation",
+      "contract": "styles/monarch-stickman-animation/workflow.json",
+      "status": "PARKED",
+      "knowledge_index": "styles/monarch-stickman-animation/knowledge/INDEX.md"
+    },
+    {
+      "style_id": "monarch-noir-film",
+      "name": "Monarch Noir Film",
+      "workflow_code": "WF-03",
+      "trigger": "NOIRGO <topic>",
+      "path": "styles/monarch-noir-film",
+      "contract": "styles/monarch-noir-film/workflow.json",
+      "status": "ACTIVE_WITH_DRIFT",
+      "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md"
+    }
+  ]
+}

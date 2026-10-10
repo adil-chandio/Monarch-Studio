@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-11T02:33:12+05:00",
+  "active_task_id": "EMS-20261011-001",
+  "targets": {
+    "github": {
+      "required": true,
+      "transport": "git",
+      "remote": "origin",
+      "repo_url": null,
+      "branch": "main",
+      "status": "blocked_waiting_for_user_repository_url_and_authorization",
+      "note": "No remote URL was supplied. Never invent a repository or credentials."
+    },
+    "google_drive": {
+      "required": true,
+      "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+      "url": "https://drive.google.com/drive/folders/1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+      "parent_folder_id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
+      "role": "repository bundles, checkpoints, recovery exports and large artifacts"
+    },
+    "notion": {
+      "required": true,
+      "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
+      "url": "https://app.notion.com/p/Editing-Monarch-Studio-Continuity-Style-Library-v1-3f5807e1e916819f91a9d0786304b6da",
+      "parent_page_id": "3f4807e1-e916-813a-9000-e7e94ac0ac53",
+      "role": "browsable continuity, style architecture, decisions and recovery state"
+    },
+    "linear": {
+      "required": true,
+      "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
+      "issue_id": "7d51bdef-6435-4e3e-93d9-74a41da0b155",
+      "issue_identifier": "MON-63",
+      "issue_url": "https://linear.app/monarchmation/issue/MON-63/ems-20261011-001-bootstrap-crash-proof-continuity-permanent-style",
+      "team_id": "7d25e78c-c0f2-46b3-9c73-10bcf9c5a108",
+      "role": "active task, blockers, acceptance criteria and checkpoint status"
+    },
+    "google_docs": {
+      "required": true,
+      "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
+      "url": "https://docs.google.com/document/d/16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU/edit",
+      "role": "portable human recovery and proof hub"
+    }
+  }
+}

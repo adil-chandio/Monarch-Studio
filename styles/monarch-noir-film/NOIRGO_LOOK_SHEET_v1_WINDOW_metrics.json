@@ -1,0 +1,56 @@
+{
+ "01 HOOK \u00b7 11:48 PM \u00b7 face glowing blue": {
+  "luma": 51.8,
+  "dark": 0.507,
+  "chroma": 30.5,
+  "p99": 231.1
+ },
+ "02 THE WINDOWS \u00b7 31 lit \u00b7 rain": {
+  "luma": 28.5,
+  "dark": 0.708,
+  "chroma": 15.3,
+  "p99": 156.3
+ },
+ "03 third floor \u00b7 the couple": {
+  "luma": 40.1,
+  "dark": 0.525,
+  "chroma": 16.0,
+  "p99": 171.9
+ },
+ "04 two monitors \u00b7 looking back": {
+  "luma": 26.9,
+  "dark": 0.711,
+  "chroma": 16.0,
+  "p99": 119.9
+ },
+ "05 his window \u00b7 blue flicker": {
+  "luma": 24.9,
+  "dark": 0.656,
+  "chroma": 11.9,
+  "p99": 68.4
+ },
+ "06 THE TURN \u00b7 reflection": {
+  "luma": 29.0,
+  "dark": 0.575,
+  "chroma": 12.6,
+  "p99": 117.4
+ },
+ "07 THE WORK \u00b7 the bed": {
+  "luma": 35.7,
+  "dark": 0.499,
+  "chroma": 17.7,
+  "p99": 132.8
+ },
+ "08 DAY 40 \u00b7 his window amber": {
+  "luma": 26.5,
+  "dark": 0.65,
+  "chroma": 6.9,
+  "p99": 99.7
+ },
+ "09 5:58 AM \u00b7 \"Light it.\"": {
+  "luma": 45.6,
+  "dark": 0.382,
+  "chroma": 18.3,
+  "p99": 163.7
+ }
+}

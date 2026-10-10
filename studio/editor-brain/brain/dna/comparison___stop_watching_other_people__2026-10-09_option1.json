@@ -1,0 +1,71 @@
+{
+  "topic": "comparison — stop watching other people's windows",
+  "duration_s": 170.0,
+  "date": "2026-10-09",
+  "slots": {
+    "hook": "mirror_accusation",
+    "device": "callback_ladder",
+    "world": "calendar_of_x",
+    "grammar": "freeze_annotate",
+    "camera": "dutch_tilt",
+    "sonic": "clock_motif",
+    "type": "text_on_seam",
+    "ending": "villain_left_small"
+  },
+  "signature": "domino_chapters",
+  "targets": {
+    "format": "film",
+    "aspect": "1920x1080",
+    "loudness": "-16.5 ± 1.0, LRA ≈ 4.5, last 10 s ≤ −26 dB RMS",
+    "holds": "7–14 s allowed when carried; bursts on the beat between them",
+    "callbacks_min": 3,
+    "quotable_payoff_lines": 2,
+    "duration_s": 170.0,
+    "shots_min": 47,
+    "transitions": 46,
+    "transition_kinds_min": 4,
+    "transition_kinds_note": "film: cut-grammar kinds (hard cut, dip, flash cut, montage accelerando, micro-cuts, insert cutaway…) — no 3-D wipes",
+    "new_transition_kinds_min": 3,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 14,
+    "wtf_moments_min": 3,
+    "rehook_at_s": [
+      42.5,
+      85.0,
+      127.5
+    ],
+    "sfx_new_share_min": 0.5,
+    "chapters": [
+      "plant1",
+      "plant2",
+      "plant3",
+      "turn",
+      "return1",
+      "return2",
+      "return3",
+      "end"
+    ],
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "3–6 (a hold must carry a line, a light or a music change)",
+    "max_still_s": 1.5,
+    "gates": "19 measured gates of IZZAT v2 + gate #20 freshness"
+  },
+  "_fill_before_gate": {
+    "transitions": "list of transition kind ids actually in PLAN (existing + new)",
+    "sfx_voices": "list of SFX voice names actually in the bed ledger",
+    "shots": 0,
+    "pattern_interrupts": 0,
+    "wtf_moments": 0,
+    "rehooks_s": [],
+    "hook_text": ""
+  },
+  "transitions": [],
+  "sfx_voices": [],
+  "shots": 0,
+  "pattern_interrupts": 0,
+  "wtf_moments": 0,
+  "rehooks_s": [],
+  "hook_text": ""
+}

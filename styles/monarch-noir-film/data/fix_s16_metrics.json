@@ -1,0 +1,17 @@
+{
+ "total": 156.90000000000003,
+ "shots": [
+  {
+   "name": "S16 he picks up the light",
+   "n": 32,
+   "luma": 36.06,
+   "dark": 0.67,
+   "chroma": 6.36,
+   "p99": 209.65,
+   "lmin": 33.6,
+   "lmax": 40.4
+  }
+ ],
+ "render_seconds": 129,
+ "errors": []
+}

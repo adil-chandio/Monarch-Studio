@@ -1,0 +1,767 @@
+{
+ "fps": 24,
+ "duration": 155.0,
+ "frames": 3720,
+ "vo": {
+  "vo01": 1.2,
+  "vo02": 20.6,
+  "vo03": 38.4,
+  "vo04": 46.8,
+  "vo05": 51.8,
+  "vo06": 59.1,
+  "vo07": 69.6,
+  "vo08": 89.6,
+  "vo09": 104.0,
+  "vo10": 124.2
+ },
+ "shots": [
+  {
+   "i": 0,
+   "name": "S01 face \u00b7 phone POV",
+   "t0": 0.0,
+   "t1": 3.4,
+   "fade_in": 0.8,
+   "fade_out": 0.0,
+   "section": "HOOK"
+  },
+  {
+   "i": 1,
+   "name": "S02 bed wide \u00b7 lying, glowing",
+   "t0": 3.4,
+   "t1": 6.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "HOOK"
+  },
+  {
+   "i": 2,
+   "name": "S03 facade \u00b7 31 windows lit",
+   "t0": 6.6,
+   "t1": 9.7,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "HOOK"
+  },
+  {
+   "i": 3,
+   "name": "S04 facade drift \u00b7 people",
+   "t0": 9.7,
+   "t1": 12.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "HOOK"
+  },
+  {
+   "i": 4,
+   "name": "S05 his window \u00b7 blue",
+   "t0": 12.6,
+   "t1": 16.4,
+   "fade_in": 0.0,
+   "fade_out": 0.3,
+   "section": "HOOK"
+  },
+  {
+   "i": 5,
+   "name": "S06 title",
+   "t0": 16.4,
+   "t1": 20.2,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TITLE"
+  },
+  {
+   "i": 6,
+   "name": "S07 push \u2192 B4",
+   "t0": 20.2,
+   "t1": 23.1,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 7,
+   "name": "S08 the runner",
+   "t0": 23.1,
+   "t1": 27.3,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 8,
+   "name": "S09 push \u2192 I3",
+   "t0": 27.3,
+   "t1": 29.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 9,
+   "name": "S10 the couple \u00b7 two plates",
+   "t0": 29.6,
+   "t1": 33.3,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 10,
+   "name": "S11 push \u2192 D5",
+   "t0": 33.3,
+   "t1": 35.3,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 11,
+   "name": "S12 two monitors",
+   "t0": 35.3,
+   "t1": 38.1,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 12,
+   "name": "S13 bed \u00b7 he looks up",
+   "t0": 38.1,
+   "t1": 42.4,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 13,
+   "name": "S14 montage + flurry",
+   "t0": 42.4,
+   "t1": 45.7,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 14,
+   "name": "S15 red card \u00b7 look at them.",
+   "t0": 45.7,
+   "t1": 46.5,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WINDOWS"
+  },
+  {
+   "i": 15,
+   "name": "S16 the lit room",
+   "t0": 46.5,
+   "t1": 51.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 16,
+   "name": "S17 runner \u00b7 the knee",
+   "t0": 51.6,
+   "t1": 55.1,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 17,
+   "name": "S18 couple \u00b7 the silence",
+   "t0": 55.1,
+   "t1": 58.9,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 18,
+   "name": "S19 two monitors \u00b7 at the glass",
+   "t0": 58.9,
+   "t1": 63.9,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 19,
+   "name": "S20 at yours",
+   "t0": 63.9,
+   "t1": 66.3,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 20,
+   "name": "S21 face \u00b7 so calm",
+   "t0": 66.3,
+   "t1": 69.3,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "SCORE"
+  },
+  {
+   "i": 21,
+   "name": "S22 the phone dies",
+   "t0": 69.3,
+   "t1": 74.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TURN"
+  },
+  {
+   "i": 22,
+   "name": "S23 his window goes dark",
+   "t0": 74.6,
+   "t1": 77.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TURN"
+  },
+  {
+   "i": 23,
+   "name": "S24 he stands \u00b7 the walk",
+   "t0": 77.0,
+   "t1": 82.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TURN"
+  },
+  {
+   "i": 24,
+   "name": "S25 at the glass",
+   "t0": 82.0,
+   "t1": 83.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TURN"
+  },
+  {
+   "i": 25,
+   "name": "S26 the reflection",
+   "t0": 83.6,
+   "t1": 89.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "TURN"
+  },
+  {
+   "i": 26,
+   "name": "S27 he turns away",
+   "t0": 89.0,
+   "t1": 92.9,
+   "fade_in": 0.0,
+   "fade_out": 0.25,
+   "section": "WORK"
+  },
+  {
+   "i": 27,
+   "name": "S28 card \u00b7 The boring part.",
+   "t0": 92.9,
+   "t1": 94.2,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 28,
+   "name": "S29 the bed",
+   "t0": 94.2,
+   "t1": 97.1,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 29,
+   "name": "S30 the dishes",
+   "t0": 97.1,
+   "t1": 99.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 30,
+   "name": "S31 the desk",
+   "t0": 99.6,
+   "t1": 101.9,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 31,
+   "name": "S32 the shoes",
+   "t0": 101.9,
+   "t1": 103.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 32,
+   "name": "S33 DAY 1 \u00b7 the run",
+   "t0": 103.6,
+   "t1": 108.4,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 33,
+   "name": "S34 DAY 9 \u00b7 the lamp",
+   "t0": 108.4,
+   "t1": 111.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 34,
+   "name": "S35 DAY 23 \u00b7 running past",
+   "t0": 111.6,
+   "t1": 118.4,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 35,
+   "name": "S36 DAY 40 \u00b7 he looks up",
+   "t0": 118.4,
+   "t1": 120.9,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 36,
+   "name": "S37 a new window",
+   "t0": 120.9,
+   "t1": 123.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "WORK"
+  },
+  {
+   "i": 37,
+   "name": "S38 facade at dawn",
+   "t0": 123.6,
+   "t1": 127.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "PAYOFF"
+  },
+  {
+   "i": 38,
+   "name": "S39 someone standing in it",
+   "t0": 127.0,
+   "t1": 131.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "PAYOFF"
+  },
+  {
+   "i": 39,
+   "name": "S40 from the inside",
+   "t0": 131.0,
+   "t1": 135.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "PAYOFF"
+  },
+  {
+   "i": 40,
+   "name": "S41 Light it.",
+   "t0": 135.0,
+   "t1": 138.4,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "PAYOFF"
+  },
+  {
+   "i": 41,
+   "name": "S42 his window \u00b7 amber wide",
+   "t0": 138.4,
+   "t1": 141.6,
+   "fade_in": 0.0,
+   "fade_out": 0.4,
+   "section": "PAYOFF"
+  },
+  {
+   "i": 42,
+   "name": "S43 end card",
+   "t0": 141.6,
+   "t1": 146.6,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "END"
+  },
+  {
+   "i": 43,
+   "name": "S44 end card 2",
+   "t0": 146.6,
+   "t1": 150.8,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "END"
+  },
+  {
+   "i": 44,
+   "name": "S45 quiet",
+   "t0": 150.8,
+   "t1": 155.0,
+   "fade_in": 0.0,
+   "fade_out": 0.0,
+   "section": "END"
+  }
+ ],
+ "text": [
+  {
+   "t": 1.4,
+   "kind": "readout",
+   "txt": "11:48 PM",
+   "cps": 22.0
+  },
+  {
+   "t": 16.9,
+   "kind": "title",
+   "txt": "THE WINDOW",
+   "cps": 0
+  },
+  {
+   "t": 20.3,
+   "kind": "readout",
+   "txt": "11:52 PM",
+   "cps": 22.0
+  },
+  {
+   "t": 25.6,
+   "kind": "villain",
+   "txt": "he's ahead.",
+   "cps": 16.0
+  },
+  {
+   "t": 27.4,
+   "kind": "readout",
+   "txt": "11:53 PM",
+   "cps": 22.0
+  },
+  {
+   "t": 31.5,
+   "kind": "villain",
+   "txt": "they're happy.",
+   "cps": 16.0
+  },
+  {
+   "t": 33.4,
+   "kind": "readout",
+   "txt": "11:55 PM",
+   "cps": 22.0
+  },
+  {
+   "t": 36.3,
+   "kind": "villain",
+   "txt": "you're late.",
+   "cps": 16.0
+  },
+  {
+   "t": 38.2,
+   "kind": "readout",
+   "txt": "11:58 PM",
+   "cps": 22.0
+  },
+  {
+   "t": 42.4,
+   "kind": "readout",
+   "txt": "11:58 PM",
+   "cps": 99
+  },
+  {
+   "t": 43.0,
+   "kind": "readout",
+   "txt": "1:12 AM",
+   "cps": 99
+  },
+  {
+   "t": 43.6,
+   "kind": "readout",
+   "txt": "2:40 AM",
+   "cps": 99
+  },
+  {
+   "t": 44.2,
+   "kind": "readout",
+   "txt": "MON  11:48 PM",
+   "cps": 99
+  },
+  {
+   "t": 44.45,
+   "kind": "readout",
+   "txt": "TUE  12:31 AM",
+   "cps": 99
+  },
+  {
+   "t": 44.7,
+   "kind": "readout",
+   "txt": "WED  1:12 AM",
+   "cps": 99
+  },
+  {
+   "t": 44.95,
+   "kind": "readout",
+   "txt": "THU  2:40 AM",
+   "cps": 99
+  },
+  {
+   "t": 45.2,
+   "kind": "readout",
+   "txt": "FRI  11:52 PM",
+   "cps": 99
+  },
+  {
+   "t": 45.45,
+   "kind": "readout",
+   "txt": "SAT  3:05 AM",
+   "cps": 99
+  },
+  {
+   "t": 45.72,
+   "kind": "villain",
+   "txt": "look at them.",
+   "cps": 26.0
+  },
+  {
+   "t": 49.1,
+   "kind": "narration",
+   "txt": "You only ever see the lit room.",
+   "cps": 0
+  },
+  {
+   "t": 51.7,
+   "kind": "readout",
+   "txt": "12:06 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 53.6,
+   "kind": "answer",
+   "txt": "he's hurting.",
+   "cps": 16.0
+  },
+  {
+   "t": 55.2,
+   "kind": "readout",
+   "txt": "12:11 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 57.6,
+   "kind": "answer",
+   "txt": "they're quiet.",
+   "cps": 16.0
+  },
+  {
+   "t": 59.0,
+   "kind": "readout",
+   "txt": "2:04 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 61.0,
+   "kind": "answer",
+   "txt": "it's two a.m.",
+   "cps": 16.0
+  },
+  {
+   "t": 69.4,
+   "kind": "readout",
+   "txt": "12:30 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 77.1,
+   "kind": "readout",
+   "txt": "12:31 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 86.9,
+   "kind": "answer",
+   "txt": "look at you.",
+   "cps": 16.0
+  },
+  {
+   "t": 89.1,
+   "kind": "readout",
+   "txt": "12:33 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 93.1,
+   "kind": "card",
+   "txt": "The boring part.",
+   "cps": 0
+  },
+  {
+   "t": 94.3,
+   "kind": "readout",
+   "txt": "12:41 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 97.2,
+   "kind": "readout",
+   "txt": "12:52 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 99.7,
+   "kind": "readout",
+   "txt": "1:04 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 102.0,
+   "kind": "readout",
+   "txt": "1:09 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 103.8,
+   "kind": "readout",
+   "txt": "DAY 1  \u00b7  5:10 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 108.5,
+   "kind": "readout",
+   "txt": "DAY 9  \u00b7  6:00 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 111.7,
+   "kind": "readout",
+   "txt": "DAY 23  \u00b7  5:12 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 118.5,
+   "kind": "readout",
+   "txt": "DAY 40  \u00b7  5:58 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 127.4,
+   "kind": "narration",
+   "txt": "Every window you have ever envied / has someone standing in it, looking at yours.",
+   "cps": 0
+  },
+  {
+   "t": 131.1,
+   "kind": "readout",
+   "txt": "DAY 40  \u00b7  6:01 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 135.1,
+   "kind": "readout",
+   "txt": "DAY 40  \u00b7  6:04 AM",
+   "cps": 22.0
+  },
+  {
+   "t": 141.9,
+   "kind": "card",
+   "txt": "LIGHT YOUR OWN WINDOW.",
+   "cps": 0
+  },
+  {
+   "t": 146.9,
+   "kind": "card",
+   "txt": "You only ever see the lit room.",
+   "cps": 0
+  }
+ ],
+ "light": [
+  {
+   "t": 49.3,
+   "what": "facade_emphasis"
+  },
+  {
+   "t": 71.45,
+   "what": "phone_off"
+  },
+  {
+   "t": 74.9,
+   "what": "own_window_off"
+  },
+  {
+   "t": 109.9,
+   "what": "lamp_on"
+  },
+  {
+   "t": 121.3,
+   "what": "own_window_amber"
+  }
+ ],
+ "counter": [
+  {
+   "t": 7.0,
+   "what": "windows",
+   "n0": 0,
+   "n1": 31,
+   "dur": 1.5
+  }
+ ],
+ "cuts": [
+  3.4,
+  6.6,
+  9.7,
+  12.6,
+  16.4,
+  20.2,
+  23.1,
+  27.3,
+  29.6,
+  33.3,
+  35.3,
+  38.1,
+  42.4,
+  45.7,
+  46.5,
+  51.6,
+  55.1,
+  58.9,
+  63.9,
+  66.3,
+  69.3,
+  74.6,
+  77.0,
+  82.0,
+  83.6,
+  89.0,
+  92.9,
+  94.2,
+  97.1,
+  99.6,
+  101.9,
+  103.6,
+  108.4,
+  111.6,
+  118.4,
+  120.9,
+  123.6,
+  127.0,
+  131.0,
+  135.0,
+  138.4,
+  141.6,
+  146.6,
+  150.8
+ ]
+}

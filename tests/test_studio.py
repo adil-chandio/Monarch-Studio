@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+CLI = [sys.executable, str(ROOT / "tools" / "studio.py")]
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+class StudioCliTests(unittest.TestCase):
+    maxDiff = None
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        subprocess.run(CLI + ["clean", "all"], cwd=ROOT, text=True, capture_output=True)
+
+    def run_cli(self, *args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
+        proc = subprocess.run(CLI + list(args), cwd=ROOT, text=True, capture_output=True)
+        if check and proc.returncode:
+            self.fail(f"CLI failed ({proc.returncode}): {' '.join(args)}\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}")
+        return proc
+
+    def test_registry_lists_exact_initial_workflows(self) -> None:
+        proc = self.run_cli("list", "--json")
+        data = json.loads(proc.stdout)
+        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03"])
+        self.assertEqual(data["workflows"][0]["trigger"], "SHADEGO <topic>")
+        self.assertEqual(data["workflows"][1]["state"], "ACTIVE_WITH_DRIFT")
+
+    def test_registered_required_paths_exist(self) -> None:
+        registry = json.loads((ROOT / "studio" / "registry.json").read_text())
+        for item in registry["workflows"]:
+            base = ROOT / item["path"]
+            manifest = json.loads((base / "workflow.json").read_text())
+            for rel in manifest["required_paths"]:
+                self.assertTrue((base / rel).exists(), f"{item['code']} missing {rel}")
+
+    def test_wf01_hydration_rewrites_generated_copy_without_source_drift(self) -> None:
+        source = ROOT / "styles" / "monarch-stickman-animation" / "src" / "respect2.py"
+        before = digest(source)
+        self.run_cli("hydrate", "wf01", "--force")
+        home = ROOT / ".runtime" / "wf01" / "home" / "user"
+        generated = home / "src" / "respect2.py"
+        self.assertTrue(generated.exists())
+        self.assertIn(str(home / "shade_respect_v2.mp4"), generated.read_text())
+        self.assertEqual(before, digest(source), "hydration modified authoritative source")
+        status = self.run_cli("run", "wf01", "--", sys.executable, "brain/concept.py", "status")
+        self.assertIn("6 delivered videos", status.stdout.lower())
+
+    def test_wf03_hydration_recreates_legacy_layout_and_shared_dependencies(self) -> None:
+        source = ROOT / "styles" / "monarch-noir-film" / "src" / "encode_window.sh"
+        before = digest(source)
+        self.run_cli("hydrate", "wf03", "--force")
+        home = ROOT / ".runtime" / "wf03" / "home" / "user"
+        legacy = home / "workflows" / "wf03_monarch_noir_film"
+        self.assertTrue((legacy / "src" / "film_window.py").exists())
+        self.assertTrue((home / "src" / "toon.py").exists())
+        self.assertTrue((home / "src" / "shade.py").exists())
+        self.assertTrue((home / "fonts" / "Montserrat-VF.ttf").exists())
+        self.assertTrue((home / "brain" / "concept.py").exists())
+        self.assertIn(str(home / "build" / "wf03_window"), (legacy / "src" / "encode_window.sh").read_text())
+        self.assertEqual(before, digest(source), "hydration modified authoritative source")
+        help_result = self.run_cli(
+            "run", "wf03", "--", sys.executable,
+            "workflows/wf03_monarch_noir_film/src/film_window.py", "--help",
+        )
+        self.assertIn("--render", help_result.stdout)
+
+    def test_integrity_manifest_excludes_generated_and_vendor_contents(self) -> None:
+        data = json.loads((ROOT / ".studio-manifest.json").read_text())
+        paths = set(data["files"])
+        self.assertIn("README.md", paths)
+        self.assertNotIn(".studio-manifest.json", paths)
+        self.assertFalse(any(path.startswith(".runtime/") for path in paths))
+        self.assertFalse(any(path.startswith("vendor/effectcraft/") for path in paths))
+
+
+if __name__ == "__main__":
+    unittest.main()

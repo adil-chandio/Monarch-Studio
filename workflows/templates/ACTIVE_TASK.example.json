@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-YYYYMMDD-NNN",
+  "status": "active",
+  "title": "One precise running task",
+  "style_id": "monarch-stickman-animation",
+  "goal": "Exact desired result",
+  "acceptance_criteria": ["Measured criterion"],
+  "next_action": "One executable next action",
+  "running_processes": []
+}

@@ -1,0 +1,68 @@
+{
+ "out": "/home/user/build/v6/out/CUSTOM_HERO_MASTER_BOARD_v2.png",
+ "title": "CUSTOM HERO  ·  MASTER BOARD  v2",
+ "sub": "one person · two styles · the stickman now wears the STUDIO STICK FACE (not his human face) · every panel is a 1:1 down-scale of the approved masters",
+ "cols": [
+  {
+   "head": "1  ·  REALISTIC",
+   "detail": "face sheet v5 (accepted) · full-body sheet v2 · ≈7.5 heads · black shirt + charcoal blazer",
+   "panels": [
+    {
+     "img": "/home/user/build/v6/m/v2/HERO_REAL_portrait_v2.png",
+     "tag": "HERO SHOT",
+     "src": "REAL face sheet v5",
+     "labels": "boss gaze · soft key upper-left · teal + amber rims"
+    },
+    {
+     "img": "/home/user/build/v6/m/v2/HERO_REAL_expressions_v2.png",
+     "tag": "EXPRESSIONS 01–06",
+     "src": "REAL face sheet v5",
+     "labels": "01 WARM SMILE · 02 CONFIDENT SMIRK · 03 LAUGH · 04 SURPRISE · 05 INTENSE · 06 WINK"
+    },
+    {
+     "img": "/home/user/build/v6/m/v6/REAL_fullbody_turn_v1.png",
+     "tag": "FULL-BODY TURNAROUND",
+     "src": "REAL body sheet v2",
+     "labels": "FRONT · 3/4 VIEW · SIDE · BACK"
+    },
+    {
+     "img": "/home/user/build/v6/m/v6/REAL_poses_v1.png",
+     "tag": "POSES 01–06",
+     "src": "REAL body sheet v2",
+     "labels": "01 BOSS STANCE · 02 WALK IN · 03 POCKETS 3/4 · 04 POINT · 05 STOOL · LEAN IN · 06 PHONE"
+    }
+   ]
+  },
+  {
+   "head": "2  ·  ANIMATION  ·  STICKMAN  (stick face)",
+   "detail": "studio stick face + his hair / brows / nose / beard · face sheet v4 · body sheet v4 · 3.18 heads",
+   "panels": [
+    {
+     "img": "/home/user/studio/characters/stickface/STICKFACE_hero_v1.png",
+     "tag": "HERO SHOT",
+     "src": "STICK face sheet v4",
+     "labels": "bone-white stick head · simple lidded eyes · white 5-finger gloves"
+    },
+    {
+     "img": "/home/user/studio/characters/stickface/parts/SF_expr01_06_v2.png",
+     "tag": "EXPRESSIONS 01–06",
+     "src": "STICK face sheet v4 (07–12 + visemes + eyes on the sheet)",
+     "labels": "01 WARM SMILE · 02 CONFIDENT SMIRK · 03 LAUGH · 04 SURPRISE · 05 INTENSE · 06 WINK"
+    },
+    {
+     "img": "/home/user/studio/characters/stickface/parts/SF_body_turnaround_v1.png",
+     "tag": "FULL-BODY TURNAROUND",
+     "src": "STICK body sheet v4",
+     "labels": "FRONT · 3/4 VIEW · SIDE · BACK  ·  white sneakers · 3.18 heads"
+    },
+    {
+     "img": "/home/user/studio/characters/stickface/parts/SF_poses_v1.png",
+     "tag": "POSES 01–06",
+     "src": "STICK body sheet v4 (+ 6 action poses · walk · run · jump)",
+     "labels": "01 BOSS STANCE · 02 WALK IN · 03 RUN · 04 THINK · 05 POINT · 06 CELEBRATE"
+    }
+   ]
+  }
+ ],
+ "foot": "full sheets: REAL face v5 · REAL body v2 · STICK face v4 · STICK body v4  (Drive · Monarch Face / MONARCH CHARACTERS)"
+}

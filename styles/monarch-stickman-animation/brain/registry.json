@@ -1,0 +1,78 @@
+{
+  "_doc": "MONARCH EDITOR BRAIN — memory of what every delivered video USED. Newest LAST. Slot values are ids from brain/library.py, or 'other:<text>' for things outside the library, or null = not logged. The freshness gate reads this file; `concept.py commit` appends to it.",
+  "videos": [
+    {
+      "key": "money_v9",
+      "title": "stickman_money_37s_v9.mp4 — online paise (origin of the engine)",
+      "date": "2026-10-07",
+      "duration_s": 37.0,
+      "drive_id": "in archive v1 1labbEjdk4GO6zgth4Ce_JhP4WDpjZOEM",
+      "slots": {"hook": "cold_question", "device": "list_n", "world": "other:money props (wallet, phone, coins) on the v9 grid", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "other:v9 ASMR bed with room/hiss floor and 0.6 s grid", "type": null, "ending": "other:CTA card"},
+      "signature": "other:v9 engine itself — extruded type, 3-D-rig hero, tinted swipe, ASMR bed",
+      "transitions": ["tinted_swipe"],
+      "sfx_voices": ["pad", "pluck", "bell", "swell"],
+      "hook_text": "Jeb khali hai? Ghabrao mat — aaj main tumhe online paise…"
+    },
+    {
+      "key": "episode_hook_16x9",
+      "title": "stickman_wide_episode_full.mp4 263.5 s + stickman_wide_hook_53s.mp4 — The Slowest Predator",
+      "date": "2026-10-08",
+      "duration_s": 263.5,
+      "drive_id": "1MbClU5EuAeWEA-zaS8nNhxPIkBUZxtdW / 1qbCkv36OknO0S-2TFXUSkTLIepjpTn8o",
+      "slots": {"hook": "other:8-beat history hook (sourced facts)", "device": "other:long-form chapters 16:9", "world": "other:ancient survival / persistence hunt", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "other:wide bed (WIDE_AUDIO_LEDGER)", "type": null, "ending": "other:long-form outro"},
+      "signature": "other:16:9 long-form grid + hook architecture",
+      "transitions": ["tinted_swipe"],
+      "sfx_voices": ["pad", "pluck", "bell", "swell"],
+      "hook_text": "The Slowest Predator"
+    },
+    {
+      "key": "power_v1",
+      "title": "stickman_power_42s.mp4 — Powerful man kaise bane (voice-00)",
+      "date": "2026-10-08",
+      "duration_s": 42.0,
+      "drive_id": "1uq_xNhjQTcwvAUiHR5fXCnsBrlcJLyCI",
+      "slots": {"hook": "cold_question", "device": "list_n", "world": "gym_desk", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "dminor_pluck_100", "type": "counter_live", "ending": "other:follow + save pill and bookmark"},
+      "signature": "other:6 new rig poses + pose blending + measured camera (ledger 39–45)",
+      "transitions": ["tinted_swipe"],
+      "sfx_voices": ["pad", "pluck", "bell", "swell", "click", "shimmer"],
+      "hook_text": "Powerful man banna hai? Taqat muscles se nahi, aadaton se aati hai."
+    },
+    {
+      "key": "shade_v2",
+      "title": "shade_power_42s.mp4 — same script, SHADE hero, hybrid look",
+      "date": "2026-10-08",
+      "duration_s": 42.0,
+      "drive_id": "1rsJq7Y4wpQaKEsK7Zd7LNhiTqBYBUlJM",
+      "slots": {"hook": "cold_question", "device": "list_n", "world": "gym_desk", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "dminor_pluck_100", "type": "counter_live", "ending": "other:follow + save pill and bookmark"},
+      "signature": "other:hybrid charcoal/paper seam as a character (wedge drops on the beats) + SHADE on the 3-D rig, eyes that ignite",
+      "transitions": ["two_tone_slanted_swipe"],
+      "sfx_voices": ["pad", "pluck", "bell", "swell", "click", "shimmer"],
+      "hook_text": "Powerful man banna hai? (eyes open in the dark, the light arrives)"
+    },
+    {
+      "key": "izzat_v1",
+      "title": "shade_respect_90s.mp4 — Log aapki izzat kyun nahi karte (voice-01, cinematic layer)",
+      "date": "2026-10-08",
+      "duration_s": 90.0,
+      "drive_id": "1FtRyxIvEnBldm6_DGnGPWHcvNRPznzAQ",
+      "slots": {"hook": "social_sting", "device": "mini_story", "world": "ignored_room", "grammar": "long_take_internal", "camera": "push_parallax", "sonic": "other:v1 cinematic bed with room/hiss floor", "type": null, "ending": "other:follow/save end card"},
+      "signature": "other:cinematic layer — measured push/parallax, light rays, particles, slow-mo",
+      "transitions": ["tinted_swipe_cinematic"],
+      "sfx_voices": ["pad", "pluck", "bell", "swell", "glass", "metal", "shimmer", "click"],
+      "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?"
+    },
+    {
+      "key": "izzat_v2",
+      "title": "shade_respect_v2.mp4 — IZZAT v2 75.19 s (current cut, 19/19)",
+      "date": "2026-10-09",
+      "duration_s": 75.19,
+      "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
+      "slots": {"hook": "social_sting", "device": "mini_story", "world": "ignored_room", "grammar": "voice_led_inserts", "camera": "push_parallax", "sonic": "cinematic_braam", "type": "numeral_card_3d", "ending": "recap_carousel_card"},
+      "signature": "other:15-kind 3-D transition library, one kind per boundary, voice-led 33-shot cut, bed without a noise floor",
+      "transitions": ["cube_h", "cube_v", "zoom", "whip_h", "whip_v", "iris", "slices", "ink", "wedge", "card", "spin", "sweep", "blur", "doors", "shatter"],
+      "sfx_voices": ["braam", "reverse_swell", "glass_ting", "metal_ring", "paper_slide", "doppler_whip", "impact", "heartbeat", "glass_burst", "click", "bell", "glass", "metal", "pluck", "glass_hi", "low_chime", "shimmer", "metal_hi", "end_bell", "pad", "swell"],
+      "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?",
+      "worlds_also": ["scale_plate"]
+    }
+  ]
+}

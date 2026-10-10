@@ -1,0 +1,16 @@
+{
+ "beats": 161,
+ "max_gap": 4.7,
+ "max_gap_at": 141.9,
+ "kinds": {
+  "cut": 44,
+  "readout": 30,
+  "text": 14,
+  "light": 5,
+  "counter": 1,
+  "vo": 10,
+  "vo_phrase": 54,
+  "music": 25,
+  "anim": 13
+ }
+}

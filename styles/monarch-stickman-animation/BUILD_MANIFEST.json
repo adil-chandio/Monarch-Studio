@@ -1,0 +1,487 @@
+{
+  "spec_version": "4.0",
+  "project": "stickman_money_37s",
+  "generated": "2026-10-05",
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 1110,
+    "duration_s": 37.0,
+    "codec": "h264 High",
+    "pix_fmt": "yuv420p",
+    "crf_master": 18,
+    "crf_delivery": 27,
+    "maxrate": "2800k",
+    "bufsize": "5600k",
+    "faststart": true,
+    "target_bytes": 15000000
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "codec": "aac",
+    "bitrate": "160k",
+    "loudnorm": {
+      "I": -11,
+      "TP": -1.0,
+      "LRA": 10
+    },
+    "events_total": 748,
+    "events_bed": 531,
+    "events_transition": 40,
+    "events_cue": 177,
+    "bpm": 112.0,
+    "spb": 0.535714,
+    "beats": 70
+  },
+  "timeline": {
+    "tempo": 1.45,
+    "raw": [
+      7.13,
+      10.15,
+      9.31,
+      6.4,
+      9.02,
+      8.33
+    ],
+    "vo": [
+      4.917,
+      7.0,
+      6.421,
+      4.414,
+      6.221,
+      5.745
+    ],
+    "lead": 0.3,
+    "tail": [
+      0.35,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.45
+    ],
+    "scene_start": [
+      0.0,
+      5.567,
+      12.867,
+      19.588,
+      24.302,
+      30.823
+    ],
+    "scene_end": [
+      5.567,
+      12.867,
+      19.588,
+      24.302,
+      30.823,
+      37.0
+    ],
+    "vo_at": [
+      0.3,
+      5.617,
+      12.917,
+      19.638,
+      24.352,
+      30.873
+    ],
+    "cuts": [
+      5.567,
+      12.867,
+      19.588,
+      24.302,
+      30.823
+    ],
+    "atempo": [
+      1.446,
+      1.351,
+      1.441,
+      1.525,
+      1.484,
+      1.487
+    ],
+    "adelay_ms": [
+      300,
+      5617,
+      12917,
+      19638,
+      24352,
+      30873
+    ]
+  },
+  "palette": {
+    "CHALK": [
+      238,
+      242,
+      250
+    ],
+    "GOLD": [
+      255,
+      201,
+      60
+    ],
+    "CYAN": [
+      70,
+      224,
+      255
+    ],
+    "MINT": [
+      124,
+      255,
+      178
+    ],
+    "RED": [
+      255,
+      107,
+      107
+    ],
+    "PINK": [
+      255,
+      140,
+      200
+    ],
+    "BOARD_BASE": [
+      16,
+      20,
+      28
+    ],
+    "GROUND": [
+      120,
+      132,
+      155
+    ],
+    "FURNITURE": [
+      165,
+      177,
+      200
+    ],
+    "T3_KNOCKOUT": [
+      10,
+      13,
+      19
+    ],
+    "FLASH": [
+      255,
+      248,
+      232
+    ]
+  },
+  "accent_by_scene": [
+    "RED",
+    "CYAN",
+    "MINT",
+    "PINK",
+    "GOLD",
+    "GOLD"
+  ],
+  "scenes": [
+    {
+      "i": 1,
+      "name": "HOOK",
+      "start": 0.0,
+      "end": 5.567,
+      "dur": 5.567,
+      "frames": [
+        0,
+        166
+      ],
+      "entries": 16,
+      "first_entry": 0.0,
+      "last_entry": 3.75,
+      "hold": 1.817,
+      "interior_max_gap": 0.5
+    },
+    {
+      "i": 2,
+      "name": "SKILL SEEKHO",
+      "start": 5.567,
+      "end": 12.867,
+      "dur": 7.3,
+      "frames": [
+        167,
+        385
+      ],
+      "entries": 21,
+      "first_entry": 0.0,
+      "last_entry": 4.5,
+      "hold": 2.8,
+      "interior_max_gap": 1.0
+    },
+    {
+      "i": 3,
+      "name": "ROZ 2 GHANTE",
+      "start": 12.867,
+      "end": 19.588,
+      "dur": 6.721,
+      "frames": [
+        386,
+        587
+      ],
+      "entries": 81,
+      "first_entry": 0.0,
+      "last_entry": 4.5,
+      "hold": 2.221,
+      "interior_max_gap": 0.438
+    },
+    {
+      "i": 4,
+      "name": "SAMPLE BANAO",
+      "start": 19.588,
+      "end": 24.302,
+      "dur": 4.714,
+      "frames": [
+        588,
+        728
+      ],
+      "entries": 15,
+      "first_entry": 0.0,
+      "last_entry": 3.0,
+      "hold": 1.714,
+      "interior_max_gap": 0.7
+    },
+    {
+      "i": 5,
+      "name": "SERVICE BECHO",
+      "start": 24.302,
+      "end": 30.823,
+      "dur": 6.521,
+      "frames": [
+        729,
+        924
+      ],
+      "entries": 19,
+      "first_entry": 0.0,
+      "last_entry": 5.41,
+      "hold": 1.111,
+      "interior_max_gap": 1.0
+    },
+    {
+      "i": 6,
+      "name": "CTA",
+      "start": 30.823,
+      "end": 37.0,
+      "dur": 6.177,
+      "frames": [
+        925,
+        1109
+      ],
+      "entries": 21,
+      "first_entry": 0.0,
+      "last_entry": 4.6,
+      "hold": 1.577,
+      "interior_max_gap": 0.98
+    }
+  ],
+  "render": {
+    "TQ": 2,
+    "boil_hz": 15,
+    "glow_blur": 13,
+    "glow_blend": 0.42,
+    "bloom": {
+      "scale": 4,
+      "threshold": 168,
+      "radii": [
+        15,
+        32
+      ],
+      "weights": [
+        0.6,
+        0.5
+      ],
+      "amount": 0.5
+    },
+    "grade": {
+      "shadow": [
+        -3,
+        1,
+        11
+      ],
+      "highlight": [
+        13,
+        5,
+        -7
+      ],
+      "s_curve_mix": 0.3
+    },
+    "vignette": "clip(1.06-0.45*r**2,0,1.1)",
+    "grain_gain": 4.5,
+    "paper_jitter_px": 2,
+    "camera": {
+      "zoom_base": 1.025,
+      "zoom_push": 0.05,
+      "zoom_exp": 1.05,
+      "shake_x": [
+        [
+          7,
+          2.0
+        ],
+        [
+          4,
+          5.1
+        ]
+      ],
+      "shake_y": [
+        [
+          6,
+          1.6
+        ],
+        [
+          3,
+          4.3
+        ]
+      ],
+      "roll_deg": 0.3,
+      "impact_gate": [
+        -0.2,
+        0.34
+      ],
+      "impact_falloff": 0.26,
+      "flash_peak": 0.34,
+      "aberr_peak": 9,
+      "smear_in": 14,
+      "smear_out": 7,
+      "beat_thump": 0.01,
+      "beat_decay": 6
+    }
+  },
+  "transitions": {
+    "TDUR": 0.34,
+    "kinds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "mask_res": [
+      540,
+      960
+    ],
+    "mask_blur": 5,
+    "iris": {
+      "center": [
+        0.5,
+        0.62
+      ],
+      "radius_half": 700,
+      "radius_full": 1400,
+      "exp": 1.25,
+      "wobble": "1+.16*sin(5a)+.08*sin(9a+1.3)"
+    },
+    "paint": {
+      "cols": 7,
+      "stagger": 0.05,
+      "span": 0.72
+    },
+    "eraser": {
+      "travel": "p*1.3-0.15",
+      "noise": "26*sin(.06y)+18*sin(.013y+2)"
+    },
+    "zip": {
+      "exp": 0.85,
+      "extent": 0.75
+    },
+    "whip": {
+      "slope": [
+        0.6,
+        0.4
+      ],
+      "overshoot": 1.15
+    },
+    "frozen_epsilon": -0.001
+  },
+  "music": {
+    "chords": [
+      [
+        -12,
+        [
+          0,
+          4,
+          7
+        ]
+      ],
+      [
+        -7,
+        [
+          7,
+          11,
+          14
+        ]
+      ],
+      [
+        -10,
+        [
+          3,
+          7,
+          10
+        ]
+      ],
+      [
+        -5,
+        [
+          5,
+          9,
+          12
+        ]
+      ],
+      [
+        -7,
+        [
+          7,
+          11,
+          14
+        ]
+      ],
+      [
+        -12,
+        [
+          0,
+          4,
+          7
+        ]
+      ]
+    ],
+    "melody": [
+      0,
+      4,
+      7,
+      12,
+      11,
+      7,
+      4,
+      2
+    ],
+    "progression": "I-V-IV-I-V-I in C major"
+  },
+  "anchor_frame_hashes": {
+    "0": "891d505a10b661c9",
+    "1": "9ba00cb19212ecfa",
+    "83": "91743662444064cf",
+    "166": "93c1111fbfd0987e",
+    "167": "59cb3d37d93ed00c",
+    "170": "908a5947b8b021f6",
+    "180": "a3f6960a47917d0d",
+    "276": "11e0b6da7b93fe63",
+    "385": "394156aa1d413977",
+    "386": "d8f6cb8a018fe689",
+    "400": "85617b94108db7b8",
+    "487": "30dd5bb35ca03bd6",
+    "587": "b28bacb812ab14e7",
+    "588": "76db888ab974cf12",
+    "658": "46b3360be2a048c1",
+    "728": "c8df980b586bcd33",
+    "729": "5460ead7f1913ab5",
+    "826": "09e2987fea69a18b",
+    "924": "361d38e3c0ae35a4",
+    "925": "322e8873114b37da",
+    "1000": "103078cf89aed62c",
+    "1109": "8cd5fe3abfc7e272"
+  },
+  "source_hashes": {
+    "src/timeline.py": "2ea66736d4fd88fe63503f4ee2ba20e370eb7d08cbca6a8460ecd2ffc9b3dba3",
+    "src/stickbase.py": "6fff2581d5cae2d9514ab58551e32ef9f1287ba647ee1cdb7c025d20a9e88dbc",
+    "src/stick2.py": "b76685a05b511d9fa272ed135e63f79c055db7cc5b004758a0f9a90dadc38d51",
+    "src/make_audio4.py": "ac01e65cebcfc8db6914f4caa2c0ef6ce56df5a22426fca062487ba07187e58d"
+  }
+}

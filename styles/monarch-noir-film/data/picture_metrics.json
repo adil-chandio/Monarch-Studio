@@ -1,0 +1,337 @@
+{
+"total": 156.90000000000003,
+"render_seconds": 2037,
+"errors": [],
+"shots": [
+{
+"name": "S01 card",
+"n": 12,
+"luma": 1.04,
+"dark": 1.0,
+"chroma": 0.0,
+"p99": 5.0,
+"lmin": 0.7,
+"lmax": 1.2
+},
+{
+"name": "S02 wide \u2014 the light comes up",
+"n": 40,
+"luma": 27.48,
+"dark": 0.76,
+"chroma": 4.68,
+"p99": 179.14,
+"lmin": 10.8,
+"lmax": 29.6
+},
+{
+"name": "S03 medium \u2014 he stops looking",
+"n": 34,
+"luma": 35.26,
+"dark": 0.7,
+"chroma": 4.52,
+"p99": 197.44,
+"lmin": 33.8,
+"lmax": 36.4
+},
+{
+"name": "S04 the corner",
+"n": 30,
+"luma": 29.3,
+"dark": 0.73,
+"chroma": 5.3,
+"p99": 182.79,
+"lmin": 27.4,
+"lmax": 31.2
+},
+{
+"name": "S05 insert \u2014 the flame gutters",
+"n": 10,
+"luma": 50.98,
+"dark": 0.27,
+"chroma": 16.53,
+"p99": 162.17,
+"lmin": 33.5,
+"lmax": 61.2
+},
+{
+"name": "S06 small",
+"n": 32,
+"luma": 27.68,
+"dark": 0.75,
+"chroma": 5.23,
+"p99": 181.15,
+"lmin": 11.5,
+"lmax": 29.6
+},
+{
+"name": "S07 lights out",
+"n": 34,
+"luma": 5.15,
+"dark": 0.97,
+"chroma": 0.36,
+"p99": 49.63,
+"lmin": 0.0,
+"lmax": 5.6
+},
+{
+"name": "S08 dark \u2014 close",
+"n": 34,
+"luma": 8.53,
+"dark": 0.9,
+"chroma": 0.45,
+"p99": 52.94,
+"lmin": 7.9,
+"lmax": 9.0
+},
+{
+"name": "S09 relight",
+"n": 32,
+"luma": 30.61,
+"dark": 0.73,
+"chroma": 5.4,
+"p99": 171.0,
+"lmin": 4.2,
+"lmax": 133.1
+},
+{
+"name": "S10 one step \u2014 back view",
+"n": 38,
+"luma": 28.98,
+"dark": 0.73,
+"chroma": 5.18,
+"p99": 186.99,
+"lmin": 27.7,
+"lmax": 30.0
+},
+{
+"name": "M1 wide",
+"n": 7,
+"luma": 27.76,
+"dark": 0.74,
+"chroma": 5.1,
+"p99": 184.97,
+"lmin": 27.2,
+"lmax": 28.2
+},
+{
+"name": "M2 legs",
+"n": 6,
+"luma": 41.07,
+"dark": 0.55,
+"chroma": 6.1,
+"p99": 190.18,
+"lmin": 40.0,
+"lmax": 41.8
+},
+{
+"name": "M3 low",
+"n": 6,
+"luma": 27.53,
+"dark": 0.74,
+"chroma": 5.15,
+"p99": 180.97,
+"lmin": 26.4,
+"lmax": 28.5
+},
+{
+"name": "M4 close",
+"n": 6,
+"luma": 34.75,
+"dark": 0.66,
+"chroma": 4.87,
+"p99": 190.92,
+"lmin": 34.1,
+"lmax": 35.6
+},
+{
+"name": "M5 back34",
+"n": 5,
+"luma": 28.34,
+"dark": 0.71,
+"chroma": 4.84,
+"p99": 182.82,
+"lmin": 27.9,
+"lmax": 28.8
+},
+{
+"name": "M6 wide",
+"n": 5,
+"luma": 26.28,
+"dark": 0.75,
+"chroma": 5.1,
+"p99": 171.12,
+"lmin": 25.6,
+"lmax": 26.7
+},
+{
+"name": "M7 legs",
+"n": 4,
+"luma": 33.15,
+"dark": 0.67,
+"chroma": 4.62,
+"p99": 182.47,
+"lmin": 32.1,
+"lmax": 34.0
+},
+{
+"name": "M8 close",
+"n": 4,
+"luma": 29.52,
+"dark": 0.71,
+"chroma": 4.25,
+"p99": 183.47,
+"lmin": 28.4,
+"lmax": 30.0
+},
+{
+"name": "C1 hero",
+"n": 1,
+"luma": 30.6,
+"dark": 0.68,
+"chroma": 4.7,
+"p99": 187.1,
+"lmin": 30.6,
+"lmax": 30.6
+},
+{
+"name": "C2 red",
+"n": 2,
+"luma": 1.0,
+"dark": 1.0,
+"chroma": 0.6,
+"p99": 6.0,
+"lmin": 1.0,
+"lmax": 1.0
+},
+{
+"name": "C3 hero",
+"n": 2,
+"luma": 29.9,
+"dark": 0.7,
+"chroma": 4.45,
+"p99": 182.7,
+"lmin": 29.4,
+"lmax": 30.4
+},
+{
+"name": "C4 red",
+"n": 1,
+"luma": 1.1,
+"dark": 1.0,
+"chroma": 0.8,
+"p99": 6.0,
+"lmin": 1.1,
+"lmax": 1.1
+},
+{
+"name": "C5 reach",
+"n": 2,
+"luma": 31.4,
+"dark": 0.69,
+"chroma": 4.35,
+"p99": 182.25,
+"lmin": 31.2,
+"lmax": 31.6
+},
+{
+"name": "C6 red2",
+"n": 1,
+"luma": 1.3,
+"dark": 0.99,
+"chroma": 1.4,
+"p99": 11.3,
+"lmin": 1.3,
+"lmax": 1.3
+},
+{
+"name": "S12 the walk \u2014 shaft + dust",
+"n": 46,
+"luma": 29.64,
+"dark": 0.67,
+"chroma": 6.41,
+"p99": 162.88,
+"lmin": 28.3,
+"lmax": 30.8
+},
+{
+"name": "S13 insert \u2014 the hand",
+"n": 8,
+"luma": 33.89,
+"dark": 0.57,
+"chroma": 5.5,
+"p99": 176.0,
+"lmin": 31.6,
+"lmax": 36.6
+},
+{
+"name": "S14 the wall",
+"n": 50,
+"luma": 30.8,
+"dark": 0.74,
+"chroma": 5.56,
+"p99": 172.77,
+"lmin": 25.3,
+"lmax": 239.2
+},
+{
+"name": "S15 it grew back",
+"n": 32,
+"luma": 26.14,
+"dark": 0.75,
+"chroma": 5.03,
+"p99": 164.57,
+"lmin": 24.9,
+"lmax": 27.2
+},
+{
+"name": "S16 he picks up the light",
+"n": 32,
+"luma": 29.32,
+"dark": 0.76,
+"chroma": 4.96,
+"p99": 205.31,
+"lmin": 25.8,
+"lmax": 33.1
+},
+{
+"name": "S17 he carries it to the wall",
+"n": 34,
+"luma": 28.65,
+"dark": 0.74,
+"chroma": 5.02,
+"p99": 219.81,
+"lmin": 27.2,
+"lmax": 31.0
+},
+{
+"name": "S18 final wide",
+"n": 24,
+"luma": 31.43,
+"dark": 0.65,
+"chroma": 6.81,
+"p99": 218.7,
+"lmin": 7.7,
+"lmax": 34.0
+},
+{
+"name": "S19 quote",
+"n": 26,
+"luma": 1.24,
+"dark": 1.0,
+"chroma": 0.0,
+"p99": 5.62,
+"lmin": 0.1,
+"lmax": 1.4
+},
+{
+"name": "S20 end card",
+"n": 28,
+"luma": 1.73,
+"dark": 0.99,
+"chroma": 0.08,
+"p99": 5.86,
+"lmin": 0.1,
+"lmax": 2.1
+}
+]
+}

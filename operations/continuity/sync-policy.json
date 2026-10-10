@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "checkpoint_interval_minutes": 55,
+  "maximum_active_checkpoint_age_minutes": 70,
+  "platforms": ["github", "google_drive", "notion", "linear", "google_docs"],
+  "required_checkpoint_files": ["checkpoint.json", "HANDOFF.md", "STATUS.md", "SYNC.json"],
+  "event_driven_checkpoints": [
+    "after_user_instruction",
+    "before_long_running_process",
+    "after_long_running_process",
+    "after_material_result",
+    "after_error_or_blocker",
+    "before_agent_turn_ends"
+  ],
+  "transcript_scope": "visible_user_and_assistant_messages_from_task_initialization; hidden system prompts, credentials and connector tokens are excluded",
+  "failure_policy": "A failed remote update remains pending in SYNC.json with an error; local work continues from the durable checkpoint and is never silently marked synced."
+}

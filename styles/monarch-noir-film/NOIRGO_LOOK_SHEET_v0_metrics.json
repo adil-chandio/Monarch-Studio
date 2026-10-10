@@ -1,0 +1,72 @@
+[
+ {
+  "shot": "01 \u00b7 Every night, it was the same",
+  "luma": 28.5,
+  "dark_lt30": 0.731,
+  "p99": 188.6,
+  "sat": 0.288,
+  "chroma": 7.6,
+  "k": 2.2,
+  "hero_px": 649
+ },
+ {
+  "shot": "02 \u00b7 The corner (villain text)",
+  "luma": 30.9,
+  "dark_lt30": 0.683,
+  "p99": 194.7,
+  "sat": 0.282,
+  "chroma": 8.8,
+  "k": 2.2,
+  "hero_px": 583
+ },
+ {
+  "shot": "03 \u00b7 Lights out (rock bottom)",
+  "luma": 10.8,
+  "dark_lt30": 0.968,
+  "p99": 192.8,
+  "sat": 0.52,
+  "chroma": 4.2,
+  "k": 2.2,
+  "hero_px": 600
+ },
+ {
+  "shot": "04 \u00b7 One step (back view)",
+  "luma": 31.1,
+  "dark_lt30": 0.705,
+  "p99": 191.6,
+  "sat": 0.285,
+  "chroma": 8.2,
+  "k": 2.2,
+  "hero_px": 707
+ },
+ {
+  "shot": "05 \u00b7 The walk (shaft + dust)",
+  "luma": 31.7,
+  "dark_lt30": 0.637,
+  "p99": 176.3,
+  "sat": 0.265,
+  "chroma": 9.0,
+  "k": 1.46,
+  "hero_px": 474
+ },
+ {
+  "shot": "06 \u00b7 The wall (payoff)",
+  "luma": 29.8,
+  "dark_lt30": 0.7,
+  "p99": 171.1,
+  "sat": 0.258,
+  "chroma": 8.5,
+  "k": 1.06,
+  "hero_px": 393
+ },
+ {
+  "shot": "07 \u00b7 End card",
+  "luma": 1.9,
+  "dark_lt30": 0.994,
+  "p99": 5.0,
+  "sat": 0.689,
+  "chroma": 1.7,
+  "k": null,
+  "hero_px": 0
+ }
+]

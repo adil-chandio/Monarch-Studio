@@ -1,0 +1,141 @@
+{
+ "out": "/home/user/studio/characters/CUSTOM_HERO_STICK_SHEET_v4.png",
+ "title": "CUSTOM HERO · STICKMAN FACE SHEET v4 — STICK FACE",
+ "sub": "studio stickman face (bone-white head · simple lidded eyes · nub nose) carrying his identity cues — same person as REAL v5, no human face on the stick body",
+ "sub2": "stick-face hero v1 · bust turnaround · expressions 01–12 · visemes 01–12 · eyes & blink · head angles · hands · 2026-10-10 · MONARCH STUDIO",
+ "hero_row": {
+  "img": "/home/user/studio/characters/stickface/STICKFACE_hero_v1.png",
+  "tag": "HERO SHOT · STICK FACE v1",
+  "side": [
+   {
+    "img": "/home/user/studio/characters/stickface/refs/REAL_hero_v5_face_crop.png",
+    "tag": "IDENTITY SOURCE · REAL v5",
+    "w": 432,
+    "h": 643
+   },
+   {
+    "img": "/home/user/studio/characters/stickface/refs/studio_dna_head_pad.png",
+    "tag": "STUDIO STICK DNA · NOIRGO MAX HERO v2",
+    "w": 432,
+    "h": 510
+   }
+  ]
+ },
+ "rows": [
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_turnaround_v1.png",
+   "tag": "BUST TURNAROUND",
+   "labels": [
+    "FRONT",
+    "3/4 VIEW",
+    "PROFILE"
+   ],
+   "cols": 3
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_expr01_06_v2.png",
+   "tag": "EXPRESSIONS 01–06",
+   "labels": [
+    "01 WARM SMILE",
+    "02 CONFIDENT SMIRK",
+    "03 LAUGH",
+    "04 SURPRISE",
+    "05 INTENSE",
+    "06 WINK"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_expr07_12_v1.png",
+   "tag": "EXPRESSIONS 07–12",
+   "labels": [
+    "07 RAGE",
+    "08 MIND BLOWN",
+    "09 FEAR",
+    "10 SALUTE",
+    "11 EXHAUSTED",
+    "12 HEARTBROKEN"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_visemes01_06_v1.png",
+   "tag": "LIP-SYNC VISEMES 01–06",
+   "labels": [
+    "01 M·B·P",
+    "02 A·I",
+    "03 E",
+    "04 O",
+    "05 U·W",
+    "06 F·V"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_visemes07_12_v1.png",
+   "tag": "LIP-SYNC VISEMES 07–12",
+   "labels": [
+    "07 L",
+    "08 TH",
+    "09 S·Z",
+    "10 CH·SH·J",
+    "11 TALK·SMILE",
+    "12 SHOUT"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_eyes_v1.png",
+   "tag": "EYES & BLINK",
+   "labels": [
+    "LOOK RIGHT",
+    "SIDE GLANCE · LIDS LOW",
+    "LOOK UP",
+    "LOOK DOWN",
+    "HALF BLINK",
+    "CLOSED"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_headangles_v1.png",
+   "tag": "HEAD ANGLES",
+   "labels": [
+    "LOOK UP",
+    "LOOK DOWN",
+    "TILT",
+    "3/4 LEFT",
+    "BACK 3/4",
+    "CHIN UP"
+   ],
+   "cols": 3,
+   "grid": 2
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_hands_v1.png",
+   "tag": "HANDS · WHITE 5-FINGER GLOVES",
+   "labels": [
+    "RELAX",
+    "FIST",
+    "POINT",
+    "SPLAY",
+    "PHONE",
+    "THUMBS-UP"
+   ],
+   "cols": 3,
+   "grid": 2
+  }
+ ],
+ "notes": [
+  "DIRECTION (user, 2026-10-10): the stickman uses a STICKMAN FACE, not his human face · identity carried by the hair, brows, nose, beard and wardrobe · face DNA = NOIRGO MAX hero v2 (bone-white smooth head, simple round lidded eyes with dark-brown irises, nub nose, thin sculpted mouth)",
+  "IDENTITY CUES: big thick swept-back layered black hair to the collar · thick straight black brows · longer straight nose with a slightly dropped tip · light matte-black beard along the jaw + light moustache · ear visible with hair behind it · fitted black shirt (top button open) + slim charcoal blazer · smooth white 5-finger gloves",
+  "LIGHT: soft key upper-left · teal rim camera-left · amber rim camera-right · charcoal backdrop · matte toy-like CG, no skin texture",
+  "EYES: cell 2 rendered as a heavy-lidded side glance, labelled as rendered · LOOK LEFT = mirror of LOOK RIGHT in the rig · every strip is a native 1:1 generation, nothing upscaled",
+  "SOURCES: REAL face v5 `1YTschdKJjpmsl4jIgC15y8yjek0zf1-M` (accepted) · studio DNA `WF03_CHARSHEET_HERO_v2` · stick-face hero v1 preview `1yMkEjUpi2ZDSM_KFx4HNfAYi_1UcVhX9` · Drive: Monarch Face / MONARCH CHARACTERS / Stickman"
+ ]
+}

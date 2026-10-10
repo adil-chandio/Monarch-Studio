@@ -1,0 +1,25 @@
+# DRIVE_MANIFEST — media that is NOT inside video_edit_workflow_v2.zip (too large for the ≤100 MB archive)
+
+Every file below is permanent on Google Drive; Drive `md5Checksum` was compared with the local `md5sum` at upload time.
+
+| file | bytes | duration | sha256[:16] | md5 | Drive id | folder |
+|---|---|---|---|---|---|---|
+| `stickman_wide_episode_full.mp4` (16:9 master, 7905 f) | 69,729,482 | 263.50 s | `e2bbc8edddcfcbf5` | `8aec7360cbc1849b5f8cafe2c18e7e7b` | `1MbClU5EuAeWEA-zaS8nNhxPIkBUZxtdW` | `1YSvMC-paJWQHVJEBpBZ0Mybp-WxshcPO` |
+| `shade_respect_90s.mp4` (IZZAT, 2700 f) | 33,808,670 | 90.000 s | `f3d0f1a21ec59b00` | `839b95bbf35d96bf4fa26eb811f680e1` | `1FtRyxIvEnBldm6_DGnGPWHcvNRPznzAQ` | `1_MhRILyCB86LWHYqLDzBPvmneA6Y2uqo` |
+| `shade_power_42s.mp4` (SHADE v2, 1260 f) | 15,908,959 | 42.000 s | `3a0de99bc85e1caa` | `c9f8c2f4fedb36d80d16edbd60953c05` | `1rsJq7Y4wpQaKEsK7Zd7LNhiTqBYBUlJM` | `1YSvMC-paJWQHVJEBpBZ0Mybp-WxshcPO` |
+| `stickman_power_42s.mp4` (POWER v1, 1260 f) | 15,885,994 | 42.000 s | `4c5a5c79c4408386` | `1b61a2223d196af3c53f7af3269dd959` | `1uq_xNhjQTcwvAUiHR5fXCnsBrlcJLyCI` | `1YSvMC-paJWQHVJEBpBZ0Mybp-WxshcPO` |
+
+Included in this zip: `stickman_wide_hook_53s.mp4` (14,115,662 B, md5 `288134f14c09579577d67a4223071693`, also Drive `1qbCkv36OknO0S-2TFXUSkTLIepjpTn8o`), `stickman_money_37s_v9.mp4` (the original 37 s deliverable), `stickman_wide_episode_PREVIEW_720p.mp4`, all scripts, docs, ledgers, plates, assets, the dossier PDF, the session log and `RESUME_STATE.md`.
+
+Other permanent records: original archive `video edit workflow.zip` Drive `1labbEjdk4GO6zgth4Ce_JhP4WDpjZOEM` (161,649,174 B — keep; it holds the v2–v8 iterations); dossier PDF v4.0 Drive `1c_CSbdenDdPl1WEwpXCAR0gnUGq2HXK9`; package zips: POWER `1AyvsSfSwGruAY5Ub0_vUPwi8Gm8Fa2pk`, SHADE v2 `1dU8yV4zD5x9PQtEusk24Yb-vcJoDYD8C`, IZZAT `1zYeJ_rECNjBDFx1cuBwI2PtKZj9TaBzE`.
+
+Resume trigger: **"best video reel editing"** → Linear project "Monarch Stickman Animation" → MON-34 → Notion Docs 00–10 → session log §0 → `RESUME_STATE.md`.
+
+### Turn 10 — IZZAT v2 (2026-10-09)
+| file | bytes | md5 | Drive id | folder |
+|---|---|---|---|---|
+| shade_respect_v2.mp4 | 28,432,377 | 8d91be52ab969e0b23f21bf6bab0df85 | 1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu | 1_MhRILyCB86LWHYqLDzBPvmneA6Y2uqo |
+| shade_respect_v2_contact.png | 1,452,207 | — | 1SG--FCZ1r71jKvo0PgA7W2aI4tEVaBar | same |
+| VIDEO_RESPECT_NOTES.md (v1+v2) | 15,356 | — | 14INr04m-LbotIa6gfliNU8TAHiLhsUBx | same |
+| RESUME_STATE.md (after turn 10) | 17,801 | — | 1wUVVqtovI8i98eatPpz4AxMdkz3QxO4j | same |
+Linear: MON-52 (Done) · MON-44 comment. Notion: Doc 10 (IZZAT v2 block), Doc 07 (ledger 57–61), Doc 08 (turn-10 table).

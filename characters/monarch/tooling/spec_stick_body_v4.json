@@ -1,0 +1,97 @@
+{
+ "out": "/home/user/studio/characters/CUSTOM_HERO_STICK_BODY_SHEET_v4.png",
+ "title": "CUSTOM HERO · STICKMAN BODY SHEET v4 — STICK FACE",
+ "sub": "studio stickman body (thin stick limbs · white 5-finger gloves · white sneakers) with the stick face · same character as REAL v5 · measured, not eyeballed",
+ "sub2": "measured proportions + palette · 4-view turnaround · acting poses · action poses · walk · run · jump · 2026-10-10 · MONARCH STUDIO",
+ "hero_row": null,
+ "rows": [
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_proportions_v1.png",
+   "tag": "MEASURED PROPORTIONS + PALETTE",
+   "labels": [],
+   "cols": 1
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_body_turnaround_v1.png",
+   "tag": "FULL-BODY TURNAROUND",
+   "labels": [
+    "FRONT",
+    "3/4 VIEW",
+    "SIDE",
+    "BACK"
+   ],
+   "cols": 4
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_poses_v1.png",
+   "tag": "ACTING POSES",
+   "labels": [
+    "BOSS STANCE",
+    "WALK IN",
+    "RUN",
+    "THINK",
+    "POINT",
+    "CELEBRATE"
+   ],
+   "cols": 6
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_action_v1.png",
+   "tag": "ACTION POSES",
+   "labels": [
+    "JUMP",
+    "LANDING",
+    "DEFEATED",
+    "TRIUMPH",
+    "SIT · PHONE",
+    "SPRINT START"
+   ],
+   "cols": 6
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_walk_v1.png",
+   "tag": "WALK CYCLE · 6 PHASES (SIDE)",
+   "labels": [
+    "CONTACT",
+    "DOWN",
+    "PASSING",
+    "UP",
+    "CONTACT",
+    "PASSING"
+   ],
+   "cols": 6
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_run_v1.png",
+   "tag": "RUN CYCLE · 5 PHASES (3/4)",
+   "labels": [
+    "PUSH-OFF",
+    "FLIGHT",
+    "CONTACT",
+    "RECOIL",
+    "DRIVE"
+   ],
+   "cols": 5
+  },
+  {
+   "img": "/home/user/studio/characters/stickface/parts/SF_jump_v1.png",
+   "tag": "JUMP · 6 PHASES (SIDE)",
+   "labels": [
+    "ANTICIPATION",
+    "PUSH-OFF",
+    "RISE",
+    "APEX",
+    "LAND",
+    "RECOVER"
+   ],
+   "cols": 6
+  }
+ ],
+ "notes": [
+  "PROPORTIONS (measured on the front view, pixels): height 623 px = 3.18 heads (hair top → floor) · head 196×176 px · shoulders 138 px = 0.71 heads · hands hang to 2.29 heads · crotch 2.09 heads · legs 213 px = 1.09 heads · sneakers 37 px · side view hair top / floor within 1 px of the front",
+  "PALETTE (median of the renders): head #958C7E lit bone-white · hair #2B2B2A · blazer #2B2B2A · shirt #171817 · trousers #0C0F0E · glove #D7D1CD · sneaker #CCC8C4 · backdrop #111717 · rim teal #3E827E · rim amber #9E6E46",
+  "BODY DNA: oversized stick-face head · thin dark stick arms and legs · fitted black shirt (top button open) + slim charcoal blazer · slim near-black trousers · smooth white 5-finger gloves · white sneakers · faint contact shadow",
+  "CYCLES: walk 6 phases side · run 5 phases 3/4 · jump 6 phases side — consecutive frames at identical scale on one ground line · every strip native 1:1, nothing upscaled",
+  "SOURCES: stick-face hero v1 `1yMkEjUpi2ZDSM_KFx4HNfAYi_1UcVhX9` · STICK FACE SHEET v4 `1b2Wj1lUGtZpOI-26UuxneCi6fm7G3zKc` · REAL face v5 `1YTschdKJjpmsl4jIgC15y8yjek0zf1-M` (accepted) · Drive: Monarch Face / MONARCH CHARACTERS / Stickman"
+ ]
+}

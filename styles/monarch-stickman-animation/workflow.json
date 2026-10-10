@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "code": "WF-01",
+  "style_id": "monarch-stickman-animation",
+  "slug": "wf01",
+  "name": "Monarch Stickman Animation",
+  "path": "styles/monarch-stickman-animation",
+  "trigger": {
+    "token": "SHADEGO",
+    "grammar": "SHADEGO <topic> | short|film | <n> s | voice: <note> | <special ask> | language: <lang>",
+    "mode": "full_autopilot",
+    "allowed_questions": ["topic_if_missing", "voice_audition_click"]
+  },
+  "state": "PARKED",
+  "reply_language": "Roman Urdu",
+  "formats": {
+    "short": {"width": 1080, "height": 1920, "duration_seconds": [40, 90], "loudness_lufs": -11.6},
+    "film": {"width": 1920, "height": 1080, "duration_seconds": [120, 300], "loudness_lufs": -16.5, "loudness_tolerance_lu": 1.0}
+  },
+  "current_delivery": {
+    "name": "IZZAT v2",
+    "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
+    "md5": "8d91be52ab969e0b23f21bf6bab0df85",
+    "duration_seconds": 75.19,
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "shots": 33,
+    "transitions": 32,
+    "transition_kinds": 15,
+    "loudness_lufs": -11.6,
+    "gate_result": "19/19",
+    "reproducibility": "R1"
+  },
+  "brain": {"path": "brain", "registry_generation": 6, "gate_model": "19 workflow gates plus cross-video novelty gate #20"},
+  "runtime": {"legacy_home": "/home/user", "working_directory": ".", "hydrate_layout": "home_root"},
+  "required_paths": [
+    "README.md", "style.json", "knowledge/INDEX.md", "SHADEGO.md", "RESUME_STATE.md", "DRIVE_MANIFEST.md",
+    "brain/concept.py", "brain/registry.json", "src/respect2.py", "src/timeline_respect2.py",
+    "src/gate_respect2.py", "src/vo_fit.py", "src/make_asmr_respect2.py", "src/mux_respect2.sh"
+  ],
+  "authorities": {
+    "drive_folder_id": "1Qum7OkUZpRMSt3SMJ6q3WumUUwzezTw-",
+    "notion_project_id": "3f3807e1-e916-819e-aa60-fc633bf61478",
+    "linear_project_id": "4d053022-acab-4836-8f13-5ccb7e043c17",
+    "google_doc_hub_id": "1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g"
+  }
+}

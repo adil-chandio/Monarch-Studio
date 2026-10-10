@@ -1,0 +1,119 @@
+{
+ "out": "/home/user/build/v6/out/CUSTOM_HERO_CHARACTER_BIBLE_v2.pdf",
+ "board": "/home/user/build/v6/out/CUSTOM_HERO_MASTER_BOARD_v2.png",
+ "cover_title": "cover · master board v2 (1 REALISTIC | 2 ANIMATION · STICKMAN with the studio stick face)",
+ "foot": "MONARCH STUDIO · CUSTOM HERO · character bible v2 · Drive: Monarch Face / MONARCH CHARACTERS 1iPXavru1AXiSG5wRHuLKc5VNXhaVcXZK",
+ "index_title": "CUSTOM HERO  ·  CHARACTER BIBLE  v2",
+ "index": [
+  {
+   "h": "IDENTITY LOCK  (same person in both styles — from the user's reference videos)",
+   "lines": [
+    "early-20s · slim long face · thick black swept-back layered hair to the collar · thick straight brows · dark-brown eyes",
+    "long straight nose (tip slightly dropped) · thin lips set back · soft receding chin · light natural beard along / under the jaw + light moustache · ear visible, hair behind it",
+    "profile follows the dedicated side-face video (REAL face v5 rebuilt from right-facing profile frames) · attitude: boss gaze, calm, masculine, hooked",
+    "reference videos (Realistic folder, private): Snapchat-1811422650 1czlTX5v0W4KeXIVKrLNqMLPyeYc13BHC · Side face 1ZtYyXj7buyP52reUgtg3kgAfmF8pwR4N · voice sample monarch voice.aac 1tOhhtG0-IJwswGwqDVJ6nDm7EeVUUDgi"
+   ]
+  },
+  {
+   "h": "TWO STYLES",
+   "lines": [
+    "REALISTIC: his real face · warm medium-brown skin · ≈7.5 heads · black shirt (top button open) + slim charcoal blazer · black leather boots · variants bomber / hoodie / overcoat",
+    "STICKMAN (v4, user direction 2026-10-10): the STUDIO STICK FACE — bone-white smooth egg head · simple round lidded eyes with dark-brown irises · nub nose · thin sculpted mouth — NOT his human face",
+    "identity carried by the hair, brows, nose, beard and wardrobe · thin dark stick limbs · white 5-finger gloves · white sneakers · oversized head (NOIRGO MAX hero DNA)"
+   ]
+  },
+  {
+   "h": "STICKMAN PROPORTIONS  (measured on the front turnaround view, not eyeballed)",
+   "lines": [
+    "height 623 px = 3.18 heads · head 196 × 176 px · shoulders 138 px = 0.71 heads · hands hang to 2.29 heads · crotch 2.09 heads · legs 213 px = 1.09 heads · sneaker 37 px",
+    "side view within 1 px of the front measurements · measurement script measure_proportions.py + debug overlay in parts v11"
+   ]
+  },
+  {
+   "h": "PALETTE  (median samples from the v4 masters)",
+   "lines": [
+    [
+     [
+      "HEAD",
+      "#958C7E"
+     ],
+     [
+      "HAIR",
+      "#2B2B2A"
+     ],
+     [
+      "BLAZER",
+      "#2B2B2A"
+     ],
+     [
+      "SHIRT",
+      "#171817"
+     ],
+     [
+      "TROUSERS",
+      "#0C0F0E"
+     ]
+    ],
+    [
+     [
+      "GLOVE",
+      "#D7D1CD"
+     ],
+     [
+      "SNEAKER",
+      "#CCC8C4"
+     ],
+     [
+      "BACKDROP",
+      "#111717"
+     ],
+     [
+      "RIM TEAL",
+      "#3E827E"
+     ],
+     [
+      "RIM AMBER",
+      "#9E6E46"
+     ]
+    ],
+    "light: soft key upper-left · teal rim camera-left · amber rim camera-right · charcoal backdrop · matte toy-like CG, no skin texture"
+   ]
+  },
+  {
+   "h": "DRIVE  (Monarch Face / MONARCH CHARACTERS · every file md5-verified)",
+   "lines": [
+    "Realistic: REAL face v5 1YTschdKJjpmsl4jIgC15y8yjek0zf1-M · REAL body v2 177bFsA2oy--XSZOqbRycGieIbYJuX8S-",
+    "Stickman: STICK face v4 1b2Wj1lUGtZpOI-26UuxneCi6fm7G3zKc · STICK body v4 1zoHaynrUsosrjwU45I7WZHfFUj2lt7uc · stick-face hero v1 1yMkEjUpi2ZDSM_KFx4HNfAYi_1UcVhX9 · (v3 human-face sheets kept as history)",
+    "Shared & Reference: asset authority CUSTOM_HERO_STATE.md 17fGVpLddAUe3XRYsmgAmxzfsBHAbtsfc · master board v2 1HkAE5dtx8mJqlpY6mPPIXjDAepYANrkQ · parts zips v2 / v7 / v9 / v10 / v11 hold every PNG master + scripts",
+    "mirrors: Google Doc HUB 1AsFnHq43aYYWORu1MAdrjsnDyPf-ftOg5HrY0Uj40BI · Notion page MONARCH CHARACTERS · Linear project MONARCH CHARACTERS (MON-58…61)"
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "img": "/home/user/studio/characters/CUSTOM_HERO_REAL_SHEET_v5.jpg",
+   "title": "1 REALISTIC · face sheet v5 (accepted)",
+   "drive": "Drive 1YTschdKJjpmsl4jIgC15y8yjek0zf1-M",
+   "desc": "hero · turnaround front / 3-4 / profile · 6 expressions"
+  },
+  {
+   "img": "/home/user/studio/characters/CUSTOM_HERO_REAL_BODY_SHEET_v2.jpg",
+   "title": "1 REALISTIC · full-body sheet v2",
+   "drive": "Drive 177bFsA2oy--XSZOqbRycGieIbYJuX8S-",
+   "desc": "4-view turnaround · 6 poses · walk cycle · 4 wardrobe variants · hands"
+  },
+  {
+   "img": "/home/user/studio/characters/CUSTOM_HERO_STICK_SHEET_v4.jpg",
+   "title": "2 ANIMATION · STICKMAN · face sheet v4 (stick face)",
+   "drive": "Drive 1b2Wj1lUGtZpOI-26UuxneCi6fm7G3zKc",
+   "desc": "stick-face hero · identity source + studio DNA · bust turnaround · 12 expressions · 12 visemes · eyes + blink · head angles · hands"
+  },
+  {
+   "img": "/home/user/studio/characters/CUSTOM_HERO_STICK_BODY_SHEET_v4.png",
+   "title": "2 ANIMATION · STICKMAN · full-body sheet v4 (stick face)",
+   "drive": "Drive 1zoHaynrUsosrjwU45I7WZHfFUj2lt7uc",
+   "desc": "measured proportions + palette · 4-view turnaround · 6 poses · 6 action poses · walk · run · jump"
+  }
+ ],
+ "quality": 86
+}

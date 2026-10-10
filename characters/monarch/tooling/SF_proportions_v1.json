@@ -1,0 +1,42 @@
+{
+ "front": {
+  "top": 57,
+  "floor": 680,
+  "cx": 215,
+  "face": [
+   145,
+   112,
+   141,
+   141
+  ],
+  "chin": 253,
+  "head_h": 196,
+  "head_w": 176.77777777777777,
+  "shoulder_row": 282,
+  "shoulder_w": 138.2,
+  "glove_top": 444,
+  "glove_bot": 506,
+  "crotch": 467,
+  "sneaker_top": 643,
+  "total_h": 623,
+  "heads_tall": 3.18
+ },
+ "side": {
+  "top": 58,
+  "floor": 681
+ },
+ "palette": {
+  "SKIN": "#958C7E",
+  "HAIR": "#2B2B2A",
+  "BLAZER": "#2B2B2A",
+  "SHIRT": "#171817",
+  "TROUSERS": "#0C0F0E",
+  "GLOVE": "#DED6D0",
+  "SNEAKER": "#CCC8C4",
+  "BACKDROP": "#111717",
+  "RIM TEAL": "#3E827E",
+  "RIM AMBER": "#9E6E46"
+ },
+ "panel": "stickface/parts/SF_proportions_v1.png",
+ "panel_md5": "7977f08ad0013c52cf78d1901c256a58"
+}
