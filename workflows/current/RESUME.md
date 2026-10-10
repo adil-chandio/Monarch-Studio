@@ -3,8 +3,8 @@
 **Status:** `syncing`  
 **Title:** Style Library + Crash-Proof Continuity System v1  
 **Style:** `studio-operation`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-10T21:29:17Z
+**Checkpoint sequence:** 2  
+**Last checkpoint:** 2026-10-10T21:36:06Z
 
 ## Goal
 
@@ -20,7 +20,7 @@ Create separately named permanent editing-style libraries, keep only one running
 
 ## Exact next action
 
-Initialize Git with pinned vendor gitlinks, run full validation, create a committed checkpoint, then upload the repository/recovery bundle to Drive.
+Create a portable Git bundle and repository snapshot, upload both to the dedicated Drive continuity folder, mark checkpoint deliveries, then wait only for the user GitHub repository URL/authorization.
 
 ## Running processes
 
@@ -38,6 +38,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0001-20261010T212917Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0002-20261010T213606Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
