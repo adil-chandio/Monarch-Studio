@@ -5,7 +5,7 @@
   "created_at": "2026-10-10T21:42:01Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "blocked",
       "target": {
         "required": true,
         "transport": "git",
@@ -16,23 +16,25 @@
         "note": "No remote URL was supplied. Never invent a repository or credentials."
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-10T21:43:20Z",
+      "note": "Only remaining blocker: user must supply a GitHub repository URL and authorization.",
+      "url": null
     },
     "google_docs": {
-      "status": "pending",
+      "status": "synced",
       "target": {
         "required": true,
         "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
         "url": "https://docs.google.com/document/d/16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU/edit",
         "role": "portable human recovery and proof hub"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
+      "synced_at": "2026-10-10T21:43:20Z",
+      "note": "Checkpoint 0003, Drive IDs, correction and exact next action appended.",
+      "url": "https://docs.google.com/document/d/16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU/edit"
     },
     "google_drive": {
-      "status": "pending",
+      "status": "synced",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -43,12 +45,13 @@
         "active_capsule_id": "1aCYm1CmdFO3ta9pNYcFC5AbV0leX8Wbw",
         "role": "repository bundles, checkpoints, recovery exports and large artifacts"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "1vrGTt7W9DV-qiE2opP7t7k7NuA7WyDE9",
+      "synced_at": "2026-10-10T21:43:20Z",
+      "note": "Waiting-state capsule plus Git delta uploaded: delta 1-LjaejSFOCyaKyO4dkjwzrctGUw0cU43, capsule 1vrGTt7W9DV-qiE2opP7t7k7NuA7WyDE9.",
+      "url": "https://drive.google.com/drive/folders/1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE"
     },
     "linear": {
-      "status": "pending",
+      "status": "synced",
       "target": {
         "required": true,
         "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
@@ -58,12 +61,13 @@
         "team_id": "7d25e78c-c0f2-46b3-9c73-10bcf9c5a108",
         "role": "active task, blockers, acceptance criteria and checkpoint status"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "7d51bdef-6435-4e3e-93d9-74a41da0b155",
+      "synced_at": "2026-10-10T21:43:20Z",
+      "note": "MON-63 has checkpoint 0003, correction and exact GitHub blocker/next action.",
+      "url": "https://linear.app/monarchmation/issue/MON-63/ems-20261011-001-bootstrap-crash-proof-continuity-permanent-style"
     },
     "notion": {
-      "status": "pending",
+      "status": "synced",
       "target": {
         "required": true,
         "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
@@ -71,9 +75,10 @@
         "parent_page_id": "3f4807e1-e916-813a-9000-e7e94ac0ac53",
         "role": "browsable continuity, style architecture, decisions and recovery state"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
+      "synced_at": "2026-10-10T21:43:20Z",
+      "note": "Checkpoint 0003 waiting state, Drive recovery IDs and WF-01 correction appended.",
+      "url": "https://app.notion.com/p/Editing-Monarch-Studio-Continuity-Style-Library-v1-3f5807e1e916819f91a9d0786304b6da"
     }
   }
 }

@@ -26,7 +26,25 @@
       "drive_id": "1aCYm1CmdFO3ta9pNYcFC5AbV0leX8Wbw",
       "size": 8871,
       "md5": "33f3350a120db6874b7ee02d02579a8b",
-      "contents": "active state, exact resume, linked visible chat, journal, checkpoints and outbox"
+      "contents": "active state, exact resume, linked visible chat, journal, checkpoints and outbox through checkpoint 0002"
+    },
+    {
+      "name": "EMS-20261011-001-cp0003.delta.bundle",
+      "drive_id": "1-LjaejSFOCyaKyO4dkjwzrctGUw0cU43",
+      "size": 9465,
+      "md5": "26395d40f31bf60940d41d4c246d91b7",
+      "sha256": "8f05e84093bbb57846f7018d2a426d53b8717c0d4396b8df3fc8e8fd8da184e5",
+      "base_commit": "945c2998de1b054cddcd03fd83272adf30346300",
+      "head_commit": "b0eac0b5575069a4dda34ac1bdc3362aa5b83121",
+      "contents": "checkpoint 0003 Git delta; apply after the complete checkpoint 0002 bundle"
+    },
+    {
+      "name": "EMS-20261011-001-cp0003-continuity.tar.gz",
+      "drive_id": "1vrGTt7W9DV-qiE2opP7t7k7NuA7WyDE9",
+      "size": 13170,
+      "md5": "3a6022897a8c30094e260ade5bb4f5fe",
+      "sha256": "3ed5ceb99c1733dfe0de4adbdb690c60362da651890eee1766171727cbd95e05",
+      "contents": "waiting_external state, exact resume, visible chat, 22-event journal, checkpoints and outboxes through checkpoint 0003"
     }
   ]
 }

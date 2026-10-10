@@ -13,10 +13,10 @@
     "Repository, tests, authorities and remote records validate without unrecorded drift."
   ],
   "started_at": "2026-10-10T21:27:20Z",
-  "updated_at": "2026-10-10T21:42:01Z",
+  "updated_at": "2026-10-10T21:43:20Z",
   "checkpoint_sequence": 3,
-  "event_sequence": 22,
-  "journal_head": "d1ee9b3cb2158b877d6e49feee19fd60e0c11a905236d25c9949bc48f8115a54",
+  "event_sequence": 27,
+  "journal_head": "efb6e5b86668cf00078010cea4cb04a0d1c8d65e7d4110d95f500e523677714f",
   "last_checkpoint": "2026-10-10T21:42:01Z",
   "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-001/0003-20261010T214201Z",
   "next_action": "User supplies the GitHub repository URL (and confirms write access); then set origin, push main and tag continuity-v1, mark GitHub synced in the latest outbox, and complete/archive EMS-20261011-001.",

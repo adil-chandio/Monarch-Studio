@@ -19,7 +19,8 @@
       "parent_folder_id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
       "git_bundle_id": "1DBVVqRsJs2Mbg6rWDbEYpR65C0ABsXXj",
       "snapshot_id": "1y2sL-8U1PdzTlqzyryVvHjknCGZRNO9d",
-      "active_capsule_id": "1aCYm1CmdFO3ta9pNYcFC5AbV0leX8Wbw",
+      "active_capsule_id": "1vrGTt7W9DV-qiE2opP7t7k7NuA7WyDE9",
+      "checkpoint_0003_delta_id": "1-LjaejSFOCyaKyO4dkjwzrctGUw0cU43",
       "role": "repository bundles, checkpoints, recovery exports and large artifacts"
     },
     "notion": {
