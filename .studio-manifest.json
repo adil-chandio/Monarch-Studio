@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T22:14:16+00:00",
+  "generated_at": "2026-10-10T22:15:05+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -20,8 +20,8 @@
       "size": 252
     },
     ".github/workflows/continuity-audit.yml": {
-      "sha256": "7aea90ec80f6cc5c1d97434acb1871eb3f56807d9742161b2f5b8d75aaa15b7d",
-      "size": 634
+      "sha256": "7b6938df189370d7d0b1bfc26724a23fb23f879de4cd4a9f5980c470a6ce448b",
+      "size": 846
     },
     ".gitignore": {
       "sha256": "4a03a8415046b19af19ff05cdce6b31653d01a21aad3b89d6c01dc67731b0c25",
@@ -1480,7 +1480,7 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "92996fe884720d959350ae07724ee9418428779cbea0263c016afaca728c22fe",
+      "sha256": "2ae6ed65a3f5576bedc4adb72a59d69a90404218357c92d9d0c547c7d07b6874",
       "size": 1752
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
@@ -1488,8 +1488,8 @@
       "size": 6948
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "5ef6876922c098f2adb89bdf8ba48654d4b2e25ddeae86fc1a4538525ddf5543",
-      "size": 35683
+      "sha256": "846c77c8dc5ae873b459eec5dab1bc9c8a6e2ef300413383b5744483d795ffdc",
+      "size": 37018
     },
     "workflows/current/RESUME.md": {
       "sha256": "056ac85fe96269fd49043783e08eb9647d760462e311d7ba0ce2d93d8fb40afa",

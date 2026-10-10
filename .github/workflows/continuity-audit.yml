@@ -14,12 +14,16 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements/*.txt
+      - name: Install renderer test dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements/render.txt
       - name: Repository validation
         run: python tools/studio.py validate
       - name: Continuity integrity and freshness
