@@ -7,12 +7,12 @@
       "required": true,
       "transport": "git",
       "remote": "origin",
-      "repo_url": null,
-      "candidate_repo_url": "https://github.com/adil-chandio/Monarch-Studio.git",
-      "candidate_discovered_via": "public GitHub API exact-name search; requires user confirmation",
+      "repo_url": "https://github.com/adil-chandio/Monarch-Studio.git",
+      "html_url": "https://github.com/adil-chandio/Monarch-Studio",
+      "confirmed_by_user_at": "2026-10-11T02:50:00+05:00",
       "branch": "main",
-      "status": "waiting_for_user_confirmation_of_candidate_and_push_authorization",
-      "note": "User supplied the repository name Monarch-Studio. A newly created empty public candidate was found, but owner identity must be confirmed before origin is set."
+      "status": "confirmed_push_pending",
+      "note": "User explicitly confirmed this exact repository. GitHub connector is unsupported in Arena; push uses standard Git transport if credentials are available."
     },
     "google_drive": {
       "required": true,

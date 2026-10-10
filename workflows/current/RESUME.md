@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261011-001
 
-**Status:** `waiting_external`  
+**Status:** `syncing`  
 **Title:** Style Library + Crash-Proof Continuity System v1  
 **Style:** `studio-operation`  
-**Checkpoint sequence:** 4  
-**Last checkpoint:** 2026-10-10T21:49:43Z
+**Checkpoint sequence:** 5  
+**Last checkpoint:** 2026-10-10T21:58:08Z
 
 ## Goal
 
@@ -20,7 +20,7 @@ Create separately named permanent editing-style libraries, keep only one running
 
 ## Exact next action
 
-User confirms whether https://github.com/adil-chandio/Monarch-Studio is the repository and confirms push authorization; then set origin, push main + continuity-v1, verify remote HEAD, synchronize receipts, and complete/archive the task.
+Push main and continuity-v1 to the confirmed GitHub repository, verify remote object identity, sync final receipts, then complete/archive EMS-20261011-001.
 
 ## Running processes
 
@@ -38,6 +38,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0004-20261010T214943Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-001/0005-20261010T215808Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

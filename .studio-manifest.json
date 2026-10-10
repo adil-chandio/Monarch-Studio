@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-10T21:49:44+00:00",
+  "generated_at": "2026-10-10T21:58:08+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -64,8 +64,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "6d5c880d964999f4141a9807ce08e1082055b556a370b1882b94dc8415435261",
-      "size": 777
+      "sha256": "a9dd1a53e59c1aeb9c99288eaedbf3d907df29a0cc3ef84ef6c982d3ec3383d2",
+      "size": 687
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -247,6 +247,14 @@
       "sha256": "305087d24aff698eac40350b43ed0eb1cbf074a15d6051be12c7814e8b142cd5",
       "size": 4722
     },
+    "operations/continuity/checkpoints/EMS-20261011-001/0005-20261010T215808Z/HANDOFF.md": {
+      "sha256": "8146860a51809cffd8126428bf60477f32a32a6c6ca20867a22058907c9669f4",
+      "size": 1832
+    },
+    "operations/continuity/checkpoints/EMS-20261011-001/0005-20261010T215808Z/checkpoint.json": {
+      "sha256": "a3dfac901164b825d7490c2a97ffa2555426b82d6b2a827d61f2550a76f79c97",
+      "size": 4745
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -295,13 +303,25 @@
       "sha256": "2740e208a6f734223b02c7d2b5f994f543989274dfb99111fdcdb628516b1de8",
       "size": 4722
     },
+    "operations/continuity/outbox/EMS-20261011-001/0005-20261010T215808Z/STATUS.md": {
+      "sha256": "c7e448ddd1492f73a9ff797bbf660e5eee9e747694bd244ef2164393ad01d665",
+      "size": 932
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0005-20261010T215808Z/SYNC.json": {
+      "sha256": "9108cc839b3c2dd8e914eaf0a3609b2dad09c638092d673d452041e53740eeb7",
+      "size": 3108
+    },
+    "operations/continuity/outbox/EMS-20261011-001/0005-20261010T215808Z/checkpoint.json": {
+      "sha256": "b6f9eea632f7337b336f5835745a4a24dade277e1ab41f6dd26ec14946d906ce",
+      "size": 4745
+    },
     "operations/continuity/recovery-bundles.json": {
       "sha256": "8f2ffd4885f786b9ac32a11a1bd2b4394f485dcc619aa0f12a5153fb57461507",
       "size": 2220
     },
     "operations/continuity/remote-targets.json": {
-      "sha256": "2958d1c6ea3f9e0720b37cd38fc4868d365e485d2c76a24d7c856e6df613d01a",
-      "size": 2449
+      "sha256": "5ec2b44712f247caf7ae9638f73ae43d7eee61862fc79e53a8b5a2ce1320363f",
+      "size": 2393
     },
     "operations/continuity/sync-policy.json": {
       "sha256": "34902a99f7fe07f28db53cf364913ec9ad579adb947a998b7797c8c78c4da758",
@@ -1464,20 +1484,24 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "67aafa3c953aa70500d1caed9bf10b7c286801ac0b8e655d9f9a78a34b3ded33",
-      "size": 1780
+      "sha256": "88499a06f61d7ab996beeee9fa0fe8ffb274c0b840223d23b6a3b4426c175ab4",
+      "size": 1690
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "365edf1cb648a6c5e2e926d91fb0bb7fb9a8a03582d3c1c523390973b42e27de",
-      "size": 6533
+      "sha256": "f35090effb464fa09ca3fa45f417ccfce2a13e3da9e411d96d04b42b1b7dcd95",
+      "size": 6948
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "210865da045d6df8d74f83a6bae823d3305fac8e0cbbd41f418b98791551131b",
-      "size": 27913
+      "sha256": "b2b8d32aa947bef7b8e0d0347d7f198b90f5f35f2dadfe99c637c1766bd0dfc6",
+      "size": 30616
     },
     "workflows/current/RESUME.md": {
-      "sha256": "f4a518fac50be5a0705216e46c22ce381887b47eff5745cdbbd117796ed56bdc",
-      "size": 1922
+      "sha256": "8146860a51809cffd8126428bf60477f32a32a6c6ca20867a22058907c9669f4",
+      "size": 1832
+    },
+    "workflows/current/payload/USER_CONFIRM_GITHUB.txt": {
+      "sha256": "6f678cf553c6de62a2e32a8a1c9f00eab54bf4cd9732e0ac6448c0aa574d4682",
+      "size": 104
     },
     "workflows/current/payload/USER_MESSAGE_GITHUB_REPO.txt": {
       "sha256": "5f1a422d857c1530c315570ae9613276649da170b7b0dda42163f57c65ec167d",
