@@ -17,8 +17,9 @@ No missing implementation or certification is inferred from a project descriptio
 - Canonical code: WF-01; trigger: `SHADEGO <topic>`.
 - Linear project ID: `4d053022-acab-4836-8f13-5ccb7e043c17`.
 - Notion row and registry record say **Parked**.
-- Latest fully evidenced delivery is **IZZAT v2**: 75.19 s, 1080×1920, 24 fps, 33 shots, 32 transitions, −11.6 LUFS, 19/19 engine gates, Drive `1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu`, MD5 `8d91be52ab969e0b23f21bf6bab0df85`.
-- Brain registry generation is 6 and records six delivered videos.
+- Previous benchmark **IZZAT v2** remains preserved: 75.19 s, 1080×1920, 24 fps, 33 shots, 32 transitions, −11.6 LUFS, 19/19 engine gates, Drive `1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu`, MD5 `8d91be52ab969e0b23f21bf6bab0df85`.
+- Latest fully evidenced delivery is **TUMHARI RESERVED SEAT · WF-01** (`EMS-20261011-002`): 74.00 s, 1920×1080, 30 fps, 34 beats, −13.6 LUFS, 21/21 delivery gates and 18/18 freshness gates, Drive `1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW`, MD5 `ef97f954dd6b4e73675985743deb225c`; deterministic source package `1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh`.
+- The workflow-local brain registry now records seven delivered videos and ends with `tumhari_reserved_seat_wf01`.
 - MON-56 defines activation, build, proof and record-update rules.
 
 ### Normalized state
@@ -38,8 +39,9 @@ The SHADEGO document says “20 gates” by combining 19 workflow-engine checks 
 
 1. **THE SHADOW v1** — Film #1, R1 fully sourced, 156.92 s, 1920×1080, 24 fps, 27/27 gates.
 2. **THE WINDOW v1** — Film #2, R1 fully sourced, 155.0 s, 1920×1080, 24 fps, 27/27 gates.
+3. **TUMHARI RESERVED SEAT · WF-03** — intentionally unnumbered, R1 fully sourced, 74.00 s, 1920×1080, 24 fps, 21/21 delivery gates and 18/18 freshness gates; Drive `1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N`, MD5 `4ba29154079a936d74a2599af51f433f`; deterministic source package `1jDgmzsIt2CWXxWR7zotPRd1Lmi6WP2AO`.
 
-THE WINDOW is later than the current text of MON-57, the Notion page and Google Doc HUB, which still identify THE SHADOW as the last delivered film. The Drive resume and complete film-2 source package are newer operational evidence.
+The former hub drift around THE WINDOW remains historical evidence, but the 2026-10-11 delivery is now independently recorded in MON-57, a Linear project update, a child Notion delivery page, a dedicated Google Docs hub tab, and its own Drive folder. The new film remains outside the numbered sequence so it does not silently resolve either Film-#3 claim.
 
 ### Film-number conflict
 
@@ -54,7 +56,7 @@ AB KARO ABHI is newer in Drive than 4:00 AM and intentionally changes format to 
 
 ### Normalized state
 
-**ACTIVE_WITH_DRIFT.** Films #1 and #2 are fully authoritative. 4:00 AM is a gate-evidenced delivery (R2). AB KARO ABHI is delivery-only evidence (R3). Before another numbered film:
+**ACTIVE_WITH_DRIFT.** Films #1 and #2 and the new unnumbered TUMHARI RESERVED SEAT production are fully authoritative R1 packages. 4:00 AM is a gate-evidenced delivery (R2). AB KARO ABHI is delivery-only evidence (R3). The unnumbered production does not consume or imply a film number. Before another numbered film:
 
 1. choose which artifact, if either, is canonical Film #3;
 2. provide/recover its complete source package and canonical gate report;
@@ -63,10 +65,11 @@ AB KARO ABHI is newer in Drive than 4:00 AM and intentionally changes format to 
 
 ### Brain registry drift
 
-- Workflow-local `brain/registry.json`: generation 2, SHADE + THE SHADOW.
-- Studio `studio/editor-brain/brain/registry.json`: generation 3, SHADE + THE SHADOW + THE WINDOW.
+- Workflow-local historical `brain/registry.json`: preserved with its packaged SHADE + THE SHADOW generation.
+- Studio `studio/editor-brain/brain/registry.json`: current normalized cross-workflow memory with nine deliveries, ending in `tumhari_reserved_seat_wf03`.
+- WF-01 local `styles/monarch-stickman-animation/brain/registry.json`: seven deliveries, ending in `tumhari_reserved_seat_wf01`.
 
-The studio registry is newer for cross-workflow concept history. The workflow-local registry is retained because it was packaged with the film-1/film-2 historical source, and changing it would alter provenance.
+The studio registry remains the newer authority for cross-workflow concept history. The older WF-03 workflow-local registry remains immutable because it was packaged with historical film source; changing it would alter provenance.
 
 ## Monarch character
 

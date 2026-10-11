@@ -1,0 +1,70 @@
+{
+  "topic": "TUMHARI RESERVED SEAT — 20 minutes a day, 90 days, 30-hour gap",
+  "duration_s": 78.0,
+  "date": "2026-10-10",
+  "slots": {
+    "hook": "number_shock",
+    "device": "callback_ladder",
+    "world": "desert_well",
+    "grammar": "dolly_zoom",
+    "camera": "handheld_micro",
+    "sonic": "paper_foley",
+    "type": "tracking_whisper",
+    "ending": "question_back"
+  },
+  "signature": "chess_people",
+  "targets": {
+    "format": "short",
+    "aspect": "1080x1920",
+    "loudness": "-11.6 ± 0.9 (gate −12.5..−10.5)",
+    "holds": "none > 4 s",
+    "callbacks_min": 1,
+    "quotable_payoff_lines": 2,
+    "duration_s": 78.0,
+    "shots_min": 32,
+    "transitions": 31,
+    "transition_kinds_min": 8,
+    "new_transition_kinds_min": 3,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 12,
+    "wtf_moments_min": 3,
+    "rehook_at_s": [
+      19.5,
+      39.0,
+      58.5
+    ],
+    "sfx_new_share_min": 0.5,
+    "chapters": [
+      "plant1",
+      "plant2",
+      "plant3",
+      "turn",
+      "return1",
+      "return2",
+      "return3",
+      "end"
+    ],
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "2–3",
+    "max_still_s": 0.4,
+    "gates": "19 measured gates of IZZAT v2 + gate #20 freshness"
+  },
+  "_fill_before_gate": {
+    "transitions": "list of transition kind ids actually in PLAN (existing + new)",
+    "sfx_voices": "list of SFX voice names actually in the bed ledger",
+    "shots": 0,
+    "pattern_interrupts": 0,
+    "wtf_moments": 0,
+    "rehooks_s": [],
+    "hook_text": ""
+  },
+  "transitions": [],
+  "sfx_voices": [],
+  "shots": 0,
+  "pattern_interrupts": 0,
+  "wtf_moments": 0,
+  "rehooks_s": [],
+  "hook_text": ""
+}

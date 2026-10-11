@@ -54,7 +54,13 @@ class StudioCliTests(unittest.TestCase):
         self.assertIn(str(home / "shade_respect_v2.mp4"), generated.read_text())
         self.assertEqual(before, digest(source), "hydration modified authoritative source")
         status = self.run_cli("run", "wf01", "--", sys.executable, "brain/concept.py", "status")
-        self.assertIn("6 delivered videos", status.stdout.lower())
+        brain_registry = json.loads(
+            (ROOT / "styles" / "monarch-stickman-animation" / "brain" / "registry.json").read_text()
+        )
+        expected_count = len(brain_registry["videos"])
+        expected_latest = brain_registry["videos"][-1]["key"]
+        self.assertIn(f"{expected_count} delivered videos", status.stdout.lower())
+        self.assertIn(expected_latest.lower(), status.stdout.lower())
 
     def test_wf03_hydration_recreates_legacy_layout_and_shared_dependencies(self) -> None:
         source = ROOT / "styles" / "monarch-noir-film" / "src" / "encode_window.sh"

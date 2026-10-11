@@ -65,7 +65,9 @@ The local workflow includes the downloaded source archive v3, editor brain v2, I
 
 ### Current delivery authority
 
-`IZZAT_v2.mp4`: Drive `1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu`, MD5 `8d91be52ab969e0b23f21bf6bab0df85`, 75.19 s, 1080×1920, 24 fps, 33 shots, 32 transitions, −11.6 LUFS, 19/19 workflow engine gates. The EDITOR BRAIN registry contains six deliveries: money v9, THE SLOWEST PREDATOR, POWER v1, SHADE v2, IZZAT v1 and IZZAT v2.
+**TUMHARI RESERVED SEAT · WF-01** (`EMS-20261011-002`): final MP4 Drive `1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW`, MD5 `ef97f954dd6b4e73675985743deb225c`, SHA-256 `141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b`, 74.00 s, 1920×1080, 30 fps, 34 beats, −13.6 LUFS, 21/21 delivery gates and 18/18 freshness gates. Deterministic source package: Drive `1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh`, MD5 `73f36b0be0cd1531c89ac116eb384e49`. Dedicated delivery folder: `1V3QeUqDzOGP5obJAaX2vHyV5HZkS8K-J`. Notion record: `3f5807e1-e916-81f6-8957-d606001ffb41`. Linear update: `50933864-ff42-4281-8246-7953ee59e8c7`; MON-34 state comment: `b4455a1f-2f24-417f-a4c0-a7ac4bf072f8`. Google Docs tab: `t.3lrsd0q5mcdh`. The workflow-local EDITOR BRAIN registry contains seven deliveries and ends with `tumhari_reserved_seat_wf01`.
+
+Previous delivery `IZZAT_v2.mp4` remains preserved at Drive `1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu`, MD5 `8d91be52ab969e0b23f21bf6bab0df85`; it is no longer mislabeled as latest.
 
 ## WF-03 — Monarch Noir Film
 
@@ -88,8 +90,18 @@ The Drive folder contained 35 direct children during the current audit. Its item
 |---|---|---|---|
 | THE SHADOW v1 | `16qsEno9sN_p4fggfcTN05W9LUzYsz0u4` | `f8b7e71b9238febd3c60f82463116393` | R1, 27/27 gates |
 | THE WINDOW v1 | `1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy` | `cfe189f9c09e47e6728d2f2aba017f8d` | R1, 27/27 gates |
+| TUMHARI RESERVED SEAT · WF-03 · unnumbered | `1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N` | `4ba29154079a936d74a2599af51f433f` | R1, 21/21 delivery + 18/18 freshness; source `1jDgmzsIt2CWXxWR7zotPRd1Lmi6WP2AO` |
 | 4:00 AM v2 | `1gLy2m9GTgwKzDaAV59nrLALojhGkKaWI` | `ed233b75aa67f4255aa5c792e213467f` | R2, 11/11 limited checks; source absent |
 | AB KARO ABHI v1 | `1y7Z7OtOMQXeoTcIoHiqr7ClmHndefH1r` | `bdea55c453834fa4a4b0cacec89ed53c` | R3, vertical delivery only |
+
+### TUMHARI RESERVED SEAT · WF-03 external receipts
+
+- Delivery folder: `1A39EybqgjoG8-Tj5uix5Cf4WW39CzmgP`.
+- Final SHA-256: `738a6aaa177595384f2070f1e16a38b5412ff10514732ba5a60f420b7395dc2f`; deterministic source MD5: `f9c059a58c7adfa18d641571bb6332d3`.
+- Notion final record: `3f5807e1-e916-8112-82d7-f32ce491c02e`.
+- Linear project update: `bb46c657-efdf-4a16-8b37-e0261e1ccc15`; MON-57 state comment: `aaac8d8c-dfea-4117-9cb2-4001dab7aea8`.
+- Google Docs completion tab: `t.wskn169lz0vb`.
+- Studio editor-brain registry ends with `tumhari_reserved_seat_wf03` and contains nine deliveries.
 
 ## Monarch character
 

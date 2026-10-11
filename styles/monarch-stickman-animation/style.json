@@ -10,6 +10,8 @@
   "knowledge_index": "knowledge/INDEX.md",
   "primary_renderer": "src/respect2.py",
   "primary_gate": "src/gate_respect2.py",
-  "current_release": "IZZAT v2",
-  "reproducibility": "R1"
+  "current_release": "TUMHARI RESERVED SEAT · WF-01",
+  "reproducibility": "R1",
+  "current_release_path": "films/tumhari-reserved-seat",
+  "current_release_task": "EMS-20261011-002"
 }

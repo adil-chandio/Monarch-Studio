@@ -33,6 +33,15 @@ This is the durable map for every reproducible fact in the style. Chat summaries
 - Certification: `src/gate_window.py`, `GATES_THE_WINDOW_v1.md`.
 - Look/hero: `NOIRGO_LOOK_SHEET_v1_WINDOW.jpg`, `NOIRGO_LOOK_SHEET_v2_WINDOW.jpg`, `HERO_v2_motion_test.mp4`.
 
+## TUMHARI RESERVED SEAT · unnumbered · 2026-10-11
+
+- Permanent package: `../films/tumhari-reserved-seat/`
+- Promoted learning: `TUMHARI_RESERVED_SEAT_LESSONS.md`
+- Numbering: intentionally unassigned while the historical Film-#3 conflict remains unresolved.
+- Shared lock: 74.00 s · 34 voice-led beats · selected exact `voice-00`
+- WF-03 master: 1920×1080 · 24 fps · 21/21 delivery PASS · 18/18 freshness PASS
+- Durable identity and hashes: `../films/tumhari-reserved-seat/records/DELIVERY_RECEIPT.{md,json}`
+
 ## Later evidence
 
 - `films/04am/GATES_NOIRGO_4AM_v2.md` — R2 limited gate evidence, implementation absent.

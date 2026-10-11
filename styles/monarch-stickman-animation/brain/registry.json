@@ -7,10 +7,26 @@
       "date": "2026-10-07",
       "duration_s": 37.0,
       "drive_id": "in archive v1 1labbEjdk4GO6zgth4Ce_JhP4WDpjZOEM",
-      "slots": {"hook": "cold_question", "device": "list_n", "world": "other:money props (wallet, phone, coins) on the v9 grid", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "other:v9 ASMR bed with room/hiss floor and 0.6 s grid", "type": null, "ending": "other:CTA card"},
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "other:money props (wallet, phone, coins) on the v9 grid",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "other:v9 ASMR bed with room/hiss floor and 0.6 s grid",
+        "type": null,
+        "ending": "other:CTA card"
+      },
       "signature": "other:v9 engine itself — extruded type, 3-D-rig hero, tinted swipe, ASMR bed",
-      "transitions": ["tinted_swipe"],
-      "sfx_voices": ["pad", "pluck", "bell", "swell"],
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell"
+      ],
       "hook_text": "Jeb khali hai? Ghabrao mat — aaj main tumhe online paise…"
     },
     {
@@ -19,10 +35,26 @@
       "date": "2026-10-08",
       "duration_s": 263.5,
       "drive_id": "1MbClU5EuAeWEA-zaS8nNhxPIkBUZxtdW / 1qbCkv36OknO0S-2TFXUSkTLIepjpTn8o",
-      "slots": {"hook": "other:8-beat history hook (sourced facts)", "device": "other:long-form chapters 16:9", "world": "other:ancient survival / persistence hunt", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "other:wide bed (WIDE_AUDIO_LEDGER)", "type": null, "ending": "other:long-form outro"},
+      "slots": {
+        "hook": "other:8-beat history hook (sourced facts)",
+        "device": "other:long-form chapters 16:9",
+        "world": "other:ancient survival / persistence hunt",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "other:wide bed (WIDE_AUDIO_LEDGER)",
+        "type": null,
+        "ending": "other:long-form outro"
+      },
       "signature": "other:16:9 long-form grid + hook architecture",
-      "transitions": ["tinted_swipe"],
-      "sfx_voices": ["pad", "pluck", "bell", "swell"],
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell"
+      ],
       "hook_text": "The Slowest Predator"
     },
     {
@@ -31,10 +63,28 @@
       "date": "2026-10-08",
       "duration_s": 42.0,
       "drive_id": "1uq_xNhjQTcwvAUiHR5fXCnsBrlcJLyCI",
-      "slots": {"hook": "cold_question", "device": "list_n", "world": "gym_desk", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "dminor_pluck_100", "type": "counter_live", "ending": "other:follow + save pill and bookmark"},
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "gym_desk",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "dminor_pluck_100",
+        "type": "counter_live",
+        "ending": "other:follow + save pill and bookmark"
+      },
       "signature": "other:6 new rig poses + pose blending + measured camera (ledger 39–45)",
-      "transitions": ["tinted_swipe"],
-      "sfx_voices": ["pad", "pluck", "bell", "swell", "click", "shimmer"],
+      "transitions": [
+        "tinted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "click",
+        "shimmer"
+      ],
       "hook_text": "Powerful man banna hai? Taqat muscles se nahi, aadaton se aati hai."
     },
     {
@@ -43,10 +93,28 @@
       "date": "2026-10-08",
       "duration_s": 42.0,
       "drive_id": "1rsJq7Y4wpQaKEsK7Zd7LNhiTqBYBUlJM",
-      "slots": {"hook": "cold_question", "device": "list_n", "world": "gym_desk", "grammar": "long_take_internal", "camera": "static_internal", "sonic": "dminor_pluck_100", "type": "counter_live", "ending": "other:follow + save pill and bookmark"},
+      "slots": {
+        "hook": "cold_question",
+        "device": "list_n",
+        "world": "gym_desk",
+        "grammar": "long_take_internal",
+        "camera": "static_internal",
+        "sonic": "dminor_pluck_100",
+        "type": "counter_live",
+        "ending": "other:follow + save pill and bookmark"
+      },
       "signature": "other:hybrid charcoal/paper seam as a character (wedge drops on the beats) + SHADE on the 3-D rig, eyes that ignite",
-      "transitions": ["two_tone_slanted_swipe"],
-      "sfx_voices": ["pad", "pluck", "bell", "swell", "click", "shimmer"],
+      "transitions": [
+        "two_tone_slanted_swipe"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "click",
+        "shimmer"
+      ],
       "hook_text": "Powerful man banna hai? (eyes open in the dark, the light arrives)"
     },
     {
@@ -55,10 +123,30 @@
       "date": "2026-10-08",
       "duration_s": 90.0,
       "drive_id": "1FtRyxIvEnBldm6_DGnGPWHcvNRPznzAQ",
-      "slots": {"hook": "social_sting", "device": "mini_story", "world": "ignored_room", "grammar": "long_take_internal", "camera": "push_parallax", "sonic": "other:v1 cinematic bed with room/hiss floor", "type": null, "ending": "other:follow/save end card"},
+      "slots": {
+        "hook": "social_sting",
+        "device": "mini_story",
+        "world": "ignored_room",
+        "grammar": "long_take_internal",
+        "camera": "push_parallax",
+        "sonic": "other:v1 cinematic bed with room/hiss floor",
+        "type": null,
+        "ending": "other:follow/save end card"
+      },
       "signature": "other:cinematic layer — measured push/parallax, light rays, particles, slow-mo",
-      "transitions": ["tinted_swipe_cinematic"],
-      "sfx_voices": ["pad", "pluck", "bell", "swell", "glass", "metal", "shimmer", "click"],
+      "transitions": [
+        "tinted_swipe_cinematic"
+      ],
+      "sfx_voices": [
+        "pad",
+        "pluck",
+        "bell",
+        "swell",
+        "glass",
+        "metal",
+        "shimmer",
+        "click"
+      ],
       "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?"
     },
     {
@@ -67,12 +155,109 @@
       "date": "2026-10-09",
       "duration_s": 75.19,
       "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
-      "slots": {"hook": "social_sting", "device": "mini_story", "world": "ignored_room", "grammar": "voice_led_inserts", "camera": "push_parallax", "sonic": "cinematic_braam", "type": "numeral_card_3d", "ending": "recap_carousel_card"},
+      "slots": {
+        "hook": "social_sting",
+        "device": "mini_story",
+        "world": "ignored_room",
+        "grammar": "voice_led_inserts",
+        "camera": "push_parallax",
+        "sonic": "cinematic_braam",
+        "type": "numeral_card_3d",
+        "ending": "recap_carousel_card"
+      },
       "signature": "other:15-kind 3-D transition library, one kind per boundary, voice-led 33-shot cut, bed without a noise floor",
-      "transitions": ["cube_h", "cube_v", "zoom", "whip_h", "whip_v", "iris", "slices", "ink", "wedge", "card", "spin", "sweep", "blur", "doors", "shatter"],
-      "sfx_voices": ["braam", "reverse_swell", "glass_ting", "metal_ring", "paper_slide", "doppler_whip", "impact", "heartbeat", "glass_burst", "click", "bell", "glass", "metal", "pluck", "glass_hi", "low_chime", "shimmer", "metal_hi", "end_bell", "pad", "swell"],
+      "transitions": [
+        "cube_h",
+        "cube_v",
+        "zoom",
+        "whip_h",
+        "whip_v",
+        "iris",
+        "slices",
+        "ink",
+        "wedge",
+        "card",
+        "spin",
+        "sweep",
+        "blur",
+        "doors",
+        "shatter"
+      ],
+      "sfx_voices": [
+        "braam",
+        "reverse_swell",
+        "glass_ting",
+        "metal_ring",
+        "paper_slide",
+        "doppler_whip",
+        "impact",
+        "heartbeat",
+        "glass_burst",
+        "click",
+        "bell",
+        "glass",
+        "metal",
+        "pluck",
+        "glass_hi",
+        "low_chime",
+        "shimmer",
+        "metal_hi",
+        "end_bell",
+        "pad",
+        "swell"
+      ],
       "hook_text": "Kamre mein aate ho — koi sar nahi uthata. Log aapki izzat kyun nahi karte?",
-      "worlds_also": ["scale_plate"]
+      "worlds_also": [
+        "scale_plate"
+      ]
+    },
+    {
+      "key": "tumhari_reserved_seat_wf01",
+      "title": "TUMHARI RESERVED SEAT · WF-01 · 16:9 final",
+      "date": "2026-10-11",
+      "duration_s": 74.0,
+      "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
+      "md5": "ef97f954dd6b4e73675985743deb225c",
+      "slots": {
+        "hook": "number_shock_reserved_seat",
+        "device": "two_path_clock",
+        "world": "paper_station_split_timeline",
+        "grammar": "beat_locked_counter_montage",
+        "camera": "handheld_micro_parallax",
+        "sonic": "paper_foley_94bpm",
+        "type": "depth_layers_light_reveal",
+        "ending": "ticket_to_train"
+      },
+      "signature": "paper_platform_graph — the paper platform folds into a rising thirty-hour graph while both timelines collapse into one glowing reserved seat and SHADE steps toward it",
+      "transitions": [
+        "paper_rip",
+        "ink_iris",
+        "clock_wipe",
+        "ticket_punch",
+        "split_seam",
+        "counter_snap",
+        "phone_flip",
+        "calendar_flip",
+        "type_depth_push",
+        "train_whip"
+      ],
+      "sfx_voices": [
+        "paper_rub",
+        "pencil_tick",
+        "ticket_tear",
+        "timer_click",
+        "phone_thump",
+        "calendar_flip",
+        "marker_squeak",
+        "card_snap",
+        "counter_clack",
+        "soft_braam",
+        "train_chime",
+        "rail_whoosh",
+        "seat_lock",
+        "shimmer_tail"
+      ],
+      "hook_text": "Ek buri khabar hai… tumhari dream life ki seat khaali nahi rehne wali."
     }
   ]
 }

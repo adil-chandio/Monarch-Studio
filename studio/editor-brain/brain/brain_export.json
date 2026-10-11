@@ -2255,6 +2255,146 @@
      "You can't measure what you won't look at.",
      "Fear is a shadow. Walk toward it — and it is exactly your size."
     ]
+   },
+   {
+    "key": "the_window_v1",
+    "title": "THE WINDOW v1",
+    "date": "2026-10-10",
+    "duration_s": 155.0,
+    "drive_id": "1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy",
+    "md5": "cfe189f9c09e47e6728d2f2aba017f8d",
+    "slots": {
+     "hook": "clock_readout_face_pov",
+     "device": "windows_comparison_facade",
+     "world": "apartment_facade_real_plates",
+     "grammar": "vo_led_pushins_flurry_inserts",
+     "camera": "crop_camera_pushes_reflection",
+     "sonic": "felt_bells_dminor_72_picardy",
+     "type": "clock_readout_mirror_lines",
+     "ending": "picardy_dawn_two_cards"
+    },
+    "signature": "window_mirror — the villain is a real facade of 31 lit windows (measured rects); four red lines on the glass get four white answers in the same positions; the phone dies and the hero's reflection is laid over all 31 windows; the clock stops at 88.0 and never ticks again; the first amber light in the film is his own lamp; DAY 40 somebody across the street looks up at a new window (Picardy third D minor → D major)",
+    "transitions": [
+     "hard_cut",
+     "dip_to_black",
+     "push_in_crop",
+     "montage_flurry_readouts",
+     "light_state_cut",
+     "reflection_overlay_fade",
+     "reverse_angle_pair"
+    ],
+    "sfx_voices": [
+     "rain_exterior_patter",
+     "rain_interior_glass_drops",
+     "room_tone_300",
+     "sub_d2_lfo",
+     "felt_piano",
+     "music_box_bell",
+     "string_ensemble_swell",
+     "bass_pluck_pulse",
+     "clock_tick_tock_stop",
+     "phone_thumb_tap",
+     "phone_off_whine",
+     "bed_creak",
+     "wood_floor_step",
+     "sneaker_wet_step",
+     "runner_breath",
+     "sheets_fabric",
+     "sink_water",
+     "plate_clink",
+     "paper_shuffle",
+     "sneaker_scuff",
+     "lamp_click_bloom",
+     "dawn_birds",
+     "red_line_sting",
+     "air_swell",
+     "chair_creak",
+     "sub_drop_sine",
+     "typewriter_click",
+     "cut_boom",
+     "riser_bandsweep",
+     "red_card_stab"
+    ],
+    "hook_text": "11:48 PM — It's eleven forty-eight at night. He's lying in the dark, and his face is glowing blue.",
+    "format": "film",
+    "workflow": "WF-03",
+    "worlds_also": [
+     "real_life_plates_ai_painted",
+     "stick_human_3d_hero"
+    ],
+    "callbacks": [
+     "'You only ever see the lit room.' — narration at 49.1 → final card at 146.9",
+     "red lines → white answers in the same glass positions: he's ahead → he's hurting · they're happy → they're quiet · you're late → it's two a.m. · look at them → look at you",
+     "31 windows counted at 7.0 → 'his own reflection, laid over all thirty-one of them' at 83.6 → 31 silhouettes looking back at 127.0",
+     "the three windows return as his days: DAY 1 he is the runner · DAY 23 the couple sees him pass · DAY 40 the man with two monitors looks up",
+     "his window: blue flicker (12.6) → dark (74.9) → amber (121.3) → amber wide (138.4)"
+    ],
+    "quotable_lines": [
+     "Every window you have ever envied has someone standing in it, looking at yours.",
+     "The only window you will ever see from the inside is your own."
+    ]
+   },
+   {
+    "key": "tumhari_reserved_seat_wf03",
+    "title": "TUMHARI RESERVED SEAT · WF-03 · unnumbered 16:9 final",
+    "date": "2026-10-11",
+    "duration_s": 74.0,
+    "drive_id": "1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N",
+    "md5": "4ba29154079a936d74a2599af51f433f",
+    "slots": {
+     "hook": "ticket_print_bad_news",
+     "device": "self_punching_reserved_ticket",
+     "world": "rain_midnight_rail_platform",
+     "grammar": "carried_holds_and_punch_cuts",
+     "camera": "platform_dolly_ticket_macro",
+     "sonic": "rail_ambience_72bpm_picardy",
+     "type": "departure_board_split_flap",
+     "ending": "hero_boards_amber_train"
+    },
+    "signature": "thirty_punches — every delayed choice punches a physical hole in the same ticket; the holes become a thirty-hour constellation, then align into the lit windows of the train that is still waiting",
+    "transitions": [
+     "hard_cut",
+     "dip_to_black",
+     "ticket_macro_match",
+     "train_occlusion",
+     "departure_flap_cut",
+     "fluorescent_blackout",
+     "rail_whip",
+     "amber_light_state_cut",
+     "ticket_hole_bloom"
+    ],
+    "sfx_voices": [
+     "platform_rain",
+     "fluorescent_hum",
+     "distant_rail",
+     "station_clock",
+     "ticket_printer",
+     "ticket_punch",
+     "departure_flap",
+     "phone_glass_tap",
+     "bench_creak",
+     "shoe_scuff",
+     "train_brake_squeal",
+     "carriage_door_chime",
+     "rail_joint_clack",
+     "sub_arrival",
+     "amber_relay",
+     "quiet_tail"
+    ],
+    "hook_text": "A ticket printer wakes in an empty station: EK BURI KHABAR — RESERVED SEAT EXPIRES.",
+    "format": "noir_social_short",
+    "workflow": "WF-03",
+    "callbacks": [
+     "11:47 station clock returns when the proof/lucky board splits",
+     "empty reserved seat returns occupied by the hero at the final line",
+     "20-minute punched ticket returns as the action ticket",
+     "thirty punched holes become thirty train windows",
+     "cold fluorescent world receives its first amber practical only when the hero starts"
+    ],
+    "quotable_lines": [
+     "Sapne expire nahi hote, magar unki seat reserve bhi nahi rehti.",
+     "Seat tumhari hai. Train abhi platform par hai."
+    ]
    }
   ]
  }

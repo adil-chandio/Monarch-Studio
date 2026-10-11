@@ -11,7 +11,9 @@
       "path": "styles/monarch-stickman-animation",
       "contract": "styles/monarch-stickman-animation/workflow.json",
       "status": "PARKED",
-      "knowledge_index": "styles/monarch-stickman-animation/knowledge/INDEX.md"
+      "knowledge_index": "styles/monarch-stickman-animation/knowledge/INDEX.md",
+      "latest_release": "TUMHARI RESERVED SEAT · WF-01",
+      "latest_release_path": "styles/monarch-stickman-animation/films/tumhari-reserved-seat"
     },
     {
       "style_id": "monarch-noir-film",
@@ -21,7 +23,9 @@
       "path": "styles/monarch-noir-film",
       "contract": "styles/monarch-noir-film/workflow.json",
       "status": "ACTIVE_WITH_DRIFT",
-      "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md"
+      "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md",
+      "latest_release": "TUMHARI RESERVED SEAT · WF-03 · unnumbered",
+      "latest_release_path": "styles/monarch-noir-film/films/tumhari-reserved-seat"
     }
   ]
 }

@@ -2169,6 +2169,54 @@
     "worlds_also": [
      "scale_plate"
     ]
+   },
+   {
+    "key": "tumhari_reserved_seat_wf01",
+    "title": "TUMHARI RESERVED SEAT · WF-01 · 16:9 final",
+    "date": "2026-10-11",
+    "duration_s": 74.0,
+    "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
+    "md5": "ef97f954dd6b4e73675985743deb225c",
+    "slots": {
+     "hook": "number_shock_reserved_seat",
+     "device": "two_path_clock",
+     "world": "paper_station_split_timeline",
+     "grammar": "beat_locked_counter_montage",
+     "camera": "handheld_micro_parallax",
+     "sonic": "paper_foley_94bpm",
+     "type": "depth_layers_light_reveal",
+     "ending": "ticket_to_train"
+    },
+    "signature": "paper_platform_graph — the paper platform folds into a rising thirty-hour graph while both timelines collapse into one glowing reserved seat and SHADE steps toward it",
+    "transitions": [
+     "paper_rip",
+     "ink_iris",
+     "clock_wipe",
+     "ticket_punch",
+     "split_seam",
+     "counter_snap",
+     "phone_flip",
+     "calendar_flip",
+     "type_depth_push",
+     "train_whip"
+    ],
+    "sfx_voices": [
+     "paper_rub",
+     "pencil_tick",
+     "ticket_tear",
+     "timer_click",
+     "phone_thump",
+     "calendar_flip",
+     "marker_squeak",
+     "card_snap",
+     "counter_clack",
+     "soft_braam",
+     "train_chime",
+     "rail_whoosh",
+     "seat_lock",
+     "shimmer_tail"
+    ],
+    "hook_text": "Ek buri khabar hai… tumhari dream life ki seat khaali nahi rehne wali."
    }
   ]
  }

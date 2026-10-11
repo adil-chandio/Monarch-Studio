@@ -1,5 +1,7 @@
 # MONARCH STUDIO — Workflow Registry (local copy)
 
+> **CURRENT ADDENDUM · 2026-10-11 · EMS-20261011-002.** One shared 74.00-second Urdunglish narrative and exact selected `voice-00` produced two separately authored, fully sourced 1920×1080 films. WF-01 `TUMHARI_RESERVED_SEAT_WF01.mp4` passed 21/21 delivery + 18/18 freshness gates (Drive `1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW`; source `1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh`). WF-03 `TUMHARI_RESERVED_SEAT_WF03.mp4` passed 21/21 + 18/18 (Drive `1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N`; source `1jDgmzsIt2CWXxWR7zotPRd1Lmi6WP2AO`) and is intentionally **unnumbered** so the historical Film-#3 conflict is not guessed. Permanent packages live at `styles/monarch-stickman-animation/films/tumhari-reserved-seat/` and `styles/monarch-noir-film/films/tumhari-reserved-seat/`. Notion, Linear, Drive and Google Docs were independently updated; exact remote IDs are in `docs/SOURCE_MAP.md`. The older registry table below remains as a historical snapshot.
+
 > **SHADEGO (2026-10-09, turn 16).** WF-01's resume key is now the one-word autopilot trigger `SHADEGO <topic>`
 > (legacy key "best video reel editing" stays valid). Playbook titled "SHADEGO" on every platform:
 > Google Doc `1EdP_cvptM1GG8dDg_6ld_yjnkc1Ko9-kHtXy3BYXc2A` (authority) · Drive `SHADEGO.md` `1CG7w-sB8IfTrYxh9mveT4OeguelczVcK`

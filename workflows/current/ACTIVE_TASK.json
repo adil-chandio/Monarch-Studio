@@ -1,27 +1,31 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-10T22:17:08Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "task_id": "EMS-20261011-002",
+  "status": "syncing",
+  "title": "Dual-style viral motivational short · one topic, one voice, two films",
+  "style_id": "monarch-stickman-animation + monarch-noir-film",
+  "goal": "Choose one high-FOMO motivational idea for a Desi audience, create one emotionally human 60–90 second easy-Urdunglish master script and voice-over, then produce two premium 16:9 landscape videos from that same narrative using the permanent WF-01 and WF-03 style workflows.",
+  "acceptance_criteria": [
+    "One original motivational topic and one shared retention-engineered 60–90 second easy-Urdunglish script with curiosity, FOMO, emotional storytelling, relatability, and a human tone.",
+    "One user-approved professional voice artist and mastered voice-over used consistently across both edits.",
+    "Two complete 16:9 landscape videos at 1920×1080: one in styles/monarch-stickman-animation and one in styles/monarch-noir-film.",
+    "Every beat receives intentional premium visuals, animation, typography, colour, SFX/ASMR and music design while preserving intelligibility and avoiding omissions.",
+    "Outputs are objectively validated, documented with provenance, and promoted into both permanent style packages before active-task archival."
+  ],
+  "started_at": "2026-10-10T22:53:36Z",
+  "updated_at": "2026-10-11T00:03:24Z",
+  "checkpoint_sequence": 3,
+  "event_sequence": 31,
+  "journal_head": "6753a854f5cae1cc85dd7b045253dc7685eeceff124ba7c25fbf5254e596fbb9",
+  "last_checkpoint": "2026-10-11T00:03:01Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-002/0003-20261011T000301Z",
+  "next_action": "Commit and push the complete production and external receipts to GitHub, mark the GitHub sync, create the completion checkpoint/archive, and reset workflows/current.",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-001",
-  "completion_checkpoint": "0006-20261010T221708Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

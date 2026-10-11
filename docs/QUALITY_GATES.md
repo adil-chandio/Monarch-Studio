@@ -38,6 +38,34 @@ The exact code and thresholds, not this summary, are authoritative. Thresholds m
 - 19/19 engine gates.
 - Brain novelty registry committed only after success.
 
+## Dual-style landscape-short gate model · EMS-20261011-002
+
+The 74-second **TUMHARI RESERVED SEAT** production uses one locked narrative/selected voice but two independent measured implementations. Each permanent film package contains its own `src/gate.py`, DNA, event ledger, look sheet and final report. The unchanged 21-check family verifies:
+
+1. H.264/AAC container and codecs;
+2. exact 1920×1080 resolution;
+3. workflow frame rate (WF-01 30 fps; WF-03 24 fps);
+4. 74.00-second timeline agreement;
+5. 48 kHz stereo audio;
+6. workflow loudness target;
+7. decoded true-peak ceiling;
+8. loudness range;
+9–14. workflow-specific luma/darkness/headroom, motion and empty-frame behavior;
+15. exact narration remains un-stretched;
+16. minimum synchronized stereo event count;
+17. minimum shot count;
+18. all 34 voice-led beats and maximum cadence gap;
+19. 18/18 editor-brain freshness;
+20. look-sheet presence;
+21. delivery-size ceiling.
+
+| Workflow | Master | Audio | Picture highlights | Result |
+|---|---|---|---|---:|
+| WF-01 | 74.00 s · 1920×1080 · 30 fps · 34 beats | −13.6 LUFS · TP −1.5 dBFS · LRA 3.9 · 352 events | mean luma 193.89 · no empty/still samples | **21/21 + freshness 18/18** |
+| WF-03 | 74.00 s · 1920×1080 · 24 fps · 34 beats | −17.1 LUFS · TP −4.8 dBFS · LRA 3.9 · 121 events | mean luma 26.22 · dark share 0.823 · p99 203.83 · motion floor 0.0745 | **21/21 + freshness 18/18** |
+
+Remote upload responses returned the exact local MD5 for both final MP4s and deterministic source ZIPs. The accepted reports live at `styles/monarch-stickman-animation/films/tumhari-reserved-seat/artifacts/DELIVERY_GATES.md` and `styles/monarch-noir-film/films/tumhari-reserved-seat/artifacts/DELIVERY_GATES.md`.
+
 ## WF-03 full-film gate model
 
 THE SHADOW and THE WINDOW use a **27-check** gate family implemented in `src/gate_shadow.py` and `src/gate_window.py`. It measures:

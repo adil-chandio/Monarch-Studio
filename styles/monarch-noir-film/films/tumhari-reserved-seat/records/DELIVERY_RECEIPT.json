@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261011-002",
+  "delivered_at": "2026-10-11T04:49:27+05:00",
+  "style": {
+    "code": "WF-03",
+    "id": "monarch-noir-film",
+    "name": "Monarch Noir Film",
+    "film_number": null,
+    "film_number_note": "Intentionally unassigned; the historical Film-#3 conflict remains preserved rather than guessed."
+  },
+  "production": {
+    "title": "TUMHARI RESERVED SEAT",
+    "topic": "The invisible queue: every day you delay, somebody else takes the seat that could have been yours",
+    "duration_seconds": 74.0,
+    "timeline_beats": 34,
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "selected_voice": "voice-00",
+    "voice_time_stretched": false,
+    "shared_timeline_sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "shared_voice_sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+    "shared_voice_md5": "a493755066b03be68e35b1184bc60c1e"
+  },
+  "final_master": {
+    "workspace_path": "build/TUMHARI_RESERVED_SEAT_WF03.mp4",
+    "bytes": 12508030,
+    "sha256": "738a6aaa177595384f2070f1e16a38b5412ff10514732ba5a60f420b7395dc2f",
+    "md5": "4ba29154079a936d74a2599af51f433f",
+    "codec": "H.264 High / AAC-LC",
+    "audio": "48000 Hz stereo",
+    "integrated_lufs": -17.1,
+    "loudness_range_lu": 3.9,
+    "decoded_true_peak_dbfs": -4.8,
+    "delivery_gates": "21/21 PASS",
+    "freshness_gates": "18/18 PASS",
+    "drive_id": "1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N",
+    "drive_url": "https://drive.google.com/file/d/1LNsQOl2dvRNje720ylGfS0ITKL6GtI_N/view"
+  },
+  "source_package": {
+    "workspace_path": "build/TUMHARI_RESERVED_SEAT_WF03_SOURCE.zip",
+    "bytes": 661210,
+    "sha256": "168c225f00c7f035b5239405701a20446c7d66ea95ced1337a6ebdbc2e61fa6d",
+    "md5": "f9c059a58c7adfa18d641571bb6332d3",
+    "drive_id": "1jDgmzsIt2CWXxWR7zotPRd1Lmi6WP2AO",
+    "drive_url": "https://drive.google.com/file/d/1jDgmzsIt2CWXxWR7zotPRd1Lmi6WP2AO/view"
+  },
+  "drive": {
+    "folder_id": "1A39EybqgjoG8-Tj5uix5Cf4WW39CzmgP",
+    "folder_url": "https://drive.google.com/drive/folders/1A39EybqgjoG8-Tj5uix5Cf4WW39CzmgP",
+    "voice_id": "1F4UBNFi1gODTkXZIj_tGEZMiHyNppLBK",
+    "look_sheet_id": "111fV6ylETw2je7fTCMJthTAgb8GZyf06",
+    "gate_report_id": "1KmIrXWtwffM8U5D4csOg1Tmjo8F05xP3",
+    "md5_verified_from_upload_response": true
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "topic": "TUMHARI RESERVED SEAT — the 20-minute gap",
+  "workflow": "WF-03",
+  "format": "noir_social_short",
+  "duration_s": 74.0,
+  "date": "2026-10-11",
+  "task_id": "EMS-20261011-002",
+  "numbering": "UNASSIGNED — Film #3 conflict remains unresolved; do not invent a film number",
+  "slots": {
+    "hook": "ticket_print_bad_news",
+    "device": "self_punching_reserved_ticket",
+    "world": "rain_midnight_rail_platform",
+    "grammar": "carried_holds_and_punch_cuts",
+    "camera": "platform_dolly_ticket_macro",
+    "sonic": "rail_ambience_72bpm_picardy",
+    "type": "departure_board_split_flap",
+    "ending": "hero_boards_amber_train"
+  },
+  "signature": "thirty_punches — every delayed choice punches a physical hole in the same ticket; the holes become a thirty-hour constellation, then align into the lit windows of the train that is still waiting",
+  "targets": {
+    "format": "noir_social_short",
+    "aspect": "1920x1080",
+    "fps": 24,
+    "loudness": "-16.5 ± 1 LUFS; decoded true peak <= -1.0 dBTP",
+    "holds": "2–4 s carried by rain, breath, clock, practical light, camera drift or train motion",
+    "callbacks_min": 4,
+    "quotable_payoff_lines": 2,
+    "duration_s": 74.0,
+    "shots_min": 32,
+    "transitions": 33,
+    "transition_kinds_min": 6,
+    "new_transition_kinds_min": 3,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 12,
+    "wtf_moments_min": 3,
+    "rehook_at_s": [14.44, 36.59, 48.57, 65.86],
+    "sfx_new_share_min": 0.5,
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "<= 1.0 carried micro-event; shot average <= 2.4",
+    "max_still_s": 1.0,
+    "gates": "adapted WF-03 27-gate short-form suite + editor-brain freshness"
+  },
+  "transitions": [
+    "hard_cut", "dip_to_black", "ticket_macro_match", "train_occlusion",
+    "departure_flap_cut", "fluorescent_blackout", "rail_whip", "amber_light_state_cut",
+    "ticket_hole_bloom"
+  ],
+  "sfx_voices": [
+    "platform_rain", "fluorescent_hum", "distant_rail", "station_clock",
+    "ticket_printer", "ticket_punch", "departure_flap", "phone_glass_tap",
+    "bench_creak", "shoe_scuff", "train_brake_squeal", "carriage_door_chime",
+    "rail_joint_clack", "sub_arrival", "amber_relay", "quiet_tail"
+  ],
+  "shots": 34,
+  "pattern_interrupts": 16,
+  "wtf_moments": 4,
+  "rehooks_s": [14.44, 36.59, 48.57, 65.86],
+  "hook_text": "A ticket printer wakes in an empty station: EK BURI KHABAR — RESERVED SEAT EXPIRES.",
+  "callbacks": [
+    "11:47 station clock returns when the proof/lucky board splits",
+    "empty reserved seat returns occupied by the hero at the final line",
+    "20-minute punched ticket returns as the action ticket",
+    "thirty punched holes become thirty train windows",
+    "cold fluorescent world receives its first amber practical only when the hero starts"
+  ],
+  "quotable_lines": [
+    "Sapne expire nahi hote, magar unki seat reserve bhi nahi rehti.",
+    "Seat tumhari hai. Train abhi platform par hai."
+  ]
+}

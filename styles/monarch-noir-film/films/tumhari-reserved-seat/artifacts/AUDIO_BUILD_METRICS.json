@@ -1,0 +1,10 @@
+{
+  "style": "wf03",
+  "sample_rate": 48000,
+  "duration_s": 74.0,
+  "pre_master_peak_dbfs": -2.836,
+  "lr_correlation": 0.978,
+  "voice_source": "voice00_master.mp3",
+  "voice_time_stretched": false,
+  "events": 121
+}

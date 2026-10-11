@@ -1,0 +1,68 @@
+{
+  "topic": "TUMHARI RESERVED SEAT — the 20-minute gap",
+  "workflow": "WF-01",
+  "format": "landscape_social_short",
+  "duration_s": 74.0,
+  "date": "2026-10-11",
+  "task_id": "EMS-20261011-002",
+  "slots": {
+    "hook": "number_shock_reserved_seat",
+    "device": "two_path_clock",
+    "world": "paper_station_split_timeline",
+    "grammar": "beat_locked_counter_montage",
+    "camera": "handheld_micro_parallax",
+    "sonic": "paper_foley_94bpm",
+    "type": "depth_layers_light_reveal",
+    "ending": "ticket_to_train"
+  },
+  "signature": "paper_platform_graph — the paper platform folds into a rising thirty-hour graph while both timelines collapse into one glowing reserved seat and SHADE steps toward it",
+  "targets": {
+    "format": "landscape_social_short",
+    "aspect": "1920x1080",
+    "fps": 30,
+    "loudness": "-13 ± 1 LUFS; decoded true peak <= -1.0 dBTP",
+    "holds": "no uncarried hold; visible motion in every second",
+    "callbacks_min": 3,
+    "quotable_payoff_lines": 2,
+    "duration_s": 74.0,
+    "shots_min": 32,
+    "transitions": 33,
+    "transition_kinds_min": 8,
+    "new_transition_kinds_min": 3,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 12,
+    "wtf_moments_min": 3,
+    "rehook_at_s": [14.44, 36.59, 48.57, 65.86],
+    "sfx_new_share_min": 0.5,
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "<= 1.0 internal event; shot average <= 2.4",
+    "max_still_s": 0.4,
+    "gates": "custom landscape adaptation of WF-01 19 measured gates + editor-brain freshness"
+  },
+  "transitions": [
+    "paper_rip", "ink_iris", "clock_wipe", "ticket_punch", "split_seam",
+    "counter_snap", "phone_flip", "calendar_flip", "type_depth_push", "train_whip"
+  ],
+  "sfx_voices": [
+    "paper_rub", "pencil_tick", "ticket_tear", "timer_click", "phone_thump",
+    "calendar_flip", "marker_squeak", "card_snap", "counter_clack", "soft_braam",
+    "train_chime", "rail_whoosh", "seat_lock", "shimmer_tail"
+  ],
+  "shots": 34,
+  "pattern_interrupts": 17,
+  "wtf_moments": 4,
+  "rehooks_s": [14.44, 36.59, 48.57, 65.86],
+  "hook_text": "Ek buri khabar hai… tumhari dream life ki seat khaali nahi rehne wali.",
+  "callbacks": [
+    "empty seat at 0–5 s returns as the lit owned seat at 70.56 s",
+    "20:00 timer planted at 28.45 s returns as the viewer action at 59.75 s",
+    "split paths planted at 16.38 s return as PROOF / LUCKY at 65.86 s",
+    "paper ticket punches accumulate into the 30-hour graph"
+  ],
+  "quotable_lines": [
+    "Sapne expire nahi hote, magar unki seat reserve bhi nahi rehti.",
+    "Seat tumhari hai. Train abhi platform par hai."
+  ]
+}

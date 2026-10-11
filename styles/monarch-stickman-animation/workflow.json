@@ -9,40 +9,107 @@
     "token": "SHADEGO",
     "grammar": "SHADEGO <topic> | short|film | <n> s | voice: <note> | <special ask> | language: <lang>",
     "mode": "full_autopilot",
-    "allowed_questions": ["topic_if_missing", "voice_audition_click"]
+    "allowed_questions": [
+      "topic_if_missing",
+      "voice_audition_click"
+    ]
   },
   "state": "PARKED",
   "reply_language": "Roman Urdu",
   "formats": {
-    "short": {"width": 1080, "height": 1920, "duration_seconds": [40, 90], "loudness_lufs": -11.6},
-    "film": {"width": 1920, "height": 1080, "duration_seconds": [120, 300], "loudness_lufs": -16.5, "loudness_tolerance_lu": 1.0}
+    "short": {
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": [
+        40,
+        90
+      ],
+      "loudness_lufs": -11.6
+    },
+    "film": {
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": [
+        120,
+        300
+      ],
+      "loudness_lufs": -16.5,
+      "loudness_tolerance_lu": 1.0
+    }
   },
   "current_delivery": {
-    "name": "IZZAT v2",
-    "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
-    "md5": "8d91be52ab969e0b23f21bf6bab0df85",
-    "duration_seconds": 75.19,
-    "width": 1080,
-    "height": 1920,
-    "fps": 24,
-    "shots": 33,
-    "transitions": 32,
-    "transition_kinds": 15,
-    "loudness_lufs": -11.6,
-    "gate_result": "19/19",
-    "reproducibility": "R1"
+    "name": "TUMHARI RESERVED SEAT · WF-01",
+    "task_id": "EMS-20261011-002",
+    "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
+    "source_drive_id": "1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh",
+    "md5": "ef97f954dd6b4e73675985743deb225c",
+    "sha256": "141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b",
+    "duration_seconds": 74.0,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "shots": 34,
+    "transitions": 33,
+    "transition_kinds": 10,
+    "loudness_lufs": -13.6,
+    "true_peak_dbfs": -1.5,
+    "lra_lu": 3.9,
+    "gate_result": "21/21",
+    "freshness_result": "18/18",
+    "reproducibility": "R1",
+    "path": "films/tumhari-reserved-seat"
   },
-  "brain": {"path": "brain", "registry_generation": 6, "gate_model": "19 workflow gates plus cross-video novelty gate #20"},
-  "runtime": {"legacy_home": "/home/user", "working_directory": ".", "hydrate_layout": "home_root"},
+  "brain": {
+    "path": "brain",
+    "registry_generation": 6,
+    "gate_model": "19 workflow gates plus cross-video novelty gate #20"
+  },
+  "runtime": {
+    "legacy_home": "/home/user",
+    "working_directory": ".",
+    "hydrate_layout": "home_root"
+  },
   "required_paths": [
-    "README.md", "style.json", "knowledge/INDEX.md", "SHADEGO.md", "RESUME_STATE.md", "DRIVE_MANIFEST.md",
-    "brain/concept.py", "brain/registry.json", "src/respect2.py", "src/timeline_respect2.py",
-    "src/gate_respect2.py", "src/vo_fit.py", "src/make_asmr_respect2.py", "src/mux_respect2.sh"
+    "README.md",
+    "style.json",
+    "knowledge/INDEX.md",
+    "SHADEGO.md",
+    "RESUME_STATE.md",
+    "DRIVE_MANIFEST.md",
+    "brain/concept.py",
+    "brain/registry.json",
+    "src/respect2.py",
+    "src/timeline_respect2.py",
+    "src/gate_respect2.py",
+    "src/vo_fit.py",
+    "src/make_asmr_respect2.py",
+    "src/mux_respect2.sh",
+    "films/tumhari-reserved-seat/README.md",
+    "films/tumhari-reserved-seat/src/render.py",
+    "films/tumhari-reserved-seat/src/gate.py",
+    "films/tumhari-reserved-seat/records/DELIVERY_RECEIPT.json"
   ],
   "authorities": {
     "drive_folder_id": "1Qum7OkUZpRMSt3SMJ6q3WumUUwzezTw-",
     "notion_project_id": "3f3807e1-e916-819e-aa60-fc633bf61478",
     "linear_project_id": "4d053022-acab-4836-8f13-5ccb7e043c17",
     "google_doc_hub_id": "1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g"
-  }
+  },
+  "previous_deliveries": [
+    {
+      "name": "IZZAT v2",
+      "drive_id": "1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu",
+      "md5": "8d91be52ab969e0b23f21bf6bab0df85",
+      "duration_seconds": 75.19,
+      "width": 1080,
+      "height": 1920,
+      "fps": 24,
+      "shots": 33,
+      "transitions": 32,
+      "transition_kinds": 15,
+      "loudness_lufs": -11.6,
+      "gate_result": "19/19",
+      "reproducibility": "R1"
+    }
+  ]
 }

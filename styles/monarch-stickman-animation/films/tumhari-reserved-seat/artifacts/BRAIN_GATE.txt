@@ -1,0 +1,19 @@
+FRESHNESS GATE (#20) — DNA.json — PASS (18/18)
+  [PASS] slot hook = number_shock_reserved_seat  — fresh
+  [PASS] slot device = two_path_clock  — fresh
+  [PASS] slot world = paper_station_split_timeline  — fresh
+  [PASS] slot grammar = beat_locked_counter_montage  — fresh
+  [PASS] slot camera = handheld_micro_parallax  — fresh
+  [PASS] slot sonic = paper_foley_94bpm  — fresh
+  [PASS] slot type = depth_layers_light_reveal  — fresh
+  [PASS] slot ending = ticket_to_train  — fresh
+  [PASS] signature = paper_platform_graph — the paper platform folds into a rising thirty-hour graph while both timelines collapse into one glowing reserved seat and SHADE steps toward it  — unique
+  [PASS] transition kinds = 10 (min 9)  — paper_rip, ink_iris, clock_wipe, ticket_punch, split_seam, counter_snap, phone_flip, calendar_flip, type_depth_push, train_whip
+  [PASS] overlap with last video = 0.00 (max 0.4)  — shared: []
+  [PASS] new kinds = 10 (min 3)  — paper_rip, ink_iris, clock_wipe, ticket_punch, split_seam, counter_snap, phone_flip, calendar_flip, type_depth_push, train_whip
+  [PASS] new SFX voices share = 1.00 (min 0.5)  — 14 voices listed
+  [PASS] shots = 34 (min 32)  
+  [PASS] pattern_interrupts = 17 (min 12)  
+  [PASS] wtf_moments = 4 (min 3)  
+  [PASS] re-hooks logged = 4 (min 3 for ≥ 40 s)  — [14.44, 36.59, 48.57, 65.86]
+  [PASS] hook text logged  — Ek buri khabar hai… tumhari dream life ki seat khaali nahi r

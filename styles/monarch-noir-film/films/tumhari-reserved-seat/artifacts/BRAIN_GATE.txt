@@ -1,0 +1,19 @@
+FRESHNESS GATE (#20) — DNA.json — PASS (18/18)
+  [PASS] slot hook = ticket_print_bad_news  — fresh
+  [PASS] slot device = self_punching_reserved_ticket  — fresh
+  [PASS] slot world = rain_midnight_rail_platform  — fresh
+  [PASS] slot grammar = carried_holds_and_punch_cuts  — fresh
+  [PASS] slot camera = platform_dolly_ticket_macro  — fresh
+  [PASS] slot sonic = rail_ambience_72bpm_picardy  — fresh
+  [PASS] slot type = departure_board_split_flap  — fresh
+  [PASS] slot ending = hero_boards_amber_train  — fresh
+  [PASS] signature = thirty_punches — every delayed choice punches a physical hole in the same ticket; the holes become a thirty-hour constellation, then align into the lit windows of the train that is still waiting  — unique
+  [PASS] transition kinds = 9 (min 9)  — hard_cut, dip_to_black, ticket_macro_match, train_occlusion, departure_flap_cut, fluorescent_blackout, rail_whip, amber_light_state_cut, ticket_hole_bloom
+  [PASS] overlap with last noir_social_short = 0.00 (max 0.4)  — shared: []
+  [PASS] new kinds = 7 (min 3)  — ticket_macro_match, train_occlusion, departure_flap_cut, fluorescent_blackout, rail_whip, amber_light_state_cut, ticket_hole_bloom
+  [PASS] new SFX voices share = 1.00 (min 0.5)  — 16 voices listed
+  [PASS] shots = 34 (min 32)  
+  [PASS] pattern_interrupts = 16 (min 12)  
+  [PASS] wtf_moments = 4 (min 3)  
+  [PASS] re-hooks logged = 4 (min 3 for ≥ 40 s)  — [14.44, 36.59, 48.57, 65.86]
+  [PASS] hook text logged  — A ticket printer wakes in an empty station: EK BURI KHABAR —

@@ -20,6 +20,16 @@ This index prevents working knowledge from disappearing inside chat history. Per
 - Build orchestration: `build_respect2.sh`, `build_respect2_b.sh`, `finish_respect2.sh`.
 - Current contact sheet: `shade_respect_v2_contact.png`.
 
+## Accepted productions
+
+### TUMHARI RESERVED SEAT · 2026-10-11
+
+- Permanent package: `../films/tumhari-reserved-seat/`
+- Promoted learning: `TUMHARI_RESERVED_SEAT_LESSONS.md`
+- Shared lock: 74.00 s · 34 voice-led beats · selected exact `voice-00`
+- WF-01 master: 1920×1080 · 30 fps · 21/21 delivery PASS · 18/18 freshness PASS
+- Durable identity and hashes: `../films/tumhari-reserved-seat/records/DELIVERY_RECEIPT.{md,json}`
+
 ## Historical progression
 
 - `VIDEO_V4_NOTES.md` through `VIDEO_V9_NOTES.md`.
