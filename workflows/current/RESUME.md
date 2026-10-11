@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261011-003
 
-**Status:** `syncing`  
-**Title:** TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement  
-**Style:** `monarch-stickman-animation + monarch-noir-film`  
-**Checkpoint sequence:** 2  
-**Last checkpoint:** 2026-10-11T01:51:25Z
+**Status:** `syncing`
+**Title:** TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement
+**Style:** `monarch-stickman-animation + monarch-noir-film`
+**Checkpoint sequence:** 3
+**Last checkpoint:** 2026-10-11T01:58:45Z
 
 ## Goal
 
@@ -21,7 +21,7 @@ Preserve both accepted originals, then rebuild the same 74-second 16:9 narrative
 
 ## Exact next action
 
-Validate repository, create/push the production commit, then create independent V2 Google Docs tabs, Notion pages and Linear project updates; write signed receipts with Drive and production-commit authority; commit/push final synchronization, archive the active task and reset only after all five platforms are verified.
+Commit and push the signed archival synchronization receipt, verify origin/main and all external records, then complete/archive EMS-20261011-003 and reset only the active slot.
 
 ## Running processes
 
@@ -39,6 +39,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-003/0002-20261011T015125Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-003/0003-20261011T015845Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

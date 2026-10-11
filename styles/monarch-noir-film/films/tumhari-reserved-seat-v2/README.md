@@ -32,7 +32,7 @@ python3 src/gate.py build/TUMHARI_RESERVED_SEAT_WF03_V2_NOIR_IMAX_TABAHI.mp4
 - `records/parent-v1/` — immutable V1 acceptance evidence copied for comparison.
 - `records/EXPERIMENTS_FAILURES_FIXES.md` — decisions, failures and repairs.
 
-Final master, delivery receipt and Drive URLs are intentionally absent until all final measured gates pass.
+Final master is accepted at **44/44 delivery gates**, **30/30 freshness** and **33/33 transition-boundary smoke**. Binary authority is the signed `records/DELIVERY_RECEIPT.json`; five-platform IDs/readback live in signed `records/EXTERNAL_SYNC_RECEIPT.json`. Drive folder: https://drive.google.com/drive/folders/1yxDMcmpEjNOR0agG5iZdO656CtuGFzMe. Production commit: https://github.com/adil-chandio/Monarch-Studio/commit/9b4d6fca4338fbd9d8de34e354a5ba15819ef33e.
 
 ## Self-contained rebuild inputs
 - Runtime dependencies are pinned in `requirements.txt`.

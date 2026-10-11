@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "receipt_type": "external_sync",
+  "task_id": "EMS-20261011-003",
+  "workflow": "WF-03",
+  "issued_at_utc": "2026-10-11T01:56:02Z",
+  "issued_at_local": "2026-10-11T06:56:02+05:00",
+  "status": "ALL_REQUIRED_PLATFORMS_VERIFIED",
+  "delivery_receipt": {
+    "path": "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/records/DELIVERY_RECEIPT.json",
+    "canonical_payload_sha256": "587547376773653995c53f41793027737f6fb0b2d14dcc67e2b9596d81f7d751"
+  },
+  "verification": {
+    "performed_at_utc": "2026-10-11T01:56:02Z",
+    "required_platforms": [
+      "github",
+      "google_drive",
+      "google_docs",
+      "notion",
+      "linear"
+    ],
+    "all_required_platforms_verified": true
+  },
+  "platforms": {
+    "github": {
+      "repository": "adil-chandio/Monarch-Studio",
+      "branch": "main",
+      "production_commit": "9b4d6fca4338fbd9d8de34e354a5ba15819ef33e",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/9b4d6fca4338fbd9d8de34e354a5ba15819ef33e",
+      "remote_branch_contained_commit": true,
+      "git_ls_remote_head_at_verification": "9b4d6fca4338fbd9d8de34e354a5ba15819ef33e"
+    },
+    "google_drive": {
+      "folder_id": "1yxDMcmpEjNOR0agG5iZdO656CtuGFzMe",
+      "folder_url": "https://drive.google.com/drive/folders/1yxDMcmpEjNOR0agG5iZdO656CtuGFzMe",
+      "objects": [
+        {
+          "role": "final_master",
+          "drive_id": "1r-gXHPGr0LRQuuDsOLlbyagoC3kJnj6r",
+          "drive_url": "https://drive.google.com/file/d/1r-gXHPGr0LRQuuDsOLlbyagoC3kJnj6r/view",
+          "bytes": 46549431,
+          "sha256": "bc52e242a21c4001d6dd2e0612457c74de7865f726598c5ae75c6f6c70533ed3",
+          "md5": "cbf4d9c5f3c77a9137d8f96755613956",
+          "readback_verified": true
+        },
+        {
+          "role": "source_package",
+          "drive_id": "11tdG-ZzGaWajUufWC5TwfRTtUzVMSIrF",
+          "drive_url": "https://drive.google.com/file/d/11tdG-ZzGaWajUufWC5TwfRTtUzVMSIrF/view",
+          "bytes": 2500332,
+          "sha256": "8da94ab0e52635e2310a6185d3c7ebe3f619f9df1e3150259a4b8ed598ab7f1d",
+          "md5": "7fcaffb3b0e052c137647c9383e4b4d6",
+          "readback_verified": true
+        },
+        {
+          "role": "delivery_gates",
+          "drive_id": "1UrUZuklMh8GtUGv1d-_LLiogwPS7aZyM",
+          "drive_url": "https://drive.google.com/file/d/1UrUZuklMh8GtUGv1d-_LLiogwPS7aZyM/view",
+          "bytes": 3455,
+          "sha256": "edb35e2e2c515cbaccbc3943d0a5f4106f20ce3a9058a4120805b88fda4517ef",
+          "md5": "60a08cf73794bbd4430e64dcdb84b1a5",
+          "readback_verified": true
+        },
+        {
+          "role": "look_sheet",
+          "drive_id": "1G0XozHjIfAfkC47kCLymyA7KtPjGaFdj",
+          "drive_url": "https://drive.google.com/file/d/1G0XozHjIfAfkC47kCLymyA7KtPjGaFdj/view",
+          "bytes": 471944,
+          "sha256": "fff01e8975b2be37a6882d338ffdcab9a51f2c24da7a1fbd8f3b63f03df9f509",
+          "md5": "2d220be79afce5ba956ea568cd25ddaa",
+          "readback_verified": true
+        },
+        {
+          "role": "final_qc_contact_sheet",
+          "drive_id": "1yrlycTk0CjqEAxqZi1WNcCuJ7VtZPCcy",
+          "drive_url": "https://drive.google.com/file/d/1yrlycTk0CjqEAxqZi1WNcCuJ7VtZPCcy/view",
+          "bytes": 653455,
+          "sha256": "4ff2cdd248d70c2394dd98cb343631eca26478879a61d2bc961639823cdd96a2",
+          "md5": "f161afd8f69a38a74da75985caed44e4",
+          "readback_verified": true
+        },
+        {
+          "role": "provenance",
+          "drive_id": "1p0tv3rHyzL4jTrY3Hh2Ny_0woDm-ELWN",
+          "drive_url": "https://drive.google.com/file/d/1p0tv3rHyzL4jTrY3Hh2Ny_0woDm-ELWN/view",
+          "bytes": 3098,
+          "sha256": "6157d206bf67fcf9aa86d4448bd34b0ed550c622b6e92a99ee0c1c0d45d3b7cc",
+          "md5": "72cae2997adcaacfeb4622873975ae30",
+          "readback_verified": true
+        }
+      ],
+      "all_parent_ids_match_folder": true,
+      "all_md5_and_sizes_match_local": true
+    },
+    "google_docs": {
+      "document_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM",
+      "tab_id": "t.a3zhgg7pywbh",
+      "url": "https://docs.google.com/document/d/1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM/edit?tab=t.a3zhgg7pywbh",
+      "readback_verified": true,
+      "required_content_found": [
+        "FINAL / ACCEPTED",
+        "EMS-20261011-003",
+        "9b4d6fca4338fbd9d8de34e354a5ba15819ef33e",
+        "EXTERNAL SYNCHRONIZATION"
+      ]
+    },
+    "notion": {
+      "parent_page_id": "3f4807e1-e916-8135-b919-ee36b0e39165",
+      "page_id": "3f6807e1-e916-812f-ac3e-fe8973d74e13",
+      "url": "https://app.notion.com/p/TUMHARI-RESERVED-SEAT-WF-03-V2-NOIR-IMAX-TABAHI-3f6807e1e916812fac3efe8973d74e13",
+      "archived": false,
+      "in_trash": false,
+      "readback_verified": true,
+      "external_links_present": true
+    },
+    "linear": {
+      "project_id": "e173192b-b932-4801-ac4d-dcd7445237b8",
+      "update_id": "c8bf9b1b-c205-464a-8a4b-b6f082bd9934",
+      "url": "https://linear.app/monarchmation/project/wf-03-monarch-noir-film-2c1df007bccf/activity#project-update-c8bf9b1b",
+      "health": "onTrack",
+      "readback_verified": true,
+      "accepted_status_present": true
+    }
+  },
+  "authority": {
+    "production_commit": "9b4d6fca4338fbd9d8de34e354a5ba15819ef33e",
+    "production_commit_url": "https://github.com/adil-chandio/Monarch-Studio/commit/9b4d6fca4338fbd9d8de34e354a5ba15819ef33e",
+    "package_path": "styles/monarch-noir-film/films/tumhari-reserved-seat-v2"
+  },
+  "verification_note": "Five-platform readback was performed after creating the final Linear update and cross-linking the independent V2 Google Docs tab and Notion page. IDs are exact provider-returned identifiers.",
+  "signature": {
+    "algorithm": "Ed25519",
+    "canonicalization": "UTF-8 JSON, sorted keys, compact separators, ensure_ascii=false; top-level signature field excluded",
+    "scope": "all top-level fields except signature",
+    "canonical_payload_sha256": "1af172cdafdc1486003a112831a56b916984991fb0115545a66c9dcf14572fb3",
+    "signature_base64": "2bDicBVy/EMvXJfWnTYwixMXxRUPjh5sZdkwAizHCoK3i3h1BG8xX0KoPAdddYW6DEc0DLbnHRapt32RN25nDw==",
+    "public_key_file": "RECEIPT_PUBLIC_KEY.txt",
+    "public_key_sha256": "5e6288f9b7ac03a8e0804d78cb56bf3ca5c873cec8d473d76d59a577ba1bf58b",
+    "key_provenance": "Task-scoped verification key generated locally for EMS-20261011-003; private half destroyed after signing; repository commit anchors the public key and receipt.",
+    "authority": {
+      "task_id": "EMS-20261011-003",
+      "production_commit": "9b4d6fca4338fbd9d8de34e354a5ba15819ef33e"
+    }
+  }
+}
