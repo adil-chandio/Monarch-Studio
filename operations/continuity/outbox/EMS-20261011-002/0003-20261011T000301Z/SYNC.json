@@ -5,7 +5,7 @@
   "created_at": "2026-10-11T00:03:01Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "e1633a94a2438b9c4d50d91e04efe25bd6a2880b",
+      "synced_at": "2026-10-11T00:22:31Z",
+      "note": "Production source, exact shared voice, two permanent style packages, measured gates, promoted learning, connected-system receipts and full continuity state pushed to main; remote head verified byte-identical to local commit.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/e1633a94a2438b9c4d50d91e04efe25bd6a2880b"
     },
     "google_docs": {
       "status": "completed",

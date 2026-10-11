@@ -66,7 +66,9 @@ Each package contains its own DNA, exact shared lock, exact selected voice, dete
 
 ### GitHub
 
-Canonical destination: `https://github.com/adil-chandio/Monarch-Studio`. The exact pushed commit and URL are added to continuity sync receipts after repository validation and publication.
+- Canonical repository: https://github.com/adil-chandio/Monarch-Studio
+- Published production commit: [`e1633a94a2438b9c4d50d91e04efe25bd6a2880b`](https://github.com/adil-chandio/Monarch-Studio/commit/e1633a94a2438b9c4d50d91e04efe25bd6a2880b)
+- Remote `main` was read back and matched the local commit exactly before active-task archival.
 
 ## Permanent safeguards promoted
 

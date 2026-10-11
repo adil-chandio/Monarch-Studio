@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-11T00:03:24+00:00",
+  "generated_at": "2026-10-11T00:23:48+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "489dd6b9c61c4de4e12839c378032f85c18811d22abac56a4cbb0d121eab79c4",
-      "size": 719
+      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
+      "size": 527
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -188,12 +188,12 @@
       "size": 1828
     },
     "docs/productions/EMS-20261011-002/DELIVERY.json": {
-      "sha256": "e6d70251d793cfc38e364e38f85146888bd657703866ed2f190c72edd5dd43c1",
-      "size": 2533
+      "sha256": "526c1f5ca44e21d60fe756f3ade070b5f0dab8b6e5de36eeaec36de4a48f8a90",
+      "size": 2838
     },
     "docs/productions/EMS-20261011-002/DELIVERY.md": {
-      "sha256": "23797740529b4e4825d1dae1b33aebdf4bd1729d4ac2cd0190fa97becf0b9082",
-      "size": 5036
+      "sha256": "d9406a586017429406a242a2ea52a9504404a20ee7369c3e6b986ebafc12699d",
+      "size": 5187
     },
     "docs/schemas/active-task.schema.json": {
       "sha256": "6d7221628fc6321223dbd22fadefdc051b50a39664c642da56104ed36169a4af",
@@ -290,6 +290,14 @@
     "operations/continuity/checkpoints/EMS-20261011-002/0003-20261011T000301Z/checkpoint.json": {
       "sha256": "e431bce36510af2536c1f821142e1773c51a763da8dce80dbafa26257ce11715",
       "size": 11938
+    },
+    "operations/continuity/checkpoints/EMS-20261011-002/0004-20261011T002321Z/HANDOFF.md": {
+      "sha256": "5f5bf5bd17a33f8a9852e5f6ec1a6fcedb5153fff35c56283a63d17e8f2ffd91",
+      "size": 2048
+    },
+    "operations/continuity/checkpoints/EMS-20261011-002/0004-20261011T002321Z/checkpoint.json": {
+      "sha256": "75a2f23075a57357273d4467d8dd15846c9c71f4f2186161baf14d73eca55022",
+      "size": 6514
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -392,12 +400,24 @@
       "size": 1099
     },
     "operations/continuity/outbox/EMS-20261011-002/0003-20261011T000301Z/SYNC.json": {
-      "sha256": "321756adc594de05e2d394c0cd38846d70347dd6aeef588a092fa05bec96a445",
-      "size": 5544
+      "sha256": "dec30193ed9527dfa7aa80de587425beccb61e5c49599393e0df3e3ffd10aeca",
+      "size": 5935
     },
     "operations/continuity/outbox/EMS-20261011-002/0003-20261011T000301Z/checkpoint.json": {
       "sha256": "ff09a0c4f0329b628279c4e290401dd80e551c7849fc14dff91312940c16751f",
       "size": 11938
+    },
+    "operations/continuity/outbox/EMS-20261011-002/0004-20261011T002321Z/STATUS.md": {
+      "sha256": "9a2ac05d8b0a62b2511f4e7b4235407d120940cce776809c7711d80269a220c0",
+      "size": 990
+    },
+    "operations/continuity/outbox/EMS-20261011-002/0004-20261011T002321Z/SYNC.json": {
+      "sha256": "6ead0d42cf15bf772ed85be72f1554b1123c53adfce790a1bb68fe91c3f7c496",
+      "size": 5760
+    },
+    "operations/continuity/outbox/EMS-20261011-002/0004-20261011T002321Z/checkpoint.json": {
+      "sha256": "1fea7ca97e8d8a846800e24ee09f97617070fb69aa0c99e088e3865ccfd28c08",
+      "size": 6514
     },
     "operations/continuity/recovery-bundles.json": {
       "sha256": "8f2ffd4885f786b9ac32a11a1bd2b4394f485dcc619aa0f12a5153fb57461507",
@@ -442,6 +462,42 @@
     "operations/history/EMS-20261011-001/payload/USER_REQUEST.txt": {
       "sha256": "c09afb13fcee5328be0a558f2a1a479fce639042b3cec2ea92255591389ee3e4",
       "size": 2925
+    },
+    "operations/history/EMS-20261011-002/ACTIVE_TASK.json": {
+      "sha256": "47b24b56138467f4b4a1318197f43fe718c0458ccdd9b51222f66825868010a2",
+      "size": 1930
+    },
+    "operations/history/EMS-20261011-002/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "352d32874a3cd7d687c7997e54d05919e358a2b3f36c0e45e190fa3b6c6f905d",
+      "size": 2287
+    },
+    "operations/history/EMS-20261011-002/JOURNAL.jsonl": {
+      "sha256": "07aa3734875c93b146ec8623795897b5545021cbad876cb0074d2141d2924aed",
+      "size": 27017
+    },
+    "operations/history/EMS-20261011-002/RESUME.md": {
+      "sha256": "5f5bf5bd17a33f8a9852e5f6ec1a6fcedb5153fff35c56283a63d17e8f2ffd91",
+      "size": 2048
+    },
+    "operations/history/EMS-20261011-002/payload/USER_REQUEST.txt": {
+      "sha256": "e6325532680d39987d5c8b33b663eb44c82097a99311f1e89f908298e3a53e28",
+      "size": 1975
+    },
+    "operations/history/EMS-20261011-002/payload/audio/tumhari_reserved_seat_voice00.mp3": {
+      "sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+      "size": 293901
+    },
+    "operations/history/EMS-20261011-002/payload/creative/MASTER_TIMELINE.json": {
+      "sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+      "size": 3823
+    },
+    "operations/history/EMS-20261011-002/payload/creative/TOPIC_AND_SCRIPT.md": {
+      "sha256": "11ba5bea0352bf8576b3bbc8a7f91a1c253465d8522cb646e8a8f61e9f227a0b",
+      "size": 4804
+    },
+    "operations/history/EMS-20261011-002/payload/creative/VOICE_SCRIPT_UR.txt": {
+      "sha256": "c94f4cb85efd21608a61dfd296d49534f7aa177f259791018bb7b71c29a36679",
+      "size": 1512
     },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
@@ -743,50 +799,6 @@
       "sha256": "92ded42bc0250b26bc699dd3c4601c84dd0c9abf4a4eaa6d80ab61171a48a71b",
       "size": 3072
     },
-    "styles/monarch-noir-film/plates/facade_windows.json": {
-      "sha256": "4336501fb4f12e9b5b92bb3e5f37db1384dee99448c766854f57bb5ad079144c",
-      "size": 4974
-    },
-    "styles/monarch-noir-film/plates/raw_bedroom_amber.png": {
-      "sha256": "8a94543b635891e758c127ce3b25e62865fca609ee49da9034531a0d6da1c151",
-      "size": 2081447
-    },
-    "styles/monarch-noir-film/plates/raw_bedroom_night.png": {
-      "sha256": "195f8368cb329b6141923015024373680e8d6074b43f465fc4ad6f0462a03e3f",
-      "size": 1981532
-    },
-    "styles/monarch-noir-film/plates/raw_desk_window.png": {
-      "sha256": "c0baed681d24eaa5d2493f0caa34022ea9c91ced04df9ab18231359a454b6773",
-      "size": 2061805
-    },
-    "styles/monarch-noir-film/plates/raw_facade_hero.png": {
-      "sha256": "ca6d00f3ffd9e2d2008efbab95d47b1343a987d0663a578f8c957687a64b7923",
-      "size": 1908920
-    },
-    "styles/monarch-noir-film/plates/raw_facade_night.png": {
-      "sha256": "b55cdadbe44c7c17add56386cbc766ec5bd88a42c9a9ea10ddae97a8808fea72",
-      "size": 2141259
-    },
-    "styles/monarch-noir-film/plates/raw_kitchen_window.png": {
-      "sha256": "dd43394d85c4b90e98c8385a90b96448d25fb937378890c954365e100efd1e9e",
-      "size": 2191391
-    },
-    "styles/monarch-noir-film/plates/raw_kitchenette_night.png": {
-      "sha256": "930535fc366024293fa97f65db1d382d32f01dd507b9f2e769768cefee778227",
-      "size": 1936444
-    },
-    "styles/monarch-noir-film/plates/raw_runner_window.png": {
-      "sha256": "a9fa4856dc4e7a076f9c9a0609f201c4713efe04696317a4bc0c9e8713244e1b",
-      "size": 2175256
-    },
-    "styles/monarch-noir-film/plates/raw_street_dawn.png": {
-      "sha256": "5650402f65f4f335d0da28f6ca3f65733743dd69450e28193798dcc35ade964d",
-      "size": 2027807
-    },
-    "styles/monarch-noir-film/plates/raw_window_inside.png": {
-      "sha256": "c41476e0541d0148df578d17836cd33b2b07db7b4dd38d759110ee36bb2b2a3e",
-      "size": 1929854
-    },
     "styles/monarch-noir-film/records/archive/RESUME_STATE_turn21.md": {
       "sha256": "1368aeaa8ae064b723bdbbaedaea9c242713c165e158c0b87770606217dd41fa",
       "size": 17039
@@ -870,46 +882,6 @@
     "styles/monarch-noir-film/style.json": {
       "sha256": "31e66e5ae8609ba59dbc23463288f32ce125a1bfbe3b64f3ba57d8585bfc9c46",
       "size": 692
-    },
-    "styles/monarch-noir-film/vo/vo01.mp3": {
-      "sha256": "833e7e3766e26fe9aa937860b02d22d364eb6908bf77ce5a14283fa5839f4805",
-      "size": 118927
-    },
-    "styles/monarch-noir-film/vo/vo02.mp3": {
-      "sha256": "831bb9b93cf820185ea0487ba63d2256577bc2c572ae96b06717246079b2a50f",
-      "size": 138362
-    },
-    "styles/monarch-noir-film/vo/vo03.mp3": {
-      "sha256": "623f0acb1eb35b0b18e559632d7e760786aa8d815f40baa8a982487dd3360128",
-      "size": 58950
-    },
-    "styles/monarch-noir-film/vo/vo04.mp3": {
-      "sha256": "3f4139ed70a88dc17b012fc1697c795ab13a0bf1969aede86dd3726101db8ff2",
-      "size": 34917
-    },
-    "styles/monarch-noir-film/vo/vo05.mp3": {
-      "sha256": "a9cb30b68ba1e42692dcdaf7a095fcecb89aa2329a5d4c64ad1e5c96c524c434",
-      "size": 55815
-    },
-    "styles/monarch-noir-film/vo/vo06.mp3": {
-      "sha256": "a18e39174cc0803f551f29ebdbdeff85fcdf390a6aede17f7c80e4135d3a01ce",
-      "size": 77340
-    },
-    "styles/monarch-noir-film/vo/vo07.mp3": {
-      "sha256": "bfbfee1222b9536970a521f651129d2d4f5855e4b9874fc50059693f3f7261bf",
-      "size": 136899
-    },
-    "styles/monarch-noir-film/vo/vo08.mp3": {
-      "sha256": "ec4829630fd57a0ce3fcc00df68e1dcd98ece7b6c0f0740812cd80f785b00334",
-      "size": 105761
-    },
-    "styles/monarch-noir-film/vo/vo09.mp3": {
-      "sha256": "c7dbb6f3fb9be229ccf20b27070d570aee138210ae1d3b9d35ca001448789d54",
-      "size": 152991
-    },
-    "styles/monarch-noir-film/vo/vo10.mp3": {
-      "sha256": "0e615ea4ceb49fbdc5bee4d19f28f12d05216f4ca386a7545a6dc701492acf4d",
-      "size": 114329
     },
     "styles/monarch-noir-film/workflow.json": {
       "sha256": "900a31854e02c8d8886fec3ab43dec960ac39590586d6b0b1b0e82a6a5e72aee",
@@ -1090,218 +1062,6 @@
     "styles/monarch-stickman-animation/_zoom.png": {
       "sha256": "b049bbf4102a49ddccb69fc2c5fe042719236465b89671bf91c2a346da9daa66",
       "size": 1661593
-    },
-    "styles/monarch-stickman-animation/assets/b1.mp3": {
-      "sha256": "6e75ed5da61fd1fd626926cbd1b52fa94bd49afd2ab8258e380c6f8199b244ae",
-      "size": 155916
-    },
-    "styles/monarch-stickman-animation/assets/b10.mp3": {
-      "sha256": "05c344a2afe499c99758da6c97b413767055b787b8d74d183d58ab4ad5f8a46c",
-      "size": 198757
-    },
-    "styles/monarch-stickman-animation/assets/b2.mp3": {
-      "sha256": "7cec55b11a519a218f1ed0f56d51fe4903339bfd5218fd521c498db0af34ab13",
-      "size": 171381
-    },
-    "styles/monarch-stickman-animation/assets/b3.mp3": {
-      "sha256": "faef0e537c1da8588e85b6604a2f4f565a54a27993de486607e6903cdf4c3f19",
-      "size": 156752
-    },
-    "styles/monarch-stickman-animation/assets/b4.mp3": {
-      "sha256": "a10ea25a15f70bec67e18da284f5c6036f05c00fd29a36d884d74bcafb6560b3",
-      "size": 136690
-    },
-    "styles/monarch-stickman-animation/assets/b5.mp3": {
-      "sha256": "a4326d691929b87df0ed2f44045e64cbe2d1d9b08a903706572750dc3599d300",
-      "size": 146303
-    },
-    "styles/monarch-stickman-animation/assets/b6.mp3": {
-      "sha256": "eb8400a0b9e66ce27c32e0128a1fcbe6e278bd429abd19aecf7d203bcaf98a66",
-      "size": 177023
-    },
-    "styles/monarch-stickman-animation/assets/b7.mp3": {
-      "sha256": "5176b4b7191504abf98c33133f8a80c83089f2e42b8a426fb7d025c7a7a8fe09",
-      "size": 129794
-    },
-    "styles/monarch-stickman-animation/assets/b8.mp3": {
-      "sha256": "7bd7b511c541cac77c34f51a497ac95ab4e7cf65accbcfddfde2c75ee6b9a346",
-      "size": 150901
-    },
-    "styles/monarch-stickman-animation/assets/b9.mp3": {
-      "sha256": "b8f59df4c1ebfa828ac09252bbc9061d5303e01bede2a23a97c842a7d791f066",
-      "size": 166783
-    },
-    "styles/monarch-stickman-animation/assets/p1.mp3": {
-      "sha256": "1b91556e551ec0cabdc6006c514e0dfaef5d02d4a0c1d3444c3b6a5f4388ef33",
-      "size": 27309
-    },
-    "styles/monarch-stickman-animation/assets/p1_fit.wav": {
-      "sha256": "269d2dd4926bece4bd7b7d117626227e2db132ca784eb445f49ff568deffa73d",
-      "size": 540140
-    },
-    "styles/monarch-stickman-animation/assets/p2.mp3": {
-      "sha256": "423ef0328f9ea679172439b7e467174ca57d2978c8d3fd6e1badef0e80df0453",
-      "size": 27789
-    },
-    "styles/monarch-stickman-animation/assets/p2_fit.wav": {
-      "sha256": "b3bd314f839509339b8951d10e7526448084819c4f6c94d9e4b835042bbdb1c8",
-      "size": 529580
-    },
-    "styles/monarch-stickman-animation/assets/p3.mp3": {
-      "sha256": "43428aa2b71ec0db35ddf248dd809e602c0813dec16d7ccc800accf4820ea8ec",
-      "size": 30861
-    },
-    "styles/monarch-stickman-animation/assets/p3_fit.wav": {
-      "sha256": "b327db779d757d5c81ffd87105ef0c5c2766a2646c3e7db5f0a02eb0612b4f70",
-      "size": 625580
-    },
-    "styles/monarch-stickman-animation/assets/p4.mp3": {
-      "sha256": "da33c44d0fc5765b2537fa322aa5e7e47f6afdbd98a0f990e2a7d5f2adeb3d8d",
-      "size": 31533
-    },
-    "styles/monarch-stickman-animation/assets/p4_fit.wav": {
-      "sha256": "ad58be60c7e3d63e9b953f6f8a90e87dfa50667e189cc64cdb41fedad79543b6",
-      "size": 600044
-    },
-    "styles/monarch-stickman-animation/assets/p5.mp3": {
-      "sha256": "2391ada87086cba5065e4d0270670f221d9ff6c975eba681a5a13e2bbe98eef9",
-      "size": 33069
-    },
-    "styles/monarch-stickman-animation/assets/p5_fit.wav": {
-      "sha256": "ef1de7f07b378b060a4ea588f62aebf66cabbd408f96a8d9a093be141c85a870",
-      "size": 628460
-    },
-    "styles/monarch-stickman-animation/assets/p6.mp3": {
-      "sha256": "7020bef1bab0cb44888180d514d6913331c5dd4f59cc475eb3cd0b32165af369",
-      "size": 39981
-    },
-    "styles/monarch-stickman-animation/assets/p6_fit.wav": {
-      "sha256": "a8711c634a7538c58cae6fba867951bf76dc2ac40bd1b181eaf4812540ac719e",
-      "size": 779756
-    },
-    "styles/monarch-stickman-animation/assets/r1.mp3": {
-      "sha256": "7276a169179145f3c09b86e2d04d27fcff7a38626d1d5993efe48ff9faf89a73",
-      "size": 31053
-    },
-    "styles/monarch-stickman-animation/assets/r1_fit.wav": {
-      "sha256": "f01bcdd548679251569bdb884126ebe7869d0ab89a203aa7858aae08af34e9c7",
-      "size": 608492
-    },
-    "styles/monarch-stickman-animation/assets/r2.mp3": {
-      "sha256": "3565776feec2827ca98b86aa2c16e0e4446b6cc35783951294ec958757aeaf40",
-      "size": 34413
-    },
-    "styles/monarch-stickman-animation/assets/r2_fit.wav": {
-      "sha256": "0538ffa2edee5c6f49537a1370f61b1be51487b1d3ce6b86efdd80ffb64f3a25",
-      "size": 732140
-    },
-    "styles/monarch-stickman-animation/assets/r3.mp3": {
-      "sha256": "a88b40dc5e7353f7bdc4f7a08e310488384476e9c9725a8178604c9947cf6296",
-      "size": 20589
-    },
-    "styles/monarch-stickman-animation/assets/r3_fit.wav": {
-      "sha256": "83d821fc14a3f8b9629bf0fb15dada5bc99152bb2aeecd96e7e73a7728474b93",
-      "size": 388268
-    },
-    "styles/monarch-stickman-animation/assets/r4.mp3": {
-      "sha256": "930ce43bb18c5c31c2e87973c0a1ef90d5b386a70565d61ce5e3681d12686f07",
-      "size": 42093
-    },
-    "styles/monarch-stickman-animation/assets/r4_fit.wav": {
-      "sha256": "4527d1dd83c7154d0f79df290db7bc2247e9e377bbda6790d318b32f8ec3e543",
-      "size": 804524
-    },
-    "styles/monarch-stickman-animation/assets/r5.mp3": {
-      "sha256": "89a86d7923a15e8a56b0b7a167acba63c5eae0e226022e98ae63e6c4f361912b",
-      "size": 38349
-    },
-    "styles/monarch-stickman-animation/assets/r5_fit.wav": {
-      "sha256": "cffdad1955deee155450bba0f63721a44274f666530ad951f05f07853885eba1",
-      "size": 716012
-    },
-    "styles/monarch-stickman-animation/assets/r6.mp3": {
-      "sha256": "9a8d716c13591fdad0bdebdde2ff8db908639488990efedbf2d293020752eeb1",
-      "size": 34893
-    },
-    "styles/monarch-stickman-animation/assets/r6_fit.wav": {
-      "sha256": "1948c0c7b17209555242ad0703be94256a7ceef00c4d335afea684eda3dead14",
-      "size": 703532
-    },
-    "styles/monarch-stickman-animation/assets/r7.mp3": {
-      "sha256": "b59301a07e5c452842dc42e3ac92e44981dcf95450a2e70a24045961f8136354",
-      "size": 37101
-    },
-    "styles/monarch-stickman-animation/assets/r7_fit.wav": {
-      "sha256": "0d2faace6c608ae18e0122ff7780fb39d1d974ac04b627dc0a92c64e39a6aef5",
-      "size": 728684
-    },
-    "styles/monarch-stickman-animation/assets/r8.mp3": {
-      "sha256": "7e4c9f5bad9b44f1fbc2090aeaa07f3d09436c61c82e3538fab6c0dd827127b7",
-      "size": 36333
-    },
-    "styles/monarch-stickman-animation/assets/r8_fit.wav": {
-      "sha256": "5850c26bdc49a7d0a334b2f797b436b0da199c52a290b0ff0bbd45470430cb67",
-      "size": 730412
-    },
-    "styles/monarch-stickman-animation/assets/r9.mp3": {
-      "sha256": "839cae8d2c6dc902239cb2054774e8123301fecdc6045ec1c8390658ea85dcb0",
-      "size": 58221
-    },
-    "styles/monarch-stickman-animation/assets/r9_fit.wav": {
-      "sha256": "69c97cda617c28d58158a65d1a8916a4a10611c835c66b0a0d1285aabdd3a0a1",
-      "size": 1100972
-    },
-    "styles/monarch-stickman-animation/assets/s1.mp3": {
-      "sha256": "c82609cbb2f7bc7dc6ee1afa4665aa69dd7a3ffba48bbed5f5b62f58cb99c35e",
-      "size": 31053
-    },
-    "styles/monarch-stickman-animation/assets/s2.mp3": {
-      "sha256": "625b124dbd90cec76ca44ccc5021b9e1289ff31404935bfe4d87c42fb0a3388e",
-      "size": 40269
-    },
-    "styles/monarch-stickman-animation/assets/s3.mp3": {
-      "sha256": "561be2b4eef097e662a9c3836b892d0aa59d25c4b789ad31dd85bc5aae603727",
-      "size": 39501
-    },
-    "styles/monarch-stickman-animation/assets/s4.mp3": {
-      "sha256": "d542172e1e18544ca17b005364ba4bb1af1318c64ffe77b6ba05eaaa0bdeb83b",
-      "size": 29709
-    },
-    "styles/monarch-stickman-animation/assets/s5.mp3": {
-      "sha256": "b3912db093f607e16d6872bc78d9b746f4ace77996378ed818aa2be7e7f7f98c",
-      "size": 39501
-    },
-    "styles/monarch-stickman-animation/assets/s6.mp3": {
-      "sha256": "faeb9254551e1f0034d5a7216012c486fc971898a7f2c5dc5ed95fbce89e46ba",
-      "size": 36621
-    },
-    "styles/monarch-stickman-animation/assets/vo.mp3": {
-      "sha256": "a94e5186dbcf689272e1d1e475fb887d8eed10554139ef04eb3ce7579cd7ac52",
-      "size": 55533
-    },
-    "styles/monarch-stickman-animation/assets/w1.mp3": {
-      "sha256": "f0c55069a98fa3b9a4c708aa93f5391a1fbfda286bc953c7b4f7efecd29d2304",
-      "size": 49128
-    },
-    "styles/monarch-stickman-animation/assets/w2.mp3": {
-      "sha256": "0c6a65b8a8a971fb8517a625ed21805293ec3dccdcbfb1b9586901d9cc8b63b5",
-      "size": 42649
-    },
-    "styles/monarch-stickman-animation/assets/w3.mp3": {
-      "sha256": "ac87527cea4978d21a7be0d28830a921a052d83b16f01bf49248902e443ced7a",
-      "size": 43903
-    },
-    "styles/monarch-stickman-animation/assets/w4.mp3": {
-      "sha256": "988b990cfcb9e8818bad70445826d298515f7802ef44836a857630c44bd8f5ea",
-      "size": 38888
-    },
-    "styles/monarch-stickman-animation/assets/w5.mp3": {
-      "sha256": "d6ad8efc7c9703b3436b09f92919d34029d8214952ffb7c635102824846975fd",
-      "size": 95103
-    },
-    "styles/monarch-stickman-animation/assets/w6.mp3": {
-      "sha256": "dd664b91a4c5e12550b457db9c0e7bf3c8abceea235b363b80dcf8bc2c728e46",
-      "size": 119554
     },
     "styles/monarch-stickman-animation/brain/brain_export.json": {
       "sha256": "f54a3b7e16ee7a420ff1d50f2c747cd1379310a8d9f30ec1aabd1f7cec138c20",
@@ -1707,26 +1467,6 @@
       "sha256": "c7f5b09f388accef7767f3b146409964a5539e4b7014add2b1b7b7c27b539361",
       "size": 272566
     },
-    "styles/monarch-stickman-animation/uploads/436649626_1789475045520701.jpg": {
-      "sha256": "8cb6d0e2bd227c2a4a9b5006a6011eeefa2802372d35978282b283727777e049",
-      "size": 66306
-    },
-    "styles/monarch-stickman-animation/uploads/STICKMAN EXPLAINER ENGINE.pdf": {
-      "sha256": "434635d6de870083142e99fb2458021f2f438d75f83e3ca6ada1982529bbb156",
-      "size": 307814
-    },
-    "styles/monarch-stickman-animation/uploads/Screenshot_20261008-202149_1.png": {
-      "sha256": "1b366e8026887887ba5dcff7c8dacd5f8807ca576d36d31164e4c80edea9ee50",
-      "size": 82452
-    },
-    "styles/monarch-stickman-animation/uploads/img/p1_1.jpg": {
-      "sha256": "f7bf56177c13b09d84ec382eaece7c0c359cff8df9c4f6f9bc951fa2b08265cc",
-      "size": 151668
-    },
-    "styles/monarch-stickman-animation/uploads/pdf_text.txt": {
-      "sha256": "eb362ddc9a25237225614eb363f3a7980f19a907caa2ac98d46faaa2b1b20b82",
-      "size": 18658
-    },
     "styles/monarch-stickman-animation/verify.py": {
       "sha256": "c0c04386f181a6e30bc0b3559dc6a421749aea7de2a3446205e46f9e28c3d512",
       "size": 10768
@@ -1768,40 +1508,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "32e0c2b273e2e9a90562d989aac3bfe65c521bb2453645b3f63f40201fb938f7",
-      "size": 2042
+      "sha256": "0391b23c8ab4cba68320ed93d1a410841df17126a0ffb93a8c5d23f7a9da5079",
+      "size": 733
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "352d32874a3cd7d687c7997e54d05919e358a2b3f36c0e45e190fa3b6c6f905d",
-      "size": 2287
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "83b912dd825241330b6445e4a403ed283a82db7097c21ffe76b74ebfb583abfc",
-      "size": 24034
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
     },
     "workflows/current/RESUME.md": {
-      "sha256": "d017db9f95dacfa457d107f2902e747624c2fbe2fc0bc4f0665ee1ab1a1f80fd",
-      "size": 2170
-    },
-    "workflows/current/payload/USER_REQUEST.txt": {
-      "sha256": "e6325532680d39987d5c8b33b663eb44c82097a99311f1e89f908298e3a53e28",
-      "size": 1975
-    },
-    "workflows/current/payload/audio/tumhari_reserved_seat_voice00.mp3": {
-      "sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
-      "size": 293901
-    },
-    "workflows/current/payload/creative/MASTER_TIMELINE.json": {
-      "sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
-      "size": 3823
-    },
-    "workflows/current/payload/creative/TOPIC_AND_SCRIPT.md": {
-      "sha256": "11ba5bea0352bf8576b3bbc8a7f91a1c253465d8522cb646e8a8f61e9f227a0b",
-      "size": 4804
-    },
-    "workflows/current/payload/creative/VOICE_SCRIPT_UR.txt": {
-      "sha256": "c94f4cb85efd21608a61dfd296d49534f7aa177f259791018bb7b71c29a36679",
-      "size": 1512
+      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
+      "size": 874
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

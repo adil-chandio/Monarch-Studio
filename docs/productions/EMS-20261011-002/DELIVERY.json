@@ -63,5 +63,11 @@
       "google_doc_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM",
       "google_doc_tab_id": "t.wskn169lz0vb"
     }
-  ]
+  ],
+  "github": {
+    "repository": "https://github.com/adil-chandio/Monarch-Studio",
+    "production_commit": "e1633a94a2438b9c4d50d91e04efe25bd6a2880b",
+    "commit_url": "https://github.com/adil-chandio/Monarch-Studio/commit/e1633a94a2438b9c4d50d91e04efe25bd6a2880b",
+    "remote_main_verified": true
+  }
 }
