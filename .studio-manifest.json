@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-11T02:00:33+00:00",
+  "generated_at": "2026-10-11T02:01:04+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -492,8 +492,8 @@
       "size": 1345
     },
     "operations/continuity/outbox/EMS-20261011-003/0004-20261011T020000Z/SYNC.json": {
-      "sha256": "f9440bfcedf080993b535ad2160f73a544a7f52219f6946b7ccfbb2f6bc7b1ed",
-      "size": 4360
+      "sha256": "70f931db35a1315f6f586561715b19a249de8a178ed6c1d723760a7b61a241ce",
+      "size": 6306
     },
     "operations/continuity/outbox/EMS-20261011-003/0004-20261011T020000Z/checkpoint.json": {
       "sha256": "bc6bdb7b035488d06fc7ae72d0a644deaa365afd23e303dc04f18ac459f39fe3",
@@ -606,6 +606,10 @@
     "operations/history/EMS-20261011-003/JOURNAL.jsonl": {
       "sha256": "59174c3ac2f73462051d9c900620c0130e2fcba677cd946dccf1e55de8f67d42",
       "size": 20083
+    },
+    "operations/history/EMS-20261011-003/POST_COMPLETION_VERIFICATION.md": {
+      "sha256": "73e455bb137defc4f6112788e8dee629b9c623d6cbb51a6a67717500526032ae",
+      "size": 1511
     },
     "operations/history/EMS-20261011-003/RESUME.md": {
       "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",

@@ -5,7 +5,7 @@
   "created_at": "2026-10-11T02:00:00Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,12 +31,13 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "3c82cf2aa789be1116e5685b13ecb2e413dd297c",
+      "synced_at": "2026-10-11T02:00:55Z",
+      "note": "Completion checkpoint, permanent history archive and idle-slot reset are present on origin/main at this commit.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/3c82cf2aa789be1116e5685b13ecb2e413dd297c"
     },
     "google_docs": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
@@ -44,12 +45,13 @@
         "role": "portable human recovery and proof hub",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "WF-01:1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g/t.verh9bmelqr;WF-03:1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM/t.a3zhgg7pywbh",
+      "synced_at": "2026-10-11T02:00:55Z",
+      "note": "Both exact V2 tabs read back final/accepted with production commit and cross-platform links. WF-03: https://docs.google.com/document/d/1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM/edit?tab=t.a3zhgg7pywbh",
+      "url": "https://docs.google.com/document/d/1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g/edit?tab=t.verh9bmelqr"
     },
     "google_drive": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -62,12 +64,13 @@
         "role": "repository bundles, checkpoints, recovery exports and large artifacts",
         "final_completion_status": "pending_corrected_release_bundle"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "WF-01:1zK8YrIha20vLh_OMk3NDIWPLVuhva8uy;WF-03:1yxDMcmpEjNOR0agG5iZdO656CtuGFzMe",
+      "synced_at": "2026-10-11T02:00:55Z",
+      "note": "Both independent V2 folders and all 12 delivery/evidence objects were read back with exact size/MD5 matches. WF-03: https://drive.google.com/drive/folders/1yxDMcmpEjNOR0agG5iZdO656CtuGFzMe",
+      "url": "https://drive.google.com/drive/folders/1zK8YrIha20vLh_OMk3NDIWPLVuhva8uy"
     },
     "linear": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
@@ -78,12 +81,13 @@
         "role": "active task, blockers, acceptance criteria and checkpoint status",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "WF-01:fa291c02-8b31-47c0-b72f-8053094c07e8;WF-03:c8bf9b1b-c205-464a-8a4b-b6f082bd9934",
+      "synced_at": "2026-10-11T02:00:55Z",
+      "note": "Both final delivery project updates read back with onTrack health. WF-03: https://linear.app/monarchmation/project/wf-03-monarch-noir-film-2c1df007bccf/activity#project-update-c8bf9b1b",
+      "url": "https://linear.app/monarchmation/project/wf-01-monarch-stickman-animation-622c64386039/activity#project-update-fa291c02"
     },
     "notion": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
@@ -92,9 +96,10 @@
         "role": "browsable continuity, style architecture, decisions and recovery state",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "WF-01:3f6807e1-e916-812d-ad81-f85533368d57;WF-03:3f6807e1-e916-812f-ac3e-fe8973d74e13",
+      "synced_at": "2026-10-11T02:00:55Z",
+      "note": "Both V2 pages read back live and under the intended style parents. WF-03: https://app.notion.com/p/TUMHARI-RESERVED-SEAT-WF-03-V2-NOIR-IMAX-TABAHI-3f6807e1e916812fac3efe8973d74e13",
+      "url": "https://app.notion.com/p/TUMHARI-RESERVED-SEAT-WF-01-V2-MONARCH-CINEMA-TABAHI-3f6807e1e916812dad81f85533368d57"
     }
   }
 }
