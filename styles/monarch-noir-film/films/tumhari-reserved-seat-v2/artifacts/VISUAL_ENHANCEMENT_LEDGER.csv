@@ -1,0 +1,35 @@
+beat,t0,t1,primary_motion,depth_motion,micro_motion,transition_family,sound_sync,hook_role,wtf_setpiece,rationale
+1,0.0,1.75,hook prop reveal,platform dolly + wet reflection,rain depth + bokeh,opening set-piece,beat landing + WTF suite,hook,YES,clarifies decision-cost metaphor
+2,1.75,5.3,Monarch performance,foreground-column occlusion,fluorescent flicker + rail shimmer,train_window_match,beat landing + pre-lap/foley,hook,no,clarifies decision-cost metaphor
+3,5.3,6.25,split path comparison,lens breath + layered rain,fog drift + practical flare,rail_occlusion_whip,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+4,6.25,8.98,time-cost prop,volumetric shaft + fog parallax,reflection ripples + breath,split_flap_volume,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+5,8.98,12.6,feed temptation,precision shutter echo + carriage depth,rain depth + bokeh,fluorescent_phase_cut,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+6,12.6,14.44,choice consequence,platform dolly + wet reflection,fluorescent flicker + rail shimmer,ticket_hole_constellation,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+7,14.44,16.38,proof accumulation,foreground-column occlusion,fog drift + practical flare,reflection_roll,beat landing + pre-lap/foley,rehook,no,clarifies decision-cost metaphor
+8,16.38,18.43,truth confrontation,lens breath + layered rain,reflection ripples + breath,clock_shutter,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+9,18.43,20.98,action mechanics,volumetric shaft + fog parallax,rain depth + bokeh,rain_freeze_orbit,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+10,20.98,22.43,arrival resolve,precision shutter echo + carriage depth,fluorescent flicker + rail shimmer,amber_relay_bloom,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+11,22.43,24.43,hook prop reveal,platform dolly + wet reflection,fog drift + practical flare,platform_dolly_pass,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+12,24.43,25.88,Monarch performance,foreground-column occlusion,reflection ripples + breath,carriage_portal,beat landing + WTF suite,retention,YES,clarifies decision-cost metaphor
+13,25.88,28.45,split path comparison,lens breath + layered rain,rain depth + bokeh,printer_macro_depth,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+14,28.45,30.6,time-cost prop,volumetric shaft + fog parallax,fluorescent flicker + rail shimmer,train_window_match,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+15,30.6,32.65,feed temptation,precision shutter echo + carriage depth,fog drift + practical flare,rail_occlusion_whip,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+16,32.65,33.53,choice consequence,platform dolly + wet reflection,reflection ripples + breath,split_flap_volume,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+17,33.53,34.52,proof accumulation,foreground-column occlusion,rain depth + bokeh,fluorescent_phase_cut,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+18,34.52,36.59,truth confrontation,lens breath + layered rain,fluorescent flicker + rail shimmer,ticket_hole_constellation,beat landing + pre-lap/foley,rehook,no,clarifies decision-cost metaphor
+19,36.59,39.03,action mechanics,volumetric shaft + fog parallax,fog drift + practical flare,reflection_roll,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+20,39.03,40.36,arrival resolve,precision shutter echo + carriage depth,reflection ripples + breath,clock_shutter,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+21,40.36,42.22,hook prop reveal,platform dolly + wet reflection,rain depth + bokeh,rain_freeze_orbit,beat landing + WTF suite,retention,YES,clarifies decision-cost metaphor
+22,42.22,44.0,Monarch performance,foreground-column occlusion,fluorescent flicker + rail shimmer,amber_relay_bloom,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+23,44.0,45.04,split path comparison,lens breath + layered rain,fog drift + practical flare,platform_dolly_pass,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+24,45.04,48.57,time-cost prop,volumetric shaft + fog parallax,reflection ripples + breath,carriage_portal,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+25,48.57,51.99,feed temptation,precision shutter echo + carriage depth,rain depth + bokeh,printer_macro_depth,beat landing + WTF suite,rehook,YES,converts truth into immediate action
+26,51.99,55.36,choice consequence,platform dolly + wet reflection,fluorescent flicker + rail shimmer,train_window_match,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+27,55.36,59.75,proof accumulation,foreground-column occlusion,fog drift + practical flare,rail_occlusion_whip,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+28,59.75,62.55,truth confrontation,lens breath + layered rain,reflection ripples + breath,split_flap_volume,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+29,62.55,63.59,action mechanics,volumetric shaft + fog parallax,rain depth + bokeh,fluorescent_phase_cut,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+30,63.59,64.59,arrival resolve,precision shutter echo + carriage depth,fluorescent flicker + rail shimmer,ticket_hole_constellation,beat landing + pre-lap/foley,rehook,no,converts truth into immediate action
+31,64.59,65.86,hook prop reveal,platform dolly + wet reflection,fog drift + practical flare,reflection_roll,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+32,65.86,70.56,Monarch performance,foreground-column occlusion,reflection ripples + breath,clock_shutter,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+33,70.56,71.81,split path comparison,lens breath + layered rain,rain depth + bokeh,rain_freeze_orbit,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+34,71.81,74.0,time-cost prop,volumetric shaft + fog parallax,fluorescent flicker + rail shimmer,amber_relay_bloom,beat landing + WTF suite,payoff,YES,converts truth into immediate action

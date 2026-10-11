@@ -1,0 +1,164 @@
+{
+  "style": "wf01",
+  "file": "build/TUMHARI_RESERVED_SEAT_WF01.mp4",
+  "sha256": "141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b",
+  "md5": "ef97f954dd6b4e73675985743deb225c",
+  "probe": {
+    "duration": 74.0,
+    "video_codec": "h264 (High) (avc1 / 0x31637661)",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "audio_codec": "aac (LC) (mp4a / 0x6134706D)",
+    "sample_rate": 48000,
+    "channels": "stereo",
+    "raw": "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'build/TUMHARI_RESERVED_SEAT_WF01.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.1.100\n  Duration: 00:01:14.00, start: 0.000000, bitrate: 2870 kb/s\n  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 2601 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.3.100 libx264\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 260 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nAt least one output file must be specified\n",
+    "integrated_lufs": -13.6,
+    "lra_lu": 3.9,
+    "true_peak_dbfs": -1.5
+  },
+  "picture": {
+    "samples": 444,
+    "mean_luma": 193.89259338378906,
+    "dark_share": 0.03704387981731732,
+    "p99_luma": 245.98800659179688,
+    "motion_min": 0.2554333806037903,
+    "motion_median": 1.4494760036468506,
+    "motion_p95": 39.81918716430664,
+    "near_identical_pairs": 0,
+    "empty_samples": 0
+  },
+  "checks": [
+    {
+      "name": "container/codecs",
+      "pass": true,
+      "measured": "h264 (High) (avc1 / 0x31637661) / aac (LC) (mp4a / 0x6134706D)",
+      "target": "h264 / aac"
+    },
+    {
+      "name": "resolution",
+      "pass": true,
+      "measured": "1920x1080",
+      "target": "1920x1080"
+    },
+    {
+      "name": "frame rate",
+      "pass": true,
+      "measured": 30.0,
+      "target": 30
+    },
+    {
+      "name": "duration",
+      "pass": true,
+      "measured": 74.0,
+      "target": "74.0 \u00b1 0.12 s"
+    },
+    {
+      "name": "audio format",
+      "pass": true,
+      "measured": "48000 Hz stereo",
+      "target": "48000 Hz stereo"
+    },
+    {
+      "name": "integrated loudness",
+      "pass": true,
+      "measured": -13.6,
+      "target": "-13.0 \u00b1 1 LUFS"
+    },
+    {
+      "name": "decoded true peak",
+      "pass": true,
+      "measured": -1.5,
+      "target": "\u2264 -1.0 dBFS"
+    },
+    {
+      "name": "loudness range",
+      "pass": true,
+      "measured": 3.9,
+      "target": "2\u201314 LU"
+    },
+    {
+      "name": "paper-world luma",
+      "pass": true,
+      "measured": 193.89,
+      "target": "145\u2013235"
+    },
+    {
+      "name": "controlled dark share",
+      "pass": true,
+      "measured": 0.037,
+      "target": "\u2264 0.28"
+    },
+    {
+      "name": "highlight headroom",
+      "pass": true,
+      "measured": 245.99,
+      "target": "\u2265 90"
+    },
+    {
+      "name": "no perfectly still sampled pairs",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "living-motion floor",
+      "pass": true,
+      "measured": 0.2554,
+      "target": "> 0.02 mean RGB delta at 6 fps"
+    },
+    {
+      "name": "no stray empty samples",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "voice not time-stretched",
+      "pass": true,
+      "measured": false,
+      "target": false
+    },
+    {
+      "name": "stereo event build",
+      "pass": true,
+      "measured": 352,
+      "target": "\u2265 100 events"
+    },
+    {
+      "name": "shot count",
+      "pass": true,
+      "measured": 34,
+      "target": "\u2265 32"
+    },
+    {
+      "name": "voice-led beat cadence",
+      "pass": true,
+      "measured": "34 beats; max 4.70s",
+      "target": "34; max \u2264 4.71 s"
+    },
+    {
+      "name": "editor-brain freshness",
+      "pass": true,
+      "measured": "FRESHNESS GATE (#20) \u2014 DNA.json \u2014 PASS (18/18)",
+      "target": "PASS 18/18"
+    },
+    {
+      "name": "look sheet",
+      "pass": true,
+      "measured": "present",
+      "target": "present"
+    },
+    {
+      "name": "delivery size",
+      "pass": true,
+      "measured": "25.32 MiB",
+      "target": "< 80 MiB"
+    }
+  ],
+  "summary": {
+    "passed": 21,
+    "total": 21,
+    "failed": 0
+  }
+}

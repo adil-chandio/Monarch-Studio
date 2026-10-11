@@ -1,0 +1,38 @@
+FRESHNESS GATE (#30) — DNA.json — PASS (30/30)
+Production: MONARCH NOIR IMAX TABAHI V2
+Task: EMS-20261011-003
+
+| # | Check | Result | Evidence |
+|---:|---|---|---|
+| 1 | Hook begins at frame 0 | PASS | hero prop and bad-news question active immediately |
+| 2 | Visual question by 0.8 s | PASS | reserved-seat aperture/ticket establishes curiosity |
+| 3 | Promise by 3.0 s | PASS | seat scarcity and two-path premise are legible |
+| 4 | Voice word one preserved | PASS | timeline and voice hash are locked |
+| 5 | No voice stretch | PASS | audio build metric is false |
+| 6 | 34-beat cadence | PASS | timeline has 34 contiguous beats |
+| 7 | Primary motion every beat | PASS | 34 enhancement-ledger rows |
+| 8 | Depth motion every beat | PASS | 34 enhancement-ledger rows |
+| 9 | Micro motion every beat | PASS | 34 enhancement-ledger rows |
+| 10 | Three depth planes | PASS | DNA lists background, midground and foreground |
+| 11 | Six camera controls | PASS | DNA control map has six authored modes |
+| 12 | Twelve transition families | PASS | DNA lists twelve non-generic families |
+| 13 | Transition motivation | PASS | every family shares object/shape/direction logic |
+| 14 | Transition overlap restraint | PASS | impact echoes capped at 0.20 s |
+| 15 | Pattern interrupts | PASS | five hero suites plus act rehooks |
+| 16 | Five WTF suites | PASS | beats 1, 12, 21, 25 and 34 |
+| 17 | WTF setup/payoff | PASS | each suite has lower-density setup and callback |
+| 18 | Workflow identity | PASS | world/camera/type/sound remain style-exclusive |
+| 19 | Signature callback | PASS | thirty holes resolve into graph/train windows |
+| 20 | Monarch continuity | PASS | same style-specific Monarch performance grammar |
+| 21 | Typography hierarchy | PASS | hero type, caption and micro-HUD have distinct ranks |
+| 22 | Caption safety | PASS | foreground/HUD excludes caption safe zone |
+| 23 | Tonal protection | PASS | 8–42 mean; dark share ≥ 0.50 |
+| 24 | No empty frames | PASS | base world plus carried motion persist |
+| 25 | Score has five acts | PASS | bad news → comparison → consequence → truth → action |
+| 26 | Audio ≥3× parent | PASS | 587 events vs 121 parent (4.85×) |
+| 27 | Spatial micro-foley | PASS | 102 moving events; narrator centre protected |
+| 28 | Exact provenance | PASS | procedural picture/audio plus locked selected voice |
+| 29 | Immutable V1 | PASS | parent tree/master hashes recorded and gate-verifiable |
+| 30 | Delivery gate stricter | PASS | V2 adds delta/provenance/spatial/set-piece gates |
+
+Verdict: PASS (30/30). The V2 plan is materially denser, more spatial and more authored than V1 while preserving clarity and the exact narrative lock.

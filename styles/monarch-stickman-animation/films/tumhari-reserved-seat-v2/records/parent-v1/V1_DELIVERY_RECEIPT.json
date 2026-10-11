@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261011-002",
+  "delivered_at": "2026-10-11T04:49:27+05:00",
+  "style": {
+    "code": "WF-01",
+    "id": "monarch-stickman-animation",
+    "name": "Monarch Stickman Animation"
+  },
+  "production": {
+    "title": "TUMHARI RESERVED SEAT",
+    "topic": "The invisible queue: every day you delay, somebody else takes the seat that could have been yours",
+    "duration_seconds": 74.0,
+    "timeline_beats": 34,
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "selected_voice": "voice-00",
+    "voice_time_stretched": false,
+    "shared_timeline_sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "shared_voice_sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+    "shared_voice_md5": "a493755066b03be68e35b1184bc60c1e"
+  },
+  "final_master": {
+    "workspace_path": "build/TUMHARI_RESERVED_SEAT_WF01.mp4",
+    "bytes": 26552349,
+    "sha256": "141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b",
+    "md5": "ef97f954dd6b4e73675985743deb225c",
+    "codec": "H.264 High / AAC-LC",
+    "audio": "48000 Hz stereo",
+    "integrated_lufs": -13.6,
+    "loudness_range_lu": 3.9,
+    "decoded_true_peak_dbfs": -1.5,
+    "delivery_gates": "21/21 PASS",
+    "freshness_gates": "18/18 PASS",
+    "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
+    "drive_url": "https://drive.google.com/file/d/1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW/view"
+  },
+  "source_package": {
+    "workspace_path": "build/TUMHARI_RESERVED_SEAT_WF01_SOURCE.zip",
+    "bytes": 769869,
+    "sha256": "b27cbda73e81ed513ea8100029ff022f7be72a3b3c72c720dc6d47753eb5e3f2",
+    "md5": "73f36b0be0cd1531c89ac116eb384e49",
+    "drive_id": "1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh",
+    "drive_url": "https://drive.google.com/file/d/1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh/view"
+  },
+  "drive": {
+    "folder_id": "1V3QeUqDzOGP5obJAaX2vHyV5HZkS8K-J",
+    "folder_url": "https://drive.google.com/drive/folders/1V3QeUqDzOGP5obJAaX2vHyV5HZkS8K-J",
+    "voice_id": "1cDy4ui70AtZSWDu-dD85dcXJaBzJ9Foj",
+    "look_sheet_id": "1MleWzzCx9jvHwa_5ofkht6yUEJuL-k7F",
+    "gate_report_id": "1-kVpF9g42sgMeiZwGKxlzTYZTAoxzREp",
+    "md5_verified_from_upload_response": true
+  }
+}

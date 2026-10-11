@@ -1,0 +1,35 @@
+beat,t0,t1,primary_motion,depth_motion,micro_motion,transition_family,sound_sync,hook_role,wtf_setpiece,rationale
+1,0.0,1.75,hook prop reveal,micro dolly + paper-card parallax,paper grain + fibre drift,opening set-piece,beat landing + WTF suite,hook,YES,clarifies decision-cost metaphor
+2,1.75,5.3,Monarch performance,ease pull + perspective guide,HUD counters + target arcs,paper_volume_fold,beat landing + pre-lap/foley,hook,no,clarifies decision-cost metaphor
+3,5.3,6.25,split path comparison,Z push + shard field,registration fleck + ink edge,ink_lens_iris,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+4,6.25,8.98,time-cost prop,counter-dolly + near cards,pencil ticks + card glints,parallax_card_fan,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+5,8.98,12.6,feed temptation,impact roll + paper portal,paper grain + fibre drift,clock_radial_snap,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+6,12.6,14.44,choice consequence,micro dolly + paper-card parallax,HUD counters + target arcs,graph_extrude,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+7,14.44,16.38,proof accumulation,ease pull + perspective guide,registration fleck + ink edge,type_z_push,beat landing + pre-lap/foley,rehook,no,clarifies decision-cost metaphor
+8,16.38,18.43,truth confrontation,Z push + shard field,pencil ticks + card glints,phone_glass_flip,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+9,18.43,20.98,action mechanics,counter-dolly + near cards,paper grain + fibre drift,calendar_stair_whip,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+10,20.98,22.43,arrival resolve,impact roll + paper portal,HUD counters + target arcs,registration_shock,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+11,22.43,24.43,hook prop reveal,micro dolly + paper-card parallax,registration fleck + ink edge,seat_portal,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+12,24.43,25.88,Monarch performance,ease pull + perspective guide,pencil ticks + card glints,rail_fold_match,beat landing + WTF suite,retention,YES,clarifies decision-cost metaphor
+13,25.88,28.45,split path comparison,Z push + shard field,paper grain + fibre drift,ticket_tunnel,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+14,28.45,30.6,time-cost prop,counter-dolly + near cards,HUD counters + target arcs,paper_volume_fold,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+15,30.6,32.65,feed temptation,impact roll + paper portal,registration fleck + ink edge,ink_lens_iris,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+16,32.65,33.53,choice consequence,micro dolly + paper-card parallax,pencil ticks + card glints,parallax_card_fan,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+17,33.53,34.52,proof accumulation,ease pull + perspective guide,paper grain + fibre drift,clock_radial_snap,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+18,34.52,36.59,truth confrontation,Z push + shard field,HUD counters + target arcs,graph_extrude,beat landing + pre-lap/foley,rehook,no,clarifies decision-cost metaphor
+19,36.59,39.03,action mechanics,counter-dolly + near cards,registration fleck + ink edge,type_z_push,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+20,39.03,40.36,arrival resolve,impact roll + paper portal,pencil ticks + card glints,phone_glass_flip,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+21,40.36,42.22,hook prop reveal,micro dolly + paper-card parallax,paper grain + fibre drift,calendar_stair_whip,beat landing + WTF suite,retention,YES,clarifies decision-cost metaphor
+22,42.22,44.0,Monarch performance,ease pull + perspective guide,HUD counters + target arcs,registration_shock,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+23,44.0,45.04,split path comparison,Z push + shard field,registration fleck + ink edge,seat_portal,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+24,45.04,48.57,time-cost prop,counter-dolly + near cards,pencil ticks + card glints,rail_fold_match,beat landing + pre-lap/foley,retention,no,clarifies decision-cost metaphor
+25,48.57,51.99,feed temptation,impact roll + paper portal,paper grain + fibre drift,ticket_tunnel,beat landing + WTF suite,rehook,YES,converts truth into immediate action
+26,51.99,55.36,choice consequence,micro dolly + paper-card parallax,HUD counters + target arcs,paper_volume_fold,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+27,55.36,59.75,proof accumulation,ease pull + perspective guide,registration fleck + ink edge,ink_lens_iris,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+28,59.75,62.55,truth confrontation,Z push + shard field,pencil ticks + card glints,parallax_card_fan,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+29,62.55,63.59,action mechanics,counter-dolly + near cards,paper grain + fibre drift,clock_radial_snap,beat landing + pre-lap/foley,retention,no,converts truth into immediate action
+30,63.59,64.59,arrival resolve,impact roll + paper portal,HUD counters + target arcs,graph_extrude,beat landing + pre-lap/foley,rehook,no,converts truth into immediate action
+31,64.59,65.86,hook prop reveal,micro dolly + paper-card parallax,registration fleck + ink edge,type_z_push,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+32,65.86,70.56,Monarch performance,ease pull + perspective guide,pencil ticks + card glints,phone_glass_flip,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+33,70.56,71.81,split path comparison,Z push + shard field,paper grain + fibre drift,calendar_stair_whip,beat landing + pre-lap/foley,payoff,no,converts truth into immediate action
+34,71.81,74.0,time-cost prop,counter-dolly + near cards,HUD counters + target arcs,registration_shock,beat landing + WTF suite,payoff,YES,converts truth into immediate action

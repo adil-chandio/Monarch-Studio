@@ -1,0 +1,15 @@
+{
+  "style": "wf03",
+  "sample_rate": 48000,
+  "duration_s": 74.0,
+  "pre_master_peak_dbfs": -2.493,
+  "lr_correlation": 0.9786,
+  "voice_source": "voice00_master.mp3",
+  "voice_time_stretched": false,
+  "events": 587,
+  "version": "V2_MONARCH_CINEMA_TABAHI",
+  "spatial_moving_events": 102,
+  "wtf_setpiece_suites": 5,
+  "score_sections": 5,
+  "audio_bus_width": 1.28
+}

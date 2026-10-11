@@ -1,27 +1,40 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T00:23:22Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
-  "running_processes": [],
+  "task_id": "EMS-20261011-003",
+  "status": "rendering",
+  "title": "TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement",
+  "style_id": "monarch-stickman-animation + monarch-noir-film",
+  "goal": "Preserve both accepted originals, then rebuild the same 74-second 16:9 narrative and exact selected voice into two separate Monarch-level V2 masters with materially stronger animation, editing, motion graphics, 3-D depth/motion control, transitions, effects, sound design and music—smooth, cinematic, attention-grabbing and full of earned WTF moments rather than noisy over-editing.",
+  "acceptance_criteria": [
+    "V1 masters and permanent packages remain immutable; all V2 work lives in clearly versioned WF-01 and WF-03 production packages.",
+    "The locked 74.00-second easy-Urdunglish script, 34-beat timeline, exact un-stretched voice-00 and 1920×1080 16:9 format remain shared across both V2 films.",
+    "WF-01 and WF-03 retain unmistakably separate visual, animation, editing, transition, colour, typography, music and sound identities.",
+    "Every beat receives demonstrably richer but readable animation, cinematic edit logic, motion graphics, controlled 3-D depth, motivated effects, secondary motion and smooth transitions, including multiple earned WTF/payoff moments.",
+    "Both soundtracks are independently redesigned with stronger score architecture, stereo SFX/ASMR, impacts, risers, motifs and micro-detail while preserving narration intelligibility and avoiding clipping or fatigue.",
+    "Both V2 masters pass unchanged-or-stricter objective delivery gates, freshness/novelty review, full source/provenance preservation, Drive upload and independent GitHub/Notion/Linear/Google Docs synchronization."
+  ],
+  "started_at": "2026-10-11T00:32:18Z",
+  "updated_at": "2026-10-11T00:45:22Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 4,
+  "journal_head": "ca1db651729cc712f4fb15d2872ee0d324d9d95fc2d305abea2459b901d9595c",
+  "last_checkpoint": "2026-10-11T00:45:21Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-003/0001-20261011T004521Z",
+  "next_action": "Wait for WF-01 V2 mute master render process; verify exact 74.00 s output, then render WF-03 in two segments, mux exact voice-led mixes, run 40 delivery/delta gates on both, inspect failures, and only then package/synchronize.",
+  "running_processes": [
+    {
+      "id": "wf-01-v2-cinema-render-b3ef0666",
+      "name": "WF-01 V2 cinema render",
+      "state": "running",
+      "started_at": "2026-10-11T00:45:21Z",
+      "resume_instruction": "Use Arena get_process_output on wf-01-v2-cinema-render-b3ef0666; when it exits successfully, start the analogous two-segment WF-03 render, then mux/gate both."
+    }
+  ],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-002",
-  "completion_checkpoint": "0004-20261011T002321Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

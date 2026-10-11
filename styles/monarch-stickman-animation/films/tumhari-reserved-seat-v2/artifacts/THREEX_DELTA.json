@@ -1,0 +1,41 @@
+{
+  "workflow": "WF-01",
+  "task_id": "EMS-20261011-003",
+  "status": "DESIGN_AND_AUDIO_BUILT__FINAL_PICTURE_PENDING",
+  "locks": {
+    "duration_s": 74.0,
+    "beats": 34,
+    "resolution": "1920x1080",
+    "fps": 30,
+    "timeline_sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "voice_sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+    "voice_time_stretched": false
+  },
+  "parent": {
+    "package": "tumhari-reserved-seat",
+    "tree_sha256": "b3bb861b1166fdfc11eadf4705703da5d476520fb7523aff81e0ae6aabcbe6fe",
+    "master_sha256": "141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b",
+    "audio_events": 352,
+    "motion_median": 1.4494760036468506
+  },
+  "v2": {
+    "package": "tumhari-reserved-seat-v2",
+    "audio_events": 1073,
+    "audio_event_ratio": 3.0483,
+    "spatial_moving_events": 294,
+    "depth_planes": 3,
+    "camera_control_modes": 6,
+    "transition_families": 12,
+    "wtf_setpieces": 5,
+    "beat_motion_rows": 34,
+    "score_sections": 5,
+    "freshness_checks": 30,
+    "look_sheet": "LOOK_SHEET_WF01_V2.jpg"
+  },
+  "pending_measured_after_master": [
+    "picture motion median delta",
+    "final LUFS/LRA/true peak",
+    "final checksum and size",
+    "all delivery gates"
+  ]
+}

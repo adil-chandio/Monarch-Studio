@@ -1,0 +1,130 @@
+{
+  "topic": "TUMHARI RESERVED SEAT — the 20-minute gap",
+  "workflow": "WF-01",
+  "version": "V2",
+  "production": "MONARCH CINEMA TABAHI V2",
+  "format": "1920x1080 landscape social cinema",
+  "duration_s": 74.0,
+  "date": "2026-10-11",
+  "task_id": "EMS-20261011-003",
+  "numbering": "WF-01 permanent style production; no cross-workflow numbering",
+  "parent_v1": {
+    "package": "tumhari-reserved-seat",
+    "master_sha256": "141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b",
+    "immutable_tree_sha256": "b3bb861b1166fdfc11eadf4705703da5d476520fb7523aff81e0ae6aabcbe6fe",
+    "timeline_sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "voice_sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972"
+  },
+  "identity": {
+    "world": "premium tactile paper-stage / ink / Monarch SHADE",
+    "camera": "controlled 3-axis paper-stage push/pull, ease-mapped drift, authored impact roll",
+    "sonic": "94 BPM paper-percussion orchestra; 5-act energy contour; moving micro-ASMR",
+    "signature": "paper stage physically folds from ticket aperture to thirty-hour graph to a waiting train; every fold is driven by the 20-minute decision metaphor"
+  },
+  "camera_controls": [
+    "per-beat ease-mapped push/pull",
+    "continuous deterministic micro-drift",
+    "hero-beat Z-push",
+    "impact-only roll",
+    "foreground-occlusion parallax",
+    "transition frame echo"
+  ],
+  "depth_planes": [
+    "background graph-paper architecture",
+    "midground Monarch/prop performance",
+    "foreground near-lens paper cards, HUD and debris"
+  ],
+  "transitions": [
+    "ticket_tunnel",
+    "paper_volume_fold",
+    "ink_lens_iris",
+    "parallax_card_fan",
+    "clock_radial_snap",
+    "graph_extrude",
+    "type_z_push",
+    "phone_glass_flip",
+    "calendar_stair_whip",
+    "registration_shock",
+    "seat_portal",
+    "rail_fold_match"
+  ],
+  "wtf_moments": 5,
+  "wtf_setpieces": [
+    {
+      "time": "B01 0.00–1.75",
+      "picture": "Question-mark seat becomes a nine-layer ticket aperture; sixteen shards orbit in physical Z.",
+      "sound": "sub drop + moving paper intake + resonant ticket ring"
+    },
+    {
+      "time": "B12 24.43–25.88",
+      "picture": "Dopamine feed collapses into a chromatic optical card tunnel rather than a flat phone scroll.",
+      "sound": "stereo paper debris and reversed bright intake"
+    },
+    {
+      "time": "B21 40.36–42.22",
+      "picture": "Thirty ticket punches extrude out of the page and assemble a rising 3-D thirty-hour graph.",
+      "sound": "gold ring stack, sub impact, tactile hole debris"
+    },
+    {
+      "time": "B25 48.57–51.99",
+      "picture": "The paper world physically tears open around “LEKIN SACH?” and reveals a black/red portal.",
+      "sound": "near-silence, portal suction, centred truth impact"
+    },
+    {
+      "time": "B34 71.81–74.00",
+      "picture": "Thirty graph points become train windows while perspective rails fold under the final Monarch walk.",
+      "sound": "rail-air rise, chime resolve, widening paper orchestra"
+    }
+  ],
+  "targets": {
+    "aspect": "1920x1080",
+    "fps": 30,
+    "duration_s": 74.0,
+    "beats": 34,
+    "voice_exact_and_unstretched": true,
+    "timeline_sha256": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "voice_sha256": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+    "shots_min": 34,
+    "depth_planes_min": 3,
+    "camera_control_modes_min": 6,
+    "transition_kinds_min": 12,
+    "pattern_interrupts_min": 18,
+    "wtf_moments_min": 5,
+    "audio_events_parent": 352,
+    "audio_events_min": 1056,
+    "spatial_moving_events_min": 90,
+    "soundtrack_ratio_measured": 3.048,
+    "score_sections_min": 5,
+    "motion_median_must_exceed_parent": 1.4494760036468506,
+    "picture_range": "145–235 mean; dark share ≤ 0.28",
+    "integrated_loudness_lufs": -13.0,
+    "decoded_true_peak_dbfs_max": -1.0,
+    "new_on_screen_every_s": "continuous carried motion; at least primary + depth + micro motion on every beat",
+    "delivery_gates_min": 30,
+    "freshness_gate": "PASS 30/30",
+    "parent_v1_immutable": true
+  },
+  "callbacks": [
+    "empty reserved seat returns as the owned/waiting seat",
+    "20:00 action timer returns as the concrete choice",
+    "PROOF / LUCKY split returns at the decision fork",
+    "thirty holes become the thirty-hour graph / waiting train windows"
+  ],
+  "quotable_lines": [
+    "Sapne expire nahi hote, magar unki seat reserve bhi nahi rehti.",
+    "Seat tumhari hai. Train abhi platform par hai."
+  ],
+  "provenance": {
+    "picture": "deterministic Pillow/NumPy procedural renderer; no stock footage",
+    "score_sfx": "deterministic NumPy/SciPy synthesis; no stock music/samples/loops",
+    "voice": "locked user-selected voice-00 copied byte-for-byte from accepted V1"
+  },
+  "shots": 34,
+  "pattern_interrupts": 21,
+  "rehooks_s": [
+    14.44,
+    36.59,
+    48.57,
+    65.86
+  ]
+}
