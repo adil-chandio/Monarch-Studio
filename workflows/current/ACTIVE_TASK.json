@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": "EMS-20261011-003",
-  "status": "rendering",
+  "status": "syncing",
   "title": "TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement",
   "style_id": "monarch-stickman-animation + monarch-noir-film",
   "goal": "Preserve both accepted originals, then rebuild the same 74-second 16:9 narrative and exact selected voice into two separate Monarch-level V2 masters with materially stronger animation, editing, motion graphics, 3-D depth/motion control, transitions, effects, sound design and music—smooth, cinematic, attention-grabbing and full of earned WTF moments rather than noisy over-editing.",
@@ -14,22 +14,14 @@
     "Both V2 masters pass unchanged-or-stricter objective delivery gates, freshness/novelty review, full source/provenance preservation, Drive upload and independent GitHub/Notion/Linear/Google Docs synchronization."
   ],
   "started_at": "2026-10-11T00:32:18Z",
-  "updated_at": "2026-10-11T00:45:22Z",
-  "checkpoint_sequence": 1,
-  "event_sequence": 4,
-  "journal_head": "ca1db651729cc712f4fb15d2872ee0d324d9d95fc2d305abea2459b901d9595c",
-  "last_checkpoint": "2026-10-11T00:45:21Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-003/0001-20261011T004521Z",
-  "next_action": "Wait for WF-01 V2 mute master render process; verify exact 74.00 s output, then render WF-03 in two segments, mux exact voice-led mixes, run 40 delivery/delta gates on both, inspect failures, and only then package/synchronize.",
-  "running_processes": [
-    {
-      "id": "wf-01-v2-cinema-render-b3ef0666",
-      "name": "WF-01 V2 cinema render",
-      "state": "running",
-      "started_at": "2026-10-11T00:45:21Z",
-      "resume_instruction": "Use Arena get_process_output on wf-01-v2-cinema-render-b3ef0666; when it exits successfully, start the analogous two-segment WF-03 render, then mux/gate both."
-    }
-  ],
+  "updated_at": "2026-10-11T01:51:25Z",
+  "checkpoint_sequence": 2,
+  "event_sequence": 12,
+  "journal_head": "73b93f8e472822c7eb8fb550ab5297a40b384961419960b3692d7246c11e4d50",
+  "last_checkpoint": "2026-10-11T01:51:25Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261011-003/0002-20261011T015125Z",
+  "next_action": "Validate repository, create/push the production commit, then create independent V2 Google Docs tabs, Notion pages and Linear project updates; write signed receipts with Drive and production-commit authority; commit/push final synchronization, archive the active task and reset only after all five platforms are verified.",
+  "running_processes": [],
   "remote_sync": {
     "github": "pending",
     "google_docs": "pending",

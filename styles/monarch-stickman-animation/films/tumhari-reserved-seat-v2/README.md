@@ -33,3 +33,10 @@ python3 src/gate.py build/TUMHARI_RESERVED_SEAT_WF01_V2_MONARCH_CINEMA_TABAHI.mp
 - `records/EXPERIMENTS_FAILURES_FIXES.md` — decisions, failures and repairs.
 
 Final master, delivery receipt and Drive URLs are intentionally absent until all final measured gates pass.
+
+## Self-contained rebuild inputs
+- Runtime dependencies are pinned in `requirements.txt`.
+- Required fonts and their licenses are embedded under `assets/fonts/`.
+- Workflow-specific character rigs are embedded under `src/`; rendering does not require downloading models, footage or samples.
+- `PROVENANCE.json` records parent locks, toolchain, seeds, licenses and critical-file hashes.
+- The final delta gate expects the accepted V1 sibling package to remain present so it can verify the immutable-parent tree hash.

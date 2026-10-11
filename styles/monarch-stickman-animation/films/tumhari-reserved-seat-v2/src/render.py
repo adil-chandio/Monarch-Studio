@@ -26,6 +26,7 @@ PROJECT = HERE.parent
 STYLE = PROJECT.parents[1]
 REPO = STYLE.parents[1]
 sys.path.insert(0, str(STYLE / "src"))
+sys.path.insert(0, str(PROJECT / "src"))
 import toon as T  # noqa: E402
 import shade as SH  # noqa: E402
 
@@ -46,7 +47,7 @@ CYAN = (9, 112, 126)
 MINT = (28, 128, 76)
 INDIGO = (50, 61, 122)
 ACCENTS = [RED, GOLD, CYAN, INDIGO, MINT]
-FONT_DIR = STYLE / "fonts"
+FONT_DIR = PROJECT / "assets" / "fonts"
 _FONTS: dict[tuple[str, int], ImageFont.FreeTypeFont] = {}
 
 
@@ -277,7 +278,7 @@ def base_world(t: float, bid: int, acc) -> Image.Image:
     return _base_world_q(int(t * 6), bid, tuple(acc)).copy()
 
 
-@lru_cache(maxsize=20)
+@lru_cache(maxsize=4)
 def _base_world_q(tick: int, bid: int, acc) -> Image.Image:
     t = tick / 6.0
     im = PAPER_BG.copy()
@@ -780,7 +781,7 @@ def render_video(path: Path, start: int=0, end: int|None=None):
     end=NF if end is None else min(end,NF)
     path.parent.mkdir(parents=True,exist_ok=True)
     cmd=[ffmpeg_exe(),"-y","-f","rawvideo","-pix_fmt","rgb24","-s",f"{W}x{H}","-r",str(FPS),"-i","-",
-         "-an","-c:v","libx264","-preset","medium","-crf","18","-pix_fmt","yuv420p","-movflags","+faststart",str(path)]
+         "-an","-c:v","libx264","-preset","medium","-threads","1","-crf","19","-pix_fmt","yuv420p","-movflags","+faststart",str(path)]
     proc=subprocess.Popen(cmd,stdin=subprocess.PIPE,stderr=subprocess.DEVNULL)
     began=time.time()
     try:

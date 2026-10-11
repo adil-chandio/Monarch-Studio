@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `EMS-20261011-003`
-- **Status:** `rendering`
+- **Status:** `syncing`
 - **Title:** TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement
-- **Next action:** Wait for WF-01 V2 mute master render process; verify exact 74.00 s output, then render WF-03 in two segments, mux exact voice-led mixes, run 40 delivery/delta gates on both, inspect failures, and only then package/synchronize.
+- **Next action:** Validate repository, create/push the production commit, then create independent V2 Google Docs tabs, Notion pages and Linear project updates; write signed receipts with Drive and production-commit authority; commit/push final synchronization, archive the active task and reset only after all five platforms are verified.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

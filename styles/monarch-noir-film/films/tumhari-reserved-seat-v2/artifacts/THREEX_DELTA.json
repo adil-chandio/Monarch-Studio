@@ -1,7 +1,7 @@
 {
   "workflow": "WF-03",
   "task_id": "EMS-20261011-003",
-  "status": "DESIGN_AND_AUDIO_BUILT__FINAL_PICTURE_PENDING",
+  "status": "FINAL_MASTER_PASS",
   "locks": {
     "duration_s": 74.0,
     "beats": 34,
@@ -32,10 +32,40 @@
     "freshness_checks": 30,
     "look_sheet": "LOOK_SHEET_WF03_V2.jpg"
   },
-  "pending_measured_after_master": [
-    "picture motion median delta",
-    "final LUFS/LRA/true peak",
-    "final checksum and size",
-    "all delivery gates"
-  ]
+  "pending_measured_after_master": [],
+  "final": {
+    "file": "TUMHARI_RESERVED_SEAT_WF03_V2_NOIR_IMAX_TABAHI.mp4",
+    "sha256": "bc52e242a21c4001d6dd2e0612457c74de7865f726598c5ae75c6f6c70533ed3",
+    "md5": "cbf4d9c5f3c77a9137d8f96755613956",
+    "size_bytes": 46549431,
+    "delivery_gates": "44/44 PASS",
+    "picture": {
+      "samples": 444,
+      "mean_luma": 30.434621810913086,
+      "dark_share": 0.7545177556028251,
+      "p99_luma": 210.5467987060547,
+      "motion_min": 1.5181809663772583,
+      "motion_median": 4.1834492683410645,
+      "motion_p95": 25.522052764892578,
+      "near_identical_pairs": 0,
+      "empty_samples": 0
+    },
+    "audio": {
+      "integrated_lufs": -16.6,
+      "lra_lu": 3.9,
+      "true_peak_dbfs": -2.6
+    },
+    "final_qc_contact_sheet": "FINAL_QC_CONTACT_SHEET_WF03_V2.jpg"
+  },
+  "measured_delta": {
+    "audio_event_ratio": 4.8512,
+    "motion_median_ratio": 10.5898,
+    "motion_floor_ratio": 20.3673,
+    "parent_motion_median": 0.395045667886734,
+    "v2_motion_median": 4.1834492683410645,
+    "parent_motion_floor": 0.07454025000333786,
+    "v2_motion_floor": 1.5181809663772583,
+    "all_33_boundaries_smoke_pass": true,
+    "freshness": "30/30 PASS"
+  }
 }

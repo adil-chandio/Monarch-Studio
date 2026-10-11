@@ -1,9 +1,10 @@
 # MASTER CREATIVE — TUMHARI RESERVED SEAT
 
-- Task: `EMS-20261011-002`
+- V2 production task: `EMS-20261011-003`
+- Narrative/accepted-V1 origin task: `EMS-20261011-002`
 - Shared topic for both films: **TUMHARI RESERVED SEAT — the 20-minute gap**
 - Format: 1920×1080, 16:9 landscape
-- Target duration: 60–90 seconds; picture timing will be locked to measured voice duration.
+- Locked duration: **74.00 seconds**; V2 picture timing remains byte-locked to the accepted 34-beat voice timeline.
 - Audience: Desi teens and young adults carrying family pressure, financial anxiety, phone distraction, delayed goals, and the fear of being left behind.
 - Core promise: a tiny action today becomes a measurable advantage; 20 minutes daily for 90 days equals 30 hours.
 - Emotional engine: bad-news hook → recognisable late-night moment → two-path mini-story → numerical escalation → “luck” accusation → identity twist → urgent but achievable action → train/seat payoff.

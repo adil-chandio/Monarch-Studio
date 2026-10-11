@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261011-003
 
-**Status:** `rendering`  
+**Status:** `syncing`  
 **Title:** TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement  
 **Style:** `monarch-stickman-animation + monarch-noir-film`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-11T00:45:21Z
+**Checkpoint sequence:** 2  
+**Last checkpoint:** 2026-10-11T01:51:25Z
 
 ## Goal
 
@@ -21,11 +21,11 @@ Preserve both accepted originals, then rebuild the same 74-second 16:9 narrative
 
 ## Exact next action
 
-Wait for WF-01 V2 mute master render process; verify exact 74.00 s output, then render WF-03 in two segments, mux exact voice-led mixes, run 40 delivery/delta gates on both, inspect failures, and only then package/synchronize.
+Validate repository, create/push the production commit, then create independent V2 Google Docs tabs, Notion pages and Linear project updates; write signed receipts with Drive and production-commit authority; commit/push final synchronization, archive the active task and reset only after all five platforms are verified.
 
 ## Running processes
 
-- `wf-01-v2-cinema-render-b3ef0666` — WF-01 V2 cinema render — running
+- None recorded.
 
 ## Recovery command
 
@@ -39,6 +39,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-003/0001-20261011T004521Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261011-003/0002-20261011T015125Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

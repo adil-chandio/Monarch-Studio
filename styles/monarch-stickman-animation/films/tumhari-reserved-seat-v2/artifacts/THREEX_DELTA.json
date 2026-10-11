@@ -1,7 +1,7 @@
 {
   "workflow": "WF-01",
   "task_id": "EMS-20261011-003",
-  "status": "DESIGN_AND_AUDIO_BUILT__FINAL_PICTURE_PENDING",
+  "status": "FINAL_MASTER_PASS",
   "locks": {
     "duration_s": 74.0,
     "beats": 34,
@@ -32,10 +32,40 @@
     "freshness_checks": 30,
     "look_sheet": "LOOK_SHEET_WF01_V2.jpg"
   },
-  "pending_measured_after_master": [
-    "picture motion median delta",
-    "final LUFS/LRA/true peak",
-    "final checksum and size",
-    "all delivery gates"
-  ]
+  "pending_measured_after_master": [],
+  "final": {
+    "file": "TUMHARI_RESERVED_SEAT_WF01_V2_MONARCH_CINEMA_TABAHI.mp4",
+    "sha256": "fb78611106ecf008d400961aa29318a950091b7aa130a108cd9d797b0b41138f",
+    "md5": "1aebd8e3a5d843abb7df6595e6d1e713",
+    "size_bytes": 87041066,
+    "delivery_gates": "44/44 PASS",
+    "picture": {
+      "samples": 444,
+      "mean_luma": 187.2104034423828,
+      "dark_share": 0.023565774976365254,
+      "p99_luma": 234.7032012939453,
+      "motion_min": 2.5451228618621826,
+      "motion_median": 5.133792877197266,
+      "motion_p95": 40.89312744140625,
+      "near_identical_pairs": 0,
+      "empty_samples": 0
+    },
+    "audio": {
+      "integrated_lufs": -13.6,
+      "lra_lu": 3.9,
+      "true_peak_dbfs": -1.5
+    },
+    "final_qc_contact_sheet": "FINAL_QC_CONTACT_SHEET_WF01_V2.jpg"
+  },
+  "measured_delta": {
+    "audio_event_ratio": 3.0483,
+    "motion_median_ratio": 3.5418,
+    "motion_floor_ratio": 9.9639,
+    "parent_motion_median": 1.4494760036468506,
+    "v2_motion_median": 5.133792877197266,
+    "parent_motion_floor": 0.2554333806037903,
+    "v2_motion_floor": 2.5451228618621826,
+    "all_33_boundaries_smoke_pass": true,
+    "freshness": "30/30 PASS"
+  }
 }

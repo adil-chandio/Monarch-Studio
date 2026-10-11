@@ -27,6 +27,7 @@ REPO = STYLE.parents[1]
 WF01 = REPO / "styles" / "monarch-stickman-animation"
 sys.path.insert(0, str(WF01 / "src"))
 sys.path.insert(0, str(STYLE / "src"))
+sys.path.insert(0, str(PROJECT / "src"))
 import human as HM  # noqa: E402
 
 W, H, FPS = 1920, 1080, 24
@@ -35,7 +36,7 @@ DUR = float(TIMELINE["picture_duration_s"])
 NF = int(round(DUR * FPS))
 BEATS = TIMELINE["beats"]
 STARTS = [float(b["t0"]) for b in BEATS]
-FONT_DIR = WF01 / "fonts"
+FONT_DIR = PROJECT / "assets" / "fonts"
 _FONTS = {}
 
 BLACK = (5, 6, 9)
@@ -99,7 +100,7 @@ def station(t,bid,amber=0.0):
     return _station_q(int(t*6),bid,int(clamp(amber)*100)).copy()
 
 
-@lru_cache(maxsize=20)
+@lru_cache(maxsize=4)
 def _station_q(tick,bid,amber_q):
     t=tick/6.0;amber=amber_q/100.0
     im=BASE.copy(); d=ImageDraw.Draw(im,"RGBA")
@@ -658,7 +659,7 @@ def ffmpeg_exe():
 
 def render_video(path,start=0,end=None):
     end=NF if end is None else min(NF,end); path.parent.mkdir(parents=True,exist_ok=True)
-    cmd=[ffmpeg_exe(),"-y","-f","rawvideo","-pix_fmt","rgb24","-s",f"{W}x{H}","-r",str(FPS),"-i","-","-an","-c:v","libx264","-preset","medium","-crf","18","-pix_fmt","yuv420p","-movflags","+faststart",str(path)]
+    cmd=[ffmpeg_exe(),"-y","-f","rawvideo","-pix_fmt","rgb24","-s",f"{W}x{H}","-r",str(FPS),"-i","-","-an","-c:v","libx264","-preset","medium","-threads","1","-crf","19","-pix_fmt","yuv420p","-movflags","+faststart",str(path)]
     proc=subprocess.Popen(cmd,stdin=subprocess.PIPE,stderr=subprocess.DEVNULL); began=time.time()
     try:
         for i in range(start,end):

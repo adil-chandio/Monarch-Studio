@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261011-003",
+  "workflow": "WF-03",
+  "production_version": "V2_MONARCH_CINEMA_TABAHI",
+  "date": "2026-10-11",
+  "origin": {
+    "parent_v1_package": "tumhari-reserved-seat",
+    "parent_v1_tree_sha256": "789e386e018d9d797bd3824f1e55c6052f5bcee776b47a3fa5f966ef040f03b2",
+    "parent_v1_master_sha256": "738a6aaa177595384f2070f1e16a38b5412ff10514732ba5a60f420b7395dc2f",
+    "narrative": "user-approved easy-Urdunglish script created in task EMS-20261011-002",
+    "voice": "user-selected voice-00, copied byte-for-byte from accepted V1; no time stretch",
+    "timeline": "accepted 34-beat timeline copied byte-for-byte from V1"
+  },
+  "picture": {
+    "method": "deterministic procedural Pillow/NumPy renderer",
+    "stock_footage": false,
+    "generative_external_assets": false,
+    "seeds": [
+      20261011,
+      93000
+    ],
+    "source_entrypoint": "src/render.py"
+  },
+  "audio": {
+    "method": "deterministic procedural NumPy/SciPy synthesis plus locked narrator",
+    "stock_music": false,
+    "stock_samples": false,
+    "loops": false,
+    "seed": 32011,
+    "source_entrypoint": "src/audio.py"
+  },
+  "embedded_assets": {
+    "fonts": [
+      {
+        "file": "assets/fonts/Montserrat-VF.ttf",
+        "license": "SIL Open Font License 1.1",
+        "license_file": "assets/fonts/Montserrat-OFL.txt",
+        "upstream": "https://github.com/google/fonts/tree/main/ofl/montserrat"
+      },
+      {
+        "file": "assets/fonts/PermanentMarker.ttf",
+        "license": "Apache License 2.0",
+        "license_file": "assets/fonts/PermanentMarker-APACHE-2.0.txt",
+        "upstream": "https://github.com/google/fonts/tree/main/apache/permanentmarker"
+      }
+    ],
+    "character_rig": "src/human.py + src/toon.py embedded in package"
+  },
+  "toolchain": {
+    "python": "3.13.16",
+    "Pillow": "12.3.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "imageio-ffmpeg": "0.6.0",
+    "ffmpeg": "7.0.2-static"
+  },
+  "critical_file_sha256": {
+    "MASTER_TIMELINE.json": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+    "audio/voice00_master.mp3": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+    "src/render.py": "2edf8128d061960e86af254d95cebdc70e8864f353f828b9cc823ae0ecded25b",
+    "src/audio.py": "a1b7901bbdf89c9d96bd323b2ee38795f225baefb29c922c715509e7890ac71d",
+    "src/gate.py": "5634964392bae2fa25f749a06e5ee4d5ec0aa68842df94bb8f513cef1637df42",
+    "assets/fonts/Montserrat-VF.ttf": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7",
+    "assets/fonts/PermanentMarker.ttf": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5",
+    "src/human.py": "f25d65230cfb978f9b46cf75fe17c0f687cc4cd842350cd740df26efb5e3d72c",
+    "src/toon.py": "b5515680d55823648a41100a594046ab92399987e228d74787da58904f0798ac"
+  },
+  "reproducibility": {
+    "self_contained": true,
+    "requirements": "requirements.txt",
+    "build_commands": "README.md",
+    "large_master_policy": "final MP4/WAV excluded from Git; Drive + receipt checksums are binary authority"
+  }
+}

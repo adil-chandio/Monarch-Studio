@@ -1,0 +1,12 @@
+{
+  "file": "tumhari-seat-wf03-v2-mix.wav",
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples": 3552000,
+  "duration_s": 74.0,
+  "nan_or_inf": 0,
+  "peak_dbfs": -2.493,
+  "rms_dbfs": -17.775,
+  "minimum_100ms_rms_dbfs": -84.109,
+  "silent_100ms_blocks": 0
+}

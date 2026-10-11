@@ -1,0 +1,302 @@
+{
+  "style": "wf03",
+  "file": "build/TUMHARI_RESERVED_SEAT_WF03_V2_NOIR_IMAX_TABAHI.mp4",
+  "sha256": "bc52e242a21c4001d6dd2e0612457c74de7865f726598c5ae75c6f6c70533ed3",
+  "md5": "cbf4d9c5f3c77a9137d8f96755613956",
+  "probe": {
+    "duration": 74.0,
+    "video_codec": "h264 (High) (avc1 / 0x31637661)",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24.0,
+    "audio_codec": "aac (LC) (mp4a / 0x6134706D)",
+    "sample_rate": 48000,
+    "channels": "stereo",
+    "raw": "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'build/TUMHARI_RESERVED_SEAT_WF03_V2_NOIR_IMAX_TABAHI.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.1.100\n  Duration: 00:01:14.00, start: 0.000000, bitrate: 5032 kb/s\n  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 4760 kb/s, 24 fps, 24 tbr, 12288 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.3.100 libx264\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 266 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nAt least one output file must be specified\n",
+    "integrated_lufs": -16.6,
+    "lra_lu": 3.9,
+    "true_peak_dbfs": -2.6
+  },
+  "picture": {
+    "samples": 444,
+    "mean_luma": 30.434621810913086,
+    "dark_share": 0.7545177556028251,
+    "p99_luma": 210.5467987060547,
+    "motion_min": 1.5181809663772583,
+    "motion_median": 4.1834492683410645,
+    "motion_p95": 25.522052764892578,
+    "near_identical_pairs": 0,
+    "empty_samples": 0
+  },
+  "checks": [
+    {
+      "name": "container/codecs",
+      "pass": true,
+      "measured": "h264 (High) (avc1 / 0x31637661) / aac (LC) (mp4a / 0x6134706D)",
+      "target": "h264 / aac"
+    },
+    {
+      "name": "resolution",
+      "pass": true,
+      "measured": "1920x1080",
+      "target": "1920x1080"
+    },
+    {
+      "name": "frame rate",
+      "pass": true,
+      "measured": 24.0,
+      "target": 24
+    },
+    {
+      "name": "duration",
+      "pass": true,
+      "measured": 74.0,
+      "target": "74.0 \u00b1 0.12 s"
+    },
+    {
+      "name": "audio format",
+      "pass": true,
+      "measured": "48000 Hz stereo",
+      "target": "48000 Hz stereo"
+    },
+    {
+      "name": "integrated loudness",
+      "pass": true,
+      "measured": -16.6,
+      "target": "-16.0 \u00b1 1 LUFS"
+    },
+    {
+      "name": "decoded true peak",
+      "pass": true,
+      "measured": -2.6,
+      "target": "\u2264 -1.0 dBFS"
+    },
+    {
+      "name": "loudness range",
+      "pass": true,
+      "measured": 3.9,
+      "target": "2\u201314 LU"
+    },
+    {
+      "name": "noir-world luma",
+      "pass": true,
+      "measured": 30.43,
+      "target": "8\u201342"
+    },
+    {
+      "name": "controlled darkness",
+      "pass": true,
+      "measured": 0.755,
+      "target": "\u2265 0.50"
+    },
+    {
+      "name": "highlight headroom",
+      "pass": true,
+      "measured": 210.55,
+      "target": "\u2265 90"
+    },
+    {
+      "name": "no perfectly still sampled pairs",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "living-motion floor",
+      "pass": true,
+      "measured": 1.5182,
+      "target": "> 0.02 mean RGB delta at 6 fps"
+    },
+    {
+      "name": "no stray empty samples",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "voice not time-stretched",
+      "pass": true,
+      "measured": false,
+      "target": false
+    },
+    {
+      "name": "V2 audio event build",
+      "pass": true,
+      "measured": 587,
+      "target": "\u2265 363 (3\u00d7 V1)"
+    },
+    {
+      "name": "moving stereo objects",
+      "pass": true,
+      "measured": 102,
+      "target": "\u2265 90"
+    },
+    {
+      "name": "five-act score",
+      "pass": true,
+      "measured": 5,
+      "target": "\u2265 5"
+    },
+    {
+      "name": "stereo field coherence",
+      "pass": true,
+      "measured": 0.9786,
+      "target": "0.20\u20130.995"
+    },
+    {
+      "name": "V2 audio identity",
+      "pass": true,
+      "measured": "V2_MONARCH_CINEMA_TABAHI",
+      "target": "V2_MONARCH_CINEMA_TABAHI"
+    },
+    {
+      "name": "audio finite samples",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "audio exact pre-master lock",
+      "pass": true,
+      "measured": "48000 Hz / 2 ch / 74.0 s",
+      "target": "48000 Hz / 2 ch / 74.0 s"
+    },
+    {
+      "name": "no 100 ms digital silence",
+      "pass": true,
+      "measured": 0,
+      "target": 0
+    },
+    {
+      "name": "shot count",
+      "pass": true,
+      "measured": 34,
+      "target": "\u2265 32"
+    },
+    {
+      "name": "voice-led beat cadence",
+      "pass": true,
+      "measured": "34 beats; max 4.70s",
+      "target": "34; max \u2264 4.71 s"
+    },
+    {
+      "name": "editor-brain freshness",
+      "pass": true,
+      "measured": "FRESHNESS GATE (#30) \u2014 DNA.json \u2014 PASS (30/30)",
+      "target": "PASS 30/30"
+    },
+    {
+      "name": "V2 look sheet",
+      "pass": true,
+      "measured": "present",
+      "target": "present"
+    },
+    {
+      "name": "all transition boundaries smoke-tested",
+      "pass": true,
+      "measured": "33 boundaries; all_pass=True",
+      "target": "33; all_pass=True"
+    },
+    {
+      "name": "V2 package identity",
+      "pass": true,
+      "measured": "V2 / EMS-20261011-003",
+      "target": "V2 / EMS-20261011-003"
+    },
+    {
+      "name": "three depth planes",
+      "pass": true,
+      "measured": 3,
+      "target": "\u2265 3"
+    },
+    {
+      "name": "six camera controls",
+      "pass": true,
+      "measured": 6,
+      "target": "\u2265 6"
+    },
+    {
+      "name": "twelve transition families",
+      "pass": true,
+      "measured": 12,
+      "target": "\u2265 12"
+    },
+    {
+      "name": "five authored WTF suites",
+      "pass": true,
+      "measured": 5,
+      "target": 5
+    },
+    {
+      "name": "34-beat triple-motion ledger",
+      "pass": true,
+      "measured": "34/34 complete",
+      "target": "34/34"
+    },
+    {
+      "name": "visual motion delta",
+      "pass": true,
+      "measured": 4.1834,
+      "target": "> V1 0.3950"
+    },
+    {
+      "name": "timeline byte lock",
+      "pass": true,
+      "measured": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b",
+      "target": "75838e71c598c04bb322fabbe080d71641853aa9fc2cf2dc6341a73e42698c0b"
+    },
+    {
+      "name": "voice byte lock",
+      "pass": true,
+      "measured": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972",
+      "target": "c411bfae2b12b194cf2107c556b2604e82f3e763c9e6fea94a6186ac650ca972"
+    },
+    {
+      "name": "immutable V1 parent",
+      "pass": true,
+      "measured": "789e386e018d9d797bd3824f1e55c6052f5bcee776b47a3fa5f966ef040f03b2",
+      "target": "789e386e018d9d797bd3824f1e55c6052f5bcee776b47a3fa5f966ef040f03b2"
+    },
+    {
+      "name": "V2 source implementation",
+      "pass": true,
+      "measured": "noir picture + V2 sound markers",
+      "target": "both style-correct markers present"
+    },
+    {
+      "name": "critical provenance hashes",
+      "pass": true,
+      "measured": "9/9",
+      "target": "all match"
+    },
+    {
+      "name": "procedural no-stock provenance",
+      "pass": true,
+      "measured": "picture/audio stock flags false",
+      "target": "all false"
+    },
+    {
+      "name": "embedded licensed typography",
+      "pass": true,
+      "measured": "font binaries + licenses",
+      "target": "all present"
+    },
+    {
+      "name": "delta evidence status",
+      "pass": true,
+      "measured": "events 587; rows 34",
+      "target": "matches build; 34 rows"
+    },
+    {
+      "name": "delivery size",
+      "pass": true,
+      "measured": "44.39 MiB",
+      "target": "< 120 MiB"
+    }
+  ],
+  "summary": {
+    "passed": 44,
+    "total": 44,
+    "failed": 0
+  }
+}
