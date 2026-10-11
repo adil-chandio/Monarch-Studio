@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `EMS-20261011-003`
-- **Status:** `syncing`
-- **Title:** TUMHARI RESERVED SEAT · Monarch Cinema Tabahi V2 · dual-style 3× enhancement
-- **Next action:** Commit and push the signed archival synchronization receipt, verify origin/main and all external records, then complete/archive EMS-20261011-003 and reset only the active slot.
+- **Task:** `NONE`
+- **Status:** `idle`
+- **Title:** No active task
+- **Next action:** Start the next task with continuity.py init.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-11T01:59:19+00:00",
+  "generated_at": "2026-10-11T02:00:33+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "deded5a6a4edf25670395ea758fe420a3b836212d23cbbe1d6dbaa4e0dbedd1d",
-      "size": 739
+      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
+      "size": 527
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -316,12 +316,20 @@
       "size": 11079
     },
     "operations/continuity/checkpoints/EMS-20261011-003/0003-20261011T015845Z/HANDOFF.md": {
-      "sha256": "e80663af1cc9973890386d5ffb9d98b8843d8f1336b80465891c88460c1d5c54",
-      "size": 2712
+      "sha256": "0e95a37404a83eb843a6aa3b6a521bd5cff3bc41f70f8d87d02318f28b8e6e89",
+      "size": 2704
     },
     "operations/continuity/checkpoints/EMS-20261011-003/0003-20261011T015845Z/checkpoint.json": {
       "sha256": "8b06349c01b42f4ef560211770200d63771eb6eb4f5fc61110e1329f3adf7e49",
       "size": 7422
+    },
+    "operations/continuity/checkpoints/EMS-20261011-003/0004-20261011T020000Z/HANDOFF.md": {
+      "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
+      "size": 2520
+    },
+    "operations/continuity/checkpoints/EMS-20261011-003/0004-20261011T020000Z/checkpoint.json": {
+      "sha256": "822c0bd6b1e0b444afc9a42c374bae253dc90c04c2967381c69bb59ff4b69488",
+      "size": 5388
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -479,13 +487,25 @@
       "sha256": "c4a274acc9594bc46ecc41e3f085c95b67a11ab58fb63a456495ec2db2706e6e",
       "size": 7422
     },
+    "operations/continuity/outbox/EMS-20261011-003/0004-20261011T020000Z/STATUS.md": {
+      "sha256": "15815b723f0b28fa3881210721ba26dac5ed0fea2c176bc6b7732178413f7433",
+      "size": 1345
+    },
+    "operations/continuity/outbox/EMS-20261011-003/0004-20261011T020000Z/SYNC.json": {
+      "sha256": "f9440bfcedf080993b535ad2160f73a544a7f52219f6946b7ccfbb2f6bc7b1ed",
+      "size": 4360
+    },
+    "operations/continuity/outbox/EMS-20261011-003/0004-20261011T020000Z/checkpoint.json": {
+      "sha256": "bc6bdb7b035488d06fc7ae72d0a644deaa365afd23e303dc04f18ac459f39fe3",
+      "size": 5388
+    },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
       "size": 4271
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.md": {
-      "sha256": "0bb9403fdad69d4fd2e5a60e8afc818eb51976fe575fb1d3beac4d9eba1630a9",
-      "size": 2302
+      "sha256": "48eb0da7fa75d54961922ee8a8e805b2fe71477fc6674f52fabb583ecf6a6989",
+      "size": 2298
     },
     "operations/continuity/receipts/EMS-20261011-003/RECEIPT_PUBLIC_KEY.txt": {
       "sha256": "5e6288f9b7ac03a8e0804d78cb56bf3ca5c873cec8d473d76d59a577ba1bf58b",
@@ -574,6 +594,22 @@
     "operations/history/EMS-20261011-002/payload/creative/VOICE_SCRIPT_UR.txt": {
       "sha256": "c94f4cb85efd21608a61dfd296d49534f7aa177f259791018bb7b71c29a36679",
       "size": 1512
+    },
+    "operations/history/EMS-20261011-003/ACTIVE_TASK.json": {
+      "sha256": "d2a8cf072d9152ae82b5d682f876b3f5a6971370916ff214a5f3dffac00cb1dc",
+      "size": 2411
+    },
+    "operations/history/EMS-20261011-003/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "a4c512f113b21bedff32f37360c717253d8b0e4cf9fdb4c1869d5064e935bd25",
+      "size": 609
+    },
+    "operations/history/EMS-20261011-003/JOURNAL.jsonl": {
+      "sha256": "59174c3ac2f73462051d9c900620c0130e2fcba677cd946dccf1e55de8f67d42",
+      "size": 20083
+    },
+    "operations/history/EMS-20261011-003/RESUME.md": {
+      "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
+      "size": 2520
     },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
@@ -908,8 +944,8 @@
       "size": 6396
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/records/DELIVERY_RECEIPT.md": {
-      "sha256": "7d9a189a034683614aae8dba255c0891c97c875b8cc5d2a6fefe28ae601ed70e",
-      "size": 3057
+      "sha256": "cf7864ec2e5b1f55abffe057ef8cbfdb6da656f62f0d9dd4b0de8fc88d65580b",
+      "size": 3051
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/records/EXPERIMENTS_FAILURES_FIXES.md": {
       "sha256": "c643e8d5dd93d1e70c44a1140b6b0acd6a7c75ada67cb1f10b5954aad3b28614",
@@ -920,8 +956,8 @@
       "size": 6598
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/records/EXTERNAL_SYNC_RECEIPT.md": {
-      "sha256": "db167001351f2287e3067f2762ac7126e4155705ac3173005c91e573967b5258",
-      "size": 2698
+      "sha256": "e384e29ce01ab7f00c6766f549ca9879352130202d53fca1baccff6d868e720a",
+      "size": 2694
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/records/RECEIPT_PUBLIC_KEY.txt": {
       "sha256": "5e6288f9b7ac03a8e0804d78cb56bf3ca5c873cec8d473d76d59a577ba1bf58b",
@@ -1504,8 +1540,8 @@
       "size": 6311
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/records/DELIVERY_RECEIPT.md": {
-      "sha256": "667547b9dc9e433ab73b685e38b1550608aaa0296565224f142ef05200672cfa",
-      "size": 3008
+      "sha256": "51ed7cc3724fc697e80a3ce05f2784712bc500f98bdce134b93a32f22cbfaf62",
+      "size": 3002
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/records/EXPERIMENTS_FAILURES_FIXES.md": {
       "sha256": "b3bf1d55b7f7d31248c54f9c93b154a1a9b78023655e707674cef79842d2840e",
@@ -1516,8 +1552,8 @@
       "size": 6628
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/records/EXTERNAL_SYNC_RECEIPT.md": {
-      "sha256": "c06de45762fec7f862697576dca24f4ef50e043943f73b45f3429ced2a7dc328",
-      "size": 2710
+      "sha256": "4ad134d07b2d8c1a03cafe8076579171d1ec81f07d86c8505d272d51dd26e78c",
+      "size": 2706
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/records/RECEIPT_PUBLIC_KEY.txt": {
       "sha256": "5e6288f9b7ac03a8e0804d78cb56bf3ca5c873cec8d473d76d59a577ba1bf58b",
@@ -1952,20 +1988,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "7d5a4a01bef74de84d8133cfe7881a6867217e343f0bfa25254d272e5fc8c8d9",
-      "size": 2544
+      "sha256": "81f6cac7e30c00f08c5d747524e5d053f1ed3f9e5075ec707214ab6c95b7e2b6",
+      "size": 733
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "a4c512f113b21bedff32f37360c717253d8b0e4cf9fdb4c1869d5064e935bd25",
-      "size": 609
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "4cb6f617c6c12feecce9d3fb152063e0858941142c7e6884dc06f62d29106e2e",
-      "size": 18051
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
     },
     "workflows/current/RESUME.md": {
-      "sha256": "967750ef2c01c5ea54fad3538e90e7da275502cbf7351e49f0b47f557068bf63",
-      "size": 2661
+      "sha256": "aa53b4335d85d765bf1bb1c43e01801db846b6b3f659c8b16a7bdfd8c550c918",
+      "size": 866
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",
