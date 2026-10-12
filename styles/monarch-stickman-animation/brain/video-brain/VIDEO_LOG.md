@@ -45,3 +45,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** about 2 s per frame
 - **Review:** PARTIAL: wall and texture orientation fixed. Text still not legible, figure still crude
 
+## V-006 · 2026-10-13 · shade_respect_v2 (reference, delivered before this session) · status: reviewed
+
+- **File:** shade_respect_v2.mp4
+- **Drive ID:** 1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu
+- **Settings:** 75.19 s, 1080x1920, 30 fps, 2256 frames, 9 chapters, voice-01 Urdu TTS, md5 8d91be52ab969e0b23f21bf6bab0df85, gate_respect2 19/19
+- **Timing:** n/a (earlier build, about 21 min sequential)
+- **Review:** Reference for the 3D rebuild. Hybrid 2D look, not 3D. Keep the script and timing
+

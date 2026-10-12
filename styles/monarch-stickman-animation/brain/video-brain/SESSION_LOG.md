@@ -19,3 +19,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** Not premium. Timetable text is not legible at 270x480, figure is crude primitives, key light too weak. Full render, voice and sound NOT done. Stopped before a 300-frame run
 - **Files:** `tools/render/blender-vertical/wf01_paper10s.py`
 
+## S-003 · 2026-10-13 03:42 PKT
+
+- **Request:** Improve shade_respect_v2 (Drive 1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu) to the next level. User chose: full 3D rebuild, voice-02 ur-PK
+- **Action:** Downloaded the Drive file to /tmp (not the repo). Extracted contact sheets at 2-73 s. Read VIDEO_RESPECT_NOTES and CHARACTER_SPEC. Found src/shade.py is a 2D PIL drawing of a 3D skeleton, not a 3D mesh. Timed Blender at 540x960 and 1080x1920 on this sandbox (2 CPU, 3 GB RAM)
+- **Result:** Reference video is 75 s, 1080x1920, 30 fps, 9 chapters, gate 19/19. A 3D rebuild needs a new SHADE mesh and rig in Blender. Measured ~6-8 s per frame at 540x960 and ~35 s per frame at 1080x1920 (32 spp), so the full 2256-frame 1080p render is ~22 h CPU here. Not started
+- **Files:** `tools/render/blender-vertical/wf01_paper10s.py`
+

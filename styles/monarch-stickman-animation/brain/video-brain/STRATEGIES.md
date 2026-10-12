@@ -17,3 +17,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Render now as a test and label it as not premium (rejected: wastes 20+ min of CPU for a known-bad frame)
 - **Outcome:** Pending
 
+## ST-003 · 2026-10-13
+
+- **Decision:** Full 3D rebuild of the 9-chapter SHADE script (user choice), voice-02 ur-PK. Start with a 10 s hook pilot at 540x960 after a SHADE 3D mesh and rig exist in Blender
+- **Alternatives rejected:** 2D enhancement of shade_respect_v2 (not chosen, does not meet the 3D rule). Full 1080p render in this sandbox (rejected: about 22 h CPU)
+- **Outcome:** Pending: needs SHADE 3D model and pose port from shade.py joint solve. Final 1080p render needs the user's GPU/Blender machine or several sessions
+

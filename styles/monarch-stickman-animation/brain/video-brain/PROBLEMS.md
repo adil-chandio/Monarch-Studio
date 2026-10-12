@@ -68,3 +68,17 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Open. Next: design a proper paper cut-out silhouette (bezier outline extruded thin, with shadow offset)
 - **Verified by:** Not yet
 
+## P-010 · 2026-10-13 · status: open
+
+- **Symptom:** shade.py is a 2D PIL drawing, not a 3D model, so there is no 3D SHADE to reuse
+- **Cause:** The toon/shade rig solves 2D joints and draws with PIL
+- **Fix:** Open. Build SHADE as a Blender mesh (hood, blazer, trousers, shoes, glowing wedge eyes) and port pose functions (p_*) to 3D joint angles
+- **Verified by:** Not yet
+
+## P-011 · 2026-10-13 · status: open
+
+- **Symptom:** 1080x1920 Cycles render is too slow here (about 35 s per frame, 2 CPU, 3 GB RAM)
+- **Cause:** Sandbox has 2 CPUs and 3 GB RAM. Measured with the WF-01 test scene
+- **Fix:** Pilot at 540x960 (about 6-8 s per frame). Final 1080p on a GPU machine or in chunks across sessions
+- **Verified by:** Timing in this session: 540x960 13 s, 1080x1920 43 s incl. startup
+

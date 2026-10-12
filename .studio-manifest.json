@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:36:31+00:00",
+  "generated_at": "2026-10-12T22:42:46+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -7856,28 +7856,28 @@
       "size": 206
     },
     "styles/monarch-stickman-animation/brain/video-brain/PROBLEMS.md": {
-      "sha256": "685387d5985b3e39f0acffb2a22f24f89096f04953c4b56487c58764bae7736c",
-      "size": 3125
+      "sha256": "a24b99829cad208d9b13b607326ec8efd7227d23a30d7a7d7779cf7b1d314638",
+      "size": 3918
     },
     "styles/monarch-stickman-animation/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "bbb73fb73484a44b4083a196aa29407ae30d85cff2b75f0556e7340504aac650",
-      "size": 1495
+      "sha256": "1cfe97279c67426fa5459b4b025d99959d0559a505df8e7a8cc874c482f8008d",
+      "size": 2312
     },
     "styles/monarch-stickman-animation/brain/video-brain/SKILLS.md": {
       "sha256": "c0e497ebb3167b2e201802cd136b423cdbedae99aff855d2b563f6699163cae9",
       "size": 1123
     },
     "styles/monarch-stickman-animation/brain/video-brain/STRATEGIES.md": {
-      "sha256": "bcbf4d302af13a09a71364aef7a1fac7a44821cee86d2eee29ce187487d95092",
-      "size": 912
+      "sha256": "31fcec0e7f50ac1ccfafbc8bb1a603a8f87661134c4d17905ea242377ebe7b5a",
+      "size": 1446
     },
     "styles/monarch-stickman-animation/brain/video-brain/TOOLCHAIN.md": {
       "sha256": "21046c116d264c0468be2900b87370840e3c6d1b0969e51b8c84fcd60c3f13aa",
       "size": 207
     },
     "styles/monarch-stickman-animation/brain/video-brain/VIDEO_LOG.md": {
-      "sha256": "e6409407d1e65cfe48ae066f2758cd7f13f9f64131458dccf16b2efb80a9db35",
-      "size": 2157
+      "sha256": "7a19968ae8710e61be2513990e2802ef7a709adf792967369720937781cde960",
+      "size": 2648
     },
     "styles/monarch-stickman-animation/build_all.sh": {
       "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
