@@ -15,6 +15,7 @@ COMPACT_PATHS = [
     "docs",
     "licenses",
     "operations",
+    "projects",
     "requirements",
     "studio",
     "styles/monarch-stickman-animation/brain",
