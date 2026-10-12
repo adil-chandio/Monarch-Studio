@@ -4,6 +4,24 @@ Status: **in progress, not accepted.** No WF-01/02/03 film has passed a frame-le
 
 This runbook records what the studio has set up, what each tool is for, the Blender lessons from the lookdev passes, and the blockers. The repo pins are the source of truth for the vendored code. See `docs/VENDOR_INTEGRATION.md` for licence and adoption rules.
 
+## 0. Start a new chat or a fresh clone (no Drive needed)
+
+The workspace stays light. Everything the pipeline needs is either in Git or fetched from GitHub at a pinned commit.
+
+```bash
+git clone https://github.com/adil-chandio/Monarch-Studio.git && cd Monarch-Studio
+git checkout arena/a188bd4a-monarch-studio          # the working branch
+tools/bootstrap/setup_3d.sh                         # venvs + stub libs, verifies BPY_OK
+tools/vendor/materialize.sh one react-bits          # any vendor repo, at its pin (or: all)
+```
+
+What is in Git: the pins for all 10 vendor repos, the text skill files (`docs/skills/vendored/`), the render scripts (`tools/render/`), the runbooks, and the continuity records.
+What comes from GitHub on demand: the vendor source at its pin (`tools/vendor/materialize.sh`).
+What is rebuilt locally: `/tmp` venvs and stub libraries (`tools/bootstrap/setup_3d.sh`).
+What is not recoverable: the WF-02 v2 render and sound scripts, the `test10s` working set, and the first `wf_scenes.py` (see Section 8). Keep media output out of Git. Store final films on Drive.
+
+Lookdev check after setup: `LD_LIBRARY_PATH=/tmp/stublib /tmp/venvs/blender/bin/python tools/render/blender-vertical/wf_scenes.py --wf 02 --lookdev 9.5 --res 270x480 --samples 32 --out /tmp/wf02.png`.
+
 ## 1. Locked concepts (approved by the user)
 
 | Style | Metaphor | Editing and animation | Sound | Palette |
