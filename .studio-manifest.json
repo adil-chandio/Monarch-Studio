@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:27:59+00:00",
+  "generated_at": "2026-10-12T22:34:00+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -6700,8 +6700,8 @@
       "size": 5652
     },
     "projects/tumhari-reserved-seat-3d/DECISIONS.md": {
-      "sha256": "e21d0a4cdb0f1659021656c4f65212a3b59f00602ce1c6af76d749db1bd72826",
-      "size": 4116
+      "sha256": "5a96b4f19f0fe1f91febf175e6f1285b346e9f7bc79525e391c4b2efd2bd301f",
+      "size": 4794
     },
     "projects/tumhari-reserved-seat-3d/PROCESS_LOG.md": {
       "sha256": "34a5bd2210f5984c9b137b8a7e30c016b6c2037eec985439b429a4b6da22fea5",
@@ -8460,28 +8460,28 @@
       "size": 2067
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/PROBLEMS.md": {
-      "sha256": "b23ef5d8fc75cf2c4d3560d6dca9eb1a2bf0f713639f282cceeae6c7c925eab7",
-      "size": 2468
+      "sha256": "ca83716b8365ea973bb2e6c99f2101fa1893ae6e7aab3d8e72d0e19d32fa6e63",
+      "size": 2969
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "0e5060dd3d1e253db736bfc32bfa16d836f01367b6ae11e26ffef19950e1de4c",
-      "size": 1330
+      "sha256": "ae9121d7135a78d5711209f9f5185c75c2eb6e6f8ff8dbce591452e9e37fde3b",
+      "size": 1926
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/SKILLS.md": {
-      "sha256": "d657b5a915d1cc7c72c137254c356e3958027e2893327bb8bf0883b594a02ad6",
-      "size": 1914
+      "sha256": "254d158b28feb1746949f83a52654c540d8cad4032f196ce6f71d9758a959b4d",
+      "size": 2260
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/STRATEGIES.md": {
-      "sha256": "785b258d4dd5928211a6144d9130d643cdf25027ffa0e6ac42b54e94e4ae5379",
-      "size": 1197
+      "sha256": "8208c4da9c5c2f160662cd8858e8ce618f458a63512d94c82983d5de2338ea96",
+      "size": 1516
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/TOOLCHAIN.md": {
       "sha256": "e8f444fe013325aa457c1d40189651106aef194b5d078c066c4b8e98345c0f1f",
       "size": 2872
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/VIDEO_LOG.md": {
-      "sha256": "6a7f424166bd4e331753514366e1f7430216019dd56a4d302072833be891b7de",
-      "size": 1051
+      "sha256": "e22f335453b1441df55be87b78d28b448512609851e1a4867de72d81bfce8b23",
+      "size": 2080
     },
     "styles/monarch-zackd-3d-power/knowledge/INDEX.md": {
       "sha256": "4765b01023186200fc2e145438ab24aecc7b632fee660807d899b05a6964ddb0",
@@ -8540,8 +8540,8 @@
       "size": 1875
     },
     "tools/render/blender-vertical/wf_scenes.py": {
-      "sha256": "9feee905d60e4010b7f2b37a0d7ed1db9debd9a3b2824dc95f8aeab0fff27a95",
-      "size": 16651
+      "sha256": "d723b16cb83fcfde57650eb05432cb50ccf00601abf7833db5e111690102277c",
+      "size": 17565
     },
     "tools/render/react-bits-preview/vite.preview.config.mjs": {
       "sha256": "e3da4e06e769957d3d8607543d98234bab3d705d282b30c4322b3ef514694a5b",

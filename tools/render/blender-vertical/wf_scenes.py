@@ -191,8 +191,30 @@ WF02_CAMS = [(0, -21, 6.8), (15, -15, 13.0), (-14, -14, 4.0), (0, -27, 9.0)]
 WF02_TGT = [(0, 0, 6.8), (0, 0, 6.8), (0, 0, 5.5), (0, 0, 7.2)]
 
 
+def sky_world(strength=0.6, sun_elev_deg=14.0, sun_rot_deg=200.0, air=1.0, dust=0.6):
+    """Procedural Nishita sky as the world. Gives metal a real environment to reflect."""
+    sc = bpy.context.scene
+    w = bpy.data.worlds.new('world_sky')
+    w.use_nodes = True
+    nt = w.node_tree
+    bg = nt.nodes['Background']
+    sky = nt.nodes.new('ShaderNodeTexSky')
+    sky.sky_type = 'NISHITA'
+    sky.sun_elevation = math.radians(sun_elev_deg)
+    sky.sun_rotation = math.radians(sun_rot_deg)
+    sky.air_density = air
+    sky.dust_density = dust
+    nt.links.new(sky.outputs['Color'], bg.inputs['Color'])
+    bg.inputs['Strength'].default_value = strength
+    sc.world = w
+
+
 def build_wf02():
-    world((0.22, 0.27, 0.36), 1.1)
+    # Default flat = r5 baseline. WF02_WORLD=sky enables the Nishita sky (lookdev r6, not accepted).
+    if os.environ.get('WF02_WORLD', 'flat') == 'flat':
+        world((0.22, 0.27, 0.36), 1.1)
+    else:
+        sky_world(strength=float(os.environ.get('WF02_SKY', '0.6')))
     floor = mat('floor', (0.02, 0.022, 0.03), 0.0, 0.12)
     plane('floor', (0, 0, 0), (0, 0, 0), (40, 40, 1), floor)
     gold = mat('gold', (1.0, 0.72, 0.28), 1.0, 0.18)

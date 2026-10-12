@@ -19,3 +19,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** Trigger active. Storage rule recorded. Lookdev quality still open
 - **Files:** `styles/monarch-zackd-3d-power/workflow.json`, `styles/registry.json`, `studio/registry.json`, `styles/BRAIN_STANDARD.md`
 
+## S-003 · 2026-10-13 03:34 PKT
+
+- **Request:** Continue to next level on WF-02 (user asked aage barho after the gh clone of Open-Generative-AI)
+- **Action:** Checked Open-Generative-AI and Seedance 2.5 access. Rebuilt bpy via setup_3d.sh (BPY_OK). Added optional Nishita sky world to wf_scenes build_wf02 (WF02_WORLD=sky). Rendered r6a/r6b/r6c lookdev at 9.5 s
+- **Result:** Sky world did not improve the look. Default kept at flat. Next lever is framing and tower scale
+- **Files:** `tools/render/blender-vertical/wf_scenes.py`, `styles/monarch-zackd-3d-power/brain/video-brain/VIDEO_LOG.md`
+

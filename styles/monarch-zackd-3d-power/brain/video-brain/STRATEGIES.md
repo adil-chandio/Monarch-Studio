@@ -23,3 +23,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Custom token (user declined)
 - **Outcome:** Trigger active in both registries
 
+## ST-004 · 2026-10-13
+
+- **Decision:** Keep flat world as the default. Sky world is opt-in via WF02_WORLD=sky until a sky look passes review
+- **Alternatives rejected:** Make sky the default now (rejected: washed out in r6b)
+- **Outcome:** Baseline preserved. Next experiment is framing and materials, not the world
+

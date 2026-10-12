@@ -47,3 +47,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Rerun once. If it repeats, check LD_LIBRARY_PATH and the blender venv numpy
 - **Verified by:** Rerun succeeded in the same session
 
+## P-007 · 2026-10-13 · status: open
+
+- **Symptom:** Sky world (r6b, r6c) washed out, same as flat grey. Chrome still no contrast
+- **Cause:** Sky strength barely changes the frame, so the world is not the limiting factor. Camera framing puts the tower in the top third and cubes are tiny; floor reflection dominates the bottom
+- **Fix:** Not fixed. Next: camera and tower scale first (fill frame), then material roughness and key highlight, then world
+- **Verified by:** r6a/r6b/r6c stills viewed
+

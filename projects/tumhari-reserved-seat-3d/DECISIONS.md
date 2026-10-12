@@ -47,3 +47,10 @@ Shot grammar must differ between styles even though the script is the same.
 - Should the Monarch repo be merged into `main` so a clone of `main` contains this work? Currently everything is on `arena/a188bd4a-monarch-studio`.
 - Keep the repo public, or make it private before storing more project material?
 - Approve a 240-frame render at 360×640, 48 spp? Per-frame timing is not measured yet.
+
+## 2026-10-13 · Open-Generative-AI and Seedance 2.5 (checked, not used)
+
+- Cloned Anil-matcha/Open-Generative-AI (MIT, HEAD 7cd7ade) for inspection in /tmp. The pinned submodule in vendor/ is 6b704b0 and is not populated in the sparse worktree.
+- The studio is a UI over api.muapi.ai. Video generation runs on MuAPI hosts, not locally. api.muapi.ai is blocked from this sandbox (curl 000).
+- Seedance 2.5 is gated to MuAPI Pro/Business accounts and needs a user API key. It is generative AI video, not frame-by-frame 3D, so it does not meet the WF-02 requirement. Not used.
+- The user can run the Open-Generative-AI app on their own PC with their own key. The sandbox cannot.

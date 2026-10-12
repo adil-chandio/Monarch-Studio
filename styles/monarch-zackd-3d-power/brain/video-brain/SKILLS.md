@@ -35,3 +35,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **How:** Use a gradient or HDRI-style world. A flat dark world makes metal black and a flat grey world makes it dull
 - **Evidence:** Lookdev stills r5 and r4 (open problem P-003)
 
+## K-006 · 2026-10-13 · Test one lever per lookdev
+
+- **When to use:** Any still that looks wrong
+- **How:** Render the same frame with only one parameter changed. If two values look identical, the parameter is not the cause. Move to the next lever
+- **Evidence:** Sky 0.6 vs 0.25 looked the same (r6b vs r6c), so world strength was ruled out
+

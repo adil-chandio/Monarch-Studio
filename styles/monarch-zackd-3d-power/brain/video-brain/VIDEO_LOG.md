@@ -21,3 +21,27 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** about 0.7 s per frame
 - **Review:** Not accepted by user. Test quality. Superseded by the Blender path
 
+## V-003 · 2026-10-13 · lookdev r6a t=9.5 270x480 32spp, flat world (r5 baseline re-run) · status: rejected
+
+- **File:** none (still only)
+- **Drive ID:** not uploaded
+- **Settings:** WF02_WORLD=flat, Cycles CPU, 32 spp
+- **Timing:** 2.5 s per frame
+- **Review:** FAIL: grey, chrome dull, tower tiny at top of frame
+
+## V-004 · 2026-10-13 · lookdev r6b t=9.5 270x480 32spp, Nishita sky world strength 0.6 · status: rejected
+
+- **File:** none (still only)
+- **Drive ID:** not uploaded
+- **Settings:** WF02_WORLD=sky WF02_SKY=0.6, sun elev 14, rot 200, air 1.0, dust 0.6
+- **Timing:** 2.5 s per frame
+- **Review:** FAIL: washed out, pale cubes, no contrast. Sky reads as haze
+
+## V-005 · 2026-10-13 · lookdev r6c t=9.5 270x480 32spp, Nishita sky world strength 0.25 · status: rejected
+
+- **File:** none (still only)
+- **Drive ID:** not uploaded
+- **Settings:** WF02_WORLD=sky WF02_SKY=0.25
+- **Timing:** 2.7 s per frame
+- **Review:** FAIL: nearly identical to r6b. Sky strength is not the lever. Framing and material are
+
