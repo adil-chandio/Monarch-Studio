@@ -82,3 +82,17 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Pilot at 540x960 (about 6-8 s per frame). Final 1080p on a GPU machine or in chunks across sessions
 - **Verified by:** Timing in this session: 540x960 13 s, 1080x1920 43 s incl. startup
 
+## P-012 · 2026-10-13 · status: fixed
+
+- **Symptom:** finish_respect2.sh default mux OUT is /home/user/shade_respect_v2.mp4 and its gate reads the same path. Running it on a symlink would overwrite the reference video
+- **Cause:** Hardcoded output and gate paths in mux_respect2.sh and finish_respect2.sh
+- **Fix:** build_respect3.sh overrides OUT=/home/user/build/respect3_v3.mp4 and passes the v3 path to the gate. Baseline finish step stopped before it ran
+- **Verified by:** Reference md5 8d91be52ab969e0b23f21bf6bab0df85 unchanged after the stop
+
+## P-013 · 2026-10-13 · status: fixed
+
+- **Symptom:** Respect2 VO assets r1-r9_fit.wav were missing from the repo and the workspace
+- **Cause:** Audio assets are not in Git and were only in the Drive package shade_respect_v2_package.zip
+- **Fix:** Downloaded the package to /tmp, extracted assets/ to /tmp/shade_build/assets, kept it out of the repo. Recorded the Drive ID in TOOLCHAIN next
+- **Verified by:** 9 wav files extracted, sizes match the zip listing
+

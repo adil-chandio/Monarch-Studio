@@ -53,3 +53,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** n/a (earlier build, about 21 min sequential)
 - **Review:** Reference for the 3D rebuild. Hybrid 2D look, not 3D. Keep the script and timing
 
+## V-007 · 2026-10-13 · lookdev r8 t=7.7 1080x1920 (v2 vs v3 still) · status: reviewed
+
+- **File:** stills in /tmp only
+- **Drive ID:** not uploaded
+- **Settings:** SHADE_ENH=0 vs 1: S-curve, warm highlights, cool shadows, vignette 0.20
+- **Timing:** about 3 s per still
+- **Review:** PASS (visual): paper warmer, edges dark, figure and captions unchanged
+

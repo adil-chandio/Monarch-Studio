@@ -26,3 +26,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** Reference video is 75 s, 1080x1920, 30 fps, 9 chapters, gate 19/19. A 3D rebuild needs a new SHADE mesh and rig in Blender. Measured ~6-8 s per frame at 540x960 and ~35 s per frame at 1080x1920 (32 spp), so the full 2256-frame 1080p render is ~22 h CPU here. Not started
 - **Files:** `tools/render/blender-vertical/wf01_paper10s.py`
 
+## S-004 · 2026-10-13 03:52 PKT
+
+- **Request:** Drop 3D. Stay in the same style as shade_respect_v2 and enhance it to next level, fun and tabahi
+- **Action:** Set up runnable layout outside the repo (symlinks /home/user/src, build, assets, fonts to /tmp and repo). Downloaded VO assets r1-r9_fit.wav from Drive package shade_respect_v2_package.zip (16dY7R5PpdwbOZnA4nMeFJPT1QJjoQB2M). Verified repo src matches the package. Test shard 48 frames at 1080x1920 (about 0.35 s/frame). Wrote respect3.py (copy of respect2 + grade + beat punch, env SHADE_ENH). Still comparison at 7.7 s. Wrote build_respect3.sh and started the v3 build
+- **Result:** Pipeline runs. Baseline rebuild stopped on purpose before finish: the default mux OUT would overwrite the reference file through the symlink. Reference md5 verified intact. v3 build running
+- **Files:** `styles/monarch-stickman-animation/src/respect3.py`, `styles/monarch-stickman-animation/build_respect3.sh`
+

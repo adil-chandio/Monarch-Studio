@@ -23,3 +23,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** 2D enhancement of shade_respect_v2 (not chosen, does not meet the 3D rule). Full 1080p render in this sandbox (rejected: about 22 h CPU)
 - **Outcome:** Pending: needs SHADE 3D model and pose port from shade.py joint solve. Final 1080p render needs the user's GPU/Blender machine or several sessions
 
+## ST-004 · 2026-10-13
+
+- **Decision:** Enhance shade_respect_v2 in place: keep script, timeline, VO and audio chain. Add a grade and beat punch in respect3.py (env SHADE_ENH). No 3D, no new character
+- **Alternatives rejected:** 3D Blender rebuild (user rejected). Full 2D rewrite (too large). Audio chain changes (not needed)
+- **Outcome:** Pending: v3 gate and frame review
+

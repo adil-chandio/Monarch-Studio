@@ -23,3 +23,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **How:** Generate the PNG with PIL in the render venv. Pre-rotate it by 90 degrees (ROTATE_90) to match the cube UV. Card = thin cube with a Bevel modifier (width 0.004, 2 segments) for edge highlight
 - **Evidence:** lookdev r7b orientation corrected
 
+## K-004 · 2026-10-13 · Run the respect2/3 pipeline outside the repo
+
+- **When to use:** Any SHADE short rebuild
+- **How:** Make /home/user/src (repo src), /home/user/fonts (repo fonts), /home/user/build and /home/user/assets (in /tmp) as symlinks. Put PATH=/tmp/venvs/render/bin first. Shards: python3 src/respect2.py A B out.mp4, about 0.35 s per frame at 1080x1920
+- **Evidence:** 48-frame test shard rendered in 19 s, output 1080x1920 30 fps
+
