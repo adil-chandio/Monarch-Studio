@@ -121,4 +121,8 @@ Every checkpoint creates an outbox package; each platform is marked independentl
 - [`docs/PRIVACY_AND_ASSETS.md`](docs/PRIVACY_AND_ASSETS.md)
 - [`docs/STORAGE_AND_MATERIALIZATION.md`](docs/STORAGE_AND_MATERIALIZATION.md)
 
+## Projects archive
+
+Every working project, with its chat record, process log, tools, decisions, skills and artifact index, lives in [`projects/`](projects/README.md). Start a new chat or a fresh clone from `projects/<slug>/RESUME.md`.
+
 Monarch-authored material is proprietary unless separately stated. Third-party submodules and bundled fonts retain their own licenses.

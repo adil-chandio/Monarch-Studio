@@ -5,6 +5,7 @@ Start here in any new chat or fresh clone.
 ## Where things are
 
 - Project overview: `README.md`
+- Chat log (what the user asked, turn by turn, and the outcome): `CHAT_LOG.md`
 - Process log (how the work was done, step by step): `PROCESS_LOG.md`
 - Decisions and standing instructions: `DECISIONS.md`
 - Tools and commands: `TOOLS.md`
