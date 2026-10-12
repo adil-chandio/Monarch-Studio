@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0003-20261012T022020Z",
+  "created_at": "2026-10-12T02:20:20Z",
+  "summary": "Demo delivered: zackd3d_demo_360p_12fps.mp4 (6 s, 72 frames, Mitsuba CPU path tracing, 640x360, 764 KB). Render took ~407 s. Limits: 360p, noisy, no VO, no character, no Blender/Luma/Kling/Adobe, no voice clone. 1080p 74 s full film would be ~hours-days on this 2-vCPU box.",
+  "next_action": "Await user decision: continue full-length build with agreed compromises, or move render to a machine with GPU/Blender using the project files.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "status": "blocked",
+    "title": "Zack-D style 3-D video (WF-02 Drive source) · tumhari reserved seat script · cloned monarch voice",
+    "style_id": "zackd-3d-premium (proposed; no style yet)",
+    "goal": "Build a premium 3-D animated video in Zack D Films style from the Drive source files, same topic/script (Tumhari Reserved Seat), with the user's monarch voice; report real capability limits honestly.",
+    "acceptance_criteria": [],
+    "started_at": "2026-10-12T02:05:51Z",
+    "updated_at": "2026-10-12T02:20:20Z",
+    "checkpoint_sequence": 3,
+    "event_sequence": 9,
+    "journal_head": "e8e6b1f9b2189b91158bfb931ff8d4750351efce2b5631620b437a36044cdd7c",
+    "last_checkpoint": "2026-10-12T02:20:20Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261012-001/0003-20261012T022020Z",
+    "next_action": "Await user decision: continue full-length build with agreed compromises, or move render to a machine with GPU/Blender using the project files.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "seq": 9,
+    "timestamp": "2026-10-12T02:20:20Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Demo delivered: zackd3d_demo_360p_12fps.mp4 (6 s, 72 frames, Mitsuba CPU path tracing, 640x360, 764 KB). Render took ~407 s. Limits: 360p, noisy, no VO, no character, no Blender/Luma/Kling/Adobe, no voice clone. 1080p 74 s full film would be ~hours-days on this 2-vCPU box.",
+    "content_sha256": "5d5e237f98c3ad45acb84c7da17806f89f5a70178ceef6e7b47b973f880b68ae",
+    "metadata": {
+      "sequence": 3,
+      "next_action": "Await user decision: continue full-length build with agreed compromises, or move render to a machine with GPU/Blender using the project files.",
+      "status": "blocked"
+    },
+    "prev_event_sha256": "878e9adb821ca556352e4031759a0203cc199e2302e16c0b7aa8f275c5d01563",
+    "event_sha256": "e8e6b1f9b2189b91158bfb931ff8d4750351efce2b5631620b437a36044cdd7c"
+  },
+  "journal_head": "e8e6b1f9b2189b91158bfb931ff8d4750351efce2b5631620b437a36044cdd7c",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/a188bd4a-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0001-20261012T020645Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0001-20261012T020645Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0002-20261012T021313Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0002-20261012T021313Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0002-20261012T021313Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261012-001/0002-20261012T021313Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0002-20261012T021313Z/checkpoint.json",
+      "?? workflows/current/payload/zackd3d_demo/encode_demo.py",
+      "?? workflows/current/payload/zackd3d_demo/probe.py",
+      "?? workflows/current/payload/zackd3d_demo/render_demo.py",
+      "?? workflows/current/payload/zackd3d_demo/zackd3d_demo_360p_12fps.mp4"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/zackd3d_demo/encode_demo.py",
+      "size": 598,
+      "sha256": "bd663092748d9a6b55c9a11478becd4caa9f332ecdf15a65bc992eb7863bb879"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/probe.py",
+      "size": 1839,
+      "sha256": "9af9ecc5afa411c432f0e6c4ff4f1890cba953445027f523a54faa0eb689df0b"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/render_demo.py",
+      "size": 2734,
+      "sha256": "9370064cad33748e6cd1c965825a1407568b57b01d6d508fd1fbc2c53ab5c92e"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/zackd3d_demo_360p_12fps.mp4",
+      "size": 764455,
+      "sha256": "c56993c1f3d4ad50db639816dd33e76a2c3c3d72307c21f4e36af121bf4931c3"
+    }
+  ]
+}

@@ -4,3 +4,6 @@
 [submodule "vendor/awesome-opus5-5-videos"]
 	path = vendor/awesome-opus5-5-videos
 	url = https://github.com/yihui-dev/awesome-opus5-5-videos.git
+[submodule "vendor/open-generative-ai"]
+	path = vendor/open-generative-ai
+	url = https://github.com/Anil-matcha/Open-Generative-AI.git

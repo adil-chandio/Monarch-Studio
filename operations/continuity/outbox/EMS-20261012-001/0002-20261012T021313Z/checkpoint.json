@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0002-20261012T021313Z",
+  "created_at": "2026-10-12T02:13:13Z",
+  "summary": "Blender runtime unusable (missing GL/X libs, apt blocked). Switched to Mitsuba 3.9.1 (pip, CPU scalar_rgb): real path-traced 3D works, 640x360 32spp ~5.2 s/frame. Probe OK. Starting 6 s animated 3D demo (72 frames @12fps).",
+  "next_action": "Render frames in background (start_process), encode mp4 with imageio-ffmpeg, present to user, report limits (360p, no Blender/Luma/Kling, no voice clone).",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "status": "active",
+    "title": "Zack-D style 3-D video (WF-02 Drive source) · tumhari reserved seat script · cloned monarch voice",
+    "style_id": "zackd-3d-premium (proposed; no style yet)",
+    "goal": "Build a premium 3-D animated video in Zack D Films style from the Drive source files, same topic/script (Tumhari Reserved Seat), with the user's monarch voice; report real capability limits honestly.",
+    "acceptance_criteria": [],
+    "started_at": "2026-10-12T02:05:51Z",
+    "updated_at": "2026-10-12T02:13:13Z",
+    "checkpoint_sequence": 2,
+    "event_sequence": 6,
+    "journal_head": "4c0d4417b32e0ab097512b86490d73ef6d33c3b1564806121391974fc55ad0ae",
+    "last_checkpoint": "2026-10-12T02:13:13Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261012-001/0002-20261012T021313Z",
+    "next_action": "Render frames in background (start_process), encode mp4 with imageio-ffmpeg, present to user, report limits (360p, no Blender/Luma/Kling, no voice clone).",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "seq": 6,
+    "timestamp": "2026-10-12T02:13:13Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Blender runtime unusable (missing GL/X libs, apt blocked). Switched to Mitsuba 3.9.1 (pip, CPU scalar_rgb): real path-traced 3D works, 640x360 32spp ~5.2 s/frame. Probe OK. Starting 6 s animated 3D demo (72 frames @12fps).",
+    "content_sha256": "477a948587e8960a8033b7ea8dbe6245990c5bca556d72994f0e7c41def20c63",
+    "metadata": {
+      "sequence": 2,
+      "next_action": "Render frames in background (start_process), encode mp4 with imageio-ffmpeg, present to user, report limits (360p, no Blender/Luma/Kling, no voice clone).",
+      "status": "active"
+    },
+    "prev_event_sha256": "445074fb80c474512ff667e53046ad999d0fba6c7129793ab986ca38f6795304",
+    "event_sha256": "4c0d4417b32e0ab097512b86490d73ef6d33c3b1564806121391974fc55ad0ae"
+  },
+  "journal_head": "4c0d4417b32e0ab097512b86490d73ef6d33c3b1564806121391974fc55ad0ae",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/a188bd4a-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0001-20261012T020645Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261012-001/0001-20261012T020645Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261012-001/0001-20261012T020645Z/checkpoint.json",
+      "?? workflows/current/payload/zackd3d_demo/probe.png",
+      "?? workflows/current/payload/zackd3d_demo/probe.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/zackd3d_demo/probe.png",
+      "size": 252450,
+      "sha256": "338de569c1868d49d0464ab74dcce4c12345ab12925d59ca1a3f7f702e59bd03"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/probe.py",
+      "size": 1839,
+      "sha256": "9af9ecc5afa411c432f0e6c4ff4f1890cba953445027f523a54faa0eb689df0b"
+    }
+  ]
+}
