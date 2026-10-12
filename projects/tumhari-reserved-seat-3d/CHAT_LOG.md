@@ -33,3 +33,11 @@ Each new turn adds one row to the table. Keep user wording short, quote key Urdu
 2. Make the Drive finals link-shareable ("anyone with the link")? This makes them public. Needs approval.
 3. Merge `arena/a188bd4a-monarch-studio` into `main`? Needs approval.
 4. Keep the repo public or make it private?
+
+### Turn: video brain system (2026-10-13)
+
+- User asked for a per-style living brain: skills, mindset, tools, problems and fixes, strategies and full video history per style, integrated with the existing style library, so a new chat continues without re-deriving.
+- Built: `styles/BRAIN_STANDARD.md`, `tools/brain.py` (append-only CLI: init, resume, session, problem, resolve, skill, strategy, video, check, list), brains under `brain/video-brain/` for WF-01, WF-02, WF-03 with seeded history.
+- Registered WF-02 `monarch-zackd-3d-power` (state PROPOSED_LOOKDEV, trigger POWERGO proposed, not activated) in `styles/registry.json` and `studio/registry.json`.
+- START_HERE and styles README now point to the brain. Validation: 21 passed, 0 errors. Commit `892054b`.
+- Open: WF-02 chrome and neon look still not premium; no 240-frame render; trigger token needs the user's approval; Drive-only storage for videos needs confirmation.
