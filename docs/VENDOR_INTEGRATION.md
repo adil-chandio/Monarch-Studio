@@ -73,6 +73,21 @@ Environment notes: the sandbox has 2 vCPU and 3 GB RAM. Running Next.js dev, Vit
 | `vendor/Agent-Reach` | `94f06c1` | MIT | Offline tests: 606 pass, 1 fails (`test_config::test_get_configured_features` expects all channels off, but this machine has some configured). | CLI that gives an AI agent read/search access to platforms such as Twitter, Reddit, YouTube and GitHub. Several channels reuse the user's logged-in browser or cookies. Do **not** supply Monarch or third-party credentials to it, and keep it out of the production render path. Its live channels need outbound access that the sandbox does not allow. |
 | `vendor/Scrapling` | `7a68493` | BSD-3-Clause | Installed editable. Offline parser check passes (CSS selection on local HTML). | Adaptive web-scraping framework. Use it only within each site's terms of service and robots rules. Scraped footage or images carry their own copyright, so do not add them to Monarch assets without a licence. |
 
+## Keeping all vendor source in the repo without filling the workspace
+
+Every vendor repo is kept in the repository as a pinned submodule (commit SHA recorded in Git). Its full source is on GitHub at that pin. Populated working trees are heavy: all ten repos together are about 440 MB, over 12,000 files, plus FreeCAD at about 400 MB. That is above the snapshot cap (about 128 MB or 10,000 files), so populated trees are released by default and restored on demand.
+
+Use `tools/vendor/materialize.sh`:
+
+```bash
+tools/vendor/materialize.sh status             # populated or pin-only, with sizes
+tools/vendor/materialize.sh one react-bits     # restore one repo at its pin (shallow)
+tools/vendor/materialize.sh all                # restore all repos at their pins
+tools/vendor/materialize.sh release all        # remove working trees and module cache, keep pins
+```
+
+The text skill files from these repos are copied into `docs/skills/vendored/` (see its `PROVENANCE.md`), so the skills are always readable in the repo.
+
 ## Upgrade policy
 
 Submodule updates are intentional changes:
