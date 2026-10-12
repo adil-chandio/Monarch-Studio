@@ -33,3 +33,38 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Partly fixed. Check at each shot time before accepting
 - **Verified by:** Lookdev r3_wf01_t6 shows both lines
 
+## P-005 · 2026-10-13 · status: fixed
+
+- **Symptom:** Timetable texture rotated 90 degrees on the cube face (EXPRE read vertically)
+- **Cause:** Default cube UV on the -Y face is rotated relative to the portrait texture
+- **Fix:** Pre-rotate the texture PNG by ROTATE_90 in the texture step
+- **Verified by:** lookdev r7b: texture orientation corrected
+
+## P-006 · 2026-10-13 · status: fixed
+
+- **Symptom:** Wall card cropped, dark edges visible in frame
+- **Cause:** Wall plane 14x9 too small for the 32 mm camera frame
+- **Fix:** Wall plane 40x26 at y=7
+- **Verified by:** lookdev r7b: wall covers frame
+
+## P-007 · 2026-10-13 · status: fixed
+
+- **Symptom:** Import failure libusd glXGetProcAddress when bpy imported before wf_scenes
+- **Cause:** dlopen flags set in wf_scenes, but the new script imported bpy first
+- **Fix:** Import wf_scenes before bpy in wf01_paper10s.py
+- **Verified by:** lookdev renders after reorder
+
+## P-008 · 2026-10-13 · status: open
+
+- **Symptom:** Timetable text and ticket text not legible at 270x480 (lookdev), card reads as plain grey
+- **Cause:** Key light 260 W too weak for the paper card; text strokes at 34-80 px too thin at low res
+- **Fix:** Open. Next: raise key energy or move to brighter key, bigger type in texture, test at 360x640
+- **Verified by:** Not yet
+
+## P-009 · 2026-10-13 · status: open
+
+- **Symptom:** Seated figure reads as primitive shapes, not a premium cut-out
+- **Cause:** Figure built from thin cards and disks with no silhouette design
+- **Fix:** Open. Next: design a proper paper cut-out silhouette (bezier outline extruded thin, with shadow offset)
+- **Verified by:** Not yet
+

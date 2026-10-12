@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:34:00+00:00",
+  "generated_at": "2026-10-12T22:36:31+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -7856,28 +7856,28 @@
       "size": 206
     },
     "styles/monarch-stickman-animation/brain/video-brain/PROBLEMS.md": {
-      "sha256": "0616a85eb5be2340c4b94307fe93341e175a8644268e4e7b4c1a646127780410",
-      "size": 1472
+      "sha256": "685387d5985b3e39f0acffb2a22f24f89096f04953c4b56487c58764bae7736c",
+      "size": 3125
     },
     "styles/monarch-stickman-animation/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "f934fe7c00927525df2241c4d1f74db1924c96cd72c002a51eb6d024ce9da594",
-      "size": 709
+      "sha256": "bbb73fb73484a44b4083a196aa29407ae30d85cff2b75f0556e7340504aac650",
+      "size": 1495
     },
     "styles/monarch-stickman-animation/brain/video-brain/SKILLS.md": {
-      "sha256": "9d080e165cdd5ce9eb7b8f0050cde5ae11b3ba25010792904ff59d687326d102",
-      "size": 734
+      "sha256": "c0e497ebb3167b2e201802cd136b423cdbedae99aff855d2b563f6699163cae9",
+      "size": 1123
     },
     "styles/monarch-stickman-animation/brain/video-brain/STRATEGIES.md": {
-      "sha256": "f0e48ee23eb20717107b53da3bc74e51b2e732070edc6ab5ff018736548d309a",
-      "size": 586
+      "sha256": "bcbf4d302af13a09a71364aef7a1fac7a44821cee86d2eee29ce187487d95092",
+      "size": 912
     },
     "styles/monarch-stickman-animation/brain/video-brain/TOOLCHAIN.md": {
       "sha256": "21046c116d264c0468be2900b87370840e3c6d1b0969e51b8c84fcd60c3f13aa",
       "size": 207
     },
     "styles/monarch-stickman-animation/brain/video-brain/VIDEO_LOG.md": {
-      "sha256": "d98de1dcb6aae1b55a1639954e53a30f360cf1d9a3a16a8b3782f91a5f39cf46",
-      "size": 1410
+      "sha256": "e6409407d1e65cfe48ae066f2758cd7f13f9f64131458dccf16b2efb80a9db35",
+      "size": 2157
     },
     "styles/monarch-stickman-animation/build_all.sh": {
       "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
@@ -8538,6 +8538,10 @@
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
       "size": 1875
+    },
+    "tools/render/blender-vertical/wf01_paper10s.py": {
+      "sha256": "97fb2c2e341b22888732f679c7eaa9c17bcc050fbfc9d8c671bd9e9459d2dbd6",
+      "size": 9639
     },
     "tools/render/blender-vertical/wf_scenes.py": {
       "sha256": "d723b16cb83fcfde57650eb05432cb50ccf00601abf7833db5e111690102277c",

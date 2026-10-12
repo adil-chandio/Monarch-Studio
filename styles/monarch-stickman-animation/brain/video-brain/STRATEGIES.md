@@ -11,3 +11,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Keep only the v2 2D enhancement pass
 - **Outcome:** Blender lookdev is test quality. The accepted 74 s long-form release is separate (see knowledge INDEX)
 
+## ST-002 · 2026-10-13
+
+- **Decision:** Do not start the 300-frame WF-01 10 s render until the lookdev passes review (legible text, real cut-out figure, adequate key)
+- **Alternatives rejected:** Render now as a test and label it as not premium (rejected: wastes 20+ min of CPU for a known-bad frame)
+- **Outcome:** Pending
+

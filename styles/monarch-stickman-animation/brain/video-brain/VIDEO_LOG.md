@@ -29,3 +29,19 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** about 3 s per frame
 - **Review:** FAIL: flat grey, stick figure cheap, paper reads as boards
 
+## V-004 · 2026-10-13 · lookdev r7 t=1.5/5.0/8.5 270x480 32spp (paper cinema 10s test, first build) · status: rejected
+
+- **File:** lookdev stills (not in repo)
+- **Drive ID:** not uploaded
+- **Settings:** Cycles CPU, 270x480, 32 spp, key area 260 W, rim point 700 W, world 0.35
+- **Timing:** about 2 s per frame
+- **Review:** FAIL: texture rotated, wall cropped, figure crude, text not legible
+
+## V-005 · 2026-10-13 · lookdev r7b t=5.0 270x480 32spp (texture and wall fixed) · status: rejected
+
+- **File:** none (still only)
+- **Drive ID:** not uploaded
+- **Settings:** texture pre-rotated, wall 40x26
+- **Timing:** about 2 s per frame
+- **Review:** PARTIAL: wall and texture orientation fixed. Text still not legible, figure still crude
+

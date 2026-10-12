@@ -17,3 +17,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **How:** Three planes at different depths. Camera slides on a sine ease per cut
 - **Evidence:** Lookdev r3_wf01_t6 shows depth
 
+## K-003 · 2026-10-13 · Texture a cube face for paper cards
+
+- **When to use:** Printed paper or timetable textures on Blender cards
+- **How:** Generate the PNG with PIL in the render venv. Pre-rotate it by 90 degrees (ROTATE_90) to match the cube UV. Card = thin cube with a Bevel modifier (width 0.004, 2 segments) for edge highlight
+- **Evidence:** lookdev r7b orientation corrected
+
