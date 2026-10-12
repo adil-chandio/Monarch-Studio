@@ -1,6 +1,6 @@
 # Monarch Zack-D 3D Power (WF-02)
 
-Status: **PROPOSED_LOOKDEV.** Not activated, no accepted film yet. Trigger token `POWERGO` is proposed and needs the user's approval before use.
+Status: **PROPOSED_LOOKDEV.** Trigger `POWERGO <topic>` approved by the user on 2026-10-13. No accepted film yet.
 
 ## What this style is
 

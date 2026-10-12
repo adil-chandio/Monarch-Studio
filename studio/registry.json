@@ -88,7 +88,7 @@
       "slug": "wf02",
       "name": "Monarch Zack-D 3D Power",
       "path": "styles/monarch-zackd-3d-power",
-      "trigger": "POWERGO <topic> (proposed)",
+      "trigger": "POWERGO <topic>",
       "state": "PROPOSED_LOOKDEV",
       "reproducibility": "R2_partial"
     }

@@ -31,7 +31,7 @@
       "style_id": "monarch-zackd-3d-power",
       "name": "Monarch Zack-D 3D Power",
       "workflow_code": "WF-02",
-      "trigger": "POWERGO <topic> (proposed)",
+      "trigger": "POWERGO <topic>",
       "path": "styles/monarch-zackd-3d-power",
       "contract": "styles/monarch-zackd-3d-power/workflow.json",
       "status": "PROPOSED_LOOKDEV",

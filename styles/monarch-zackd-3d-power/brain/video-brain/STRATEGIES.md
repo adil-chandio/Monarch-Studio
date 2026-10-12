@@ -17,3 +17,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Move the renderer into styles/monarch-zackd-3d-power/src now
 - **Outcome:** Pending a split. WF-01 and WF-03 use the same builders. Revisit when a WF-02-only renderer is needed
 
+## ST-003 · 2026-10-13
+
+- **Decision:** Trigger POWERGO <topic> approved by the user on 2026-10-13. Style state stays PROPOSED_LOOKDEV until an accepted film exists
+- **Alternatives rejected:** Custom token (user declined)
+- **Outcome:** Trigger active in both registries
+

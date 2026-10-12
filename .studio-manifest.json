@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:19:56+00:00",
+  "generated_at": "2026-10-12T22:27:59+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -6696,8 +6696,8 @@
       "size": 705
     },
     "projects/tumhari-reserved-seat-3d/CHAT_LOG.md": {
-      "sha256": "391d97e151a3de1a8c40c5a7947d88e02aeba6d2271f118e8939e962b49da8c9",
-      "size": 4721
+      "sha256": "aa9d30d08ec66221c588e40b8f1a6faaa2022549b5d3de9c338f0c8413a40174",
+      "size": 5652
     },
     "projects/tumhari-reserved-seat-3d/DECISIONS.md": {
       "sha256": "e21d0a4cdb0f1659021656c4f65212a3b59f00602ce1c6af76d749db1bd72826",
@@ -6808,12 +6808,12 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "4ebdf0b292b4afd76dac8d6fc47e9cac5747d29ade365dec014d3163638be707",
-      "size": 4558
+      "sha256": "9526786e053c4dd671e58f0efc3591463899b5f8591189f76c8f84fe54528bd5",
+      "size": 4547
     },
     "styles/BRAIN_STANDARD.md": {
-      "sha256": "eb8bf22a6e9cfb1c76ee3033845aaa75bd759af165127e7e652b122fd41630cb",
-      "size": 2709
+      "sha256": "ba3c45a998a5b2bfade56f4bcfa176ac64ddb91f5b9cd2c5c844e562c1b7d176",
+      "size": 3131
     },
     "styles/README.md": {
       "sha256": "91534d091084e750b39f4d55a6aa68a0ab1d22fabc5e96d71a0b20e5c6507643",
@@ -8444,8 +8444,8 @@
       "size": 3141
     },
     "styles/monarch-zackd-3d-power/README.md": {
-      "sha256": "f4c5827a772b83222638f4c430fda7d4d4f56b136f9c5ec9d2481b8eba8a582c",
-      "size": 1136
+      "sha256": "76191fdcf08519440f066e419a66527145d6515d068cb257c85da69616d38b01",
+      "size": 1105
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/MINDSET.md": {
       "sha256": "392e2449efbb550ea0250c1deabde74be2b0912288875d99cffbeff3fbf6779f",
@@ -8464,16 +8464,16 @@
       "size": 2468
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "60702e68345c4a2666eda880b14cd84d02f800283f7af4938173cbf33a8c5ee3",
-      "size": 911
+      "sha256": "0e5060dd3d1e253db736bfc32bfa16d836f01367b6ae11e26ffef19950e1de4c",
+      "size": 1330
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/SKILLS.md": {
       "sha256": "d657b5a915d1cc7c72c137254c356e3958027e2893327bb8bf0883b594a02ad6",
       "size": 1914
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/STRATEGIES.md": {
-      "sha256": "9001b5ea315908ea6170120ee5ed93d7ec44bc1121492ccb5373fe8508c4a41b",
-      "size": 923
+      "sha256": "785b258d4dd5928211a6144d9130d643cdf25027ffa0e6ac42b54e94e4ae5379",
+      "size": 1197
     },
     "styles/monarch-zackd-3d-power/brain/video-brain/TOOLCHAIN.md": {
       "sha256": "e8f444fe013325aa457c1d40189651106aef194b5d078c066c4b8e98345c0f1f",
@@ -8496,12 +8496,12 @@
       "size": 565
     },
     "styles/monarch-zackd-3d-power/workflow.json": {
-      "sha256": "8010a2153b13dc66cc30bf73debbb7faa567f498d1e37cf4050a6cbc78b6627b",
-      "size": 993
+      "sha256": "07cab3cb229893c10e7ec05bfba8e448559fd505a4ccbf0567fd157553a447a4",
+      "size": 1020
     },
     "styles/registry.json": {
-      "sha256": "a67ee9e2cf4e1810fc8a6da2a0f37ee4465de07d0ed4d32b441a71f57de3375e",
-      "size": 1682
+      "sha256": "c355e802bb1b0564b7f9fd2f79d3038f96400cc636b5a26e1bc1264b549ba1d0",
+      "size": 1671
     },
     "tests/test_continuity.py": {
       "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",

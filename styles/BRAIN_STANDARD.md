@@ -33,3 +33,7 @@ Plus `styles/<style-id>/knowledge/INDEX.md`, which points to the brain first.
 - `projects/<slug>/` holds the cross-style project archive: chat log, process log, tools, artifacts (Drive links). The brain holds the style-level method and history.
 - `workflows/current/` holds only the one running task.
 - Large media stays out of Git. Record Drive IDs and checksums in the VIDEO_LOG entry.
+
+## Storage rule (confirmed by the user, 2026-10-13)
+
+Videos (final and lookdev) are stored only on Google Drive. Git and the repo hold the record: Drive ID, size, SHA-256, settings and review in VIDEO_LOG and `projects/<slug>/ARTIFACTS.md`. GitHub Releases are blocked from the sandbox, and the repo is public, so no media goes into Git or Releases. Small non-media files (scripts, docs, JSON) live in the repo as usual.

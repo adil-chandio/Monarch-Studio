@@ -12,3 +12,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** Stills improved in parts (text and full tower now visible at 9.5 s) but still not premium: dark or grey, chrome not reading as chrome. Not accepted.
 - **Files:** `tools/render/blender-vertical/wf_scenes.py`, `styles/monarch-zackd-3d-power/brain/video-brain/MINDSET.md`
 
+## S-002 · 2026-10-13 03:27 PKT
+
+- **Request:** Confirm trigger and storage rule
+- **Action:** User approved POWERGO. User chose Drive-only storage for videos. Recorded in registries and BRAIN_STANDARD
+- **Result:** Trigger active. Storage rule recorded. Lookdev quality still open
+- **Files:** `styles/monarch-zackd-3d-power/workflow.json`, `styles/registry.json`, `studio/registry.json`, `styles/BRAIN_STANDARD.md`
+

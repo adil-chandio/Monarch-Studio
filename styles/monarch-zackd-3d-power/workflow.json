@@ -8,14 +8,17 @@
   "trigger": {
     "token": "POWERGO",
     "grammar": "POWERGO <topic>",
-    "mode": "proposed_not_activated"
+    "mode": "active_user_approved_2026-10-13"
   },
   "state": "PROPOSED_LOOKDEV",
   "default_format": {
     "width": 1080,
     "height": 1920,
     "fps": 24,
-    "duration_seconds": [10, 10],
+    "duration_seconds": [
+      10,
+      10
+    ],
     "loudness_lufs": -16.0,
     "loudness_tolerance_lu": 1.0
   },
