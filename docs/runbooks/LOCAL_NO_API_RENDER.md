@@ -37,3 +37,11 @@ npx remotion render src/index.tsx Explainer out.mp4 \
 - Clips with real footage or images need those assets supplied locally.
 - Speed: 1 concurrency on 2 vCPU. Use short frame ranges.
 - Piper voices come from HuggingFace, which is blocked here. Narration needs another local TTS.
+
+## 3. Blender Cycles (real 3-D, CPU) via PyPI
+- `pip install bpy==4.3.0` in a Python 3.11 venv (PyPI is allowed).
+- The sandbox lacks some X11/GL system libraries and apt mirrors are blocked. Build headless
+  stub `.so` files with the missing sonames (`libXrender.so.1`, `libXxf86vm.so.1`, `libXfixes.so.3`,
+  `libXi.so.6`, `libxkbcommon.so.0`, `libSM.so.6`, `libICE.so.6`, `libGL.so.1`) using `gcc -shared`.
+- Run with `LD_LIBRARY_PATH=<stubdir>` and `sys.setdlopenflags(os.RTLD_LAZY | os.RTLD_GLOBAL)` before `import bpy`.
+- Verified: 540x960, Cycles CPU, 32 samples, simple gold cube scene in 11 s (`payload/blender_test/smoke.py`).
