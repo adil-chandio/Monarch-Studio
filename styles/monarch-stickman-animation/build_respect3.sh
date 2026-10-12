@@ -22,8 +22,10 @@ printf "file '/home/user/build/r3_shard0.mp4'\nfile '/home/user/build/r3_shard1.
 log "RESPECT3: mute master ready"
 log "bed"
 python3 src/make_asmr_respect2.py
-log "mux"
-OUT=/home/user/build/respect3_v3.mp4 bash src/mux_respect2.sh
+log "mux (locked audio chain, CRF 23 video)"
+OUT=/home/user/build/respect3_mux_crf23.mp4 bash src/mux_respect2.sh
+log "final video re-encode CRF 21 (audio copied). CRF 23 put the card@66 transition step at 8.19, over the cut cap of 8.0. The same encoder on the untouched reference gives 8.03, so the cap is encode-sensitive. CRF 21 measured 7.87"
+"$FF" -y -loglevel error -i build/respect3_mux_crf23.mp4 -map 0:v -map 0:a -c:v libx264 -preset slow -crf 21 -maxrate 4000k -bufsize 8000k -pix_fmt yuv420p -c:a copy build/respect3_v3.mp4
 log "gate"
 python3 src/gate_respect2.py /home/user/build/respect3_v3.mp4 | tee build/gate_respect3.txt
 log "done"

@@ -54,6 +54,7 @@ scene_at = R.scene_at                      # P2.scene_at / wedge_drop already po
 # voice onset and every cut, so the picture hits the beat. Both are switchable for A/B against v2.
 ENH = os.environ.get('SHADE_ENH', '1') == '1'
 PUNCH_AMP = float(os.environ.get('SHADE_PUNCH', '0.016'))
+S_CURVE = float(os.environ.get('SHADE_S', '0.10'))
 _VIG = None
 
 
@@ -65,7 +66,7 @@ def _grade(arr):
         _VIG = (1.0 - 0.20 * np.clip(r, 0, 1) ** 2.2)[..., None].astype(np.float32)
     x = arr.astype(np.float32) / 255.0
     lum = (0.299 * x[..., 0] + 0.587 * x[..., 1] + 0.114 * x[..., 2])[..., None]
-    s = x + 0.10 * (x - 0.5) * (1.0 - np.abs(2.0 * x - 1.0))
+    s = x + S_CURVE * (x - 0.5) * (1.0 - np.abs(2.0 * x - 1.0))
     hi = np.clip((lum - 0.55) / 0.45, 0, 1)[..., 0]
     lo = np.clip((0.35 - lum) / 0.35, 0, 1)[..., 0]
     s[..., 0] *= 1.0 + 0.03 * hi
@@ -80,7 +81,9 @@ _BEATS = None  # built on first use (BOUNDS is defined further down)
 def _punch(t):
     global _BEATS
     if _BEATS is None:
-        _BEATS = sorted(set([SCENE_START[i] + LEAD[i] for i in range(len(SCENE_START))] + list(BOUNDS)))
+        # VO onsets only. Cuts (BOUNDS) are excluded: a punch on top of a transition made a
+        # step > 8 inside the transition (gate trans_jerk_max 12.6, v3 draft).
+        _BEATS = sorted(set([SCENE_START[i] + LEAD[i] for i in range(len(SCENE_START))]))
     best = 0.0
     for b in _BEATS:
         d = t - b

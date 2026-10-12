@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:42:46+00:00",
+  "generated_at": "2026-10-12T23:45:30+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -7856,28 +7856,28 @@
       "size": 206
     },
     "styles/monarch-stickman-animation/brain/video-brain/PROBLEMS.md": {
-      "sha256": "a24b99829cad208d9b13b607326ec8efd7227d23a30d7a7d7779cf7b1d314638",
-      "size": 3918
+      "sha256": "7f64996f362cefd928e2e538f7bc43e20c45defe1a043f2e0def57ccaaf702a7",
+      "size": 5639
     },
     "styles/monarch-stickman-animation/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "1cfe97279c67426fa5459b4b025d99959d0559a505df8e7a8cc874c482f8008d",
-      "size": 2312
+      "sha256": "c11e8210a54fb1b202eeb257b336fbb973fd2b41f4de97c6adc4f726d322accd",
+      "size": 3268
     },
     "styles/monarch-stickman-animation/brain/video-brain/SKILLS.md": {
-      "sha256": "c0e497ebb3167b2e201802cd136b423cdbedae99aff855d2b563f6699163cae9",
-      "size": 1123
+      "sha256": "fc123eba5da70c85ee7916b7c0bc789ce390583d05cce5afe9fdaad6a9fb08f7",
+      "size": 1572
     },
     "styles/monarch-stickman-animation/brain/video-brain/STRATEGIES.md": {
-      "sha256": "31fcec0e7f50ac1ccfafbc8bb1a603a8f87661134c4d17905ea242377ebe7b5a",
-      "size": 1446
+      "sha256": "17f403240473769367c83539a5b06f2d76d4dd283a3b7da7c204db0fc1efc10d",
+      "size": 2173
     },
     "styles/monarch-stickman-animation/brain/video-brain/TOOLCHAIN.md": {
       "sha256": "21046c116d264c0468be2900b87370840e3c6d1b0969e51b8c84fcd60c3f13aa",
       "size": 207
     },
     "styles/monarch-stickman-animation/brain/video-brain/VIDEO_LOG.md": {
-      "sha256": "7a19968ae8710e61be2513990e2802ef7a709adf792967369720937781cde960",
-      "size": 2648
+      "sha256": "33735a7b37174cb824d49b0348ae19e671e18c3c502cdb7ca7f4c2db45481429",
+      "size": 3676
     },
     "styles/monarch-stickman-animation/build_all.sh": {
       "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
@@ -7898,6 +7898,10 @@
     "styles/monarch-stickman-animation/build_respect2_b.sh": {
       "sha256": "0611788715fa0b0339f921bc179e94f687720a6fbe1982f5f5fcd16334d711a4",
       "size": 1062
+    },
+    "styles/monarch-stickman-animation/build_respect3.sh": {
+      "sha256": "b9a144080dd75a22cc19c905f7eb903456d325d5e0bdc86665ae2e055275e943",
+      "size": 2078
     },
     "styles/monarch-stickman-animation/build_respect_resume.sh": {
       "sha256": "66388fe211c68426d2ba6e92b85bbe7fcb351dd8c7c62940e9ef0f5afcfa74a6",
@@ -8330,6 +8334,10 @@
     "styles/monarch-stickman-animation/src/respect2.py": {
       "sha256": "c774cd442f4880f78eee031ea6fcb8874c79d02c261443643e67f2567b6578a0",
       "size": 49261
+    },
+    "styles/monarch-stickman-animation/src/respect3.py": {
+      "sha256": "ffa95572a82b236c12933b5415d828aecee74f8588417aecc7e5358df696dc6a",
+      "size": 51061
     },
     "styles/monarch-stickman-animation/src/shade.py": {
       "sha256": "4a04111470583ef04150ac7acf92ca7f33f8edada3c554ff6b38de6796a2cda2",

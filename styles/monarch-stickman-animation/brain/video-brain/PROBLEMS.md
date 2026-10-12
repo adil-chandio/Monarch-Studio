@@ -96,3 +96,17 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Downloaded the package to /tmp, extracted assets/ to /tmp/shade_build/assets, kept it out of the repo. Recorded the Drive ID in TOOLCHAIN next
 - **Verified by:** 9 wav files extracted, sizes match the zip listing
 
+## P-014 · 2026-10-13 · status: fixed
+
+- **Symptom:** Punch on cut boundaries made trans_jerk_max 12.6 (limit 8)
+- **Cause:** Scale pop added on top of a shot transition
+- **Fix:** Punch only on VO onsets (_BEATS excludes BOUNDS)
+- **Verified by:** Draft rev2 gate: trans_jerk 8.19 at card@66
+
+## P-015 · 2026-10-13 · status: fixed
+
+- **Symptom:** trans_jerk_max 8.19 at card@66 (limit 8.0). Reference re-encoded with the same CRF 23 settings scores 8.03
+- **Cause:** Encode noise sensitivity of the transition-step metric at the limit; grade adds a little
+- **Fix:** Final video CRF 21 maxrate 4000k (audio copied). Measured 7.874
+- **Verified by:** Gate 19/19 on /home/user/build/respect3_v3.mp4
+

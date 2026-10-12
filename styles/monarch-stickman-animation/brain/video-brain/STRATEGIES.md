@@ -29,3 +29,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** 3D Blender rebuild (user rejected). Full 2D rewrite (too large). Audio chain changes (not needed)
 - **Outcome:** Pending: v3 gate and frame review
 
+## ST-005 · 2026-10-13
+
+- **Decision:** Keep the v2 chain. Ship v3 as a candidate. Next levers for a bigger upgrade need the user's pick (more fun beats, new inserts, or text motion)
+- **Alternatives rejected:** Full 3D rebuild (rejected by user). Frame-by-frame new scenes (large scope)
+- **Outcome:** v3 candidate on Drive; user review pending
+

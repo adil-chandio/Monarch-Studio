@@ -61,3 +61,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** about 3 s per still
 - **Review:** PASS (visual): paper warmer, edges dark, figure and captions unchanged
 
+## V-008 · 2026-10-13 · v3 (SHADE IZZAT v3) · status: reviewed
+
+- **File:** Drive 1gZ6IcqEbp9G4RzeYsKKiABrOzL6WsCY- (shade_respect_v3.mp4, 32,091,526 B, folder 1_MhRILyCB86LWHYqLDzBPvmneA6Y2uqo)
+- **Drive ID:** not uploaded
+- **Settings:** respect3.py: S-curve 0.10 grade, warm highlights, cool shadows, vignette 0.20; beat punch 0.016 on VO onsets only; final CRF 21 maxrate 4000k; audio chain locked
+- **Timing:** 2256 frames, shards about 10 min each on 2 CPUs
+- **Review:** Gate 19/19 PASS (trans_jerk 7.874). Frame sheet ref vs v3 at t=3/25/66/70.5: same layout and beats, warmer paper, edge vignette. Subtle upgrade, not a style change. Awaiting user review
+
