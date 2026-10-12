@@ -54,6 +54,18 @@ In the sandbox, the UI loads, but generation is blocked because `api.muapi.ai` i
 
 `vendor/effectcraft` is pinned at `f8b2552`. The Rust toolchain is not available in the sandbox, and `crates.io` and `static.rust-lang.org` are unreachable, so the workspace cannot be built here. Build it on a machine with Rust 1.95+ and network access to crates.io.
 
+## Batch 2 vendor repositories (2026-10-12)
+
+| Submodule | Pin | Licence | Sandbox status | Adoption note |
+|---|---|---|---|---|
+| `vendor/OpenMontage` | `9327439` | AGPL-3.0 | Python deps installed; `tests/` run: 884+ pass in the contracts run, full suite ~91% green before the 15-minute timeout; no failures shown | Agentic video production system with 12 pipelines (incl. `animation`, `character-animation`, `cinematic`). Real providers need user API keys (Kling/fal, Veo, Sora, ElevenLabs). Local path: Piper TTS + FFmpeg + Remotion. **AGPL-3.0:** network use of a modified copy requires offering its source; review with legal before merging its code into Monarch. |
+| `vendor/react-bits` | `2139cb3` | MIT + Commons Clause | Vite dev server runs on port 5173 through `workflows/current/payload/react-bits-preview/vite.preview.config.mjs` (allows the sandbox preview host; vendor config untouched) | React/Next.js animated component library. **Commons Clause:** may be used inside an application or website but not sold or redistributed alone. Some components are in a paid "pro" catalogue. |
+| `vendor/browser-use` | `c75e847` | MIT | `browser_use` 0.13.11 imports OK in a separate venv | AI browser agent. Browser actions need Chromium, and the Playwright CDN is blocked in the sandbox, so browser runs are not possible here. |
+| `vendor/cc-switch` | `28dc519` | MIT | Not runnable here | Tauri (Rust) desktop assistant that switches AI coding-tool providers. Build needs Rust and crates.io, which are blocked. |
+| `vendor/FreeCAD` | `ec6852e` (gitlink only, not checked out) | LGPL-2.1 | Not buildable here | C++ parametric 3D CAD. Needs conda/pixi (blocked), Qt and OpenCASCADE. The pin is recorded; the working tree is not checked out to save space. Run `git submodule update --init vendor/FreeCAD` on a suitable machine. |
+
+Environment notes: the sandbox has 2 vCPU and 3 GB RAM. Running Next.js dev, Vite and npm installs in parallel exhausted memory and stalled the shell, so run one heavy process at a time.
+
 ## Upgrade policy
 
 Submodule updates are intentional changes:

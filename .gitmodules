@@ -7,3 +7,18 @@
 [submodule "vendor/open-generative-ai"]
 	path = vendor/open-generative-ai
 	url = https://github.com/Anil-matcha/Open-Generative-AI.git
+[submodule "vendor/react-bits"]
+	path = vendor/react-bits
+	url = https://github.com/DavidHDev/react-bits.git
+[submodule "vendor/FreeCAD"]
+	path = vendor/FreeCAD
+	url = https://github.com/FreeCAD/FreeCAD.git
+[submodule "vendor/OpenMontage"]
+	path = vendor/OpenMontage
+	url = https://github.com/calesthio/OpenMontage.git
+[submodule "vendor/browser-use"]
+	path = vendor/browser-use
+	url = https://github.com/browser-use/browser-use.git
+[submodule "vendor/cc-switch"]
+	path = vendor/cc-switch
+	url = https://github.com/farion1231/cc-switch.git

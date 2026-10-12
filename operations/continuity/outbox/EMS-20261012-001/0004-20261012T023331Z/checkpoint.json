@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0004-20261012T023331Z",
+  "created_at": "2026-10-12T02:33:31Z",
+  "summary": "Vendored both repos (submodules, repo convention). Open-Generative-AI UI running on :3000; generation blocked (api.muapi.ai unreachable; needs user MuAPI key). EffectCraft cannot build in sandbox (no Rust toolchain/crates.io). Pushed 9c07b3b.",
+  "next_action": "Await user: (a) provide/confirm MuAPI key entry in the app UI for generation, (b) build EffectCraft on a machine with Rust, or (c) choose next render path.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "status": "blocked",
+    "title": "Zack-D style 3-D video (WF-02 Drive source) · tumhari reserved seat script · cloned monarch voice",
+    "style_id": "zackd-3d-premium (proposed; no style yet)",
+    "goal": "Build a premium 3-D animated video in Zack D Films style from the Drive source files, same topic/script (Tumhari Reserved Seat), with the user's monarch voice; report real capability limits honestly.",
+    "acceptance_criteria": [],
+    "started_at": "2026-10-12T02:05:51Z",
+    "updated_at": "2026-10-12T02:33:31Z",
+    "checkpoint_sequence": 4,
+    "event_sequence": 14,
+    "journal_head": "c62c3873a28b98f2f0e843296ee0592549e0cf5dca7c887b64bafb12cb1e02d8",
+    "last_checkpoint": "2026-10-12T02:33:31Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261012-001/0004-20261012T023331Z",
+    "next_action": "Await user: (a) provide/confirm MuAPI key entry in the app UI for generation, (b) build EffectCraft on a machine with Rust, or (c) choose next render path.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "seq": 14,
+    "timestamp": "2026-10-12T02:33:31Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Vendored both repos (submodules, repo convention). Open-Generative-AI UI running on :3000; generation blocked (api.muapi.ai unreachable; needs user MuAPI key). EffectCraft cannot build in sandbox (no Rust toolchain/crates.io). Pushed 9c07b3b.",
+    "content_sha256": "16b37dfd82ba3471bdb97331712c069664397cce69cc3929fbbb5bef04259630",
+    "metadata": {
+      "sequence": 4,
+      "next_action": "Await user: (a) provide/confirm MuAPI key entry in the app UI for generation, (b) build EffectCraft on a machine with Rust, or (c) choose next render path.",
+      "status": "blocked"
+    },
+    "prev_event_sha256": "78a4fa5c05b0377f188eb69cd1a673436d2b6e1b7aeaad6317494e15e238aeac",
+    "event_sha256": "c62c3873a28b98f2f0e843296ee0592549e0cf5dca7c887b64bafb12cb1e02d8"
+  },
+  "journal_head": "c62c3873a28b98f2f0e843296ee0592549e0cf5dca7c887b64bafb12cb1e02d8",
+  "git": {
+    "initialized": true,
+    "head": "9c07b3bd1bdd5382a9145ad2a2621b8e3789cb35",
+    "branch": "arena/a188bd4a-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl",
+      "?? workflows/current/payload/zackd3d_demo/encode_demo.py",
+      "?? workflows/current/payload/zackd3d_demo/probe.py",
+      "?? workflows/current/payload/zackd3d_demo/render_demo.py",
+      "?? workflows/current/payload/zackd3d_demo/zackd3d_demo_360p_12fps.mp4"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      " 756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos (heads/main)",
+      " f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft (f8b2552)",
+      " 6b704b0806bf07b435586ff182fb54fffe64253f vendor/open-generative-ai (heads/main)"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/zackd3d_demo/encode_demo.py",
+      "size": 598,
+      "sha256": "bd663092748d9a6b55c9a11478becd4caa9f332ecdf15a65bc992eb7863bb879"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/probe.py",
+      "size": 1839,
+      "sha256": "9af9ecc5afa411c432f0e6c4ff4f1890cba953445027f523a54faa0eb689df0b"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/render_demo.py",
+      "size": 2734,
+      "sha256": "9370064cad33748e6cd1c965825a1407568b57b01d6d508fd1fbc2c53ab5c92e"
+    },
+    {
+      "path": "workflows/current/payload/zackd3d_demo/zackd3d_demo_360p_12fps.mp4",
+      "size": 764455,
+      "sha256": "c56993c1f3d4ad50db639816dd33e76a2c3c3d72307c21f4e36af121bf4931c3"
+    }
+  ]
+}
