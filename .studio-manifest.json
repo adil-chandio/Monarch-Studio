@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T21:36:12+00:00",
+  "generated_at": "2026-10-12T22:00:48+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -8392,8 +8392,8 @@
       "size": 31602
     },
     "tools/materialize.py": {
-      "sha256": "45e72e7f67ef14ee191525bd36ad8a885e50d3e56c7f2b96ef8c08377ae8f584",
-      "size": 2806
+      "sha256": "369d2442d4bcf5d97a0dccca90c7eaa5eebd3d89b7c5ca1e02ff778d9eecd87e",
+      "size": 2822
     },
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
