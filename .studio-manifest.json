@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T22:03:01+00:00",
+  "generated_at": "2026-10-12T22:19:56+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "3bbcb22b0b9457de97d5d9f5b3ee2aca787e1c0d3f6772d2ecfb40327883cebc",
-      "size": 738
+      "sha256": "de311bd3b009d5accc8a65e6c0968076593c26a4c749f14d0a30144c3155f965",
+      "size": 1709
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -6712,8 +6712,8 @@
       "size": 1915
     },
     "projects/tumhari-reserved-seat-3d/RESUME.md": {
-      "sha256": "1bb16a7016ab7f7ce09195b9c99e4c634ea81878543e32aee3214faa946b80dd",
-      "size": 1923
+      "sha256": "6eaa81d2b48280438ad26c1605227e3250e85549ca7b62ffbf16ed90648597aa",
+      "size": 2265
     },
     "projects/tumhari-reserved-seat-3d/SKILLS.md": {
       "sha256": "dd473ea3022b9101f63adaaaf719a1a25afac83b3a89ba7f3db5a82fe0c616c4",
@@ -6808,12 +6808,16 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "d13012cd772d658dae8d716fdecc045a4d1c945e801c0014496275bfe96c2ab1",
-      "size": 4248
+      "sha256": "4ebdf0b292b4afd76dac8d6fc47e9cac5747d29ade365dec014d3163638be707",
+      "size": 4558
+    },
+    "styles/BRAIN_STANDARD.md": {
+      "sha256": "eb8bf22a6e9cfb1c76ee3033845aaa75bd759af165127e7e652b122fd41630cb",
+      "size": 2709
     },
     "styles/README.md": {
-      "sha256": "6daf5f52629e7e3c3d9606417eaefa3825ed789761b965d9e35a9a99b3725fa4",
-      "size": 1347
+      "sha256": "91534d091084e750b39f4d55a6aa68a0ab1d22fabc5e96d71a0b20e5c6507643",
+      "size": 1897
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -6890,6 +6894,42 @@
     "styles/monarch-noir-film/SOURCE_INVENTORY.md": {
       "sha256": "1513576e187d8c0828408d9a55c2846fbee746175dda2aeef7cf0619d74eec34",
       "size": 5660
+    },
+    "styles/monarch-noir-film/brain/video-brain/MINDSET.md": {
+      "sha256": "3d5aeb78a1f484b450a2967260514816a7a0f2e196b4b34ae0e9c37f5b780e5f",
+      "size": 197
+    },
+    "styles/monarch-noir-film/brain/video-brain/NEXT_LEVEL.md": {
+      "sha256": "fba2a3f01bea3ba6c046064836c889c25a6ed9355c0935fd95ab28db28c793dc",
+      "size": 200
+    },
+    "styles/monarch-noir-film/brain/video-brain/PIPELINE.md": {
+      "sha256": "0e31380131e7c873b1721a220c4257e97be60feffba621cda29a689dea8b686f",
+      "size": 198
+    },
+    "styles/monarch-noir-film/brain/video-brain/PROBLEMS.md": {
+      "sha256": "fb5c1c0260f791f17f536ff366ff641bbff218d350579db6111b7c0cf8397b65",
+      "size": 1618
+    },
+    "styles/monarch-noir-film/brain/video-brain/SESSION_LOG.md": {
+      "sha256": "ddd6123072699a41cbdafbd80a08835294edc6aeffc183ad50d3190aabef0609",
+      "size": 751
+    },
+    "styles/monarch-noir-film/brain/video-brain/SKILLS.md": {
+      "sha256": "5122733e5d87dd6a4b647aefac59b837101eb7ac3fc8c5c8b5ae57eacb873737",
+      "size": 771
+    },
+    "styles/monarch-noir-film/brain/video-brain/STRATEGIES.md": {
+      "sha256": "7f3fdcc485c6ef961ebef64e090c097c1eb008b8e99eee66647fc3a51aafa0bb",
+      "size": 493
+    },
+    "styles/monarch-noir-film/brain/video-brain/TOOLCHAIN.md": {
+      "sha256": "58794aef507db91250c95cd9c45c9fc8a2afdaf18fb04eccc1a7d2e255040f76",
+      "size": 199
+    },
+    "styles/monarch-noir-film/brain/video-brain/VIDEO_LOG.md": {
+      "sha256": "7e34b24b52bd3e232157650324af661eb2bcf6e46de2a36fdac1ba22f5668103",
+      "size": 925
     },
     "styles/monarch-noir-film/data/THE_SHADOW_data.zip": {
       "sha256": "3b6a513b5edaa8d34e5c12ec1b2a5959061f0df6edf76331e8bb463efbe72976",
@@ -7803,6 +7843,42 @@
       "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
       "size": 16690
     },
+    "styles/monarch-stickman-animation/brain/video-brain/MINDSET.md": {
+      "sha256": "8d6d07614bf33005ebb8be2928efe200eb47d17b0e01bbf0d68d7785f1157c76",
+      "size": 205
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/NEXT_LEVEL.md": {
+      "sha256": "9309c60340936b25aab2334813855fe0db6eb2a49c2f506fb76a9348a9eec107",
+      "size": 208
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/PIPELINE.md": {
+      "sha256": "743cca45ee248d17da92edccd4a06b75287eb2250ad3b0162c13e7c1b58bbdd7",
+      "size": 206
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/PROBLEMS.md": {
+      "sha256": "0616a85eb5be2340c4b94307fe93341e175a8644268e4e7b4c1a646127780410",
+      "size": 1472
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/SESSION_LOG.md": {
+      "sha256": "f934fe7c00927525df2241c4d1f74db1924c96cd72c002a51eb6d024ce9da594",
+      "size": 709
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/SKILLS.md": {
+      "sha256": "9d080e165cdd5ce9eb7b8f0050cde5ae11b3ba25010792904ff59d687326d102",
+      "size": 734
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/STRATEGIES.md": {
+      "sha256": "f0e48ee23eb20717107b53da3bc74e51b2e732070edc6ab5ff018736548d309a",
+      "size": 586
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/TOOLCHAIN.md": {
+      "sha256": "21046c116d264c0468be2900b87370840e3c6d1b0969e51b8c84fcd60c3f13aa",
+      "size": 207
+    },
+    "styles/monarch-stickman-animation/brain/video-brain/VIDEO_LOG.md": {
+      "sha256": "d98de1dcb6aae1b55a1639954e53a30f360cf1d9a3a16a8b3782f91a5f39cf46",
+      "size": 1410
+    },
     "styles/monarch-stickman-animation/build_all.sh": {
       "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
       "size": 3527
@@ -8367,9 +8443,65 @@
       "sha256": "4935ae454c714032586a109ff8ef5e37bc9dca8ac0e1275fd724f5196dc2bed5",
       "size": 3141
     },
+    "styles/monarch-zackd-3d-power/README.md": {
+      "sha256": "f4c5827a772b83222638f4c430fda7d4d4f56b136f9c5ec9d2481b8eba8a582c",
+      "size": 1136
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/MINDSET.md": {
+      "sha256": "392e2449efbb550ea0250c1deabde74be2b0912288875d99cffbeff3fbf6779f",
+      "size": 2265
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/NEXT_LEVEL.md": {
+      "sha256": "925db1a2d0726b05244277fdd5ed3cefaa65eb194018f5aff30eb40a202e9bd8",
+      "size": 1671
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/PIPELINE.md": {
+      "sha256": "29f8e8df27b8d21446f73c617f01ba3f2ee0388b626f9834a3af7bbc21a302d6",
+      "size": 2067
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/PROBLEMS.md": {
+      "sha256": "b23ef5d8fc75cf2c4d3560d6dca9eb1a2bf0f713639f282cceeae6c7c925eab7",
+      "size": 2468
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/SESSION_LOG.md": {
+      "sha256": "60702e68345c4a2666eda880b14cd84d02f800283f7af4938173cbf33a8c5ee3",
+      "size": 911
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/SKILLS.md": {
+      "sha256": "d657b5a915d1cc7c72c137254c356e3958027e2893327bb8bf0883b594a02ad6",
+      "size": 1914
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/STRATEGIES.md": {
+      "sha256": "9001b5ea315908ea6170120ee5ed93d7ec44bc1121492ccb5373fe8508c4a41b",
+      "size": 923
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/TOOLCHAIN.md": {
+      "sha256": "e8f444fe013325aa457c1d40189651106aef194b5d078c066c4b8e98345c0f1f",
+      "size": 2872
+    },
+    "styles/monarch-zackd-3d-power/brain/video-brain/VIDEO_LOG.md": {
+      "sha256": "6a7f424166bd4e331753514366e1f7430216019dd56a4d302072833be891b7de",
+      "size": 1051
+    },
+    "styles/monarch-zackd-3d-power/knowledge/INDEX.md": {
+      "sha256": "4765b01023186200fc2e145438ab24aecc7b632fee660807d899b05a6964ddb0",
+      "size": 1056
+    },
+    "styles/monarch-zackd-3d-power/src/README.md": {
+      "sha256": "163076acef6333f526a40db90c61215d96350b4df22f1f9358d2a3256f44f459",
+      "size": 457
+    },
+    "styles/monarch-zackd-3d-power/style.json": {
+      "sha256": "4950d2e13f006b2c9dd3c40c4bd23223a5f8afc42c6484bee801b9184fc8015b",
+      "size": 565
+    },
+    "styles/monarch-zackd-3d-power/workflow.json": {
+      "sha256": "8010a2153b13dc66cc30bf73debbb7faa567f498d1e37cf4050a6cbc78b6627b",
+      "size": 993
+    },
     "styles/registry.json": {
-      "sha256": "b50c317ef5f5cf2ee0e4f256cb075439b91e72b2e22ce92ef8dd33c3e7ed4fc0",
-      "size": 1216
+      "sha256": "a67ee9e2cf4e1810fc8a6da2a0f37ee4465de07d0ed4d32b441a71f57de3375e",
+      "size": 1682
     },
     "tests/test_continuity.py": {
       "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",
@@ -8391,13 +8523,17 @@
       "sha256": "5a938e6887beeb17c3579402d3973226d349e334fa00a7df7862c70d37fca7bc",
       "size": 1738
     },
+    "tools/brain.py": {
+      "sha256": "882de8c813942fe900d8ff22b78e896ac7f1b7191f53cfdcd9a7f81d4df0e3b7",
+      "size": 13811
+    },
     "tools/continuity.py": {
       "sha256": "6aa760e7ad2c30d4a4f5231f3522ac704c22e74009c5dc5ba2034f6d9159193c",
       "size": 31602
     },
     "tools/materialize.py": {
-      "sha256": "369d2442d4bcf5d97a0dccca90c7eaa5eebd3d89b7c5ca1e02ff778d9eecd87e",
-      "size": 2822
+      "sha256": "f87ff6e50a501bf05e26ffde3d3ad2b88aea959107face297fed2653b4ec4891",
+      "size": 2953
     },
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",

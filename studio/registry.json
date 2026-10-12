@@ -81,6 +81,16 @@
         "linear_resume_issue": "MON-57",
         "google_doc_hub_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM"
       }
+    },
+    {
+      "code": "WF-02",
+      "style_id": "monarch-zackd-3d-power",
+      "slug": "wf02",
+      "name": "Monarch Zack-D 3D Power",
+      "path": "styles/monarch-zackd-3d-power",
+      "trigger": "POWERGO <topic> (proposed)",
+      "state": "PROPOSED_LOOKDEV",
+      "reproducibility": "R2_partial"
     }
   ],
   "characters": [

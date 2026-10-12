@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "code": "WF-02",
+  "style_id": "monarch-zackd-3d-power",
+  "slug": "wf02",
+  "name": "Monarch Zack-D 3D Power",
+  "path": "styles/monarch-zackd-3d-power",
+  "trigger": {
+    "token": "POWERGO",
+    "grammar": "POWERGO <topic>",
+    "mode": "proposed_not_activated"
+  },
+  "state": "PROPOSED_LOOKDEV",
+  "default_format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "duration_seconds": [10, 10],
+    "loudness_lufs": -16.0,
+    "loudness_tolerance_lu": 1.0
+  },
+  "deliveries": [],
+  "required_paths": [
+    "README.md",
+    "style.json",
+    "workflow.json",
+    "knowledge/INDEX.md",
+    "brain/video-brain/MINDSET.md",
+    "brain/video-brain/TOOLCHAIN.md",
+    "brain/video-brain/PIPELINE.md",
+    "brain/video-brain/NEXT_LEVEL.md",
+    "brain/video-brain/SESSION_LOG.md",
+    "brain/video-brain/PROBLEMS.md",
+    "brain/video-brain/SKILLS.md",
+    "brain/video-brain/STRATEGIES.md",
+    "brain/video-brain/VIDEO_LOG.md",
+    "src/README.md"
+  ]
+}

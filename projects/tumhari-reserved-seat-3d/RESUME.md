@@ -39,3 +39,7 @@ tools/vendor/materialize.sh one react-bits      # or: all
 3. Do not commit media. Upload media to Drive, then run `tools/archive/record_artifact.sh`.
 4. Run `python3 tools/studio.py manifest --write` after adding tracked files, then `python3 tools/studio.py validate`.
 5. Never claim premium or finished before a frame-by-frame check.
+
+## Video brain (added 2026-10-13)
+
+The per-style video memory is `styles/<style-id>/brain/video-brain/`. Start with `python3 tools/brain.py resume <style-id>` (styles: monarch-stickman-animation = WF-01, monarch-zackd-3d-power = WF-02, monarch-noir-film = WF-03). Standard: `styles/BRAIN_STANDARD.md`. Check: `python3 tools/brain.py check`.
