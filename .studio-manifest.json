@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-12T13:33:47+00:00",
+  "generated_at": "2026-10-12T13:41:55+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -28,8 +28,8 @@
       "size": 644
     },
     ".gitmodules": {
-      "sha256": "2888095d66901200539bf41e6eaaa66dece0299dd2b36fb8215cee320a72eec2",
-      "size": 932
+      "sha256": "cb78e0939ae28ae61fe20760706cf10f0c8eee11691f7e17885fad5a47cd4d34",
+      "size": 1150
     },
     "AGENTS.md": {
       "sha256": "1b4939201f19889cd2982b8f68982714742d9c557197bce0f60146901bd484b6",
@@ -184,8 +184,8 @@
       "size": 1521
     },
     "docs/VENDOR_INTEGRATION.md": {
-      "sha256": "bb09eb697a3026d64a28e064846c1c8de7e8fc9852fe9687b8c1b60e7638759f",
-      "size": 5368
+      "sha256": "239d06f867fad8c5a168d3bd00055c80291db7173e9e173a3d2591cf50b8d845",
+      "size": 6377
     },
     "docs/productions/EMS-20261011-002/DELIVERY.json": {
       "sha256": "526c1f5ca44e21d60fe756f3ade070b5f0dab8b6e5de36eeaec36de4a48f8a90",
@@ -2420,7 +2420,7 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "2446f2847177d7055b684c01c1203aef19caad475e698558d6ea80462409b879",
+      "sha256": "2ffb7f1803138c1095c4f8b29335a409dcb1e10838a9b3f67847a4c88e6fd0a3",
       "size": 1214
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
@@ -2428,8 +2428,8 @@
       "size": 2136
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "adf8a09d2d12229fec4f1ed627504d20c8b1caae770edccd059cf3e3f3d0f34c",
-      "size": 14698
+      "sha256": "1e088daa287fa19f5515b15293a0d867103d28b079d8461e81eb306357043b4c",
+      "size": 15395
     },
     "workflows/current/RESUME.md": {
       "sha256": "8e932bb4209092221bf27256f285117ddfa85c611afadf41b7274cb8cd51cd1d",

@@ -66,6 +66,13 @@ In the sandbox, the UI loads, but generation is blocked because `api.muapi.ai` i
 
 Environment notes: the sandbox has 2 vCPU and 3 GB RAM. Running Next.js dev, Vite and npm installs in parallel exhausted memory and stalled the shell, so run one heavy process at a time.
 
+## Batch 3 vendor repositories (2026-10-12)
+
+| Submodule | Pin | Licence | Sandbox status | Adoption note |
+|---|---|---|---|---|
+| `vendor/Agent-Reach` | `94f06c1` | MIT | Offline tests: 606 pass, 1 fails (`test_config::test_get_configured_features` expects all channels off, but this machine has some configured). | CLI that gives an AI agent read/search access to platforms such as Twitter, Reddit, YouTube and GitHub. Several channels reuse the user's logged-in browser or cookies. Do **not** supply Monarch or third-party credentials to it, and keep it out of the production render path. Its live channels need outbound access that the sandbox does not allow. |
+| `vendor/Scrapling` | `7a68493` | BSD-3-Clause | Installed editable. Offline parser check passes (CSS selection on local HTML). | Adaptive web-scraping framework. Use it only within each site's terms of service and robots rules. Scraped footage or images carry their own copyright, so do not add them to Monarch assets without a licence. |
+
 ## Upgrade policy
 
 Submodule updates are intentional changes:

@@ -9,6 +9,8 @@ This directory contains pinned Git submodules. See the licence column in `docs/V
 - `react-bits` — MIT + Commons Clause React animated component library;
 - `browser-use` — MIT AI browser agent;
 - `cc-switch` — MIT Tauri desktop assistant for AI coding tools;
-- `FreeCAD` — LGPL-2.1 parametric 3D CAD (pin recorded, working tree not checked out).
+- `FreeCAD` — LGPL-2.1 parametric 3D CAD (pin recorded, working tree not checked out);
+- `Agent-Reach` — MIT agent internet-access CLI (uses user-logged-in channels; keep credentials out);
+- `Scrapling` — BSD-3-Clause adaptive web-scraping framework.
 
 See `docs/VENDOR_INTEGRATION.md` and `THIRD_PARTY.md`. Do not edit vendored repositories as if they were Monarch source; contribute upstream or use a studio adapter.

@@ -22,3 +22,9 @@
 [submodule "vendor/cc-switch"]
 	path = vendor/cc-switch
 	url = https://github.com/farion1231/cc-switch.git
+[submodule "vendor/Agent-Reach"]
+	path = vendor/Agent-Reach
+	url = https://github.com/Panniantong/Agent-Reach.git
+[submodule "vendor/Scrapling"]
+	path = vendor/Scrapling
+	url = https://github.com/D4Vinci/Scrapling.git
