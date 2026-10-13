@@ -101,3 +101,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** VO 16.2s speech, 20.39s total
 - **Review:** gate 20/21: trans_jerk 8.04 at zoom@9.04 (limit 8.0, marginal). Not frame-by-frame reviewed. Not accepted.
 
+## V-013 · 2026-10-13 · AMEER_KA_KUTTA_v4 · status: reviewed
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v4.mp4
+- **Drive ID:** 11Nn6GaxLROBA4wEhL2Xf60DIOCJRnxGL
+- **Settings:** v3 + licensed SFX placed per moment (crack_flash hook, gleam bed, conjure_charge throne, synth_sparkle crown settle, riser_click before final shot, procedural AC click kept for stereo width); headline 9-layer 3D extrusion; blanket riser removed; PLAN throne-zoom->cube_h at 9.04 (jerk); gate 21/21
+- **Timing:** 20.39 s total
+- **Review:** gate 21/21 PASS; 1 s contact sheet only; dog design NOT premium (bean body, stub legs); not accepted
+

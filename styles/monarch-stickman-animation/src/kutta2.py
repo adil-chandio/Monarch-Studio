@@ -71,7 +71,7 @@ N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 
 # one transition per boundary (11), no two neighbours alike
-PLAN = ['page', 'cube_h', 'whip_h', 'flare', 'slices', 'blur', 'zoom', 'flare', 'blur', 'sweep', 'flare']   # v3: card@10.84 jerk 9.5 (gate) -> flare
+PLAN = ['page', 'cube_h', 'whip_h', 'flare', 'slices', 'blur', 'cube_h', 'flare', 'blur', 'sweep', 'flare']   # v3: card@10.84 jerk 9.5 (gate) -> flare
 TDX = {'page': .55, 'flare': .60, 'zoom': .62, 'sweep': .85, 'slices': .80, 'cube_h': .80, 'card': .75, 'ink': .70}   # longer blends for bright<->dark pairs (luma step <= 8/frame)
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
 
@@ -672,8 +672,14 @@ def headline(d, text, hot, p, acc):
                 if cl_ > 0:
                     drop = (1 - e_out(cl_, 3.0)) * 70
                     cw = f.getlength(ch)
-                    d.text((cx + 5, y + drop + 7), ch, font=f, fill=(20, 14, 26, int(255 * cl_)), anchor='lm')
+                    # v4: 3D extrusion (9 receding layers, accent-dark to ink) + top gloss, then face
+                    for k in range(9, 0, -1):
+                        sh = 0.55 + 0.45 * (1 - k / 9)
+                        ec = tuple(int(c * sh * 0.45) for c in col)
+                        d.text((cx + k * .8, y + drop + k * 1.0), ch, font=f, fill=ec + (int(255 * cl_),), anchor='lm')
+                    d.text((cx + 3, y + drop + 10), ch, font=f, fill=(12, 8, 18, int(150 * cl_)), anchor='lm')
                     d.text((cx, y + drop), ch, font=f, fill=col + (int(255 * cl_),), anchor='lm')
+                    d.text((cx - 1, y + drop - 2), ch, font=f, fill=(255, 255, 255, int(70 * cl_)), anchor='lm')
                     cx += cw
                 else:
                     cx += f.getlength(ch)
@@ -802,9 +808,15 @@ def cue_list():
     cues.append((s['door']['t0'] + .72 * (s['door']['t1'] - s['door']['t0']), 'door_close', 1.0))
     cues.append((s['door']['t0'] + .40 * (s['door']['t1'] - s['door']['t0']), 'hop', 1.0))
     cues.append((s['drive']['t0'] + .02, 'engine_on', 1.0))
-    cues.append((s['drive']['t0'] + .30 * (s['drive']['t1'] - s['drive']['t0']), 'ac_click', 1.0))
+    cues.append((s['drive']['t0'] + .30 * (s['drive']['t1'] - s['drive']['t0']), 'ac_click', 1.0))   # AC switch (procedural: keeps stereo width)
     cues.append((s['bowl']['t0'] + .85, 'ping', 1.0))
+    # v4 licensed-sample placement (50+SFX premium pack), each by meaning of the moment:
+    cues.append((s['room_wide']['t0'] + .30, 'lib:crack_flash', 1.0))        # hook title impact
+    cues.append((s['bed']['t0'] + .10, 'lib:gleam', 1.0))                    # makhmal bistar: luxury sparkle reveal
+    cues.append((s['throne']['t0'] + .05, 'lib:conjure_charge', 1.0))        # Raja throne: regal charge-up
     cues.append((s['crown']['t0'] + .55, 'chime', 1.0))
+    cues.append((s['crown']['t0'] + .95, 'lib:synth_sparkle', 1.0))          # crown settles: sparkle
+    cues.append((s['crouch']['t0'] - .10, 'lib:riser_click', 1.0))           # climb into the final GAREEB shot
     cues.append((s['crown']['t0'] + .75, 'chime', .6))
     cues.append((s['pave']['t0'] + .2, 'step', .8))
     for b in range(N_SHOTS - 1):

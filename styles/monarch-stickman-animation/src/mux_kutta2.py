@@ -298,7 +298,12 @@ def build_sfx():
     bus = Bus()
     step_flip = 0
     for t, name, amp in K.CUES:
-        if name == 'whoosh':
+        if name.startswith('lib:'):
+            clip = _lib(name[4:])
+            if clip is None:
+                raise SystemExit(f'missing licensed sample {name}')
+            bus.add(clip * 0.7, t, pan=0.0, gain=1.0)
+        elif name == 'whoosh':
             b = int(amp)
             d = K.tdur(K.PLAN[b])
             clip = _lib('riser_click') if SAMPLE_WHOOSH else None   # off: blanket riser on every transition was wrong (v3b)
