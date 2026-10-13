@@ -47,3 +47,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** v2.1 Drive 18xdhJCn1YTsQ7oBf0XnsGPDMPLaoquJU; gate 21/22; jerk_p95 still marginal and documented
 - **Files:** `styles/monarch-stickman-animation/src/kutta2.py`
 
+## S-007 · 2026-10-13 19:27 PKT
+
+- **Request:** AMEER KA KUTTA v6 finish: 3D transitions, captions, SFX mapping, music, sandbox recovery
+- **Action:** bpy stubs fixed; Husky re-rendered; transitions3d; SFX lib from Drive; gate 21/21; Drive upload
+- **Result:** v6 gated and uploaded 1RY803aqjzXtCthdd6OGk98Dv8FL4Yz-B; awaiting user review
+- **Files:** `styles/monarch-stickman-animation/src/transitions3d.py`, `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`
+

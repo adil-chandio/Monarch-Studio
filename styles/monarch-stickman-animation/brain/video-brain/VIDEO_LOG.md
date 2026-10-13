@@ -117,3 +117,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 20.39 s total
 - **Review:** gate PASS; frames checked at 4/10/17 s; transitions, captions, BG music and videos 2-4 SFX mapping NOT upgraded; sit uses standing Idle (no sit clip in pack); not accepted
 
+## V-015 · 2026-10-13 · AMEER_KA_KUTTA_v6 · status: draft
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v6.mp4
+- **Drive ID:** 1RY803aqjzXtCthdd6OGk98Dv8FL4Yz-B
+- **Settings:** n/a
+- **Timing:** 20.16s; shots 12; PLAN page(3D hinge) cube_h cube_v flare slices blur cube_h flare blur sweep flare
+- **Review:** v6 gate 21/21 PASS. 3D transitions via transitions3d.py (page hinge, cube_h, cube_v); VO voice-03 regenerated after sandbox wipe; SFX lib cut from Drive pack (crack_flash, gleam, conjure_charge, synth_sparkle, riser_click, digital_click, modern_shutter, lighter_ignite); sit pose not available in Husky rig (limitation); dog look stylised low-poly; not accepted by user yet
+

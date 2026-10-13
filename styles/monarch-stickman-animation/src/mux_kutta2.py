@@ -162,6 +162,11 @@ def build_layers():
             m = arp[s16 % len(arp)]
             layers['arp'].add(tone(mtof(m), BEAT / 4 * .9, 0.07, tau=.09, harm=(1.0,)),
                               t_bar + s16 * BEAT / 4, pan=(-0.9 if s16 % 2 else 0.9))
+    # v6: soft bell on every 4th downbeat (phrase start) so the score breathes between chapters
+    for bar in range(0, n_bars, 4):
+        c = bar % 4
+        m = LEAD[c][0][1] + 12
+        layers['lead'].add(bell(mtof(m), 1.6, 0.10, 0.45), bar * BAR, pan=-0.25)
     # dotted-eighth echo on the lead for width (no reverb noise)
     ld = layers['lead']
     dl = int(round(BEAT * 1.5 * SR))
@@ -280,7 +285,7 @@ SFX_PAN = {'jingle': 0.0, 'step': 0.0, 'door_open': -0.45, 'door_close': -0.45, 
            'engine_on': -0.1, 'ac_click': 0.3, 'ping': 0.2, 'chime': 0.0}
 
 
-SFX_LIB = '/home/user/build/sfx_lib'
+SFX_LIB = '/home/user/build/sfx_lib2'   # v6: cut from the Drive SFX pack (see cut_sfx.py)
 SAMPLE_WHOOSH = False          # per-moment SFX mapping needs the user's listening pass first
 
 
@@ -302,7 +307,7 @@ def build_sfx():
             clip = _lib(name[4:])
             if clip is None:
                 raise SystemExit(f'missing licensed sample {name}')
-            bus.add(clip * 0.7, t, pan=0.0, gain=1.0)
+            bus.add(clip * 0.5, t, pan=0.0, gain=1.0)   # v6: 0.5 keeps decoded peak under -1 dBFS
         elif name == 'whoosh':
             b = int(amp)
             d = K.tdur(K.PLAN[b])
@@ -357,6 +362,13 @@ def loudnorm(src, dst, I=-11.0, TP=-2.0):
                     f'extrastereo=m=3.0,alimiter=limit=0.75:attack=4:release=70,loudnorm=I={I}:TP={TP}:LRA=7', '-ar', str(SR), '-c:a', 'pcm_s16le', dst], check=True)
 
 
+def _ceil(x, k=0.60, c=0.84):
+    """static soft knee: linear below k, tanh-shaped approach to c above it (no pumping, no hard clip)."""
+    a = np.abs(x)
+    y = np.where(a <= k, a, k + (c - k) * np.tanh((a - k) / (c - k)))
+    return (np.sign(x) * y).astype(np.float32)
+
+
 def build():
     os.makedirs(WORK, exist_ok=True)
     layers = build_layers()
@@ -405,6 +417,9 @@ def build():
     print('vo gain', round(float(g_vo), 3), 'bed_rms_act', round(float(bed_m), 4), 'vo_rms_act', round(float(vo_r), 4))
     mixL = bedL + vo
     mixR = bedR + vo
+    # v6 ceiling: static soft-knee above 0.6, asymptote 0.84 (~-1.5 dBFS). Sum of bed+VO can exceed 1.0 otherwise.
+    mixL = _ceil(mixL)
+    mixR = _ceil(mixR)
     write_wav(f'{WORK}/bed_only.wav', bedL, bedR)
     write_wav(f'{WORK}/vo_bus.wav', vo)
     write_wav(f'{WORK}/mix_raw.wav', mixL, mixR)

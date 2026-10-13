@@ -53,7 +53,7 @@ ACC = [GOLD, TEAL, ROYAL, CORAL]
 # shots: (chapter, weight inside the chapter, name)
 SHOT_SPEC = [
     (0, .50, 'room_wide'), (0, .50, 'room_close'),
-    (1, .16, 'walk'), (1, .22, 'door'), (1, .24, 'drive'), (1, .18, 'bowl'), (1, .20, 'bed'),
+    (1, .22, 'walk'), (1, .16, 'door'), (1, .24, 'drive'), (1, .18, 'bowl'), (1, .20, 'bed'),  # v6: walk longer so the two cube turns never overlap
     (2, .55, 'throne'), (2, .45, 'crown'),
     (3, .40, 'pave'), (3, .28, 'crouch'), (3, .32, 'split'),
 ]
@@ -73,8 +73,8 @@ N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 
 # one transition per boundary (11), no two neighbours alike
-PLAN = ['page', 'cube_h', 'whip_h', 'flare', 'slices', 'blur', 'cube_h', 'flare', 'blur', 'sweep', 'flare']   # v3: card@10.84 jerk 9.5 (gate) -> flare
-TDX = {'page': .55, 'flare': .60, 'zoom': .62, 'sweep': .85, 'slices': .80, 'cube_h': .80, 'card': .75, 'ink': .70}   # longer blends for bright<->dark pairs (luma step <= 8/frame)
+PLAN = ['page', 'cube_h', 'cube_v', 'flare', 'slices', 'blur', 'cube_h', 'flare', 'blur', 'sweep', 'flare']   # v6: page/cube are true 3D (transitions3d.py)   # v3: card@10.84 jerk 9.5 (gate) -> flare
+TDX = {'page': 1.30, 'flare': .60, 'zoom': .62, 'sweep': .85, 'slices': .80, 'cube_h': 1.10, 'cube_v': 1.10, 'card': .75, 'ink': .70}   # longer blends for bright<->dark pairs (luma step <= 8/frame)
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
 
 HEAD = {
@@ -690,7 +690,10 @@ def headline(d, text, hot, p, acc):
 
 
 def caption(d, lt, ch, acc):
-    """word-timed Roman Urdu caption on a dark plate (readable on every floor)."""
+    """v5 caption: word-timed Roman Urdu on a soft-shadowed plate with an accent top rule.
+    The word being spoken gets an accent pill (karaoke); spoken words are full white, upcoming words dim."""
+    from PIL import ImageFilter as _IF
+    base = Image.Image()._new(d.im)
     for k, (c0, c1) in enumerate(CAPW[ch]):
         t0 = LEAD[ch] + c0
         t1 = LEAD[ch] + c1
@@ -700,7 +703,7 @@ def caption(d, lt, ch, acc):
         words = text.split()
         n = len(words)
         p = cl((lt - t0) / max(.1, (t1 - t0)))
-        f = F(50, 600)
+        f = F(52, 600)
         lines, cur = [], []
         for w in words:
             trial = ' '.join(cur + [w])
@@ -714,23 +717,54 @@ def caption(d, lt, ch, acc):
         for li, ln in enumerate(lines):
             wid = [f.getlength(w) for w in ln]
             tot = sum(wid) + sp * (len(ln) - 1)
-            blocks.append((ln, wid, tot, 1560 + li * 66))
+            blocks.append((ln, wid, tot, 1562 + li * 72))
         fade = cl((lt - t0) / .15) * cl((t1 + .35 - lt) / .25)
+        if fade <= 0:
+            continue
+        head = p * n * 1.1                       # fractional index of the word being spoken
+        # 1) soft drop shadow for the plates
+        sh = Image.new('RGBA', base.size, (0, 0, 0, 0))
+        shd = ImageDraw.Draw(sh)
         idx = 0
         for ln, wid, tot, y in blocks:
-            first = cl(p * n * 1.1 - idx)
-            if first > 0:
-                d.rounded_rectangle([540 - tot / 2 - 26, y - 34, 540 + tot / 2 + 26, y + 34], 22,
-                                    fill=(18, 14, 26, int(190 * fade * min(1.0, first * 4))))
+            shd.rounded_rectangle([540 - tot / 2 - 34, y - 38 + 10, 540 + tot / 2 + 34, y + 38 + 10], 30,
+                                  fill=(0, 0, 0, int(150 * fade)))
             idx += len(ln)
+        sh = sh.filter(_IF.GaussianBlur(14))
+        base.alpha_composite(sh)
+        # 2) plates: dark glass, 1 px light edge, accent rule on top of the first line
+        pl = Image.new('RGBA', base.size, (0, 0, 0, 0))
+        pd = ImageDraw.Draw(pl)
+        for li, (ln, wid, tot, y) in enumerate(blocks):
+            first = cl(head - sum(len(x) for x in lines[:li]))
+            if first <= 0:
+                continue
+            x0, x1 = 540 - tot / 2 - 34, 540 + tot / 2 + 34
+            pd.rounded_rectangle([x0, y - 38, x1, y + 38], 30, fill=(16, 12, 24, int(205 * fade * first)),
+                                 outline=(255, 255, 255, int(38 * fade * first)), width=2)
+            if li == 0:
+                pd.rounded_rectangle([x0 + 26, y - 38, x1 - 26, y - 35], 2, fill=acc + (int(230 * fade * first),))
+        base.alpha_composite(pl)
+        # 3) words: active pill, spoken = white, upcoming = dim; hot words take the accent colour
+        tx = ImageDraw.Draw(base, 'RGBA')
         idx = 0
         for ln, wid, tot, y in blocks:
             x = 540 - tot / 2
             for w, ww in zip(ln, wid):
-                fr = cl(p * n * 1.1 - idx)
+                fr = cl(head - idx)
                 if fr > 0:
-                    col = acc if w.strip('?,.!').lower() in CAP_HOT[ch] else TXT
-                    d.text((x, y), w, font=f, fill=col + (int(255 * fr),), anchor='lm')
+                    hot_w = w.strip('?,.!').lower() in CAP_HOT[ch]
+                    active = 0 <= head - idx < 1.0
+                    if active:
+                        tx.rounded_rectangle([x - 10, y - 26, x + ww + 10, y + 26], 16, fill=acc + (int(70 * fade),))
+                        col = (255, 255, 255)
+                    elif head - idx >= 1.0:
+                        col = acc if hot_w else TXT
+                    else:
+                        col = acc if hot_w else TXT
+                    tx.text((x, y), w, font=f, fill=col + (int(255 * fade * fr),), anchor='lm')
+                else:
+                    tx.text((x, y), w, font=f, fill=TXT + (int(120 * fade),), anchor='lm')
                 x += ww + sp
                 idx += 1
         return
@@ -786,7 +820,10 @@ def tr_zoom_soft(A, B, p, acc):
 
 
 TRANS = dict(R2.TRANS)
-TRANS['page'] = tr_page
+import transitions3d as T3
+TRANS['page'] = T3.page_h
+TRANS['cube_h'] = T3.cube_h
+TRANS['cube_v'] = T3.cube_v
 TRANS['flare'] = tr_flare
 TRANS['zoom'] = tr_zoom_soft
 
@@ -800,6 +837,7 @@ def cue_list():
     cues = []
     s = SHOT_BY_NAME
     cues.append((s['room_close']['t0'] + .30, 'jingle', 1.0))
+    cues.append((s['room_close']['t0'] + .02, 'lib:modern_shutter', .7))   # 'KABHI DEKHA HAI?' question reveal: camera-shutter flash (v6)
     cues.append((s['walk']['t0'] + .05, 'jingle', .8))
     walk0, walk1 = s['walk']['t0'], s['walk']['t1']
     tt = walk0 + .2
@@ -810,13 +848,14 @@ def cue_list():
     cues.append((s['door']['t0'] + .72 * (s['door']['t1'] - s['door']['t0']), 'door_close', 1.0))
     cues.append((s['door']['t0'] + .40 * (s['door']['t1'] - s['door']['t0']), 'hop', 1.0))
     cues.append((s['drive']['t0'] + .02, 'engine_on', 1.0))
-    cues.append((s['drive']['t0'] + .30 * (s['drive']['t1'] - s['drive']['t0']), 'ac_click', 1.0))   # AC switch (procedural: keeps stereo width)
+    cues.append((s['drive']['t0'] + .30 * (s['drive']['t1'] - s['drive']['t0']), 'lib:digital_click', 1.0))   # AC switch: crisp digital click (v6)
     cues.append((s['bowl']['t0'] + .85, 'ping', 1.0))
     # v4 licensed-sample placement (50+SFX premium pack), each by meaning of the moment:
     cues.append((s['room_wide']['t0'] + .30, 'lib:crack_flash', 1.0))        # hook title impact
     cues.append((s['bed']['t0'] + .10, 'lib:gleam', 1.0))                    # makhmal bistar: luxury sparkle reveal
     cues.append((s['throne']['t0'] + .05, 'lib:conjure_charge', 1.0))        # Raja throne: regal charge-up
     cues.append((s['crown']['t0'] + .55, 'chime', 1.0))
+    cues.append((s['crown']['t0'] + .02, 'lib:lighter_ignite', .6))         # Raja crown: spark ignite (v6)
     cues.append((s['crown']['t0'] + .95, 'lib:synth_sparkle', 1.0))          # crown settles: sparkle
     cues.append((s['crouch']['t0'] - .10, 'lib:riser_click', 1.0))           # climb into the final GAREEB shot
     cues.append((s['crown']['t0'] + .75, 'chime', .6))
