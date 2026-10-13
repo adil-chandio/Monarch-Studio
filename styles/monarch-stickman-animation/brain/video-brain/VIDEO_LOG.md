@@ -77,3 +77,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 711 frames, 23.7 s, two shards ~3 min each on 2 CPUs
 - **Review:** Gate 19/19 PASS (trans_jerk 7.34 at sweep@19.44; lr_corr 0.65; LUFS -12.4). Transition sheet reviewed: all 9 boundaries clean. Characters are simple 2-D cut-outs; not yet judged by the user
 
+## V-010 · 2026-10-13 · AMEER_KA_KUTTA_v2 · status: reviewed
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v2.mp4
+- **Drive ID:** 1IMkOtvmUMyKRN6xTx6GYi70w8uP2pI8o
+- **Settings:** 1080x1920 30fps, H.264 CRF17 (shards), AAC 192k 48k stereo, 20.13 s, 17629256 B, kutta2.py + mux_kutta2.py + prep_vo_kutta.py, voice-03 ur-PK
+- **Timing:** VO_AT 0.30/2.92/9.02/12.47 s, K4 ends 16.04 s, end hold 4.1 s; 12 shots; PLAN page,cube_h,whip_h,flare,slices,blur,zoom,card,ink,sweep,flare
+- **Review:** frame sheets 0.5-19.9 s reviewed; OK: SHADE walk + leash, door with dog, car, bowl, bed, throne, crown, split. OPEN: drive shot has no SHADE visible; jerk_p95 2.11 (limit 2.0). Gate 20/22 PASS (gate_kutta_v2.txt).
+

@@ -41,3 +41,15 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Reuse respect scenes (they are IZZAT content, not usable). Full 3D (user rejected 3D for this style)
 - **Outcome:** KUTTA v1 candidate on Drive; user review pending
 
+## ST-007 · 2026-10-13
+
+- **Decision:** VO runs continuously (LEAD/TAIL 0 between chapters, 0.05 s clip edges), music is tonal (A minor 96 BPM, chapter-wise layer gains), no noise anywhere in the audio
+- **Alternatives rejected:** keep 0.45 s chapter gaps (rejected: user asked for no voice gaps); noise bed or hiss air (rejected by user); sample library (not licensed)
+- **Outcome:** gate: vo_longest_gap 0.24 s, bed_flatness ~0, longest silence 0.0 s
+
+## ST-008 · 2026-10-13
+
+- **Decision:** Gate recalibration for v2: bed_4000_8000 threshold 10 pct -> 1.5 pct (tonal air only); v1 needed hiss to reach 10 pct, which the user rejected. Added vo_longest_gap_s <= 0.35 and bed_flatness_1k_8k < 0.20
+- **Alternatives rejected:** keep the v1 threshold (would force noise air); drop the check (would hide the air loss)
+- **Outcome:** gate_kutta2.py 20/22 pass; the 2 fails are reported, not hidden
+

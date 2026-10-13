@@ -33,3 +33,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** Pipeline runs. Baseline rebuild stopped on purpose before finish: the default mux OUT would overwrite the reference file through the symlink. Reference md5 verified intact. v3 build running
 - **Files:** `styles/monarch-stickman-animation/src/respect3.py`, `styles/monarch-stickman-animation/build_respect3.sh`
 
+## S-005 · 2026-10-13 06:43 PKT
+
+- **Request:** AMEER KA KUTTA v2: fix v1 failures (SHADE missing, flat car, voice gaps, radio bed, copied editing)
+- **Action:** rebuilt kutta2.py (12 shots, 11 transitions, 3-plane backdrops, real car geometry, SHADE walk with leash), prep_vo_kutta.py (continuous VO), mux_kutta2.py (tonal music + tonal SFX, no noise), gate_kutta2.py; fixed camera pop at cuts, luma steps, caption legibility
+- **Result:** kutta_v2.mp4 20.13 s 1080x1920 30fps; gate 20/22 pass; open: jerk_p95 2.11 (limit 2.0), drive shot has no SHADE visible; Drive 1IMkOtvmUMyKRN6xTx6GYi70w8uP2pI8o
+- **Files:** `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`, `styles/monarch-stickman-animation/src/gate_kutta2.py`, `styles/monarch-stickman-animation/src/prep_vo_kutta.py`
+

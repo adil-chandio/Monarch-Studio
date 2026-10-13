@@ -124,3 +124,31 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Right channel decorrelated 15 ms, air hiss + sparkle ticks, VO EQ (highpass 130, 220 Hz cut, 5 kHz and 8 kHz lift), extrastereo 1.2
 - **Verified by:** all audio gates PASS (lr_corr 0.65, side_mid 0.46, all_120_500 53%, bed_4000_8000 11.5%, vo_4000_8000 7.8%)
 
+## P-018 · 2026-10-13 · status: fixed
+
+- **Symptom:** v2 transition onsets popped: one-frame motion spike (5.9 to 17.4) exactly at each cut
+- **Cause:** render() took the camera zoom of the new shot at u=0, so the zoom jumped at every boundary
+- **Fix:** cam_z() blends the two shots' cameras inside the transition window, each at its own shot progress u (kutta2.py)
+- **Verified by:** per-frame motion energy around 7.80 s: max step now 6.9, no single-frame spike; full gate trans_jerk 7.41
+
+## P-019 · 2026-10-13 · status: fixed
+
+- **Symptom:** v2 gate: luma steps up to 20 levels per frame inside bright/dark transitions (zoom, sweep, slices, cube_h)
+- **Cause:** respect2 zoom mix window was 0.4 wide; sweep/slices/cube_h blended over 0.5-0.6 s so the mean luma swung 70+ levels in ~8 frames
+- **Fix:** longer per-kind blends (zoom .62, sweep .85, slices .80, cube_h .80, card .75, ink .70) and zoom_soft (mix spread over full window)
+- **Verified by:** gate max_dluma 7.994, frames_dluma_gt8 0
+
+## P-020 · 2026-10-13 · status: fixed
+
+- **Symptom:** v2 gate: stereo corr 0.95 (bed and VO almost mono); bed had no air; mix true peak 0.1 dBTP after AAC
+- **Cause:** kick/bass/VO centre-heavy; pad detune too small; loudnorm TP -1.5 before AAC overshoot
+- **Fix:** extrastereo m=3.0 on the mix (mid unchanged, mono sum preserved), Haas 14 ms on pad/arp/tick, 11 kHz tonal sparkle, VO presence EQ, alimiter, loudnorm I=-11 TP=-2
+- **Verified by:** lr_corr 0.648, side_mid 0.46, decoded peak -1.28 dBFS, LUFS -12.4, bed_flatness_1k_8k ~0
+
+## P-021 · 2026-10-13 · status: open
+
+- **Symptom:** v2 gate still marginal: jerk_p95 2.11 on shot frames (limit 2.0); drive shot shows no SHADE inside the car
+- **Cause:** jerk_p95 is motion energy from car drive, door and dog hop (real motion, not glitches); tinted glass alpha 250 hides a black driver, so SHADE is not visible in the drive shot
+- **Fix:** open. Options: softer car acceleration keyframes, or a visible driver silhouette at the window
+- **Verified by:** gate_kutta_v2.txt in build/kutta/v2
+
