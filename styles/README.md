@@ -8,6 +8,11 @@ Current styles:
 |---|---|---|---|
 | `monarch-stickman-animation` | Monarch Stickman Animation | `SHADEGO <topic>` | [`monarch-stickman-animation/`](monarch-stickman-animation/) |
 | `monarch-noir-film` | Monarch Noir Film | `NOIRGO <topic>` | [`monarch-noir-film/`](monarch-noir-film/) |
+| `monarch-zackd-3d-power` | Monarch Zack-D 3D Power (proposed, lookdev) | `POWERGO <topic>` (proposed) | [`monarch-zackd-3d-power/`](monarch-zackd-3d-power/) |
+
+## Video brain (every style)
+
+Each style has a `brain/video-brain/` folder: the style's mindset, toolchain, production pipeline, next-level backlog, and append-only ledgers (sessions, problems and fixes, skills, strategies, videos). The standard is in [`BRAIN_STANDARD.md`](BRAIN_STANDARD.md). The CLI is `tools/brain.py`. Start any style with `python3 tools/brain.py resume <style-id>`.
 
 ## Hard boundary
 

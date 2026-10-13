@@ -26,6 +26,18 @@
       "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md",
       "latest_release": "TUMHARI RESERVED SEAT · WF-03 · unnumbered",
       "latest_release_path": "styles/monarch-noir-film/films/tumhari-reserved-seat"
+    },
+    {
+      "style_id": "monarch-zackd-3d-power",
+      "name": "Monarch Zack-D 3D Power",
+      "workflow_code": "WF-02",
+      "trigger": "POWERGO <topic>",
+      "path": "styles/monarch-zackd-3d-power",
+      "contract": "styles/monarch-zackd-3d-power/workflow.json",
+      "status": "PROPOSED_LOOKDEV",
+      "knowledge_index": "styles/monarch-zackd-3d-power/knowledge/INDEX.md",
+      "latest_release": null,
+      "latest_release_path": null
     }
   ]
 }

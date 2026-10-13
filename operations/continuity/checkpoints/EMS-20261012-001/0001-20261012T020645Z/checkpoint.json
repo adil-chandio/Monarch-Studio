@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261012T020645Z",
+  "created_at": "2026-10-12T02:06:45Z",
+  "summary": "Feasibility done. Script of record found (Tumhari Reserved Seat, 74 s, Urdunglish). Blockers: no Blender runtime (missing GL/X libs, apt blocked), 2-vCPU/no-GPU compute, no Luma/Kling/Adobe access, no voice clone from Drive audio, Drive videos not transferable. Awaiting user decisions.",
+  "next_action": "Await user answers: (1) compute path (2) voice path (3) script/topic confirm (4) accept limits, then proceed.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "status": "blocked",
+    "title": "Zack-D style 3-D video (WF-02 Drive source) · tumhari reserved seat script · cloned monarch voice",
+    "style_id": "zackd-3d-premium (proposed; no style yet)",
+    "goal": "Build a premium 3-D animated video in Zack D Films style from the Drive source files, same topic/script (Tumhari Reserved Seat), with the user's monarch voice; report real capability limits honestly.",
+    "acceptance_criteria": [],
+    "started_at": "2026-10-12T02:05:51Z",
+    "updated_at": "2026-10-12T02:06:45Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 5,
+    "journal_head": "445074fb80c474512ff667e53046ad999d0fba6c7129793ab986ca38f6795304",
+    "last_checkpoint": "2026-10-12T02:06:45Z",
+    "last_checkpoint_path": null,
+    "next_action": "Await user answers: (1) compute path (2) voice path (3) script/topic confirm (4) accept limits, then proceed.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261012-001",
+    "seq": 5,
+    "timestamp": "2026-10-12T02:06:45Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Feasibility done. Script of record found (Tumhari Reserved Seat, 74 s, Urdunglish). Blockers: no Blender runtime (missing GL/X libs, apt blocked), 2-vCPU/no-GPU compute, no Luma/Kling/Adobe access, no voice clone from Drive audio, Drive videos not transferable. Awaiting user decisions.",
+    "content_sha256": "30bacfadad84f90099fa6cf47bfdeb51d95fed30ec1749d90fe8072968544411",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Await user answers: (1) compute path (2) voice path (3) script/topic confirm (4) accept limits, then proceed.",
+      "status": "blocked"
+    },
+    "prev_event_sha256": "93a9abaac8071c37c746af1e65e81cc7a59c58bab89c9e2bfa2baf89a0cf25bb",
+    "event_sha256": "445074fb80c474512ff667e53046ad999d0fba6c7129793ab986ca38f6795304"
+  },
+  "journal_head": "445074fb80c474512ff667e53046ad999d0fba6c7129793ab986ca38f6795304",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/a188bd4a-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

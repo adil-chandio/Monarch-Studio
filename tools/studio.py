@@ -315,7 +315,17 @@ def validate_registry(v: Validation) -> None:
             v.fail(f"{item['code']} registry/workflow.json identity mismatch")
         else:
             v.ok(f"{item['code']} identity and path")
-        missing = [rel for rel in wf.get("required_paths", []) if not (source / rel).exists()]
+        def _present(rel: str) -> bool:
+            # A required path counts as present if it exists in the worktree or is tracked in Git
+            # (compact/sparse mode keeps tracked files in Git while omitting them locally).
+            target = source / rel
+            if target.exists():
+                return True
+            probe = subprocess.run(["git", "ls-files", "--", str(target)],
+                                   cwd=str(ROOT), capture_output=True, text=True)
+            return probe.returncode == 0 and bool(probe.stdout.strip())
+
+        missing = [rel for rel in wf.get("required_paths", []) if not _present(rel)]
         if missing:
             v.fail(f"{item['code']} missing required paths: {', '.join(missing)}")
         else:

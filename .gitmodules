@@ -4,3 +4,27 @@
 [submodule "vendor/awesome-opus5-5-videos"]
 	path = vendor/awesome-opus5-5-videos
 	url = https://github.com/yihui-dev/awesome-opus5-5-videos.git
+[submodule "vendor/open-generative-ai"]
+	path = vendor/open-generative-ai
+	url = https://github.com/Anil-matcha/Open-Generative-AI.git
+[submodule "vendor/react-bits"]
+	path = vendor/react-bits
+	url = https://github.com/DavidHDev/react-bits.git
+[submodule "vendor/FreeCAD"]
+	path = vendor/FreeCAD
+	url = https://github.com/FreeCAD/FreeCAD.git
+[submodule "vendor/OpenMontage"]
+	path = vendor/OpenMontage
+	url = https://github.com/calesthio/OpenMontage.git
+[submodule "vendor/browser-use"]
+	path = vendor/browser-use
+	url = https://github.com/browser-use/browser-use.git
+[submodule "vendor/cc-switch"]
+	path = vendor/cc-switch
+	url = https://github.com/farion1231/cc-switch.git
+[submodule "vendor/Agent-Reach"]
+	path = vendor/Agent-Reach
+	url = https://github.com/Panniantong/Agent-Reach.git
+[submodule "vendor/Scrapling"]
+	path = vendor/Scrapling
+	url = https://github.com/D4Vinci/Scrapling.git

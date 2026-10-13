@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-zackd-3d-power",
+  "name": "Monarch Zack-D 3D Power",
+  "workflow_code": "WF-02",
+  "path": "styles/monarch-zackd-3d-power",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "brain": "brain/video-brain",
+  "primary_renderers": ["../../tools/render/blender-vertical/wf_scenes.py"],
+  "primary_gates": [],
+  "current_fully_sourced_release": null,
+  "reproducibility": "R2_partial",
+  "current_release_path": null
+}
