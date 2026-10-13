@@ -35,3 +35,9 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Alternatives rejected:** Full 3D rebuild (rejected by user). Frame-by-frame new scenes (large scope)
 - **Outcome:** v3 candidate on Drive; user review pending
 
+## ST-006 · 2026-10-13
+
+- **Decision:** New topic in the same editing grammar: re-used respect2 transitions and the v3 grade, own chapter scenes, characters and captions, own gate (gate_kutta = gate_respect2 with a kutta timeline shim)
+- **Alternatives rejected:** Reuse respect scenes (they are IZZAT content, not usable). Full 3D (user rejected 3D for this style)
+- **Outcome:** KUTTA v1 candidate on Drive; user review pending
+

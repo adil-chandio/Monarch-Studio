@@ -69,3 +69,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 2256 frames, shards about 10 min each on 2 CPUs
 - **Review:** Gate 19/19 PASS (trans_jerk 7.874). Frame sheet ref vs v3 at t=3/25/66/70.5: same layout and beats, warmer paper, edge vignette. Subtle upgrade, not a style change. Awaiting user review
 
+## V-009 · 2026-10-13 · KUTTA v1 (AMEER KA KUTTA, new script) · status: reviewed
+
+- **File:** Drive 1P9tWlmRWqWNejVKifhjafyFx8BWjMIc2 (kutta_ameer_ka_kutta_v1.mp4, 9,326,867 B, folder 1_MhRILyCB86LWHYqLDzBPvmneA6Y2uqo)
+- **Drive ID:** not uploaded
+- **Settings:** src/kutta.py: 4 chapters, 10 shots, 9 transitions (whip_h cube_h slices blur card zoom ink sweep slices); VO voice-03 ur-PK (Urdu script TTS), captions Roman Urdu; mux_kutta.py: procedural bed (pad, bells, whooshes, sparkles, air), numpy sidechain, VO EQ, extrastereo 1.2, loudnorm -11
+- **Timing:** 711 frames, 23.7 s, two shards ~3 min each on 2 CPUs
+- **Review:** Gate 19/19 PASS (trans_jerk 7.34 at sweep@19.44; lr_corr 0.65; LUFS -12.4). Transition sheet reviewed: all 9 boundaries clean. Characters are simple 2-D cut-outs; not yet judged by the user
+

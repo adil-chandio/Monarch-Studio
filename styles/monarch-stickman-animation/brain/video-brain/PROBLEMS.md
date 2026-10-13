@@ -110,3 +110,17 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Final video CRF 21 maxrate 4000k (audio copied). Measured 7.874
 - **Verified by:** Gate 19/19 on /home/user/build/respect3_v3.mp4
 
+## P-016 · 2026-10-13 · status: fixed
+
+- **Symptom:** KUTTA v1: whip_v@7.1 trans_jerk 10.8; then iris@9.5 9.1
+- **Cause:** Big contrast change in the dog/bowl frames on directional whip and iris reveal
+- **Fix:** PLAN changed to slices / blur at those boundaries; trans_jerk 7.34
+- **Verified by:** gate_kutta 19/19
+
+## P-017 · 2026-10-13 · status: fixed
+
+- **Symptom:** KUTTA audio failed stereo/air gates (L=R, highs 3%, mids 73%)
+- **Cause:** Mono synth bed, TTS voice without air, speech mids dominating
+- **Fix:** Right channel decorrelated 15 ms, air hiss + sparkle ticks, VO EQ (highpass 130, 220 Hz cut, 5 kHz and 8 kHz lift), extrastereo 1.2
+- **Verified by:** all audio gates PASS (lr_corr 0.65, side_mid 0.46, all_120_500 53%, bed_4000_8000 11.5%, vo_4000_8000 7.8%)
+
