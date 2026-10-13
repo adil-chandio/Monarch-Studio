@@ -71,7 +71,7 @@ N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 
 # one transition per boundary (11), no two neighbours alike
-PLAN = ['page', 'cube_h', 'whip_h', 'flare', 'slices', 'blur', 'zoom', 'card', 'ink', 'sweep', 'flare']
+PLAN = ['page', 'cube_h', 'whip_h', 'flare', 'slices', 'blur', 'zoom', 'flare', 'blur', 'sweep', 'flare']   # v3: card@10.84 jerk 9.5 (gate) -> flare
 TDX = {'page': .55, 'flare': .60, 'zoom': .62, 'sweep': .85, 'slices': .80, 'cube_h': .80, 'card': .75, 'ink': .70}   # longer blends for bright<->dark pairs (luma step <= 8/frame)
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
 
@@ -643,6 +643,8 @@ def headline(d, text, hot, p, acc):
     words = text.split()
     f = F(118, 800)
     chars_total = len(text.replace(' ', ''))
+    # v3: line breaks are the v2 layout (960 px); a line wider than 860 px shrinks the whole headline
+    # (static per headline, so no layout jump inside a transition) to keep a 110 px safe margin.
     lines, cur = [], []
     for w in words:
         trial = ' '.join(cur + [w])
@@ -651,6 +653,9 @@ def headline(d, text, hot, p, acc):
         else:
             cur.append(w)
     lines.append(cur)
+    widest = max(f.getlength(' '.join(ln)) for ln in lines)
+    if widest > 860:
+        f = F(int(118 * 860 / widest), 800)
     idx = 0
     for li, ln in enumerate(lines):
         wid = [f.getlength(w) for w in ln]

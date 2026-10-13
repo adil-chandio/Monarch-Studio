@@ -305,7 +305,7 @@ def eq_vo():
     for i in range(4):
         src = f'{VO_DIR}/fit_k{i + 1}.wav'
         dst = f'{WORK}/eq_k{i + 1}.wav'
-        chain = ('highpass=f=90,equalizer=f=250:t=q:w=1:g=-5,equalizer=f=180:t=q:w=1:g=-1.5,equalizer=f=5000:t=q:w=1.2:g=6.5,equalizer=f=7500:t=q:w=1.4:g=4,'
+        chain = ('highpass=f=90,equalizer=f=250:t=q:w=1:g=-5,equalizer=f=180:t=q:w=1:g=-1.5,equalizer=f=5000:t=q:w=1.2:g=8.5,equalizer=f=7500:t=q:w=1.4:g=5,'
                  'acompressor=threshold=0.063:ratio=3:attack=8:release=180:makeup=1.2')
         subprocess.run([FF, '-y', '-v', 'error', '-i', src, '-af', chain, '-ac', '1', '-ar', str(SR),
                         '-c:a', 'pcm_s16le', dst], check=True)

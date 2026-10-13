@@ -93,3 +93,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** unchanged from v2
 - **Review:** driver visible in all drive frames 5.3-6.5 s; gate 21/22 PASS, only jerk_p95 2.12 (limit 2.0) open; not claimed accepted
 
+## V-012 · 2026-10-13 · AMEER_KA_KUTTA_v3_candidate · status: reviewed
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v3_candidate.mp4
+- **Drive ID:** 1hOFRUF7DHZxyRT1uGeoHNrGS9CFYKpFy
+- **Settings:** v2.1 engine + headline 860 px safe margin (shrink, same breaks), VO re-generated voice-03 ur-PK, EQ presence +2 dB, PLAN card->flare, ink->blur, zoom kept; dog unchanged (2D kutta dog; 2D and 3D redraws NOT used)
+- **Timing:** VO 16.2s speech, 20.39s total
+- **Review:** gate 20/21: trans_jerk 8.04 at zoom@9.04 (limit 8.0, marginal). Not frame-by-frame reviewed. Not accepted.
+
