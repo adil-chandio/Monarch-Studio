@@ -20,7 +20,9 @@ import power2 as P2
 import toon as T
 import respect2 as R2
 import respect3 as R3
-import kutta as K1                       # the golden dog, the grey insan, the throne, the crown, the snow
+import kutta as K1                       # the grey insan, the throne, the crown, the snow
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'husky'))
+import dog_husky as DH                   # v5: the golden dog is a CC0 Husky rig (Quaternius), rendered by husky/dogrig.py
 
 GROUND = 1320
 P2.GY = GROUND                           # SHADE's contact shadow and feet use this ground
@@ -327,7 +329,7 @@ def dog_tag(x, gy, s, pose, flip):
 
 
 def dog_pose_at(t, pose, flip, x, gy, s, d):
-    return K1.dog(d, x, gy, s, t, pose, flip=flip)
+    return DH.dog(d, x, gy, s, t, pose, flip=flip)
 
 
 # ───────────────────────────────────────────── the grey insan (walks, crouches, breathes)
@@ -503,14 +505,14 @@ def draw_actors(name, lay, d, t, u, lt):
         tag = dog_tag(dog_x, GROUND, 1.0, 'sit', False)
         if h:
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), tag, t)
-        K1.dog(d, dog_x, GROUND, 1.0, t, 'sit')
+        DH.dog(d, dog_x, GROUND, 1.0, t, 'sit')
     elif name == 'room_close':
         h = shade(d, lt, 360, 860, pose_idle(t))
         dog_x = 740
         tag = dog_tag(dog_x, GROUND, 1.4, 'stand', False)
         if h:
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), tag, t)
-        K1.dog(d, dog_x, GROUND, 1.4, t, 'stand')
+        DH.dog(d, dog_x, GROUND, 1.4, t, 'stand')
     elif name == 'walk':
         walk = 14 * t
         dog_x = 210
@@ -519,7 +521,7 @@ def draw_actors(name, lay, d, t, u, lt):
         tag = dog_tag(dog_x, GROUND - 2, .9, 'stand', False)
         if h:
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), tag, t)
-        K1.dog(d, dog_x, GROUND - 2 * abs(math.sin(walk)), .9, t, 'stand')
+        DH.dog(d, dog_x, GROUND - 2 * abs(math.sin(walk)), .9, t, 'walk')
     elif name == 'door':
         x0 = 60
         dang = 0.0
@@ -546,7 +548,7 @@ def draw_actors(name, lay, d, t, u, lt):
         tag = dog_tag(dog_x, dog_y, s_dog, dog_pose, False)
         if h:
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), tag, t)
-        K1.dog(d, dog_x, dog_y, s_dog, t, dog_pose)
+        DH.dog(d, dog_x, dog_y, s_dog, t, dog_pose)
     elif name == 'drive':
         us = cl(u)
         x0 = 60 + 620 * (us * us * us * (us * (us * 6 - 15) + 10))     # smootherstep: no accel jolt at either end
@@ -562,28 +564,28 @@ def draw_actors(name, lay, d, t, u, lt):
         drv.putalpha(Image.fromarray(np.minimum(np.asarray(drv.getchannel('A')), np.asarray(mk))))
         lay.alpha_composite(drv)
         dog_x = x0 + 300 * CS
-        K1.dog(d, dog_x, GROUND - 16, .7, t, 'sit')
+        DH.dog(d, dog_x, GROUND - 16, .7, t, 'sit')
         _snow_from(d, x0, t)
         _ac_toggle(d, u, t)
     elif name == 'bowl':
         bowl_prop(d, 760, GROUND, t)
-        K1.dog(d, 540, GROUND, .95, t, 'eat')
+        DH.dog(d, 540, GROUND, .95, t, 'eat')
         h = shade(d, lt, 985, 460, pose_idle(t), flip=True)
     elif name == 'bed':
         velvet_bed(d, t)
-        K1.dog(d, 520, 1210, 1.18, t, 'lie')
+        DH.dog(d, 520, 1210, 1.18, t, 'lie')
         _zz(d, 740, 960, t)
     elif name == 'throne':
         _rays(d, t)
         K1._throne(d)
-        K1.dog(d, 470, 1262, 1.24, t, 'sit')
+        DH.dog(d, 470, 1262, 1.24, t, 'sit')
         h = shade(d, lt, 880, 500, pose_bow(t), flip=True)
         if h:
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), dog_tag(470, 1262, 1.24, 'sit', False), t)
     elif name == 'crown':
         _rays(d, t)
         K1._throne(d)
-        K1.dog(d, 470, 1262, 1.24, t, 'sit')
+        DH.dog(d, 470, 1262, 1.24, t, 'sit')
         k = 1 - smooth(u / .4)
         h = shade(d, lt, 880, 500, pose_bow(t, k), flip=True)
         hy_top = 1262 - 330 * 1.24 - 84 * 1.24 - 46
@@ -605,7 +607,7 @@ def draw_actors(name, lay, d, t, u, lt):
         insan(d, 540, GROUND, 1.08, t, 'crouch')
     elif name == 'split':
         d.rounded_rectangle([160, 1236, 430, 1330], 40, fill=(96, 40, 92, 255), outline=INK, width=4)
-        K1.dog(d, 300, 1282, .86, t, 'sit')
+        DH.dog(d, 300, 1300, .86, t, 'lie')      # v5: lies on the velvet cushion (a standing dog on a cushion read wrong)
         insan(d, 790, GROUND, 1.02, t, 'stand')
         d.line([(540, 700), (540, 1320)], fill=(60, 56, 66, 170), width=3)
 
