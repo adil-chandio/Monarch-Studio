@@ -281,6 +281,7 @@ SFX_PAN = {'jingle': 0.0, 'step': 0.0, 'door_open': -0.45, 'door_close': -0.45, 
 
 
 SFX_LIB = '/home/user/build/sfx_lib'
+SAMPLE_WHOOSH = False          # per-moment SFX mapping needs the user's listening pass first
 
 
 def _lib(name):
@@ -300,7 +301,7 @@ def build_sfx():
         if name == 'whoosh':
             b = int(amp)
             d = K.tdur(K.PLAN[b])
-            clip = _lib('riser_click')           # v3: licensed sample (50+SFX premium pack), procedural fallback
+            clip = _lib('riser_click') if SAMPLE_WHOOSH else None   # off: blanket riser on every transition was wrong (v3b)
             if clip is not None:
                 bus.add(clip * 0.55, t, pan=(-.2 if b % 2 else .2), gain=1.0)
             else:
