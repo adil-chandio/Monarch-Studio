@@ -77,9 +77,10 @@ SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 # (3 layers per shot), cube turns, origami fold, glass shatter, chroma light flare. No 2D slides.
 # v7 gate: fold at drive->bowl (dark->bright) gave a 16.6 luma step/frame (gate < 8). depth's bloom
 # carries that pair instead; fold stays on crown->pave where the luma step is 7.2.
-PLAN = ['page', 'depth', 'cube_v', 'flare', 'depth', 'shatter', 'cube_h', 'depth', 'fold', 'cube_h', 'flare']
+PLAN = ['carousel', 'tunnel', 'deck', 'shatter', 'carousel', 'tunnel', 'deck', 'shatter', 'carousel', 'tunnel', 'flare']
 # blend lengths; half of each sits inside the neighbouring shot (window check: half-sums <= shot length)
-TDX = {'page': 1.30, 'depth': 1.20, 'cube_h': 1.00, 'cube_v': 1.10, 'fold': 0.90, 'shatter': 0.90, 'flare': 0.70,
+TDX = {'carousel': 1.00, 'tunnel': 1.00, 'deck': 1.00, 'shatter': 0.90, 'flare': 0.70,
+       'page': 1.30, 'depth': 1.20, 'cube_h': 1.00, 'cube_v': 1.10, 'fold': 0.90,
        'zoom': .62, 'sweep': .85, 'slices': .80, 'card': .75, 'ink': .70}
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
 
@@ -834,6 +835,10 @@ TRANS['fold'] = T3.fold
 TRANS['shatter'] = T3.shatter
 TRANS['flare'] = T3.flare
 TRANS['zoom'] = tr_zoom_soft
+import cards3d as C3                    # v8: real 3D card stage (perspective cards, thickness, shadows)
+TRANS['carousel'] = C3.carousel
+TRANS['tunnel'] = C3.tunnel
+TRANS['deck'] = C3.deck
 # 'depth' takes the layered shots (backdrop, actors, ui) instead of flat frames: see frame_rgb_once
 
 
@@ -876,6 +881,8 @@ def cue_list():
         mid = SHOTS[b + 1]['t0']
         if PLAN[b] == 'shatter':
             cues.append((mid, 'lib:crack_flash', 1.0))
+        elif PLAN[b] == 'tunnel':
+            cues.append((mid - tdur(PLAN[b]) / 2, 'lib:riser_click', 1.0))
         elif PLAN[b] == 'fold':
             cues.append((mid, 'lib:modern_shutter', 1.0))
         else:
