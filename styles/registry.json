@@ -12,7 +12,7 @@
       "contract": "styles/monarch-stickman-animation/workflow.json",
       "status": "PARKED",
       "knowledge_index": "styles/monarch-stickman-animation/knowledge/INDEX.md",
-      "latest_release": "TUMHARI RESERVED SEAT · WF-01",
+      "latest_release": "TUMHARI RESERVED SEAT \u00b7 WF-01",
       "latest_release_path": "styles/monarch-stickman-animation/films/tumhari-reserved-seat"
     },
     {
@@ -24,8 +24,20 @@
       "contract": "styles/monarch-noir-film/workflow.json",
       "status": "ACTIVE_WITH_DRIFT",
       "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md",
-      "latest_release": "TUMHARI RESERVED SEAT · WF-03 · unnumbered",
+      "latest_release": "TUMHARI RESERVED SEAT \u00b7 WF-03 \u00b7 unnumbered",
       "latest_release_path": "styles/monarch-noir-film/films/tumhari-reserved-seat"
+    },
+    {
+      "style_id": "monarch-face-chaos",
+      "name": "Monarch Face \u00b7 Cyber-Sovereign Chaos",
+      "workflow_code": "WF-04",
+      "trigger": "CHAOSGO <reference_or_topic>",
+      "path": "styles/monarch-face-chaos",
+      "contract": "styles/monarch-face-chaos/workflow.json",
+      "status": "ACTIVE",
+      "knowledge_index": "styles/monarch-face-chaos/knowledge/INDEX.md",
+      "latest_release": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD \u00b7 WF-04",
+      "latest_release_path": "styles/monarch-face-chaos/records/DELIVERY_RECEIPT.json"
     }
   ]
 }

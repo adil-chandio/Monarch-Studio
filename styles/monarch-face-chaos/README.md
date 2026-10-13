@@ -26,6 +26,16 @@ Every frame is driven by a deterministic Python compositing & procedural VFX eng
 - **SHA-256:** `c2f343bd6a791009996d544f0ac03152357baef3950e63a8e5c064037d7524bf`
 - **Specs:** `1080×1920`, `30.00 fps`, `636 frames` (`21.20 s`), `-13.90 LUFS`, `-1.50 dBFS` True Peak, `21/21` gates passed.
 
+## Current release · `MONARCH CHAOS VIDEO 1 v2 · SOVEREIGN OVERLOAD`
+
+- **Task ID:** `EMS-20261013-002` · **21/21 objective gates PASS**.
+- **Latest master:** [MONARCH_CHAOS_VIDEO_1_MASTER_v2.mp4](https://drive.google.com/file/d/10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M/view?usp=drivesdk) (`Chaos video 1` folder; Drive ID `10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M`; root copy `1sBFi9jFjCp8a7OpRpbA8gb7EZm0CTA_I`).
+- **Master provenance:** `23,291,460` bytes · MD5 `f5d09353fab1ae7d52fb0a906f4f5598` · SHA-256 `8811eee1147102e028952716a7d743a345de2fbaab9eac3759483c27ea07c3f4` · `1080×1920`, `30.00 fps`, `636 frames / 21.20 s`, `48 kHz stereo`, `-13.97 LUFS`, `-1.50 dBFS` peak.
+- **Creative upgrade:** 10 character plates consistently use the locked REAL face v5 + body v2 (slim charcoal blazer, open-collar black shirt, slim black trousers). Frame-by-frame 2.5D facial/head, torso, shoulder and hand motion, including pointing action 🫵; behind-subject neon projections; 24K-gold crown 👑 positioned above the `MONARCH STUDIO` finale title. The final hero-to-logo edit uses a brief gold flash rather than ghosting the face.
+- **Inspection/provenance:** [Side-by-side compare](https://drive.google.com/file/d/1uwQ14-kOpA6Lm6tYisPEztUseLZM48uz/view?usp=drivesdk) · [12-shot look sheet](https://drive.google.com/file/d/13H0WquPh_SOzlYNkrYTjlS4DjeRUINtu/view?usp=drivesdk) · [42-frame contact sheet](https://drive.google.com/file/d/1KCa_LV-R1kmkv7k2fBx0RkIUeUIYU5H2/view?usp=drivesdk) · [21/21 gate report](https://drive.google.com/file/d/16BZjoWexLNJOpOCqm2jZBcL-IkkvV8pO/view?usp=drivesdk) · [source package](https://drive.google.com/file/d/1Devm-wKU3QZ5DTXgL5pHV2Udqxl6S59f/view?usp=drivesdk). Checksums and prior releases are in `records/DELIVERY_RECEIPT.json`.
+- **Cross-platform hubs:** [Notion](https://app.notion.com/p/WF-04-Monarch-Face-3f8807e1e91681efb335eafb037ca211) · [Notion registry row](https://app.notion.com/p/WF-04-Monarch-Face-3f8807e1e91681368ceee607f8aaf092) · [Linear MON-65](https://linear.app/monarchmation/issue/MON-65/00-resume-key-chaosgo-wf-04-monarch-face-state-and-links) · [Google Doc HUB](https://docs.google.com/document/d/1Vx2t3z5Kx_gUMd2nkPjdqa3kc-BGDe8sj2Cua4pvxEY/edit).
+- **Prior link safety:** Both previously issued v2 revisions remain live as `_v2_pre_motion_boost` and `_v2_pre_flash_fix` files; all earlier Drive URLs still resolve. The unsuffixed `_v2` video is the final clean-shutter cut. Historical v1 remains untouched.
+
 ## Implementation Map
 
 | Path | Purpose |

@@ -246,11 +246,11 @@ def render_resume(data: dict[str, Any], checkpoint_path: str | None = None) -> s
     criteria = "\n".join(f"- [ ] {item}" for item in data.get("acceptance_criteria", [])) or "- None recorded."
     return f"""# Resume capsule — {data['task_id']}
 
-**Status:** `{data['status']}`  
-**Title:** {data['title']}  
-**Style:** `{data.get('style_id') or 'studio-operation'}`  
-**Checkpoint sequence:** {data.get('checkpoint_sequence', 0)}  
-**Last checkpoint:** {data.get('last_checkpoint') or 'none'}
+- **Status:** `{data['status']}`
+- **Title:** {data['title']}
+- **Style:** `{data.get('style_id') or 'studio-operation'}`
+- **Checkpoint sequence:** {data.get('checkpoint_sequence', 0)}
+- **Last checkpoint:** {data.get('last_checkpoint') or 'none'}
 
 ## Goal
 
@@ -593,7 +593,10 @@ def command_sync_mark(args: argparse.Namespace) -> int:
         atomic_json(path, data)
         current = state()
         if current.get("task_id") == args.task_id:
+            current.setdefault("remote_sync", {})[args.platform] = args.status
+            write_state(current)
             append_event("sync", "continuity", f"{args.platform} checkpoint {args.checkpoint}: {args.status}", {"remote_id": args.remote_id, "url": args.url, "note": args.note})
+            write_resume_files(state())
         print(f"marked {args.platform}={args.status}")
     return 0
 

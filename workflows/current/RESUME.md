@@ -1,22 +1,22 @@
 # Resume capsule — EMS-20261013-002
 
-**Status:** `completed`  
-**Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale)  
-**Style:** `monarch-face-chaos`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-13T13:01:14Z
+- **Status:** `active`
+- **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)
+- **Style:** `monarch-face-chaos`
+- **Checkpoint sequence:** 0
+- **Last checkpoint:** none
 
 ## Goal
 
-Upgrade Chaos Video 1 to v2: fix character face, body proportions, and signature wardrobe (fitted black shirt + charcoal blazer / canonical look from REAL face v5 & REAL body v2), add dynamic body/head/hand movement across shots, elevate VFX to next-level tabahi, and place a bold golden Crown (👑) directly above MONARCH STUDIO in the finale.
+Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.
 
 ## Acceptance criteria
 
-- [ ] 100% locked face/body/wardrobe consistency across all shots, organic dynamic body & head movement, next-level VFX enhancements, iconic Crown (👑) above MONARCH STUDIO in finale, 21/21 gates passed, uploaded to Google Drive.
+- [ ] 21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs.
 
 ## Exact next action
 
-Await user review or next workflow trigger
+Enhance body motion amplitude & golden flash transition, render & gate-verify, upload to Drive, and sync Notion/Linear/Docs/GitHub
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T130114Z`
+- Latest checkpoint package: `none`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

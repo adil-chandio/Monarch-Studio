@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `EMS-20261013-002`
-- **Status:** `completed`
-- **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale)
-- **Next action:** Await user review or next workflow trigger
+- **Status:** `active`
+- **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)
+- **Next action:** Enhance body motion amplitude & golden flash transition, render & gate-verify, upload to Drive, and sync Notion/Linear/Docs/GitHub
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

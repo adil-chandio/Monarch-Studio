@@ -29,12 +29,35 @@ class StudioCliTests(unittest.TestCase):
             self.fail(f"CLI failed ({proc.returncode}): {' '.join(args)}\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}")
         return proc
 
-    def test_registry_lists_exact_initial_workflows(self) -> None:
+    def test_registry_lists_current_workflows(self) -> None:
         proc = self.run_cli("list", "--json")
         data = json.loads(proc.stdout)
-        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03"])
+        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03", "WF-04"])
         self.assertEqual(data["workflows"][0]["trigger"], "SHADEGO <topic>")
         self.assertEqual(data["workflows"][1]["state"], "ACTIVE_WITH_DRIFT")
+        self.assertEqual(data["workflows"][2]["trigger"], "CHAOSGO <reference_or_topic>")
+
+    def test_wf04_receipt_matches_registry_and_quality_gates(self) -> None:
+        registry = json.loads((ROOT / "studio" / "registry.json").read_text())
+        wf04 = next(item for item in registry["workflows"] if item["code"] == "WF-04")
+        style = ROOT / wf04["path"]
+        receipt = json.loads((style / "records" / "DELIVERY_RECEIPT.json").read_text())
+        gates = json.loads((style / "records" / "GATE_REPORT.json").read_text())
+        workflow = json.loads((style / "workflow.json").read_text())
+        master = receipt["master_delivery"]
+
+        self.assertEqual(gates["gates_passed"], "21/21")
+        self.assertEqual(len(gates["gates"]), 21)
+        self.assertTrue(all(gate["passed"] for gate in gates["gates"]))
+        self.assertEqual(master["md5"], gates["master_md5"])
+        self.assertEqual(master["size_bytes"], gates["master_size_bytes"])
+        self.assertEqual(master["md5"], wf04["current_delivery"]["md5"])
+        self.assertEqual(master["drive_id_chaos_folder"], wf04["current_delivery"]["drive_id"])
+        self.assertEqual(master["md5"], workflow["deliveries"][-1]["md5"])
+        self.assertEqual(
+            [item["version"] for item in receipt["superseded_v2_deliveries"]],
+            ["v2_pre_motion_boost", "v2_pre_flash_fix"],
+        )
 
     def test_registered_required_paths_exist(self) -> None:
         registry = json.loads((ROOT / "studio" / "registry.json").read_text())

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "style_id": "monarch-face-chaos",
-  "name": "Monarch Face · Cyber-Sovereign Chaos",
+  "name": "Monarch Face \u00b7 Cyber-Sovereign Chaos",
   "workflow_code": "WF-04",
   "path": "styles/monarch-face-chaos",
   "lifecycle": "permanent",
@@ -15,8 +15,8 @@
   "primary_gates": [
     "src/gate_chaos_video1.py"
   ],
-  "current_fully_sourced_release": "MONARCH CHAOS VIDEO 1 · SOVEREIGN OVERLOAD · WF-04",
+  "current_fully_sourced_release": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD \u00b7 WF-04",
   "reproducibility": "R1",
   "current_release_path": "records/DELIVERY_RECEIPT.json",
-  "current_release_task": "EMS-20261013-001"
+  "current_release_task": "EMS-20261013-002"
 }

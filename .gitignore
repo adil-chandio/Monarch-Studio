@@ -56,3 +56,6 @@ Thumbs.db
 *_FINAL.mp4
 *_master.mp4
 master_*.mp4
+# The active payload keeps small source/QA records in Git, never its render outputs.
+workflows/current/payload/*.mp4
+workflows/current/payload/master_audio_*.wav

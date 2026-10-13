@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
   "task_id": "EMS-20261013-002",
-  "status": "completed",
-  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale)",
+  "status": "active",
+  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)",
   "style_id": "monarch-face-chaos",
-  "goal": "Upgrade Chaos Video 1 to v2: fix character face, body proportions, and signature wardrobe (fitted black shirt + charcoal blazer / canonical look from REAL face v5 & REAL body v2), add dynamic body/head/hand movement across shots, elevate VFX to next-level tabahi, and place a bold golden Crown (👑) directly above MONARCH STUDIO in the finale.",
+  "goal": "Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.",
   "acceptance_criteria": [
-    "100% locked face/body/wardrobe consistency across all shots, organic dynamic body & head movement, next-level VFX enhancements, iconic Crown (👑) above MONARCH STUDIO in finale, 21/21 gates passed, uploaded to Google Drive."
+    "21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs."
   ],
-  "started_at": "2026-10-13T12:42:05Z",
-  "updated_at": "2026-10-13T13:01:14Z",
-  "checkpoint_sequence": 1,
-  "event_sequence": 5,
-  "journal_head": "1bb85cec81b8f378b3db4763eaa0c10d2d9db2c667f3904ecc824324ce89dd9d",
-  "last_checkpoint": "2026-10-13T13:01:14Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T130114Z",
-  "next_action": "Await user review or next workflow trigger",
+  "started_at": "2026-10-13T13:05:15Z",
+  "updated_at": "2026-10-13T13:28:21Z",
+  "checkpoint_sequence": 0,
+  "event_sequence": 3,
+  "journal_head": "e5fdd42a85ae7eae1184cf3f15419787e4fabcf0831c4703235e6bb82fab353f",
+  "last_checkpoint": null,
+  "last_checkpoint_path": null,
+  "next_action": "Enhance body motion amplitude & golden flash transition, render & gate-verify, upload to Drive, and sync Notion/Linear/Docs/GitHub",
   "running_processes": [],
   "remote_sync": {
     "github": "pending",

@@ -2,12 +2,12 @@
   "workflow": "WF-04",
   "title": "Monarch Face \u00b7 Chaos Video 1 (Neural Throne / Cyber-Monarch Awakening)",
   "master_file": "MONARCH_CHAOS_VIDEO_1_MASTER.mp4",
-  "master_md5": "f007389f8390aa6ddb6400e071d56e9a",
-  "master_size_bytes": 23590737,
+  "master_md5": "f5d09353fab1ae7d52fb0a906f4f5598",
+  "master_size_bytes": 23291460,
   "compare_file": "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE.mp4",
-  "compare_md5": "9b3d8ff3a98ec86b54d093bc7108db9b",
-  "look_sheet_md5": "c9adcb86b6a00348182f3104516b3aaa",
-  "contact_sheet_md5": "d00500d7d10bfe370d18eb014db83f81",
+  "compare_md5": "7805ce4104521602dc5a18f222925bc7",
+  "look_sheet_md5": "b8891a61cd1f22e68e66f2fae45998c6",
+  "contact_sheet_md5": "4b8a80b4ab47244843838188d1ebe966",
   "resolution": "1080x1920",
   "fps": 30.0,
   "frames": 636,
@@ -19,14 +19,14 @@
     "true_peak_dbfs": -1.5,
     "stereo_correlation": 0.9564
   },
-  "transitions_detected": 112,
+  "transitions_detected": 118,
   "gates_passed": "21/21",
   "gates": [
     {
       "id": "G01",
       "description": "Master MP4 exists and is non-empty",
       "passed": true,
-      "measured": "23,590,737 B"
+      "measured": "23,291,460 B"
     },
     {
       "id": "G02",
@@ -74,43 +74,43 @@
       "id": "G09",
       "description": "Act I Wide Hall dolly & neon green/X strobe verified (0.0s..3.57s)",
       "passed": true,
-      "measured": "max=60.8, blackout=3.8"
+      "measured": "max=60.7, blackout=3.8"
     },
     {
       "id": "G10",
       "description": "Tension Blackout Neural Sync HUD pause verified (3.60s..4.77s)",
       "passed": true,
-      "measured": "mean_luma=1.92"
+      "measured": "mean_luma=1.89"
     },
     {
       "id": "G11",
       "description": "Act II 4.80s Drop & Crimson/Visor Strobe verified",
       "passed": true,
-      "measured": "F151_R=82.4, F154_L=9.3"
+      "measured": "F151_R=82.5, F154_L=9.1"
     },
     {
       "id": "G12",
       "description": "Behind-subject graphic projections (\u00d8, X, Arc, Sunburst) active",
       "passed": true,
-      "measured": "F161_R=63.8, F209_R=28.8, F264_R=61.5"
+      "measured": "F161_R=63.9, F209_R=28.6, F264_R=61.6"
     },
     {
       "id": "G13",
       "description": "Act III 3/4 Close-Up & Locked v9 Side-Profile cuts verified (9.43s..10.70s)",
       "passed": true,
-      "measured": "F286_L=45.3, F303_L=45.8"
+      "measured": "F286_L=45.4, F303_L=45.8"
     },
     {
       "id": "G14",
       "description": "Act III 4-Frame Rapid Strobe Accelerator verified (10.87s..12.27s)",
       "passed": true,
-      "measured": "F340_L=61.2 vs F344_L=19.9"
+      "measured": "F340_L=61.3 vs F344_L=19.9"
     },
     {
       "id": "G15",
       "description": "Act IV Electric Cyan/Blue Awakening vs Fiery Amber Silhouette verified",
       "passed": true,
-      "measured": "F372_B=110.9, F378_R=76.6"
+      "measured": "F372_B=111.1, F378_R=76.6"
     },
     {
       "id": "G16",
@@ -128,7 +128,7 @@
       "id": "G18",
       "description": "High-cadence strobe/cut count (>= 45 frame-locked transitions)",
       "passed": true,
-      "measured": "112 transitions"
+      "measured": "118 transitions"
     },
     {
       "id": "G19",
@@ -146,7 +146,7 @@
       "id": "G21",
       "description": "Deterministic MD5 checksums recorded",
       "passed": true,
-      "measured": "f007389f8390aa6ddb6400e071d56e9a"
+      "measured": "f5d09353fab1ae7d52fb0a906f4f5598"
     }
   ]
 }

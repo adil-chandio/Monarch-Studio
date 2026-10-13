@@ -3,15 +3,15 @@
   "task_id": "EMS-20261013-002",
   "workflow_code": "WF-04",
   "style_id": "monarch-face-chaos",
-  "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD (CANONICAL BOSS WARDROBE + 2.5D BODY MOTION + CROWN \ud83d\udc51 FINALE)",
-  "delivered_at": "2026-10-13T12:55:00+05:00",
+  "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD (CANONICAL WARDROBE + BOOSTED 2.5D MOTION + CROWN \ud83d\udc51 FINALE)",
+  "delivered_at": "2026-10-13T13:22:54Z",
   "master_delivery": {
     "name": "MONARCH_CHAOS_VIDEO_1_MASTER_v2.mp4",
-    "drive_id_chaos_folder": "1D5O7_GL2oX4XDS5PouWIQ8Q1Fp-dBVJ6",
-    "drive_id_wf04_root": "1zt5g20jPcr4DBYDbJ0iKnFeLVAaiaYW2",
-    "md5": "f007389f8390aa6ddb6400e071d56e9a",
-    "sha256": "1cfe6076bf40655c713988174d88f388d356cb683f648e0c51a17f0813659f18",
-    "size_bytes": 23590737,
+    "drive_id_chaos_folder": "10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M",
+    "drive_id_wf04_root": "1sBFi9jFjCp8a7OpRpbA8gb7EZm0CTA_I",
+    "md5": "f5d09353fab1ae7d52fb0a906f4f5598",
+    "sha256": "8811eee1147102e028952716a7d743a345de2fbaab9eac3759483c27ea07c3f4",
+    "size_bytes": 23291460,
     "width": 1080,
     "height": 1920,
     "fps": 30.0,
@@ -26,37 +26,158 @@
   "companion_deliverables": [
     {
       "name": "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE_v2.mp4",
-      "drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
-      "md5": "9b3d8ff3a98ec86b54d093bc7108db9b",
-      "size_bytes": 13120801
+      "drive_id": "1uwQ14-kOpA6Lm6tYisPEztUseLZM48uz",
+      "md5": "7805ce4104521602dc5a18f222925bc7",
+      "size_bytes": 9042026
     },
     {
       "name": "MONARCH_CHAOS_VIDEO_1_LOOK_SHEET_v2.jpg",
-      "drive_id": "1WpTECNfOukKq6Id6ZdaTY0tkdfCRV_U3",
-      "md5": "c9adcb86b6a00348182f3104516b3aaa",
-      "size_bytes": 757913
+      "drive_id": "13H0WquPh_SOzlYNkrYTjlS4DjeRUINtu",
+      "md5": "b8891a61cd1f22e68e66f2fae45998c6",
+      "size_bytes": 754674
     },
     {
       "name": "MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET_v2.jpg",
-      "drive_id": "1NWV0b41_eR-AoiBugKQLrxVziIPiyh1k",
-      "md5": "d00500d7d10bfe370d18eb014db83f81",
-      "size_bytes": 1208945
+      "drive_id": "1KCa_LV-R1kmkv7k2fBx0RkIUeUIYU5H2",
+      "md5": "4b8a80b4ab47244843838188d1ebe966",
+      "size_bytes": 1192152
     },
     {
       "name": "DELIVERY_GATES_v2.md",
-      "drive_id": "1jPG4E7PHWrmMyMKi8GRK0S9Sx8_960L3",
-      "md5": "57ecfaf4d3d9801d32f3994fa6eb0d27",
+      "drive_id": "16BZjoWexLNJOpOCqm2jZBcL-IkkvV8pO",
+      "md5": "c81831ac18aac4dbbbf7236b73fbdb27",
       "size_bytes": 2725
     },
     {
       "name": "MONARCH_CHAOS_VIDEO_1_SOURCE_PACKAGE_v2.zip",
-      "drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
-      "md5": "2546309f5db565254c295d88245ed27b",
-      "size_bytes": 23083663
+      "drive_id": "1Devm-wKU3QZ5DTXgL5pHV2Udqxl6S59f",
+      "md5": "5e8a7f1573bdca475bc29e0e36709039",
+      "size_bytes": 26446986
     }
   ],
   "v1_history_preserved": {
     "master_drive_id": "1CWt3Yr0mLDLV4rFcmvtCbdGv-hXTtO8W",
     "master_md5": "26d6f611effb4074993b163951521448"
-  }
+  },
+  "cross_platform": {
+    "notion_hub_page_id": "3f8807e1-e916-81ef-b335-eafb037ca211",
+    "notion_registry_row_id": "3f8807e1-e916-8136-8cee-e607f8aaf092",
+    "linear_project_id": "91320e77-d1f7-4f74-a5f0-0131252fd192",
+    "linear_resume_issue": "MON-65",
+    "google_doc_hub_id": "1Vx2t3z5Kx_gUMd2nkPjdqa3kc-BGDe8sj2Cua4pvxEY",
+    "drive_folder_id": "1EM8Q5IfeCCqQyBB-E12jJbAblM9n0oNg",
+    "chaos_video_1_folder_id": "139hCS5jBGtly-JmCC-Nz0ZA0JWbscDHy"
+  },
+  "superseded_v2_deliveries": [
+    {
+      "version": "v2_pre_motion_boost",
+      "delivered_at": "2026-10-13T12:55:00+05:00",
+      "master_delivery": {
+        "name": "MONARCH_CHAOS_VIDEO_1_MASTER_v2_pre_motion_boost.mp4",
+        "drive_id_chaos_folder": "1J__saUpfwEAKh7zyGnSPMeqx25zxIerf",
+        "drive_id_wf04_root": "1aV_5ID0HNER5nuCnvcS0phrekipizQQY",
+        "md5": "14b87d417f52ee51fb1c896d59595a74",
+        "sha256": "6f0a7edb61a3133ad0288b71ab8cb19eab82e8ab8892ffa380632a93185b475e",
+        "size_bytes": 23457476,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "frames": 636,
+        "duration_seconds": 21.2,
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 2,
+        "integrated_lufs": -13.97,
+        "true_peak_dbfs": -1.5,
+        "gates": "21/21"
+      },
+      "companion_deliverables": [
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE_v2_pre_motion_boost.mp4",
+          "drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
+          "md5": "9b3d8ff3a98ec86b54d093bc7108db9b",
+          "size_bytes": 13120801
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_LOOK_SHEET_v2_pre_motion_boost.jpg",
+          "drive_id": "1WpTECNfOukKq6Id6ZdaTY0tkdfCRV_U3",
+          "md5": "c9adcb86b6a00348182f3104516b3aaa",
+          "size_bytes": 757913
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET_v2_pre_motion_boost.jpg",
+          "drive_id": "1NWV0b41_eR-AoiBugKQLrxVziIPiyh1k",
+          "md5": "d00500d7d10bfe370d18eb014db83f81",
+          "size_bytes": 1208945
+        },
+        {
+          "name": "DELIVERY_GATES_v2_pre_motion_boost.md",
+          "drive_id": "1jPG4E7PHWrmMyMKi8GRK0S9Sx8_960L3",
+          "md5": "57ecfaf4d3d9801d32f3994fa6eb0d27",
+          "size_bytes": 2725
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_SOURCE_PACKAGE_v2_pre_motion_boost.zip",
+          "drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
+          "md5": "2546309f5db565254c295d88245ed27b",
+          "size_bytes": 23083663
+        }
+      ],
+      "note": "Previous v2 Google Drive links remain valid; files renamed _v2_pre_motion_boost for an unambiguous latest v2."
+    },
+    {
+      "version": "v2_pre_flash_fix",
+      "delivered_at": "2026-10-13T13:17:02Z",
+      "master_delivery": {
+        "name": "MONARCH_CHAOS_VIDEO_1_MASTER_v2_pre_flash_fix.mp4",
+        "drive_id_chaos_folder": "1J__saUpfwEAKh7zyGnSPMeqx25zxIerf",
+        "drive_id_wf04_root": "1aV_5ID0HNER5nuCnvcS0phrekipizQQY",
+        "md5": "14b87d417f52ee51fb1c896d59595a74",
+        "sha256": "6f0a7edb61a3133ad0288b71ab8cb19eab82e8ab8892ffa380632a93185b475e",
+        "size_bytes": 23457476,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "frames": 636,
+        "duration_seconds": 21.2,
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 2,
+        "integrated_lufs": -13.97,
+        "true_peak_dbfs": -1.5,
+        "gates": "21/21"
+      },
+      "companion_deliverables": [
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE_v2_pre_flash_fix.mp4",
+          "drive_id": "1nyeFxDVmfaskTeZobeqQfk3OhA2x9J8r",
+          "md5": "2df22db8c79bc2eea239352218e76ce4",
+          "size_bytes": 9090398
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_LOOK_SHEET_v2.jpg",
+          "drive_id": "13H0WquPh_SOzlYNkrYTjlS4DjeRUINtu",
+          "md5": "b8891a61cd1f22e68e66f2fae45998c6",
+          "size_bytes": 754674
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET_v2.jpg",
+          "drive_id": "1KCa_LV-R1kmkv7k2fBx0RkIUeUIYU5H2",
+          "md5": "4b8a80b4ab47244843838188d1ebe966",
+          "size_bytes": 1192152
+        },
+        {
+          "name": "DELIVERY_GATES_v2_pre_flash_fix.md",
+          "drive_id": "19NncViPdMZ9WoGAXXLSLcph4FR6G2rOq",
+          "md5": "96ea71655beb755003234bded9ab8401",
+          "size_bytes": 2725
+        },
+        {
+          "name": "MONARCH_CHAOS_VIDEO_1_SOURCE_PACKAGE_v2_pre_flash_fix.zip",
+          "drive_id": "10qwgdClCEUpCa5j3bBz2CuZbb9G5AzIk",
+          "md5": "74df752818cc3fc7036e26c8c1053ea3",
+          "size_bytes": 26446872
+        }
+      ],
+      "note": "Motion-boost edit with 4-frame face/logo overlap; kept live for previously issued links. Superseded by clean gold-shutter cut."
+    }
+  ]
 }

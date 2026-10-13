@@ -358,77 +358,77 @@ def main() -> None:
         kick = beat_kick + 0.35 * max(0.0, beat_wave) ** 2
 
         if mode == "wide":
-            # Subtle seated breathing & head lift in the wide throne shot
-            dx = chest_expand_x * (3.5 * breath + 4.0 * kick)
-            dy = W_chest * (4.0 * breath + 5.0 * kick) + W_head * (3.5 * act_slow)
+            # Pronounced seated breathing & head lift in the wide throne shot
+            dx = chest_expand_x * (6.5 * breath + 7.5 * kick)
+            dy = W_chest * (7.0 * breath + 8.5 * kick) + W_head * (6.0 * act_slow)
         elif mode == "point_action":
             # Dynamic pointing hand 🫵 thrusting toward lens + assertive head nod & shoulder lean!
-            thrust = 0.10 + 0.08 * math.sin(t * math.pi * 6.0) + 0.06 * kick
+            thrust = 0.14 + 0.10 * math.sin(t * math.pi * 6.0) + 0.08 * kick
             dx = (
                 -point_radial_x * thrust
-                + W_head * (10.0 * act_slow)
-                + W_face_3d * (6.5 * act_slow)
-                + chest_expand_x * (9.0 * breath + 11.0 * kick)
-                + W_upper_body * (8.0 * math.sin(t * 2.8))
+                + W_head * (16.0 * act_slow)
+                + W_face_3d * (10.5 * act_slow)
+                + chest_expand_x * (14.0 * breath + 16.0 * kick)
+                + W_upper_body * (13.0 * math.sin(t * 2.8))
             )
             dy = (
                 -point_radial_y * thrust
-                + W_point_hand * (10.0 * math.cos(t * math.pi * 6.0))
-                + W_head * (-8.0 * abs(act_slow) + 7.0 * beat_wave)
-                + W_chest * (8.0 * breath + 10.0 * kick)
+                + W_point_hand * (15.0 * math.cos(t * math.pi * 6.0))
+                + W_head * (-13.0 * abs(act_slow) + 10.0 * beat_wave)
+                + W_chest * (13.0 * breath + 15.0 * kick)
             )
         elif mode == "closeup_34":
             # Expressive 3/4 head turn (3D yaw) + chin raise + shoulder breathing + hair ripple
-            yaw = 14.0 * math.sin(t * 3.2)
-            pitch = -10.0 * math.cos(t * 2.6)
-            hair_wave = 4.5 * np.sin(yy * 0.045 - t * 14.0) * W_hair_rim
-            dx = W_head * yaw + W_face_3d * (yaw * 0.55) + chest_expand_x * (10.0 * breath + 10.0 * kick) + hair_wave
-            dy = W_head * pitch + W_chest * (9.0 * breath + 12.0 * kick)
+            yaw = 20.0 * math.sin(t * 3.2)
+            pitch = -14.0 * math.cos(t * 2.6)
+            hair_wave = 6.5 * np.sin(yy * 0.045 - t * 14.0) * W_hair_rim
+            dx = W_head * yaw + W_face_3d * (yaw * 0.60) + chest_expand_x * (15.0 * breath + 15.0 * kick) + hair_wave
+            dy = W_head * pitch + W_chest * (13.0 * breath + 16.0 * kick)
         elif mode == "profile_v9":
             # Side profile forward lean + chin tilt + jawline/neck pulse + hair wind
-            lean = 12.0 * math.sin(t * 3.0)
-            nod = -9.0 * math.cos(t * 3.4)
-            hair_wave = 5.0 * np.sin(yy * 0.04 - t * 15.0) * W_hair_rim
-            dx = W_upper_body * lean + W_head * (lean * 0.6) + hair_wave
-            dy = W_head * nod + W_chest * (8.5 * breath + 10.0 * kick)
+            lean = 18.0 * math.sin(t * 3.0)
+            nod = -14.0 * math.cos(t * 3.4)
+            hair_wave = 7.0 * np.sin(yy * 0.04 - t * 15.0) * W_hair_rim
+            dx = W_upper_body * lean + W_head * (lean * 0.65) + hair_wave
+            dy = W_head * nod + W_chest * (13.0 * breath + 15.0 * kick)
         elif mode == "sovereign_arms":
             # Arms-crossed boss stance expansion + confident head tilt + floating crown energy
-            roll_rad = math.radians(1.8 * math.sin(t * 2.7))
+            roll_rad = math.radians(2.8 * math.sin(t * 2.7))
             rot_dx = -(yy - 520.0) * math.sin(roll_rad) * W_head
             rot_dy = (xx - 540.0) * math.sin(roll_rad) * W_head
             dx = (
                 rot_dx
-                + W_face_3d * (8.0 * act_slow)
-                + chest_expand_x * (12.0 * breath + 14.0 * kick)
-                + W_upper_body * (9.0 * math.sin(t * 2.2))
+                + W_face_3d * (12.0 * act_slow)
+                + chest_expand_x * (18.0 * breath + 20.0 * kick)
+                + W_upper_body * (14.0 * math.sin(t * 2.2))
             )
             dy = (
                 rot_dy
-                + W_head * (-9.0 * abs(breath) + 5.0 * beat_wave)
-                + W_chest * (11.0 * breath + 13.0 * kick)
+                + W_head * (-13.0 * abs(breath) + 8.0 * beat_wave)
+                + W_chest * (16.0 * breath + 18.0 * kick)
             )
         else:
             # Default "seated": 3D head turn/tilt + torso lean/sway + shoulder heave + clasped hands flex
-            roll_rad = math.radians(2.1 * math.sin(t * 2.4 + 0.3))
+            roll_rad = math.radians(3.0 * math.sin(t * 2.4 + 0.3))
             rot_dx = -(yy - 500.0) * math.sin(roll_rad) * W_head
             rot_dy = (xx - 540.0) * math.sin(roll_rad) * W_head
-            yaw = 11.0 * act_slow
-            pitch = -9.5 * math.sin(t * 2.1) + 6.0 * kick
-            hair_wave = 3.8 * np.sin(yy * 0.05 - t * 12.0) * W_hair_rim
+            yaw = 16.5 * act_slow
+            pitch = -13.5 * math.sin(t * 2.1) + 9.0 * kick
+            hair_wave = 5.5 * np.sin(yy * 0.05 - t * 12.0) * W_hair_rim
             dx = (
                 rot_dx
                 + W_head * yaw
-                + W_face_3d * (yaw * 0.5)
-                + W_upper_body * (10.5 * math.sin(t * 1.9))
-                + chest_expand_x * (9.5 * breath + 12.0 * kick)
-                + ((xx - 540.0) / 220.0) * W_hands_seated * (8.0 * beat_wave)
+                + W_face_3d * (yaw * 0.55)
+                + W_upper_body * (15.5 * math.sin(t * 1.9))
+                + chest_expand_x * (14.5 * breath + 17.0 * kick)
+                + ((xx - 540.0) / 220.0) * W_hands_seated * (12.0 * beat_wave)
                 + hair_wave
             )
             dy = (
                 rot_dy
                 + W_head * pitch
-                + W_chest * (8.5 * breath + 11.0 * kick)
-                + W_hands_seated * (-7.5 * abs(beat_wave) - 6.0 * kick)
+                + W_chest * (13.0 * breath + 16.0 * kick)
+                + W_hands_seated * (-11.0 * abs(beat_wave) - 9.0 * kick)
             )
 
         # Notice: in remap, output(y, x) samples input(y - dy, x - dx)
@@ -519,6 +519,10 @@ def main() -> None:
     cv2.ellipse(visor_boost, (538, 432), (88, 36), 0, 0, 360, 1.0, -1)
     visor_boost = cv2.GaussianBlur(visor_boost, (31, 31), 10.0)[:, :, None]
     fg_dark = np.clip(fg_dark + med_rs * visor_boost * 0.95, 0, 255)
+    # Smoothly vignette below y=1300 so the throne pedestal base does not distract in blackout
+    lower_vig = np.ones((H, W, 1), dtype=np.float32)
+    lower_vig[1300:, :, 0] = np.linspace(1.0, 0.08, H - 1300, dtype=np.float32)[:, None]
+    fg_dark = fg_dark * lower_vig
     locked_dv = np.clip(fg_dark * (1.0 - bg3) + dark_bg * bg3, 0, 255)
 
     np.random.seed(42)
@@ -886,12 +890,24 @@ def main() -> None:
                     frame = zoom_pan(moved, zoom=1.02 + 0.09 * p)
             else:
                 p = (fno - 559) / float(TOTAL_FRAMES - 559)
-                emb = build_emblem_frame(alpha_glow=max(0.38, 1.0 - 0.50 * (p ** 1.6)), crown_boost=1.0, fno=fno)
-                if p < 0.25:
-                    alpha = p / 0.25
-                    moved_sov = articulate_body(sovereign, fno, mode="sovereign_arms", beat_kick=0.8)
-                    hero_z = zoom_pan(moved_sov, zoom=1.11 + 0.03 * alpha)
-                    frame = hero_z * (1.0 - alpha) + emb * alpha
+                emb = build_emblem_frame(alpha_glow=max(0.42, 1.0 - 0.45 * (p ** 1.6)), crown_boost=1.0, fno=fno)
+                if fno <= 562:
+                    # Never blend the Crown/sigil/title *over the actor's face*.
+                    # Two hero-only frames, one full-frame molten-gold shutter, then
+                    # an emblem-only afterglow make a clean 4-frame lightning cut.
+                    gold_flash = np.empty_like(emb)
+                    gold_flash[:, :, 0] = 255.0
+                    gold_flash[:, :, 1] = 205.0
+                    gold_flash[:, :, 2] = 75.0
+                    if fno <= 560:
+                        moved_sov = articulate_body(sovereign, fno, mode="sovereign_arms", beat_kick=1.0)
+                        hero_z = zoom_pan(moved_sov, zoom=1.12 + 0.05 * (fno - 559))
+                        flare = 0.08 if fno == 559 else 0.36
+                        frame = hero_z * (1.0 - flare) + gold_flash * flare
+                    elif fno == 561:
+                        frame = np.clip(gold_flash * 0.93 + emb * 0.10, 0, 255)
+                    else:
+                        frame = np.clip(emb * 0.86 + gold_flash * 0.14, 0, 255)
                 else:
                     frame = emb
 

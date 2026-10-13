@@ -11,7 +11,12 @@
    - Subject rim lighting and edge spill dynamically wrap the screen color around the subject's hair, glasses, and shoulders.
 
 3. **Spatial Audio Engineering (`src/audio_engine.py`)**:
-   - Synthesizes a 48 kHz stereo master (`-13.90 LUFS`, `-1.50 dBFS` True Peak) combining the forensic reference timeline with 32–55 Hz sub-bass drops, metallic cable-whip transients, high-voltage neural arcs, and anamorphic flare risers.
+   - Synthesizes a 48 kHz stereo master (current v2 gate reading: `-13.97 LUFS`, `-1.50 dBFS` peak) combining the forensic reference timeline with 32–55 Hz sub-bass drops, metallic cable-whip transients, high-voltage neural arcs, and anamorphic flare risers.
+
+4. **Canonical wardrobe and kinetic v2 finishing (`src/build_chaos_video1.py`)**:
+   - The 10 lossless plates reference locked real face v5 + body v2 (charcoal blazer, open-collar matte-black shirt, slim black trousers; front / 3/4 / v9 profile / pointing / regal finale).
+   - Deterministic OpenCV remap fields articulate head tilt/turn, chest breathing, shoulders, hands and pointing gesture without re-generating the character for each frame. Final gold-flash cut eliminates the previous long dissolve's double-face ghosting.
+   - Crown emblem is drawn *above* the MONARCH STUDIO title; source and previous v2 shared links are preserved in `records/DELIVERY_RECEIPT.json`.
 
 ## File Catalogue
 

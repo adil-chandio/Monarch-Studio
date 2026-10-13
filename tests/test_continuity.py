@@ -63,6 +63,25 @@ class ContinuityTests(unittest.TestCase):
         self.assertNotEqual(proc.returncode, 0)
         self.assertIn("INVALID", proc.stdout)
 
+    def test_sync_mark_updates_active_state_and_outbox(self) -> None:
+        self.call("init", "--task-id", "TEST-003", "--title", "Sync test", "--goal", "Keep state aligned")
+        self.call("checkpoint", "--summary", "Created test checkpoint.", "--next-action", "Sync Notion.")
+        current = self.root / "workflows" / "current" / "ACTIVE_TASK.json"
+        checkpoint_id = Path(json.loads(current.read_text())["last_checkpoint_path"]).name
+        self.call(
+            "sync-mark", "--task-id", "TEST-003", "--checkpoint", checkpoint_id,
+            "--platform", "notion", "--status", "synced", "--remote-id", "test-page",
+            "--url", "https://example.invalid/test-page", "--note", "Integration test",
+        )
+        state = json.loads(current.read_text())
+        self.assertEqual(state["remote_sync"]["notion"], "synced")
+        outbox = json.loads(
+            (self.root / "operations" / "continuity" / "outbox" / "TEST-003" / checkpoint_id / "SYNC.json").read_text()
+        )
+        self.assertEqual(outbox["targets"]["notion"]["remote_id"], "test-page")
+        self.assertEqual(outbox["targets"]["notion"]["status"], "synced")
+        self.assertTrue(json.loads(self.call("status", "--json").stdout)["journal_valid"])
+
 
 if __name__ == "__main__":
     unittest.main()

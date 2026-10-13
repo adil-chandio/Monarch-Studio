@@ -93,14 +93,14 @@
       "reconciliation": "aligned",
       "reproducibility": "R1",
       "current_delivery": {
-        "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD \u00b7 WF-04",
+        "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD (final gold-shutter cut) \u00b7 WF-04",
         "task_id": "EMS-20261013-002",
-        "drive_id": "1D5O7_GL2oX4XDS5PouWIQ8Q1Fp-dBVJ6",
-        "root_drive_id": "1zt5g20jPcr4DBYDbJ0iKnFeLVAaiaYW2",
-        "compare_drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
-        "source_drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
-        "md5": "f007389f8390aa6ddb6400e071d56e9a",
-        "sha256": "1cfe6076bf40655c713988174d88f388d356cb683f648e0c51a17f0813659f18",
+        "drive_id": "10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M",
+        "root_drive_id": "1sBFi9jFjCp8a7OpRpbA8gb7EZm0CTA_I",
+        "compare_drive_id": "1uwQ14-kOpA6Lm6tYisPEztUseLZM48uz",
+        "source_drive_id": "1Devm-wKU3QZ5DTXgL5pHV2Udqxl6S59f",
+        "md5": "f5d09353fab1ae7d52fb0a906f4f5598",
+        "sha256": "8811eee1147102e028952716a7d743a345de2fbaab9eac3759483c27ea07c3f4",
         "duration_seconds": 21.2,
         "width": 1080,
         "height": 1920,
@@ -111,7 +111,12 @@
       "authorities": {
         "drive_folder_id": "1EM8Q5IfeCCqQyBB-E12jJbAblM9n0oNg",
         "chaos_video_1_folder_id": "139hCS5jBGtly-JmCC-Nz0ZA0JWbscDHy",
-        "character_authority_folder_id": "1NpOJTSOY3zjkBR8LoktHDUFUSB8oW5jN"
+        "character_authority_folder_id": "1NpOJTSOY3zjkBR8LoktHDUFUSB8oW5jN",
+        "notion_hub_page_id": "3f8807e1-e916-81ef-b335-eafb037ca211",
+        "notion_registry_row_id": "3f8807e1-e916-8136-8cee-e607f8aaf092",
+        "linear_project_id": "91320e77-d1f7-4f74-a5f0-0131252fd192",
+        "linear_resume_issue": "MON-65",
+        "google_doc_hub_id": "1Vx2t3z5Kx_gUMd2nkPjdqa3kc-BGDe8sj2Cua4pvxEY"
       }
     }
   ],

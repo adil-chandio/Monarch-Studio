@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-13T13:01:15+00:00",
+  "generated_at": "2026-10-13T13:30:24+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -24,8 +24,8 @@
       "size": 867
     },
     ".gitignore": {
-      "sha256": "4a03a8415046b19af19ff05cdce6b31653d01a21aad3b89d6c01dc67731b0c25",
-      "size": 644
+      "sha256": "761cce6839977ce4b7ecd6fe8af4e24e09bad34cc1f471d1f10b52dddc95fbcf",
+      "size": 806
     },
     ".gitmodules": {
       "sha256": "1f235cdd8ca9b6884dfec35a43400f95d033f1bf17c8e3c14dd1738c74454809",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "4e50e5c0f4695fb7bb18c7f470571ee3340fae02ea540d35af716893e88393e7",
-      "size": 641
+      "sha256": "7d099e6c5de2c82dc478b88779fdfadba2e5d39e4d84face600c3cfdf1f9034e",
+      "size": 749
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -655,98 +655,6 @@
       "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
       "size": 2520
     },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/ACTIVE_TASK.json": {
-      "sha256": "0ff31df14719ca99af8a7fee6df7d8e1b756c8d77f7668072984da788ca66db3",
-      "size": 1920
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "a8530cc21b9fb98d72a0b07833d08719fa6b3a14e1fcd9eb9e79dd814a53c04a",
-      "size": 1795
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/JOURNAL.jsonl": {
-      "sha256": "7d586163b968884808b591ffc251d062f3eb8cc2d7d7bd7c1b50484e57e4be43",
-      "size": 4179
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/RESUME.md": {
-      "sha256": "d4675546bf5dc009778433a5686a008e98e1e45804a19622523555d9829f7101",
-      "size": 2050
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_GATES.md": {
-      "sha256": "8222d5c23f552509b52a82cd3ddeca6df9166295b497bcea77cd7566e349be76",
-      "size": 2716
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_RECEIPT.json": {
-      "sha256": "318825e9000955a3bfd7b7e07516b795ff9d9922696cccbaaf97a8106d2765c4",
-      "size": 2076
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/GATE_REPORT.json": {
-      "sha256": "d5d80de7aa439f669fab85806c6a24a1d9c194302f1cd563c1be0c6a022bef77",
-      "size": 4502
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
-      "sha256": "308bf2918a8647e8da5c6de70ca7effd750ac36df18f2ededa5424fa98a70ada",
-      "size": 1032992
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
-      "sha256": "f480fce9e651184393331ee631203014237d9f0d6e219628a9a43a7d3d560597",
-      "size": 665555
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/README.md": {
-      "sha256": "a2f4c1c88dfea8e78001c657795705ee022aa7ff9f2b9c28fc932978d1defabc",
-      "size": 543
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_amber_sil.png": {
-      "sha256": "0ed54ded82b56061e89a12d045241134db0d21261096781ab7f0baa9414bc49d",
-      "size": 1727708
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan.png": {
-      "sha256": "2e50d5cc62f6c5e74a92f69842605fc062b741ea1dd66cae9ffacc3ec7850520",
-      "size": 1918483
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan_visor.png": {
-      "sha256": "f54a911dc0d5a6ba45edbdca18409e60445005a65b0e9b0ba2d63c8c5966bf1a",
-      "size": 1865374
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_closeup_34.png": {
-      "sha256": "c8fa662d333fadb7a151e9c5b23b41bcf2f9a2b9f66d9ed3eed6b9488be98659",
-      "size": 1829845
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_dark_visor.png": {
-      "sha256": "953f0b853cb12bc67deb3ab967e516988b155e7f0475f3b69c65d530d21c17b7",
-      "size": 1039267
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_blue.png": {
-      "sha256": "8fd14b98b3ebf6d272455d2cb267c1b2f527d8dc01c21b74d79c7ab4b4a87353",
-      "size": 1885076
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_sil.png": {
-      "sha256": "503ee8129e8b261c09e68baaead844528a7619cc916e0ff1c7089629940b89cf",
-      "size": 1475895
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_profile_side_neural.png": {
-      "sha256": "86f3397353d6f839b3fc28177e670923f63967734d0472c9cb19094e3ab31ed7",
-      "size": 2053020
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_sovereign_monarch_finale.png": {
-      "sha256": "534aeecedccdd1ea63144442e3b5691cfc1f81ff8bf9709162800728e7c8e359",
-      "size": 2245415
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_wide_hall.png": {
-      "sha256": "c37ae499febcaabba33175a128c48c17c0fff89f1ae14ab154355f8438f46d11",
-      "size": 2218927
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/audio_engine.py": {
-      "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d",
-      "size": 7260
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/build_chaos_video1.py": {
-      "sha256": "b182c58da40f82db41d0d979af8b1f3e5dcc589dd74fad02e388ce54e5620397",
-      "size": 27685
-    },
-    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/gate_chaos_video1.py": {
-      "sha256": "c12f0a313d4ec34f33911b769154bd5fb8bd6ec977946f69a8268a33c0941dfe",
-      "size": 8158
-    },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
       "size": 2034
@@ -840,20 +748,24 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "c74008a52b1ada5e5c7fced03e7ac3fce50525b74ab10d98f88ccb3ebafb5636",
-      "size": 5540
+      "sha256": "4a3915a5b7a5dd2a9851632d9b83e1747814a3c81da4ac11edeaab3af43a9688",
+      "size": 5896
     },
     "styles/README.md": {
       "sha256": "6daf5f52629e7e3c3d9606417eaefa3825ed789761b965d9e35a9a99b3725fa4",
       "size": 1347
     },
     "styles/monarch-face-chaos/README.md": {
-      "sha256": "20303003c54ef340b881659c41a62b89d0afc158ced02de575a038fac74a35f8",
-      "size": 2493
+      "sha256": "401a4224180b920771acd269319e2373d6914f0db1638a1438376a2f49857c20",
+      "size": 4967
+    },
+    "styles/monarch-face-chaos/RESUME_STATE.md": {
+      "sha256": "0352cc2c524f1c65a4802a2f5ff60c4982334b20978d179a73fcb4b700f8941c",
+      "size": 3123
     },
     "styles/monarch-face-chaos/knowledge/INDEX.md": {
-      "sha256": "4af7cb89cf3d1bb43abef7c6bfbcc73da4cc66e1b38fb7b7944da8e488004d5f",
-      "size": 2101
+      "sha256": "9212219172cca31d7cf391a955f02a92bfe8442ccbed9e376f1a7a4b5d80fc84",
+      "size": 2798
     },
     "styles/monarch-face-chaos/plates/plate_close_amber_sil.png": {
       "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21",
@@ -896,44 +808,44 @@
       "size": 2242332
     },
     "styles/monarch-face-chaos/records/DELIVERY_GATES.md": {
-      "sha256": "7d1496acf187fa6b74befe849a77ab0c4b836cb79cb7b8600b38b8614d5dbc23",
+      "sha256": "7edb3f6b9e2f06b14e18a3487019de9298516a0555f6c24961a6e08e804c41a9",
       "size": 2725
     },
     "styles/monarch-face-chaos/records/DELIVERY_RECEIPT.json": {
-      "sha256": "37535c0c669ac785750da6accd8003e6dad58139a0dae2b731bc0e7b93362de8",
-      "size": 2098
+      "sha256": "21bfb3deb24c15ab56850ad4a133faf18943c5cc25f105bf67d7a25ebf09e825",
+      "size": 6905
     },
     "styles/monarch-face-chaos/records/GATE_REPORT.json": {
-      "sha256": "92d1e588536cf901ebdfde1a056acb3894f33f4566b55260cd3822c7fb25d9d2",
+      "sha256": "3774f4c9e02d4946cb75debc9c684c7ac91a6ebf7ff9f66ef1c976e815b983c5",
       "size": 4520
     },
     "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
-      "sha256": "e66b9c16f4ffe20ec2cde9fb1dcdfa3927abb2d13e47425ecc263a08d4901f36",
-      "size": 1208945
+      "sha256": "3c6a22397fff919d66946cae07fd864e978d40b43b6f0d4d48e4bbe17f809b06",
+      "size": 1192152
     },
     "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
-      "sha256": "42af72215a6a4be241df195208383f2ec5db75a37ece3f5a39d9494e44100e16",
-      "size": 757913
+      "sha256": "c7f57ca3ffaded1bc208a743090c210ba45b3bb0e468f8825afed4e85f09d7a2",
+      "size": 754674
     },
     "styles/monarch-face-chaos/src/audio_engine.py": {
       "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d",
       "size": 7260
     },
     "styles/monarch-face-chaos/src/build_chaos_video1.py": {
-      "sha256": "507e58b5261f19c8e65d1203f188204c53c664f18205e976c91b3ed3d615141c",
-      "size": 45923
+      "sha256": "ca83cb969d5c09b76ac6edd3f13756906a89a1744ddf8efe8a10bbce56616be8",
+      "size": 46970
     },
     "styles/monarch-face-chaos/src/gate_chaos_video1.py": {
       "sha256": "ae25e063d7062781118a0f3de3d40a541cae756c1e2eccb6fb2ba72b815f3ea2",
       "size": 8173
     },
     "styles/monarch-face-chaos/style.json": {
-      "sha256": "98be6ef61988114dc999d9a485060151f009cf6f910fab45deac592110a05540",
-      "size": 700
+      "sha256": "7f5f28970d851f6cacd7fcf27d1a4a626b3c521e0593b4def2dc49e416bf6baa",
+      "size": 715
     },
     "styles/monarch-face-chaos/workflow.json": {
-      "sha256": "dab36085c88861f3894add71b0102871fcf0e663c57a9e0a093fd8e684337831",
-      "size": 2712
+      "sha256": "b63a728255b70d90a21238c358bbc1cf111ca624ac91562eabe909096d131acb",
+      "size": 4694
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -2488,24 +2400,24 @@
       "size": 3141
     },
     "styles/registry.json": {
-      "sha256": "971a8708f97de5b2b6ab729a1aa3bfa7d78cac2d28b76d0d17ce29aece75e639",
-      "size": 1775
+      "sha256": "59edc96ed6fb50f3fcfbee2a9fa8599bfffe527b4cf3c6db76814fe219288326",
+      "size": 1802
     },
     "tests/test_continuity.py": {
-      "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",
-      "size": 3190
+      "sha256": "177e5969f8d285d6ef3af4b4a12d1de175021ce050068cd5068b93bfd6652c57",
+      "size": 4443
     },
     "tests/test_studio.py": {
-      "sha256": "cb2ee5b8597958f1968b42505703df5baaaeae43f655779e8723f6bde2d28434",
-      "size": 5522
+      "sha256": "8a62312721a8979d0bab58220a1e61d8c2e420e5c892c8c1508c2174b2f58648",
+      "size": 6908
     },
     "tools/README.md": {
       "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
       "size": 1279
     },
     "tools/continuity.py": {
-      "sha256": "6aa760e7ad2c30d4a4f5231f3522ac704c22e74009c5dc5ba2034f6d9159193c",
-      "size": 31602
+      "sha256": "ddf19dc4a68cc30b27f67d39a41fc454e2cc84c00a6583d2e018cf73a3f27ef5",
+      "size": 31756
     },
     "tools/materialize.py": {
       "sha256": "45e72e7f67ef14ee191525bd36ad8a885e50d3e56c7f2b96ef8c08377ae8f584",
@@ -2528,44 +2440,44 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "1975089fee45d2e46f20219ada5eaa1d6910cb39559eafcdc4648f3490e3bbb7",
-      "size": 1484
+      "sha256": "3fc75885fe9a97089062342d9bd9566d15e190fb59f2a992951c8e6a6908d174",
+      "size": 1321
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "1e98cbdf534e43b95fe25780eb5855488e58145e5a8f140bd15858bba7e04716",
-      "size": 1283
+      "sha256": "c835fbac65a3a978704ebfcae77164083a6e69ae20129224e29b2f1627dc5a30",
+      "size": 322
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "cdc2d5089609850017e6641b2d95aa53bca3c58894e70b3fddac23f7147b0ccb",
-      "size": 3536
+      "sha256": "08a051879ae3401f0beb41569a0f58a0983ffd6a043ef3298a70845e2ac5454a",
+      "size": 2430
     },
     "workflows/current/RESUME.md": {
-      "sha256": "91cb24dd3cc23b11a9f4ada085ecf6b46f6ddca7687199ac7ff89cbe0243afab",
-      "size": 1617
+      "sha256": "8553592271c98a66208d1ea4b0ef8802336c62e0d64df776dd588f19981228bd",
+      "size": 1460
     },
     "workflows/current/payload/DELIVERY_GATES.md": {
-      "sha256": "7d1496acf187fa6b74befe849a77ab0c4b836cb79cb7b8600b38b8614d5dbc23",
+      "sha256": "7edb3f6b9e2f06b14e18a3487019de9298516a0555f6c24961a6e08e804c41a9",
       "size": 2725
     },
     "workflows/current/payload/DELIVERY_RECEIPT.json": {
-      "sha256": "37535c0c669ac785750da6accd8003e6dad58139a0dae2b731bc0e7b93362de8",
-      "size": 2098
+      "sha256": "21bfb3deb24c15ab56850ad4a133faf18943c5cc25f105bf67d7a25ebf09e825",
+      "size": 6905
     },
     "workflows/current/payload/GATE_REPORT.json": {
-      "sha256": "92d1e588536cf901ebdfde1a056acb3894f33f4566b55260cd3822c7fb25d9d2",
+      "sha256": "3774f4c9e02d4946cb75debc9c684c7ac91a6ebf7ff9f66ef1c976e815b983c5",
       "size": 4520
     },
     "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
-      "sha256": "e66b9c16f4ffe20ec2cde9fb1dcdfa3927abb2d13e47425ecc263a08d4901f36",
-      "size": 1208945
+      "sha256": "3c6a22397fff919d66946cae07fd864e978d40b43b6f0d4d48e4bbe17f809b06",
+      "size": 1192152
     },
     "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
-      "sha256": "42af72215a6a4be241df195208383f2ec5db75a37ece3f5a39d9494e44100e16",
-      "size": 757913
+      "sha256": "c7f57ca3ffaded1bc208a743090c210ba45b3bb0e468f8825afed4e85f09d7a2",
+      "size": 754674
     },
     "workflows/current/payload/README.md": {
-      "sha256": "a91d4a39d4c5c0d29a12d599e9873f96a36928371d586dde06a14057f075411b",
-      "size": 177
+      "sha256": "0f9d941f51fab0fcafcc88f3378e7260ac82440863f17f498b8edb2323bab790",
+      "size": 988
     },
     "workflows/current/payload/plates/plate_close_amber_sil.png": {
       "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21",
@@ -2612,8 +2524,8 @@
       "size": 7260
     },
     "workflows/current/payload/src/build_chaos_video1.py": {
-      "sha256": "507e58b5261f19c8e65d1203f188204c53c664f18205e976c91b3ed3d615141c",
-      "size": 45923
+      "sha256": "ca83cb969d5c09b76ac6edd3f13756906a89a1744ddf8efe8a10bbce56616be8",
+      "size": 46970
     },
     "workflows/current/payload/src/gate_chaos_video1.py": {
       "sha256": "ae25e063d7062781118a0f3de3d40a541cae756c1e2eccb6fb2ba72b815f3ea2",
