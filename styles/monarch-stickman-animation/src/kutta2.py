@@ -23,6 +23,7 @@ import respect3 as R3
 import kutta as K1                       # the grey insan, the throne, the crown, the snow
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'husky'))
 import dog_husky as DH                   # v5: the golden dog is a CC0 Husky rig (Quaternius), rendered by husky/dogrig.py
+import cinema9 as C9                     # v9: CHAOS CINEMA layer (grade, bloom, handheld, punches, rain, money, slam title, end stamp)
 
 GROUND = 1320
 P2.GY = GROUND                           # SHADE's contact shadow and feet use this ground
@@ -49,6 +50,9 @@ VO_AT = [round(SCENE_START[i] + LEAD[i], 3) for i in range(4)]
 NF = int(round(DUR_TOTAL * FPS))
 CHAPTER = ['HOOK', 'LUXURY', 'RAJA', 'GAREEB']
 ACC = [GOLD, TEAL, ROYAL, CORAL]
+VO_END = round(VO_AT[3] + CLIP[3], 3)                 # last spoken sample
+T_STAMP = round(VO_END + 0.55, 3)                      # v9: the end card slams here (inside the 4.1 s hold)
+T_SLAM = 0.30                                          # v9: hook title first word lands with the crack hit and the VO onset
 
 # shots: (chapter, weight inside the chapter, name)
 SHOT_SPEC = [
@@ -71,16 +75,18 @@ for _i, _s in enumerate(SHOTS):
     _s['name_'] = _s['name']
 N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
+T_CROWN_LAND = round(SHOT_BY_NAME['crown']['t0'] + .55 * (SHOT_BY_NAME['crown']['t1'] - SHOT_BY_NAME['crown']['t0']), 3)  # v9: crown touchdown
+THUNDER = [round(SHOT_BY_NAME['pave']['t0'] + 1.05, 3), round(SHOT_BY_NAME['crouch']['t0'] + .80, 3)]                   # v9: GAREEB lightning
 
 # one transition per boundary (11), no two neighbours alike
 # v7: every boundary is a real 3D / parallax move (transitions3d.py): hinged page, depth push-through
 # (3 layers per shot), cube turns, origami fold, glass shatter, chroma light flare. No 2D slides.
 # v7 gate: fold at drive->bowl (dark->bright) gave a 16.6 luma step/frame (gate < 8). depth's bloom
 # carries that pair instead; fold stays on crown->pave where the luma step is 7.2.
-PLAN = ['carousel', 'tunnel', 'deck', 'shatter', 'carousel', 'tunnel', 'deck', 'shatter', 'carousel', 'tunnel_long', 'flare']
+PLAN = ['carousel', 'tunnel', 'deck_short', 'shatter', 'carousel', 'tunnel', 'deck', 'shatter', 'carousel', 'tunnel_long', 'flare']   # v9: walk is 1.12 s, so walk->door is the short deck (a long tunnel + deck overlapped: trans_jerk 17); hook->luxury dims the room instead
 # v8 fix: pave->crouch is the one tunnel where the bright incoming card covers a dark outgoing one; 1.4 s spreads that luma climb (gate: max dluma < 8)
 # blend lengths; half of each sits inside the neighbouring shot (window check: half-sums <= shot length)
-TDX = {'carousel': 1.00, 'tunnel': 1.00, 'tunnel_long': 1.60, 'deck': 1.00, 'shatter': 0.80, 'flare': 0.70,
+TDX = {'carousel': 1.00, 'tunnel': 1.00, 'tunnel_long': 1.60, 'deck': 1.00, 'deck_short': 0.70, 'shatter': 0.80, 'flare': 0.70,
        'page': 1.30, 'depth': 1.20, 'cube_h': 1.00, 'cube_v': 1.10, 'fold': 0.90,
        'zoom': .62, 'sweep': .85, 'slices': .80, 'card': .75, 'ink': .70}
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
@@ -539,6 +545,8 @@ def draw_actors(name, lay, d, t, u, lt):
             dang = 72 * (1 - smooth((u - .70) / .14))
         wheel = 0.0
         car(lay, d, x0, door=dang, wheel=wheel, interior=car_interior(x0))
+        hl = _cp(x0, 898, -130)
+        C9.light_cone(lay, hl[0], hl[1], length=420, spread=150, a=60)          # v9: headlight beam (bloom picks it up)
         h = shade(d, lt, 170, 460, pose_idle(t))
         # dog: on the ground by the open door, then hops onto the seat (u .36 to .56)
         if u < .36:
@@ -560,31 +568,38 @@ def draw_actors(name, lay, d, t, u, lt):
     elif name == 'drive':
         us = cl(u)
         x0 = 60 + 620 * (us * us * us * (us * (us * 6 - 15) + 10))     # smootherstep: no accel jolt at either end
+        lay.alpha_composite(C9.speed_streaks(t))                        # v9: night-drive light streaks behind the car
         car(lay, d, x0, door=0.0, wheel=t * 14.0, interior=None)
+        hl = _cp(x0, 898, -130)
+        C9.light_cone(lay, hl[0], hl[1], length=520, spread=170, a=70)
         # SHADE at the wheel, seen through the windshield: the figure is drawn on its own layer and
         # masked to the two glass panes, so only the part behind the glass shows (the car body hides the rest)
         drv = Image.new('RGBA', lay.size, (0, 0, 0, 0))
         P2.hero(ImageDraw.Draw(drv), lt, x0 + 540 * CS, 330, pose_idle(t), 'sly', flip=False, bob=-34.0)
+        # v9: the dog rides INSIDE: drawn on the same layer, so only its head shows through the rear window
+        DH.dog(ImageDraw.Draw(drv, 'RGBA'), x0 + 290 * CS, GROUND - 60, .66, t, 'sit')
         mk = Image.new('L', lay.size, 0)
         mdr = ImageDraw.Draw(mk)
         mdr.polygon(_cpoly(x0, GLASS_F), fill=255)
         mdr.polygon(_cpoly(x0, GLASS_R), fill=255)
         drv.putalpha(Image.fromarray(np.minimum(np.asarray(drv.getchannel('A')), np.asarray(mk))))
         lay.alpha_composite(drv)
-        dog_x = x0 + 300 * CS
-        DH.dog(d, dog_x, GROUND - 16, .7, t, 'sit')
         _snow_from(d, x0, t)
         _ac_toggle(d, u, t)
     elif name == 'bowl':
+        C9.money_rain(lay, t, SHOT_BY_NAME['bowl']['t0'] - .6, n=20, seed=21)      # v9: it rains money on the branded dinner
         bowl_prop(d, 760, GROUND, t)
         DH.dog(d, 540, GROUND, .95, t, 'eat')
         h = shade(d, lt, 985, 460, pose_idle(t), flip=True)
     elif name == 'bed':
+        C9.god_rays(lay, t, 540, -200, col=(200, 150, 255), n=7, a=30, spin=0.05)  # v9: velvet moonlight
+        C9.money_rain(lay, t, SHOT_BY_NAME['bed']['t0'] - .8, n=12, seed=33, speed=420.0)
         velvet_bed(d, t)
         DH.dog(d, 520, 1210, 1.18, t, 'lie')
         _zz(d, 740, 960, t)
     elif name == 'throne':
         _rays(d, t)
+        C9.god_rays(lay, t, 470, 560, col=(255, 220, 140), n=11, a=34, spin=0.10)   # v9: the throne is lit like an altar
         K1._throne(d)
         DH.dog(d, 470, 1262, 1.24, t, 'sit')
         h = shade(d, lt, 880, 500, pose_bow(t), flip=True)
@@ -608,15 +623,36 @@ def draw_actors(name, lay, d, t, u, lt):
                 ang = i * math.pi / 3 + t * 1.5
                 r = 110 + 40 * a
                 K1._sparkle(d, 470 + math.cos(ang) * r, hy_top - 40 + math.sin(ang) * r * .5, 12, int(240 * (1 - a)))
+        # v9: the crown LANDS. shockwave ring, gold confetti burst, dust at the dog's paws
+        t_land = T_CROWN_LAND
+        C9.shockwave(lay, t, t_land, 470, hy_top + 10, col=(255, 236, 190), rmax=640)
+        C9.dust_puff(lay, t, t_land, 470, 1262, col=(200, 170, 120))
+        C9.confetti(lay, t, t_land, 470, hy_top - 20, n=56, seed=7)
     elif name == 'pave':
         walk = 12 * t
+        lay.alpha_composite(C9.rain_layer(t, strength=.55))                        # v9: far rain behind him
         insan(d, 540 + 10 * math.sin(walk), GROUND, 1.02, t, 'stand', walk=walk)
+        C9.breath_fog(lay, t, 540 + 10 * math.sin(walk) - 46, GROUND - 440)
+        lay.alpha_composite(C9.rain_layer(t + 7.3, strength=.9))                   # near rain in front
+        C9.splashes(d, t, GROUND + 4)
     elif name == 'crouch':
+        lay.alpha_composite(C9.rain_layer(t, strength=.55))
         insan(d, 540, GROUND, 1.08, t, 'crouch')
+        C9.breath_fog(lay, t, 540 + 44 * 1.08 + 30, GROUND - 318 * 1.08 - 10)
+        lay.alpha_composite(C9.rain_layer(t + 7.3, strength=.9))
+        C9.splashes(d, t, GROUND + 4, seed=8)
     elif name == 'split':
+        # v9: two worlds in one frame. left = warm velvet glow, right = cold rain
+        glow = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(glow).ellipse([300 - 330, 1240 - 260, 300 + 330, 1240 + 220], fill=(226, 150, 90, 70))
+        lay.alpha_composite(glow.filter(ImageFilter.GaussianBlur(70)))
+        lay.alpha_composite(C9.rain_layer(t, strength=.55, half='right'))
         d.rounded_rectangle([160, 1236, 430, 1330], 40, fill=(96, 40, 92, 255), outline=INK, width=4)
         DH.dog(d, 300, 1300, .86, t, 'lie')      # v5: lies on the velvet cushion (a standing dog on a cushion read wrong)
         insan(d, 790, GROUND, 1.02, t, 'stand')
+        C9.breath_fog(lay, t, 790 - 46, GROUND - 440)
+        lay.alpha_composite(C9.rain_layer(t + 7.3, strength=.9, half='right'))
+        C9.splashes(d, t, GROUND + 4, half='right', seed=9)
         d.line([(540, 700), (540, 1320)], fill=(60, 56, 66, 170), width=3)
 
 
@@ -841,6 +877,7 @@ TRANS['carousel'] = C3.carousel
 TRANS['tunnel'] = C3.tunnel
 TRANS['tunnel_long'] = C3.tunnel
 TRANS['deck'] = C3.deck
+TRANS['deck_short'] = C3.deck
 # 'depth' takes the layered shots (backdrop, actors, ui) instead of flat frames: see frame_rgb_once
 
 
@@ -876,6 +913,23 @@ def cue_list():
     cues.append((s['crouch']['t0'] - .10, 'lib:riser_click', 1.0))           # climb into the final GAREEB shot
     cues.append((s['crown']['t0'] + .75, 'chime', .6))
     cues.append((s['pave']['t0'] + .2, 'step', .8))
+    # v9 CHAOS CINEMA sound: braam under the hook, coins with the money rain, the crown touchdown,
+    # thunder on the GAREEB flashes, rain bed under the whole GAREEB chapter, sub drop on the last line, end stamp
+    cues.append((0.0, 'braam', 1.0))
+    cues.append((T_SLAM, 'impact', 1.0))
+    rnd = np.random.default_rng(5)
+    for _ in range(7):
+        cues.append((float(s['bowl']['t0'] + rnd.uniform(.1, s['bowl']['t1'] - s['bowl']['t0'])), 'coin', float(rnd.uniform(.4, .8))))
+    for _ in range(4):
+        cues.append((float(s['bed']['t0'] + rnd.uniform(.2, s['bed']['t1'] - s['bed']['t0'])), 'coin', float(rnd.uniform(.3, .5))))
+    cues.append((T_CROWN_LAND, 'impact', .9))
+    cues.append((T_CROWN_LAND, 'confetti', 1.0))
+    for k, tt in enumerate(THUNDER):
+        cues.append((tt, 'thunder', 1.0 if k == 0 else .7))
+    cues.append((SCENE_START[3] - .3, 'rain', DUR_TOTAL - SCENE_START[3] + .3))
+    cues.append((VO_AT[3] - .08, 'sub_drop', 1.0))
+    cues.append((T_STAMP, 'impact', .8))
+    cues.append((T_STAMP, 'stamp_ring', 1.0))
     # v7 transition sound, placed by what the move does (not one riser on every cut):
     #   shatter -> glass crack sample on the impact frame; fold -> shutter-snap sample at the fold;
     #   the other moves keep the procedural tonal whoosh, starting at the blend start.
@@ -918,18 +972,34 @@ def shot_parts(k, t):
     lay = _shift(lay, pa)
     ui = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     d2 = ImageDraw.Draw(ui, 'RGBA')
-    if name in HEAD:
+    if name == 'room_wide':
+        # v9: the hook title SLAMS in word by word (scale overshoot, 4-frame fade), gold on the payoff word
+        C9.slam_words(ui, ['AMEER', 'KA', 'KUTTA?'], [TXT, TXT, acc], t, T_SLAM, 420, gap=.17, sz=150)
+    elif name in HEAD:
         txt, hot = HEAD[name]
         headline(d2, txt, hot, cl((t - s['t0']) / .9), acc)
     caption(d2, lt, ch, acc)
     chrome(d2, t, ch, acc)
+    if name == 'split':
+        C9.end_stamp(ui, t, T_STAMP, y=760)                                # v9: end card inside the hold
     return bg, lay, ui
+
+
+EXPO = {'bed': .80, 'bowl': .92, 'crouch': .90, 'split': .95}   # v9: night bedroom / dining / rain-night exposure (keeps the bright-room steps under the dluma cap)
 
 
 def shot_img(k, t):
     bg, lay, ui = shot_parts(k, t)
     cv = bg
     cv.alpha_composite(lay)
+    s = SHOTS[k]
+    f = EXPO.get(s['name'], 1.0)
+    if s['name'] == 'room_close':
+        # the lights go down as the question lands (bright room -> dark street would step the luma in the tunnel)
+        f *= 1 - .38 * C9.sstep(cl((t - (s['t1'] - .84)) / .70))
+    if f < .999:
+        arr = np.asarray(cv.convert('RGB')).astype(np.float32) * f
+        cv = Image.fromarray(np.clip(arr + .5, 0, 255).astype(np.uint8)).convert('RGBA')
     cv.alpha_composite(ui)
     return np.asarray(cv.convert('RGB'))
 
@@ -991,24 +1061,102 @@ def cam_z(t):
     return cam(s['name'], u)[0]
 
 
+# ───────────────────────────────────────────── v9 CHAOS CINEMA: punches, flashes, camera, post
+def _hot_word_times():
+    """absolute times at which the accent (hot) caption words are spoken (same head math as caption())."""
+    out = []
+    for ch in range(4):
+        for k, (c0, c1) in enumerate(CAPW[ch]):
+            words = CAP_TEXT[ch][k].split()
+            n = len(words)
+            for idx, w in enumerate(words):
+                if w.strip('?,.!').lower() in CAP_HOT[ch]:
+                    out.append(round(SCENE_START[ch] + LEAD[ch] + c0 + (c1 - c0) * idx / (n * 1.1), 3))
+    return out
+
+
+def _build_hits():
+    s = SHOT_BY_NAME
+    door = s['door']
+    punches = [(vt, .55, 1) for vt in VO_AT]                                   # VO onsets
+    punches += [(ht, .40, -1) for ht in _hot_word_times()]                     # hot words
+    punches += [(door['t0'] + .56 * (door['t1'] - door['t0']), .40, 1)]        # the dog lands on the seat
+    punches += [(T_CROWN_LAND, .45, -1), (T_STAMP, .55, 1), (T_SLAM, .55, 1)]
+    thunder = THUNDER
+    punches += [(tt, .35, -1) for tt in thunder]
+    flashes = [(T_SLAM, .06, (255, 236, 200)), (T_CROWN_LAND, .06, (255, 226, 150)),
+               (thunder[0], .07, (210, 225, 255)), (thunder[1], .05, (210, 225, 255)), (T_STAMP, .05, (255, 236, 200))]
+    return sorted(punches), flashes, thunder
+
+
+PUNCHES, FLASHES, _ = _build_hits()
+_IN_TRANS = None
+
+
+def punch_at(t):
+    """(energy 0..1, signed roll) at t. Punches are suppressed inside blend windows (gate trans_jerk)."""
+    if _trans_at(t) is not None:
+        return 0.0, 0.0
+    e, roll = 0.0, 0.0
+    for pt, amp, sgn in PUNCHES:
+        v = amp * C9.punch_env(t - pt)
+        if v > e:
+            e, roll = v, sgn * v
+    return e, roll
+
+
+def flash_at(t):
+    amt, col = 0.0, (255, 236, 200)
+    for ft, a, c in FLASHES:
+        v = a * C9.ramp(t - ft, 8 / FPS, 14 / FPS)
+        if v > amt:
+            amt, col = v, c
+    return amt, col
+
+
+SHAKE_AMP = [1.0, 1.25, 0.85, 0.6]          # handheld energy per chapter (hook, luxury, raja, gareeb)
+VIG_K = [0.10, 0.08, 0.10, 0.22]             # extra vignette per chapter
+
+
+def _ch_at(t):
+    return max(i for i, st in enumerate(SCENE_START) if t >= st - 1e-6)
+
+
+def _ch_mix(vals, t):
+    i = _ch_at(t)
+    v = vals[i]
+    if i + 1 < 4:
+        k = cl((t - (SCENE_START[i + 1] - .35)) / .7)
+        v = v + (vals[i + 1] - v) * k
+    return v
+
+
 def render(i):
     t = i / FPS
-    z = cam_z(t)
-    pun = 0.0
-    for vt in VO_AT:
-        dd = t - vt
-        if 0 <= dd < .6:
-            pun = max(pun, math.exp(-dd / .16))
-    z = min(1.14, z * (1 + .012 * pun))
-    arr = frame_rgb(t)
-    iz = 1.0 / z
-    mx, my = (W - W * iz) / 2, (H - H * iz) / 2
-    dx = max(-mx, min(mx, 10 * math.sin(t * .71)))
-    dy = max(-my, min(my, 12 * math.sin(t * .53 + 1.0)))
-    frame = Image.fromarray(arr).transform((W, H), Image.AFFINE, (iz, 0, mx + dx, 0, iz, my + dy), Image.BICUBIC)
-    g = R3._grade(np.asarray(frame))
+    pe, roll = punch_at(t)
+    z = cam_z(t) * 1.02 * (1 + .045 * pe)
+    dx, dy, rot = C9.handheld(t, amp=_ch_mix(SHAKE_AMP, t))
+    rot += .55 * roll
+    # keep the shake inside the zoom margin (no black edge, gate black_edge_frames)
+    mx, my = (W * z - W) / 2 - 4, (H * z - H) / 2 - 4
+    need = (H / 2) * math.sin(math.radians(abs(rot)))
+    dx = max(-(mx - need), min(mx - need, dx))
+    dy = max(-(my - need * W / H), min(my - need * W / H, dy))
+    x = frame_rgb(t).astype(np.float32)
+    x = C9.chapter_grade(x, t, SCENE_START)
+    x = C9.bloom(x, amount=.38, streak=.26, thresh=185.0)
+    x = C9.apply_camera(x, z, dx, dy, rot)
+    if pe > .08:
+        x = C9.chroma(x, 6.0 * pe)
+    if pe > .35:
+        x = C9.radial_rush(x, .55 * (pe - .35) / .65, cy=.42)
+    g = R3._grade(x)
+    g = C9.vignette(g, _ch_mix(VIG_K, t))
+    g = C9.toe_lift(g, 14.0, 90.0)
+    fa, fc = flash_at(t)
+    g = C9.flash_add(g, fa, fc)
     rng = np.random.default_rng(i)
-    g = g + rng.normal(0, 1.2, (H, W, 1)).astype(np.float32)
+    g = g + rng.normal(0, 1.3, (H, W, 1)).astype(np.float32)
     return np.clip(g, 0, 255).astype(np.uint8)
 
 

@@ -177,3 +177,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 ## P-022 update · 2026-10-13 · status: open
 
 - **Note:** P-022 duplicates the jerk part of P-021. Treat P-021 as the owner of the jerk issue; P-022 keeps the per-shot breakdown.
+## P-023 · 2026-10-14 · status: open
+
+- **Symptom:** v9 sandbox: Google Drive and raw.githubusercontent.com unreachable (egress allows only github.com, codeload, api.github.com, pypi, npm). The licensed SFX pack (folder 1AeMfK_DIcY4tkzWFwkJQM7XY0pOuPOgB) and the Drive upload of the finished MP4 are impossible from this sandbox.
+- **Cause:** Network policy of the sandbox, not a code problem
+- **Fix:** SFX: sfx9.py synthesised designs with the same names (mux falls back automatically). Husky.glb fetched via api.github.com contents API (Accept: application/vnd.github.raw). Delivery: the MP4 is left at /home/user/work/AMEER_KA_KUTTA_v9.mp4 and the user is told the Drive upload has to happen from a session with Drive access.
+- **Verified by:** bootstrap9.sh + mux_kutta2.py runs in this session
+

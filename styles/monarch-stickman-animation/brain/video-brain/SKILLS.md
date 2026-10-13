@@ -41,3 +41,15 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **How:** Haas 14 ms on the wide layers, detuned L/R pads, then ffmpeg extrastereo=m=3.0 on the mix (side only; mono sum unchanged). Check mid RMS before/after
 - **Evidence:** lr_corr 0.95 -> 0.648; mid RMS unchanged 3334.67 before/after
 
+## K-007 · 2026-10-14 · gate-safe impact moments (punch + flash without luma steps)
+
+- **When to use:** Adding slams, flashes, lightning, confetti bursts or camera punches to a video that must pass max_dluma<8 and jerk_p95<2
+- **How:** 1) Every added element gets a fade-in of at least 3 frames (shockwave, confetti, dust, flash ramp 5 up / 10 down). 2) Camera punch envelope: 0.10 s attack then exp decay (tau .19) - instant zoom = jerk. 3) Suppress punches inside transition windows (_trans_at) so they never stack on a cut. 4) Flash peak <= .10 of white, and never put a flash at the frame where the luma already jumps. 5) Probe with render() downscaled to 180x320 grey around each moment (dluma=|diff mean|, jerk=|diff diff motion|) before the full render; keep each < 6 to leave headroom for encoding.
+- **Evidence:** kutta2.py v9 punch_at/flash_at + cinema9.ramp/punch_env; probes went crown 9.45->5.84, thunder 9.26->5.15, hook->luxury tunnel 10.9->5.48 (tunnel_long + bloom thresh 185)
+
+## K-008 · 2026-10-14 · designed synth SFX when sample packs are unreachable (sfx9.py)
+
+- **When to use:** Sandbox egress blocks Drive/raw hosts so licensed samples cannot be fetched, or a new cue has no sample
+- **How:** sfx9.synth(name, amp) builds 48 kHz mono float32 designs from primitives (sine/sweep with exp decay, band-passed noise bursts, FM metal, sub drops): braam, impact, coin, confetti, thunder, sub_drop, stamp_ring plus the pack names (crack_flash, riser_click, digital_click, modern_shutter, gleam, conjure_charge, lighter_ignite, synth_sparkle). mux_kutta2._lib() falls back to sfx9 when /home/user/build/sfx_lib2/<name>.wav is missing and prints which names were synthesised. Rain = gusting droplet bursts (median-flatness safe at 0.42 per sheet); whoosh_air sits under the tonal sweep at .26.
+- **Evidence:** mux_kutta2.py v9 run: 'synth SFX used (pack samples absent): [...8 names]'; mix LUFS -12.2, TP -2.0, bed flatness median 0.078
+

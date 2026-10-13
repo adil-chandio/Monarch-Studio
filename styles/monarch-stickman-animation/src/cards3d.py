@@ -254,10 +254,16 @@ def tunnel(A, B, p, acc=None):
     tb = Image.fromarray(B)
     # B's alpha spreads over the whole move (was p .12-.72): a bright B popping in at the end read as a 10-level/frame flash
     # depth follows 1/z linear in p: B's screen coverage grows at a constant rate (no end-of-move flood)
-    zb = ZD * 2.6 / (1.0 + 1.6 * min(1.0, max(0.0, p)))
+    # v9: the last 20 % of B's approach decelerates to zero velocity (cubic Hermite, C1 at p=.8), so the move
+    # does not stop dead at the window end (that stop was a 9-level step in motion energy when it met a deck)
+    pc = min(1.0, max(0.0, p))
+    if pc > 0.65:                                   # spread over the last 35 %: the 1.33x velocity bump lands at p=.77,
+        u = (pc - 0.65) / 0.35                      # where B is still small (a late bump stepped a bright B by 8.4 levels)
+        pc = 0.65 + 0.35 * (-u ** 3 + u ** 2 + u)
+    zb = ZD * 2.6 / (1.0 + 1.6 * pc)
     card(canvas, st, tb, (W * 0.55 * (1 - eb) ** 1.6, 0.0, zb),
          ry=0.9 * (1 - eb), rz=0.12 * (1 - eb), s=1.0,
-         alpha=_ease(p / 0.95), shade=0.25 + 0.75 * min(1.0, p), thick=34, shadow=0.45, sheen=p * 1.7 - 0.35)
+         alpha=_ease(pc / 0.95), shade=0.25 + 0.75 * pc, thick=34, shadow=0.45, sheen=p * 1.7 - 0.35)
     ta = Image.fromarray(A)
     za = ZD * (1 - 0.72 * (p ** 1.6))
     card(canvas, st, ta, (-0.45 * W * p ** 1.6, 0.05 * H * p, za), ry=0.35 * p, rz=-0.20 * p, s=1.0,

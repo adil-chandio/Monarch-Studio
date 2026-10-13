@@ -23,6 +23,7 @@ import os, subprocess, sys, wave
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kutta2 as K
+import sfx9                              # v9: designed synth SFX (fallback for the Drive pack + the new cinema cues)
 
 SR = 48000
 OUT = '/home/user/build/kutta'
@@ -126,7 +127,7 @@ CH_GAINS = [
     [0.75, 0.00, 0.00, 0.35, 0.55, 0.00],   # ch1 HOOK: airy pad, lead enters soft
     [0.65, 0.65, 0.55, 0.55, 0.90, 0.00],   # ch2 LUXURY: groove up
     [0.80, 0.80, 0.85, 0.65, 0.85, 0.85],   # ch3 RAJA: full, shimmer arp
-    [0.55, 0.45, 0.00, 0.25, 0.45, 0.00],   # ch4 GAREEB: thin, pulled back
+    [0.78, 0.50, 0.00, 0.25, 0.60, 0.00],   # ch4 GAREEB: pad and lead carry (v9: rain sits under a tonal bed)
 ]
 
 
@@ -289,25 +290,50 @@ SFX_LIB = '/home/user/build/sfx_lib2'   # v6: cut from the Drive SFX pack (see c
 SAMPLE_WHOOSH = False          # per-moment SFX mapping needs the user's listening pass first
 
 
-def _lib(name):
-    """Licensed SFX sample from the pack (WAV, 48 kHz mono), or None if missing."""
+SYNTH_USED = set()
+
+
+def _lib(name, amp=1.0):
+    """Licensed SFX sample from the pack (WAV, 48 kHz mono) when it exists in SFX_LIB; otherwise the v9
+    synthesised design of the same name (sfx9). None only if neither exists."""
     p = f'{SFX_LIB}/{name}.wav'
-    if not os.path.exists(p):
-        return None
-    w = wave.open(p)
-    a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
+    if os.path.exists(p):
+        w = wave.open(p)
+        a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
+        if w.getnchannels() == 2:
+            a = a.reshape(-1, 2).mean(axis=1)
+        return a
+    a = sfx9.synth(name, amp)
+    if a is not None:
+        SYNTH_USED.add(name)
     return a
+
+
+# v9 cinema cues -> (synth design, level, pan)
+V9_SFX = {'braam': ('braam', .34, 0.0), 'impact': ('impact', .50, 0.0), 'coin': ('coin', .30, None),
+          'confetti': ('confetti', .45, 0.0), 'thunder': ('thunder', .58, -.3), 'sub_drop': ('sub_drop', .50, 0.0),
+          'stamp_ring': ('stamp_ring', .46, 0.0)}   # levels keep the limiter from flat-topping (AAC overshoot hit 0 dBFS at the braam)
 
 
 def build_sfx():
     bus = Bus()
     step_flip = 0
+    coin_flip = 0
     for t, name, amp in K.CUES:
         if name.startswith('lib:'):
             clip = _lib(name[4:])
             if clip is None:
                 raise SystemExit(f'missing licensed sample {name}')
-            bus.add(clip * 0.5, t, pan=0.0, gain=1.0)   # v6: 0.5 keeps decoded peak under -1 dBFS
+            bus.add(clip * 0.5 * amp, t, pan=0.0, gain=1.0)   # v6: 0.5 keeps decoded peak under -1 dBFS
+        elif name in V9_SFX:
+            design, lvl, pan = V9_SFX[name]
+            if pan is None:
+                coin_flip ^= 1
+                pan = -.5 if coin_flip else .5
+            bus.add(sfx9.synth(design, 1.0) * lvl * amp, t, pan=pan, gain=1.0)
+        elif name == 'rain':
+            bus.add(sfx9.rain(float(amp), 1.0, seed=101) * 0.42, t, pan=-.35, gain=1.0)     # diegetic rain, two decorrelated sheets
+            bus.add(sfx9.rain(float(amp), 1.0, seed=202) * 0.42, t, pan=.35, gain=1.0)
         elif name == 'whoosh':
             b = int(amp)
             d = K.tdur(K.PLAN[b])
@@ -316,6 +342,7 @@ def build_sfx():
                 bus.add(clip * 0.55, t, pan=(-.2 if b % 2 else .2), gain=1.0)
             else:
                 bus.add(sfx_whoosh(d + .08, .9), t, pan=(-.2 if b % 2 else .2), gain=1.0)
+                bus.add(sfx9.whoosh_air(d, .26, seed=40 + b), t, pan=(.3 if b % 2 else -.3), gain=1.0)   # v9: air under the tonal sweep
         elif name == 'step':
             step_flip ^= 1
             bus.add(SFX_FN['step'](amp), t, pan=(-.18 if step_flip else .18), gain=1.0)
@@ -382,7 +409,15 @@ def build():
             Rb = np.concatenate([np.zeros(hz, np.float32), Rb[:-hz]])
         music_L += Lb * g
         music_R += Rb * g
+    # v9 "the drop": the music falls away right before the last line and swells back under it
+    tm = np.arange(N) / SR
+    d0 = K.VO_AT[3] - .40
+    drop = np.interp(tm, [0, d0 - .25, d0, d0 + .55, d0 + 1.35, TOTAL_S + 1], [1, 1, .16, .16, 1, 1]).astype(np.float32)
+    music_L *= drop
+    music_R *= drop
     sfx = build_sfx()
+    if SYNTH_USED:
+        print('synth SFX used (pack samples absent):', sorted(SYNTH_USED))
     # voice bus (mono, centred)
     vo = np.zeros(N, np.float32)
     for start, a in eq_vo():
@@ -428,16 +463,20 @@ def build():
 
 
 def mux():
+    import glob
     FF = _ff()
+    final = os.environ.get('KUTTA_OUT', f'{OUT}/kutta_v2.mp4')
+    shards = sorted(glob.glob(f'{WORK}/shard*.mp4'))
     lst = f'{WORK}/shards.txt'
     with open(lst, 'w') as f:
-        f.write(f"file '{OUT}/v2/shard0.mp4'\nfile '{OUT}/v2/shard1.mp4'\n")
+        for sh in shards:
+            f.write(f"file '{sh}'\n")
     subprocess.run([FF, '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy',
                     f'{OUT}/v2/kutta2_mute.mp4'], check=True)
     subprocess.run([FF, '-y', '-v', 'error', '-i', f'{OUT}/v2/kutta2_mute.mp4', '-i', f'{WORK}/mix_kutta2.wav',
                     '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000',
-                    '-ac', '2', '-shortest', '-movflags', '+faststart', f'{OUT}/kutta_v2.mp4'], check=True)
-    print('wrote', f'{OUT}/kutta_v2.mp4')
+                    '-ac', '2', '-shortest', '-movflags', '+faststart', final], check=True)
+    print('wrote', final, 'from', len(shards), 'shards')
 
 
 if __name__ == '__main__':

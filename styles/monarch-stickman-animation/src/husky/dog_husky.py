@@ -12,6 +12,7 @@ lie -> the final frame of Death (the dog settles flat). The sprite is placed so 
 The render faces left; 2D dogs face right, so flip=False mirrors the sprite.
 """
 import os
+import numpy as np
 from PIL import Image, ImageFilter, ImageOps
 
 SPRITE_DIR = os.environ.get('HUSKY_SPRITES', '/home/user/build/dog/out/v2')
@@ -70,6 +71,12 @@ def _sprite(pose, idx, k, mirror):
     w, h = im.size
     nw, nh = max(1, round(w * k)), max(1, round(h * k))
     im = im.resize((nw, nh), Image.LANCZOS)
+    # v9: richer gold (the raw render reads brown): warm the fur, keep the ink and the alpha
+    _a = np.asarray(im).astype(np.float32)
+    _a[..., 0] = np.minimum(255, _a[..., 0] * 1.10 + 6)
+    _a[..., 1] = np.minimum(255, _a[..., 1] * 1.02)
+    _a[..., 2] = _a[..., 2] * 0.80
+    im = Image.fromarray(_a.astype(np.uint8), 'RGBA')
     if mirror:
         im = ImageOps.mirror(im)
     r = max(2, round(OUT_PX * k))
