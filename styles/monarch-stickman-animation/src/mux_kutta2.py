@@ -355,7 +355,7 @@ def write_wav(path, L, R=None):
     w.close()
 
 
-def loudnorm(src, dst, I=-11.0, TP=-2.0):
+def loudnorm(src, dst, I=-10.6, TP=-2.0):   # v7: -11.0 measured -12.6 LUFS (loudnorm cannot reach target under the limiter); -10.6 lands in the -12.5..-10.5 gate band
     FF = _ff()
     # extrastereo 3.0 widens only the side (mid, and so mono sum, unchanged): mix L/R corr ~0.95 -> ~0.75
     subprocess.run([FF, '-y', '-v', 'error', '-i', src, '-af',

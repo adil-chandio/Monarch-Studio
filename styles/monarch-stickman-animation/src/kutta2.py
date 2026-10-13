@@ -73,8 +73,14 @@ N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 
 # one transition per boundary (11), no two neighbours alike
-PLAN = ['page', 'cube_h', 'cube_v', 'flare', 'slices', 'blur', 'cube_h', 'flare', 'blur', 'sweep', 'flare']   # v6: page/cube are true 3D (transitions3d.py)   # v3: card@10.84 jerk 9.5 (gate) -> flare
-TDX = {'page': 1.30, 'flare': .60, 'zoom': .62, 'sweep': .85, 'slices': .80, 'cube_h': 1.10, 'cube_v': 1.10, 'card': .75, 'ink': .70}   # longer blends for bright<->dark pairs (luma step <= 8/frame)
+# v7: every boundary is a real 3D / parallax move (transitions3d.py): hinged page, depth push-through
+# (3 layers per shot), cube turns, origami fold, glass shatter, chroma light flare. No 2D slides.
+# v7 gate: fold at drive->bowl (dark->bright) gave a 16.6 luma step/frame (gate < 8). depth's bloom
+# carries that pair instead; fold stays on crown->pave where the luma step is 7.2.
+PLAN = ['page', 'depth', 'cube_v', 'flare', 'depth', 'shatter', 'cube_h', 'depth', 'fold', 'cube_h', 'flare']
+# blend lengths; half of each sits inside the neighbouring shot (window check: half-sums <= shot length)
+TDX = {'page': 1.30, 'depth': 1.20, 'cube_h': 1.00, 'cube_v': 1.10, 'fold': 0.90, 'shatter': 0.90, 'flare': 0.70,
+       'zoom': .62, 'sweep': .85, 'slices': .80, 'card': .75, 'ink': .70}
 assert len(PLAN) == N_SHOTS - 1, (len(PLAN), N_SHOTS)
 
 HEAD = {
@@ -824,8 +830,11 @@ import transitions3d as T3
 TRANS['page'] = T3.page_h
 TRANS['cube_h'] = T3.cube_h
 TRANS['cube_v'] = T3.cube_v
-TRANS['flare'] = tr_flare
+TRANS['fold'] = T3.fold
+TRANS['shatter'] = T3.shatter
+TRANS['flare'] = T3.flare
 TRANS['zoom'] = tr_zoom_soft
+# 'depth' takes the layered shots (backdrop, actors, ui) instead of flat frames: see frame_rgb_once
 
 
 def tdur(kind):
@@ -860,8 +869,17 @@ def cue_list():
     cues.append((s['crouch']['t0'] - .10, 'lib:riser_click', 1.0))           # climb into the final GAREEB shot
     cues.append((s['crown']['t0'] + .75, 'chime', .6))
     cues.append((s['pave']['t0'] + .2, 'step', .8))
+    # v7 transition sound, placed by what the move does (not one riser on every cut):
+    #   shatter -> glass crack sample on the impact frame; fold -> shutter-snap sample at the fold;
+    #   the other moves keep the procedural tonal whoosh, starting at the blend start.
     for b in range(N_SHOTS - 1):
-        cues.append((SHOTS[b + 1]['t0'] - tdur(PLAN[b]) / 2, 'whoosh', float(b)))
+        mid = SHOTS[b + 1]['t0']
+        if PLAN[b] == 'shatter':
+            cues.append((mid, 'lib:crack_flash', 1.0))
+        elif PLAN[b] == 'fold':
+            cues.append((mid, 'lib:modern_shutter', 1.0))
+        else:
+            cues.append((mid - tdur(PLAN[b]) / 2, 'whoosh', float(b)))
     return sorted(cues)
 
 
@@ -873,7 +891,9 @@ def shot_at(t):
     return max(i for i, s in enumerate(SHOTS) if t >= s['t0'] - 1e-6)
 
 
-def shot_img(k, t):
+def shot_parts(k, t):
+    """A shot as three RGBA layers: (backdrop, actors, ui). depth_push flies them at different speeds;
+    shot_img stacks them back into the flat frame (same pixels as the v6 single-canvas draw)."""
     s = SHOTS[k]
     name, ch = s['name'], s['ch']
     acc = ACC[ch]
@@ -887,28 +907,59 @@ def shot_img(k, t):
     d = ImageDraw.Draw(lay, 'RGBA')
     draw_actors(name, lay, d, t, u, lt)
     lay = _shift(lay, pa)
-    cv = bg
-    cv.alpha_composite(lay)
-    d2 = ImageDraw.Draw(cv, 'RGBA')
+    ui = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    d2 = ImageDraw.Draw(ui, 'RGBA')
     if name in HEAD:
         txt, hot = HEAD[name]
         headline(d2, txt, hot, cl((t - s['t0']) / .9), acc)
     caption(d2, lt, ch, acc)
     chrome(d2, t, ch, acc)
+    return bg, lay, ui
+
+
+def shot_img(k, t):
+    bg, lay, ui = shot_parts(k, t)
+    cv = bg
+    cv.alpha_composite(lay)
+    cv.alpha_composite(ui)
     return np.asarray(cv.convert('RGB'))
 
 
-def frame_rgb(t):
-    k = shot_at(t)
+def _trans_at(t):
+    """(boundary index, eased-free progress p) when t is inside a blend window, else None."""
     for b in range(N_SHOTS - 1):
         bt = SHOTS[b + 1]['t0']
         td = tdur(PLAN[b])
         if bt - td / 2 <= t < bt + td / 2:
-            p = (t - (bt - td / 2)) / td
-            A = shot_img(b, t)
-            B = shot_img(b + 1, t)
-            return TRANS[PLAN[b]](A, B, p, ACC[SHOTS[b + 1]['ch']])
-    return shot_img(k, t)
+            return b, (t - (bt - td / 2)) / td
+    return None
+
+
+def frame_rgb_once(t):
+    hit = _trans_at(t)
+    if hit is None:
+        return shot_img(shot_at(t), t)
+    b, p = hit
+    kind = PLAN[b]
+    acc = ACC[SHOTS[b + 1]['ch']]
+    if kind == 'depth':
+        return T3.depth_push(shot_parts(b, t), shot_parts(b + 1, t), p, acc)
+    return TRANS[kind](shot_img(b, t), shot_img(b + 1, t), p, acc)
+
+
+MB_SUB = (-0.30, 0.0, 0.30)     # motion blur: sub-frame offsets in frames, inside blend windows only
+
+
+def frame_rgb(t):
+    """Blend windows are motion-blurred: the mean of three sub-frames at -0.3, 0, +0.3 frame.
+    Outside the windows it is a single exact frame."""
+    if _trans_at(t) is None:
+        return frame_rgb_once(t)
+    acc = None
+    for o in MB_SUB:
+        f = frame_rgb_once(t + o / FPS).astype(np.float32)
+        acc = f if acc is None else acc + f
+    return np.clip(acc / len(MB_SUB) + .5, 0, 255).astype(np.uint8)
 
 
 def cam_z(t):

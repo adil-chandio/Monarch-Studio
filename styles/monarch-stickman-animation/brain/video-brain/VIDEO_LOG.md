@@ -125,3 +125,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 20.16s; shots 12; PLAN page(3D hinge) cube_h cube_v flare slices blur cube_h flare blur sweep flare
 - **Review:** v6 gate 21/21 PASS. 3D transitions via transitions3d.py (page hinge, cube_h, cube_v); VO voice-03 regenerated after sandbox wipe; SFX lib cut from Drive pack (crack_flash, gleam, conjure_charge, synth_sparkle, riser_click, digital_click, modern_shutter, lighter_ignite); sit pose not available in Husky rig (limitation); dog look stylised low-poly; not accepted by user yet
 
+## V-016 · 2026-10-13 · v7 · status: draft
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v7.mp4
+- **Drive ID:** 1tZWOw1sBN788x87_p7fxWLNdUG0gqvlp
+- **Settings:** n/a
+- **Timing:** 20.90s; shots 12; PLAN page depth cube_v flare depth shatter cube_h depth fold cube_h flare; SFX shatter=crack_flash, fold=modern_shutter, others procedural whoosh
+- **Review:** v7 gate 21/21 ALL PASS (max_dluma 7.42, trans_jerk 6.07, lufs -12.4, peak -1.29 dBFS). 3D/parallax transitions replace v6 slides. VO voice-03 regenerated. Sit pose: no sit clip in Husky, Idle used (limitation). Not accepted by user yet.
+
