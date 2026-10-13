@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-13T13:30:24+00:00",
+  "generated_at": "2026-10-13T13:31:50+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "7d099e6c5de2c82dc478b88779fdfadba2e5d39e4d84face600c3cfdf1f9034e",
-      "size": 749
+      "sha256": "a1316a059549d9bfab34dc679bba7fd348ad2ac7d572cfad8a6551fa102ec301",
+      "size": 756
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -347,6 +347,14 @@
       "sha256": "757a5176f99e03f5550550fa7a64222b7febe44662a150a3fd719901bcf56d29",
       "size": 13106
     },
+    "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z/HANDOFF.md": {
+      "sha256": "0e6f6b9cdef1f8d9de0166ae049b27a7292d0cc5593838cdf0e1d60fe977a801",
+      "size": 1551
+    },
+    "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z/checkpoint.json": {
+      "sha256": "90680b92fb5528f5ce9315e18c773bc60e127261d442055e64e422992c616b51",
+      "size": 8434
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -538,6 +546,18 @@
     "operations/continuity/outbox/EMS-20261013-002/0001-20261013T130114Z/checkpoint.json": {
       "sha256": "d7f88e47318d4e49d9f6b1fee64a767fc5b90cf2effb110c5943e1a14605d29b",
       "size": 13176
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T133118Z/STATUS.md": {
+      "sha256": "f7a286fa913852daa5aac0d36778766331459175bd98cef86603f75609d31ad9",
+      "size": 1313
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T133118Z/SYNC.json": {
+      "sha256": "a0e184d66706b7464daa5bf1af66e8d346f31c815b1f74926ff6caa3bce6fb8b",
+      "size": 5768
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T133118Z/checkpoint.json": {
+      "sha256": "5e127a6df545c751d2fe7fd6301b3f80aa080c8608738358c6935092015a2c13",
+      "size": 8504
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -2440,20 +2460,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "3fc75885fe9a97089062342d9bd9566d15e190fb59f2a992951c8e6a6908d174",
-      "size": 1321
+      "sha256": "dc747a22d7d26dc5dfa3119dbc17ae59646f5039ce3e10c9a452c183c2149063",
+      "size": 1412
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
       "sha256": "c835fbac65a3a978704ebfcae77164083a6e69ae20129224e29b2f1627dc5a30",
       "size": 322
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "08a051879ae3401f0beb41569a0f58a0983ffd6a043ef3298a70845e2ac5454a",
-      "size": 2430
+      "sha256": "d35d64f3a8bbf9cb56c11feadfbb2119dfac0d4d244d4c66ac8c52dfbf48c9c7",
+      "size": 8360
     },
     "workflows/current/RESUME.md": {
-      "sha256": "8553592271c98a66208d1ea4b0ef8802336c62e0d64df776dd588f19981228bd",
-      "size": 1460
+      "sha256": "0e6f6b9cdef1f8d9de0166ae049b27a7292d0cc5593838cdf0e1d60fe977a801",
+      "size": 1551
     },
     "workflows/current/payload/DELIVERY_GATES.md": {
       "sha256": "7edb3f6b9e2f06b14e18a3487019de9298516a0555f6c24961a6e08e804c41a9",

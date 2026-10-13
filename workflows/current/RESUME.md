@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261013-002
 
-- **Status:** `active`
+- **Status:** `completed`
 - **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)
 - **Style:** `monarch-face-chaos`
-- **Checkpoint sequence:** 0
-- **Last checkpoint:** none
+- **Checkpoint sequence:** 1
+- **Last checkpoint:** 2026-10-13T13:31:18Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement,
 
 ## Exact next action
 
-Enhance body motion amplitude & golden flash transition, render & gate-verify, upload to Drive, and sync Notion/Linear/Docs/GitHub
+Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `none`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
