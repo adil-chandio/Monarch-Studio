@@ -54,3 +54,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** v6 gated and uploaded 1RY803aqjzXtCthdd6OGk98Dv8FL4Yz-B; awaiting user review
 - **Files:** `styles/monarch-stickman-animation/src/transitions3d.py`, `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`
 
+## S-008 · 2026-10-14 02:45 PKT
+
+- **Request:** Continue AMEER KA KUTTA; read /home/user/work/HANDOFF_v8.md; check branch arena/a188bd4a-monarch-studio. v8 delivered, user feedback pending
+- **Action:** Fresh sandbox: /home/user/work and all build media gone (only the repo persisted). Fetched arena/a188bd4a (35 commits ahead of main, head 4867ac8) and fast-forwarded this session branch arena/ab4ba9f7 onto it. Rebuilt /tmp/venvs/render (numpy 2.4.6, pillow 12.3, scipy 1.17, imageio-ffmpeg 7.0.2); all picture modules import, kutta2/gate need only VO timing.json. Verified on Drive: v8 1D44AE8qc4wFwuAFu1UPrKPyuC-T8oshr intact (25,131,827 B, md5 8547b7e9c8c31319d9e149e7211f53e6), v1-v7 present, SFX pack 4 MP4s in folder 1AeMfK_DIcY4tkzWFwkJQM7XY0pOuPOgB. Wrote HANDOFF_KUTTA_v8.md inside the style folder (reconstruction + rebuild recipe) and copied it to /home/user/work/HANDOFF_v8.md
+- **Result:** No v9 work started. Status unchanged: v8 delivered, awaiting user review. Rebuild in a fresh sandbox needs: new voice audition (voice ids are per session), SFX pack download + cut_sfx, Husky.glb + Blender sprites
+- **Files:** `styles/monarch-stickman-animation/HANDOFF_KUTTA_v8.md`
+
