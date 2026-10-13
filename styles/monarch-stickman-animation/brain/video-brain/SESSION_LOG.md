@@ -40,3 +40,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** kutta_v2.mp4 20.13 s 1080x1920 30fps; gate 20/22 pass; open: jerk_p95 2.11 (limit 2.0), drive shot has no SHADE visible; Drive 1IMkOtvmUMyKRN6xTx6GYi70w8uP2pI8o
 - **Files:** `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`, `styles/monarch-stickman-animation/src/gate_kutta2.py`, `styles/monarch-stickman-animation/src/prep_vo_kutta.py`
 
+## S-006 · 2026-10-13 06:49 PKT
+
+- **Request:** Continue: fix open v2 items (drive-shot SHADE, jerk)
+- **Action:** masked driver in windshield, smootherstep drive easing, full re-render, gate, drive-section frame review, Drive upload v2.1
+- **Result:** v2.1 Drive 18xdhJCn1YTsQ7oBf0XnsGPDMPLaoquJU; gate 21/22; jerk_p95 still marginal and documented
+- **Files:** `styles/monarch-stickman-animation/src/kutta2.py`
+

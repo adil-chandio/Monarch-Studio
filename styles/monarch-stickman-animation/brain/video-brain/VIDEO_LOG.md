@@ -85,3 +85,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** VO_AT 0.30/2.92/9.02/12.47 s, K4 ends 16.04 s, end hold 4.1 s; 12 shots; PLAN page,cube_h,whip_h,flare,slices,blur,zoom,card,ink,sweep,flare
 - **Review:** frame sheets 0.5-19.9 s reviewed; OK: SHADE walk + leash, door with dog, car, bowl, bed, throne, crown, split. OPEN: drive shot has no SHADE visible; jerk_p95 2.11 (limit 2.0). Gate 20/22 PASS (gate_kutta_v2.txt).
 
+## V-011 · 2026-10-13 · AMEER_KA_KUTTA_v2.1 · status: reviewed
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v2.1.mp4
+- **Drive ID:** 18xdhJCn1YTsQ7oBf0XnsGPDMPLaoquJU
+- **Settings:** same as v2 plus driver-in-windshield composite (P2.hero masked to GLASS_F/GLASS_R) and smootherstep drive easing; 17619961 B
+- **Timing:** unchanged from v2
+- **Review:** driver visible in all drive frames 5.3-6.5 s; gate 21/22 PASS, only jerk_p95 2.12 (limit 2.0) open; not claimed accepted
+

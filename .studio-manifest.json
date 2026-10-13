@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-13T01:43:30+00:00",
+  "generated_at": "2026-10-13T01:50:08+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -7856,12 +7856,12 @@
       "size": 206
     },
     "styles/monarch-stickman-animation/brain/video-brain/PROBLEMS.md": {
-      "sha256": "a663ab896c20ec52c6bb3d3ef5a439256100753406a08ac05ca974eac270d426",
-      "size": 8478
+      "sha256": "f2889904ae8494144ac9142c7b210963cad0d1a35f573b0b07b7a4bc05119bff",
+      "size": 10057
     },
     "styles/monarch-stickman-animation/brain/video-brain/SESSION_LOG.md": {
-      "sha256": "e6b64e81ffdb63d9d9839f10b1224e8f6409fb707b4970a5202d875897780c06",
-      "size": 4104
+      "sha256": "8b15d770a12ba76f170f048c13df66818521bcbef87d7aad289fafc4a461cae5",
+      "size": 4519
     },
     "styles/monarch-stickman-animation/brain/video-brain/SKILLS.md": {
       "sha256": "9f95bd46048e0a94b56498ec55e1408b10900257385abe5220fa9c9ab9d5e7e2",
@@ -7876,8 +7876,8 @@
       "size": 207
     },
     "styles/monarch-stickman-animation/brain/video-brain/VIDEO_LOG.md": {
-      "sha256": "34b616a2e8bcbf32b1e46902aaa190c11f27b5b8f758a28bee07de65e573bfe1",
-      "size": 5209
+      "sha256": "a30826e8bbc3f5f34afaeaa4e446a0364d88a2047a135f4fcc7dba0182b80832",
+      "size": 5688
     },
     "styles/monarch-stickman-animation/build_all.sh": {
       "sha256": "50b4f9cd2bc382a000b3fc8eba356858a8116542ddd0dd33867098abd95c3b04",
@@ -8280,8 +8280,8 @@
       "size": 27524
     },
     "styles/monarch-stickman-animation/src/kutta2.py": {
-      "sha256": "ceff66995f2a128290c1399e726bf980924db35fc67e31f7461189b71af83306",
-      "size": 41084
+      "sha256": "7f1e067907927ba7ddf5fd4ac4b8e582c0de0691a6d2ae945819989aa5b5e9d7",
+      "size": 41866
     },
     "styles/monarch-stickman-animation/src/make_asmr.py": {
       "sha256": "7cf0e61f21e1f705ea2589db9b67c12508e1f5a044bc4e8b1fbebc3aa8a055b4",
@@ -8564,8 +8564,8 @@
       "size": 1738
     },
     "tools/brain.py": {
-      "sha256": "882de8c813942fe900d8ff22b78e896ac7f1b7191f53cfdcd9a7f81d4df0e3b7",
-      "size": 13811
+      "sha256": "b5cce72694c53c546f687894ac2e00c4599040fdd404470c61ca6093d2bcf1e5",
+      "size": 13812
     },
     "tools/continuity.py": {
       "sha256": "6aa760e7ad2c30d4a4f5231f3522ac704c22e74009c5dc5ba2034f6d9159193c",

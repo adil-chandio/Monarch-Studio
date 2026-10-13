@@ -250,7 +250,7 @@ def cmd_check(_: argparse.Namespace) -> int:
             p = d / fname
             if not p.exists() or fname == "SESSION_LOG.md":
                 continue
-            ids = re.findall(rf"^## ({re.escape(prefix)}-\d+)\b", p.read_text(encoding="utf-8"), re.M)
+            ids = re.findall(rf"^## ({re.escape(prefix)}-\d+) ·", p.read_text(encoding="utf-8"), re.M)
             if len(ids) != len(set(ids)):
                 problems.append(f"{sid}: duplicate ids in {fname}")
         if not (STYLES / sid / "knowledge" / "INDEX.md").exists():

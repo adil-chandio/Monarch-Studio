@@ -548,8 +548,19 @@ def draw_actors(name, lay, d, t, u, lt):
             _leash(d, (h['hand_r'][0], h['hand_r'][1]), tag, t)
         K1.dog(d, dog_x, dog_y, s_dog, t, dog_pose)
     elif name == 'drive':
-        x0 = 60 + 620 * e_io(u)
+        us = cl(u)
+        x0 = 60 + 620 * (us * us * us * (us * (us * 6 - 15) + 10))     # smootherstep: no accel jolt at either end
         car(lay, d, x0, door=0.0, wheel=t * 14.0, interior=None)
+        # SHADE at the wheel, seen through the windshield: the figure is drawn on its own layer and
+        # masked to the two glass panes, so only the part behind the glass shows (the car body hides the rest)
+        drv = Image.new('RGBA', lay.size, (0, 0, 0, 0))
+        P2.hero(ImageDraw.Draw(drv), lt, x0 + 540 * CS, 330, pose_idle(t), 'sly', flip=False, bob=-34.0)
+        mk = Image.new('L', lay.size, 0)
+        mdr = ImageDraw.Draw(mk)
+        mdr.polygon(_cpoly(x0, GLASS_F), fill=255)
+        mdr.polygon(_cpoly(x0, GLASS_R), fill=255)
+        drv.putalpha(Image.fromarray(np.minimum(np.asarray(drv.getchannel('A')), np.asarray(mk))))
+        lay.alpha_composite(drv)
         dog_x = x0 + 300 * CS
         K1.dog(d, dog_x, GROUND - 16, .7, t, 'sit')
         _snow_from(d, x0, t)

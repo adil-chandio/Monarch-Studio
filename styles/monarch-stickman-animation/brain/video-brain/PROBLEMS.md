@@ -152,3 +152,28 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** open. Options: softer car acceleration keyframes, or a visible driver silhouette at the window
 - **Verified by:** gate_kutta_v2.txt in build/kutta/v2
 
+## P-022 · 2026-10-13 · status: open
+
+- **Symptom:** v2.1 gate: jerk_p95 2.12 on shot frames; per-shot p95 is highest in room_wide (5.5), bed (4.6), drive (3.3), door (3.1): kinetic word and headline reveals plus ZZZ and breathing motion, not a stutter in the picture
+- **Cause:** gate jerk_p95 was calibrated on SHADE's calmer typography; v2 deliberately uses per-word reveals
+- **Fix:** open. Options: a longer ease on word reveals, or re-measure the gate on non-text pixels (only with a logged reason)
+- **Verified by:** per-shot jerk table in session S-006
+
+## P-019 update · 2026-10-13 · status: fixed
+
+- **Fix:** driver silhouette drawn on its own layer and masked to the windshield and rear glass panes; smootherstep drive easing
+- **Verified by:** frame sheet 5.3-6.5 s: driver visible through glass in every frame
+
+## P-019 correction · 2026-10-13 · status: fixed
+
+- **Note:** the "P-019 update" above was logged against the wrong ID. The windshield-driver fix belongs to P-021 (drive shot). P-019 keeps its original status.
+
+## P-021 update · 2026-10-13 · status: open
+
+- **Fix (drive part):** driver silhouette drawn on its own layer, masked to windshield and rear glass panes; smootherstep drive easing (v2.1).
+- **Verified by:** frame sheet 5.3-6.5 s, driver visible through glass in every frame (review_drive_v21.png).
+- **Still open:** jerk_p95 2.117 (limit 2.0). See P-022.
+
+## P-022 update · 2026-10-13 · status: open
+
+- **Note:** P-022 duplicates the jerk part of P-021. Treat P-021 as the owner of the jerk issue; P-022 keeps the per-shot breakdown.
