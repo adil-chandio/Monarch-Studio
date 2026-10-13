@@ -280,6 +280,19 @@ SFX_PAN = {'jingle': 0.0, 'step': 0.0, 'door_open': -0.45, 'door_close': -0.45, 
            'engine_on': -0.1, 'ac_click': 0.3, 'ping': 0.2, 'chime': 0.0}
 
 
+SFX_LIB = '/home/user/build/sfx_lib'
+
+
+def _lib(name):
+    """Licensed SFX sample from the pack (WAV, 48 kHz mono), or None if missing."""
+    p = f'{SFX_LIB}/{name}.wav'
+    if not os.path.exists(p):
+        return None
+    w = wave.open(p)
+    a = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
+    return a
+
+
 def build_sfx():
     bus = Bus()
     step_flip = 0
@@ -287,7 +300,11 @@ def build_sfx():
         if name == 'whoosh':
             b = int(amp)
             d = K.tdur(K.PLAN[b])
-            bus.add(sfx_whoosh(d + .08, .9), t, pan=(-.2 if b % 2 else .2), gain=1.0)
+            clip = _lib('riser_click')           # v3: licensed sample (50+SFX premium pack), procedural fallback
+            if clip is not None:
+                bus.add(clip * 0.55, t, pan=(-.2 if b % 2 else .2), gain=1.0)
+            else:
+                bus.add(sfx_whoosh(d + .08, .9), t, pan=(-.2 if b % 2 else .2), gain=1.0)
         elif name == 'step':
             step_flip ^= 1
             bus.add(SFX_FN['step'](amp), t, pan=(-.18 if step_flip else .18), gain=1.0)
