@@ -109,3 +109,11 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 20.39 s total
 - **Review:** gate 21/21 PASS; 1 s contact sheet only; dog design NOT premium (bean body, stub legs); not accepted
 
+## V-014 · 2026-10-13 · AMEER_KA_KUTTA_v5 · status: reviewed
+
+- **File:** /home/user/build/AMEER_KA_KUTTA_v5.mp4
+- **Drive ID:** not uploaded
+- **Settings:** dog: CC0 Husky rig (Quaternius Ultimate Animated Animal Pack, animals_pack, CC0-1.0) rendered in Blender 4.3 Cycles, recoloured gold, ink outline; poses: stand/sit=Idle, walk=Walk, eat=Eating, lie=Death final frame; split-shot dog lies on cushion; v4 SFX and headline kept; gate 21/21 PASS
+- **Timing:** 20.39 s total
+- **Review:** gate PASS; frames checked at 4/10/17 s; transitions, captions, BG music and videos 2-4 SFX mapping NOT upgraded; sit uses standing Idle (no sit clip in pack); not accepted
+
