@@ -133,3 +133,15 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Timing:** 20.90s; shots 12; PLAN page depth cube_v flare depth shatter cube_h depth fold cube_h flare; SFX shatter=crack_flash, fold=modern_shutter, others procedural whoosh
 - **Review:** v7 gate 21/21 ALL PASS (max_dluma 7.42, trans_jerk 6.07, lufs -12.4, peak -1.29 dBFS). 3D/parallax transitions replace v6 slides. VO voice-03 regenerated. Sit pose: no sit clip in Husky, Idle used (limitation). Not accepted by user yet.
 
+## V-017 · 2026-10-13 · v8 · status: delivered (pending user review)
+
+- **File:** /home/user/work/AMEER_KA_KUTTA_v8.mp4 (1080x1920, 30 fps, 20.77 s, AAC stereo)
+- **Drive ID:** 1D44AE8qc4wFwuAFu1UPrKPyuC-T8oshr (link-viewable, reader)
+- **Settings:** cards3d.py real 3D stage (perspective cards, side walls, cast shadows, sheen, neon edge, floor grid, streak particles, chroma split). Transitions: carousel (4-card ring turns 90 deg), tunnel (A flies past lens, B swings in from depth), deck (A thrown up, B's fanned deck rises). PLAN carousel tunnel deck shatter carousel tunnel deck shatter carousel tunnel_long flare; tunnel_long = 1.6 s on pave->crouch. Shatter TDX 0.80. Motion eased at window edges (particles, grid, sheen gain) so no step at the cut-in or cut-out.
+- **Audio:** Drive SFX pack (VID_20261011_*: 4 MP4s) cut via cut_sfx.py; crack_flash, gleam, conjure_charge, synth_sparkle, riser_click, digital_click, modern_shutter, lighter_ignite placed by moment. VO voice-03 (ur-PK) regenerated this session with generate_speech (k1-k4), fitted by prep_vo_kutta.py. BG music + whooshes from mux_kutta2.py, loudnorm I=-10.6.
+- **Timing:** 20.77 s total; boundaries 1.5 / 3.0 / 4.25 / 5.16 / 6.52 / 7.54 / 8.68 / 10.87 / 12.66 / 15.90 / 18.18 s.
+- **Gate:** gate_kutta2.py 21/21 ALL PASS. max_dluma 7.843, frames_dluma_gt8 0, black_edge_frames 0, trans_jerk_max 6.944, decoded_peak -1.64 dBFS, lufs -12.1, av_delta 0.01, vo_longest_gap 0.24 s.
+- **Fixes during v8 render (for the record):** front-card scale switched hard at cos>0.99 (one-frame jump at p~.18), fixed to a continuous function; deck B overscan so the top row is never uncovered; tunnel B coverage and shade ramped (bright-in/dark-out luma steps); carousel sheen gain eased.
+- **Review:** sit pose uses Husky Idle (no sit clip in pack, limitation). SFX mapped by title and features, not verified by ear. Correction: V-016 said VO was regenerated for v7, which was not backed by a generate_speech call; the v8 VO is the one generated this session.
+- **Status:** delivered; awaiting user review.
+

@@ -135,7 +135,7 @@ def _paint_poly(canvas, st, polys, color, alpha, blur=0.0, outline=False, width=
 
 
 def card(canvas, st, tex, c, ry=0.0, rx=0.0, rz=0.0, s=1.0, alpha=1.0, shade=1.0, thick=26.0,
-         shadow=0.5, sheen=None, edge=True):
+         shadow=0.5, sheen=None, edge=True, sheen_gain=1.0):
     """one textured card. c = centre (x, y, depth). Returns nothing; paints onto canvas (RGB)."""
     if alpha <= 0.004 or shade <= 0.0:
         return
@@ -172,7 +172,7 @@ def card(canvas, st, tex, c, ry=0.0, rx=0.0, rz=0.0, s=1.0, alpha=1.0, shade=1.0
     arr = np.asarray(rgb).astype(np.float32) * fsh
     if sheen is not None:
         xs = (np.arange(arr.shape[1], dtype=np.float32) + x0) / W
-        band = np.exp(-((xs - sheen) / 0.07) ** 2) * 0.32
+        band = np.exp(-((xs - sheen) / 0.07) ** 2) * 0.32 * sheen_gain
         arr = arr + band[None, :, None] * 255.0 * fsh
     rgb2 = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
     m = mask if alpha >= 0.999 else mask.point(lambda v: int(v * alpha))
@@ -233,10 +233,15 @@ def carousel(A, B, p, acc=None):
         c = (Rr * math.sin(th), 0.0, Zc - Rr * math.cos(th))
         cards.append((c[2], tex, c, th, shade))
     sheen = (p * 1.7 - 0.35)
+    g = _ease(min(1.0, p / 0.25)) * _ease(min(1.0, (1.0 - p) / 0.25))   # light band fades in/out: no step at the window edges
     for z, tex, c, th, shade in sorted(cards, key=lambda t: -t[0]):
-        card(canvas, st, tex, c, ry=th, s=0.92, shade=shade, thick=30, shadow=0.55,
-             sheen=sheen if shade >= 1.0 else None)
-    particles(canvas, st, p, n=36, speed=0.30, seed=5)
+        # front card is 1.01x the frame so its edges are never uncovered (no dark margin at p=0 / p=1,
+        # where it must match the flat shot exactly); the back/side cards keep the 0.92 ring size.
+        # continuous in the angle (a hard switch at cos>0.99 made the front card jump one frame at p~.18)
+        cz = max(0.0, math.cos(th)) ** 8 if shade >= 1.0 else 0.0
+        card(canvas, st, tex, c, ry=th, s=0.92 + 0.09 * cz, shade=shade, thick=30, shadow=0.55,
+             sheen=sheen if shade >= 1.0 else None, sheen_gain=g)
+    particles(canvas, st, _ease(p), n=36, speed=0.30, seed=5)     # eased: no velocity jump at the window edges
     return chroma(np.asarray(canvas).astype(np.uint8), 2.5 * math.sin(math.pi * p))
 
 
@@ -244,17 +249,20 @@ def carousel(A, B, p, acc=None):
 def tunnel(A, B, p, acc=None):
     st = Stage(A, acc)
     W, H, ZD = st.W, st.H, st.ZD
-    canvas = background(st, p, glow=0.30, grid=p * 4.0).convert('RGB')
+    canvas = background(st, p, glow=0.30, grid=_ease(p) * 4.0).convert('RGB')
     eb = _ease(p)
     tb = Image.fromarray(B)
-    card(canvas, st, tb, (W * 0.55 * (1 - eb) ** 1.6, 0.0, ZD * (2.6 - 1.6 * eb)),
+    # B's alpha spreads over the whole move (was p .12-.72): a bright B popping in at the end read as a 10-level/frame flash
+    # depth follows 1/z linear in p: B's screen coverage grows at a constant rate (no end-of-move flood)
+    zb = ZD * 2.6 / (1.0 + 1.6 * min(1.0, max(0.0, p)))
+    card(canvas, st, tb, (W * 0.55 * (1 - eb) ** 1.6, 0.0, zb),
          ry=0.9 * (1 - eb), rz=0.12 * (1 - eb), s=1.0,
-         alpha=_ease((p - 0.12) / 0.6), shade=1.0, thick=34, shadow=0.45, sheen=p * 1.7 - 0.35)
+         alpha=_ease(p / 0.95), shade=0.25 + 0.75 * min(1.0, p), thick=34, shadow=0.45, sheen=p * 1.7 - 0.35)
     ta = Image.fromarray(A)
     za = ZD * (1 - 0.72 * (p ** 1.6))
     card(canvas, st, ta, (-0.45 * W * p ** 1.6, 0.05 * H * p, za), ry=0.35 * p, rz=-0.20 * p, s=1.0,
          alpha=1 - _ease((p - 0.45) / 0.5), shade=1.0, thick=44, shadow=0.0, sheen=None)
-    particles(canvas, st, p, n=120, speed=1.6, seed=11)
+    particles(canvas, st, _ease(p), n=120, speed=1.6, seed=11)
     return chroma(np.asarray(canvas).astype(np.uint8), 6.0 * math.sin(math.pi * p))
 
 
@@ -262,19 +270,19 @@ def tunnel(A, B, p, acc=None):
 def deck(A, B, p, acc=None):
     st = Stage(A, acc)
     W, H, ZD = st.W, st.H, st.ZD
-    canvas = background(st, p, glow=0.18, grid=p * 1.5).convert('RGB')
+    canvas = background(st, p, glow=0.18, grid=_ease(p) * 1.5).convert('RGB')
     f = 1.0 - _ease((p - 0.10) / 0.80)            # 1 at start (deck far away) -> 0 when settled
     tb = Image.fromarray(B)
     for k in (3, 2, 1):                           # fanned copies behind B, fading out as B settles
         card(canvas, st, tb, (-k * 0.06 * W * f, k * 0.03 * H * f, ZD * (1 + 0.7 * f + 0.20 * k)),
              ry=0.0, rz=0.035 * k * f, s=1.0, alpha=max(0.0, f) * 0.95, shade=0.42 - 0.08 * k,
              thick=20, shadow=0.35, edge=False)
-    card(canvas, st, tb, (0.0, 0.0, ZD * (1 + 0.7 * f)), s=1.0, shade=1.0, thick=30, shadow=0.5,
-         sheen=p * 1.7 - 0.35)
+    card(canvas, st, tb, (0.0, 0.0, ZD * (1 + 0.7 * f)), s=1.0 + 0.75 * f, shade=1.0, thick=30, shadow=0.5,
+         sheen=p * 1.7 - 0.35, sheen_gain=_ease(min(1.0, p / 0.25)))
     ea = _ease(p)
     ta = Image.fromarray(A)
     card(canvas, st, ta, (0.10 * W * ea, -1.05 * H * _ease(p ** 1.2), ZD * (1 - 0.35 * ea)),
-         rx=1.25 * ea, rz=0.10 * ea, s=1.0, alpha=1 - _ease((p - 0.6) / 0.4), shade=1.0,
+         rx=1.25 * ea, rz=0.10 * ea, s=1.0, alpha=1 - _ease((p - 0.15) / 0.55), shade=1.0,
          thick=34, shadow=0.45, sheen=None)
-    particles(canvas, st, p, n=40, speed=0.5, seed=17)
+    particles(canvas, st, _ease(p), n=40, speed=0.5, seed=17)
     return chroma(np.asarray(canvas).astype(np.uint8), 3.0 * math.sin(math.pi * p))
