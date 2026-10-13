@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-11T02:01:04+00:00",
+  "generated_at": "2026-10-13T13:01:15+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "4e50e5c0f4695fb7bb18c7f470571ee3340fae02ea540d35af716893e88393e7",
+      "size": 641
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -331,6 +331,22 @@
       "sha256": "822c0bd6b1e0b444afc9a42c374bae253dc90c04c2967381c69bb59ff4b69488",
       "size": 5388
     },
+    "operations/continuity/checkpoints/EMS-20261013-001/0001-20261013T114143Z/HANDOFF.md": {
+      "sha256": "d4675546bf5dc009778433a5686a008e98e1e45804a19622523555d9829f7101",
+      "size": 2050
+    },
+    "operations/continuity/checkpoints/EMS-20261013-001/0001-20261013T114143Z/checkpoint.json": {
+      "sha256": "a6216bb724a0f3fa41524bcb66615a6a01db6502b43fd1e9f120d064723eb268",
+      "size": 10655
+    },
+    "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T130114Z/HANDOFF.md": {
+      "sha256": "91cb24dd3cc23b11a9f4ada085ecf6b46f6ddca7687199ac7ff89cbe0243afab",
+      "size": 1617
+    },
+    "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T130114Z/checkpoint.json": {
+      "sha256": "757a5176f99e03f5550550fa7a64222b7febe44662a150a3fd719901bcf56d29",
+      "size": 13106
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -499,6 +515,30 @@
       "sha256": "bc6bdb7b035488d06fc7ae72d0a644deaa365afd23e303dc04f18ac459f39fe3",
       "size": 5388
     },
+    "operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/STATUS.md": {
+      "sha256": "afa57baf32dafb9c5c83e37e6a848cc4a504caf98f4c383ea0fa5d326ccb0651",
+      "size": 858
+    },
+    "operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/SYNC.json": {
+      "sha256": "9f099b8b016122ea2ec8e6fa213e1dfb9d98337e980effb0b1a495445452af26",
+      "size": 4360
+    },
+    "operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/checkpoint.json": {
+      "sha256": "d59e2179af7e3d771e916fced4956e9a72c4108c87a0c3ccf76767f3dd474f42",
+      "size": 10725
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T130114Z/STATUS.md": {
+      "sha256": "fc7fac0eda85ffa4d3865453bdf1b1ef9445554856ab508f8362662720eaa040",
+      "size": 898
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T130114Z/SYNC.json": {
+      "sha256": "dd43b554f96f6fcbf9200bddc73acc0db144f57ee52259ef23a38ffde19e1277",
+      "size": 4360
+    },
+    "operations/continuity/outbox/EMS-20261013-002/0001-20261013T130114Z/checkpoint.json": {
+      "sha256": "d7f88e47318d4e49d9f6b1fee64a767fc5b90cf2effb110c5943e1a14605d29b",
+      "size": 13176
+    },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
       "size": 4271
@@ -615,6 +655,98 @@
       "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
       "size": 2520
     },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/ACTIVE_TASK.json": {
+      "sha256": "0ff31df14719ca99af8a7fee6df7d8e1b756c8d77f7668072984da788ca66db3",
+      "size": 1920
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "a8530cc21b9fb98d72a0b07833d08719fa6b3a14e1fcd9eb9e79dd814a53c04a",
+      "size": 1795
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/JOURNAL.jsonl": {
+      "sha256": "7d586163b968884808b591ffc251d062f3eb8cc2d7d7bd7c1b50484e57e4be43",
+      "size": 4179
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/RESUME.md": {
+      "sha256": "d4675546bf5dc009778433a5686a008e98e1e45804a19622523555d9829f7101",
+      "size": 2050
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_GATES.md": {
+      "sha256": "8222d5c23f552509b52a82cd3ddeca6df9166295b497bcea77cd7566e349be76",
+      "size": 2716
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_RECEIPT.json": {
+      "sha256": "318825e9000955a3bfd7b7e07516b795ff9d9922696cccbaaf97a8106d2765c4",
+      "size": 2076
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/GATE_REPORT.json": {
+      "sha256": "d5d80de7aa439f669fab85806c6a24a1d9c194302f1cd563c1be0c6a022bef77",
+      "size": 4502
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
+      "sha256": "308bf2918a8647e8da5c6de70ca7effd750ac36df18f2ededa5424fa98a70ada",
+      "size": 1032992
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
+      "sha256": "f480fce9e651184393331ee631203014237d9f0d6e219628a9a43a7d3d560597",
+      "size": 665555
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/README.md": {
+      "sha256": "a2f4c1c88dfea8e78001c657795705ee022aa7ff9f2b9c28fc932978d1defabc",
+      "size": 543
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_amber_sil.png": {
+      "sha256": "0ed54ded82b56061e89a12d045241134db0d21261096781ab7f0baa9414bc49d",
+      "size": 1727708
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan.png": {
+      "sha256": "2e50d5cc62f6c5e74a92f69842605fc062b741ea1dd66cae9ffacc3ec7850520",
+      "size": 1918483
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan_visor.png": {
+      "sha256": "f54a911dc0d5a6ba45edbdca18409e60445005a65b0e9b0ba2d63c8c5966bf1a",
+      "size": 1865374
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_closeup_34.png": {
+      "sha256": "c8fa662d333fadb7a151e9c5b23b41bcf2f9a2b9f66d9ed3eed6b9488be98659",
+      "size": 1829845
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_dark_visor.png": {
+      "sha256": "953f0b853cb12bc67deb3ab967e516988b155e7f0475f3b69c65d530d21c17b7",
+      "size": 1039267
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_blue.png": {
+      "sha256": "8fd14b98b3ebf6d272455d2cb267c1b2f527d8dc01c21b74d79c7ab4b4a87353",
+      "size": 1885076
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_sil.png": {
+      "sha256": "503ee8129e8b261c09e68baaead844528a7619cc916e0ff1c7089629940b89cf",
+      "size": 1475895
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_profile_side_neural.png": {
+      "sha256": "86f3397353d6f839b3fc28177e670923f63967734d0472c9cb19094e3ab31ed7",
+      "size": 2053020
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_sovereign_monarch_finale.png": {
+      "sha256": "534aeecedccdd1ea63144442e3b5691cfc1f81ff8bf9709162800728e7c8e359",
+      "size": 2245415
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_wide_hall.png": {
+      "sha256": "c37ae499febcaabba33175a128c48c17c0fff89f1ae14ab154355f8438f46d11",
+      "size": 2218927
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/audio_engine.py": {
+      "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d",
+      "size": 7260
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/build_chaos_video1.py": {
+      "sha256": "b182c58da40f82db41d0d979af8b1f3e5dcc589dd74fad02e388ce54e5620397",
+      "size": 27685
+    },
+    "operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/gate_chaos_video1.py": {
+      "sha256": "c12f0a313d4ec34f33911b769154bd5fb8bd6ec977946f69a8268a33c0941dfe",
+      "size": 8158
+    },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
       "size": 2034
@@ -708,12 +840,100 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "d13012cd772d658dae8d716fdecc045a4d1c945e801c0014496275bfe96c2ab1",
-      "size": 4248
+      "sha256": "c74008a52b1ada5e5c7fced03e7ac3fce50525b74ab10d98f88ccb3ebafb5636",
+      "size": 5540
     },
     "styles/README.md": {
       "sha256": "6daf5f52629e7e3c3d9606417eaefa3825ed789761b965d9e35a9a99b3725fa4",
       "size": 1347
+    },
+    "styles/monarch-face-chaos/README.md": {
+      "sha256": "20303003c54ef340b881659c41a62b89d0afc158ced02de575a038fac74a35f8",
+      "size": 2493
+    },
+    "styles/monarch-face-chaos/knowledge/INDEX.md": {
+      "sha256": "4af7cb89cf3d1bb43abef7c6bfbcc73da4cc66e1b38fb7b7944da8e488004d5f",
+      "size": 2101
+    },
+    "styles/monarch-face-chaos/plates/plate_close_amber_sil.png": {
+      "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21",
+      "size": 2159754
+    },
+    "styles/monarch-face-chaos/plates/plate_close_cyan.png": {
+      "sha256": "17f46ac51fa307267e2307f034dc03de48718ab5f1d8f765ad7435ea15c1e25e",
+      "size": 2224137
+    },
+    "styles/monarch-face-chaos/plates/plate_close_cyan_visor.png": {
+      "sha256": "5274ff597a70689009abd92f56ba06bb733646ae4d08019e94c67c4b67663353",
+      "size": 1963261
+    },
+    "styles/monarch-face-chaos/plates/plate_closeup_34.png": {
+      "sha256": "8c3aaa164ce21f2f40e6d0207aea504fdd50cd3934cd028608cb0e4cc96c3181",
+      "size": 2293335
+    },
+    "styles/monarch-face-chaos/plates/plate_med_dark_visor.png": {
+      "sha256": "b6b701d92823dcc6013de91e2063fcd536adc37efc2b1a5a0cd97626634f2ffe",
+      "size": 1673783
+    },
+    "styles/monarch-face-chaos/plates/plate_med_red_blue.png": {
+      "sha256": "aba1be54eebd1a20f560f0a9e4ffa4863e330631207f2942cda41ca81640ac3f",
+      "size": 2008060
+    },
+    "styles/monarch-face-chaos/plates/plate_med_red_sil.png": {
+      "sha256": "6948da75c9f2f82e6bd462e809ff616c20a7261c5c363dedfe5664771d8730fd",
+      "size": 1828210
+    },
+    "styles/monarch-face-chaos/plates/plate_profile_side_neural.png": {
+      "sha256": "4ff97de7d5c0db019ee301ec76ebe19beaf5de906d98359e7e3dd39f0daec588",
+      "size": 2341193
+    },
+    "styles/monarch-face-chaos/plates/plate_sovereign_monarch_finale.png": {
+      "sha256": "14aebc9150bb517efc2a2efa7ebb0d279e8fd7f616e3773a248a21c24a0001b4",
+      "size": 2368204
+    },
+    "styles/monarch-face-chaos/plates/plate_wide_hall.png": {
+      "sha256": "fbccea6a4d1f3576978600bb3bd8b281473d06867793e547c39ad833f7d34cdc",
+      "size": 2242332
+    },
+    "styles/monarch-face-chaos/records/DELIVERY_GATES.md": {
+      "sha256": "7d1496acf187fa6b74befe849a77ab0c4b836cb79cb7b8600b38b8614d5dbc23",
+      "size": 2725
+    },
+    "styles/monarch-face-chaos/records/DELIVERY_RECEIPT.json": {
+      "sha256": "37535c0c669ac785750da6accd8003e6dad58139a0dae2b731bc0e7b93362de8",
+      "size": 2098
+    },
+    "styles/monarch-face-chaos/records/GATE_REPORT.json": {
+      "sha256": "92d1e588536cf901ebdfde1a056acb3894f33f4566b55260cd3822c7fb25d9d2",
+      "size": 4520
+    },
+    "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
+      "sha256": "e66b9c16f4ffe20ec2cde9fb1dcdfa3927abb2d13e47425ecc263a08d4901f36",
+      "size": 1208945
+    },
+    "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
+      "sha256": "42af72215a6a4be241df195208383f2ec5db75a37ece3f5a39d9494e44100e16",
+      "size": 757913
+    },
+    "styles/monarch-face-chaos/src/audio_engine.py": {
+      "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d",
+      "size": 7260
+    },
+    "styles/monarch-face-chaos/src/build_chaos_video1.py": {
+      "sha256": "507e58b5261f19c8e65d1203f188204c53c664f18205e976c91b3ed3d615141c",
+      "size": 45923
+    },
+    "styles/monarch-face-chaos/src/gate_chaos_video1.py": {
+      "sha256": "ae25e063d7062781118a0f3de3d40a541cae756c1e2eccb6fb2ba72b815f3ea2",
+      "size": 8173
+    },
+    "styles/monarch-face-chaos/style.json": {
+      "sha256": "98be6ef61988114dc999d9a485060151f009cf6f910fab45deac592110a05540",
+      "size": 700
+    },
+    "styles/monarch-face-chaos/workflow.json": {
+      "sha256": "dab36085c88861f3894add71b0102871fcf0e663c57a9e0a093fd8e684337831",
+      "size": 2712
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -868,8 +1088,8 @@
       "size": 371
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "f90805bae8b08b9b8e7a4edc0c3cdaa95c2276bac1dd97bff2f6a335f59c5cef",
-      "size": 25327
+      "sha256": "a7f2e47de88b51ec8d3828acd5b1c87a33fe5d12b69527d4f48d1d15cfab23fa",
+      "size": 24739
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/AUDIO_QC.json": {
       "sha256": "a0deaa07537a51e20c9ec1a7c8d45db2cd78092f14fd88737961787baa410c3d",
@@ -916,8 +1136,8 @@
       "size": 9272
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/VISUAL_ENHANCEMENT_LEDGER.csv": {
-      "sha256": "955679e49ae4dd369b33bd6c926255e55c7f0de4bd738c0e4dc00fcd6986f94c",
-      "size": 6439
+      "sha256": "dacf8f679859857b4e9686ce4ecee25ebdfe03e9763d61975d45715a5a35cbff",
+      "size": 6404
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/assets/fonts/Montserrat-OFL.txt": {
       "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e",
@@ -1040,8 +1260,8 @@
       "size": 219
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "ff8f820db2aa7f75b79dba4b1013ff55fd309e0e4dc44e26756a25631a531f7f",
-      "size": 4457
+      "sha256": "b66f1ffda8c2b0ce98151149e0a2c2fc6f349d2a7af1a0db25886e5ee916ec48",
+      "size": 4335
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat/artifacts/BRAIN_GATE.txt": {
       "sha256": "14565897c17de45460f71f4d377b1eb4eda6351a8cb8b589458e12ce203a1ba2",
@@ -1094,6 +1314,50 @@
     "styles/monarch-noir-film/knowledge/TUMHARI_RESERVED_SEAT_LESSONS.md": {
       "sha256": "92ded42bc0250b26bc699dd3c4601c84dd0c9abf4a4eaa6d80ab61171a48a71b",
       "size": 3072
+    },
+    "styles/monarch-noir-film/plates/facade_windows.json": {
+      "sha256": "4336501fb4f12e9b5b92bb3e5f37db1384dee99448c766854f57bb5ad079144c",
+      "size": 4974
+    },
+    "styles/monarch-noir-film/plates/raw_bedroom_amber.png": {
+      "sha256": "8a94543b635891e758c127ce3b25e62865fca609ee49da9034531a0d6da1c151",
+      "size": 2081447
+    },
+    "styles/monarch-noir-film/plates/raw_bedroom_night.png": {
+      "sha256": "195f8368cb329b6141923015024373680e8d6074b43f465fc4ad6f0462a03e3f",
+      "size": 1981532
+    },
+    "styles/monarch-noir-film/plates/raw_desk_window.png": {
+      "sha256": "c0baed681d24eaa5d2493f0caa34022ea9c91ced04df9ab18231359a454b6773",
+      "size": 2061805
+    },
+    "styles/monarch-noir-film/plates/raw_facade_hero.png": {
+      "sha256": "ca6d00f3ffd9e2d2008efbab95d47b1343a987d0663a578f8c957687a64b7923",
+      "size": 1908920
+    },
+    "styles/monarch-noir-film/plates/raw_facade_night.png": {
+      "sha256": "b55cdadbe44c7c17add56386cbc766ec5bd88a42c9a9ea10ddae97a8808fea72",
+      "size": 2141259
+    },
+    "styles/monarch-noir-film/plates/raw_kitchen_window.png": {
+      "sha256": "dd43394d85c4b90e98c8385a90b96448d25fb937378890c954365e100efd1e9e",
+      "size": 2191391
+    },
+    "styles/monarch-noir-film/plates/raw_kitchenette_night.png": {
+      "sha256": "930535fc366024293fa97f65db1d382d32f01dd507b9f2e769768cefee778227",
+      "size": 1936444
+    },
+    "styles/monarch-noir-film/plates/raw_runner_window.png": {
+      "sha256": "a9fa4856dc4e7a076f9c9a0609f201c4713efe04696317a4bc0c9e8713244e1b",
+      "size": 2175256
+    },
+    "styles/monarch-noir-film/plates/raw_street_dawn.png": {
+      "sha256": "5650402f65f4f335d0da28f6ca3f65733743dd69450e28193798dcc35ade964d",
+      "size": 2027807
+    },
+    "styles/monarch-noir-film/plates/raw_window_inside.png": {
+      "sha256": "c41476e0541d0148df578d17836cd33b2b07db7b4dd38d759110ee36bb2b2a3e",
+      "size": 1929854
     },
     "styles/monarch-noir-film/records/archive/RESUME_STATE_turn21.md": {
       "sha256": "1368aeaa8ae064b723bdbbaedaea9c242713c165e158c0b87770606217dd41fa",
@@ -1178,6 +1442,46 @@
     "styles/monarch-noir-film/style.json": {
       "sha256": "31e66e5ae8609ba59dbc23463288f32ce125a1bfbe3b64f3ba57d8585bfc9c46",
       "size": 692
+    },
+    "styles/monarch-noir-film/vo/vo01.mp3": {
+      "sha256": "833e7e3766e26fe9aa937860b02d22d364eb6908bf77ce5a14283fa5839f4805",
+      "size": 118927
+    },
+    "styles/monarch-noir-film/vo/vo02.mp3": {
+      "sha256": "831bb9b93cf820185ea0487ba63d2256577bc2c572ae96b06717246079b2a50f",
+      "size": 138362
+    },
+    "styles/monarch-noir-film/vo/vo03.mp3": {
+      "sha256": "623f0acb1eb35b0b18e559632d7e760786aa8d815f40baa8a982487dd3360128",
+      "size": 58950
+    },
+    "styles/monarch-noir-film/vo/vo04.mp3": {
+      "sha256": "3f4139ed70a88dc17b012fc1697c795ab13a0bf1969aede86dd3726101db8ff2",
+      "size": 34917
+    },
+    "styles/monarch-noir-film/vo/vo05.mp3": {
+      "sha256": "a9cb30b68ba1e42692dcdaf7a095fcecb89aa2329a5d4c64ad1e5c96c524c434",
+      "size": 55815
+    },
+    "styles/monarch-noir-film/vo/vo06.mp3": {
+      "sha256": "a18e39174cc0803f551f29ebdbdeff85fcdf390a6aede17f7c80e4135d3a01ce",
+      "size": 77340
+    },
+    "styles/monarch-noir-film/vo/vo07.mp3": {
+      "sha256": "bfbfee1222b9536970a521f651129d2d4f5855e4b9874fc50059693f3f7261bf",
+      "size": 136899
+    },
+    "styles/monarch-noir-film/vo/vo08.mp3": {
+      "sha256": "ec4829630fd57a0ce3fcc00df68e1dcd98ece7b6c0f0740812cd80f785b00334",
+      "size": 105761
+    },
+    "styles/monarch-noir-film/vo/vo09.mp3": {
+      "sha256": "c7dbb6f3fb9be229ccf20b27070d570aee138210ae1d3b9d35ca001448789d54",
+      "size": 152991
+    },
+    "styles/monarch-noir-film/vo/vo10.mp3": {
+      "sha256": "0e615ea4ceb49fbdc5bee4d19f28f12d05216f4ca386a7545a6dc701492acf4d",
+      "size": 114329
     },
     "styles/monarch-noir-film/workflow.json": {
       "sha256": "900a31854e02c8d8886fec3ab43dec960ac39590586d6b0b1b0e82a6a5e72aee",
@@ -1359,6 +1663,218 @@
       "sha256": "b049bbf4102a49ddccb69fc2c5fe042719236465b89671bf91c2a346da9daa66",
       "size": 1661593
     },
+    "styles/monarch-stickman-animation/assets/b1.mp3": {
+      "sha256": "6e75ed5da61fd1fd626926cbd1b52fa94bd49afd2ab8258e380c6f8199b244ae",
+      "size": 155916
+    },
+    "styles/monarch-stickman-animation/assets/b10.mp3": {
+      "sha256": "05c344a2afe499c99758da6c97b413767055b787b8d74d183d58ab4ad5f8a46c",
+      "size": 198757
+    },
+    "styles/monarch-stickman-animation/assets/b2.mp3": {
+      "sha256": "7cec55b11a519a218f1ed0f56d51fe4903339bfd5218fd521c498db0af34ab13",
+      "size": 171381
+    },
+    "styles/monarch-stickman-animation/assets/b3.mp3": {
+      "sha256": "faef0e537c1da8588e85b6604a2f4f565a54a27993de486607e6903cdf4c3f19",
+      "size": 156752
+    },
+    "styles/monarch-stickman-animation/assets/b4.mp3": {
+      "sha256": "a10ea25a15f70bec67e18da284f5c6036f05c00fd29a36d884d74bcafb6560b3",
+      "size": 136690
+    },
+    "styles/monarch-stickman-animation/assets/b5.mp3": {
+      "sha256": "a4326d691929b87df0ed2f44045e64cbe2d1d9b08a903706572750dc3599d300",
+      "size": 146303
+    },
+    "styles/monarch-stickman-animation/assets/b6.mp3": {
+      "sha256": "eb8400a0b9e66ce27c32e0128a1fcbe6e278bd429abd19aecf7d203bcaf98a66",
+      "size": 177023
+    },
+    "styles/monarch-stickman-animation/assets/b7.mp3": {
+      "sha256": "5176b4b7191504abf98c33133f8a80c83089f2e42b8a426fb7d025c7a7a8fe09",
+      "size": 129794
+    },
+    "styles/monarch-stickman-animation/assets/b8.mp3": {
+      "sha256": "7bd7b511c541cac77c34f51a497ac95ab4e7cf65accbcfddfde2c75ee6b9a346",
+      "size": 150901
+    },
+    "styles/monarch-stickman-animation/assets/b9.mp3": {
+      "sha256": "b8f59df4c1ebfa828ac09252bbc9061d5303e01bede2a23a97c842a7d791f066",
+      "size": 166783
+    },
+    "styles/monarch-stickman-animation/assets/p1.mp3": {
+      "sha256": "1b91556e551ec0cabdc6006c514e0dfaef5d02d4a0c1d3444c3b6a5f4388ef33",
+      "size": 27309
+    },
+    "styles/monarch-stickman-animation/assets/p1_fit.wav": {
+      "sha256": "269d2dd4926bece4bd7b7d117626227e2db132ca784eb445f49ff568deffa73d",
+      "size": 540140
+    },
+    "styles/monarch-stickman-animation/assets/p2.mp3": {
+      "sha256": "423ef0328f9ea679172439b7e467174ca57d2978c8d3fd6e1badef0e80df0453",
+      "size": 27789
+    },
+    "styles/monarch-stickman-animation/assets/p2_fit.wav": {
+      "sha256": "b3bd314f839509339b8951d10e7526448084819c4f6c94d9e4b835042bbdb1c8",
+      "size": 529580
+    },
+    "styles/monarch-stickman-animation/assets/p3.mp3": {
+      "sha256": "43428aa2b71ec0db35ddf248dd809e602c0813dec16d7ccc800accf4820ea8ec",
+      "size": 30861
+    },
+    "styles/monarch-stickman-animation/assets/p3_fit.wav": {
+      "sha256": "b327db779d757d5c81ffd87105ef0c5c2766a2646c3e7db5f0a02eb0612b4f70",
+      "size": 625580
+    },
+    "styles/monarch-stickman-animation/assets/p4.mp3": {
+      "sha256": "da33c44d0fc5765b2537fa322aa5e7e47f6afdbd98a0f990e2a7d5f2adeb3d8d",
+      "size": 31533
+    },
+    "styles/monarch-stickman-animation/assets/p4_fit.wav": {
+      "sha256": "ad58be60c7e3d63e9b953f6f8a90e87dfa50667e189cc64cdb41fedad79543b6",
+      "size": 600044
+    },
+    "styles/monarch-stickman-animation/assets/p5.mp3": {
+      "sha256": "2391ada87086cba5065e4d0270670f221d9ff6c975eba681a5a13e2bbe98eef9",
+      "size": 33069
+    },
+    "styles/monarch-stickman-animation/assets/p5_fit.wav": {
+      "sha256": "ef1de7f07b378b060a4ea588f62aebf66cabbd408f96a8d9a093be141c85a870",
+      "size": 628460
+    },
+    "styles/monarch-stickman-animation/assets/p6.mp3": {
+      "sha256": "7020bef1bab0cb44888180d514d6913331c5dd4f59cc475eb3cd0b32165af369",
+      "size": 39981
+    },
+    "styles/monarch-stickman-animation/assets/p6_fit.wav": {
+      "sha256": "a8711c634a7538c58cae6fba867951bf76dc2ac40bd1b181eaf4812540ac719e",
+      "size": 779756
+    },
+    "styles/monarch-stickman-animation/assets/r1.mp3": {
+      "sha256": "7276a169179145f3c09b86e2d04d27fcff7a38626d1d5993efe48ff9faf89a73",
+      "size": 31053
+    },
+    "styles/monarch-stickman-animation/assets/r1_fit.wav": {
+      "sha256": "f01bcdd548679251569bdb884126ebe7869d0ab89a203aa7858aae08af34e9c7",
+      "size": 608492
+    },
+    "styles/monarch-stickman-animation/assets/r2.mp3": {
+      "sha256": "3565776feec2827ca98b86aa2c16e0e4446b6cc35783951294ec958757aeaf40",
+      "size": 34413
+    },
+    "styles/monarch-stickman-animation/assets/r2_fit.wav": {
+      "sha256": "0538ffa2edee5c6f49537a1370f61b1be51487b1d3ce6b86efdd80ffb64f3a25",
+      "size": 732140
+    },
+    "styles/monarch-stickman-animation/assets/r3.mp3": {
+      "sha256": "a88b40dc5e7353f7bdc4f7a08e310488384476e9c9725a8178604c9947cf6296",
+      "size": 20589
+    },
+    "styles/monarch-stickman-animation/assets/r3_fit.wav": {
+      "sha256": "83d821fc14a3f8b9629bf0fb15dada5bc99152bb2aeecd96e7e73a7728474b93",
+      "size": 388268
+    },
+    "styles/monarch-stickman-animation/assets/r4.mp3": {
+      "sha256": "930ce43bb18c5c31c2e87973c0a1ef90d5b386a70565d61ce5e3681d12686f07",
+      "size": 42093
+    },
+    "styles/monarch-stickman-animation/assets/r4_fit.wav": {
+      "sha256": "4527d1dd83c7154d0f79df290db7bc2247e9e377bbda6790d318b32f8ec3e543",
+      "size": 804524
+    },
+    "styles/monarch-stickman-animation/assets/r5.mp3": {
+      "sha256": "89a86d7923a15e8a56b0b7a167acba63c5eae0e226022e98ae63e6c4f361912b",
+      "size": 38349
+    },
+    "styles/monarch-stickman-animation/assets/r5_fit.wav": {
+      "sha256": "cffdad1955deee155450bba0f63721a44274f666530ad951f05f07853885eba1",
+      "size": 716012
+    },
+    "styles/monarch-stickman-animation/assets/r6.mp3": {
+      "sha256": "9a8d716c13591fdad0bdebdde2ff8db908639488990efedbf2d293020752eeb1",
+      "size": 34893
+    },
+    "styles/monarch-stickman-animation/assets/r6_fit.wav": {
+      "sha256": "1948c0c7b17209555242ad0703be94256a7ceef00c4d335afea684eda3dead14",
+      "size": 703532
+    },
+    "styles/monarch-stickman-animation/assets/r7.mp3": {
+      "sha256": "b59301a07e5c452842dc42e3ac92e44981dcf95450a2e70a24045961f8136354",
+      "size": 37101
+    },
+    "styles/monarch-stickman-animation/assets/r7_fit.wav": {
+      "sha256": "0d2faace6c608ae18e0122ff7780fb39d1d974ac04b627dc0a92c64e39a6aef5",
+      "size": 728684
+    },
+    "styles/monarch-stickman-animation/assets/r8.mp3": {
+      "sha256": "7e4c9f5bad9b44f1fbc2090aeaa07f3d09436c61c82e3538fab6c0dd827127b7",
+      "size": 36333
+    },
+    "styles/monarch-stickman-animation/assets/r8_fit.wav": {
+      "sha256": "5850c26bdc49a7d0a334b2f797b436b0da199c52a290b0ff0bbd45470430cb67",
+      "size": 730412
+    },
+    "styles/monarch-stickman-animation/assets/r9.mp3": {
+      "sha256": "839cae8d2c6dc902239cb2054774e8123301fecdc6045ec1c8390658ea85dcb0",
+      "size": 58221
+    },
+    "styles/monarch-stickman-animation/assets/r9_fit.wav": {
+      "sha256": "69c97cda617c28d58158a65d1a8916a4a10611c835c66b0a0d1285aabdd3a0a1",
+      "size": 1100972
+    },
+    "styles/monarch-stickman-animation/assets/s1.mp3": {
+      "sha256": "c82609cbb2f7bc7dc6ee1afa4665aa69dd7a3ffba48bbed5f5b62f58cb99c35e",
+      "size": 31053
+    },
+    "styles/monarch-stickman-animation/assets/s2.mp3": {
+      "sha256": "625b124dbd90cec76ca44ccc5021b9e1289ff31404935bfe4d87c42fb0a3388e",
+      "size": 40269
+    },
+    "styles/monarch-stickman-animation/assets/s3.mp3": {
+      "sha256": "561be2b4eef097e662a9c3836b892d0aa59d25c4b789ad31dd85bc5aae603727",
+      "size": 39501
+    },
+    "styles/monarch-stickman-animation/assets/s4.mp3": {
+      "sha256": "d542172e1e18544ca17b005364ba4bb1af1318c64ffe77b6ba05eaaa0bdeb83b",
+      "size": 29709
+    },
+    "styles/monarch-stickman-animation/assets/s5.mp3": {
+      "sha256": "b3912db093f607e16d6872bc78d9b746f4ace77996378ed818aa2be7e7f7f98c",
+      "size": 39501
+    },
+    "styles/monarch-stickman-animation/assets/s6.mp3": {
+      "sha256": "faeb9254551e1f0034d5a7216012c486fc971898a7f2c5dc5ed95fbce89e46ba",
+      "size": 36621
+    },
+    "styles/monarch-stickman-animation/assets/vo.mp3": {
+      "sha256": "a94e5186dbcf689272e1d1e475fb887d8eed10554139ef04eb3ce7579cd7ac52",
+      "size": 55533
+    },
+    "styles/monarch-stickman-animation/assets/w1.mp3": {
+      "sha256": "f0c55069a98fa3b9a4c708aa93f5391a1fbfda286bc953c7b4f7efecd29d2304",
+      "size": 49128
+    },
+    "styles/monarch-stickman-animation/assets/w2.mp3": {
+      "sha256": "0c6a65b8a8a971fb8517a625ed21805293ec3dccdcbfb1b9586901d9cc8b63b5",
+      "size": 42649
+    },
+    "styles/monarch-stickman-animation/assets/w3.mp3": {
+      "sha256": "ac87527cea4978d21a7be0d28830a921a052d83b16f01bf49248902e443ced7a",
+      "size": 43903
+    },
+    "styles/monarch-stickman-animation/assets/w4.mp3": {
+      "sha256": "988b990cfcb9e8818bad70445826d298515f7802ef44836a857630c44bd8f5ea",
+      "size": 38888
+    },
+    "styles/monarch-stickman-animation/assets/w5.mp3": {
+      "sha256": "d6ad8efc7c9703b3436b09f92919d34029d8214952ffb7c635102824846975fd",
+      "size": 95103
+    },
+    "styles/monarch-stickman-animation/assets/w6.mp3": {
+      "sha256": "dd664b91a4c5e12550b457db9c0e7bf3c8abceea235b363b80dcf8bc2c728e46",
+      "size": 119554
+    },
     "styles/monarch-stickman-animation/brain/brain_export.json": {
       "sha256": "f54a3b7e16ee7a420ff1d50f2c747cd1379310a8d9f30ec1aabd1f7cec138c20",
       "size": 47214
@@ -1464,8 +1980,8 @@
       "size": 372
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "08f15ca2007b5ca3a6886cfc3273cbd0f551c3b6c7d838004b84361e2120f9d1",
-      "size": 43514
+      "sha256": "cb924e0566cc8c531e171874e6fdeabe126265e0a51a0338a636a497ecbcec36",
+      "size": 42440
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/AUDIO_QC.json": {
       "sha256": "ff811afa14f3b6b548f9133795b76a0458b1a270cf3d4d7e926d885c6734dad5",
@@ -1512,8 +2028,8 @@
       "size": 9406
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/VISUAL_ENHANCEMENT_LEDGER.csv": {
-      "sha256": "4a389a09aef599f0fd6036d7e1c6e4fa1fd6a960b77b7b1fb915ee5340966744",
-      "size": 6220
+      "sha256": "fe9ebf11b1d7d1739ae7e13c2272aed2c5a7338eb4a06ac1f9e76ba670ca23a4",
+      "size": 6185
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/assets/fonts/Montserrat-OFL.txt": {
       "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e",
@@ -1636,8 +2152,8 @@
       "size": 220
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "954fd7a974c230c78bb78a701f19b997b4a1f165b5f5bc22f0cb35009bef828b",
-      "size": 11864
+      "sha256": "a442a9196ad710657071bb728e4f63500cd56e935e25842837b33267f1d2dd5d",
+      "size": 11511
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat/artifacts/BRAIN_GATE.txt": {
       "sha256": "7a89deb415d8b5188551ebaf5ea381e6c6192d80451b2f1759c46b0183b49aca",
@@ -1943,6 +2459,26 @@
       "sha256": "c7f5b09f388accef7767f3b146409964a5539e4b7014add2b1b7b7c27b539361",
       "size": 272566
     },
+    "styles/monarch-stickman-animation/uploads/436649626_1789475045520701.jpg": {
+      "sha256": "8cb6d0e2bd227c2a4a9b5006a6011eeefa2802372d35978282b283727777e049",
+      "size": 66306
+    },
+    "styles/monarch-stickman-animation/uploads/STICKMAN EXPLAINER ENGINE.pdf": {
+      "sha256": "434635d6de870083142e99fb2458021f2f438d75f83e3ca6ada1982529bbb156",
+      "size": 307814
+    },
+    "styles/monarch-stickman-animation/uploads/Screenshot_20261008-202149_1.png": {
+      "sha256": "1b366e8026887887ba5dcff7c8dacd5f8807ca576d36d31164e4c80edea9ee50",
+      "size": 82452
+    },
+    "styles/monarch-stickman-animation/uploads/img/p1_1.jpg": {
+      "sha256": "f7bf56177c13b09d84ec382eaece7c0c359cff8df9c4f6f9bc951fa2b08265cc",
+      "size": 151668
+    },
+    "styles/monarch-stickman-animation/uploads/pdf_text.txt": {
+      "sha256": "eb362ddc9a25237225614eb363f3a7980f19a907caa2ac98d46faaa2b1b20b82",
+      "size": 18658
+    },
     "styles/monarch-stickman-animation/verify.py": {
       "sha256": "c0c04386f181a6e30bc0b3559dc6a421749aea7de2a3446205e46f9e28c3d512",
       "size": 10768
@@ -1952,8 +2488,8 @@
       "size": 3141
     },
     "styles/registry.json": {
-      "sha256": "b50c317ef5f5cf2ee0e4f256cb075439b91e72b2e22ce92ef8dd33c3e7ed4fc0",
-      "size": 1216
+      "sha256": "971a8708f97de5b2b6ab729a1aa3bfa7d78cac2d28b76d0d17ce29aece75e639",
+      "size": 1775
     },
     "tests/test_continuity.py": {
       "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",
@@ -1992,20 +2528,96 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "81f6cac7e30c00f08c5d747524e5d053f1ed3f9e5075ec707214ab6c95b7e2b6",
-      "size": 733
+      "sha256": "1975089fee45d2e46f20219ada5eaa1d6910cb39559eafcdc4648f3490e3bbb7",
+      "size": 1484
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
+      "sha256": "1e98cbdf534e43b95fe25780eb5855488e58145e5a8f140bd15858bba7e04716",
+      "size": 1283
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
+      "sha256": "cdc2d5089609850017e6641b2d95aa53bca3c58894e70b3fddac23f7147b0ccb",
+      "size": 3536
     },
     "workflows/current/RESUME.md": {
-      "sha256": "aa53b4335d85d765bf1bb1c43e01801db846b6b3f659c8b16a7bdfd8c550c918",
-      "size": 866
+      "sha256": "91cb24dd3cc23b11a9f4ada085ecf6b46f6ddca7687199ac7ff89cbe0243afab",
+      "size": 1617
+    },
+    "workflows/current/payload/DELIVERY_GATES.md": {
+      "sha256": "7d1496acf187fa6b74befe849a77ab0c4b836cb79cb7b8600b38b8614d5dbc23",
+      "size": 2725
+    },
+    "workflows/current/payload/DELIVERY_RECEIPT.json": {
+      "sha256": "37535c0c669ac785750da6accd8003e6dad58139a0dae2b731bc0e7b93362de8",
+      "size": 2098
+    },
+    "workflows/current/payload/GATE_REPORT.json": {
+      "sha256": "92d1e588536cf901ebdfde1a056acb3894f33f4566b55260cd3822c7fb25d9d2",
+      "size": 4520
+    },
+    "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
+      "sha256": "e66b9c16f4ffe20ec2cde9fb1dcdfa3927abb2d13e47425ecc263a08d4901f36",
+      "size": 1208945
+    },
+    "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
+      "sha256": "42af72215a6a4be241df195208383f2ec5db75a37ece3f5a39d9494e44100e16",
+      "size": 757913
+    },
+    "workflows/current/payload/README.md": {
+      "sha256": "a91d4a39d4c5c0d29a12d599e9873f96a36928371d586dde06a14057f075411b",
+      "size": 177
+    },
+    "workflows/current/payload/plates/plate_close_amber_sil.png": {
+      "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21",
+      "size": 2159754
+    },
+    "workflows/current/payload/plates/plate_close_cyan.png": {
+      "sha256": "17f46ac51fa307267e2307f034dc03de48718ab5f1d8f765ad7435ea15c1e25e",
+      "size": 2224137
+    },
+    "workflows/current/payload/plates/plate_close_cyan_visor.png": {
+      "sha256": "5274ff597a70689009abd92f56ba06bb733646ae4d08019e94c67c4b67663353",
+      "size": 1963261
+    },
+    "workflows/current/payload/plates/plate_closeup_34.png": {
+      "sha256": "8c3aaa164ce21f2f40e6d0207aea504fdd50cd3934cd028608cb0e4cc96c3181",
+      "size": 2293335
+    },
+    "workflows/current/payload/plates/plate_med_dark_visor.png": {
+      "sha256": "b6b701d92823dcc6013de91e2063fcd536adc37efc2b1a5a0cd97626634f2ffe",
+      "size": 1673783
+    },
+    "workflows/current/payload/plates/plate_med_red_blue.png": {
+      "sha256": "aba1be54eebd1a20f560f0a9e4ffa4863e330631207f2942cda41ca81640ac3f",
+      "size": 2008060
+    },
+    "workflows/current/payload/plates/plate_med_red_sil.png": {
+      "sha256": "6948da75c9f2f82e6bd462e809ff616c20a7261c5c363dedfe5664771d8730fd",
+      "size": 1828210
+    },
+    "workflows/current/payload/plates/plate_profile_side_neural.png": {
+      "sha256": "4ff97de7d5c0db019ee301ec76ebe19beaf5de906d98359e7e3dd39f0daec588",
+      "size": 2341193
+    },
+    "workflows/current/payload/plates/plate_sovereign_monarch_finale.png": {
+      "sha256": "14aebc9150bb517efc2a2efa7ebb0d279e8fd7f616e3773a248a21c24a0001b4",
+      "size": 2368204
+    },
+    "workflows/current/payload/plates/plate_wide_hall.png": {
+      "sha256": "fbccea6a4d1f3576978600bb3bd8b281473d06867793e547c39ad833f7d34cdc",
+      "size": 2242332
+    },
+    "workflows/current/payload/src/audio_engine.py": {
+      "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d",
+      "size": 7260
+    },
+    "workflows/current/payload/src/build_chaos_video1.py": {
+      "sha256": "507e58b5261f19c8e65d1203f188204c53c664f18205e976c91b3ed3d615141c",
+      "size": 45923
+    },
+    "workflows/current/payload/src/gate_chaos_video1.py": {
+      "sha256": "ae25e063d7062781118a0f3de3d40a541cae756c1e2eccb6fb2ba72b815f3ea2",
+      "size": 8173
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

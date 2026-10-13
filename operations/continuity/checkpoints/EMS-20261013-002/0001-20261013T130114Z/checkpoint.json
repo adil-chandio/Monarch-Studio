@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261013T130114Z",
+  "created_at": "2026-10-13T13:01:14Z",
+  "summary": "Completed WF-04 Monarch Chaos Video 1 v2 (canonical blazer+shirt wardrobe, locked face & body, 2.5D articulated body movement, and Golden Crown 👑 above MONARCH STUDIO, 21/21 gates passed) and uploaded all v2 deliverables to Google Drive.",
+  "next_action": "Await user review or next workflow trigger",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261013-002",
+    "status": "completed",
+    "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale)",
+    "style_id": "monarch-face-chaos",
+    "goal": "Upgrade Chaos Video 1 to v2: fix character face, body proportions, and signature wardrobe (fitted black shirt + charcoal blazer / canonical look from REAL face v5 & REAL body v2), add dynamic body/head/hand movement across shots, elevate VFX to next-level tabahi, and place a bold golden Crown (👑) directly above MONARCH STUDIO in the finale.",
+    "acceptance_criteria": [
+      "100% locked face/body/wardrobe consistency across all shots, organic dynamic body & head movement, next-level VFX enhancements, iconic Crown (👑) above MONARCH STUDIO in finale, 21/21 gates passed, uploaded to Google Drive."
+    ],
+    "started_at": "2026-10-13T12:42:05Z",
+    "updated_at": "2026-10-13T13:01:14Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 5,
+    "journal_head": "1bb85cec81b8f378b3db4763eaa0c10d2d9db2c667f3904ecc824324ce89dd9d",
+    "last_checkpoint": "2026-10-13T13:01:14Z",
+    "last_checkpoint_path": null,
+    "next_action": "Await user review or next workflow trigger",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261013-002",
+    "seq": 5,
+    "timestamp": "2026-10-13T13:01:14Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Completed WF-04 Monarch Chaos Video 1 v2 (canonical blazer+shirt wardrobe, locked face & body, 2.5D articulated body movement, and Golden Crown 👑 above MONARCH STUDIO, 21/21 gates passed) and uploaded all v2 deliverables to Google Drive.",
+    "content_sha256": "6cb635ac2d13d6faebfb7fb3d5eefe6b253be38462e426b54bb881fea4d0b1df",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Await user review or next workflow trigger",
+      "status": "completed"
+    },
+    "prev_event_sha256": "70c7f486f646e40bfce75ddf5e469c5f0ff3fb59b59eb6058aba216301f45b97",
+    "event_sha256": "1bb85cec81b8f378b3db4763eaa0c10d2d9db2c667f3904ecc824324ce89dd9d"
+  },
+  "journal_head": "1bb85cec81b8f378b3db4763eaa0c10d2d9db2c667f3904ecc824324ce89dd9d",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/d53677cc-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M START_HERE.md",
+      " M studio/registry.json",
+      " M styles/registry.json",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/EMS-20261013-001/0001-20261013T114143Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261013-001/0001-20261013T114143Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261013-001/0001-20261013T114143Z/checkpoint.json",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/ACTIVE_TASK.json",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/CHAT_TRANSCRIPT.jsonl",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/JOURNAL.jsonl",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/RESUME.md",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_GATES.md",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/DELIVERY_RECEIPT.json",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/GATE_REPORT.json",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/README.md",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_amber_sil.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_close_cyan_visor.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_closeup_34.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_dark_visor.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_blue.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_med_red_sil.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_profile_side_neural.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_sovereign_monarch_finale.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/plates/plate_wide_hall.png",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/audio_engine.py",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/build_chaos_video1.py",
+      "?? operations/history/EMS-20261013-001-forced-20261013T124205Z/payload/src/gate_chaos_video1.py",
+      "?? styles/monarch-face-chaos/README.md",
+      "?? styles/monarch-face-chaos/knowledge/INDEX.md",
+      "?? styles/monarch-face-chaos/plates/plate_close_amber_sil.png",
+      "?? styles/monarch-face-chaos/plates/plate_close_cyan.png",
+      "?? styles/monarch-face-chaos/plates/plate_close_cyan_visor.png",
+      "?? styles/monarch-face-chaos/plates/plate_closeup_34.png",
+      "?? styles/monarch-face-chaos/plates/plate_med_dark_visor.png",
+      "?? styles/monarch-face-chaos/plates/plate_med_red_blue.png",
+      "?? styles/monarch-face-chaos/plates/plate_med_red_sil.png",
+      "?? styles/monarch-face-chaos/plates/plate_profile_side_neural.png",
+      "?? styles/monarch-face-chaos/plates/plate_sovereign_monarch_finale.png",
+      "?? styles/monarch-face-chaos/plates/plate_wide_hall.png",
+      "?? styles/monarch-face-chaos/records/DELIVERY_GATES.md",
+      "?? styles/monarch-face-chaos/records/DELIVERY_RECEIPT.json",
+      "?? styles/monarch-face-chaos/records/GATE_REPORT.json",
+      "?? styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      "?? styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      "?? styles/monarch-face-chaos/src/audio_engine.py",
+      "?? styles/monarch-face-chaos/src/build_chaos_video1.py",
+      "?? styles/monarch-face-chaos/src/gate_chaos_video1.py",
+      "?? styles/monarch-face-chaos/style.json",
+      "?? styles/monarch-face-chaos/workflow.json",
+      "?? workflows/current/payload/DELIVERY_GATES.md",
+      "?? workflows/current/payload/DELIVERY_RECEIPT.json",
+      "?? workflows/current/payload/GATE_REPORT.json",
+      "?? workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      "?? workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      "?? workflows/current/payload/README.md",
+      "?? workflows/current/payload/plates/plate_close_amber_sil.png",
+      "?? workflows/current/payload/plates/plate_close_cyan.png",
+      "?? workflows/current/payload/plates/plate_close_cyan_visor.png",
+      "?? workflows/current/payload/plates/plate_closeup_34.png",
+      "?? workflows/current/payload/plates/plate_med_dark_visor.png",
+      "?? workflows/current/payload/plates/plate_med_red_blue.png",
+      "?? workflows/current/payload/plates/plate_med_red_sil.png",
+      "?? workflows/current/payload/plates/plate_profile_side_neural.png",
+      "?? workflows/current/payload/plates/plate_sovereign_monarch_finale.png",
+      "?? workflows/current/payload/plates/plate_wide_hall.png",
+      "?? workflows/current/payload/src/audio_engine.py",
+      "?? workflows/current/payload/src/build_chaos_video1.py",
+      "?? workflows/current/payload/src/gate_chaos_video1.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/DELIVERY_GATES.md",
+      "size": 2725,
+      "sha256": "7d1496acf187fa6b74befe849a77ab0c4b836cb79cb7b8600b38b8614d5dbc23"
+    },
+    {
+      "path": "workflows/current/payload/DELIVERY_RECEIPT.json",
+      "size": 2098,
+      "sha256": "37535c0c669ac785750da6accd8003e6dad58139a0dae2b731bc0e7b93362de8"
+    },
+    {
+      "path": "workflows/current/payload/GATE_REPORT.json",
+      "size": 4520,
+      "sha256": "92d1e588536cf901ebdfde1a056acb3894f33f4566b55260cd3822c7fb25d9d2"
+    },
+    {
+      "path": "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      "size": 1208945,
+      "sha256": "e66b9c16f4ffe20ec2cde9fb1dcdfa3927abb2d13e47425ecc263a08d4901f36"
+    },
+    {
+      "path": "workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      "size": 757913,
+      "sha256": "42af72215a6a4be241df195208383f2ec5db75a37ece3f5a39d9494e44100e16"
+    },
+    {
+      "path": "workflows/current/payload/README.md",
+      "size": 177,
+      "sha256": "a91d4a39d4c5c0d29a12d599e9873f96a36928371d586dde06a14057f075411b"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_close_amber_sil.png",
+      "size": 2159754,
+      "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_close_cyan.png",
+      "size": 2224137,
+      "sha256": "17f46ac51fa307267e2307f034dc03de48718ab5f1d8f765ad7435ea15c1e25e"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_close_cyan_visor.png",
+      "size": 1963261,
+      "sha256": "5274ff597a70689009abd92f56ba06bb733646ae4d08019e94c67c4b67663353"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_closeup_34.png",
+      "size": 2293335,
+      "sha256": "8c3aaa164ce21f2f40e6d0207aea504fdd50cd3934cd028608cb0e4cc96c3181"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_med_dark_visor.png",
+      "size": 1673783,
+      "sha256": "b6b701d92823dcc6013de91e2063fcd536adc37efc2b1a5a0cd97626634f2ffe"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_med_red_blue.png",
+      "size": 2008060,
+      "sha256": "aba1be54eebd1a20f560f0a9e4ffa4863e330631207f2942cda41ca81640ac3f"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_med_red_sil.png",
+      "size": 1828210,
+      "sha256": "6948da75c9f2f82e6bd462e809ff616c20a7261c5c363dedfe5664771d8730fd"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_profile_side_neural.png",
+      "size": 2341193,
+      "sha256": "4ff97de7d5c0db019ee301ec76ebe19beaf5de906d98359e7e3dd39f0daec588"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_sovereign_monarch_finale.png",
+      "size": 2368204,
+      "sha256": "14aebc9150bb517efc2a2efa7ebb0d279e8fd7f616e3773a248a21c24a0001b4"
+    },
+    {
+      "path": "workflows/current/payload/plates/plate_wide_hall.png",
+      "size": 2242332,
+      "sha256": "fbccea6a4d1f3576978600bb3bd8b281473d06867793e547c39ad833f7d34cdc"
+    },
+    {
+      "path": "workflows/current/payload/src/__pycache__/audio_engine.cpython-311.pyc",
+      "size": 14971,
+      "sha256": "54bdbbccfc07a5ff53720942fbb22a9cb465d82bba6d33d0a486bce59164b147"
+    },
+    {
+      "path": "workflows/current/payload/src/audio_engine.py",
+      "size": 7260,
+      "sha256": "f4352f676c50c30272cc91df53908c227934361cc0ae9411f5756c7852bee14d"
+    },
+    {
+      "path": "workflows/current/payload/src/build_chaos_video1.py",
+      "size": 45923,
+      "sha256": "507e58b5261f19c8e65d1203f188204c53c664f18205e976c91b3ed3d615141c"
+    },
+    {
+      "path": "workflows/current/payload/src/gate_chaos_video1.py",
+      "size": 8173,
+      "sha256": "ae25e063d7062781118a0f3de3d40a541cae756c1e2eccb6fb2ba72b815f3ea2"
+    }
+  ]
+}

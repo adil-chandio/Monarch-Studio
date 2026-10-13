@@ -18,7 +18,7 @@
       "reconciliation": "aligned",
       "reproducibility": "R1",
       "current_delivery": {
-        "title": "TUMHARI RESERVED SEAT · WF-01",
+        "title": "TUMHARI RESERVED SEAT \u00b7 WF-01",
         "task_id": "EMS-20261011-002",
         "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
         "source_drive_id": "1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh",
@@ -53,7 +53,7 @@
       "reconciliation": "required_before_next_numbered_film",
       "reproducibility": "mixed_R1_R2_R3",
       "current_fully_sourced_delivery": {
-        "title": "TUMHARI RESERVED SEAT · WF-03",
+        "title": "TUMHARI RESERVED SEAT \u00b7 WF-03",
         "film_number": null,
         "numbering": "intentionally unassigned",
         "task_id": "EMS-20261011-002",
@@ -80,6 +80,38 @@
         "linear_project_id": "e173192b-b932-4801-ac4d-dcd7445237b8",
         "linear_resume_issue": "MON-57",
         "google_doc_hub_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM"
+      }
+    },
+    {
+      "code": "WF-04",
+      "style_id": "monarch-face-chaos",
+      "slug": "wf04",
+      "name": "Monarch Face \u00b7 Cyber-Sovereign Chaos",
+      "path": "styles/monarch-face-chaos",
+      "trigger": "CHAOSGO <reference_or_topic>",
+      "state": "ACTIVE",
+      "reconciliation": "aligned",
+      "reproducibility": "R1",
+      "current_delivery": {
+        "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD \u00b7 WF-04",
+        "task_id": "EMS-20261013-002",
+        "drive_id": "1D5O7_GL2oX4XDS5PouWIQ8Q1Fp-dBVJ6",
+        "root_drive_id": "1zt5g20jPcr4DBYDbJ0iKnFeLVAaiaYW2",
+        "compare_drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
+        "source_drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
+        "md5": "f007389f8390aa6ddb6400e071d56e9a",
+        "sha256": "1cfe6076bf40655c713988174d88f388d356cb683f648e0c51a17f0813659f18",
+        "duration_seconds": 21.2,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "gates": "21/21",
+        "freshness": "21/21"
+      },
+      "authorities": {
+        "drive_folder_id": "1EM8Q5IfeCCqQyBB-E12jJbAblM9n0oNg",
+        "chaos_video_1_folder_id": "139hCS5jBGtly-JmCC-Nz0ZA0JWbscDHy",
+        "character_authority_folder_id": "1NpOJTSOY3zjkBR8LoktHDUFUSB8oW5jN"
       }
     }
   ],

@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T02:00:00Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "task_id": "EMS-20261013-002",
+  "status": "completed",
+  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale)",
+  "style_id": "monarch-face-chaos",
+  "goal": "Upgrade Chaos Video 1 to v2: fix character face, body proportions, and signature wardrobe (fitted black shirt + charcoal blazer / canonical look from REAL face v5 & REAL body v2), add dynamic body/head/hand movement across shots, elevate VFX to next-level tabahi, and place a bold golden Crown (👑) directly above MONARCH STUDIO in the finale.",
+  "acceptance_criteria": [
+    "100% locked face/body/wardrobe consistency across all shots, organic dynamic body & head movement, next-level VFX enhancements, iconic Crown (👑) above MONARCH STUDIO in finale, 21/21 gates passed, uploaded to Google Drive."
+  ],
+  "started_at": "2026-10-13T12:42:05Z",
+  "updated_at": "2026-10-13T13:01:14Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 5,
+  "journal_head": "1bb85cec81b8f378b3db4763eaa0c10d2d9db2c667f3904ecc824324ce89dd9d",
+  "last_checkpoint": "2026-10-13T13:01:14Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T130114Z",
+  "next_action": "Await user review or next workflow trigger",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-003",
-  "completion_checkpoint": "0004-20261011T020000Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

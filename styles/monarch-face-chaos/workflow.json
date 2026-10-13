@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "code": "WF-04",
+  "style_id": "monarch-face-chaos",
+  "slug": "wf04",
+  "name": "Monarch Face \u00b7 Cyber-Sovereign Chaos",
+  "path": "styles/monarch-face-chaos",
+  "trigger": {
+    "token": "CHAOSGO",
+    "grammar": "CHAOSGO <reference_or_topic>",
+    "mode": "autopilot_forensic_recreation"
+  },
+  "state": "ACTIVE",
+  "default_format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration_seconds": [
+      15,
+      60
+    ],
+    "loudness_lufs": -14.0,
+    "loudness_tolerance_lu": 1.0
+  },
+  "deliveries": [
+    {
+      "film_number": 1,
+      "name": "MONARCH CHAOS VIDEO 1 \u00b7 SOVEREIGN OVERLOAD",
+      "task_id": "EMS-20261013-001",
+      "drive_id": "1CWt3Yr0mLDLV4rFcmvtCbdGv-hXTtO8W",
+      "root_drive_id": "1gKsQyxepHVS5jrOt0abxHsZH-CMGi-_1",
+      "compare_drive_id": "1v-lBJ9k-HGiX6YjNJNpYg6xNhZFW4Owr",
+      "source_drive_id": "1KBK6A7fD9041lDMOb9Rfas4BCqlXU_Xe",
+      "md5": "26d6f611effb4074993b163951521448",
+      "sha256": "c2f343bd6a791009996d544f0ac03152357baef3950e63a8e5c064037d7524bf",
+      "duration_seconds": 21.2,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "frames": 636,
+      "loudness_lufs": -13.9,
+      "true_peak_db": -1.5,
+      "gate_result": "21/21",
+      "reproducibility": "R1"
+    },
+    {
+      "film_number": 1,
+      "version": "v2",
+      "name": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD",
+      "task_id": "EMS-20261013-002",
+      "drive_id": "1D5O7_GL2oX4XDS5PouWIQ8Q1Fp-dBVJ6",
+      "root_drive_id": "1zt5g20jPcr4DBYDbJ0iKnFeLVAaiaYW2",
+      "compare_drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
+      "source_drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
+      "md5": "f007389f8390aa6ddb6400e071d56e9a",
+      "sha256": "1cfe6076bf40655c713988174d88f388d356cb683f648e0c51a17f0813659f18",
+      "duration_seconds": 21.2,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "frames": 636,
+      "loudness_lufs": -13.97,
+      "true_peak_db": -1.5,
+      "gate_result": "21/21",
+      "reproducibility": "R1"
+    }
+  ],
+  "required_paths": [
+    "README.md",
+    "style.json",
+    "workflow.json",
+    "knowledge/INDEX.md",
+    "src/audio_engine.py",
+    "src/build_chaos_video1.py",
+    "src/gate_chaos_video1.py",
+    "records/DELIVERY_GATES.md",
+    "records/GATE_REPORT.json",
+    "records/DELIVERY_RECEIPT.json",
+    "records/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+    "records/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg"
+  ],
+  "authorities": {
+    "drive_folder_id": "1EM8Q5IfeCCqQyBB-E12jJbAblM9n0oNg",
+    "chaos_video_1_folder_id": "139hCS5jBGtly-JmCC-Nz0ZA0JWbscDHy",
+    "character_authority_folder_id": "1NpOJTSOY3zjkBR8LoktHDUFUSB8oW5jN"
+  }
+}

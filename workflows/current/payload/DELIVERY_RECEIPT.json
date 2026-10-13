@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "task_id": "EMS-20261013-002",
+  "workflow_code": "WF-04",
+  "style_id": "monarch-face-chaos",
+  "title": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD (CANONICAL BOSS WARDROBE + 2.5D BODY MOTION + CROWN \ud83d\udc51 FINALE)",
+  "delivered_at": "2026-10-13T12:55:00+05:00",
+  "master_delivery": {
+    "name": "MONARCH_CHAOS_VIDEO_1_MASTER_v2.mp4",
+    "drive_id_chaos_folder": "1D5O7_GL2oX4XDS5PouWIQ8Q1Fp-dBVJ6",
+    "drive_id_wf04_root": "1zt5g20jPcr4DBYDbJ0iKnFeLVAaiaYW2",
+    "md5": "f007389f8390aa6ddb6400e071d56e9a",
+    "sha256": "1cfe6076bf40655c713988174d88f388d356cb683f648e0c51a17f0813659f18",
+    "size_bytes": 23590737,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "frames": 636,
+    "duration_seconds": 21.2,
+    "audio_sample_rate_hz": 48000,
+    "audio_channels": 2,
+    "integrated_lufs": -13.97,
+    "true_peak_dbfs": -1.5,
+    "gates": "21/21"
+  },
+  "companion_deliverables": [
+    {
+      "name": "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE_v2.mp4",
+      "drive_id": "1wrCVcYSVuA96I0q3MP-dKcXJ2VNo6mGf",
+      "md5": "9b3d8ff3a98ec86b54d093bc7108db9b",
+      "size_bytes": 13120801
+    },
+    {
+      "name": "MONARCH_CHAOS_VIDEO_1_LOOK_SHEET_v2.jpg",
+      "drive_id": "1WpTECNfOukKq6Id6ZdaTY0tkdfCRV_U3",
+      "md5": "c9adcb86b6a00348182f3104516b3aaa",
+      "size_bytes": 757913
+    },
+    {
+      "name": "MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET_v2.jpg",
+      "drive_id": "1NWV0b41_eR-AoiBugKQLrxVziIPiyh1k",
+      "md5": "d00500d7d10bfe370d18eb014db83f81",
+      "size_bytes": 1208945
+    },
+    {
+      "name": "DELIVERY_GATES_v2.md",
+      "drive_id": "1jPG4E7PHWrmMyMKi8GRK0S9Sx8_960L3",
+      "md5": "57ecfaf4d3d9801d32f3994fa6eb0d27",
+      "size_bytes": 2725
+    },
+    {
+      "name": "MONARCH_CHAOS_VIDEO_1_SOURCE_PACKAGE_v2.zip",
+      "drive_id": "1qKSXskxsPjT1YCL-3u3Dgsfn-nRLm1k8",
+      "md5": "2546309f5db565254c295d88245ed27b",
+      "size_bytes": 23083663
+    }
+  ],
+  "v1_history_preserved": {
+    "master_drive_id": "1CWt3Yr0mLDLV4rFcmvtCbdGv-hXTtO8W",
+    "master_md5": "26d6f611effb4074993b163951521448"
+  }
+}
