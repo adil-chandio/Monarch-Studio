@@ -49,7 +49,7 @@
       "note": null
     },
     "google_drive": {
-      "status": "pending",
+      "status": "complete",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -62,9 +62,10 @@
         "role": "repository bundles, checkpoints, recovery exports and large artifacts",
         "final_completion_status": "pending_corrected_release_bundle"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "1dm-pWoM5xz3XH4kQgzMiA-KvDCL9RIdT",
+      "synced_at": "2026-10-14T15:51:59Z",
+      "note": "Chaos Video 2 master + gates + sheets delivered; MD5 51e662222a409c2bf8ae7c57ac8c4d9c",
+      "url": "https://drive.google.com/file/d/1dm-pWoM5xz3XH4kQgzMiA-KvDCL9RIdT/view"
     },
     "linear": {
       "status": "pending",
