@@ -3,8 +3,8 @@
 **Status:** `waiting_external`  
 **Title:** WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)  
 **Style:** `monarch-stickman-animation`  
-**Checkpoint sequence:** 4  
-**Last checkpoint:** 2026-10-14T20:07:30Z
+**Checkpoint sequence:** 5  
+**Last checkpoint:** 2026-10-14T20:22:59Z
 
 ## Goal
 
@@ -19,7 +19,7 @@ Produce the first WTF-30 video: a 20.0 s 1080x1920 30 fps paper/ink short in whi
 
 ## Exact next action
 
-Wait for the user's verdict on v4 (look sheet + Drive link sent). If accepted: nothing pending; if notes: iterate in workflows/current/payload/gravity-of-the-phone (re-render halves with render.py --range, rebuild with build.py, gate.py, then re-promote).
+Wait for the user's verdict on v4 (Drive 1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl). Accepted → continuity.py complete and archive the slot. Notes → iterate in workflows/current/payload/gravity-of-the-phone/ (render halves → build → gate → promote → registry → sync). Do not redo v1–v4 or the cp0004 platform sync.
 
 ## Running processes
 
@@ -37,6 +37,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0004-20261014T200730Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0005-20261014T202259Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

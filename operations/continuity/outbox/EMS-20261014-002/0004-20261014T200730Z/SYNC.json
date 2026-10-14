@@ -5,7 +5,7 @@
   "created_at": "2026-10-14T20:07:30Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,12 +31,13 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "d82e7c37ae3d5899ddec4c447488d60fda3838d0",
+      "synced_at": "2026-10-14T20:19:34Z",
+      "note": "branch arena/7f4f623f-monarch-studio pushed; delta bundle 7909bde..d82e7c3 on Drive 1dFHpSCn6JRv4Z1pgoAjS_wUEg6Mx1_R7",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/d82e7c37ae3d5899ddec4c447488d60fda3838d0"
     },
     "google_docs": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
@@ -44,12 +45,13 @@
         "role": "portable human recovery and proof hub",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "t.tanq32rojenq",
+      "synced_at": "2026-10-14T20:19:34Z",
+      "note": "WF-01 HUB tab 'THE GRAVITY OF THE PHONE · WTF-30 #1 · v4'; CP0004 section appended to continuity hub 16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU t.0",
+      "url": "https://docs.google.com/document/d/1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g/edit?tab=t.tanq32rojenq"
     },
     "google_drive": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -62,12 +64,13 @@
         "role": "repository bundles, checkpoints, recovery exports and large artifacts",
         "final_completion_status": "pending_corrected_release_bundle"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "1Nds05hauYmxEf60rXTFap9QPLKsHIOmR",
+      "synced_at": "2026-10-14T20:19:34Z",
+      "note": "capsule EMS-20261014-002-cp0004-continuity.tar.gz (sha256 491e5dd8…) + delta bundle 1dFHpSCn6JRv4Z1pgoAjS_wUEg6Mx1_R7 (sha256 fce25a21…) + SHA256SUMS 1w8hYRdZCVT_CrTeczOiyASjyWtL_qHbw; v4 master 1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl",
+      "url": "https://drive.google.com/drive/folders/1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE"
     },
     "linear": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
@@ -78,12 +81,13 @@
         "role": "active task, blockers, acceptance criteria and checkpoint status",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "MON-66",
+      "synced_at": "2026-10-14T20:19:34Z",
+      "note": "issue fa294cd0-9f7a-4c1f-8632-737cbcc29fb8 In Progress (v4 awaiting verdict); WF-01 project update 5705de7a-4594-4155-bbe4-989e89b2a255; MON-34 comment 3673e8c7-2707-4ccf-8a43-e9a2e73e537e",
+      "url": "https://linear.app/monarchmation/issue/MON-66"
     },
     "notion": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
@@ -92,9 +96,10 @@
         "role": "browsable continuity, style architecture, decisions and recovery state",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "3f9807e1-e916-81c3-9a11-d382e6b01a5e",
+      "synced_at": "2026-10-14T20:19:34Z",
+      "note": "film record page under WF-01 project page; CP0004 entry appended to continuity page 3f5807e1-e916-819f-91a9-d0786304b6da (heading block 3f9807e1-e916-8177-951c-fb84f597ae50)",
+      "url": "https://www.notion.so/3f9807e1e91681c39a11d382e6b01a5e"
     }
   }
 }

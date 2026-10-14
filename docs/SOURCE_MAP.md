@@ -29,6 +29,11 @@ This document records the connected-source identities used to assemble the repos
 | Google Drive | Workflow folder | `1Qum7OkUZpRMSt3SMJ6q3WumUUwzezTw-` |
 | Google Docs | Workflow HUB | `1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g` |
 | Google Docs | `SHADEGO` authority | `1EdP_cvptM1GG8dDg_6ld_yjnkc1Ko9-kHtXy3BYXc2A` |
+| Google Drive | WTF-30 format folder (under MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l`) | `1w_hv-2v0-VtSI9tp8g3uuaQGgRQZmPO6` |
+| Google Drive | THE GRAVITY OF THE PHONE film folder (v1–v4) | `1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ` |
+| Notion | THE GRAVITY OF THE PHONE · WTF-30 #1 · v4 record (under WF-01 project page) | `3f9807e1-e916-81c3-9a11-d382e6b01a5e` |
+| Linear | THE GRAVITY OF THE PHONE task issue | `MON-66` / `fa294cd0-9f7a-4c1f-8632-737cbcc29fb8` |
+| Google Docs | HUB tab · THE GRAVITY OF THE PHONE · WTF-30 #1 · v4 | `t.tanq32rojenq` |
 
 ### Notion Docs 00–12
 
@@ -68,6 +73,8 @@ The local workflow includes the downloaded source archive v3, editor brain v2, I
 **TUMHARI RESERVED SEAT · WF-01** (`EMS-20261011-002`): final MP4 Drive `1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW`, MD5 `ef97f954dd6b4e73675985743deb225c`, SHA-256 `141258f25e0dad13c68d2e97fc96fd11f3cd215a7d89559723349b4211a3d69b`, 74.00 s, 1920×1080, 30 fps, 34 beats, −13.6 LUFS, 21/21 delivery gates and 18/18 freshness gates. Deterministic source package: Drive `1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh`, MD5 `73f36b0be0cd1531c89ac116eb384e49`. Dedicated delivery folder: `1V3QeUqDzOGP5obJAaX2vHyV5HZkS8K-J`. Notion record: `3f5807e1-e916-81f6-8957-d606001ffb41`. Linear update: `50933864-ff42-4281-8246-7953ee59e8c7`; MON-34 state comment: `b4455a1f-2f24-417f-a4c0-a7ac4bf072f8`. Google Docs tab: `t.3lrsd0q5mcdh`. The workflow-local EDITOR BRAIN registry contains seven deliveries and ends with `tumhari_reserved_seat_wf01`.
 
 Previous delivery `IZZAT_v2.mp4` remains preserved at Drive `1fu_g2HTNZVRqE3XBKdUKZoj6O8tIdkpu`, MD5 `8d91be52ab969e0b23f21bf6bab0df85`; it is no longer mislabeled as latest.
+
+**THE GRAVITY OF THE PHONE · WTF-30 #1 · v4** (`EMS-20261014-002`, 2026-10-14) — first film of the short vertical **WTF-30** format in the same style (parallel to the 74 s long-form authority above, not a replacement): v4 master Drive `1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl`, `THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4`, 61,998,081 bytes, MD5 `b2735dbf9ff18dc2e8f3fbf2be341c22` (Drive-verified), SHA-256 `8da959fff87a994025b173f66dcafd889e9f749304a727cbd9b89060d8743482`, 20.00 s, 1080×1920, 30 fps, −14.1 LUFS, TP −1.3 dBTP, loop seam 3.40/255, 12/12 measured gates and 28/28 editor-brain gates. Lineage in the film folder `1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ`: v1 `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ`, v2 `1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp`, v3 `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1` (user-accepted), v4 look sheet `1qe20v4NuD7Rcm5J_dOVxwDPu8snEVXzU`, v4 gate receipt `1kY9Kn1TeqrtgNBTyZ9RonrA4ORN190ej`. v4 status: delivered, user verdict pending. Permanent package `styles/monarch-stickman-animation/films/gravity-of-the-phone/`; studio editor-brain registry key `gravity_of_the_phone_wtf30_01` version 4 (previous 3, 2, 1); doctrine `studio/editor-brain/MONARCH_WTF30_DOCTRINE.md`. External receipts: Notion record `3f9807e1-e916-81c3-9a11-d382e6b01a5e`; Linear issue `MON-66`, WF-01 project update `5705de7a-4594-4155-bbe4-989e89b2a255`, MON-34 state comment `3673e8c7-2707-4ccf-8a43-e9a2e73e537e`; Google Docs HUB tab `t.tanq32rojenq`; repo checkpoint `0004-20261014T200730Z` at commit `d82e7c3`; continuity capsule `EMS-20261014-002-cp0004-continuity.tar.gz` Drive `1Nds05hauYmxEf60rXTFap9QPLKsHIOmR` (SHA-256 `491e5dd8682ab6f20497f5489946dbe96107757b1f8fbef5436725d622d88cfb`), git delta bundle `7909bde..d82e7c3` Drive `1dFHpSCn6JRv4Z1pgoAjS_wUEg6Mx1_R7` (SHA-256 `fce25a217ca692e5e6a5bf207a6a2f8420ed5466403f89f625fca28083fa409f`), SHA256SUMS `1w8hYRdZCVT_CrTeczOiyASjyWtL_qHbw`.
 
 ## WF-03 — Monarch Noir Film
 

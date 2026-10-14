@@ -25,8 +25,12 @@ Every checkpoint generates a small factual package in `operations/continuity/out
 5. Append/update the dedicated Notion page.
 6. Update the dedicated Linear issue/project.
 7. Update the dedicated Google Doc.
-8. Mark each target separately in `SYNC.json` with remote ID/time/result.
+8. Mark each target separately in `SYNC.json` with remote ID/time/result (`python3 tools/continuity.py sync-mark --task-id … --checkpoint … --platform … --status completed --remote-id … --url … --note …`). When the marked checkpoint is the task's latest one, `sync-mark` mirrors the status into `ACTIVE_TASK.remote_sync` so `resume` reports the true state; older checkpoints of the same task whose record is carried by a newer sync are marked `superseded` with a note naming the newer checkpoint.
 9. Failed targets remain pending and are retried; success elsewhere never masks them.
+
+## Recovery from the Drive continuity folder
+
+Each milestone upload is a triple in the continuity folder: `<task>-cpNNNN-continuity.tar.gz` (workflows/current + checkpoints + outbox), `<task>-cpNNNN.delta.bundle` (git bundle from the branch point on `main` to the checkpoint commit — `git bundle verify`, then `git fetch <bundle> <branch>`) and `<task>-cpNNNN-SHA256SUMS.txt`. Verify the SHA-256 sums before trusting a capsule.
 
 ## Large files
 

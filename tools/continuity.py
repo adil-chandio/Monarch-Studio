@@ -594,6 +594,13 @@ def command_sync_mark(args: argparse.Namespace) -> int:
         current = state()
         if current.get("task_id") == args.task_id:
             append_event("sync", "continuity", f"{args.platform} checkpoint {args.checkpoint}: {args.status}", {"remote_id": args.remote_id, "url": args.url, "note": args.note})
+            latest = str(current.get("last_checkpoint_path") or "")
+            if latest.endswith(args.checkpoint):
+                # Mirror the latest checkpoint's sync state into ACTIVE_TASK so `resume` tells the truth.
+                current = state()
+                current.setdefault("remote_sync", {})[args.platform] = args.status
+                write_state(current)
+                write_resume_files(current, current.get("last_checkpoint_path"))
         print(f"marked {args.platform}={args.status}")
     return 0
 

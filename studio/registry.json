@@ -39,7 +39,54 @@
         "linear_resume_issue": "MON-34",
         "linear_trigger_issue": "MON-56",
         "google_doc_hub_id": "1g2WLpd-S9LmBur4nbz9mHc4AkOCCl54ZUpHNAzHuW5g",
-        "google_doc_trigger_id": "1EdP_cvptM1GG8dDg_6ld_yjnkc1Ko9-kHtXy3BYXc2A"
+        "google_doc_trigger_id": "1EdP_cvptM1GG8dDg_6ld_yjnkc1Ko9-kHtXy3BYXc2A",
+        "drive_wtf30_folder_id": "1w_hv-2v0-VtSI9tp8g3uuaQGgRQZmPO6",
+        "drive_monarch_studio_folder_id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
+        "linear_wtf30_task_issue": "MON-66",
+        "notion_wtf30_record_page_id": "3f9807e1-e916-81c3-9a11-d382e6b01a5e"
+      },
+      "current_short_delivery": {
+        "format": "WTF-30",
+        "title": "THE GRAVITY OF THE PHONE · WTF-30 #1 · v4",
+        "task_id": "EMS-20261014-002",
+        "status": "delivered_awaiting_user_verdict",
+        "accepted_version": "v3",
+        "drive_id": "1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl",
+        "drive_folder_id": "1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
+        "previous_versions": {
+          "v3": "1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1",
+          "v2": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
+          "v1": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ"
+        },
+        "file_name": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4",
+        "bytes": 61998081,
+        "md5": "b2735dbf9ff18dc2e8f3fbf2be341c22",
+        "sha256": "8da959fff87a994025b173f66dcafd889e9f749304a727cbd9b89060d8743482",
+        "duration_seconds": 20.0,
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "lufs": -14.1,
+        "true_peak_dbtp": -1.3,
+        "loop_seam": 3.4,
+        "gates": "12/12",
+        "freshness": "28/28",
+        "package_path": "styles/monarch-stickman-animation/films/gravity-of-the-phone",
+        "registry_key": "gravity_of_the_phone_wtf30_01",
+        "registry_version": 4,
+        "repo_checkpoint": "0004-20261014T200730Z",
+        "repo_commit": "d82e7c37ae3d5899ddec4c447488d60fda3838d0",
+        "receipts": {
+          "notion_record_page_id": "3f9807e1-e916-81c3-9a11-d382e6b01a5e",
+          "linear_issue": "MON-66",
+          "linear_issue_id": "fa294cd0-9f7a-4c1f-8632-737cbcc29fb8",
+          "linear_project_update_id": "5705de7a-4594-4155-bbe4-989e89b2a255",
+          "linear_resume_comment_id": "3673e8c7-2707-4ccf-8a43-e9a2e73e537e",
+          "google_doc_hub_tab_id": "t.tanq32rojenq",
+          "continuity_capsule_drive_id": "1Nds05hauYmxEf60rXTFap9QPLKsHIOmR",
+          "continuity_delta_bundle_drive_id": "1dFHpSCn6JRv4Z1pgoAjS_wUEg6Mx1_R7",
+          "continuity_sha256sums_drive_id": "1w8hYRdZCVT_CrTeczOiyASjyWtL_qHbw"
+        }
       }
     },
     {

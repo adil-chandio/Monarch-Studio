@@ -5,7 +5,7 @@
   "created_at": "2026-10-14T17:53:16Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "superseded",
       "target": {
         "required": true,
         "transport": "git",
@@ -32,11 +32,12 @@
         }
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-14T20:18:29Z",
+      "note": "superseded by checkpoint 0004-20261014T200730Z sync (v4 record carries v1–v3 lineage)",
+      "url": null
     },
     "google_docs": {
-      "status": "pending",
+      "status": "superseded",
       "target": {
         "required": true,
         "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
@@ -45,11 +46,12 @@
         "completion_status": "pending_corrected_release_receipt"
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-14T20:18:29Z",
+      "note": "superseded by checkpoint 0004-20261014T200730Z sync (v4 record carries v1–v3 lineage)",
+      "url": null
     },
     "google_drive": {
-      "status": "pending",
+      "status": "superseded",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -63,11 +65,12 @@
         "final_completion_status": "pending_corrected_release_bundle"
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-14T20:18:29Z",
+      "note": "superseded by checkpoint 0004-20261014T200730Z sync (v4 record carries v1–v3 lineage)",
+      "url": null
     },
     "linear": {
-      "status": "pending",
+      "status": "superseded",
       "target": {
         "required": true,
         "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
@@ -79,11 +82,12 @@
         "completion_status": "pending_corrected_release_receipt"
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-14T20:18:29Z",
+      "note": "superseded by checkpoint 0004-20261014T200730Z sync (v4 record carries v1–v3 lineage)",
+      "url": null
     },
     "notion": {
-      "status": "pending",
+      "status": "superseded",
       "target": {
         "required": true,
         "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
@@ -93,8 +97,9 @@
         "completion_status": "pending_corrected_release_receipt"
       },
       "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "synced_at": "2026-10-14T20:18:29Z",
+      "note": "superseded by checkpoint 0004-20261014T200730Z sync (v4 record carries v1–v3 lineage)",
+      "url": null
     }
   }
 }

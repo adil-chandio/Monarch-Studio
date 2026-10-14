@@ -41,3 +41,11 @@ Drive: MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l` → WTF-30 · Monarch 
 | LOOK_SHEET.jpg (v1) | 366,727 | — | 1FVWPZbHGM3Icu-VABG40wIqmDUaPjKr5 | same |
 | gate_receipt.json (v1) | 3,739 | — | 1d7-ohnb_jWx1L-0n8_3KwpnQ7CYNQhRz | same |
 Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` (version 4) · 12/12 measured + 28/28 freshness · v4 = Apple iPhone + comment engine (7 visible plants: 9:41 / racing clocks that stop together, Monarch-in-the-photo, the friend points at the lens on 'tum', the moth, steam bending away, spiral light), 117 voices; v3 = vocal-chop hook score, kick-synced picture pump, 180° world roll on "Warna tum ulte.".
+
+External receipts (cp0004 five-platform sync, 2026-10-14): Notion record `3f9807e1-e916-81c3-9a11-d382e6b01a5e` (under the WF-01 project page) · Linear task `MON-66` + WF-01 project update `5705de7a-4594-4155-bbe4-989e89b2a255` + MON-34 comment `3673e8c7-2707-4ccf-8a43-e9a2e73e537e` · Google Docs HUB tab `t.tanq32rojenq` · repo checkpoint `0004-20261014T200730Z` @ `d82e7c3`.
+
+| continuity file (folder `1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE`) | bytes | sha256 | Drive id |
+|---|---|---|---|
+| EMS-20261014-002-cp0004-continuity.tar.gz (workflows/current + checkpoints + outbox, includes the v4 master) | 62,753,480 | 491e5dd8682ab6f20497f5489946dbe96107757b1f8fbef5436725d622d88cfb | 1Nds05hauYmxEf60rXTFap9QPLKsHIOmR |
+| EMS-20261014-002-cp0004.delta.bundle (git `7909bde..d82e7c3`, apply on a clone holding main@7909bde) | 2,818,595 | fce25a217ca692e5e6a5bf207a6a2f8420ed5466403f89f625fca28083fa409f | 1dFHpSCn6JRv4Z1pgoAjS_wUEg6Mx1_R7 |
+| EMS-20261014-002-cp0004-SHA256SUMS.txt | 211 | — | 1w8hYRdZCVT_CrTeczOiyASjyWtL_qHbw |
