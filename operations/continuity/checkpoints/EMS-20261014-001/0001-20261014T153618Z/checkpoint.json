@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261014T153618Z",
+  "created_at": "2026-10-14T15:36:18Z",
+  "summary": "Einstein flow-state Urdu-English remake V3 rendered and uploaded to Drive",
+  "next_action": "Task complete; deliver Drive link to user.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "active",
+    "title": "Einstein Flow State · Urdu-English remake · Monarch V2",
+    "style_id": "monarch-noir-film",
+    "goal": "Recreate the reference Einstein/flow-state video: same topic and script, same lavender editorial editing style, Urdu-English dub, enhanced 3D motion/transitions, no Monarch/Instagram tags, final vertical MP4 uploaded to Drive.",
+    "acceptance_criteria": [
+      "Final vertical 1080x1920 MP4 with Urdu-English dub, animated captions, lavender editorial scenes, no visible tags, uploaded to Drive with link."
+    ],
+    "started_at": "2026-10-14T15:28:26Z",
+    "updated_at": "2026-10-14T15:36:18Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 4,
+    "journal_head": "87d9293c39d323d34c823bb09ba49c7f0d12e031b5cc766844899e010fbdb743",
+    "last_checkpoint": "2026-10-14T15:36:18Z",
+    "last_checkpoint_path": null,
+    "next_action": "Task complete; deliver Drive link to user.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 4,
+    "timestamp": "2026-10-14T15:36:18Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Einstein flow-state Urdu-English remake V3 rendered and uploaded to Drive",
+    "content_sha256": "be31711c4bca5e302950496581bd620c6ee12aa772cc7a8b2de361a2b36c9e7c",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Task complete; deliver Drive link to user.",
+      "status": "active"
+    },
+    "prev_event_sha256": "14868031b6e2dd88c4461804a854d3b793889d5172081b62d46d6e1dcd766214",
+    "event_sha256": "87d9293c39d323d34c823bb09ba49c7f0d12e031b5cc766844899e010fbdb743"
+  },
+  "journal_head": "87d9293c39d323d34c823bb09ba49c7f0d12e031b5cc766844899e010fbdb743",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/2004dbbd-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? workflows/current/payload/flow-v3/audio/concat.txt",
+      "?? workflows/current/payload/flow-v3/audio/full_audio.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line01.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line02.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line03.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line04.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line05.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line06.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line07.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line08.mp3",
+      "?? workflows/current/payload/flow-v3/audio/line09.mp3",
+      "?? workflows/current/payload/flow-v3/audio/silence.mp3",
+      "?? workflows/current/payload/flow-v3/images/scene01.png",
+      "?? workflows/current/payload/flow-v3/images/scene02.png",
+      "?? workflows/current/payload/flow-v3/images/scene03.png",
+      "?? workflows/current/payload/flow-v3/images/scene04.png",
+      "?? workflows/current/payload/flow-v3/images/scene05.png",
+      "?? workflows/current/payload/flow-v3/images/scene06.png",
+      "?? workflows/current/payload/flow-v3/images/scene07.png",
+      "?? workflows/current/payload/flow-v3/images/scene08.png",
+      "?? workflows/current/payload/flow-v3/images/scene09.png",
+      "?? workflows/current/payload/flow-v3/images/scene10.png",
+      "?? workflows/current/payload/flow-v3/render.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/flow-v3/audio/concat.txt",
+      "size": 352,
+      "sha256": "1e6ad6eb23a6f94733686b92a83b2e434cced32823568d8911b9afff1fe3e4bc"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/full_audio.mp3",
+      "size": 285500,
+      "sha256": "b61fbc24e17fe8081d9bc2056f06a2befa639a4f47c32f87f368f3fca418b649"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line01.mp3",
+      "size": 30861,
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line02.mp3",
+      "size": 42189,
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line03.mp3",
+      "size": 34509,
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line04.mp3",
+      "size": 34893,
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line05.mp3",
+      "size": 27021,
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line06.mp3",
+      "size": 22701,
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line07.mp3",
+      "size": 16941,
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line08.mp3",
+      "size": 31341,
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/line09.mp3",
+      "size": 25101,
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/audio/silence.mp3",
+      "size": 2410,
+      "sha256": "6b3d9381e29c051ff1850f8a8211772db0ace89ba0d1d44937203c95df5aaace"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene01.png",
+      "size": 2080382,
+      "sha256": "f2ce42d94d6184306622f1049f5104e68a299dd0bf01812a5340a63ae5786c16"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene02.png",
+      "size": 2019513,
+      "sha256": "7dfdddddb892ab485f6c0d1fc8e85a7400060b99fe1e2eb21866a2da68fa670a"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene03.png",
+      "size": 2271759,
+      "sha256": "4e4ce249a784aaf811bc463f1ce495209caeb2b04548da9933156f76f5afa2fa"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene04.png",
+      "size": 2373964,
+      "sha256": "df3bf5202db47f665feb79ff515d20821e481caf61d04829a2ab882cf99e72cb"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene05.png",
+      "size": 1916115,
+      "sha256": "fdc8e1e03ff94f2bbea10a5fcf9130bc80f38260a82d27542218315af3c2ee61"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene06.png",
+      "size": 2125518,
+      "sha256": "8d869996562913e4fe4b9c6390a8ef3be4791c79ce25d254bd86a0ef9db93c49"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene07.png",
+      "size": 2088573,
+      "sha256": "462657a200edf2e05180cb1a252ba4b41adab40cc1c75851e1035506385b99ee"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene08.png",
+      "size": 1932369,
+      "sha256": "752bcfb8cced32895dd71e27a2c932d6f065dec02a4950f1d6c3bda7ca9b927a"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene09.png",
+      "size": 2261703,
+      "sha256": "3c8e3c6297d3641970dffbb52ae6107438a5877c4b53491ec73a09c501276ccb"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/images/scene10.png",
+      "size": 2108708,
+      "sha256": "d8bbc4137b54ed75980898608f1e2d0fa1aeeec0f67677053c8326536c60f9ab"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/out/final.mp4",
+      "size": 24533355,
+      "sha256": "9641ea5cda19c7b5c945605ded98aacb5b45ac6c22509b699a867a5c00629e85"
+    },
+    {
+      "path": "workflows/current/payload/flow-v3/render.py",
+      "size": 5467,
+      "sha256": "bb15270a75e53d2377a25711cfe3bff4135f906e3eb29f2f0ac341eab17f0949"
+    }
+  ]
+}
