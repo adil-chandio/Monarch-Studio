@@ -1,0 +1,35 @@
+{
+  "stages": {
+    "cleanup": {
+      "status": "done",
+      "input_hash": "5605d0d63cb18a0ba78eab710cf1973544aa6f365bd577731e28fe12a5726f12",
+      "started_at": 1792004075.3073409,
+      "exit_code": 0,
+      "ended_at": 1792004075.5232215
+    },
+    "timing_audio": {
+      "status": "done",
+      "input_hash": "bbc32a3841b2d9bb2c60fd5033458d55bf1f541fe42619f0352cd6430345fa2b",
+      "started_at": 1792004075.5239077,
+      "exit_code": 0,
+      "ended_at": 1792004079.6079245
+    },
+    "render": {
+      "status": "done",
+      "input_hash": "949e9c92ecc5f7d05c4b9f5d486160fcf0f1ff84a5658633cc11da8a7bccd672",
+      "started_at": 1792004079.6085696,
+      "exit_code": 0,
+      "ended_at": 1792004267.2039049
+    },
+    "verification": {
+      "status": "done",
+      "input_hash": "dfc3a8c1eb05cf1fd9e4405bd9edfd15b1bcff202efc0789708e454a767b24e8",
+      "started_at": 1792004267.2046757,
+      "exit_code": 0,
+      "ended_at": 1792004303.7050216
+    }
+  },
+  "status": "delivered_verified",
+  "current_stage": "complete",
+  "exact_resume_command": "Read DELIVERY.json; no render or upload is pending."
+}

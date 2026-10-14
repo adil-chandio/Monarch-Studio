@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "style_id": "premium-motion-editing",
+  "name": "Premium Motion Editing",
+  "workflow_code": "WF-05",
+  "path": "styles/premium-motion-editing",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "primary_renderers": [
+    "src/render_project.py"
+  ],
+  "primary_gates": [
+    "src/wf05.py",
+    "src/verify_output.py"
+  ],
+  "approved_policy": "data/approved-profile.json",
+  "reference_project": "projects/einstein-flow-state",
+  "reproducibility": "V5/V6 sourced reference replays; approved reusable profile explicitly distinct from delivered V6",
+  "latest_user_feedback": "Reject V6 bottom caption pills; retain V5 clean layout and accepted V6 non-caption enhancements."
+}

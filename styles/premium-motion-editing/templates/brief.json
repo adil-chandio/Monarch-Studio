@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "workflow_code": "WF-05",
+  "topic": "REPLACE_WITH_USER_TOPIC",
+  "audience": "",
+  "desired_takeaway": "",
+  "argument_claims": [],
+  "language": "easy Urdu-English narration / Roman Urdu integrated type",
+  "reference_role": "style_only_or_reference_adaptation: choose explicitly",
+  "reference_urls": [],
+  "rights_review": "pending",
+  "duration_target_seconds": 60,
+  "format": "9:16",
+  "selected_voice_asset_or_profile": null,
+  "new_script_required": true,
+  "caption_policy": "integrated_only; no lower pills",
+  "source_constraints": [],
+  "delivery_destination": "WF-05 Drive project folder",
+  "acceptance": []
+}

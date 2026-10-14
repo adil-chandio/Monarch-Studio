@@ -1,0 +1,87 @@
+{
+  "reference": {
+    "drive_id": "1qOhYxKD6H_pJn8dkr7EMO2Ro4QyJeVW2",
+    "original_name": "VID_20261014_060611_593.mp4",
+    "native_dimensions": [
+      720,
+      1282
+    ],
+    "fps": 30,
+    "creator_handle_in_source": "@RIT2RAJ_DAS",
+    "md5": "34f35d446136c574243cb918c7b96f5f"
+  },
+  "prior_deliveries_reviewed": [
+    {
+      "version": "V2",
+      "drive_id": "1Yw1L6ucLd2vYz4cPb1qXgXLm8I8DS7xT"
+    },
+    {
+      "version": "V4",
+      "drive_id": "1VzIv_YjBoUmYJPVlcA19shVRMaVwM__4"
+    }
+  ],
+  "speech_recovery": {
+    "immutable_git_commit": "5504074554dd8fb7fe2fbb5bdf60b95213cae7b4",
+    "source_prefix": "operations/history/EMS-20261014-001/payload/flow-v3/audio",
+    "generation_performed_in_this_repair": false,
+    "speed_factor": 1.0,
+    "files": [
+      {
+        "path": "audio/line01.mp3",
+        "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334",
+        "size": 30861
+      },
+      {
+        "path": "audio/line02.mp3",
+        "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f",
+        "size": 42189
+      },
+      {
+        "path": "audio/line03.mp3",
+        "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2",
+        "size": 34509
+      },
+      {
+        "path": "audio/line04.mp3",
+        "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5",
+        "size": 34893
+      },
+      {
+        "path": "audio/line05.mp3",
+        "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b",
+        "size": 27021
+      },
+      {
+        "path": "audio/line06.mp3",
+        "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86",
+        "size": 22701
+      },
+      {
+        "path": "audio/line07.mp3",
+        "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e",
+        "size": 16941
+      },
+      {
+        "path": "audio/line08.mp3",
+        "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862",
+        "size": 31341
+      },
+      {
+        "path": "audio/line09.mp3",
+        "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17",
+        "size": 25101
+      }
+    ]
+  },
+  "new_image_generations": 0,
+  "authorship_claim": "Reference-derived localization and re-edit; not original ownership of the supplied animation or newly modeled 3D footage.",
+  "revision": "V6",
+  "parent_master": {
+    "drive_id": "1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC",
+    "sha256": "d8ca1be7aee70ffb90be4aee6966a60f0b0a3d580f5ee109dda143b3e0485ed6"
+  },
+  "authorization": "User selected enhance_video / Video ko aur enhance karo",
+  "newly_generated_speech_clips": 0,
+  "newly_generated_images": 0,
+  "compositing_scope": "2.5D near/far camera remapping, not newly modeled 3D geometry"
+}

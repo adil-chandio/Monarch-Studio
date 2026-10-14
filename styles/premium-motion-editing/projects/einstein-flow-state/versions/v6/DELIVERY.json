@@ -1,0 +1,32 @@
+{
+  "status": "complete_verified",
+  "recovery": {
+    "drive_id": "1BRFaecqh9-Xa9aEdwM60Glrh-qMRcWzd",
+    "url": "https://drive.google.com/file/d/1BRFaecqh9-Xa9aEdwM60Glrh-qMRcWzd/view",
+    "name": "Flow_State_UrduEnglish_V6_RecoverySource.zip",
+    "size": 36100141,
+    "md5": "11a2a15714391c032b194b6af6f10ce1",
+    "upload_checksum_matches": true,
+    "independent_get_verified": true
+  },
+  "master": {
+    "drive_id": "1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF",
+    "url": "https://drive.google.com/file/d/1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF/view",
+    "download_url": "https://drive.google.com/uc?id=1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF&export=download",
+    "name": "Flow_State_UrduEnglish_V6_FINAL.mp4",
+    "size": 45971822,
+    "md5": "dddc4f1f992d851b64295220ab2f152e",
+    "sha256": "f00e24e3673872a31096258f834eafa570752991f2ecc31c1688444a21e1ceb1",
+    "duration_seconds": 63.1,
+    "dimensions": [
+      1080,
+      1920
+    ],
+    "upload_checksum_matches": true,
+    "independent_get_verified": true,
+    "can_download": true
+  },
+  "local_viewer_presented": true,
+  "local_viewer_path": "/home/user/Monarch-Studio/deliverables/Flow_State_UrduEnglish_V6_FINAL.mp4",
+  "V5_preserved": true
+}

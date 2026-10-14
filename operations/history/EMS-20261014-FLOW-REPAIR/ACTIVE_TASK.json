@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261014-FLOW-REPAIR",
+  "status": "completed",
+  "title": "Recover and correct Einstein flow-state edit",
+  "style_id": null,
+  "goal": "Review actual reference and previous deliveries; preserve existing work; correct motion, caption timing, clean branding and accurate Urdu-English delivery without another slideshow.",
+  "acceptance_criteria": [
+    "Actual reference visually reviewed; existing V2/V4 and audio recovered first",
+    "No static-slide substitution; detailed scene motion and synchronized captions",
+    "No Monarch/Instagram on-screen tags; standard H264 yuv420p AAC export",
+    "Verified downloadable Drive delivery plus durable source recovery"
+  ],
+  "started_at": "2026-10-14T16:12:19Z",
+  "updated_at": "2026-10-14T17:33:16Z",
+  "checkpoint_sequence": 8,
+  "event_sequence": 44,
+  "journal_head": "753eb6ee61e1058d0e2d13867e8638046981ee3eb1c66cac9a062472fb0d80d4",
+  "last_checkpoint": "2026-10-14T17:30:06Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z",
+  "next_action": "Task delivered. Read DELIVERY.json for master 1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC and recovery 1Ks7BMwClAUqRnnbGJvgYOAcnMz1Tmywq. Return these links on repeated continue; do not rerender unless a specific revision is requested.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

@@ -1,0 +1,861 @@
+{
+  "schema_version": 1,
+  "checks": [
+    {
+      "check": "required:README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:AGENTS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:HUB.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:FRESH_CHAT.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:RESUME_STATE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:CHECKLIST.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:knowledge/INDEX.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:knowledge/MASTER_CODEX.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:data/approved-profile.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:data/visual-dna.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:data/media-catalog.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:data/lessons.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:data/coverage.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:src/wf05.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:src/policy.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:src/render_project.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:src/motion.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:src/verify_output.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:templates/brief.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:templates/project.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:templates/timeline.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:prompts/MASTER_DIRECTOR.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:prompts/QUALITY_REVIEWER.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:records/SOURCE_INVENTORY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:projects/einstein-flow-state/README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:projects/einstein-flow-state/versions/v5/QA.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "required:projects/einstein-flow-state/versions/v6/QA.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "latest_caption_rejection",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/.gitignore",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/DELIVERY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/DELIVERY_GATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/FINAL_REPAIR_STATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/Flow_State_Roman_Urdu.srt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/PERSISTENCE_FIX.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/PIPELINE_STATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/PRE_RESET_QA.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/PRE_RESET_RENDER_RECEIPT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/PROVENANCE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/QA.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/RECOVERY_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/RENDER_RECEIPT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line01.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line02.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line03.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line04.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line05.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line06.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line07.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line08.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/audio/line09.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/clean.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/fonts/Anton-Regular.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/fonts/BarlowCondensed-Medium.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/fonts/BarlowCondensed-MediumItalic.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/fonts/anton-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/fonts/barlowcondensed-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/icon-template.png",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/matte.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/prepare_audio.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/prepare_visuals.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/render.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/repair_finish.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/requirements.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/run_pipeline.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/timeline.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v5/verify.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/.gitignore",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/DELIVERY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/DELIVERY_GATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/Flow_State_Roman_Urdu.srt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/PIPELINE_STATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/PROVENANCE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/QA.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/RECOVERY_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/RENDER_RECEIPT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/V5_DELIVERY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line01.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line02.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line03.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line04.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line05.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line06.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line07.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line08.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/audio/line09.mp3",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/clean.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/fonts/Anton-Regular.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/fonts/BarlowCondensed-Medium.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/fonts/BarlowCondensed-MediumItalic.ttf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/fonts/anton-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/fonts/barlowcondensed-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/icon-template.png",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/motion_v6.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/prepare_audio.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/prepare_visuals.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/render.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/requirements.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/run_pipeline.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/timeline.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_bytes:v6/verify.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "historical_case_files_present",
+      "pass": true,
+      "detail": "74"
+    },
+    {
+      "check": "verified_delivery:v5",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "verified_delivery:v6",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R01:style.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R01:workflow.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R01:README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R02:data/approved-profile.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R02:records/USER_REQUEST_20261015.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R02:projects/einstein-flow-state/ACCEPTANCE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R02:knowledge/06_TYPOGRAPHY_AND_CAPTION_POLICY.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R03:projects/einstein-flow-state/versions/v5/PROVENANCE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R03:projects/einstein-flow-state/versions/v6/PROVENANCE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R03:records/SOURCE_INVENTORY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R04:knowledge/03_REFERENCE_AND_STORY.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R04:projects/einstein-flow-state/SHOT_BREAKDOWN.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R05:knowledge/09_TOOLCHAIN_AND_ENGINEERING.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R05:src/render_project.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R05:src/motion.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R06:data/lessons.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R06:knowledge/16_FAILURE_REGISTER.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R07:knowledge/13_VERSIONS_FAILURES_AND_IMPROVEMENTS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R07:projects/einstein-flow-state/versions/v5/matte.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R08:data/visual-dna.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R08:data/metaphor-bank.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R08:brain/registry.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R08:knowledge/04_CREATIVE_ENGINE_AND_METAPHORS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R09:data/motion-grammar.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R09:knowledge/05_MOTION_DEPTH_AND_TRANSITIONS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R10:data/audio-policy.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R10:knowledge/07_AUDIO_NARRATION_AND_PACING.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R11:knowledge/08_SOURCE_CLEANUP_AND_RESTORATION.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R11:projects/einstein-flow-state/versions/v6/clean.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R12:CHECKLIST.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R12:knowledge/11_QA_AND_ACCEPTANCE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R12:src/verify_output.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R12:src/policy.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R13:knowledge/12_CONTINUITY_AND_STORAGE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R13:prompts/RECOVERY_HANDOFF.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/brief.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/project.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/timeline.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/shot-plan.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/asset-register.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/qa-review.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R14:templates/delivery-receipt.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R15:FRESH_CHAT.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R15:AGENTS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R15:prompts/MASTER_DIRECTOR.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R15:prompts/QUALITY_REVIEWER.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R15:prompts/MOTIONGO.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R16:assets/README.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R16:assets/fonts/anton-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R16:assets/fonts/barlowcondensed-OFL.txt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R16:records/EVIDENCE_SCOPE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R17:records/history/EMS-20261014-FLOW-REPAIR/JOURNAL.jsonl",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R17:records/history/EMS-20261014-FLOW-REPAIR/CHAT_TRANSCRIPT.jsonl",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R17:records/history/EMS-20261014-FLOW-V6/JOURNAL.jsonl",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R17:records/history/EMS-20261014-FLOW-V6/CHAT_TRANSCRIPT.jsonl",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R18:data/links.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R18:knowledge/15_CROSS_PLATFORM_AND_SOURCE_OF_TRUTH.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R18:HUB.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R19:knowledge/INDEX.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R19:knowledge/MASTER_CODEX.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R19:records/SOURCE_INVENTORY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R19:src/build_codex.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R19:src/audit_library.py",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R20:records/EVIDENCE_SCOPE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "coverage:R20:knowledge/01_IDENTITY_AND_APPROVAL.md",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 170,
+  "failed": 0,
+  "files": 167,
+  "bytes": 4272478,
+  "historical_exact_copies": 74,
+  "scope": "Available evidence and library paths only; not a claim to recover unavailable pre-init history or all historical scratch pixels."
+}

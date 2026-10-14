@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "fps": 30,
+  "duration": 63.1,
+  "width": 1080,
+  "height": 1920,
+  "source_width": 720,
+  "source_height": 1282,
+  "clips": [
+    {
+      "id": 1,
+      "start": 0.233333,
+      "end": 7.466667,
+      "trim_start": 0.21500000000000002,
+      "trim_end": 7.4399999999999995,
+      "natural_speed": 1.0,
+      "source": "audio/line01.mp3"
+    },
+    {
+      "id": 2,
+      "start": 7.566667,
+      "end": 17.566667,
+      "trim_start": 0.22499999999999998,
+      "trim_end": 10.21,
+      "natural_speed": 1.0,
+      "source": "audio/line02.mp3"
+    },
+    {
+      "id": 3,
+      "start": 17.666667,
+      "end": 25.733333,
+      "trim_start": 0.22499999999999998,
+      "trim_end": 8.280000000000001,
+      "natural_speed": 1.0,
+      "source": "audio/line03.mp3"
+    },
+    {
+      "id": 4,
+      "start": 25.833333,
+      "end": 34.033333,
+      "trim_start": 0.21500000000000002,
+      "trim_end": 8.4,
+      "natural_speed": 1.0,
+      "source": "audio/line04.mp3"
+    },
+    {
+      "id": 5,
+      "start": 34.133333,
+      "end": 40.366667,
+      "trim_start": 0.20500000000000002,
+      "trim_end": 6.42,
+      "natural_speed": 1.0,
+      "source": "audio/line05.mp3"
+    },
+    {
+      "id": 6,
+      "start": 40.466667,
+      "end": 45.633333,
+      "trim_start": 0.20500000000000002,
+      "trim_end": 5.36,
+      "natural_speed": 1.0,
+      "source": "audio/line06.mp3"
+    },
+    {
+      "id": 7,
+      "start": 45.733333,
+      "end": 49.433333,
+      "trim_start": 0.20500000000000002,
+      "trim_end": 3.8899999999999997,
+      "natural_speed": 1.0,
+      "source": "audio/line07.mp3"
+    },
+    {
+      "id": 8,
+      "start": 49.533333,
+      "end": 56.733333,
+      "trim_start": 0.255,
+      "trim_end": 7.45,
+      "natural_speed": 1.0,
+      "source": "audio/line08.mp3"
+    },
+    {
+      "id": 9,
+      "start": 56.833333,
+      "end": 62.533333,
+      "trim_start": 0.21500000000000002,
+      "trim_end": 5.91,
+      "natural_speed": 1.0,
+      "source": "audio/line09.mp3"
+    }
+  ],
+  "shots": [
+    {
+      "index": 0,
+      "name": "einstein",
+      "start": 0.0,
+      "end": 5.3,
+      "source_start": 0,
+      "source_end": 4.23,
+      "path": "clean-shots/00-einstein.mp4"
+    },
+    {
+      "index": 1,
+      "name": "equations",
+      "start": 5.3,
+      "end": 7.5,
+      "source_start": 4.23,
+      "source_end": 6.22,
+      "path": "clean-shots/01-equations.mp4"
+    },
+    {
+      "index": 2,
+      "name": "clock",
+      "start": 7.5,
+      "end": 10.666666666666666,
+      "source_start": 6.22,
+      "source_end": 9.65,
+      "path": "clean-shots/02-clock.mp4"
+    },
+    {
+      "index": 3,
+      "name": "violin",
+      "start": 10.666666666666666,
+      "end": 17.6,
+      "source_start": 9.65,
+      "source_end": 13.72,
+      "path": "clean-shots/03-violin.mp4"
+    },
+    {
+      "index": 4,
+      "name": "watch",
+      "start": 17.6,
+      "end": 19.7,
+      "source_start": 13.72,
+      "source_end": 14.97,
+      "path": "clean-shots/04-watch.mp4"
+    },
+    {
+      "index": 5,
+      "name": "flow",
+      "start": 19.7,
+      "end": 25.766666666666666,
+      "source_start": 14.97,
+      "source_end": 21.03,
+      "path": "clean-shots/05-flow.mp4"
+    },
+    {
+      "index": 6,
+      "name": "car",
+      "start": 25.766666666666666,
+      "end": 29.866666666666667,
+      "source_start": 21.03,
+      "source_end": 23.8,
+      "path": "clean-shots/06-car.mp4"
+    },
+    {
+      "index": 7,
+      "name": "runner",
+      "start": 29.866666666666667,
+      "end": 34.06666666666667,
+      "source_start": 23.8,
+      "source_end": 27.13,
+      "path": "clean-shots/07-runner.mp4"
+    },
+    {
+      "index": 8,
+      "name": "engine",
+      "start": 34.06666666666667,
+      "end": 38.53333333333333,
+      "source_start": 27.13,
+      "source_end": 30.63,
+      "path": "clean-shots/08-engine.mp4"
+    },
+    {
+      "index": 9,
+      "name": "brain",
+      "start": 38.53333333333333,
+      "end": 40.4,
+      "source_start": 30.63,
+      "source_end": 32.2,
+      "path": "clean-shots/09-brain.mp4"
+    },
+    {
+      "index": 10,
+      "name": "shortcut",
+      "start": 40.4,
+      "end": 45.666666666666664,
+      "source_start": 32.2,
+      "source_end": 36.23,
+      "path": "clean-shots/10-shortcut.mp4"
+    },
+    {
+      "index": 11,
+      "name": "talent",
+      "start": 45.666666666666664,
+      "end": 49.46666666666667,
+      "source_start": 36.23,
+      "source_end": 39.7,
+      "path": "clean-shots/11-talent.mp4"
+    },
+    {
+      "index": 12,
+      "name": "sandbags",
+      "start": 49.46666666666667,
+      "end": 56.766666666666666,
+      "source_start": 39.7,
+      "source_end": 46.3,
+      "path": "clean-shots/12-sandbags.mp4"
+    },
+    {
+      "index": 13,
+      "name": "art",
+      "start": 56.766666666666666,
+      "end": 63.1,
+      "source_start": 46.3,
+      "source_end": 51.64,
+      "path": "clean-shots/13-art.mp4"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.26833300000000004,
+      "end": 1.698333,
+      "text": "1915 mein,"
+    },
+    {
+      "start": 1.798333,
+      "end": 2.978333,
+      "text": "Albert Einstein gravity ka masla"
+    },
+    {
+      "start": 2.8883330000000003,
+      "end": 5.208333,
+      "text": "hal nahi kar paa rahe thay."
+    },
+    {
+      "start": 5.468333,
+      "end": 7.498333,
+      "text": "Unki equations nakaam ho rahi theen."
+    },
+    {
+      "start": 7.601667,
+      "end": 9.211667,
+      "text": "Phir raat ke 2 baje,"
+    },
+    {
+      "start": 9.351667,
+      "end": 10.631667,
+      "text": "unhon ne chalk rakha,"
+    },
+    {
+      "start": 10.761667000000001,
+      "end": 11.881667,
+      "text": "violin uthaya,"
+    },
+    {
+      "start": 12.071667000000001,
+      "end": 13.831667,
+      "text": "aur mombatti ki roshni mein"
+    },
+    {
+      "start": 13.861667,
+      "end": 15.281667,
+      "text": "Mozart bajane lage."
+    },
+    {
+      "start": 15.641667000000002,
+      "end": 17.591666999999998,
+      "text": "Udhar padosi deewarein peet rahe thay."
+    },
+    {
+      "start": 17.701666999999997,
+      "end": 19.681666999999997,
+      "text": "Woh math se bhaag nahi rahe thay,"
+    },
+    {
+      "start": 19.831666999999996,
+      "end": 21.801667,
+      "text": "balki flow state mein ja rahe thay."
+    },
+    {
+      "start": 22.111666999999997,
+      "end": 23.701666999999997,
+      "text": "Ussi haalat ko aaj hum"
+    },
+    {
+      "start": 23.611666999999997,
+      "end": 25.761667,
+      "text": "AI shortcuts se khud khatam kar rahe hain."
+    },
+    {
+      "start": 25.868333,
+      "end": 26.878332999999998,
+      "text": "Zara socho."
+    },
+    {
+      "start": 27.258332999999997,
+      "end": 29.608333,
+      "text": "Tez safar ke liye hamare paas cars hain."
+    },
+    {
+      "start": 30.048333,
+      "end": 31.348332999999997,
+      "text": "Phir bhi hum subah daurne ke liye"
+    },
+    {
+      "start": 31.258332999999997,
+      "end": 33.248333,
+      "text": "running shoes pehente hain."
+    },
+    {
+      "start": 33.598333,
+      "end": 34.078333,
+      "text": "Kyun?"
+    },
+    {
+      "start": 34.168333000000004,
+      "end": 36.388333,
+      "text": "Kyunke agar saara kaam engine kare,"
+    },
+    {
+      "start": 36.488333,
+      "end": 38.54833300000001,
+      "text": "toh hamare muscles kamzor par jaate hain."
+    },
+    {
+      "start": 38.708333,
+      "end": 40.388333,
+      "text": "Dimaagh ke saath bhi yehi hota hai."
+    },
+    {
+      "start": 40.501667000000005,
+      "end": 41.59166700000001,
+      "text": "Jab shortcut"
+    },
+    {
+      "start": 41.501667000000005,
+      "end": 43.351667000000006,
+      "text": "mehnat ki charhaai ki jagah le le,"
+    },
+    {
+      "start": 43.511667,
+      "end": 45.66166700000001,
+      "text": "toh creative inflation paida hoti hai."
+    },
+    {
+      "start": 45.768333000000005,
+      "end": 47.028333,
+      "text": "Efficiency barhti hai,"
+    },
+    {
+      "start": 47.128333000000005,
+      "end": 48.268333000000005,
+      "text": "magar insaan ka talent"
+    },
+    {
+      "start": 48.198333000000005,
+      "end": 49.46833300000001,
+      "text": "kam hota jaata hai."
+    },
+    {
+      "start": 49.568332999999996,
+      "end": 51.288333,
+      "text": "Iss waqt hazaaron log"
+    },
+    {
+      "start": 51.198333,
+      "end": 53.068332999999996,
+      "text": "khaali sports stadiums mein"
+    },
+    {
+      "start": 53.088333,
+      "end": 55.138332999999996,
+      "text": "sirf bhaari sandbags uthane ke liye"
+    },
+    {
+      "start": 55.04833299999999,
+      "end": 56.778332999999996,
+      "text": "bhaari fees de rahe hain."
+    },
+    {
+      "start": 56.868333,
+      "end": 58.848333000000004,
+      "text": "Yeh art ke khaufnaak future ke baare mein"
+    },
+    {
+      "start": 58.758333,
+      "end": 60.358333,
+      "text": "jo batata hai,"
+    },
+    {
+      "start": 60.408333,
+      "end": 61.478333,
+      "text": "woh sunne ke liye tum"
+    },
+    {
+      "start": 61.388332999999996,
+      "end": 62.578333,
+      "text": "abhi tayyaar nahi ho."
+    }
+  ],
+  "titles": [
+    {
+      "start": 0.20833300000000002,
+      "position": "top",
+      "kicker": "Ek mashhoor kahani",
+      "title": "1915",
+      "sub": "",
+      "size": 124,
+      "end": 1.763333
+    },
+    {
+      "start": 1.763333,
+      "position": "bottom",
+      "kicker": "",
+      "title": "ALBERT EINSTEIN",
+      "sub": "gravity ka masla...",
+      "size": 74,
+      "end": 2.9933330000000002
+    },
+    {
+      "start": 2.9933330000000002,
+      "position": "bottom",
+      "kicker": "",
+      "title": "GRAVITY",
+      "sub": "hal nahi ho raha tha.",
+      "size": 89,
+      "end": 5.253333
+    },
+    {
+      "start": 5.253333,
+      "position": "top",
+      "kicker": "Unki",
+      "title": "EQUATIONS",
+      "sub": "nakaam ho rahi theen.",
+      "size": 88,
+      "end": 7.5416669999999995
+    },
+    {
+      "start": 7.5416669999999995,
+      "position": "top",
+      "kicker": "Phir, raat ke",
+      "title": "2 BAJE",
+      "sub": "",
+      "size": 100,
+      "end": 9.316666999999999
+    },
+    {
+      "start": 9.316666999999999,
+      "position": "bottom",
+      "kicker": "unhon ne",
+      "title": "CHALK RAKHA",
+      "sub": "",
+      "size": 75,
+      "end": 10.616667
+    },
+    {
+      "start": 10.616667,
+      "position": "top",
+      "kicker": "",
+      "title": "VIOLIN",
+      "sub": "uthaya.",
+      "size": 93,
+      "end": 11.986667
+    },
+    {
+      "start": 11.986667,
+      "position": "top",
+      "kicker": "mombatti ki",
+      "title": "ROSHNI",
+      "sub": "mein...",
+      "size": 91,
+      "end": 13.746666999999999
+    },
+    {
+      "start": 13.746666999999999,
+      "position": "top",
+      "kicker": "aur bajane lage",
+      "title": "MOZART",
+      "sub": "",
+      "size": 94,
+      "end": 15.496666999999999
+    },
+    {
+      "start": 15.496666999999999,
+      "position": "bottom",
+      "kicker": "udhar",
+      "title": "PADOSI",
+      "sub": "deewarein peet rahe thay.",
+      "size": 86,
+      "end": 17.641667
+    },
+    {
+      "start": 17.641667,
+      "position": "bottom",
+      "kicker": "Woh math se",
+      "title": "BHAAG NAHI",
+      "sub": "rahe thay.",
+      "size": 82,
+      "end": 19.676667000000002
+    },
+    {
+      "start": 19.676667000000002,
+      "position": "top",
+      "kicker": "Woh ja rahe thay",
+      "title": "FLOW STATE",
+      "sub": "mein.",
+      "size": 79,
+      "end": 21.996667000000002
+    },
+    {
+      "start": 21.996667000000002,
+      "position": "bottom",
+      "kicker": "Aaj hum, khud",
+      "title": "AI SHORTCUTS",
+      "sub": "se usay khatam kar rahe hain.",
+      "size": 74,
+      "end": 25.808333
+    },
+    {
+      "start": 25.808333,
+      "position": "top",
+      "kicker": "",
+      "title": "ZARA SOCHO",
+      "sub": "",
+      "size": 88,
+      "end": 27.163333
+    },
+    {
+      "start": 27.163333,
+      "position": "bottom",
+      "kicker": "Tez safar ke liye",
+      "title": "CARS",
+      "sub": "hain.",
+      "size": 97,
+      "end": 29.863333
+    },
+    {
+      "start": 29.863333,
+      "position": "top",
+      "kicker": "Phir bhi, subah",
+      "title": "RUNNING\nSHOES",
+      "sub": "pehente hain.",
+      "size": 74,
+      "end": 33.483332999999995
+    },
+    {
+      "start": 33.483332999999995,
+      "position": "bottom",
+      "kicker": "",
+      "title": "KYUN?",
+      "sub": "",
+      "size": 100,
+      "end": 34.108333
+    },
+    {
+      "start": 34.108333,
+      "position": "top",
+      "kicker": "Agar saara kaam",
+      "title": "ENGINE KARE",
+      "sub": "",
+      "size": 79,
+      "end": 36.393333000000005
+    },
+    {
+      "start": 36.393333000000005,
+      "position": "bottom",
+      "kicker": "Toh hamare",
+      "title": "MUSCLES",
+      "sub": "kamzor par jaate hain.",
+      "size": 88,
+      "end": 38.513333
+    },
+    {
+      "start": 38.513333,
+      "position": "top",
+      "kicker": "",
+      "title": "DIMAAGH",
+      "sub": "ke saath bhi yehi hota hai.",
+      "size": 95,
+      "end": 40.441667
+    },
+    {
+      "start": 40.441667,
+      "position": "top",
+      "kicker": "Jab mehnat ki jagah",
+      "title": "SHORTCUT",
+      "sub": "le le...",
+      "size": 88,
+      "end": 43.36666700000001
+    },
+    {
+      "start": 43.36666700000001,
+      "position": "top",
+      "kicker": "Toh paida hoti hai",
+      "title": "CREATIVE\nINFLATION",
+      "sub": "",
+      "size": 72,
+      "end": 45.708333
+    },
+    {
+      "start": 45.708333,
+      "position": "top",
+      "kicker": "",
+      "title": "EFFICIENCY",
+      "sub": "barhti hai.",
+      "size": 85,
+      "end": 47.033333000000006
+    },
+    {
+      "start": 47.033333000000006,
+      "position": "right",
+      "kicker": "Magar",
+      "title": "HUMAN\nTALENT",
+      "sub": "kam hota jaata hai.",
+      "size": 64,
+      "end": 49.508333
+    },
+    {
+      "start": 49.508333,
+      "position": "top",
+      "kicker": "Iss waqt",
+      "title": "HAZAARON LOG",
+      "sub": "",
+      "size": 74,
+      "end": 51.143333
+    },
+    {
+      "start": 51.143333,
+      "position": "top",
+      "kicker": "",
+      "title": "KHAALI\nSTADIUMS",
+      "sub": "mein...",
+      "size": 74,
+      "end": 52.953333
+    },
+    {
+      "start": 52.953333,
+      "position": "top",
+      "kicker": "Sirf uthane ke liye",
+      "title": "HEAVY\nSANDBAGS",
+      "sub": "",
+      "size": 76,
+      "end": 54.943332999999996
+    },
+    {
+      "start": 54.943332999999996,
+      "position": "bottom",
+      "kicker": "",
+      "title": "BHAARI FEES",
+      "sub": "de rahe hain.",
+      "size": 74,
+      "end": 56.808333000000005
+    },
+    {
+      "start": 56.808333000000005,
+      "position": "top",
+      "kicker": "Yeh batata hai",
+      "title": "FUTURE OF ART",
+      "sub": "ke baare mein...",
+      "size": 75,
+      "end": 58.633333
+    },
+    {
+      "start": 58.633333,
+      "position": "top",
+      "kicker": "",
+      "title": "KHAUFNAAK\nFUTURE",
+      "sub": "",
+      "size": 77,
+      "end": 60.253333000000005
+    },
+    {
+      "start": 60.253333000000005,
+      "position": "bottom",
+      "kicker": "Yeh sunne ke liye tum",
+      "title": "ABHI TAYYAAR\nNAHI HO.",
+      "sub": "",
+      "size": 69,
+      "end": 63.1
+    }
+  ],
+  "notes": [
+    "Previously selected voice recovered exactly; no new synthesis.",
+    "No speech speed-up: trims contain leading/trailing quiet only.",
+    "Reference-derived animated collage, not newly rendered 3D geometry.",
+    "Historical anecdote and rhetoric translated from the supplied reference, not independently verified."
+  ]
+}

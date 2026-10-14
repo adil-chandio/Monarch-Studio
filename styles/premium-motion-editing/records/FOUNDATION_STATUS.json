@@ -1,0 +1,30 @@
+{
+  "status": "library_ready_publication_in_progress",
+  "user_policy_applied": true,
+  "wf05_policy_and_compositor_tests": {
+    "passed": 12,
+    "failed": 0,
+    "scope": "Policy and synthetic-motion compositor smoke tests"
+  },
+  "repo_validation": {
+    "passed": 21,
+    "errors": 0,
+    "warnings": [
+      "Preserved historical absolute paths; use hydrate/run"
+    ]
+  },
+  "cross_platform": "pending_population_and_readback",
+  "github_main": "not_yet_published",
+  "combined_master_rendered": false,
+  "active_video_render": false,
+  "snapshot_role": "permanent knowledge library, not an active task capsule",
+  "full_repo_tests": {
+    "passed": 25,
+    "failed": 0
+  },
+  "docs_readback": {
+    "verified": true,
+    "required_word_occurrence_coverage": 1.0,
+    "chapter_headers": 17
+  }
+}

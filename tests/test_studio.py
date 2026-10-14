@@ -29,10 +29,10 @@ class StudioCliTests(unittest.TestCase):
             self.fail(f"CLI failed ({proc.returncode}): {' '.join(args)}\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}")
         return proc
 
-    def test_registry_lists_exact_initial_workflows(self) -> None:
+    def test_registry_preserves_existing_and_registers_wf05(self) -> None:
         proc = self.run_cli("list", "--json")
         data = json.loads(proc.stdout)
-        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03"])
+        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03", "WF-05"])
         self.assertEqual(data["workflows"][0]["trigger"], "SHADEGO <topic>")
         self.assertEqual(data["workflows"][1]["state"], "ACTIVE_WITH_DRIFT")
 
@@ -80,6 +80,26 @@ class StudioCliTests(unittest.TestCase):
             "workflows/wf03_monarch_noir_film/src/film_window.py", "--help",
         )
         self.assertIn("--render", help_result.stdout)
+
+    def test_wf05_hydration_preserves_policy_and_history(self) -> None:
+        source = ROOT / "styles/premium-motion-editing/data/approved-profile.json"
+        before = digest(source)
+        self.run_cli("hydrate", "wf5", "--force")
+        home = ROOT / ".runtime/wf05/home/user"
+        self.assertTrue((home / "src/wf05.py").exists())
+        self.assertTrue((home / "projects/einstein-flow-state/versions/v6/QA.json").exists())
+        result = self.run_cli("run", "wf05", "--", sys.executable, "src/wf05.py", "inspect")
+        self.assertIn('"subtitle_mode": "off"', result.stdout)
+        self.assertEqual(before, digest(source))
+
+    def test_ignored_virtualenv_is_not_a_repo_manifest_input(self) -> None:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("studio_wf05_test", ROOT / "tools/studio.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        files = [p.relative_to(ROOT).as_posix() for p in module.eligible_repo_files()]
+        self.assertFalse(any(x.startswith((".venv/", ".runtime/", "node_modules/")) for x in files))
+        self.assertIn("styles/premium-motion-editing/data/approved-profile.json", files)
 
     def test_materialization_status_is_read_only(self) -> None:
         proc = subprocess.run(MATERIALIZE + ["status"], cwd=ROOT, text=True, capture_output=True)

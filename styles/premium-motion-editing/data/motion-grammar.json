@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "units": "normalized rectangles in reusable projects; historical case constants stay in historical modules",
+  "camera": {
+    "near_far_remap": true,
+    "plateau_must_cover_entire_subject": true,
+    "feather_only_in_empty_margin": true,
+    "near_zoom_typical": [
+      0.025,
+      0.09
+    ],
+    "case_roll_degrees": 0.65,
+    "far_focus_sigma": 0.8,
+    "meaning": "supplement actual object/layer motion, never certify a static slide by moving a camera"
+  },
+  "transitions": [
+    {
+      "id": "depth_push",
+      "purpose": "conceptual escalation / entering a state",
+      "seconds": 0.25
+    },
+    {
+      "id": "diagonal_whip",
+      "purpose": "fast causal or analogy hand-off",
+      "seconds": 0.25
+    },
+    {
+      "id": "feathered_cut",
+      "purpose": "clean change without a white flash",
+      "seconds": 0.22
+    }
+  ],
+  "type": {
+    "integrated": true,
+    "entry_seconds": 0.34,
+    "extrusion_steps": 13,
+    "rest_must_be_readable": true
+  },
+  "anti_patterns": [
+    "random effect on every frame",
+    "long crossfades between whole-frame stills",
+    "camera-only proof of motion",
+    "deformed anatomy from depth boundaries through the subject",
+    "caption strip competing with headline",
+    "bright repeated flash transitions"
+  ]
+}

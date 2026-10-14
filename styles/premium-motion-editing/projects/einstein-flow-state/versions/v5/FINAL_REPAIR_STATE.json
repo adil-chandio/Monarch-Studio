@@ -1,0 +1,24 @@
+{
+  "steps": {
+    "correct_shots_00_07": {
+      "status": "done",
+      "started": 1791997149.3479927,
+      "exit_code": 0,
+      "finished": 1791997182.7565558
+    },
+    "encode_corrected_master": {
+      "status": "done",
+      "started": 1791997182.7568274,
+      "exit_code": 0,
+      "finished": 1791997315.3984327
+    },
+    "verify_corrected_master": {
+      "status": "done",
+      "started": 1791997315.3987274,
+      "exit_code": 0,
+      "finished": 1791997345.6553762
+    }
+  },
+  "current_step": "visual_review_and_drive",
+  "status": "local_repair_complete"
+}

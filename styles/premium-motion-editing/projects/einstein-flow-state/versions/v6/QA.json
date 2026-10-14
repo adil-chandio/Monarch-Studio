@@ -1,0 +1,100 @@
+{
+  "status": "reviewed_for_delivery",
+  "path": "/home/user/Monarch-Studio/workflows/current/payload/flow-v6/delivery/Flow_State_UrduEnglish_V6.mp4",
+  "frames": 1893,
+  "duration_seconds": 63.1,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "codec": "H.264 High / yuv420p + AAC stereo 48 kHz",
+  "faststart": true,
+  "full_decode_exit": 0,
+  "size_bytes": 45971822,
+  "sha256": "f00e24e3673872a31096258f834eafa570752991f2ecc31c1688444a21e1ceb1",
+  "md5": "dddc4f1f992d851b64295220ab2f152e",
+  "speech_speed": 1.0,
+  "aac_sample_peak_dbfs": -1.97,
+  "aac_rms_dbfs": -19.57,
+  "black_frames": [],
+  "possible_social_icons": [],
+  "motion_provenance": [
+    {
+      "shot": "einstein",
+      "source_frames": 127,
+      "central_motion_delta": 38.168
+    },
+    {
+      "shot": "equations",
+      "source_frames": 60,
+      "central_motion_delta": 29.581
+    },
+    {
+      "shot": "clock",
+      "source_frames": 103,
+      "central_motion_delta": 26.693
+    },
+    {
+      "shot": "violin",
+      "source_frames": 122,
+      "central_motion_delta": 34.231
+    },
+    {
+      "shot": "watch",
+      "source_frames": 37,
+      "central_motion_delta": 27.807
+    },
+    {
+      "shot": "flow",
+      "source_frames": 182,
+      "central_motion_delta": 29.651
+    },
+    {
+      "shot": "car",
+      "source_frames": 83,
+      "central_motion_delta": 34.53
+    },
+    {
+      "shot": "runner",
+      "source_frames": 100,
+      "central_motion_delta": 14.596
+    },
+    {
+      "shot": "engine",
+      "source_frames": 105,
+      "central_motion_delta": 35.773
+    },
+    {
+      "shot": "brain",
+      "source_frames": 47,
+      "central_motion_delta": 15.44
+    },
+    {
+      "shot": "shortcut",
+      "source_frames": 121,
+      "central_motion_delta": 19.387
+    },
+    {
+      "shot": "talent",
+      "source_frames": 104,
+      "central_motion_delta": 18.325
+    },
+    {
+      "shot": "sandbags",
+      "source_frames": 198,
+      "central_motion_delta": 24.322
+    },
+    {
+      "shot": "art",
+      "source_frames": 160,
+      "central_motion_delta": 6.536
+    }
+  ],
+  "visual_samples": 42,
+  "visual_review": "Reviewed 42 actual encoded samples across all 14 shots plus four close-spaced runner layout frames. Captions legible, original photographed subjects retained, title/body separation acceptable, no visible social tags observed. 2.5D treatment, not new 3D geometry.",
+  "audio_review_scope": "Decoded, timed, level/peak checked; not an independent human listening test.",
+  "original_voice_files_verified": true,
+  "version": "V6",
+  "parent_master_drive_id": "1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC",
+  "caption_highlight_scope": "Word-paced approximation within retained phrase-level timing; no ASR-certified word timing claimed."
+}

@@ -30,6 +30,7 @@ SKIP_PARTS = {
     "vendor",
     "__pycache__",
     "node_modules",
+    ".venv", "venv", ".cache", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".npm", ".next", ".turbo",
     "build",
     "dist",
     "coverage",
@@ -81,7 +82,12 @@ def workflow_entry(selector: str) -> dict[str, Any]:
             str(item.get("code", "")).lower().replace("-", ""),
             str(item.get("slug", "")).lower(),
             Path(str(item.get("path", ""))).name.lower(),
+            str(item.get("name", "")).lower(),
+            str(item.get("trigger", "")).split(" ")[0].lower(),
         }
+        code = str(item.get("code", ""))
+        if code.startswith("WF-") and code[3:].isdigit():
+            aliases.add("wf" + str(int(code[3:])))
         if needle in aliases or needle.replace("-", "") in aliases:
             return item
     choices = ", ".join(w["slug"] for w in registry()["workflows"])
@@ -110,7 +116,20 @@ def hash_file(path: Path, algorithm: str = "sha256") -> str:
 
 
 def eligible_repo_files() -> Iterable[Path]:
-    for path in sorted(ROOT.rglob("*")):
+    # Validate what can actually belong to the repository, not ignored venv
+    # binaries/CA certificates or delivered runtime caches. Tracked ignored
+    # files remain visible, so this does not hide an accidentally tracked secret.
+    candidates = None
+    if (ROOT / ".git").exists():
+        proc = subprocess.run(
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+            cwd=ROOT, capture_output=True,
+        )
+        if proc.returncode == 0:
+            candidates = {ROOT / x.decode("utf-8") for x in proc.stdout.split(b"\0") if x}
+    if candidates is None:
+        candidates = set(ROOT.rglob("*"))
+    for path in sorted(candidates):
         if not path.is_file() or path == MANIFEST_PATH:
             continue
         rel = path.relative_to(ROOT)
@@ -216,7 +235,7 @@ def module_available(name: str) -> bool:
 def command_doctor(args: argparse.Namespace) -> int:
     required_commands = ["bash", "git"]
     optional_commands = ["ffmpeg", "ffprobe"]
-    required_modules = ["numpy", "PIL", "scipy", "imageio_ffmpeg", "reportlab", "fitz"]
+    required_modules = ["numpy", "PIL", "scipy", "imageio_ffmpeg", "reportlab", "fitz", "cv2"]
     failures = []
 
     print(f"repository : {ROOT}")
@@ -687,7 +706,7 @@ def hydrate(entry: dict[str, Any], force: bool = False) -> Path:
     replacements = {"/home/user": str(home)}
     stats = {"copied_text": 0, "rewritten_text": 0, "hardlinked_binary": 0, "copied_binary": 0}
 
-    if entry["slug"] == "wf01":
+    if entry["slug"] in {"wf01", "wf05"}:
         mirror_tree(src, home, replacements, stats)
     elif entry["slug"] == "wf03":
         legacy = home / "workflows" / "wf03_monarch_noir_film"

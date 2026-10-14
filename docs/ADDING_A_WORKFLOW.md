@@ -14,3 +14,6 @@
 12. Run tests, manifest generation and `studio.py validate` before the milestone commit.
 
 A similar display name is never sufficient. Style ID + workflow code + external authority IDs must agree.
+## WF-05 · Premium Motion Editing (2026-10-15)
+
+Permanent style: `styles/premium-motion-editing/`; trigger `MOTIONGO <topic or reference>`. Its current production policy retains V5 clean layout and accepted V6 motion/depth/transition/sound, rejecting the V6 bottom caption pills. Source history, a 17-chapter codex, reusable clean compositor, templates and regression tests are indexed in that style. Other workflows and historical identities are preserved.

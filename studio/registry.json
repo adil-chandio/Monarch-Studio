@@ -81,6 +81,30 @@
         "linear_resume_issue": "MON-57",
         "google_doc_hub_id": "1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM"
       }
+    },
+    {
+      "style_id": "premium-motion-editing",
+      "name": "Premium Motion Editing",
+      "path": "styles/premium-motion-editing",
+      "trigger": "MOTIONGO <topic or reference>",
+      "knowledge_index": "styles/premium-motion-editing/knowledge/INDEX.md",
+      "code": "WF-05",
+      "slug": "wf05",
+      "state": "READY_WITH_USER_POLICY",
+      "reconciliation": "latest_20261015_feedback_applied",
+      "reproducibility": "source-backed V5/V6 references; reusable approved clean profile",
+      "caption_policy": "No V6 lower caption pills or word-highlight strip",
+      "authorities": {
+        "drive_folder_id": "1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+        "notion_project_id": "3f9807e1-e916-819b-9c53-e21326dd0f26",
+        "linear_project_id": "104ec829-e3db-4796-b12c-4fd062287ff3",
+        "linear_resume_issue": "MON-67",
+        "links_manifest": "styles/premium-motion-editing/data/links.json",
+        "google_doc_hub_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+        "notion_registry_row_id": "3f9807e1-e916-81bd-8408-cb4537dacb31",
+        "source_package_drive_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+        "release_receipt_drive_id": "1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje"
+      }
     }
   ],
   "characters": [

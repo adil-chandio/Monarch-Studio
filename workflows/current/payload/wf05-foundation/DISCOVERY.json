@@ -1,0 +1,36 @@
+{
+  "workflow_code": "WF-05",
+  "style_id": "premium-motion-editing",
+  "drive_folder": {
+    "id": "1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+    "name": "Wf-05 • Premium Motion Editing ",
+    "parent": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
+    "url": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+    "preexisting_contents": [
+      "1qOhYxKD6H_pJn8dkr7EMO2Ro4QyJeVW2"
+    ]
+  },
+  "studio_registry_doc": {
+    "id": "1ONXXVp-yYG2P9ldUPBOSAhr8oWkS79qgzdu6eGHTm8Q",
+    "name": "MONARCH STUDIO — Workflow Registry"
+  },
+  "rules_doc": {
+    "id": "1gLoBXRgjhcgJhkzAGOwyldqnEnN2sZmj2ZE_lDJx_pw",
+    "name": "🚨 WORKFLOW RULES — Permanent Protocol"
+  },
+  "drive_markdown_registries": [
+    "1cGIALJxKtsn7iYVVQe33xLCIvyaIdzj8",
+    "1PX8zcm9anENC7oiXcqjcdiOVXPvGWnh3"
+  ],
+  "screenshot": {
+    "visible_inline": true,
+    "attachment_path": "/home/user/uploads/Screenshot_20261015-001332.png",
+    "file_available": false
+  },
+  "user_policy": {
+    "base": "V5 clean editorial layout",
+    "accepted_enhancements": "V6 depth/motion/transitions/sound except lower caption UI",
+    "rejected": "V6 bottom caption pills / word-highlight strip",
+    "new_hybrid_master_rendered": false
+  }
+}

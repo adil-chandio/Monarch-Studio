@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "policy_id": "wf05-clean-editorial-20261015",
+  "style_id": "premium-motion-editing",
+  "approved_at_local": "2026-10-15",
+  "user_feedback_source": "records/USER_REQUEST_20261015.txt",
+  "accepted_baseline": "V5 clean editorial composition and narrative motion standard",
+  "accepted_enhancements": [
+    "V6 near/far 2.5D camera",
+    "V6 perspective/extruded headline entrances",
+    "V6 depth push, diagonal whip and feathered cut",
+    "V6 restrained sound accents",
+    "V6 runner cleanup improvement"
+  ],
+  "rejected_default": [
+    "V6 bottom caption pills",
+    "V6 active-word highlight strip"
+  ],
+  "typography": {
+    "primary": "integrated scene-specific kinetic headings",
+    "subtitle_mode": "off",
+    "allowed_subtitle_modes": [
+      "off",
+      "plain"
+    ],
+    "plain_requires_explicit_request": true,
+    "caption_pills": false,
+    "word_highlighting": false,
+    "separate_srt": true,
+    "bottom_integrated_headlines_are_allowed": true
+  },
+  "branding": {
+    "monarch_tag": false,
+    "instagram_tag": false,
+    "social_end_card": false,
+    "preserve_provenance_offscreen": true
+  },
+  "motion": {
+    "no_slideshow": true,
+    "actual_temporal_motion_required": true,
+    "camera_only_motion_is_not_sufficient": true,
+    "2_5d_is_not_new_3d_geometry": true
+  },
+  "narration": {
+    "pace": 1.0,
+    "preserve_selected_assets_on_revision": true,
+    "new_script_requires_matching_new_narration": true,
+    "do_not_claim_asr_alignment_from_character_weights": true
+  },
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_codec": "libx264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "faststart": true,
+    "crf": 18,
+    "maxrate": "7M",
+    "bufsize": "14M"
+  },
+  "profile_status": "user-approved policy; reusable engine policy/unit/synthetic-motion smoke tests passed; no full-length combined-policy master claimed",
+  "reference_master_rendered_in_foundation": false,
+  "history_policy": "retain V5 and V6 unchanged; label V6 lower-caption treatment rejected; never silently overwrite evidence"
+}

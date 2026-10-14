@@ -54,6 +54,24 @@ class ContinuityTests(unittest.TestCase):
         self.assertEqual(idle["status"], "idle")
         self.assertTrue((self.root / "operations" / "history" / "TEST-001" / "JOURNAL.jsonl").exists())
 
+    def test_completed_checkpoint_can_be_archived_without_restart(self) -> None:
+        self.call("init", "--task-id", "TEST-TERMINAL", "--title", "Terminal checkpoint", "--goal", "Preserve delivered work")
+        self.call("checkpoint", "--summary", "Delivered", "--next-action", "Archive only", "--status", "completed")
+        self.call("complete", "--summary", "Archived without reopening production")
+        idle = json.loads((self.root / "workflows/current/ACTIVE_TASK.json").read_text())
+        self.assertEqual(idle["status"], "idle")
+        self.assertEqual(idle["completed_task"], "TEST-TERMINAL")
+        self.assertTrue((self.root / "operations/history/TEST-TERMINAL/JOURNAL.jsonl").exists())
+
+    def test_archive_collision_does_not_mutate_state(self) -> None:
+        self.call("init", "--task-id", "TEST-COLLISION", "--title", "Collision", "--goal", "No overwrite")
+        (self.root / "operations/history/TEST-COLLISION").mkdir(parents=True)
+        state = self.root / "workflows/current/ACTIVE_TASK.json"
+        before = state.read_bytes()
+        result = self.call("complete", "--summary", "Must refuse", check=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(before, state.read_bytes())
+
     def test_journal_tampering_is_detected(self) -> None:
         self.call("init", "--task-id", "TEST-002", "--title", "Tamper test", "--goal", "Detect changes")
         self.call("log", "--kind", "result", "--message", "Original result")

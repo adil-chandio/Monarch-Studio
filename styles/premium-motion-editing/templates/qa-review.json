@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "project_id": "",
+  "technical_report": "",
+  "encoded_frame_samples": [],
+  "actual_motion_reviewed": false,
+  "subject_edges_intact": false,
+  "typography_legible": false,
+  "no_rejected_bottom_pills": false,
+  "no_social_tags_or_end_card": false,
+  "narration_scene_alignment_reviewed": false,
+  "audio_listening_scope": "not yet performed",
+  "factual_claims_reviewed": false,
+  "reviewer_notes": [],
+  "approved_for_delivery": false
+}

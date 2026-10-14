@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `NONE`
-- **Status:** `idle`
-- **Title:** No active task
-- **Next action:** Start the next task with continuity.py init.
+- **Task:** `EMS-20261015-WF05-FOUNDATION`
+- **Status:** `syncing`
+- **Title:** Establish WF-05 Premium Motion Editing permanent style and cross-platform knowledge
+- **Next action:** Validate repository and source library, commit/push only arena/fb829993-monarch-studio, open PR and verify CI/main publication; then write final cloud receipts and archive task.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

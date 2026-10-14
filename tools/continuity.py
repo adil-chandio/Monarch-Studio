@@ -400,9 +400,12 @@ def command_process(args: argparse.Namespace) -> int:
     return 0
 
 
-def create_checkpoint(summary: str, next_action: str, status: str | None = None) -> tuple[dict[str, Any], Path]:
+def create_checkpoint(summary: str, next_action: str, status: str | None = None, *, allow_completed: bool = False) -> tuple[dict[str, Any], Path]:
     data = state()
-    ensure_active(data)
+    # A terminal checkpoint may exist before archival. Only the completion
+    # path can archive it; ordinary logging/work still requires an active task.
+    if not (allow_completed and data.get("status") == "completed" and data.get("task_id") != null_task_id()):
+        ensure_active(data)
     if status:
         if status not in VALID_STATUSES:
             raise ContinuityError(f"invalid status {status}")
@@ -623,12 +626,15 @@ def command_export(args: argparse.Namespace) -> int:
 def command_complete(args: argparse.Namespace) -> int:
     with locked():
         data = state()
-        ensure_active(data)
-        snapshot, _ = create_checkpoint(args.summary, "Task complete; consult permanent archive.", "completed")
+        terminal_checkpoint = data.get("status") == "completed" and data.get("task_id") != null_task_id()
+        if not terminal_checkpoint:
+            ensure_active(data)
         task_id = data["task_id"]
         archive = HISTORY / task_id
+        # Refuse a collision BEFORE mutating a journal/checkpoint.
         if archive.exists():
             raise ContinuityError(f"history destination already exists: {archive.relative_to(ROOT)}")
+        snapshot, _ = create_checkpoint(args.summary, "Task complete; consult permanent archive.", "completed", allow_completed=terminal_checkpoint)
         archive.mkdir(parents=True)
         for path in [STATE_PATH, RESUME_PATH, JOURNAL_PATH, CHAT_PATH]:
             if path.exists():

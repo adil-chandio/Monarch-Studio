@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "local_render": true,
+  "technical_qa": true,
+  "visual_review": true,
+  "original_voice_hashes_unchanged": true,
+  "drive_master": "1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF",
+  "drive_checksum_verified": true,
+  "recovery_bundle": "1BRFaecqh9-Xa9aEdwM60Glrh-qMRcWzd",
+  "recovery_checksum_verified": true,
+  "V5_preserved": true,
+  "next_action": "V6 delivered. Return verified V6 link on an ambiguous continue; only start V7 upon a specific new revision request."
+}

@@ -26,6 +26,18 @@
       "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md",
       "latest_release": "TUMHARI RESERVED SEAT · WF-03 · unnumbered",
       "latest_release_path": "styles/monarch-noir-film/films/tumhari-reserved-seat"
+    },
+    {
+      "style_id": "premium-motion-editing",
+      "name": "Premium Motion Editing",
+      "path": "styles/premium-motion-editing",
+      "trigger": "MOTIONGO <topic or reference>",
+      "knowledge_index": "styles/premium-motion-editing/knowledge/INDEX.md",
+      "workflow_code": "WF-05",
+      "contract": "styles/premium-motion-editing/workflow.json",
+      "status": "READY_WITH_USER_POLICY",
+      "latest_release": "V5 direction + accepted V6 enhancements; lower pill UI rejected",
+      "latest_release_path": "styles/premium-motion-editing/projects/einstein-flow-state"
     }
   ]
 }

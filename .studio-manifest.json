@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-11T02:01:04+00:00",
+  "generated_at": "2026-10-14T21:36:58+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "1b4939201f19889cd2982b8f68982714742d9c557197bce0f60146901bd484b6",
-      "size": 1205
+      "sha256": "dd9d22655c6a7d251c43feb72a2c0dd93402c26935ec83cc25f6a41bde8de7f5",
+      "size": 3483
     },
     "CHANGELOG.md": {
       "sha256": "b7953c9d96dc3c12cacaec116956b7bbe6b33b11deee678c2950630e95bd0e84",
@@ -52,16 +52,16 @@
       "size": 1007
     },
     "README.md": {
-      "sha256": "f7d21e98d6cb67b85d1c9de22a63d5f457848f63252a3e2897c2b367c0d34710",
-      "size": 5623
+      "sha256": "eb06409b55a6f33315ece333899ec8e42b2f5a0a6e5d2cc402bae3ad24e992eb",
+      "size": 6259
     },
     "SECURITY.md": {
       "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "aebfa0bfe97039e7dbce4e5c24430d98707e0523d4c50813287d3e6607823278",
+      "size": 756
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -144,12 +144,12 @@
       "size": 4246
     },
     "docs/ADDING_A_WORKFLOW.md": {
-      "sha256": "330b6728fc4a245f7862bf7d58a9f08dee2236357eb406b363be3458a138ce3e",
-      "size": 1265
+      "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
+      "size": 1725
     },
     "docs/ARCHITECTURE.md": {
-      "sha256": "7814bae62a77519ae6ce6968fa80bd8ba702c2ebb2e1164a39832a7369081fec",
-      "size": 4953
+      "sha256": "852e73a779d1bfca7f0bcb7c7092ec512dc73fe2b3380fc3e8b83feadf6ea886",
+      "size": 5413
     },
     "docs/CONTINUITY_AND_RECOVERY.md": {
       "sha256": "8f08dd66d408f3ca82840d4efa2ac9df9f77139147e8bffcd1593ace6838a2fb",
@@ -331,6 +331,142 @@
       "sha256": "822c0bd6b1e0b444afc9a42c374bae253dc90c04c2967381c69bb59ff4b69488",
       "size": 5388
     },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/HANDOFF.md": {
+      "sha256": "c5ddffa1405df412323eb4a9a19fc3f2fad72d5b64d3e4ee9ac08028de38690b",
+      "size": 1579
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/checkpoint.json": {
+      "sha256": "c6f7409002b0f0c6b2e23077aa46528bc6e22b7fa108ffb37838c6ab30fa24bb",
+      "size": 3475
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/HANDOFF.md": {
+      "sha256": "f93aa8847ea5191336f2296e65f10ad989d75214e8571fb78ae72e658871a8fe",
+      "size": 1624
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/checkpoint.json": {
+      "sha256": "c742f274f3377ce7c8007c3d64aa05669e00a90d7bcd0d2cf53d685bfa5d0e2b",
+      "size": 8678
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/HANDOFF.md": {
+      "sha256": "578a5c4022e4fd6356fe540ebe0df936bcef2abb4bd11e02258686f0b697521a",
+      "size": 1728
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/checkpoint.json": {
+      "sha256": "b3d2e96d5b7c7cf0dc75441c7b67856c876c79889a1a254c9cefc2129b49e63a",
+      "size": 9921
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/HANDOFF.md": {
+      "sha256": "187a450abd88276e499225899746e7e9ce6105d2292b2b1e4da401ded7f7ecbb",
+      "size": 1787
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/checkpoint.json": {
+      "sha256": "14e9885caf7608df9f6af36184c5b3f2373374a51dd634946cdab4393b7585b6",
+      "size": 12753
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/HANDOFF.md": {
+      "sha256": "7493b5d2eef752cd866bab3cf810380a01d737ba054f971ddc79aa8e2478dee1",
+      "size": 1805
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/checkpoint.json": {
+      "sha256": "0fa7a03d5280d04d44ee4eb660d42b4d1efef8f593b88337c7612529bcf6d23f",
+      "size": 15039
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/HANDOFF.md": {
+      "sha256": "9d31f1de8fa5463a30f4f689dc1de7a84d2e10674f59404df5cd4ec0d6b1bdab",
+      "size": 1673
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/checkpoint.json": {
+      "sha256": "14a96bf030063ce8b9b9dc368a490aba63d4c7c57e53dbf88af3c9e18e8f5c9d",
+      "size": 15017
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/HANDOFF.md": {
+      "sha256": "88b175c789647759ef2611f2e4dad5c15e1d30150e1054f4bb12c445ca0de26e",
+      "size": 1594
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/checkpoint.json": {
+      "sha256": "90925fcbc026659f9c3131990412d87eacf909e10f88fcbac9530e43d938e82c",
+      "size": 16569
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/HANDOFF.md": {
+      "sha256": "c9cad7eb15e382f907c1b6fe8fa56545b979103cb446e322925b30affdfcbcee",
+      "size": 1664
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/checkpoint.json": {
+      "sha256": "b74d01e02ce35f5476864ded691c48f0868c995af9d11374255f48851409f1a3",
+      "size": 17743
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0001-20261014T184208Z/HANDOFF.md": {
+      "sha256": "378b2555a11df6285bc217eab6b3064ae920495c185d8d6626eea6152d88f8a7",
+      "size": 1740
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0001-20261014T184208Z/checkpoint.json": {
+      "sha256": "03fee862f33f30eadf9db74316bf03f88e742e56b4227693d6b9caa1f58e52f5",
+      "size": 19139
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0002-20261014T185423Z/HANDOFF.md": {
+      "sha256": "83f3e70b39a2b68ea0ca8846e1ca27e5389f0926c18ac9ef69499b6753dba3a5",
+      "size": 1725
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0002-20261014T185423Z/checkpoint.json": {
+      "sha256": "2e9beec65e4d44ceedf18969c7f6838ec4b80bc72428ecf87c9ab006c53e8369",
+      "size": 35524
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0003-20261014T190111Z/HANDOFF.md": {
+      "sha256": "920fe7a61c21dff137c93d3e414b9cc438419ee41e94102109f49915afa440cf",
+      "size": 1719
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0003-20261014T190111Z/checkpoint.json": {
+      "sha256": "a5c346e106fba851c02f4c4205d83f2d8ca84764326d62d14ec1c21afe8efd8a",
+      "size": 42055
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0004-20261014T190341Z/HANDOFF.md": {
+      "sha256": "25b534843cc9f1a42ad754deec808141a0bc879e571e09fef73ae78ed734a4fd",
+      "size": 1577
+    },
+    "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0004-20261014T190341Z/checkpoint.json": {
+      "sha256": "5d2872c28db3f2b7702401c261e0acdfd8dee2c7e612d76d9ca61bec4e574f18",
+      "size": 24043
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0001-20261014T195057Z/HANDOFF.md": {
+      "sha256": "ea2028c0b753019fb68dad8f56958aeb5e2c8255d5824b5b8320eb5ee3c5d274",
+      "size": 2339
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0001-20261014T195057Z/checkpoint.json": {
+      "sha256": "24664fab70882b59c77bdc661e7163216514b5329f24c644b33eb0179e42d08f",
+      "size": 18475
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0002-20261014T204607Z/HANDOFF.md": {
+      "sha256": "a401ddef9f8e0e7f2acdc4e88fbf27e0c49bf3172901e0500784bf3d63a73f27",
+      "size": 2414
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0002-20261014T204607Z/checkpoint.json": {
+      "sha256": "f53a9736fa311267cbc41eaf582d04936ee5e34ca758eaf4798c8b1d993a3e8a",
+      "size": 33563
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0003-20261014T205244Z/HANDOFF.md": {
+      "sha256": "918f3dc03c6d14f958f91b6593be94e70eb9ed9c939fe4c80c99b08ec6e056b8",
+      "size": 2435
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0003-20261014T205244Z/checkpoint.json": {
+      "sha256": "967ed35dd0f63f48b61f1cfcd0492da9f77fde8f76b98e87ede3320faa9ce8bf",
+      "size": 35328
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0004-20261014T212934Z/HANDOFF.md": {
+      "sha256": "20d7aec7ddfcb4d3cc360f91038749f2b9feb0ab0e0227452b5ea5f6f9dc2193",
+      "size": 2447
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0004-20261014T212934Z/checkpoint.json": {
+      "sha256": "a736fb9faa1efa47e5d42cef77c6a7794c36406af646552a3c743a91424c373d",
+      "size": 36227
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z/HANDOFF.md": {
+      "sha256": "2bab4981a8b3d3e8ea76963c63727400638a9288c98935555d0081a0e7342831",
+      "size": 2387
+    },
+    "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z/checkpoint.json": {
+      "sha256": "ee8f9e681101818f596d320c189271f24ff36b2071991eff1a8847f8f41d4dcc",
+      "size": 36988
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -499,6 +635,210 @@
       "sha256": "bc6bdb7b035488d06fc7ae72d0a644deaa365afd23e303dc04f18ac459f39fe3",
       "size": 5388
     },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/STATUS.md": {
+      "sha256": "351bf0f503c4c6535130ca26dc52dee834d533b42609aa015e041e21f9e98ebb",
+      "size": 784
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/SYNC.json": {
+      "sha256": "2f07075fc304a0ca0ed68badb9b2e482fe10d080713c2d791fa5d13d64d900ce",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/checkpoint.json": {
+      "sha256": "eddf88f80d61315fe4b290c921ab94781d67e7da4ad09a4e8a30e00a32591a1f",
+      "size": 3553
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/STATUS.md": {
+      "sha256": "8fb1efffd462a41c103f4ec6cbab7e03c10a568e324535d9332275edc15b2bdb",
+      "size": 750
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/SYNC.json": {
+      "sha256": "4791316001272c55458a5a5628986646675e7ed9f0d406876559cf2e1d72eb93",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/checkpoint.json": {
+      "sha256": "fa7e46e78e9709b8256f07019b2d5133fe5fc3aa0b267e5678dbc55870f68c5d",
+      "size": 8678
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/STATUS.md": {
+      "sha256": "bc0f6bc771a21797fc4b72ba801e222848eae923f10ebdc88bf1a0464ad619f0",
+      "size": 786
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/SYNC.json": {
+      "sha256": "df5721fd529ab39a9f7a62aa897c05050a85c5396259982136c700bd49e906b7",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/checkpoint.json": {
+      "sha256": "3abc88abfc0979db0b917781bdb9d0e6949965aa0a4ab795bcf3a09ad133ad1d",
+      "size": 9921
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/STATUS.md": {
+      "sha256": "5ec7242ed7869214d76f3e5e78db2683691d56337aac5ace95e2745a886dfd0a",
+      "size": 819
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/SYNC.json": {
+      "sha256": "d1d617602e8d99e18c5922a558ca11cd7a51a719d02a7d69e6d41ab71416b5e9",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/checkpoint.json": {
+      "sha256": "8d951dd6b06ad8461f9699982a591e1704a38a7a391686010b9ae9f4623685b2",
+      "size": 12753
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/STATUS.md": {
+      "sha256": "55393f1a52ddca19b86002e3e073b6955f73729e42b195e362cd953529a0f9a2",
+      "size": 846
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/SYNC.json": {
+      "sha256": "1842f109620a977c1c806af5b4df27a6b4c7bb4319f452ebfc76a946a5ca9821",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/checkpoint.json": {
+      "sha256": "1a35422fe6ed381a1adf1c8fbaeac775a684fd1dfc43ffe7edf269952a941dc4",
+      "size": 15039
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/STATUS.md": {
+      "sha256": "f3099fc886b36e4c822679ea9a03b82e37097caf842bc9019f95eab2c2093e90",
+      "size": 814
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/SYNC.json": {
+      "sha256": "2e8053d46104ed20491321d6ad640d6b1d1714dd64a9cdfe9262be7e9386b863",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/checkpoint.json": {
+      "sha256": "9de0ea309ab9efdaf6f2a62d6896831002f60163f08c2d548cd4d49415291e40",
+      "size": 15017
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/STATUS.md": {
+      "sha256": "ee0d28a4da9c69ee6a97111de5bf73821b33aeb6e774aa4feb480c8a2c816f1e",
+      "size": 837
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/SYNC.json": {
+      "sha256": "776da0c81bf500cb5299fe24f6e43f058ef846783cc08e7c84ab54ccf0bf702b",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/checkpoint.json": {
+      "sha256": "cd827d8c78cdb721973cad65c6dd98c2ecea1d819b1c3acb704e2aa3340270b4",
+      "size": 16569
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/STATUS.md": {
+      "sha256": "6db49308adffe1aa545a7b7a5255017471ebceb24ad36d76b1e3dab9f3372873",
+      "size": 912
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/SYNC.json": {
+      "sha256": "5b5c24598a49af74f59b1cca694dc122f032db3b81fcfda77cb39c42e63329cb",
+      "size": 4724
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/checkpoint.json": {
+      "sha256": "775f54d444044c5a9d6b19ef65af21131ea47f4ca7699f4c0b0681ac24b94c3b",
+      "size": 17743
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0001-20261014T184208Z/STATUS.md": {
+      "sha256": "5d1ac5d6db3b71f6e6af4ba29615882b6a351ba3327887ef4b257b8b83bcb246",
+      "size": 880
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0001-20261014T184208Z/SYNC.json": {
+      "sha256": "a228bffb5ff72b6f76ea7541103429f4c4f0fa5184cd0291758d7e3d0d491234",
+      "size": 4364
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0001-20261014T184208Z/checkpoint.json": {
+      "sha256": "a944c8e59d87be87a9236eb2044fc8390ea2b90bb6cab0a2fdc7165fdfb4040a",
+      "size": 19213
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0002-20261014T185423Z/STATUS.md": {
+      "sha256": "f9d93cc536e4da62913231276b85ef71915166bedc1ec207d5fade22540dbfa3",
+      "size": 859
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0002-20261014T185423Z/SYNC.json": {
+      "sha256": "1b2c71ab29836830154ba29fa0d50d9dfd16df30e0b09b417f1903058d275b2e",
+      "size": 4364
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0002-20261014T185423Z/checkpoint.json": {
+      "sha256": "e8e3642fc1e1be32b4ddd9aae51a4878a2a29209f465c3c58a7638c670b73dd9",
+      "size": 35524
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0003-20261014T190111Z/STATUS.md": {
+      "sha256": "f16300e17ea81d25fc388bd30c96807c2601e544832113d0240bcb49649349e2",
+      "size": 853
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0003-20261014T190111Z/SYNC.json": {
+      "sha256": "012bc59df4ece3f88a1059f0d460f189f171ef60144be7c97a93116269d62acf",
+      "size": 4364
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0003-20261014T190111Z/checkpoint.json": {
+      "sha256": "88f8bed18db0cb40c4cb87ac10ec383c24ed4452429ad00b75f7d39dc083c9f3",
+      "size": 42055
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0004-20261014T190341Z/STATUS.md": {
+      "sha256": "5a3e68444c427aec76de289bfc436a7ab39d7f4e2ff88ee0e8e784fdde781e11",
+      "size": 1179
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0004-20261014T190341Z/SYNC.json": {
+      "sha256": "ca48ba710ce16c53890b5e042d056bef9d5d0f7b13f8694d3b993b2f2c9a2b94",
+      "size": 4665
+    },
+    "operations/continuity/outbox/EMS-20261014-FLOW-V6/0004-20261014T190341Z/checkpoint.json": {
+      "sha256": "84601fdd0e8fc04015bd23b1fcec08b2b09b31264985d5736fc682866bfcf8e9",
+      "size": 24043
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0001-20261014T195057Z/STATUS.md": {
+      "sha256": "7122ce657173c318c114eb86c64064ac64d4fe9be537c5362f9b63363e42db24",
+      "size": 927
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0001-20261014T195057Z/SYNC.json": {
+      "sha256": "0a068b0acad4ec0a1e2949a3e03a995a8643817e0ff4e535f65c88c4b3b5f3c4",
+      "size": 4372
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0001-20261014T195057Z/checkpoint.json": {
+      "sha256": "8d4cce778fbf356d23ea0710869ce9d3e2363302e313d741ecd0bdd3c2747a16",
+      "size": 18557
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0002-20261014T204607Z/STATUS.md": {
+      "sha256": "ae7acceb8920a14d35a8b29c2da52cd2d10fd3dac593bffca352dbb7e7fecb87",
+      "size": 870
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0002-20261014T204607Z/SYNC.json": {
+      "sha256": "9e2c43c607938021e4e62669ef28dcd4ad68bfe1c44ee81769e0229940f79f1b",
+      "size": 4372
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0002-20261014T204607Z/checkpoint.json": {
+      "sha256": "1cd52e9a19d8a6ad4f577530c8fa715e84e3b5d1668722b30cc3c7b9aea44047",
+      "size": 33563
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0003-20261014T205244Z/STATUS.md": {
+      "sha256": "b45fdf40953faf4a123210417b694a6137c22c9df4734151fd9e5c67a6813ee9",
+      "size": 935
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0003-20261014T205244Z/SYNC.json": {
+      "sha256": "d5ef4667071efb261f462896ca769bea7ed2a802acc9a170878afa9657ceb98c",
+      "size": 4372
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0003-20261014T205244Z/checkpoint.json": {
+      "sha256": "747926f96b6f1e1832b61e96839c276e7d8a1ddfe1abd986c02250374b03b848",
+      "size": 35328
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0004-20261014T212934Z/STATUS.md": {
+      "sha256": "4dd6c5f38395cef44f6e83621604cecd2e00770854cf7b75f6e7630d1064adaa",
+      "size": 913
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0004-20261014T212934Z/SYNC.json": {
+      "sha256": "bdabdea102e0684a24517909c662309417d37ad0304b199a2fc7e6b5e717fba3",
+      "size": 4372
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0004-20261014T212934Z/checkpoint.json": {
+      "sha256": "2e23be558b5f8b77f81e2d71f5469b3f8dab936c0e70c951af29f8d189d4357f",
+      "size": 36227
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z/STATUS.md": {
+      "sha256": "e2246dfb47c5d862114b9bfeccf400a0eadbdbb1939da6450d003ed1057ff1bb",
+      "size": 867
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z/SYNC.json": {
+      "sha256": "a0d16d4408eb6685b210fb19b37bf9c93457cdf61a5680c1a97ce3d831bedac5",
+      "size": 4372
+    },
+    "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z/checkpoint.json": {
+      "sha256": "875bb70df4bdfb4275d20732d79102869927c9a517a157947197ff6594c31677",
+      "size": 36988
+    },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
       "size": 4271
@@ -615,6 +955,342 @@
       "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
       "size": 2520
     },
+    "operations/history/EMS-20261014-FLOW-REPAIR/ACTIVE_TASK.json": {
+      "sha256": "c1c05b9fe2fa136006d635a7c8e50ce74b9d413a15ecbf61dc798cfc4232e336",
+      "size": 1521
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "67d1ba86a07a7185a02f2abf7fb84b7815277e04a6d31b8d040d62ce31651566",
+      "size": 4955
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/JOURNAL.jsonl": {
+      "sha256": "107d810c8bef832f9073eb586e3f85410abfe4e9a8b1281d823b6a2aa0990296",
+      "size": 33533
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_CHAT.jsonl": {
+      "sha256": "d8137672518e54620f6d305b13970f368c8885de6edc48ab278d791d65259668",
+      "size": 162
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_VERIFICATION.md": {
+      "sha256": "9809956ba012cadf556657320a51f19cb3138ceb7e22989454f4c3e6ed8ec477",
+      "size": 1717
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/RESUME.md": {
+      "sha256": "c9cad7eb15e382f907c1b6fe8fa56545b979103cb446e322925b30affdfcbcee",
+      "size": 1664
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/.gitignore": {
+      "sha256": "4a36098ee830d62d256428c507dbabd57053e7a9a6ab724ecdf29b29b9d7bf29",
+      "size": 94
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/DELIVERY.json": {
+      "sha256": "76722479fe408edf68f1d747b46f4c048a1dbd3e0635d228216d7269a9e3b512",
+      "size": 1178
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/DELIVERY_GATE.json": {
+      "sha256": "7b9fc353349d21635617108016fb76f218a7acdda2a009d332f32d0b29f1651e",
+      "size": 476
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/FINAL_REPAIR_STATE.json": {
+      "sha256": "e73093c214b8f79f318574e57a324086dacafb651ca34883985eb1a68060f280",
+      "size": 578
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/Flow_State_Roman_Urdu.srt": {
+      "sha256": "3be26e6480f581a6a6e03cb82d0ba60342c107c728551de3341db19d193cfe7a",
+      "size": 2205
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PERSISTENCE_FIX.md": {
+      "sha256": "3a1a1bda957f5482c3ea8bc665263cff8e0c5fa1c2bc08059be3772c151af2a5",
+      "size": 1176
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PIPELINE_STATE.json": {
+      "sha256": "998246396df90bedb8737b27dcd00929bab7626970e6c70781c1a77bd92531db",
+      "size": 1181
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PRE_RESET_QA.json": {
+      "sha256": "f08ea7b9738bbfecf9eccb63cb7b75f324d6184995cdb98e2c93e3a25528c315",
+      "size": 2223
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PRE_RESET_RENDER_RECEIPT.json": {
+      "sha256": "8a0994c54335ebdb122a8cdec76c90263496e9844aa7cd6078dd99493e35a8dd",
+      "size": 355
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PROVENANCE.json": {
+      "sha256": "bfa7849c70b3ef016ef192626fd27e4db4ef7f17ce042856f669539aa4ef112e",
+      "size": 2415
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/QA.json": {
+      "sha256": "c3dd6efb85bc484b5dd3cf4e49fff885c7df5fffba94a8e963aafe3bc3826662",
+      "size": 2392
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/README.md": {
+      "sha256": "bb29a0d040041e6e5d3c06f337930daa1747f64d5d06ba337f2c388a0304b3ea",
+      "size": 5715
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/RECOVERY_PACKAGE.json": {
+      "sha256": "671e60a9078465314d05f58e0eac6b049b43e66fa4d86274373e1d14fbf74792",
+      "size": 393
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/RENDER_RECEIPT.json": {
+      "sha256": "a4093ab3c2456dbad90065f1950786c03a0b7f9198c2e08f6b6c1f376c6ef337",
+      "size": 409
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line01.mp3": {
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334",
+      "size": 30861
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line02.mp3": {
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f",
+      "size": 42189
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line03.mp3": {
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2",
+      "size": 34509
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line04.mp3": {
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5",
+      "size": 34893
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line05.mp3": {
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b",
+      "size": 27021
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line06.mp3": {
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86",
+      "size": 22701
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line07.mp3": {
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e",
+      "size": 16941
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line08.mp3": {
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862",
+      "size": 31341
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line09.mp3": {
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17",
+      "size": 25101
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/clean.py": {
+      "sha256": "acb34d9b89a0d02bcff0d41c1ab1a27d75f485c4be8e41f60d70b0d85adf2808",
+      "size": 6851
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/Anton-Regular.ttf": {
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "size": 170812
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/BarlowCondensed-Medium.ttf": {
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17",
+      "size": 103360
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/BarlowCondensed-MediumItalic.ttf": {
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9",
+      "size": 110340
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/anton-OFL.txt": {
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a",
+      "size": 4391
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/barlowcondensed-OFL.txt": {
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "size": 4377
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/icon-template.png": {
+      "sha256": "1a70109c7bfd4e1ce618c26ee4e3cd9bcdf55512c8de6b08a501cbcbc7a8dead",
+      "size": 1156
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/matte.py": {
+      "sha256": "e7c81e00ca316b93708d5d2ba0cac6440d0e3f24ab5daf1bc7a59ab967f20545",
+      "size": 6480
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/prepare_audio.py": {
+      "sha256": "efb7e60b6600b8bda0cf025ad563b16b7aee941da30c040c3200df68e8b75d31",
+      "size": 9764
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/prepare_visuals.py": {
+      "sha256": "26c57a421d60ebe6157bf9a182f70f1aa7c298fb661ae1a66a81c55a5c6423a7",
+      "size": 2421
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/render.py": {
+      "sha256": "807cb44ea2ffa4a4543871adddb612993c299eacfae9fe1341165fb4423c0831",
+      "size": 11790
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/repair_finish.py": {
+      "sha256": "34e8f1e8b3d9b0dfb14107f3ab3ccb04967afb0609e9969e30bd4c0f2b31962b",
+      "size": 2579
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/requirements.txt": {
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b",
+      "size": 97
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/run_pipeline.py": {
+      "sha256": "9c32a5efdea8b0d384df3c766bec0b9e1a0198ad62bcb5926d8a7cb0e6241d06",
+      "size": 3033
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/timeline.json": {
+      "sha256": "b430ae138e6707ce886fe3551bc304239b4fb92709c6b936e234c74423babecb",
+      "size": 15626
+    },
+    "operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/verify.py": {
+      "sha256": "92b5b5ba9510f4789d1ed55668286adf9247148337af10446d4446ef15df357f",
+      "size": 5611
+    },
+    "operations/history/EMS-20261014-FLOW-V6/ACTIVE_TASK.json": {
+      "sha256": "c84556c7813dabd10cea03cc140c0cd25adf58b3b87e28f9f2d63c9e9d39545a",
+      "size": 1434
+    },
+    "operations/history/EMS-20261014-FLOW-V6/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "52b202031c3b2d79825488f98c1927fe08de0907e474b4956351c4c2d61fe4c3",
+      "size": 321
+    },
+    "operations/history/EMS-20261014-FLOW-V6/JOURNAL.jsonl": {
+      "sha256": "91fdd2f02e1636fd911a57ad3fe1fe3d65af97f5351b48e5e8076ed7c3e94821",
+      "size": 14017
+    },
+    "operations/history/EMS-20261014-FLOW-V6/RESUME.md": {
+      "sha256": "25b534843cc9f1a42ad754deec808141a0bc879e571e09fef73ae78ed734a4fd",
+      "size": 1577
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/.gitignore": {
+      "sha256": "01c1629ebec220516e38ec23305bed21aff3876c1dc46fa903c44a52b93b7847",
+      "size": 79
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/DELIVERY.json": {
+      "sha256": "e1447a135b1f0b0887d8448fe540d3855e6f35b29e2ffb5d29bfbe2d85e0a261",
+      "size": 1200
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/DELIVERY_GATE.json": {
+      "sha256": "6a84a22d1542144f0cfd1b37ac8c58c8f10111a4357977f640cb1b05e59b523f",
+      "size": 485
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/Flow_State_Roman_Urdu.srt": {
+      "sha256": "3be26e6480f581a6a6e03cb82d0ba60342c107c728551de3341db19d193cfe7a",
+      "size": 2205
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/PIPELINE_STATE.json": {
+      "sha256": "b34e1d29d2e58868f144c9dae8766ac5bfb663662ad8725613fbd3ef4cd07910",
+      "size": 1116
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/PROVENANCE.json": {
+      "sha256": "9dc2f281d36bd3cf56f54c87a4078a1175f5c9725d3564a333c34ccf7c199384",
+      "size": 2829
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/QA.json": {
+      "sha256": "5a220af143c37b051c6146270a2cbcb8815e3d04ac71ecf06650a18d8866e454",
+      "size": 2745
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/README.md": {
+      "sha256": "8c655cbbf7dad81d76f512df3141f2d16f9460630be2cf6afb703e6c2151a2ce",
+      "size": 4893
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/RECOVERY_PACKAGE.json": {
+      "sha256": "66cfe1978e2465c219b6a5898b6cce84ffa9fa3333e7ef912ba9574e45bd6654",
+      "size": 281
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/RENDER_RECEIPT.json": {
+      "sha256": "be7b5730fb2b58064c54a94a096647c82b91eae6e18dfea4134c57c831e7f430",
+      "size": 464
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/V5_DELIVERY.json": {
+      "sha256": "76722479fe408edf68f1d747b46f4c048a1dbd3e0635d228216d7269a9e3b512",
+      "size": 1178
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line01.mp3": {
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334",
+      "size": 30861
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line02.mp3": {
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f",
+      "size": 42189
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line03.mp3": {
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2",
+      "size": 34509
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line04.mp3": {
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5",
+      "size": 34893
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line05.mp3": {
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b",
+      "size": 27021
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line06.mp3": {
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86",
+      "size": 22701
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line07.mp3": {
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e",
+      "size": 16941
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line08.mp3": {
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862",
+      "size": 31341
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/audio/line09.mp3": {
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17",
+      "size": 25101
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/clean.py": {
+      "sha256": "278d6cfc5351da1fa4a54393f5ebaf4bf90f5f96eca9091bb5aaa2660b508b55",
+      "size": 6977
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/fonts/Anton-Regular.ttf": {
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "size": 170812
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/fonts/BarlowCondensed-Medium.ttf": {
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17",
+      "size": 103360
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/fonts/BarlowCondensed-MediumItalic.ttf": {
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9",
+      "size": 110340
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/fonts/anton-OFL.txt": {
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a",
+      "size": 4391
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/fonts/barlowcondensed-OFL.txt": {
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "size": 4377
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/icon-template.png": {
+      "sha256": "1a70109c7bfd4e1ce618c26ee4e3cd9bcdf55512c8de6b08a501cbcbc7a8dead",
+      "size": 1156
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/motion_v6.py": {
+      "sha256": "f457728ffb334f3b81aa3a8addbddb76e0e0fb23a0a2b22faf6d53560a3b6f49",
+      "size": 5250
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/prepare_audio.py": {
+      "sha256": "3e363a6e13fb7374590fbd7fd3a6cd83e3bce75f8804a5e47bc995730ff99033",
+      "size": 10790
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/prepare_visuals.py": {
+      "sha256": "26c57a421d60ebe6157bf9a182f70f1aa7c298fb661ae1a66a81c55a5c6423a7",
+      "size": 2421
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/render.py": {
+      "sha256": "419f476de612dc441673b0ace9e284d7792a7f13df440a540e9b1796be7c9a52",
+      "size": 12131
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/requirements.txt": {
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b",
+      "size": 97
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/run_pipeline.py": {
+      "sha256": "4be9d3074f96f3c99d0e2b3842c289985e1e74e3cc82350ffa0b48c06574311b",
+      "size": 3063
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/timeline.json": {
+      "sha256": "77f5ea55897a37dca9e414e8a09d0950fe6f2cd14eb991193734f4938f8793c9",
+      "size": 15761
+    },
+    "operations/history/EMS-20261014-FLOW-V6/payload/flow-v6/verify.py": {
+      "sha256": "9c82207deee9d23c8685af95e257f43d7c231ec4e455114f8f561b338f855f86",
+      "size": 6298
+    },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
       "size": 2034
@@ -628,20 +1304,20 @@
       "size": 110
     },
     "requirements/render.txt": {
-      "sha256": "63fcb4f1ce4f5877433b90119b8bcc1cdf9de1f4e91146f0de027fcf78e0f122",
-      "size": 213
+      "sha256": "75fc8b2247edc73cd9acab14600405f757916ac0c68fd5e5a557355a3c0e0fac",
+      "size": 297
     },
     "studio/KICKOFF_PROMPT_WF-01.md": {
       "sha256": "752090b1b0e298c5fc48c42ea9724c667fd3f5dd54af430421f014dbe9310211",
       "size": 4034
     },
     "studio/MONARCH_STUDIO_REGISTRY.snapshot.md": {
-      "sha256": "23b6faff728973587c8f25a42d7d92f9c6e2c5135cbaac903cbbc5f46b3baaea",
-      "size": 11178
+      "sha256": "9e52b55557b780f78b76210be55ebd24be42b977d2d0756a65b2ee3540690dab",
+      "size": 12409
     },
     "studio/README.md": {
-      "sha256": "8b08e99463f48728d059477022f500d54afd8f6f1b7c17ee1d80d4ae7a5dd3a7",
-      "size": 591
+      "sha256": "e42a5dccd31587da80afa7c840454a0e9c3ccbc29b15bc7c0acbdb0a1c536894",
+      "size": 1051
     },
     "studio/RESUME_STATE.md": {
       "sha256": "01e47911ff680a0623a197d07666f8205e27e93272987376be5585b9bc8e41c7",
@@ -708,12 +1384,12 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "d13012cd772d658dae8d716fdecc045a4d1c945e801c0014496275bfe96c2ab1",
-      "size": 4248
+      "sha256": "a9b826e8617170be3cbce5449ce40fc703278decac29f395f3af63efc9e7bb68",
+      "size": 5478
     },
     "styles/README.md": {
-      "sha256": "6daf5f52629e7e3c3d9606417eaefa3825ed789761b965d9e35a9a99b3725fa4",
-      "size": 1347
+      "sha256": "7843e958188ebe50bb7c0ae351ef620c012d4fdd76307377ddee6778a188f59c",
+      "size": 1807
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -868,8 +1544,8 @@
       "size": 371
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "f90805bae8b08b9b8e7a4edc0c3cdaa95c2276bac1dd97bff2f6a335f59c5cef",
-      "size": 25327
+      "sha256": "a7f2e47de88b51ec8d3828acd5b1c87a33fe5d12b69527d4f48d1d15cfab23fa",
+      "size": 24739
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/AUDIO_QC.json": {
       "sha256": "a0deaa07537a51e20c9ec1a7c8d45db2cd78092f14fd88737961787baa410c3d",
@@ -916,8 +1592,8 @@
       "size": 9272
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/artifacts/VISUAL_ENHANCEMENT_LEDGER.csv": {
-      "sha256": "955679e49ae4dd369b33bd6c926255e55c7f0de4bd738c0e4dc00fcd6986f94c",
-      "size": 6439
+      "sha256": "dacf8f679859857b4e9686ce4ecee25ebdfe03e9763d61975d45715a5a35cbff",
+      "size": 6404
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat-v2/assets/fonts/Montserrat-OFL.txt": {
       "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e",
@@ -1040,8 +1716,8 @@
       "size": 219
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "ff8f820db2aa7f75b79dba4b1013ff55fd309e0e4dc44e26756a25631a531f7f",
-      "size": 4457
+      "sha256": "b66f1ffda8c2b0ce98151149e0a2c2fc6f349d2a7af1a0db25886e5ee916ec48",
+      "size": 4335
     },
     "styles/monarch-noir-film/films/tumhari-reserved-seat/artifacts/BRAIN_GATE.txt": {
       "sha256": "14565897c17de45460f71f4d377b1eb4eda6351a8cb8b589458e12ce203a1ba2",
@@ -1094,6 +1770,50 @@
     "styles/monarch-noir-film/knowledge/TUMHARI_RESERVED_SEAT_LESSONS.md": {
       "sha256": "92ded42bc0250b26bc699dd3c4601c84dd0c9abf4a4eaa6d80ab61171a48a71b",
       "size": 3072
+    },
+    "styles/monarch-noir-film/plates/facade_windows.json": {
+      "sha256": "4336501fb4f12e9b5b92bb3e5f37db1384dee99448c766854f57bb5ad079144c",
+      "size": 4974
+    },
+    "styles/monarch-noir-film/plates/raw_bedroom_amber.png": {
+      "sha256": "8a94543b635891e758c127ce3b25e62865fca609ee49da9034531a0d6da1c151",
+      "size": 2081447
+    },
+    "styles/monarch-noir-film/plates/raw_bedroom_night.png": {
+      "sha256": "195f8368cb329b6141923015024373680e8d6074b43f465fc4ad6f0462a03e3f",
+      "size": 1981532
+    },
+    "styles/monarch-noir-film/plates/raw_desk_window.png": {
+      "sha256": "c0baed681d24eaa5d2493f0caa34022ea9c91ced04df9ab18231359a454b6773",
+      "size": 2061805
+    },
+    "styles/monarch-noir-film/plates/raw_facade_hero.png": {
+      "sha256": "ca6d00f3ffd9e2d2008efbab95d47b1343a987d0663a578f8c957687a64b7923",
+      "size": 1908920
+    },
+    "styles/monarch-noir-film/plates/raw_facade_night.png": {
+      "sha256": "b55cdadbe44c7c17add56386cbc766ec5bd88a42c9a9ea10ddae97a8808fea72",
+      "size": 2141259
+    },
+    "styles/monarch-noir-film/plates/raw_kitchen_window.png": {
+      "sha256": "dd43394d85c4b90e98c8385a90b96448d25fb937378890c954365e100efd1e9e",
+      "size": 2191391
+    },
+    "styles/monarch-noir-film/plates/raw_kitchenette_night.png": {
+      "sha256": "930535fc366024293fa97f65db1d382d32f01dd507b9f2e769768cefee778227",
+      "size": 1936444
+    },
+    "styles/monarch-noir-film/plates/raw_runner_window.png": {
+      "sha256": "a9fa4856dc4e7a076f9c9a0609f201c4713efe04696317a4bc0c9e8713244e1b",
+      "size": 2175256
+    },
+    "styles/monarch-noir-film/plates/raw_street_dawn.png": {
+      "sha256": "5650402f65f4f335d0da28f6ca3f65733743dd69450e28193798dcc35ade964d",
+      "size": 2027807
+    },
+    "styles/monarch-noir-film/plates/raw_window_inside.png": {
+      "sha256": "c41476e0541d0148df578d17836cd33b2b07db7b4dd38d759110ee36bb2b2a3e",
+      "size": 1929854
     },
     "styles/monarch-noir-film/records/archive/RESUME_STATE_turn21.md": {
       "sha256": "1368aeaa8ae064b723bdbbaedaea9c242713c165e158c0b87770606217dd41fa",
@@ -1178,6 +1898,46 @@
     "styles/monarch-noir-film/style.json": {
       "sha256": "31e66e5ae8609ba59dbc23463288f32ce125a1bfbe3b64f3ba57d8585bfc9c46",
       "size": 692
+    },
+    "styles/monarch-noir-film/vo/vo01.mp3": {
+      "sha256": "833e7e3766e26fe9aa937860b02d22d364eb6908bf77ce5a14283fa5839f4805",
+      "size": 118927
+    },
+    "styles/monarch-noir-film/vo/vo02.mp3": {
+      "sha256": "831bb9b93cf820185ea0487ba63d2256577bc2c572ae96b06717246079b2a50f",
+      "size": 138362
+    },
+    "styles/monarch-noir-film/vo/vo03.mp3": {
+      "sha256": "623f0acb1eb35b0b18e559632d7e760786aa8d815f40baa8a982487dd3360128",
+      "size": 58950
+    },
+    "styles/monarch-noir-film/vo/vo04.mp3": {
+      "sha256": "3f4139ed70a88dc17b012fc1697c795ab13a0bf1969aede86dd3726101db8ff2",
+      "size": 34917
+    },
+    "styles/monarch-noir-film/vo/vo05.mp3": {
+      "sha256": "a9cb30b68ba1e42692dcdaf7a095fcecb89aa2329a5d4c64ad1e5c96c524c434",
+      "size": 55815
+    },
+    "styles/monarch-noir-film/vo/vo06.mp3": {
+      "sha256": "a18e39174cc0803f551f29ebdbdeff85fcdf390a6aede17f7c80e4135d3a01ce",
+      "size": 77340
+    },
+    "styles/monarch-noir-film/vo/vo07.mp3": {
+      "sha256": "bfbfee1222b9536970a521f651129d2d4f5855e4b9874fc50059693f3f7261bf",
+      "size": 136899
+    },
+    "styles/monarch-noir-film/vo/vo08.mp3": {
+      "sha256": "ec4829630fd57a0ce3fcc00df68e1dcd98ece7b6c0f0740812cd80f785b00334",
+      "size": 105761
+    },
+    "styles/monarch-noir-film/vo/vo09.mp3": {
+      "sha256": "c7dbb6f3fb9be229ccf20b27070d570aee138210ae1d3b9d35ca001448789d54",
+      "size": 152991
+    },
+    "styles/monarch-noir-film/vo/vo10.mp3": {
+      "sha256": "0e615ea4ceb49fbdc5bee4d19f28f12d05216f4ca386a7545a6dc701492acf4d",
+      "size": 114329
     },
     "styles/monarch-noir-film/workflow.json": {
       "sha256": "900a31854e02c8d8886fec3ab43dec960ac39590586d6b0b1b0e82a6a5e72aee",
@@ -1359,6 +2119,218 @@
       "sha256": "b049bbf4102a49ddccb69fc2c5fe042719236465b89671bf91c2a346da9daa66",
       "size": 1661593
     },
+    "styles/monarch-stickman-animation/assets/b1.mp3": {
+      "sha256": "6e75ed5da61fd1fd626926cbd1b52fa94bd49afd2ab8258e380c6f8199b244ae",
+      "size": 155916
+    },
+    "styles/monarch-stickman-animation/assets/b10.mp3": {
+      "sha256": "05c344a2afe499c99758da6c97b413767055b787b8d74d183d58ab4ad5f8a46c",
+      "size": 198757
+    },
+    "styles/monarch-stickman-animation/assets/b2.mp3": {
+      "sha256": "7cec55b11a519a218f1ed0f56d51fe4903339bfd5218fd521c498db0af34ab13",
+      "size": 171381
+    },
+    "styles/monarch-stickman-animation/assets/b3.mp3": {
+      "sha256": "faef0e537c1da8588e85b6604a2f4f565a54a27993de486607e6903cdf4c3f19",
+      "size": 156752
+    },
+    "styles/monarch-stickman-animation/assets/b4.mp3": {
+      "sha256": "a10ea25a15f70bec67e18da284f5c6036f05c00fd29a36d884d74bcafb6560b3",
+      "size": 136690
+    },
+    "styles/monarch-stickman-animation/assets/b5.mp3": {
+      "sha256": "a4326d691929b87df0ed2f44045e64cbe2d1d9b08a903706572750dc3599d300",
+      "size": 146303
+    },
+    "styles/monarch-stickman-animation/assets/b6.mp3": {
+      "sha256": "eb8400a0b9e66ce27c32e0128a1fcbe6e278bd429abd19aecf7d203bcaf98a66",
+      "size": 177023
+    },
+    "styles/monarch-stickman-animation/assets/b7.mp3": {
+      "sha256": "5176b4b7191504abf98c33133f8a80c83089f2e42b8a426fb7d025c7a7a8fe09",
+      "size": 129794
+    },
+    "styles/monarch-stickman-animation/assets/b8.mp3": {
+      "sha256": "7bd7b511c541cac77c34f51a497ac95ab4e7cf65accbcfddfde2c75ee6b9a346",
+      "size": 150901
+    },
+    "styles/monarch-stickman-animation/assets/b9.mp3": {
+      "sha256": "b8f59df4c1ebfa828ac09252bbc9061d5303e01bede2a23a97c842a7d791f066",
+      "size": 166783
+    },
+    "styles/monarch-stickman-animation/assets/p1.mp3": {
+      "sha256": "1b91556e551ec0cabdc6006c514e0dfaef5d02d4a0c1d3444c3b6a5f4388ef33",
+      "size": 27309
+    },
+    "styles/monarch-stickman-animation/assets/p1_fit.wav": {
+      "sha256": "269d2dd4926bece4bd7b7d117626227e2db132ca784eb445f49ff568deffa73d",
+      "size": 540140
+    },
+    "styles/monarch-stickman-animation/assets/p2.mp3": {
+      "sha256": "423ef0328f9ea679172439b7e467174ca57d2978c8d3fd6e1badef0e80df0453",
+      "size": 27789
+    },
+    "styles/monarch-stickman-animation/assets/p2_fit.wav": {
+      "sha256": "b3bd314f839509339b8951d10e7526448084819c4f6c94d9e4b835042bbdb1c8",
+      "size": 529580
+    },
+    "styles/monarch-stickman-animation/assets/p3.mp3": {
+      "sha256": "43428aa2b71ec0db35ddf248dd809e602c0813dec16d7ccc800accf4820ea8ec",
+      "size": 30861
+    },
+    "styles/monarch-stickman-animation/assets/p3_fit.wav": {
+      "sha256": "b327db779d757d5c81ffd87105ef0c5c2766a2646c3e7db5f0a02eb0612b4f70",
+      "size": 625580
+    },
+    "styles/monarch-stickman-animation/assets/p4.mp3": {
+      "sha256": "da33c44d0fc5765b2537fa322aa5e7e47f6afdbd98a0f990e2a7d5f2adeb3d8d",
+      "size": 31533
+    },
+    "styles/monarch-stickman-animation/assets/p4_fit.wav": {
+      "sha256": "ad58be60c7e3d63e9b953f6f8a90e87dfa50667e189cc64cdb41fedad79543b6",
+      "size": 600044
+    },
+    "styles/monarch-stickman-animation/assets/p5.mp3": {
+      "sha256": "2391ada87086cba5065e4d0270670f221d9ff6c975eba681a5a13e2bbe98eef9",
+      "size": 33069
+    },
+    "styles/monarch-stickman-animation/assets/p5_fit.wav": {
+      "sha256": "ef1de7f07b378b060a4ea588f62aebf66cabbd408f96a8d9a093be141c85a870",
+      "size": 628460
+    },
+    "styles/monarch-stickman-animation/assets/p6.mp3": {
+      "sha256": "7020bef1bab0cb44888180d514d6913331c5dd4f59cc475eb3cd0b32165af369",
+      "size": 39981
+    },
+    "styles/monarch-stickman-animation/assets/p6_fit.wav": {
+      "sha256": "a8711c634a7538c58cae6fba867951bf76dc2ac40bd1b181eaf4812540ac719e",
+      "size": 779756
+    },
+    "styles/monarch-stickman-animation/assets/r1.mp3": {
+      "sha256": "7276a169179145f3c09b86e2d04d27fcff7a38626d1d5993efe48ff9faf89a73",
+      "size": 31053
+    },
+    "styles/monarch-stickman-animation/assets/r1_fit.wav": {
+      "sha256": "f01bcdd548679251569bdb884126ebe7869d0ab89a203aa7858aae08af34e9c7",
+      "size": 608492
+    },
+    "styles/monarch-stickman-animation/assets/r2.mp3": {
+      "sha256": "3565776feec2827ca98b86aa2c16e0e4446b6cc35783951294ec958757aeaf40",
+      "size": 34413
+    },
+    "styles/monarch-stickman-animation/assets/r2_fit.wav": {
+      "sha256": "0538ffa2edee5c6f49537a1370f61b1be51487b1d3ce6b86efdd80ffb64f3a25",
+      "size": 732140
+    },
+    "styles/monarch-stickman-animation/assets/r3.mp3": {
+      "sha256": "a88b40dc5e7353f7bdc4f7a08e310488384476e9c9725a8178604c9947cf6296",
+      "size": 20589
+    },
+    "styles/monarch-stickman-animation/assets/r3_fit.wav": {
+      "sha256": "83d821fc14a3f8b9629bf0fb15dada5bc99152bb2aeecd96e7e73a7728474b93",
+      "size": 388268
+    },
+    "styles/monarch-stickman-animation/assets/r4.mp3": {
+      "sha256": "930ce43bb18c5c31c2e87973c0a1ef90d5b386a70565d61ce5e3681d12686f07",
+      "size": 42093
+    },
+    "styles/monarch-stickman-animation/assets/r4_fit.wav": {
+      "sha256": "4527d1dd83c7154d0f79df290db7bc2247e9e377bbda6790d318b32f8ec3e543",
+      "size": 804524
+    },
+    "styles/monarch-stickman-animation/assets/r5.mp3": {
+      "sha256": "89a86d7923a15e8a56b0b7a167acba63c5eae0e226022e98ae63e6c4f361912b",
+      "size": 38349
+    },
+    "styles/monarch-stickman-animation/assets/r5_fit.wav": {
+      "sha256": "cffdad1955deee155450bba0f63721a44274f666530ad951f05f07853885eba1",
+      "size": 716012
+    },
+    "styles/monarch-stickman-animation/assets/r6.mp3": {
+      "sha256": "9a8d716c13591fdad0bdebdde2ff8db908639488990efedbf2d293020752eeb1",
+      "size": 34893
+    },
+    "styles/monarch-stickman-animation/assets/r6_fit.wav": {
+      "sha256": "1948c0c7b17209555242ad0703be94256a7ceef00c4d335afea684eda3dead14",
+      "size": 703532
+    },
+    "styles/monarch-stickman-animation/assets/r7.mp3": {
+      "sha256": "b59301a07e5c452842dc42e3ac92e44981dcf95450a2e70a24045961f8136354",
+      "size": 37101
+    },
+    "styles/monarch-stickman-animation/assets/r7_fit.wav": {
+      "sha256": "0d2faace6c608ae18e0122ff7780fb39d1d974ac04b627dc0a92c64e39a6aef5",
+      "size": 728684
+    },
+    "styles/monarch-stickman-animation/assets/r8.mp3": {
+      "sha256": "7e4c9f5bad9b44f1fbc2090aeaa07f3d09436c61c82e3538fab6c0dd827127b7",
+      "size": 36333
+    },
+    "styles/monarch-stickman-animation/assets/r8_fit.wav": {
+      "sha256": "5850c26bdc49a7d0a334b2f797b436b0da199c52a290b0ff0bbd45470430cb67",
+      "size": 730412
+    },
+    "styles/monarch-stickman-animation/assets/r9.mp3": {
+      "sha256": "839cae8d2c6dc902239cb2054774e8123301fecdc6045ec1c8390658ea85dcb0",
+      "size": 58221
+    },
+    "styles/monarch-stickman-animation/assets/r9_fit.wav": {
+      "sha256": "69c97cda617c28d58158a65d1a8916a4a10611c835c66b0a0d1285aabdd3a0a1",
+      "size": 1100972
+    },
+    "styles/monarch-stickman-animation/assets/s1.mp3": {
+      "sha256": "c82609cbb2f7bc7dc6ee1afa4665aa69dd7a3ffba48bbed5f5b62f58cb99c35e",
+      "size": 31053
+    },
+    "styles/monarch-stickman-animation/assets/s2.mp3": {
+      "sha256": "625b124dbd90cec76ca44ccc5021b9e1289ff31404935bfe4d87c42fb0a3388e",
+      "size": 40269
+    },
+    "styles/monarch-stickman-animation/assets/s3.mp3": {
+      "sha256": "561be2b4eef097e662a9c3836b892d0aa59d25c4b789ad31dd85bc5aae603727",
+      "size": 39501
+    },
+    "styles/monarch-stickman-animation/assets/s4.mp3": {
+      "sha256": "d542172e1e18544ca17b005364ba4bb1af1318c64ffe77b6ba05eaaa0bdeb83b",
+      "size": 29709
+    },
+    "styles/monarch-stickman-animation/assets/s5.mp3": {
+      "sha256": "b3912db093f607e16d6872bc78d9b746f4ace77996378ed818aa2be7e7f7f98c",
+      "size": 39501
+    },
+    "styles/monarch-stickman-animation/assets/s6.mp3": {
+      "sha256": "faeb9254551e1f0034d5a7216012c486fc971898a7f2c5dc5ed95fbce89e46ba",
+      "size": 36621
+    },
+    "styles/monarch-stickman-animation/assets/vo.mp3": {
+      "sha256": "a94e5186dbcf689272e1d1e475fb887d8eed10554139ef04eb3ce7579cd7ac52",
+      "size": 55533
+    },
+    "styles/monarch-stickman-animation/assets/w1.mp3": {
+      "sha256": "f0c55069a98fa3b9a4c708aa93f5391a1fbfda286bc953c7b4f7efecd29d2304",
+      "size": 49128
+    },
+    "styles/monarch-stickman-animation/assets/w2.mp3": {
+      "sha256": "0c6a65b8a8a971fb8517a625ed21805293ec3dccdcbfb1b9586901d9cc8b63b5",
+      "size": 42649
+    },
+    "styles/monarch-stickman-animation/assets/w3.mp3": {
+      "sha256": "ac87527cea4978d21a7be0d28830a921a052d83b16f01bf49248902e443ced7a",
+      "size": 43903
+    },
+    "styles/monarch-stickman-animation/assets/w4.mp3": {
+      "sha256": "988b990cfcb9e8818bad70445826d298515f7802ef44836a857630c44bd8f5ea",
+      "size": 38888
+    },
+    "styles/monarch-stickman-animation/assets/w5.mp3": {
+      "sha256": "d6ad8efc7c9703b3436b09f92919d34029d8214952ffb7c635102824846975fd",
+      "size": 95103
+    },
+    "styles/monarch-stickman-animation/assets/w6.mp3": {
+      "sha256": "dd664b91a4c5e12550b457db9c0e7bf3c8abceea235b363b80dcf8bc2c728e46",
+      "size": 119554
+    },
     "styles/monarch-stickman-animation/brain/brain_export.json": {
       "sha256": "f54a3b7e16ee7a420ff1d50f2c747cd1379310a8d9f30ec1aabd1f7cec138c20",
       "size": 47214
@@ -1464,8 +2436,8 @@
       "size": 372
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "08f15ca2007b5ca3a6886cfc3273cbd0f551c3b6c7d838004b84361e2120f9d1",
-      "size": 43514
+      "sha256": "cb924e0566cc8c531e171874e6fdeabe126265e0a51a0338a636a497ecbcec36",
+      "size": 42440
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/AUDIO_QC.json": {
       "sha256": "ff811afa14f3b6b548f9133795b76a0458b1a270cf3d4d7e926d885c6734dad5",
@@ -1512,8 +2484,8 @@
       "size": 9406
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/artifacts/VISUAL_ENHANCEMENT_LEDGER.csv": {
-      "sha256": "4a389a09aef599f0fd6036d7e1c6e4fa1fd6a960b77b7b1fb915ee5340966744",
-      "size": 6220
+      "sha256": "fe9ebf11b1d7d1739ae7e13c2272aed2c5a7338eb4a06ac1f9e76ba670ca23a4",
+      "size": 6185
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/assets/fonts/Montserrat-OFL.txt": {
       "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e",
@@ -1636,8 +2608,8 @@
       "size": 220
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat/artifacts/AUDIO_EVENT_LEDGER.csv": {
-      "sha256": "954fd7a974c230c78bb78a701f19b997b4a1f165b5f5bc22f0cb35009bef828b",
-      "size": 11864
+      "sha256": "a442a9196ad710657071bb728e4f63500cd56e935e25842837b33267f1d2dd5d",
+      "size": 11511
     },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat/artifacts/BRAIN_GATE.txt": {
       "sha256": "7a89deb415d8b5188551ebaf5ea381e6c6192d80451b2f1759c46b0183b49aca",
@@ -1943,6 +2915,26 @@
       "sha256": "c7f5b09f388accef7767f3b146409964a5539e4b7014add2b1b7b7c27b539361",
       "size": 272566
     },
+    "styles/monarch-stickman-animation/uploads/436649626_1789475045520701.jpg": {
+      "sha256": "8cb6d0e2bd227c2a4a9b5006a6011eeefa2802372d35978282b283727777e049",
+      "size": 66306
+    },
+    "styles/monarch-stickman-animation/uploads/STICKMAN EXPLAINER ENGINE.pdf": {
+      "sha256": "434635d6de870083142e99fb2458021f2f438d75f83e3ca6ada1982529bbb156",
+      "size": 307814
+    },
+    "styles/monarch-stickman-animation/uploads/Screenshot_20261008-202149_1.png": {
+      "sha256": "1b366e8026887887ba5dcff7c8dacd5f8807ca576d36d31164e4c80edea9ee50",
+      "size": 82452
+    },
+    "styles/monarch-stickman-animation/uploads/img/p1_1.jpg": {
+      "sha256": "f7bf56177c13b09d84ec382eaece7c0c359cff8df9c4f6f9bc951fa2b08265cc",
+      "size": 151668
+    },
+    "styles/monarch-stickman-animation/uploads/pdf_text.txt": {
+      "sha256": "eb362ddc9a25237225614eb363f3a7980f19a907caa2ac98d46faaa2b1b20b82",
+      "size": 18658
+    },
     "styles/monarch-stickman-animation/verify.py": {
       "sha256": "c0c04386f181a6e30bc0b3559dc6a421749aea7de2a3446205e46f9e28c3d512",
       "size": 10768
@@ -1951,25 +2943,705 @@
       "sha256": "4935ae454c714032586a109ff8ef5e37bc9dca8ac0e1275fd724f5196dc2bed5",
       "size": 3141
     },
+    "styles/premium-motion-editing/AGENTS.md": {
+      "sha256": "a38c05cfdb678f0088a746e533f79c98841611d178127c8692dddb3b580c24e1",
+      "size": 1608
+    },
+    "styles/premium-motion-editing/CHANGELOG.md": {
+      "sha256": "c28879da7d4c9cfba22151e1a2b6fe2c22481e02a560e34e0641ba522de5aa96",
+      "size": 1029
+    },
+    "styles/premium-motion-editing/CHECKLIST.md": {
+      "sha256": "89dd2400233a4a4962fc94d26699155e3a474566d058b7077f853c0bc2b061de",
+      "size": 1954
+    },
+    "styles/premium-motion-editing/FRESH_CHAT.md": {
+      "sha256": "1bf6b6b9448fbfb6e367eaebc2bbb7d4b076297c3654cf58b398cf04676b1ab9",
+      "size": 2757
+    },
+    "styles/premium-motion-editing/HUB.md": {
+      "sha256": "4b2bb68ff51586dc7eaaa9b4fa7e8b48bdee15a7de5a8f0af1027c773383dd3c",
+      "size": 1176
+    },
+    "styles/premium-motion-editing/README.md": {
+      "sha256": "6e06136f9a568b9817302eeba2f6b952f15b277535999562be610c369f3e9a05",
+      "size": 4478
+    },
+    "styles/premium-motion-editing/RESUME_STATE.md": {
+      "sha256": "f0366a32b587389c40d27e3ec1f05aca6b4faba542f2bd4dfa09a0759054d71d",
+      "size": 1489
+    },
+    "styles/premium-motion-editing/assets/README.md": {
+      "sha256": "6b7e33e09994cb71c014943a92d1046ace609c51a6ad26b3cf4027c9cfb9f8be",
+      "size": 533
+    },
+    "styles/premium-motion-editing/assets/fonts/Anton-Regular.ttf": {
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "size": 170812
+    },
+    "styles/premium-motion-editing/assets/fonts/BarlowCondensed-Medium.ttf": {
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17",
+      "size": 103360
+    },
+    "styles/premium-motion-editing/assets/fonts/BarlowCondensed-MediumItalic.ttf": {
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9",
+      "size": 110340
+    },
+    "styles/premium-motion-editing/assets/fonts/anton-OFL.txt": {
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a",
+      "size": 4391
+    },
+    "styles/premium-motion-editing/assets/fonts/barlowcondensed-OFL.txt": {
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "size": 4377
+    },
+    "styles/premium-motion-editing/assets/fonts/document/COPYRIGHT.txt": {
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "size": 3859
+    },
+    "styles/premium-motion-editing/assets/fonts/document/DejaVuSans-Bold.ttf": {
+      "sha256": "0d977336a6d5fba34eab8e3199eb218327161b5143749f802982c2bc34df0c96",
+      "size": 708920
+    },
+    "styles/premium-motion-editing/assets/fonts/document/DejaVuSans.ttf": {
+      "sha256": "abdc775b21b1bc470d50c97e790d276f2054b7504e56e5bd3e64f48d68582322",
+      "size": 759720
+    },
+    "styles/premium-motion-editing/assets/fonts/document/DejaVuSansMono.ttf": {
+      "sha256": "0f5db4f1749979d961019838b160bec74abdf7f9eca69553fe1aa856bbff49a4",
+      "size": 343140
+    },
+    "styles/premium-motion-editing/brain/registry.json": {
+      "sha256": "4f60fcee3fda8a49e2554a540b6ca1de440a9c4190bf5acdb4a6749177282296",
+      "size": 1242
+    },
+    "styles/premium-motion-editing/data/approved-profile.json": {
+      "sha256": "494bb770345801ccc8220335b29f096f0a49c47b247543a0eda10a20d0e5d2c5",
+      "size": 2154
+    },
+    "styles/premium-motion-editing/data/audio-policy.json": {
+      "sha256": "efb321f95e51a256da8560d1c55ab928ab92e1784baac141ce8908c98889dbef",
+      "size": 1096
+    },
+    "styles/premium-motion-editing/data/coverage.json": {
+      "sha256": "2c3b8eab12c150b13d4f34025b6a23ab0782d7aef55c1b48090321ecb8673d50",
+      "size": 5518
+    },
+    "styles/premium-motion-editing/data/lessons.json": {
+      "sha256": "d1f1de0ed6223bac2b9e0b5432bed57ed1ddc7f50e4873521f4bb0d1f1b69569",
+      "size": 8572
+    },
+    "styles/premium-motion-editing/data/links.json": {
+      "sha256": "a8d4e741213a3e54501c98b0f8bf48e114c2a3e4989e3b7a46aa2aff8dcd3812",
+      "size": 4961
+    },
+    "styles/premium-motion-editing/data/media-catalog.json": {
+      "sha256": "d281ded843253e533066c2d01f9067ce5156347a37743173e12946e967b9b51b",
+      "size": 3337
+    },
+    "styles/premium-motion-editing/data/metaphor-bank.json": {
+      "sha256": "c80243d6611ebf5cac9ba4b003da41ed9114b5f95579cc2d7bd7f3ae5ae9c429",
+      "size": 9502
+    },
+    "styles/premium-motion-editing/data/motion-grammar.json": {
+      "sha256": "abeb1261cbfa1bb5f5b0c397b5590d8ad1ff61fabc1aa3605bec970df0a6ee1d",
+      "size": 1301
+    },
+    "styles/premium-motion-editing/data/visual-dna.json": {
+      "sha256": "04123245c81a2782699bee60666918b0dbbf1298dbcc22bfa204bfdc1bd31245",
+      "size": 2469
+    },
+    "styles/premium-motion-editing/exports/WF05_Complete_Codex.html": {
+      "sha256": "aa168d5a2d217e115daf179e9467536b5c68cedd999e0873065417cee5b27c2c",
+      "size": 77186
+    },
+    "styles/premium-motion-editing/exports/WF05_Premium_Motion_Editing_Codex.pdf": {
+      "sha256": "861c5c5e52519ef820c2ff51f5377124469aad08103fbdaa915126e8c80d895f",
+      "size": 165423
+    },
+    "styles/premium-motion-editing/knowledge/01_IDENTITY_AND_APPROVAL.md": {
+      "sha256": "3701734aa9e3b4aaffc014472b36d29bdb8fbe4d862c9173262f2cd38f53e715",
+      "size": 3078
+    },
+    "styles/premium-motion-editing/knowledge/02_VISUAL_DNA.md": {
+      "sha256": "c05c0aeb5859157c1344a3ef25cfa96fec07da038393578c7ca3b2d1ac893a28",
+      "size": 3108
+    },
+    "styles/premium-motion-editing/knowledge/03_REFERENCE_AND_STORY.md": {
+      "sha256": "2143f3d08f7cde18e2c414b4ce61d38a7977ad1fcb0039d1ae79245ce53fb6db",
+      "size": 3427
+    },
+    "styles/premium-motion-editing/knowledge/04_CREATIVE_ENGINE_AND_METAPHORS.md": {
+      "sha256": "f678de3d2a4cdab15d7b774988f578cc39eedb37fe515e78dbb8b58889191c7b",
+      "size": 3430
+    },
+    "styles/premium-motion-editing/knowledge/05_MOTION_DEPTH_AND_TRANSITIONS.md": {
+      "sha256": "ff9fdca6346d8bd80e1e11fdfd5565ba41ca6c143d0ef75a8fb5e7d4114d7a72",
+      "size": 3154
+    },
+    "styles/premium-motion-editing/knowledge/06_TYPOGRAPHY_AND_CAPTION_POLICY.md": {
+      "sha256": "6250a0c51e1a8b15ed4af7e12b8c27981ced0b10daad555b225b5eed5d1af937",
+      "size": 2877
+    },
+    "styles/premium-motion-editing/knowledge/07_AUDIO_NARRATION_AND_PACING.md": {
+      "sha256": "2ddec01cb115c1389dd61bcc896b93c52e7b5f42ef7f0b8d51902e615e524587",
+      "size": 2885
+    },
+    "styles/premium-motion-editing/knowledge/08_SOURCE_CLEANUP_AND_RESTORATION.md": {
+      "sha256": "4ac3204a75502af6163d6ca2c6db811ece174a14d64d6acb8eafcb0a2f47bc4a",
+      "size": 3003
+    },
+    "styles/premium-motion-editing/knowledge/09_TOOLCHAIN_AND_ENGINEERING.md": {
+      "sha256": "3f78e59d4263c724540a04c69e9858f1f82eb17215424fce3ad32f1ae082804f",
+      "size": 3679
+    },
+    "styles/premium-motion-editing/knowledge/10_PRODUCTION_RUNBOOK.md": {
+      "sha256": "c779696002c7906f095c211144671542d3c85f6f4d6b46b957c4fc64ca25532c",
+      "size": 3444
+    },
+    "styles/premium-motion-editing/knowledge/11_QA_AND_ACCEPTANCE.md": {
+      "sha256": "573d19f7e48f0db40a63e93c223402c6f752165b4658cd56b5fb28c538a118ea",
+      "size": 3472
+    },
+    "styles/premium-motion-editing/knowledge/12_CONTINUITY_AND_STORAGE.md": {
+      "sha256": "52c17c8d63a55da12e9b99bbbb89edef26b5bd7b6a6bee41d208e27e3a9091f6",
+      "size": 3197
+    },
+    "styles/premium-motion-editing/knowledge/13_VERSIONS_FAILURES_AND_IMPROVEMENTS.md": {
+      "sha256": "f1e3b4df2e39f267ea6db6f5bc8a086daab5dbb9a7a875450c0292a20fc0bcc6",
+      "size": 3259
+    },
+    "styles/premium-motion-editing/knowledge/14_NEW_CHAT_OPERATING_CONTRACT.md": {
+      "sha256": "0a5523fffb9c2d598bc5ce050ac6a0e810c6f759b8efe7f9dd1358cfd3cd86a9",
+      "size": 2654
+    },
+    "styles/premium-motion-editing/knowledge/15_CROSS_PLATFORM_AND_SOURCE_OF_TRUTH.md": {
+      "sha256": "a8ad8a775572da46a0203f61db8d3163f683d95924fef61965a4389dadc18843",
+      "size": 2801
+    },
+    "styles/premium-motion-editing/knowledge/16_FAILURE_REGISTER.md": {
+      "sha256": "6eec158dffda8df62b67af1bfbca4dff9b0cbc6b2acfb6ad69fc4982bb7a6b9d",
+      "size": 7730
+    },
+    "styles/premium-motion-editing/knowledge/17_CASE_AND_METRICS_APPENDIX.md": {
+      "sha256": "764323b023bf120c1a2308a211abd1c92756684536233123f8d1ccac8ae46ef6",
+      "size": 10620
+    },
+    "styles/premium-motion-editing/knowledge/INDEX.md": {
+      "sha256": "5a92fde42ead164f9018399f33338414fbf73116c5e04398354045ac17685ddc",
+      "size": 1762
+    },
+    "styles/premium-motion-editing/knowledge/MASTER_CODEX.md": {
+      "sha256": "651c535039d46165c30a6c7888f8ccad54a447b33f36a8d1d7b0f65720fb42ed",
+      "size": 68168
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/ACCEPTANCE.json": {
+      "sha256": "b63b28328cf71e00d347027965c11e8b63cae5c6ba7c76dea5090e8346d7112a",
+      "size": 540
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/README.md": {
+      "sha256": "dbbb2c06eb0260942af2aa6dae43564426aa0680d2c66d800c58d548f4f7b68b",
+      "size": 1974
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/SHOT_BREAKDOWN.md": {
+      "sha256": "cbdbd364390cd7f520e1e6ce266e864fbb14a1ddcd5aeed10be81127b7aefc7f",
+      "size": 4201
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/.gitignore": {
+      "sha256": "4a36098ee830d62d256428c507dbabd57053e7a9a6ab724ecdf29b29b9d7bf29",
+      "size": 94
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/DELIVERY.json": {
+      "sha256": "76722479fe408edf68f1d747b46f4c048a1dbd3e0635d228216d7269a9e3b512",
+      "size": 1178
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/DELIVERY_GATE.json": {
+      "sha256": "7b9fc353349d21635617108016fb76f218a7acdda2a009d332f32d0b29f1651e",
+      "size": 476
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/FINAL_REPAIR_STATE.json": {
+      "sha256": "e73093c214b8f79f318574e57a324086dacafb651ca34883985eb1a68060f280",
+      "size": 578
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/Flow_State_Roman_Urdu.srt": {
+      "sha256": "3be26e6480f581a6a6e03cb82d0ba60342c107c728551de3341db19d193cfe7a",
+      "size": 2205
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/PERSISTENCE_FIX.md": {
+      "sha256": "3a1a1bda957f5482c3ea8bc665263cff8e0c5fa1c2bc08059be3772c151af2a5",
+      "size": 1176
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/PIPELINE_STATE.json": {
+      "sha256": "998246396df90bedb8737b27dcd00929bab7626970e6c70781c1a77bd92531db",
+      "size": 1181
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/PRE_RESET_QA.json": {
+      "sha256": "f08ea7b9738bbfecf9eccb63cb7b75f324d6184995cdb98e2c93e3a25528c315",
+      "size": 2223
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/PRE_RESET_RENDER_RECEIPT.json": {
+      "sha256": "8a0994c54335ebdb122a8cdec76c90263496e9844aa7cd6078dd99493e35a8dd",
+      "size": 355
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/PROVENANCE.json": {
+      "sha256": "bfa7849c70b3ef016ef192626fd27e4db4ef7f17ce042856f669539aa4ef112e",
+      "size": 2415
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/QA.json": {
+      "sha256": "c3dd6efb85bc484b5dd3cf4e49fff885c7df5fffba94a8e963aafe3bc3826662",
+      "size": 2392
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/README.md": {
+      "sha256": "bb29a0d040041e6e5d3c06f337930daa1747f64d5d06ba337f2c388a0304b3ea",
+      "size": 5715
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/RECOVERY_PACKAGE.json": {
+      "sha256": "671e60a9078465314d05f58e0eac6b049b43e66fa4d86274373e1d14fbf74792",
+      "size": 393
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/RENDER_RECEIPT.json": {
+      "sha256": "a4093ab3c2456dbad90065f1950786c03a0b7f9198c2e08f6b6c1f376c6ef337",
+      "size": 409
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line01.mp3": {
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334",
+      "size": 30861
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line02.mp3": {
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f",
+      "size": 42189
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line03.mp3": {
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2",
+      "size": 34509
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line04.mp3": {
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5",
+      "size": 34893
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line05.mp3": {
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b",
+      "size": 27021
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line06.mp3": {
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86",
+      "size": 22701
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line07.mp3": {
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e",
+      "size": 16941
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line08.mp3": {
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862",
+      "size": 31341
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/audio/line09.mp3": {
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17",
+      "size": 25101
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/clean.py": {
+      "sha256": "acb34d9b89a0d02bcff0d41c1ab1a27d75f485c4be8e41f60d70b0d85adf2808",
+      "size": 6851
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/fonts/Anton-Regular.ttf": {
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "size": 170812
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/fonts/BarlowCondensed-Medium.ttf": {
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17",
+      "size": 103360
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/fonts/BarlowCondensed-MediumItalic.ttf": {
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9",
+      "size": 110340
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/fonts/anton-OFL.txt": {
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a",
+      "size": 4391
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/fonts/barlowcondensed-OFL.txt": {
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "size": 4377
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/icon-template.png": {
+      "sha256": "1a70109c7bfd4e1ce618c26ee4e3cd9bcdf55512c8de6b08a501cbcbc7a8dead",
+      "size": 1156
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/matte.py": {
+      "sha256": "e7c81e00ca316b93708d5d2ba0cac6440d0e3f24ab5daf1bc7a59ab967f20545",
+      "size": 6480
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/prepare_audio.py": {
+      "sha256": "efb7e60b6600b8bda0cf025ad563b16b7aee941da30c040c3200df68e8b75d31",
+      "size": 9764
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/prepare_visuals.py": {
+      "sha256": "26c57a421d60ebe6157bf9a182f70f1aa7c298fb661ae1a66a81c55a5c6423a7",
+      "size": 2421
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/render.py": {
+      "sha256": "807cb44ea2ffa4a4543871adddb612993c299eacfae9fe1341165fb4423c0831",
+      "size": 11790
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/repair_finish.py": {
+      "sha256": "34e8f1e8b3d9b0dfb14107f3ab3ccb04967afb0609e9969e30bd4c0f2b31962b",
+      "size": 2579
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/requirements.txt": {
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b",
+      "size": 97
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/run_pipeline.py": {
+      "sha256": "9c32a5efdea8b0d384df3c766bec0b9e1a0198ad62bcb5926d8a7cb0e6241d06",
+      "size": 3033
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/timeline.json": {
+      "sha256": "b430ae138e6707ce886fe3551bc304239b4fb92709c6b936e234c74423babecb",
+      "size": 15626
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v5/verify.py": {
+      "sha256": "92b5b5ba9510f4789d1ed55668286adf9247148337af10446d4446ef15df357f",
+      "size": 5611
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/.gitignore": {
+      "sha256": "01c1629ebec220516e38ec23305bed21aff3876c1dc46fa903c44a52b93b7847",
+      "size": 79
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/DELIVERY.json": {
+      "sha256": "e1447a135b1f0b0887d8448fe540d3855e6f35b29e2ffb5d29bfbe2d85e0a261",
+      "size": 1200
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/DELIVERY_GATE.json": {
+      "sha256": "6a84a22d1542144f0cfd1b37ac8c58c8f10111a4357977f640cb1b05e59b523f",
+      "size": 485
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/Flow_State_Roman_Urdu.srt": {
+      "sha256": "3be26e6480f581a6a6e03cb82d0ba60342c107c728551de3341db19d193cfe7a",
+      "size": 2205
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/PIPELINE_STATE.json": {
+      "sha256": "b34e1d29d2e58868f144c9dae8766ac5bfb663662ad8725613fbd3ef4cd07910",
+      "size": 1116
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/PROVENANCE.json": {
+      "sha256": "9dc2f281d36bd3cf56f54c87a4078a1175f5c9725d3564a333c34ccf7c199384",
+      "size": 2829
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/QA.json": {
+      "sha256": "5a220af143c37b051c6146270a2cbcb8815e3d04ac71ecf06650a18d8866e454",
+      "size": 2745
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/README.md": {
+      "sha256": "8c655cbbf7dad81d76f512df3141f2d16f9460630be2cf6afb703e6c2151a2ce",
+      "size": 4893
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/RECOVERY_PACKAGE.json": {
+      "sha256": "66cfe1978e2465c219b6a5898b6cce84ffa9fa3333e7ef912ba9574e45bd6654",
+      "size": 281
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/RENDER_RECEIPT.json": {
+      "sha256": "be7b5730fb2b58064c54a94a096647c82b91eae6e18dfea4134c57c831e7f430",
+      "size": 464
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/V5_DELIVERY.json": {
+      "sha256": "76722479fe408edf68f1d747b46f4c048a1dbd3e0635d228216d7269a9e3b512",
+      "size": 1178
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line01.mp3": {
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334",
+      "size": 30861
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line02.mp3": {
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f",
+      "size": 42189
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line03.mp3": {
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2",
+      "size": 34509
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line04.mp3": {
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5",
+      "size": 34893
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line05.mp3": {
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b",
+      "size": 27021
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line06.mp3": {
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86",
+      "size": 22701
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line07.mp3": {
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e",
+      "size": 16941
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line08.mp3": {
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862",
+      "size": 31341
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/audio/line09.mp3": {
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17",
+      "size": 25101
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/clean.py": {
+      "sha256": "278d6cfc5351da1fa4a54393f5ebaf4bf90f5f96eca9091bb5aaa2660b508b55",
+      "size": 6977
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/fonts/Anton-Regular.ttf": {
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "size": 170812
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/fonts/BarlowCondensed-Medium.ttf": {
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17",
+      "size": 103360
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/fonts/BarlowCondensed-MediumItalic.ttf": {
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9",
+      "size": 110340
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/fonts/anton-OFL.txt": {
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a",
+      "size": 4391
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/fonts/barlowcondensed-OFL.txt": {
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "size": 4377
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/icon-template.png": {
+      "sha256": "1a70109c7bfd4e1ce618c26ee4e3cd9bcdf55512c8de6b08a501cbcbc7a8dead",
+      "size": 1156
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/motion_v6.py": {
+      "sha256": "f457728ffb334f3b81aa3a8addbddb76e0e0fb23a0a2b22faf6d53560a3b6f49",
+      "size": 5250
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/prepare_audio.py": {
+      "sha256": "3e363a6e13fb7374590fbd7fd3a6cd83e3bce75f8804a5e47bc995730ff99033",
+      "size": 10790
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/prepare_visuals.py": {
+      "sha256": "26c57a421d60ebe6157bf9a182f70f1aa7c298fb661ae1a66a81c55a5c6423a7",
+      "size": 2421
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/render.py": {
+      "sha256": "419f476de612dc441673b0ace9e284d7792a7f13df440a540e9b1796be7c9a52",
+      "size": 12131
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/requirements.txt": {
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b",
+      "size": 97
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/run_pipeline.py": {
+      "sha256": "4be9d3074f96f3c99d0e2b3842c289985e1e74e3cc82350ffa0b48c06574311b",
+      "size": 3063
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/timeline.json": {
+      "sha256": "77f5ea55897a37dca9e414e8a09d0950fe6f2cd14eb991193734f4938f8793c9",
+      "size": 15761
+    },
+    "styles/premium-motion-editing/projects/einstein-flow-state/versions/v6/verify.py": {
+      "sha256": "9c82207deee9d23c8685af95e257f43d7c231ec4e455114f8f561b338f855f86",
+      "size": 6298
+    },
+    "styles/premium-motion-editing/prompts/MASTER_DIRECTOR.md": {
+      "sha256": "c4e6da571e8822de1fc9803709408a8af1df422e05f3bf036485bd1bee38a52d",
+      "size": 1657
+    },
+    "styles/premium-motion-editing/prompts/MOTIONGO.md": {
+      "sha256": "5974a312cc544fc6efed60d3da1c6e4e79e0db5c021e72257d60fb87cc757e6c",
+      "size": 860
+    },
+    "styles/premium-motion-editing/prompts/QUALITY_REVIEWER.md": {
+      "sha256": "37582b1fa0cac0cd8b9299738ae460c41fa9d89bbce9a192338c59e0618d9276",
+      "size": 1033
+    },
+    "styles/premium-motion-editing/prompts/RECOVERY_HANDOFF.md": {
+      "sha256": "974619cdbdcc11bd09f8d6e2ce3bf7dfb9c9fddef9a9162b6d7e428beabdfac9",
+      "size": 872
+    },
+    "styles/premium-motion-editing/records/CODEX_BUILD.json": {
+      "sha256": "40e8a31b3d8141cebbdeb705c6ba20e22792de5c62f9ec47ed3f06baeae76b76",
+      "size": 358
+    },
+    "styles/premium-motion-editing/records/DOCS_VERIFICATION.json": {
+      "sha256": "bfb45c5157037155521c1238b9d1592e68775963521c8bd07ee152693763fa0c",
+      "size": 556
+    },
+    "styles/premium-motion-editing/records/EVIDENCE_SCOPE.md": {
+      "sha256": "4bd4cccf19df06da03f2d911458bef4e02733209dbd4f0af85f125e9755830c2",
+      "size": 2530
+    },
+    "styles/premium-motion-editing/records/FOUNDATION_INCIDENTS.md": {
+      "sha256": "d62a950de7bcd5dae2c378451ef20fe27a3a0f3416c2e2834086e97e961a62e3",
+      "size": 1477
+    },
+    "styles/premium-motion-editing/records/FOUNDATION_STATUS.json": {
+      "sha256": "af994300a2bf91da82c92c7f78106fde10e76084d92c1d4042cf809fc2b4d3e2",
+      "size": 803
+    },
+    "styles/premium-motion-editing/records/LIBRARY_AUDIT.json": {
+      "sha256": "a5bcf3b138012eb7937f6a0a604adfe8118ed83566d6be2729723db9b81c7239",
+      "size": 18791
+    },
+    "styles/premium-motion-editing/records/PDF_QA.json": {
+      "sha256": "b01cf4c33f1ceed1b189e1eea00f8789c0512940586d20800598c9d5973dbbe7",
+      "size": 141
+    },
+    "styles/premium-motion-editing/records/RELEASE_RECEIPT.json": {
+      "sha256": "d3b5d1854186e7bbc6a9be7f2c05b69f7111b8f811cddcdf5f1ecf96e3b26760",
+      "size": 2333
+    },
+    "styles/premium-motion-editing/records/SOURCE_INVENTORY.json": {
+      "sha256": "83c221e493f16e74697a6ee5b21c043f6bd3ec7ea3f112955503e78f633c9330",
+      "size": 53456
+    },
+    "styles/premium-motion-editing/records/USER_REQUEST_20261015.txt": {
+      "sha256": "d171afe95fb68243bca7984fc9376040cb70c51654d241672965e9570942f115",
+      "size": 1662
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/ACTIVE_TASK.json": {
+      "sha256": "c1c05b9fe2fa136006d635a7c8e50ce74b9d413a15ecbf61dc798cfc4232e336",
+      "size": 1521
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "67d1ba86a07a7185a02f2abf7fb84b7815277e04a6d31b8d040d62ce31651566",
+      "size": 4955
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/JOURNAL.jsonl": {
+      "sha256": "107d810c8bef832f9073eb586e3f85410abfe4e9a8b1281d823b6a2aa0990296",
+      "size": 33533
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_CHAT.jsonl": {
+      "sha256": "d8137672518e54620f6d305b13970f368c8885de6edc48ab278d791d65259668",
+      "size": 162
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_VERIFICATION.md": {
+      "sha256": "9809956ba012cadf556657320a51f19cb3138ceb7e22989454f4c3e6ed8ec477",
+      "size": 1717
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-REPAIR/RESUME.md": {
+      "sha256": "c9cad7eb15e382f907c1b6fe8fa56545b979103cb446e322925b30affdfcbcee",
+      "size": 1664
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-V6/ACTIVE_TASK.json": {
+      "sha256": "c84556c7813dabd10cea03cc140c0cd25adf58b3b87e28f9f2d63c9e9d39545a",
+      "size": 1434
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-V6/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "52b202031c3b2d79825488f98c1927fe08de0907e474b4956351c4c2d61fe4c3",
+      "size": 321
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-V6/JOURNAL.jsonl": {
+      "sha256": "91fdd2f02e1636fd911a57ad3fe1fe3d65af97f5351b48e5e8076ed7c3e94821",
+      "size": 14017
+    },
+    "styles/premium-motion-editing/records/history/EMS-20261014-FLOW-V6/RESUME.md": {
+      "sha256": "25b534843cc9f1a42ad754deec808141a0bc879e571e09fef73ae78ed734a4fd",
+      "size": 1577
+    },
+    "styles/premium-motion-editing/records/recovered-earlier-source/PROVENANCE.json": {
+      "sha256": "60c193cfdd3bba2c9ad90d1c934bc2d9bff9e07f6cd30302f2981774d6b4d3fd",
+      "size": 583
+    },
+    "styles/premium-motion-editing/records/recovered-earlier-source/v3_render.py": {
+      "sha256": "bb15270a75e53d2377a25711cfe3bff4135f906e3eb29f2f0ac341eab17f0949",
+      "size": 5467
+    },
+    "styles/premium-motion-editing/requirements-docs.txt": {
+      "sha256": "14ce97139322555333c7cdc631f78c521b97952c8b81acd791cc4b59f08d0644",
+      "size": 57
+    },
+    "styles/premium-motion-editing/requirements.txt": {
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b",
+      "size": 97
+    },
+    "styles/premium-motion-editing/src/audit_library.py": {
+      "sha256": "4ebba4a10a4c0463226e5a74eae93e9b1ed573bb7a26ba5104a0ff9f931da583",
+      "size": 3874
+    },
+    "styles/premium-motion-editing/src/build_codex.py": {
+      "sha256": "c09372aa83a09658b7f6573b2595a55e11eb83e63f97aa9e6fe224f5dea9dda1",
+      "size": 11054
+    },
+    "styles/premium-motion-editing/src/motion.py": {
+      "sha256": "78870d54b028bcab466e0a212c4e4b1f0ea4e6297c4eb1a86db387aa8fb329a2",
+      "size": 5045
+    },
+    "styles/premium-motion-editing/src/policy.py": {
+      "sha256": "3f4d73dbeb24a3c0bea9c7ef6aaee94ce6b5f5681c0d75199df266645905804a",
+      "size": 8579
+    },
+    "styles/premium-motion-editing/src/render_project.py": {
+      "sha256": "9b42507302412376fe3bfde1dfd91e810d7cce098d50b23f138e81391a36bca6",
+      "size": 13238
+    },
+    "styles/premium-motion-editing/src/verify_output.py": {
+      "sha256": "4a395784cf137670f5a83414e4bfa1c9385b3f923602452796a643e777a30d9d",
+      "size": 4689
+    },
+    "styles/premium-motion-editing/src/wf05.py": {
+      "sha256": "5daaee6c0fd1dbe3da42fc542e6488fc6a88692b305bc833f51452e3d58853a5",
+      "size": 4036
+    },
+    "styles/premium-motion-editing/style.json": {
+      "sha256": "220c0c44231467188ac4ea208f0e66727f2ceb2930591563f40c29b4dfc6a74a",
+      "size": 807
+    },
+    "styles/premium-motion-editing/templates/asset-register.csv": {
+      "sha256": "97497feca6037c938c277c79523c5c8b2418de2c9ef285a821e4edc2135d8444",
+      "size": 149
+    },
+    "styles/premium-motion-editing/templates/brief.json": {
+      "sha256": "60b1e77fce1b19db7301c88d05fece91dfdd2f760c1d8165d486b8fa9bac8372",
+      "size": 652
+    },
+    "styles/premium-motion-editing/templates/delivery-receipt.json": {
+      "sha256": "343254911a44ee1c01720dcb08fb9b73a333bf59f925c8abbe5f5ab12d2d9b97",
+      "size": 266
+    },
+    "styles/premium-motion-editing/templates/project.json": {
+      "sha256": "7b3bb23b5e52a5a3e202865bb3633ffb9811ec0f39fda9dbb22ea4243d6f13e6",
+      "size": 684
+    },
+    "styles/premium-motion-editing/templates/qa-review.json": {
+      "sha256": "8a309b20e614693116957ce1e3cbf6ef3eed357c143cf924f087c9f312fb3efb",
+      "size": 467
+    },
+    "styles/premium-motion-editing/templates/shot-plan.csv": {
+      "sha256": "5a3d2dda041ec1284fff9042732d4770a9237ee5645a762bbc13c72799296d4c",
+      "size": 219
+    },
+    "styles/premium-motion-editing/templates/timeline.json": {
+      "sha256": "07da78c06c71b8c7b1fa760d3f9f263b286dd9fbc73de1d1e2dfb5e0187d80bb",
+      "size": 289
+    },
+    "styles/premium-motion-editing/workflow.json": {
+      "sha256": "0b267e1637ba0b062238b98436ecdf55c7b23e47f80e7702dc8103fae532d091",
+      "size": 2585
+    },
     "styles/registry.json": {
-      "sha256": "b50c317ef5f5cf2ee0e4f256cb075439b91e72b2e22ce92ef8dd33c3e7ed4fc0",
-      "size": 1216
+      "sha256": "ade8ba0e311225300df6b5b7ee95d3be859302e8dccc5e9e31e4290fd08f2a78",
+      "size": 1807
     },
     "tests/test_continuity.py": {
-      "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",
-      "size": 3190
+      "sha256": "dc73ed61772a334e75264fa1e435d8b798ac412b96b84628014b954ee285820a",
+      "size": 4439
     },
     "tests/test_studio.py": {
-      "sha256": "cb2ee5b8597958f1968b42505703df5baaaeae43f655779e8723f6bde2d28434",
-      "size": 5522
+      "sha256": "c1c6be8843795561669710f3d34926950220ca0469e2f01da703e4b6e32c0851",
+      "size": 6760
+    },
+    "tests/test_wf05.py": {
+      "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
+      "size": 7671
     },
     "tools/README.md": {
       "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
       "size": 1279
     },
     "tools/continuity.py": {
-      "sha256": "6aa760e7ad2c30d4a4f5231f3522ac704c22e74009c5dc5ba2034f6d9159193c",
-      "size": 31602
+      "sha256": "5e33af5c93f2443b84a8292e3163de134c8f276064ad33fd37cf682f4044f0e2",
+      "size": 32155
     },
     "tools/materialize.py": {
       "sha256": "45e72e7f67ef14ee191525bd36ad8a885e50d3e56c7f2b96ef8c08377ae8f584",
@@ -1984,28 +3656,52 @@
       "size": 1645
     },
     "tools/studio.py": {
-      "sha256": "e4b1b0e673846f8084a181f35290a4442e815b87407fdcd4ab5a38db7d4f1651",
-      "size": 31853
+      "sha256": "2d0ce2678497d2f9f9dc53ab03b02a17c44e623fa79a48a8604cafdec167acf0",
+      "size": 32882
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "81f6cac7e30c00f08c5d747524e5d053f1ed3f9e5075ec707214ab6c95b7e2b6",
-      "size": 733
+      "sha256": "79fcfbdcc962f34d18603bbca1f1785b0826d7041a7d99d1d59bc92e39919e3c",
+      "size": 2545
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
+      "sha256": "63b6974881bee115e0b558c8980c700b296a60e0e3ad806c4bdceb5fc9d9d2c5",
+      "size": 3967
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-      "size": 1
+      "sha256": "0f18860f6cc88a99b0f3c94c0ca5617461256bd66ab4ce87a9ae24327348de00",
+      "size": 19291
     },
     "workflows/current/RESUME.md": {
-      "sha256": "aa53b4335d85d765bf1bb1c43e01801db846b6b3f659c8b16a7bdfd8c550c918",
-      "size": 866
+      "sha256": "2bab4981a8b3d3e8ea76963c63727400638a9288c98935555d0081a0e7342831",
+      "size": 2387
+    },
+    "workflows/current/payload/wf05-foundation/DISCOVERY.json": {
+      "sha256": "2f8843437e196da24f908a43e8f2deb68e920bd4ec6dc97ce4871fa0818e717f",
+      "size": 1221
+    },
+    "workflows/current/payload/wf05-foundation/PACKAGE.json": {
+      "sha256": "47ab343b7ab40d4f6092c0ba48508eb259bfe5fa60071c38e1bf583eb7c924ed",
+      "size": 472
+    },
+    "workflows/current/payload/wf05-foundation/USER_REQUEST.txt": {
+      "sha256": "d171afe95fb68243bca7984fc9376040cb70c51654d241672965e9570942f115",
+      "size": 1662
+    },
+    "workflows/current/payload/wf05-foundation/bootstrap_style.py": {
+      "sha256": "be21277e158ae6922c089eb3fb9e6c03e55291c4cc87329ce7342ae27e3b9484",
+      "size": 28823
+    },
+    "workflows/current/payload/wf05-foundation/write_entrypoints.py": {
+      "sha256": "e33ec2379138e220760d32f20572250c5bf8b192e7e918024078e30428724d25",
+      "size": 22419
+    },
+    "workflows/current/payload/wf05-foundation/write_knowledge.py": {
+      "sha256": "1937532128d7933992f266cf5fa2eeeb7dbccde8cb7db2c35dc98d251c038884",
+      "size": 50047
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",
