@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T15:40:44+00:00",
+  "generated_at": "2026-10-14T15:51:11+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -847,10 +847,6 @@
       "sha256": "9212219172cca31d7cf391a955f02a92bfe8442ccbed9e376f1a7a4b5d80fc84",
       "size": 2798
     },
-    "styles/monarch-face-chaos/monarch_chaos_video_2_master_audio_48k.wav": {
-      "sha256": "f18ffa02fd8fef0406151c1852d02c46540409936c1bdd1c1f8134d329754aea",
-      "size": 8550478
-    },
     "styles/monarch-face-chaos/plates/plate_close_amber_sil.png": {
       "sha256": "47fb4ffa247f39cfc5632258b333f8f14aec4bcd93431cae916f2a6a75091b21",
       "size": 2159754
@@ -891,9 +887,17 @@
       "sha256": "fbccea6a4d1f3576978600bb3bd8b281473d06867793e547c39ad833f7d34cdc",
       "size": 2242332
     },
+    "styles/monarch-face-chaos/records/CHAOS_VIDEO_2_PLAN.json": {
+      "sha256": "f9f88ad1403e0182fe74656fa4025483ca1ffec5e074145256e33477f8994f4c",
+      "size": 2181
+    },
     "styles/monarch-face-chaos/records/DELIVERY_GATES.md": {
       "sha256": "7edb3f6b9e2f06b14e18a3487019de9298516a0555f6c24961a6e08e804c41a9",
       "size": 2725
+    },
+    "styles/monarch-face-chaos/records/DELIVERY_GATES_V2.md": {
+      "sha256": "50da104c109facdcd64f3235f64e0283412a6c320e10ee0c9ec33496c03c4205",
+      "size": 2505
     },
     "styles/monarch-face-chaos/records/DELIVERY_RECEIPT.json": {
       "sha256": "21bfb3deb24c15ab56850ad4a133faf18943c5cc25f105bf67d7a25ebf09e825",
@@ -903,6 +907,10 @@
       "sha256": "3774f4c9e02d4946cb75debc9c684c7ac91a6ebf7ff9f66ef1c976e815b983c5",
       "size": 4520
     },
+    "styles/monarch-face-chaos/records/GATE_REPORT_V2.json": {
+      "sha256": "e471c5e9a793ba7584f981241b496f40a1a7389ee930e4c462e335b0499c2b14",
+      "size": 4640
+    },
     "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg": {
       "sha256": "3c6a22397fff919d66946cae07fd864e978d40b43b6f0d4d48e4bbe17f809b06",
       "size": 1192152
@@ -910,6 +918,14 @@
     "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg": {
       "sha256": "c7f57ca3ffaded1bc208a743090c210ba45b3bb0e468f8825afed4e85f09d7a2",
       "size": 754674
+    },
+    "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_2_CONTACT_SHEET.jpg": {
+      "sha256": "916f936a72ae9dd3803d19083f1d6e5d18d3f3afb6427ede09d610dd087cd581",
+      "size": 1413816
+    },
+    "styles/monarch-face-chaos/records/MONARCH_CHAOS_VIDEO_2_LOOK_SHEET.jpg": {
+      "sha256": "6c22c31ec4c73ed374c535ccd50e3728dce83d06afc74a42b78efa8abb322ce4",
+      "size": 894748
     },
     "styles/monarch-face-chaos/src/audio_engine.py": {
       "sha256": "b511b1e509e8d95bd0bbec471b04ca2abdfb46c09080697a5543cda4873ff38b",
@@ -924,12 +940,16 @@
       "size": 48292
     },
     "styles/monarch-face-chaos/src/build_chaos_video2.py": {
-      "sha256": "8eeac37a8e6a3953ad05064a0a79bd0ae2775e9d6c4bf700c765910add999fef",
-      "size": 27651
+      "sha256": "b4834fe8eef4aa474236049d71d773a97b1b788a8d14b00f39eb2b8b4f2b2e56",
+      "size": 28449
     },
     "styles/monarch-face-chaos/src/gate_chaos_video1.py": {
       "sha256": "7095c407dbb40d4d8560ecbad916660d483bd194e0e3ab8ce76730241a5e9b9f",
       "size": 8519
+    },
+    "styles/monarch-face-chaos/src/gate_chaos_video2.py": {
+      "sha256": "75a312732d2c674f52e4090fe5fb2016166d2d26da33ec4b790059f33c9b0e0e",
+      "size": 10773
     },
     "styles/monarch-face-chaos/style.json": {
       "sha256": "7f5f28970d851f6cacd7fcf27d1a4a626b3c521e0593b4def2dc49e416bf6baa",
@@ -2548,7 +2568,7 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "4213ba7f999cecb19b3008fcc27ef23515ad98f15779643aa8943e8bb02d0fc9",
+      "sha256": "09cfedba844c51bd2c3cf4e2e1dbc3caf1449c974e9e429439e54e27299c70c1",
       "size": 1395
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
@@ -2556,12 +2576,16 @@
       "size": 2781
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "ab6147375b4b77fcd99246e5c386051bc88740793889f659242eec8319e1f78f",
-      "size": 4083
+      "sha256": "41c82ba4471025d3f8a76e43619616bfe75d8982d0c83ebabd8e7b3b43818532",
+      "size": 5940
     },
     "workflows/current/RESUME.md": {
       "sha256": "47e90c86abbca795a7f34ed6ba42fa9b174920c791c19ecd179edb88f158b13d",
       "size": 1534
+    },
+    "workflows/current/payload/records/REFERENCE_SOURCE.json": {
+      "sha256": "73eae3e492f9eade726901cb788b9c7fac5bb512ecceb216015136f5b1f1da0b",
+      "size": 530
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

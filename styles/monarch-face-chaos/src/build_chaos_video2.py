@@ -195,13 +195,21 @@ def glitch(img: np.ndarray, fno: int, strength: float) -> np.ndarray:
     return out
 
 
+# The hero's face sits around y 0.16-0.36H: keep flash/leak energy away from it so the
+# canonical identity stays readable even in the chaos acts (user requirement: face + wardrobe correct).
+FACE_MASK = np.exp(-(((xx - 540.0) / 320.0) ** 2 + ((yy - 470.0) / 340.0) ** 2))[:, :, None]
+# light leaks come from the floor and the extreme side edges, never across the face
+_LEAK_BAND = (np.clip((yy / H - 0.52) / 0.48, 0.0, 1.0) ** 1.4)[:, :, None]
+_LEAK_SIDES = (np.clip((np.abs(xx - 540.0) / (W * 0.5) - 0.72) / 0.28, 0.0, 1.0) ** 1.2)[:, :, None]
+
+
 def light_leak(img: np.ndarray, color: tuple[float, float, float], amount: float, phase: float) -> np.ndarray:
     if amount <= 0.001:
         return img
-    grad = np.clip((np.sin(np.linspace(0.0, math.pi, W, dtype=np.float32) + phase) ** 2), 0.0, 1.0)
-    band = grad[None, :, None] * np.clip(1.0 - np.abs(yy / H - 0.5) * 1.4, 0.0, 1.0)[:, :, None]
+    grad = 0.55 + 0.45 * np.clip(np.sin(np.linspace(0.0, math.pi, W, dtype=np.float32) + phase) ** 2, 0.0, 1.0)
+    band = np.maximum(_LEAK_BAND, _LEAK_SIDES * 0.8) * grad[None, :, None]
     tint = np.array(color, dtype=np.float32)[None, None, :]
-    return img + band * tint * (amount * 40.0)
+    return img + band * tint * (amount * 26.0)
 
 
 def apply_vignette_grain(img: np.ndarray, fno: int, grain: float) -> np.ndarray:
@@ -250,8 +258,8 @@ def shot_for(fno: int) -> dict:
 
     if fno <= 66:  # ACT A · cold open
         p = (fno - 1) / 65.0
-        plan.update(zoom=1.00 + 0.05 * p, dark=0.42 + 0.20 * p, amp=1.0,
-                    leak=(30, 10, 60), leak_amt=0.10 + 0.10 * math.sin(p * math.pi * 2.0))
+        plan.update(zoom=1.00 + 0.05 * p, dark=0.36 + 0.22 * p, amp=1.0,
+                    leak=(30, 10, 60), leak_amt=0.05 + 0.05 * math.sin(p * math.pi * 2.0))
         if fno <= 8:
             plan["dark"] = 0.22
 
@@ -271,10 +279,10 @@ def shot_for(fno: int) -> dict:
                         ab=2.5, flash=(255, 60, 50), flash_amt=0.10, hud=78.0)
         elif fno <= 208:
             plan.update(plate="plate_med_red_sil.png", mode="seated", amp=1.2, zoom=1.10 + 0.06 * ((fno - 177) / 31.0),
-                        leak=(60, 20, 90), leak_amt=0.18, hud=80.0 + 12.0 * ((fno - 177) / 31.0))
+                        leak=(60, 20, 90), leak_amt=0.10, hud=80.0 + 12.0 * ((fno - 177) / 31.0))
         else:
             plan.update(zoom=1.16 + 0.06 * ((fno - 209) / 31.0), dark=0.85, hud=100.0,
-                        leak=(40, 15, 70), leak_amt=0.14)
+                        leak=(40, 15, 70), leak_amt=0.08)
 
     elif fno <= 420:  # ACT C · chaos projection — 15-frame cuts
         idx = min(len(MONTAGE_C) - 1, (fno - 241) // 15)
@@ -283,9 +291,9 @@ def shot_for(fno: int) -> dict:
         plan.update(plate=f"plate_{plate}.png" if not plate.endswith(".png") else plate,
                     mode=mode, amp=1.30 + 0.05 * (idx % 2), zoom=1.06 + 0.02 * (idx % 3) + 0.0015 * (fno - 241),
                     ab=1.0 + 5.0 * ((fno - 241) / 179.0), shake=2.4, grain=2.4,
-                    leak=(70, 25, 110), leak_amt=0.12 + 0.08 * math.sin(fno * 0.12))
+                    leak=(70, 25, 110), leak_amt=0.07 + 0.04 * math.sin(fno * 0.12))
         if cut:
-            plan.update(flash=(255, 40, 40), flash_amt=0.16, glitch=0.25)
+            plan.update(flash=(255, 40, 40), flash_amt=0.12, glitch=0.25)
         if idx % 3 == 2:
             plan["glitch"] = 0.45
 
@@ -298,13 +306,13 @@ def shot_for(fno: int) -> dict:
                         zoom=1.05 + 0.07 * ((fno - 445) / 23.0), ab=1.5)
         elif fno <= 486:
             plan.update(plate="plate_close_amber_sil.png", mode="seated", amp=1.25,
-                        zoom=1.08, ab=2.0, leak=(90, 45, 20), leak_amt=0.16)
+                        zoom=1.08, ab=2.0, leak=(90, 45, 20), leak_amt=0.10)
         elif fno <= 522:
             plan.update(plate="plate_close_cyan_visor.png", mode="point_action", amp=1.28,
                         zoom=1.10 + 0.12 * ((fno - 487) / 35.0), shake=1.6, ab=2.4)
         else:
             plan.update(plate="plate_med_red_blue.png", mode="sovereign_arms", amp=1.25,
-                        zoom=1.02 + 0.08 * ((fno - 523) / 59.0), leak=(60, 20, 90), leak_amt=0.18)
+                        zoom=1.02 + 0.08 * ((fno - 523) / 59.0), leak=(60, 20, 90), leak_amt=0.10)
 
     elif fno <= 780:  # ACT E · chaos burst — 7-frame cuts
         idx = min(len(MONTAGE_E) - 1, (fno - 583) // 7)
@@ -313,9 +321,9 @@ def shot_for(fno: int) -> dict:
         plan.update(plate=f"plate_{plate}.png", mode=mode, amp=1.35, zoom=1.15 if idx % 2 == 0 else 1.32,
                     ab=3.5 + 3.5 * ((fno - 583) / 197.0), shake=4.2, grain=2.8,
                     glitch=0.60 if idx % 2 == 0 else 0.25,
-                    leak=(120, 30, 140), leak_amt=0.18)
+                    leak=(120, 30, 140), leak_amt=0.10)
         if cut:
-            plan.update(flash=(255, 235, 235), flash_amt=0.20)
+            plan.update(flash=(255, 235, 235), flash_amt=0.14)
         if idx % 8 == 3 and (fno - 583) % 7 == 0:
             plan["invert"] = True
 
@@ -325,9 +333,9 @@ def shot_for(fno: int) -> dict:
         cut = (fno - 781) % 30 == 0
         plan.update(plate=plate if plate.endswith(".png") else f"plate_{plate}.png", mode=mode,
                     amp=1.25, zoom=1.04 + 0.12 * ((fno - 781) / 209.0), shake=1.5,
-                    ab=1.5, grain=2.0, leak=(50, 20, 80), leak_amt=0.14)
+                    ab=1.5, grain=2.0, leak=(50, 20, 80), leak_amt=0.08)
         if cut:
-            plan.update(flash=(255, 255, 255), flash_amt=0.12, glitch=0.2)
+            plan.update(flash=(255, 255, 255), flash_amt=0.09, glitch=0.2)
 
     elif fno <= 1214:  # ACT G · finale build — accelerating montage
         if fno <= 1050:
@@ -346,12 +354,12 @@ def shot_for(fno: int) -> dict:
         plan.update(plate=pool[idx % len(pool)], mode=["seated", "closeup_34", "point_action", "sovereign_arms"][idx % 4],
                     amp=1.35, zoom=1.10 + 0.35 * span, ab=2.0 + 6.0 * span, shake=2.0 + 5.0 * span,
                     glitch=0.35 + 0.35 * span if idx % 3 == 0 else 0.15, grain=2.6,
-                    leak=(140, 40, 60), leak_amt=0.20 + 0.10 * span)
+                    leak=(140, 40, 60), leak_amt=0.10 + 0.05 * span)
         if fno % max(2, 15 - int(span * 10)) == 0:
-            plan.update(flash=(255, 210, 120), flash_amt=0.16 + 0.14 * span)
+            plan.update(flash=(255, 210, 120), flash_amt=0.10 + 0.09 * span)
         if fno >= 1205:  # final push into the eyes before the gold impact
             plan.update(plate="plate_closeup_34.png", mode="closeup_34", zoom=1.45 + 0.05 * (fno - 1205),
-                        ab=8.0, shake=6.0, flash=(255, 220, 140), flash_amt=0.22 + 0.10 * (fno - 1205))
+                        ab=8.0, shake=6.0, flash=(255, 220, 140), flash_amt=0.16 + 0.08 * (fno - 1205))
 
     else:  # ACT H · crown finale
         plan.update(plate="plate_sovereign_monarch_finale.png", mode="sovereign_arms", amp=1.1,
@@ -385,7 +393,7 @@ def render(args: argparse.Namespace) -> int:
 
     cmd = [FFMPEG, "-y", "-f", "rawvideo", "-vcodec", "rawvideo", "-pix_fmt", "rgb24",
            "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", str(audio_path),
-           "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p",
+           "-c:v", "libx264", "-preset", "medium", "-crf", str(args.crf), "-pix_fmt", "yuv420p",
            "-c:a", "aac", "-b:a", "256k", "-ar", "48000", "-ac", "2",
            "-movflags", "+faststart", "-shortest", str(out_mp4), "-loglevel", "warning"]
 
@@ -413,8 +421,9 @@ def render(args: argparse.Namespace) -> int:
         if plan["leak_amt"] > 0:
             frame = light_leak(frame, plan["leak"], plan["leak_amt"], fno * 0.05)
         if plan["flash_amt"] > 0:
-            f = plan["flash_amt"]
-            frame = frame * (1.0 - f) + np.array(plan["flash"], dtype=np.float32)[None, None, :] * f * 1.35
+            # strobing never fully erases the face: the centre keeps ~45% of the hit
+            f_map = plan["flash_amt"] * (1.0 - 0.55 * FACE_MASK)
+            frame = frame * (1.0 - f_map) + np.array(plan["flash"], dtype=np.float32)[None, None, :] * f_map * 1.35
         if plan.get("invert"):
             frame = 255.0 - frame
 
@@ -522,6 +531,7 @@ def main() -> int:
     parser.add_argument("--no-audio", action="store_true", help="silent track (fast smoke test)")
     parser.add_argument("--no-sheets", action="store_true", help="skip contact/look sheets")
     parser.add_argument("--sheets", action="store_true", default=True, help=argparse.SUPPRESS)
+    parser.add_argument("--crf", type=int, default=20, help="x264 CRF (16 is huge on grainy chaos frames; 20 keeps ~1/3 size)")
     parser.add_argument("--plan", action="store_true", help="print the act table and exit")
     args = parser.parse_args()
     if args.plan:

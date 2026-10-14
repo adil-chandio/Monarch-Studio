@@ -1,0 +1,15 @@
+{
+ "schema_version": 1,
+ "note": "Reference video for WF-04 renders. The video itself is staged under /tmp (outside the workspace snapshot).",
+ "reference_video": {
+  "name": "ref.mp4",
+  "drive_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "md5": "42e52d770f6b53338639d2d1a01e2e48",
+  "size_bytes": 26397151
+ },
+ "derived": {
+  "ref_audio_wav": "/tmp/monarch-stage/ref_video/ref_audio.wav",
+  "ref_audio_bytes": 7856206,
+  "ffmpeg": "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
+ }
+}

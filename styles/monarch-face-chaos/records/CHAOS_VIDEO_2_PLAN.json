@@ -1,0 +1,118 @@
+{
+ "schema_version": 1,
+ "task_id": "EMS-20261014-001",
+ "title": "MONARCH CHAOS VIDEO 2 \u00b7 SOVEREIGN OVERLOAD II \u00b7 CHAOS RISING",
+ "reference": {
+  "drive_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "name": "VID_20261013_050529_146.mp4",
+  "duration_seconds": 44.399,
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "cut_map_note": "4 fps frame-diff analysis: dark open (luma ~9) to 16.5 s, montage bursts 16.5-19.25 s and 34.75-38.25 s, hard flash/cut 40.25-40.5 s, ~4 s tail card."
+ },
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "frames": 1336,
+  "duration_seconds": 44.533,
+  "audio": "48 kHz stereo"
+ },
+ "acts": [
+  {
+   "act": "A",
+   "name": "cold open",
+   "start": 1,
+   "end": 66,
+   "seconds": [
+    0.0,
+    2.17
+   ]
+  },
+  {
+   "act": "B",
+   "name": "throne awakening",
+   "start": 67,
+   "end": 240,
+   "seconds": [
+    2.2,
+    7.97
+   ]
+  },
+  {
+   "act": "C",
+   "name": "chaos projection",
+   "start": 241,
+   "end": 420,
+   "seconds": [
+    8.0,
+    13.97
+   ]
+  },
+  {
+   "act": "D",
+   "name": "triad close-ups",
+   "start": 421,
+   "end": 582,
+   "seconds": [
+    13.97,
+    19.37
+   ]
+  },
+  {
+   "act": "E",
+   "name": "chaos burst",
+   "start": 583,
+   "end": 780,
+   "seconds": [
+    19.4,
+    25.97
+   ]
+  },
+  {
+   "act": "F",
+   "name": "sovereign stance",
+   "start": 781,
+   "end": 990,
+   "seconds": [
+    25.97,
+    32.97
+   ]
+  },
+  {
+   "act": "G",
+   "name": "finale build",
+   "start": 991,
+   "end": 1214,
+   "seconds": [
+    32.97,
+    40.47
+   ]
+  },
+  {
+   "act": "H",
+   "name": "crown finale",
+   "start": 1215,
+   "end": 1336,
+   "seconds": [
+    40.47,
+    44.53
+   ]
+  }
+ ],
+ "audio_metrics": {
+  "rms": 0.1954,
+  "true_peak_dbfs": -1.5,
+  "lufs_approx": -14.87,
+  "samples": 1963920,
+  "duration_seconds": 44.533
+ },
+ "improvements_over_v1": [
+  "covers the full 44.53 s reference length (v1 was 21.20 s)",
+  "act structure retimed to the measured reference cut map",
+  "body-motion amplitudes boosted per act (amp 1.0-1.35)",
+  "new chaos layers: glitch band slices, camera shake, light leaks, strobes, invert hit",
+  "crowned MONARCH STUDIO finale extended to 4.06 s with crown float and fade"
+ ]
+}
