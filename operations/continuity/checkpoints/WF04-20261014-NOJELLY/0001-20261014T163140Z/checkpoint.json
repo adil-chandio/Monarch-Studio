@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261014T163140Z",
+  "created_at": "2026-10-14T16:31:40Z",
+  "summary": "Original identity/reference inspected; old jelly plates rejected; new vault art direction generated; Blender runtime verified. Preparing new rig geometry, not image warps.",
+  "next_action": "Build a new vault set and standing articulated character; render fixed-camera proof frames before a short native-frame video.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "active",
+    "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+    "style_id": "monarch-face-chaos",
+    "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+    "acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-14T16:31:40Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 7,
+    "journal_head": "16a226d9dd4c4c57651932243c3020720e13824e2dc518721c2681cf0456cc9d",
+    "last_checkpoint": "2026-10-14T16:31:40Z",
+    "last_checkpoint_path": null,
+    "next_action": "Build a new vault set and standing articulated character; render fixed-camera proof frames before a short native-frame video.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 7,
+    "timestamp": "2026-10-14T16:31:40Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Original identity/reference inspected; old jelly plates rejected; new vault art direction generated; Blender runtime verified. Preparing new rig geometry, not image warps.",
+    "content_sha256": "ddf4da2c9a65548a26bafc82cc44283ce5370e913582891cf2bccfa7cbb3abcf",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Build a new vault set and standing articulated character; render fixed-camera proof frames before a short native-frame video.",
+      "status": "active"
+    },
+    "prev_event_sha256": "61322bb0bcba381817696845ff3bde0be9bced3e110891158b14ea330d75b629",
+    "event_sha256": "16a226d9dd4c4c57651932243c3020720e13824e2dc518721c2681cf0456cc9d"
+  },
+  "journal_head": "16a226d9dd4c4c57651932243c3020720e13824e2dc518721c2681cf0456cc9d",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M .gitignore",
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    }
+  ]
+}

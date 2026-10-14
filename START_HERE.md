@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `NONE`
-- **Status:** `idle`
-- **Title:** No active task
-- **Next action:** Start the next task with continuity.py init.
+- **Task:** `WF04-20261014-NOJELLY`
+- **Status:** `rendering`
+- **Title:** Monarch Face: original scenes and articulated motion, no plate warps
+- **Next action:** Run composite_live.py for all 11 shots, then finish_live.py to synthesize original sound, mux, verify 1332 frames and save the video. Do not redo completed matching shots.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

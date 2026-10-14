@@ -56,3 +56,10 @@ Thumbs.db
 *_FINAL.mp4
 *_master.mp4
 master_*.mp4
+
+# Transient media and model downloads (never identity in Git)
+.cache/
+google_drive/
+
+# Private review video/assets: delivered via viewer/Drive, never published in Git
+deliverables/

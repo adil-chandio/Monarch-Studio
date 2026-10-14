@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0002-20261014T164710Z",
+  "created_at": "2026-10-14T16:47:10Z",
+  "summary": "Four native QA frames exist but fail the requested visual quality; no full film has been claimed. New 43-bone rig exists; correct topology/proportions and lighting, then render short motion test.",
+  "next_action": "Correct disconnected-looking garment ends and material/lighting issues. Keep only honest motion-study deliverable unless character quality improves; do not label rough geometry as realistic final.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "active",
+    "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+    "style_id": "monarch-face-chaos",
+    "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+    "acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-14T16:47:10Z",
+    "checkpoint_sequence": 2,
+    "event_sequence": 13,
+    "journal_head": "1e2188a1ed2ce5f54d238eca3fffa7f44a914e162649936209f9c9e8f1480eae",
+    "last_checkpoint": "2026-10-14T16:47:10Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0002-20261014T164710Z",
+    "next_action": "Correct disconnected-looking garment ends and material/lighting issues. Keep only honest motion-study deliverable unless character quality improves; do not label rough geometry as realistic final.",
+    "running_processes": [
+      {
+        "id": "monarch-original-3d-motion-check-30451e5f",
+        "name": "Vault sample-frame render",
+        "state": "completed",
+        "started_at": "2026-10-14T16:46:38Z",
+        "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 13,
+    "timestamp": "2026-10-14T16:47:10Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Four native QA frames exist but fail the requested visual quality; no full film has been claimed. New 43-bone rig exists; correct topology/proportions and lighting, then render short motion test.",
+    "content_sha256": "a24cefd438aeee670463c5a41a6baf74454e94b36679280ab708ad3b3eea8bd7",
+    "metadata": {
+      "sequence": 2,
+      "next_action": "Correct disconnected-looking garment ends and material/lighting issues. Keep only honest motion-study deliverable unless character quality improves; do not label rough geometry as realistic final.",
+      "status": "active"
+    },
+    "prev_event_sha256": "b397938241102736925519d764383ad58b9032934a910631a6a8ea5f062f3cf8",
+    "event_sha256": "1e2188a1ed2ce5f54d238eca3fffa7f44a914e162649936209f9c9e8f1480eae"
+  },
+  "journal_head": "1e2188a1ed2ce5f54d238eca3fffa7f44a914e162649936209f9c9e8f1480eae",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M .gitignore",
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? workflows/current/payload/true-motion/records/BRIEF.json",
+      "?? workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "?? workflows/current/payload/true-motion/src/build_vault.py",
+      "?? workflows/current/payload/true-motion/src/identity_head.py",
+      "?? workflows/current/payload/true-motion/src/motion_math.py",
+      "?? workflows/current/payload/true-motion/src/render_vault.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/true-motion/records/BRIEF.json",
+      "size": 1000,
+      "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/build_vault.cpython-311.pyc",
+      "size": 60058,
+      "sha256": "e0311a34f07c6386ee14d0022eac0cbc5dc53a0411f2463df1a7efc9c045d517"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/identity_head.cpython-311.pyc",
+      "size": 30446,
+      "sha256": "f7d042745e253325f62c1c2f8334d0c016532c03ce0de01c82bc1f5ff211a9ed"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/motion_math.cpython-311.pyc",
+      "size": 5418,
+      "sha256": "0b87844e87d6eb88d7aaa216b908ec46c87a08cfe5a2019a1dee5b28399763d3"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/build_vault.py",
+      "size": 29334,
+      "sha256": "35f2e7a0491efc9dc80eab2bd224b4d7f7d2b7f7b45b188f5ae44ef12ab1b0df"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/identity_head.py",
+      "size": 12807,
+      "sha256": "0ce5830b9590e92ab5440f1b53bbae8f7f48e7d09bf7b54f224b52cccda60425"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/motion_math.py",
+      "size": 2717,
+      "sha256": "2c99d18f774e64783d3b90614eb7911790385298b6d16771a1f292f283ade733"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/render_vault.py",
+      "size": 3555,
+      "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130"
+    }
+  ]
+}

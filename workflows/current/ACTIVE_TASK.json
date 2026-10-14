@@ -1,27 +1,49 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T02:00:00Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
-  "running_processes": [],
+  "task_id": "WF04-20261014-NOJELLY",
+  "status": "rendering",
+  "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+  "style_id": "monarch-face-chaos",
+  "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+  "acceptance_criteria": [
+    "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+  ],
+  "started_at": "2026-10-14T16:22:04Z",
+  "updated_at": "2026-10-14T17:20:35Z",
+  "checkpoint_sequence": 3,
+  "event_sequence": 22,
+  "journal_head": "3a4303c07b30f329db0661f26b8298aea0b900c63d0dc0b3090b4effb900f690",
+  "last_checkpoint": "2026-10-14T17:20:35Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z",
+  "next_action": "Run composite_live.py for all 11 shots, then finish_live.py to synthesize original sound, mux, verify 1332 frames and save the video. Do not redo completed matching shots.",
+  "running_processes": [
+    {
+      "id": "monarch-original-3d-motion-check-30451e5f",
+      "name": "Vault sample-frame render",
+      "state": "completed",
+      "started_at": "2026-10-14T16:46:38Z",
+      "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+    },
+    {
+      "id": "monarch-corrected-joint-motion-r-ce4914d5",
+      "name": "Corrected vault QA render",
+      "state": "running",
+      "started_at": "2026-10-14T16:57:53Z",
+      "resume_instruction": "Query this process first. Three QA frames render in .cache/monarch-true-motion/qa-v2. Inspect then render full motion proof. Do not start another while running."
+    },
+    {
+      "id": "monarch-native-motion-frames-431c3ea6",
+      "name": "Native render after armature-parent correction",
+      "state": "running",
+      "started_at": "2026-10-14T17:02:11Z",
+      "resume_instruction": "Wait for process exit. Frames p1/p56 at .cache/monarch-true-motion/native-v3 test corrected garment world transforms. Resume renderer from these matching frames only after visual review."
+    }
+  ],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-003",
-  "completion_checkpoint": "0004-20261011T020000Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }
