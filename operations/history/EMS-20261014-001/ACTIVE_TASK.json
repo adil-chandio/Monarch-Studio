@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261014-001",
+  "status": "completed",
+  "title": "Einstein Flow State · Urdu-English remake · Monarch V2",
+  "style_id": "monarch-noir-film",
+  "goal": "Recreate the reference Einstein/flow-state video: same topic and script, same lavender editorial editing style, Urdu-English dub, enhanced 3D motion/transitions, no Monarch/Instagram tags, final vertical MP4 uploaded to Drive.",
+  "acceptance_criteria": [
+    "Final vertical 1080x1920 MP4 with Urdu-English dub, animated captions, lavender editorial scenes, no visible tags, uploaded to Drive with link."
+  ],
+  "started_at": "2026-10-14T15:28:26Z",
+  "updated_at": "2026-10-14T15:37:04Z",
+  "checkpoint_sequence": 2,
+  "event_sequence": 5,
+  "journal_head": "f8131c77941846aecee5b3c018bb3ef8faa0e0c8512cc1680dd47542bdb612db",
+  "last_checkpoint": "2026-10-14T15:37:04Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T153704Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

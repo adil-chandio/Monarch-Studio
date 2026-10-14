@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `EMS-20261014-001`
-- **Status:** `active`
-- **Title:** Einstein Flow State · Urdu-English remake · Monarch V2
-- **Next action:** Task complete; deliver Drive link to user.
+- **Task:** `NONE`
+- **Status:** `idle`
+- **Title:** No active task
+- **Next action:** Start the next task with continuity.py init.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
