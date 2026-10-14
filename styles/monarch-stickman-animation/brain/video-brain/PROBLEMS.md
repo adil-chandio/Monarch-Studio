@@ -196,3 +196,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** Rebuilt from the committed recipe (bootstrap9.sh 33 s, render_husky.sh ~25 min, VO regenerated with voice-00 -> new timing 20.24 s / 607 frames, build9.sh). VO archive now kept on Drive. Deliverable uploaded with the connector as soon as the gate passes (see V-019).
 - **Verified by:** this session's rebuild
 
+## P-025 · 2026-10-14 · status: fixed
+
+- **Symptom:** After the sandbox reset the local repo was at the session base commit 7909bde with only a truncated patchset of files on top (1569 files from the branch history missing); a normal commit there produced a history that diverged from origin and the push was rejected.
+- **Cause:** The platform restores the working tree as base commit + saved patchset, and the patchset had been capped (large media in /home/user/work counted against the ~128 MB limit).
+- **Fix:** Never force-push. Save the few files you changed this turn, git fetch, git reset --hard origin/<session-branch>, copy the files back, verify the diff is only your edits, commit, push (fast-forward). Keep /home/user/work small (delete shards, intermediate wavs, local copies of files already on Drive) so the patchset is never truncated.
+- **Verified by:** commit f0aa6fe pushed on top of f055a6a, history intact
+
