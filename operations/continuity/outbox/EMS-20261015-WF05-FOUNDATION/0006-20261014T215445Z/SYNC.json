@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0006-20261014T215445Z",
+  "task_id": "EMS-20261015-WF05-FOUNDATION",
+  "created_at": "2026-10-14T21:54:45Z",
+  "targets": {
+    "github": {
+      "status": "synced",
+      "target": {
+        "scope": "permanent_style_WF-05",
+        "url": "https://github.com/adil-chandio/Monarch-Studio/pull/3",
+        "remote_id": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+        "note": "Task-specific style publication; no claim to rewrite unrelated old system hubs."
+      },
+      "remote_id": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+      "synced_at": "2026-10-14T21:54:45Z",
+      "note": "CI passed; main profile and registry independently verified; final idle/archive acknowledgement follows.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/pull/3"
+    },
+    "google_docs": {
+      "status": "synced",
+      "target": {
+        "scope": "permanent_style_WF-05",
+        "url": "https://docs.google.com/document/d/1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU/edit",
+        "remote_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+        "note": "Task-specific style publication; no claim to rewrite unrelated old system hubs."
+      },
+      "remote_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+      "synced_at": "2026-10-14T21:54:45Z",
+      "note": "17 chapter headers, all required word occurrences, end/hash markers and live-link/main publication markers read back; global registry entry appended and verified.",
+      "url": "https://docs.google.com/document/d/1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU/edit"
+    },
+    "google_drive": {
+      "status": "synced",
+      "target": {
+        "scope": "permanent_style_WF-05",
+        "url": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+        "remote_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+        "note": "Task-specific style publication; no claim to rewrite unrelated old system hubs."
+      },
+      "remote_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+      "synced_at": "2026-10-14T21:54:45Z",
+      "note": "Existing WF-05 folder; full source 2481616 bytes / MD5 6e407c5b4cca1a8da17e973915b0b0d6 independently verified; PDF/readable assets and source shortcuts present.",
+      "url": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri"
+    },
+    "linear": {
+      "status": "synced",
+      "target": {
+        "scope": "permanent_style_WF-05",
+        "url": "https://linear.app/monarchmation/issue/MON-68/wf-05-foundation-preserve-v5v6-learning-approved-policy-engine-and",
+        "remote_id": "5fdaa68c-6787-4cca-b172-4c42a1907ece",
+        "note": "Task-specific style publication; no claim to rewrite unrelated old system hubs."
+      },
+      "remote_id": "5fdaa68c-6787-4cca-b172-4c42a1907ece",
+      "synced_at": "2026-10-14T21:54:46Z",
+      "note": "WF-05 project/body and MON-67 pointer cross-linked; MON-55 registry addition; MON-68 Done independently retrieved. Permanent pointer is not pending production.",
+      "url": "https://linear.app/monarchmation/issue/MON-68/wf-05-foundation-preserve-v5v6-learning-approved-policy-engine-and"
+    },
+    "notion": {
+      "status": "synced",
+      "target": {
+        "scope": "permanent_style_WF-05",
+        "url": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26",
+        "remote_id": "3f9807e1-e916-819b-9c53-e21326dd0f26",
+        "note": "Task-specific style publication; no claim to rewrite unrelated old system hubs."
+      },
+      "remote_id": "3f9807e1-e916-819b-9c53-e21326dd0f26",
+      "synced_at": "2026-10-14T21:54:45Z",
+      "note": "Full knowledge index, policy, actual links, Workflows authority row and Doc00 populated/read back; hub/current state marked ready.",
+      "url": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26"
+    }
+  }
+}

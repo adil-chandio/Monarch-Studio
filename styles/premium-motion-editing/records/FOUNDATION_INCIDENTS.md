@@ -10,3 +10,6 @@ Video-history failures and fixes remain separately enumerated in data/lessons.js
 
 5. Native Doc readback initially ran under system Python without the documentation venv dependency; the check was rerun in .venv, with 100% required-word coverage. No remote upload was duplicated.
 6. The optional Google Docs insert-before-tab argument was rejected by the API. No tab was created by that failed call. The existing complete codex was preserved and a normal live-links section was used instead; no repeated invalid call or fabricated tab ID.
+
+7. A small live receipt update was rejected because a JSON-looking content string was coerced to an object by the connector. The same file ID was retained and the documented base64 content mode succeeded; local/remote MD5 matched. The premature parallel-log wording was explicitly corrected in the active journal.
+8. Cosmetic Git whitespace checking flagged intentional Markdown hard breaks and verbatim font-license/history text. Original evidence bytes were retained; only an authored extra EOF blank line was cleaned and the check allowed end-of-line whitespace for that commit.

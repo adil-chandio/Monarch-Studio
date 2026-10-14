@@ -1,0 +1,21 @@
+{
+  "source_commit": "8a2d5ee1488e2d0ec1b2f71754153aa4e11b70f8",
+  "pull_request": "https://github.com/adil-chandio/Monarch-Studio/pull/3",
+  "merged_at": "2026-10-14T21:40:06Z",
+  "merge_commit": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+  "ci_checks": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T21:38:49Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/adil-chandio/Monarch-Studio/actions/runs/38641784223/job/116118818815",
+      "name": "validate",
+      "startedAt": "2026-10-14T21:38:22Z",
+      "status": "COMPLETED",
+      "workflowName": "Continuity audit"
+    }
+  ],
+  "main_policy_verified": true,
+  "main_registry_verified": true,
+  "source_url": "https://github.com/adil-chandio/Monarch-Studio/tree/main/styles/premium-motion-editing"
+}

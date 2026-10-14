@@ -1,5 +1,5 @@
 {
-  "status": "library_ready_publication_in_progress",
+  "status": "complete_verified",
   "user_policy_applied": true,
   "wf05_policy_and_compositor_tests": {
     "passed": 12,
@@ -13,8 +13,13 @@
       "Preserved historical absolute paths; use hydrate/run"
     ]
   },
-  "cross_platform": "pending_population_and_readback",
-  "github_main": "not_yet_published",
+  "cross_platform": "WF-05 style hubs/registry/source published and read back",
+  "github_main": {
+    "verified": true,
+    "pull_request": "https://github.com/adil-chandio/Monarch-Studio/pull/3",
+    "merge_commit": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+    "ci": "passed"
+  },
   "combined_master_rendered": false,
   "active_video_render": false,
   "snapshot_role": "permanent knowledge library, not an active task capsule",
@@ -26,5 +31,9 @@
     "verified": true,
     "required_word_occurrence_coverage": 1.0,
     "chapter_headers": 17
-  }
+  },
+  "pdf_presented": true,
+  "live_release_receipt_verified": true,
+  "publication_complete": true,
+  "no_production_work_pending": true
 }

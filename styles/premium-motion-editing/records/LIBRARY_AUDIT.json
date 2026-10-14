@@ -854,8 +854,8 @@
   ],
   "passed": 170,
   "failed": 0,
-  "files": 167,
-  "bytes": 4272478,
+  "files": 175,
+  "bytes": 4382321,
   "historical_exact_copies": 74,
   "scope": "Available evidence and library paths only; not a claim to recover unavailable pre-init history or all historical scratch pixels."
 }

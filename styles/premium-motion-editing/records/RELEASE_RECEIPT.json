@@ -2,7 +2,7 @@
   "schema_version": 1,
   "workflow_code": "WF-05",
   "style_id": "premium-motion-editing",
-  "status": "publication_in_progress",
+  "status": "complete_verified",
   "policy_id": "wf05-clean-editorial-20261015",
   "approved_direction": "V5 clean editorial layout + accepted V6 non-caption motion/depth/transitions/sound",
   "rejected": "V6 lower caption pills / active-word strip",
@@ -34,12 +34,19 @@
     "md5": "6e407c5b4cca1a8da17e973915b0b0d6",
     "sha256": "dd6d08000b75288db10886254c6f13f885b8dc433735f7b3af03fddaed5a37e6",
     "size": 2481616,
-    "manifest_entries": 179
+    "manifest_entries": 179,
+    "independent_get_verified": true
   },
   "github": {
     "repository": "https://github.com/adil-chandio/Monarch-Studio",
     "branch": "arena/fb829993-monarch-studio",
-    "main_verified": false
+    "main_verified": true,
+    "source_commit": "8a2d5ee1488e2d0ec1b2f71754153aa4e11b70f8",
+    "pull_request": "https://github.com/adil-chandio/Monarch-Studio/pull/3",
+    "branch_pushed": true,
+    "merge_commit": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+    "main_url": "https://github.com/adil-chandio/Monarch-Studio/tree/main/styles/premium-motion-editing",
+    "ci": "passed"
   },
   "platforms": {
     "drive_folder": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
@@ -47,7 +54,8 @@
     "notion": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26",
     "linear": "https://linear.app/monarchmation/issue/MON-67/00-resume-key-motiongo-wf-05-premium-motion-editing-state-and-links"
   },
-  "complete": false,
+  "complete": true,
   "snapshot_policy": "A source-library snapshot is not an active task capsule. Consult the live receipt/actual repository continuity state before resuming any work.",
-  "live_receipt_url": "https://drive.google.com/file/d/1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje/view"
+  "live_receipt_url": "https://drive.google.com/file/d/1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje/view",
+  "completion_state_acknowledgement": "Completed task archived and active slot idle in this release snapshot; main-branch state is verified after publishing the acknowledgement."
 }
