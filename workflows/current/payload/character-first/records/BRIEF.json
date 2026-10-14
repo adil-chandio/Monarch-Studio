@@ -50,7 +50,7 @@
     }
   ],
   "film_complete": false,
-  "next_action": "Recover completed art and crown-video component by their saved Drive IDs if needed; do not redo them. Actual new-character motion still requires a capable video-generation/detailed rig pipeline or appropriate newly rendered clips before full-film editing can finish.",
+  "next_action": "Keep main reference 1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx locked. Use its exact original soundtrack, not any other chat or our original sting. Main-reference-specific motion/picture edit remains unrendered; the old eight-beat proposal is not a verified cut map. The inspected other-chat engine is explicitly 2.5D photographic rigging, not natural/fully reconstructed 3D human motion.",
   "missing_previous_selection": {
     "selection": "option 1 of 2",
     "selection_evidence": "Completed generate_image result confirms user selected option 1. User then requested continuation from exactly that choice.",
@@ -83,5 +83,23 @@
   "brand_outro_video_complete": true,
   "rendered_brand_frames": 108,
   "rendered_character_frames": 0,
-  "video_components": "VIDEO_COMPONENTS.json"
+  "video_components": "VIDEO_COMPONENTS.json",
+  "canonical_main_reference": {
+    "id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+    "url": "https://drive.google.com/file/d/1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx/view",
+    "name": "VID_20261013_050529_146.mp4",
+    "video_frames": 1332,
+    "video_seconds": 44.4,
+    "audio_policy": "UNCHANGED ORIGINAL REFERENCE AUDIO, per latest explicit user request.",
+    "audit": "main-reference/MAIN_REFERENCE_AUDIT.json"
+  },
+  "other_chat_workflow_scope": "Technique/workflow example only. NOT a visual, music, duration, or base-version authority for this project.",
+  "reference_specific_shot_match_complete": false,
+  "main_reference_motion_method": {
+    "requested_quality": "Reference-like complete new-character film; prior no-jelly/no-reused-reference-body constraints remain.",
+    "available_example_method": "Whole-character image-based 2.5D skeletal skinning, as inspected in the other-chat source.",
+    "important_difference": "This is not the reference's true 3D human/weapon/perspective performance. A 2.5D recreation would be an explicitly limited approximation.",
+    "main_reference_2_5d_acceptance_recorded": false,
+    "interaction_note": "If this tradeoff needs confirmation, use plain text only; do not open another pending-question/options popup."
+  }
 }

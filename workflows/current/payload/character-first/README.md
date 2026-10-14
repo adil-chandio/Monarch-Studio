@@ -17,6 +17,33 @@ motion graphics with original sound—not a moving character or a finished film.
 The user delegated design judgement; this is not recorded as explicit approval
 of likeness or of a completed final film.
 
+## Canonical main reference and music — latest clarification
+
+The MAIN reference is only
+`1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx` / `VID_20261013_050529_146.mp4`:
+1,332 native frames at 30 fps, 720 × 1280, 44.4 seconds of picture. The separately
+pasted red/blue chair-and-cables conversation is a workflow/technique example,
+NOT a visual base, 21-second duration target, soundtrack or version selection
+for this film. See `records/main-reference/REFERENCE_LOCK.md`.
+
+The user now explicitly wants the reference's **same original music**. Its AAC
+stream has been copied without re-encoding and verified twice: encoded packet
+payload and decoded PCM hashes match. The source audio has a slightly longer
+tail than the picture; preserve it. The separate crown outro supplies video only
+under that continuous reference track—do not mix its own sting into this final.
+This supersedes earlier proposals for an original score on the full film.
+
+`src/conform_reference_audio.py` will accept only a complete, correctly timed
+picture input, not an outro-only or the other chat's 632-frame edit. It rejects
+the identical reference file and identical known rejected composite. It copies
+the original soundtrack unchanged and verifies picture/audio payloads after
+muxing. It does not generate human motion or certify visual accuracy, and has
+not been run to manufacture a placeholder final movie.
+
+Frame-by-frame metrics and transition *candidates* are saved under
+`records/main-reference/`; candidates are not automatically confirmed cuts.
+The earlier eight-beat plan remains a creative proposal, not an exact cut map.
+
 ## User correction — binding direction
 
 The user's personal video is **face reference only**. Do not composite that

@@ -1,0 +1,10 @@
+{
+  "guard_tests_passed": 6,
+  "actual_main_reference_video_decode_frames": 1332,
+  "video_decode_seconds": 44.4,
+  "encoded_audio_hash_match": true,
+  "decoded_pcm_hash_match": true,
+  "audio_backup_upload_verified": true,
+  "conform_tool_run_with_new_picture": false,
+  "full_character_movie_created": false
+}

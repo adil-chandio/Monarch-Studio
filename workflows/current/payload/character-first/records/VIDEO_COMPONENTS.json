@@ -18,7 +18,8 @@
       "integrated_lufs": -18.16,
       "true_peak_dbtp": -1.84,
       "upload_verified": true,
-      "not_in_original_design_zip": true
+      "not_in_original_design_zip": true,
+      "use_in_reference_matched_final": "Video only; omit its original sting and retain the canonical reference soundtrack."
     }
   ],
   "full_character_film_complete": false,

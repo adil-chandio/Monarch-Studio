@@ -9,13 +9,13 @@
     "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T21:14:00Z",
-  "checkpoint_sequence": 15,
-  "event_sequence": 83,
-  "journal_head": "5f0cc6d96553d63c5061c51b7787de6c2b0d3d72997d4d1ca2b79e11502a53e8",
-  "last_checkpoint": "2026-10-14T21:10:04Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0015-20261014T211004Z",
-  "next_action": "Preserve completed character/shot designs and separately uploaded crown outro. Recover the exact outro via VIDEO_COMPONENTS.json if local media disappears; never re-render completed components merely on Continue. Remaining work is actual new-character motion for beats 01–08 plus final assembly/audio-to-action edit; photoreal motion renderer remains unavailable and Runway/Replicate connectors are unsupported. Do not substitute old live-action footage, still warps or the rejected mannequin.",
+  "updated_at": "2026-10-14T22:59:37Z",
+  "checkpoint_sequence": 17,
+  "event_sequence": 97,
+  "journal_head": "84563dad47c802cf4939f5148b969f03cfe7d3bd1b47919daec779f84feedf21",
+  "last_checkpoint": "2026-10-14T22:36:43Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0017-20261014T223643Z",
+  "next_action": "Work only against the confirmed main reference and unchanged source music. Read main-reference/REFERENCE_LOCK.md and MAIN_REFERENCE_AUDIT.json. Previous eight-beat plan is not a verified reference cut map; 295 transition candidates need classification. Other-chat rig source is a limited 2.5D photographic puppet, not proof of exact 3D human/weapon/camera motion. Do not relabel an outro, old composite, other-chat movie or image-warp study as the requested full film.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
@@ -58,6 +58,13 @@
       "state": "completed",
       "started_at": "2026-10-14T20:59:29Z",
       "resume_instruction": "Finished successfully: 108 frames /3.6s, verified full decode. See BRAND_OUTRO.json; do not re-render. This is only the brand-ending component, not character animation."
+    },
+    {
+      "id": "main-reference-timing-and-music--b24e5955",
+      "name": "Canonical main reference frame/audio analysis",
+      "state": "completed",
+      "started_at": "2026-10-14T22:30:20Z",
+      "resume_instruction": "Analysis complete: MAIN_REFERENCE_AUDIT.json. 1332 native frames /44.4s picture; original AAC and decoded PCM hashes match copied soundtrack. Audio recovery file 1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr. No new character movie created; do not switch to 21s chair reference."
     }
   ],
   "remote_sync": {

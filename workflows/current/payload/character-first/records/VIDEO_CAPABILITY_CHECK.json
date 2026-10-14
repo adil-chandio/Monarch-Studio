@@ -18,5 +18,22 @@
   "next_requirement": "A usable actual video-generation/detailed character-animation capability, or newly rendered motion clips using the saved master, is required for the remaining animation/edit stage.",
   "retry_policy": "Do not retry these unsupported connector slugs or regenerate completed designs as a substitute.",
   "scope": "Unsupported connector findings concern photoreal character-motion rendering, not local vector brand graphics.",
-  "local_vector_brand_render_available": true
+  "local_vector_brand_render_available": true,
+  "existing_backend_audit": {
+    "checked_at_utc": "2026-10-14T21:29:53.524042+00:00",
+    "visible_local_nvidia_devices": 0,
+    "github_workflow_count": 1,
+    "github_workflows": [
+      {
+        "name": "Continuity audit",
+        "path": ".github/workflows/continuity-audit.yml",
+        "purpose": "Repository validation, continuity checks and unit tests",
+        "runs_on": "ubuntu-latest"
+      }
+    ],
+    "configured_character_video_backend_found": false,
+    "credentials_or_secret_values_read": false,
+    "jobs_dispatched": 0,
+    "note": "gh workflow list --json was unsupported by the installed CLI; the read-only GitHub REST workflows endpoint was used successfully. This is not an Arena service-error diagnosis."
+  }
 }

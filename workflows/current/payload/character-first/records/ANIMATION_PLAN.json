@@ -116,10 +116,10 @@
     "Visual review and explicit delivery scope are mandatory; technical gates alone are not approval."
   ],
   "sound_direction": [
-    "Original low industrial room tone; do not reuse the reference soundtrack.",
-    "Restrained footfall/cuff sounds tied to actually rendered action.",
-    "Metallic fault accent at reaction; no continuous full-screen flashing.",
-    "Clean crown-brand impact and decay; loudness/true-peak checks only after a real edit exists."
+    "Use the exact source soundtrack from the user-confirmed main reference; original encoded AAC and decoded PCM are verified.",
+    "No replacement score, normalization, added outro sting or other-chat reference audio in the matched final.",
+    "The saved crown clip can be used as video-only under the continuous source soundtrack.",
+    "Do not truncate the slightly longer original audio tail just to force the 44.4s picture duration."
   ],
   "rendered_character_frames": 0,
   "rendered_brand_frames": 108,
@@ -131,5 +131,21 @@
       "out_frame_exclusive": 1332,
       "frames": 108
     }
-  ]
+  ],
+  "main_reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "cuts_role": "Previous creative proposal only; NOT frame-conformed reference cut timings.",
+  "main_reference_frame_metrics": "main-reference/REFERENCE_FRAME_METRICS.csv",
+  "transition_candidate_file": "main-reference/TRANSITION_CANDIDATES.json",
+  "transition_candidates_are_confirmed_cuts": false,
+  "audio_policy": {
+    "mode": "copy_canonical_reference_audio_unchanged",
+    "source_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+    "recovery_audio_file_id": "1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr",
+    "encoded_payload_hash_match_verified": true,
+    "decoded_pcm_hash_match_verified": true,
+    "retain_source_audio_tail": true,
+    "normalize_or_resample": false,
+    "mix_our_outro_sting": false,
+    "copy_other_chat_music": false
+  }
 }
