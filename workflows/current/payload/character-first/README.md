@@ -39,6 +39,23 @@ large media binaries into Git. Local media lives outside this Git checkout at
 `/home/user/monarch-character-assets/`; Drive is the verified recovery copy.
 Do not assume any local cache or excluded folder survives a later workspace.
 
+If the local media directory is absent, download the `design_zip` ID from
+`records/ASSETS.json` using the Drive connector. Restore the exact saved outputs
+without installing image/render dependencies:
+
+```bash
+BASE=workflows/current/payload/character-first
+python3 "$BASE/src/recover_design_assets.py" \
+  --archive google_drive/MONARCH_CHARACTER_FIRST_DESIGN_PACK.zip \
+  --ledger "$BASE/records/ASSETS.json" \
+  --root /home/user/monarch-character-assets
+```
+
+The recovery command verifies the archive and every restored file, reuses
+matching files, rejects path traversal, and refuses to overwrite a differing
+existing image. It does not regenerate art, ask the user for the master again,
+or claim to repair the Arena connection/pending-question banners.
+
 ## Rebuild the documents, not the character
 
 Python 3.11; dependencies in `requirements.txt`. DejaVu fonts are expected under

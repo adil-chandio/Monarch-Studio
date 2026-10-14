@@ -9,13 +9,13 @@
     "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T20:08:50Z",
-  "checkpoint_sequence": 11,
-  "event_sequence": 64,
-  "journal_head": "dd6e483921490443793754de1143fafd09b9ac5f6f5d32b394451e8ab199b2a4",
-  "last_checkpoint": "2026-10-14T20:07:34Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0011-20261014T200734Z",
-  "next_action": "Do not redo the delivered character/images or ask the user to attach the master: recover them from the verified Drive IDs in character-first/records/ASSETS.json if needed. The only remaining requested production stage is actual new-body animation and final edit via a capable temporal video-generation or detailed rig pipeline. No such direct photoreal video tool is currently exposed; do not fabricate progress with still pans, warps, old video compositing or the rejected mannequin.",
+  "updated_at": "2026-10-14T20:25:05Z",
+  "checkpoint_sequence": 12,
+  "event_sequence": 69,
+  "journal_head": "20e48ff24d6d4cbeffc489c2338dcc9c6b40d2ebb2ef9547d5de51b6906d615a",
+  "last_checkpoint": "2026-10-14T20:23:28Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0012-20261014T202328Z",
+  "next_action": "If local media is absent again, download the recorded design ZIP and run recover_design_assets.py; do not ask for the master or regenerate art. Do not repeat finished design work. The Arena pending-question/interruption requires platform-side investigation (support handoff in operations/incidents/WF04-service-ui-handoff.md); actual new-character motion still needs a capable video-generation/rig pipeline not currently exposed.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
