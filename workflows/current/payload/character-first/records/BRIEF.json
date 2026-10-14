@@ -50,7 +50,7 @@
     }
   ],
   "film_complete": false,
-  "next_action": "Deliver the complete design pack and its verified Drive recovery IDs. For the film, obtain a capable actual-motion render path; the current 44.4s plan has zero rendered frames.",
+  "next_action": "Recover completed art and crown-video component by their saved Drive IDs if needed; do not redo them. Actual new-character motion still requires a capable video-generation/detailed rig pipeline or appropriate newly rendered clips before full-film editing can finish.",
   "missing_previous_selection": {
     "selection": "option 1 of 2",
     "selection_evidence": "Completed generate_image result confirms user selected option 1. User then requested continuation from exactly that choice.",
@@ -78,5 +78,10 @@
   },
   "character_sheet_complete": true,
   "cinematic_shot_designs_complete": true,
-  "crown_end_frame_complete": true
+  "crown_end_frame_complete": true,
+  "video_capability_check": "VIDEO_CAPABILITY_CHECK.json",
+  "brand_outro_video_complete": true,
+  "rendered_brand_frames": 108,
+  "rendered_character_frames": 0,
+  "video_components": "VIDEO_COMPONENTS.json"
 }

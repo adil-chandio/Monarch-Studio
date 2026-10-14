@@ -61,10 +61,15 @@ class DesignTests(unittest.TestCase):
                 self.assertEqual(im.size,(1080,1920));self.assertEqual(im.mode,'RGB')
                 self.assertGreater(sum(im.getpixel((540,750))),sum(im.getpixel((50,750))))
 
-    def test_plan_is_explicitly_unrendered_and_contiguous(self):
+    def test_plan_distinguishes_brand_component_from_character_film(self):
         p=json.loads((BASE/'records/ANIMATION_PLAN.json').read_text())
-        self.assertEqual(p['rendered_frames'],0);self.assertIsNone(p['actual_video_file'])
-        self.assertEqual(p['status'],'PROPOSED_NOT_RENDERED')
+        self.assertEqual(p['rendered_character_frames'],0)
+        self.assertEqual(p['rendered_brand_frames'],108)
+        self.assertEqual(p['rendered_frames'],p['rendered_brand_frames']+p['rendered_character_frames'])
+        self.assertIsNone(p['actual_video_file'])
+        self.assertEqual(p['status'],'CHARACTER_MOTION_BLOCKED_ENDING_COMPLETE')
+        self.assertEqual(p['cuts'][-1]['render_status'],'rendered_brand_component')
+        self.assertTrue(all(c['render_status']=='not_rendered' for c in p['cuts'][:-1]))
         self.assertEqual(p['cuts'][0]['in_frame'],0)
         self.assertEqual(p['cuts'][-1]['out_frame_exclusive'],p['planned_total_frames'])
         for a,b in zip(p['cuts'],p['cuts'][1:]):self.assertEqual(a['out_frame_exclusive'],b['in_frame'])

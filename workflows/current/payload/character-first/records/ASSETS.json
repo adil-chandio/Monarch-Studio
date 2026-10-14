@@ -147,5 +147,6 @@
     }
   ],
   "animation_exists": false,
-  "asset_root": "/home/user/monarch-character-assets"
+  "asset_root": "/home/user/monarch-character-assets",
+  "scope": "Immutable still-design pack only. Separate rendered video components are tracked in VIDEO_COMPONENTS.json."
 }

@@ -1,0 +1,26 @@
+{
+  "components": [
+    {
+      "role": "brand_outro_video",
+      "path": "/home/user/monarch-video-components/MONARCH_CROWN_OUTRO_3p6s.mp4",
+      "drive_id": "1zYkVMV8yaXeR5c8EB6wkL_KfTtMGHRhU",
+      "url": "https://drive.google.com/file/d/1zYkVMV8yaXeR5c8EB6wkL_KfTtMGHRhU/view",
+      "bytes": 254625,
+      "md5": "5d26b6b0e77cb0106b868dfc428dd45b",
+      "sha256": "2282b12006bd86b7720e86eb53c87cf12ce5f315015c680a1ce5715d655ca3ce",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "frames": 108,
+      "duration_seconds": 3.6,
+      "kind": "native_vector_brand_motion_graphics_with_original_sound",
+      "character_frames": 0,
+      "integrated_lufs": -18.16,
+      "true_peak_dbtp": -1.84,
+      "upload_verified": true,
+      "not_in_original_design_zip": true
+    }
+  ],
+  "full_character_film_complete": false,
+  "recovery": "Download exact component ID and verify hash; do not re-render a completed component just because local media vanished."
+}

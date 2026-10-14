@@ -1,0 +1,64 @@
+{
+  "status": "completed_brand_component_only",
+  "file": "/home/user/monarch-video-components/MONARCH_CROWN_OUTRO_3p6s.mp4",
+  "bytes": 254625,
+  "sha256": "2282b12006bd86b7720e86eb53c87cf12ce5f315015c680a1ce5715d655ca3ce",
+  "md5": "5d26b6b0e77cb0106b868dfc428dd45b",
+  "settings": {
+    "version": 1,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "frames": 108,
+    "duration": 3.6,
+    "kind": "native_vector_brand_motion_graphics",
+    "character_animation": false,
+    "source_sha256": "d8efcb9c297dbd521dd9d2a7e8e13c99607ac2293d8e9bb2354ef8e06863f896",
+    "brand_source_sha256": "58975837b2dc2717b4631d9c37fddf25b8d735b57b3725d1858f6e60510fadfd",
+    "fonts": {
+      "DejaVuSans.ttf": "abdc775b21b1bc470d50c97e790d276f2054b7504e56e5bd3e64f48d68582322",
+      "DejaVuSerif.ttf": "13e61509f5c81d7c3132810f4f903e3523df89c802bf6e0674621e8f659cdfe1"
+    }
+  },
+  "decoded_frames": 108,
+  "duration_seconds": 3.6,
+  "audio": "Original synthesized air/sub-impact/metallic-partial sting; no reference music or voice used.",
+  "normalization": {
+    "input_i": "-33.73",
+    "input_tp": "-15.85",
+    "input_lra": "6.20",
+    "input_thresh": "-47.01",
+    "output_i": "-16.53",
+    "output_tp": "-2.00",
+    "output_lra": "0.00",
+    "output_thresh": "-29.91",
+    "normalization_type": "dynamic",
+    "target_offset": "-1.47"
+  },
+  "encoded_audio_measurement": {
+    "input_i": "-18.16",
+    "input_tp": "-1.84",
+    "input_lra": "4.90",
+    "input_thresh": "-31.42",
+    "output_i": "-15.67",
+    "output_tp": "-2.00",
+    "output_lra": "0.00",
+    "output_thresh": "-29.04",
+    "normalization_type": "dynamic",
+    "target_offset": "-2.33"
+  },
+  "character_motion_frames": 0,
+  "brand_motion_frames": 108,
+  "complete_character_film": false,
+  "body_warps": false,
+  "source_footage_used": false,
+  "render_seconds": 7.14,
+  "checks": {
+    "full_decode": true,
+    "frame_count": true,
+    "duration": true,
+    "native_1080_portrait": true,
+    "aac_48k_stereo": true,
+    "encoded_true_peak_below_minus_1_dbtp": true
+  }
+}

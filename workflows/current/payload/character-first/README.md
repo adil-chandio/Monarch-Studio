@@ -2,7 +2,7 @@
 
 ## Current result
 
-**Character-sheet and original shot-design stages are complete. Animation is not.**
+**Character/shot design and the standalone 3.6-second animated brand outro are complete. Character-body animation and the full edited film are not.**
 
 - Four new matching character references: front master, right-facing profile,
   rear, and detailed face portrait.
@@ -10,10 +10,12 @@
 - Original crown-above-MONARCH-STUDIO end-frame graphic, 1080 × 1920.
 - Three-page design bible, lossless PNG boards, native images and a design ZIP.
 
-These are generated visual-development references. They are not a face scan,
-rigged mesh, mocap performance, temporally verified video, or proof of exact
-biometric likeness. The user delegated design judgement; that is not recorded
-as explicit approval of likeness or a completed final film.
+The character/shot stills are generated visual-development references, not a
+face scan, rigged mesh, mocap performance, temporally verified human video, or
+proof of exact biometric likeness. The separately rendered outro is vector
+motion graphics with original sound—not a moving character or a finished film.
+The user delegated design judgement; this is not recorded as explicit approval
+of likeness or of a completed final film.
 
 ## User correction — binding direction
 
@@ -78,8 +80,31 @@ lossless board PNGs and source-view PNGs are available separately.
 
 ## Motion/edit handoff
 
-`records/ANIMATION_PLAN.json` contains the **proposed**, unrendered 44.4-second
-edit and motion requirements. `rendered_frames` is deliberately zero.
+`records/ANIMATION_PLAN.json` contains the proposed 44.4-second full edit.
+`rendered_character_frames` is still zero. Its final 108-frame brand component
+is now rendered separately; the full movie has not been assembled.
+
+`records/BRAND_OUTRO.json` holds the completed component's source/settings
+fingerprints, full-decode checks and audio measurements. `VIDEO_COMPONENTS.json`
+holds its verified Drive recovery ID. The outro is not inside the earlier
+immutable still-design ZIP; recover it separately rather than re-rendering.
+
+Renderer invocation (a matching completed output is reused, not duplicated):
+
+```bash
+BASE=workflows/current/payload/character-first
+python3 "$BASE/src/render_brand_outro.py" \
+  --work .cache/monarch-brand-outro/render \
+  --output /home/user/monarch-video-components/MONARCH_CROWN_OUTRO_3p6s.mp4 \
+  --report "$BASE/records/BRAND_OUTRO.json"
+```
+
+Use fresh work/output/report paths for a deliberately revised version.
+The renderer refuses stale frame caches/unverified overwrites, skips completed
+matching frames, and verifies 108 native 1080 × 1920 frames at 30 fps, 3.6-second
+duration, 48 kHz stereo audio and an encoded true-peak ceiling. The graphic is a
+crown/type reveal, restrained sheen/settle and fade; no human pixels are used.
+Its sound is an original synthesized sting, not copied reference music or voice.
 
 A capable temporal video-generation or detailed rig/animation pipeline is still
 required to produce new natural full-body acting. No such direct photoreal

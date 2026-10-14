@@ -1,9 +1,9 @@
 {
-  "status": "PROPOSED_NOT_RENDERED",
+  "status": "CHARACTER_MOTION_BLOCKED_ENDING_COMPLETE",
   "planned_fps": 30,
   "planned_total_frames": 1332,
   "planned_duration_seconds": 44.4,
-  "rendered_frames": 0,
+  "rendered_frames": 108,
   "actual_video_file": null,
   "native_motion_requirement": "New coherent character acting; original personal footage is identity input only, not a delivered shot.",
   "blocking_capability": "No direct photoreal image-to-video generator is exposed in this session. Reference stills alone do not produce the requested performance.",
@@ -100,8 +100,9 @@
       "in_frame": 1224,
       "out_frame_exclusive": 1332,
       "duration_seconds": 3.6,
-      "motion_direction": "Static crown above MONARCH STUDIO or genuine brand animation; readable 3.6-second hold and restrained fade.",
-      "render_status": "not_rendered"
+      "motion_direction": "Completed 3.6s crown/type reveal, restrained sheen/settling, readable hold and fade, with original stereo sting.",
+      "render_status": "rendered_brand_component",
+      "rendered_asset_role": "brand_outro_video"
     }
   ],
   "quality_gates": [
@@ -119,5 +120,16 @@
     "Restrained footfall/cuff sounds tied to actually rendered action.",
     "Metallic fault accent at reaction; no continuous full-screen flashing.",
     "Clean crown-brand impact and decay; loudness/true-peak checks only after a real edit exists."
+  ],
+  "rendered_character_frames": 0,
+  "rendered_brand_frames": 108,
+  "completed_components": [
+    {
+      "role": "brand_outro_video",
+      "receipt": "VIDEO_COMPONENTS.json",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "frames": 108
+    }
   ]
 }

@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `WF04-20261014-NOJELLY`
 - **Status:** `waiting_external`
 - **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** If local media is absent again, download the recorded design ZIP and run recover_design_assets.py; do not ask for the master or regenerate art. Do not repeat finished design work. The Arena pending-question/interruption requires platform-side investigation (support handoff in operations/incidents/WF04-service-ui-handoff.md); actual new-character motion still needs a capable video-generation/rig pipeline not currently exposed.
+- **Next action:** Preserve completed character/shot designs and separately uploaded crown outro. Recover the exact outro via VIDEO_COMPONENTS.json if local media disappears; never re-render completed components merely on Continue. Remaining work is actual new-character motion for beats 01–08 plus final assembly/audio-to-action edit; photoreal motion renderer remains unavailable and Runway/Replicate connectors are unsupported. Do not substitute old live-action footage, still warps or the rejected mannequin.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
