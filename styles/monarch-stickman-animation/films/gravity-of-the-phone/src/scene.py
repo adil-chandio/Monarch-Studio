@@ -7,7 +7,7 @@ gate.py read one source of truth.  World coordinates are the wide shot
 
 Identity: WF-01 paper/ink · SHADE hero · the only colour is the phone's amber.
 """
-import math, pathlib, sys
+import math, zlib, pathlib, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
@@ -28,7 +28,7 @@ WOOD = (214, 200, 174)
 
 # ── timeline (seconds) — THE event ledger ───────────────────────────────────
 TL = dict(
-    buzz_start=-0.70, pencil_start=-0.40, pencil_end=1.40,
+    buzz_start=-0.50, pencil_start=-0.40, pencil_end=1.40,
     flip_up=1.45, flip_dur=0.32, glow_on=1.55, glow_full=2.05,
     cut_s2=2.00, walk_start=2.00, walk_end=3.60, pend_lean=2.60, page_lift=3.00,
     cut_s3=3.80, cut_s4=4.60,
@@ -39,8 +39,21 @@ TL = dict(
     slip1=9.00, slip2=9.42, look_lens=9.80, look_end=10.70,
     letgo=11.00, land=11.42, slap=11.58, flip_down=11.62, glow_off=12.00,
     drop=12.30, stand=13.00, cut_s5=14.60,
-    line1=15.40, line2=16.66, hot=17.15, cut_s6=18.20, end=20.00,
+    line1=15.40, line2=16.66, hot=17.15, cut_s6=17.95,
+    moral1=18.00, moral2=18.64, moral3=18.98, moral_out=19.50, end=20.00,   # 'Warna' · 'tum' · 'ulte.' (upside-down) · snap-out on the buzz
 )
+# music grid: 122.4 BPM → beat 0.4902 s; beat 10 = field_on (4.90), beat 35 = hot word (17.157); heartbeat = half-time
+BPM = 122.4
+BEAT = 60.0 / BPM
+
+
+def beat_pulse(t, decay=0.11):
+    """0..1 pulse that fires on every beat of the music grid while the field is on (glow + zoom lock)."""
+    if not (TL["field_on"] <= t < TL["letgo"]):
+        return 0.0
+    ph = (t % BEAT)
+    return math.exp(-ph / decay)
+
 ROOM_FLOOR = 1500.0
 DESK_TOP = 1295.0
 PHONE = (885.0, DESK_TOP)          # the planet
@@ -98,9 +111,11 @@ def blend_pose(a, b, u):
 
 
 def hash01(*keys):
+    """Deterministic 0..1 hash (CRC32 — Python's str hash is randomised per process, which would
+    make particles jump between render halves)."""
     h = 0
     for k in keys:
-        h = (h * 1000003 + hash(str(k))) & 0xFFFFFFFF
+        h = (h * 1000003 + zlib.crc32(str(k).encode())) & 0xFFFFFFFF
     return (h % 10007) / 10007.0
 
 
@@ -111,6 +126,15 @@ def field(t):
     if t < TL["drop"]:
         return smooth(seg(t, TL["field_on"], TL["field_full"]))
     return 0.0
+
+
+def field_vis(t):
+    """Field strength for the eye (floor warp, vignette): the physics switch is instant at the drop,
+    the picture relaxes over ~0.2 s so the restore reads as a release, not a cut."""
+    if t >= TL["drop"]:
+        u = t - TL["drop"]
+        return math.exp(-u / 0.07) * (1 + 0.25 * math.sin(2 * math.pi * u / 0.28) * math.exp(-u / 0.12))
+    return field(t)
 
 
 def world_time(t):
@@ -641,6 +665,71 @@ def dust_events():
           (TL["drop"] + 0.30, 530, ROOM_FLOOR, 60, 0.5),
           (TL["drop"] + 0.20, 752, DESK_TOP, 50, 0.4)]
     return ev
+
+
+# ── field flow: ink specks streaming toward the phone (the pull made visible in every frame) ──
+N_FLOW = 64
+
+
+def flow_particles(t):
+    """[(x, y, vx, vy, alpha)] in world px while the field is on; after the drop they fall for 0.45 s."""
+    out = []
+    k = field(t)
+    falling = TL["drop"] <= t < TL["drop"] + 0.45
+    if k <= 0.02 and not falling:
+        return out
+    px, py = PHONE[0], PHONE[1] - 20
+    for i in range(N_FLOW):
+        h1, h2, h3, h4 = hash01(i, 11), hash01(i, 12), hash01(i, 13), hash01(i, 14)
+        ang = math.pi * (0.55 + 1.9 * h1)              # mostly from the left / above (the room side)
+        R0 = 420 + 980 * h2
+        T = 1.1 + 1.5 * h3
+        tt_ = (t if not falling else TL["drop"]) - TL["field_on"]
+        p = ((tt_ / T) + h4) % 1.0
+        pe = p ** 1.7                                  # accelerate toward the phone
+        r = R0 * (1 - pe)
+        x = px + math.cos(ang) * r
+        y = py + math.sin(ang) * r * 0.62
+        if y > ROOM_FLOOR - 6:
+            y = ROOM_FLOOR - 6 - (y - (ROOM_FLOOR - 6)) * 0.2
+        if x < -40 or x > 1120 or y < -60:
+            continue
+        dr = R0 * 1.7 * p ** 0.7 / T                   # radial speed px/s
+        vx = -math.cos(ang) * dr * k
+        vy = -math.sin(ang) * dr * 0.62 * k
+        a = min(1.0, p / 0.12) * min(1.0, (1 - p) / 0.08) * k
+        if falling:
+            dt = t - TL["drop"]
+            y += 2600 * dt * dt
+            vx, vy = 0.0, 2600 * 2 * dt
+            a = min(1.0, p / 0.12) * max(0.0, 1 - dt / 0.45)
+            if y > ROOM_FLOOR - 4:
+                continue
+        if a > 0.02:
+            out.append((x, y, vx, vy, a * (0.45 + 0.55 * h3)))
+    return out
+
+
+def sweat_drops(t):
+    """[(t0, x0, y0)] spawn events for strain drops during the flag; each lives 0.5 s flying toward the phone."""
+    ev = []
+    t0 = 6.9
+    j = 0
+    while t0 < TL["letgo"] - 0.1:
+        ev.append((t0, j))
+        t0 += 0.30 + 0.22 * hash01(j, 21)
+        j += 1
+    return ev
+
+
+def land_squash(t):
+    """(sx, sy) squash & stretch around the feet on the desk landing and on the stand-up."""
+    for t0, amt in ((TL["land"], 0.16), (TL["stand"] + 0.42, 0.05)):
+        if t0 <= t < t0 + 0.2:
+            u = (t - t0) / 0.2
+            d = amt * math.sin(math.pi * u) * math.exp(-u * 1.5) * (1 if u < 0.5 else -0.45)
+            return 1 + d * 0.8, 1 - d
+    return 1.0, 1.0
 
 
 if __name__ == "__main__":

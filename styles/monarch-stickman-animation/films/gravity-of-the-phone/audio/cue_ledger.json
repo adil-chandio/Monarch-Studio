@@ -18,7 +18,7 @@
   "dur": 0.009
  },
  {
-  "t": -0.65,
+  "t": -0.5,
   "cue": "buzz_am",
   "gain": 0.34,
   "dur": 0.38
@@ -30,7 +30,19 @@
   "dur": 0.009
  },
  {
-  "t": -0.05,
+  "t": 0.0,
+  "cue": "music_box_motif_intro",
+  "gain": 0.255,
+  "dur": 0
+ },
+ {
+  "t": 0.0,
+  "cue": "music_pulse_halftime",
+  "gain": 0.187,
+  "dur": 0
+ },
+ {
+  "t": 0.1,
   "cue": "buzz_am",
   "gain": 0.34,
   "dur": 0.38
@@ -54,16 +66,16 @@
   "dur": 0.014
  },
  {
-  "t": 0.55,
-  "cue": "buzz_am",
-  "gain": 0.34,
-  "dur": 0.38
- },
- {
   "t": 0.6,
   "cue": "pencil_roll_tick",
   "gain": 0.106,
   "dur": 0.014
+ },
+ {
+  "t": 0.7,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
  },
  {
   "t": 0.7,
@@ -96,12 +108,6 @@
   "dur": 0.014
  },
  {
-  "t": 1.15,
-  "cue": "buzz_am",
-  "gain": 0.34,
-  "dur": 0.38
- },
- {
   "t": 1.16,
   "cue": "pencil_roll_tick",
   "gain": 0.145,
@@ -118,6 +124,12 @@
   "cue": "pencil_roll_tick",
   "gain": 0.151,
   "dur": 0.014
+ },
+ {
+  "t": 1.3,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
  },
  {
   "t": 1.324,
@@ -154,6 +166,12 @@
   "cue": "flip_land",
   "gain": 0.5,
   "dur": 0.18
+ },
+ {
+  "t": 1.96,
+  "cue": "music_pad_em_open",
+  "gain": 0.468,
+  "dur": 0
  },
  {
   "t": 2.0,
@@ -222,6 +240,12 @@
   "dur": 0.009
  },
  {
+  "t": 3.9,
+  "cue": "music_reverse_swell",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 4.0,
   "cue": "hero_breath",
   "gain": 0.14,
@@ -260,7 +284,7 @@
  {
   "t": 4.9,
   "cue": "sub_pulse_rise",
-  "gain": 0.6,
+  "gain": 0.5,
   "dur": 7.1
  },
  {
@@ -268,6 +292,18 @@
   "cue": "shoe_slide_squeal",
   "gain": 0.22,
   "dur": 0.59
+ },
+ {
+  "t": 4.9,
+  "cue": "music_drop_boom",
+  "gain": 0.807,
+  "dur": 0
+ },
+ {
+  "t": 4.902,
+  "cue": "music_groove_em_climb",
+  "gain": 0.51,
+  "dur": 0
  },
  {
   "t": 4.95,
@@ -384,6 +420,12 @@
   "dur": 0.72
  },
  {
+  "t": 5.6,
+  "cue": "music_bell_in_key",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 5.67,
   "cue": "book_slap",
   "gain": 0.5,
@@ -486,6 +528,12 @@
   "dur": 0.14
  },
  {
+  "t": 7.2,
+  "cue": "music_bell_in_key",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 7.24,
   "cue": "arrive_paper",
   "gain": 0.35,
@@ -522,10 +570,22 @@
   "dur": 0.6
  },
  {
+  "t": 8.8,
+  "cue": "music_bell_in_key",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 9.0,
   "cue": "hand_slip_squeak",
   "gain": 0.16,
   "dur": 0.1
+ },
+ {
+  "t": 9.0,
+  "cue": "music_stutter_gate",
+  "gain": 0.85,
+  "dur": 0
  },
  {
   "t": 9.07,
@@ -552,10 +612,22 @@
   "dur": 0.5
  },
  {
+  "t": 9.8,
+  "cue": "music_breakdown_pulse_only",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 10.5,
   "cue": "wood_creak_strain",
   "gain": 0.18,
   "dur": 0.45
+ },
+ {
+  "t": 10.784,
+  "cue": "music_snap_fill",
+  "gain": 0.383,
+  "dur": 0
  },
  {
   "t": 10.85,
@@ -580,6 +652,12 @@
   "cue": "desk_slam",
   "gain": 0.55,
   "dur": 0.5
+ },
+ {
+  "t": 11.42,
+  "cue": "music_land_hit_em",
+  "gain": 0.765,
+  "dur": 0
  },
  {
   "t": 11.444,
@@ -652,6 +730,12 @@
   "cue": "power_down_sweep",
   "gain": 0.5,
   "dur": 0.15
+ },
+ {
+  "t": 12.0,
+  "cue": "music_tape_stop",
+  "gain": 0.85,
+  "dur": 0
  },
  {
   "t": 12.3,
@@ -810,6 +894,12 @@
   "dur": 0.4
  },
  {
+  "t": 13.0,
+  "cue": "music_relief_e_major",
+  "gain": 0.425,
+  "dur": 0
+ },
+ {
   "t": 13.02,
   "cue": "drop_paper",
   "gain": 0.25,
@@ -834,6 +924,12 @@
   "dur": 0.012
  },
  {
+  "t": 13.725,
+  "cue": "music_box_motif_major",
+  "gain": 0.255,
+  "dur": 0
+ },
+ {
   "t": 14.05,
   "cue": "debris_tick",
   "gain": 0.05,
@@ -855,7 +951,7 @@
   "t": 14.8,
   "cue": "glass_note_held",
   "gain": 0.15,
-  "dur": 3.2
+  "dur": 2.95
  },
  {
   "t": 15.104,
@@ -888,15 +984,39 @@
   "dur": 0.4
  },
  {
-  "t": 18.2,
+  "t": 17.15,
+  "cue": "music_hot_word_boom",
+  "gain": 0.807,
+  "dur": 0
+ },
+ {
+  "t": 17.716,
+  "cue": "vo_moral_line",
+  "gain": 1.0,
+  "dur": 2.12
+ },
+ {
+  "t": 17.95,
   "cue": "cut_thump",
   "gain": 0.3,
   "dur": 0.3
  },
  {
-  "t": 19.3,
-  "cue": "end_bell",
-  "gain": 0.14,
-  "dur": 0.7
+  "t": 18.0,
+  "cue": "music_word_ping",
+  "gain": 0.306,
+  "dur": 0
+ },
+ {
+  "t": 18.98,
+  "cue": "music_upside_down_slide",
+  "gain": 0.357,
+  "dur": 0
+ },
+ {
+  "t": 19.5,
+  "cue": "text_snap_out",
+  "gain": 0.22,
+  "dur": 0.03
  }
 ]

@@ -110,7 +110,6 @@
     "drop_sub_thud",
     "drop_wood",
     "dust_hiss",
-    "end_bell",
     "flip_clack",
     "flip_land",
     "flip_land_facedown",
@@ -131,6 +130,23 @@
     "look_at_lens_sparkle",
     "lunge_breath",
     "lunge_whoosh",
+    "music_bell_in_key",
+    "music_box_motif_intro",
+    "music_box_motif_major",
+    "music_breakdown_pulse_only",
+    "music_drop_boom",
+    "music_groove_em_climb",
+    "music_hot_word_boom",
+    "music_land_hit_em",
+    "music_pad_em_open",
+    "music_pulse_halftime",
+    "music_relief_e_major",
+    "music_reverse_swell",
+    "music_snap_fill",
+    "music_stutter_gate",
+    "music_tape_stop",
+    "music_upside_down_slide",
+    "music_word_ping",
     "nail_pop",
     "notification_ding",
     "onset_ping",
@@ -155,7 +171,9 @@
     "slip_squeak",
     "sub_drop",
     "sub_pulse_rise",
+    "text_snap_out",
     "vo_meaning_line",
+    "vo_moral_line",
     "vo_word_1_phone",
     "wood_creak_frame",
     "wood_creak_strain",
@@ -174,28 +192,28 @@
   "meaning_line": "Phone ulta. Zindagi seedhi.",
   "wtf_onset_s": 4.9,
   "wtf_uncut_s": 10.0,
-  "beats": 38,
+  "beats": 44,
   "max_beat_gap_s": 1.45,
-  "on_screen_words": 4,
+  "on_screen_words": 7,
   "meaning_snap_s": 15.4,
-  "loop_seam": "S6 is S1 evaluated at loop time (tau = t-20): buzz restarts at 19.3, pencil begins rolling at 19.6 from 12 px before its frame-1 position; frame 600 == frame 0 by construction (mean abs diff measured by gate.py)",
+  "loop_seam": "S6 is S1 evaluated at loop time (tau = t-20): buzz restarts at 19.50 (words snap out on it) at 19.3, pencil begins rolling at 19.6 from 12 px before its frame-1 position; frame 600 == frame 0 by construction (mean abs diff measured by gate.py)",
   "measured": {
-    "lufs": -14.2,
-    "true_peak_db": -1.1,
-    "lra": 7.4,
+    "lufs": -14.1,
+    "true_peak_db": -1.2,
+    "lra": 6.6,
     "duration_s": 20.0,
     "frames": 600,
-    "loop_seam_diff": 3.1,
-    "silence_hole_db": -119.8,
-    "md5": "824a8133bde468c8a0a027d12da3081a",
-    "bytes": 62733035,
+    "loop_seam_diff": 3.23,
+    "silence_hole_db": -115.2,
+    "md5": "dc13effd2c86277767b29dec7769bca4",
+    "bytes": 60699977,
     "detected_cuts_s": [
       2.0,
       2.03,
       3.8,
       4.6,
       14.6,
-      18.2
+      17.97
     ]
   },
   "film": "gravity-of-the-phone",
@@ -308,6 +326,10 @@
       "FIELD ONSET: ring + everything starts sliding"
     ],
     [
+      4.95,
+      "speed lines converge on the phone"
+    ],
+    [
       5.0,
       "pages fly"
     ],
@@ -334,6 +356,10 @@
     [
       6.8,
       "plant slides"
+    ],
+    [
+      6.9,
+      "first sweat drop flies to the phone"
     ],
     [
       7.2,
@@ -380,6 +406,10 @@
       "GRAVITY RESTORES: everything drops flat"
     ],
     [
+      12.6,
+      "impact tint frame + falling lines"
+    ],
+    [
       13.0,
       "stands up on the desk"
     ],
@@ -404,12 +434,24 @@
       "hot word slam"
     ],
     [
-      18.2,
+      17.95,
       "cut to the desk (loop time)"
     ],
     [
-      19.3,
-      "buzz returns — loop seam"
+      18.0,
+      "'Warna' slams in"
+    ],
+    [
+      18.64,
+      "'tum' slides in"
+    ],
+    [
+      18.98,
+      "'ulte.' flips upside-down"
+    ],
+    [
+      19.5,
+      "buzz returns; words snap out"
     ]
   ],
   "pattern_interrupts_list": [
@@ -418,9 +460,13 @@
     "silence hole 4.5-4.9 before onset",
     "look-at-lens 9.8",
     "silence hole 12.0-12.3 after glow death",
-    "hit shakes 11.45 / 12.3"
+    "hit shakes 11.45 / 12.3",
+    "field flow specks streaming to the phone (every frame of the WTF)",
+    "beat-locked glow + zoom pulse at 122.4 BPM",
+    "tape-stop when the phone's power dies",
+    "the moral's last word lands upside-down"
   ],
-  "pattern_interrupts": 6,
+  "pattern_interrupts": 10,
   "wtf_moments_list": [
     "radial pull: whole room slides to the phone, hero hangs horizontal from the jamb (4.9-11.0)",
     "restoration drop: everything falls flat the instant the phone is face-down (12.3)"
@@ -431,25 +477,65 @@
     "file": "audio/vo_meaning.mp3",
     "speech_starts_s": 15.4,
     "text": "فون الٹا۔ زندگی سیدھی۔",
-    "roman": "Phone ulta. Zindagi seedhi."
+    "roman": "Phone ulta. Zindagi seedhi.",
+    "moral_file": "audio/vo_moral_b.mp3",
+    "moral_text": "ورنہ تم الٹے!"
   },
   "hot_word_s": 17.15,
   "meaning_full_stop_pct": 85.8,
   "delivery": {
+    "version": 2,
     "date": "2026-10-14",
-    "task_id": "EMS-20261014-002",
-    "master_file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01.mp4",
-    "bytes": 62733035,
-    "md5": "824a8133bde468c8a0a027d12da3081a",
-    "sha256": "1c62246ae9bfb2987476141d7021e658bcb72b7a4a80614e5f5e8f0354f2fa61",
-    "drive_file_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
+    "file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v2.mp4",
+    "drive_file_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
     "drive_folder_id": "1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
-    "drive_folder_url": "https://drive.google.com/drive/folders/1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
-    "drive_file_url": "https://drive.google.com/file/d/118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ/view",
-    "gates": {
-      "measured_src_gate": "12/12 PASS",
-      "brain_freshness_gate": "28/28 PASS"
-    },
-    "workspace_copy": "workflows/current/payload/gravity-of-the-phone/render/gravity-of-the-phone_master.mp4 (gitignored *_master.mp4)"
-  }
+    "web_view_link": "https://drive.google.com/file/d/1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp/view?usp=drivesdk",
+    "bytes": 60699977,
+    "md5": "dc13effd2c86277767b29dec7769bca4",
+    "sha256": "e0bc302cf89c4a55a4275cbcd03e13a446e0b2281cada4edddf9ea96bbf603f1",
+    "look_sheet_drive_id": "1ym5SUyr4ZlYrEUPB1dr--gNIG3n59fvP",
+    "gate_receipt_drive_id": "1PV2rrkhL3Was925qHqWiQ-a-vYA2HeEu",
+    "gates": "12/12 production (gate.py) + 28/28 brain (concept.py gate)",
+    "previous": {
+      "version": 1,
+      "drive_file_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
+      "md5": "824a8133bde468c8a0a027d12da3081a",
+      "bytes": 62733035
+    }
+  },
+  "version": 2,
+  "moral_line": "Warna tum ulte.",
+  "moral_s": [
+    18.0,
+    18.64,
+    18.98,
+    19.5
+  ],
+  "moral_note": "punchline over the loop desk: 'Warna' · 'tum' · 'ulte.' — the last word lands upside-down (amber), VO voice-00 'ورنہ تم الٹے!'; all words snap out on the returning buzz at 19.50 so frame 600 still matches frame 1",
+  "music": {
+    "bpm": 122.4,
+    "grid": "beat 10 = field onset 4.90 s · beat 35 = hot word 17.157 s · beat 38 = 'tum' 18.63 s",
+    "key": "E minor climb (+0 +2 +3 +5 +7) → E major relief",
+    "engine": "src/music.py (numpy): additive plucks, sub + swept saw bass, paper kick, noise hats/shaker/paper-snap, detuned-saw pad, inharmonic bells, dotted-8th ping-pong delay, side-chain pump, stutter gates on the slips, tape-stop at glow-off",
+    "sections": [
+      "intro box motif + half-time pulse 0–4.5",
+      "hole 4.5–4.88",
+      "drop boom + groove 4.9–10.78",
+      "breakdown 9.8–10.7",
+      "snap fill 10.78–11.0",
+      "reverse swell → land hit 11.0–11.42",
+      "tape stop 12.0–12.17",
+      "silence 12.17–13.0",
+      "relief E major 13.0–17.95",
+      "punchline pings + upside-down slide 18.0–19.3"
+    ]
+  },
+  "shot_lengths_s": [
+    2.0,
+    1.8,
+    0.8,
+    10.0,
+    3.35,
+    2.05
+  ]
 }

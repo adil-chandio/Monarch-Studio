@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `EMS-20261014-002`
-- **Status:** `active`
+- **Status:** `waiting_external`
 - **Title:** WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)
-- **Next action:** User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.
+- **Next action:** v2 delivered and documented; await user review of v2 or pick the next slate idea (doctrine §13)
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

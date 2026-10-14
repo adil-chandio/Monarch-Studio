@@ -417,11 +417,11 @@
     },
     {
       "key": "gravity_of_the_phone_wtf30_01",
-      "title": "THE GRAVITY OF THE PHONE · WTF-30 #1 · 20 s vertical",
+      "title": "THE GRAVITY OF THE PHONE · WTF-30 #1 · 20 s vertical (v2: score + moral)",
       "date": "2026-10-14",
       "duration_s": 20,
-      "drive_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
-      "md5": "824a8133bde468c8a0a027d12da3081a",
+      "drive_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
+      "md5": "dc13effd2c86277767b29dec7769bca4",
       "slots": {
         "hook": "eye_cannot_explain",
         "device": "one_law_broken",
@@ -469,7 +469,6 @@
         "drop_sub_thud",
         "drop_wood",
         "dust_hiss",
-        "end_bell",
         "flip_clack",
         "flip_land",
         "flip_land_facedown",
@@ -490,6 +489,23 @@
         "look_at_lens_sparkle",
         "lunge_breath",
         "lunge_whoosh",
+        "music_bell_in_key",
+        "music_box_motif_intro",
+        "music_box_motif_major",
+        "music_breakdown_pulse_only",
+        "music_drop_boom",
+        "music_groove_em_climb",
+        "music_hot_word_boom",
+        "music_land_hit_em",
+        "music_pad_em_open",
+        "music_pulse_halftime",
+        "music_relief_e_major",
+        "music_reverse_swell",
+        "music_snap_fill",
+        "music_stutter_gate",
+        "music_tape_stop",
+        "music_upside_down_slide",
+        "music_word_ping",
         "nail_pop",
         "notification_ding",
         "onset_ping",
@@ -514,7 +530,9 @@
         "slip_squeak",
         "sub_drop",
         "sub_pulse_rise",
+        "text_snap_out",
         "vo_meaning_line",
+        "vo_moral_line",
         "vo_word_1_phone",
         "wood_creak_frame",
         "wood_creak_strain",
@@ -540,24 +558,55 @@
         "Jab tak phone upar hai, sab kuch uski taraf girta hai."
       ],
       "measured": {
-        "lufs": -14.2,
-        "true_peak_db": -1.1,
-        "lra": 7.4,
+        "lufs": -14.1,
+        "true_peak_db": -1.2,
+        "lra": 6.6,
         "duration_s": 20.0,
         "frames": 600,
-        "loop_seam_diff": 3.1,
-        "silence_hole_db": -119.8,
-        "md5": "824a8133bde468c8a0a027d12da3081a",
-        "bytes": 62733035,
+        "loop_seam_diff": 3.23,
+        "silence_hole_db": -115.2,
+        "md5": "dc13effd2c86277767b29dec7769bca4",
+        "bytes": 60699977,
         "detected_cuts_s": [
           2.0,
           2.03,
           3.8,
           4.6,
           14.6,
-          18.2
+          17.97
         ]
-      }
+      },
+      "previous_versions": [
+        {
+          "version": 1,
+          "drive_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
+          "md5": "824a8133bde468c8a0a027d12da3081a",
+          "date": "2026-10-14"
+        }
+      ],
+      "version": 2,
+      "moral_line": "Warna tum ulte.",
+      "music": {
+        "bpm": 122.4,
+        "grid": "beat 10 = field onset 4.90 s · beat 35 = hot word 17.157 s · beat 38 = 'tum' 18.63 s",
+        "key": "E minor climb (+0 +2 +3 +5 +7) → E major relief",
+        "engine": "src/music.py (numpy): additive plucks, sub + swept saw bass, paper kick, noise hats/shaker/paper-snap, detuned-saw pad, inharmonic bells, dotted-8th ping-pong delay, side-chain pump, stutter gates on the slips, tape-stop at glow-off",
+        "sections": [
+          "intro box motif + half-time pulse 0–4.5",
+          "hole 4.5–4.88",
+          "drop boom + groove 4.9–10.78",
+          "breakdown 9.8–10.7",
+          "snap fill 10.78–11.0",
+          "reverse swell → land hit 11.0–11.42",
+          "tape stop 12.0–12.17",
+          "silence 12.17–13.0",
+          "relief E major 13.0–17.95",
+          "punchline pings + upside-down slide 18.0–19.3"
+        ]
+      },
+      "beats": 44,
+      "pattern_interrupts": 10,
+      "on_screen_words": 7
     }
   ]
 }

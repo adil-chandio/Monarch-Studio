@@ -295,12 +295,15 @@ def prop_speed_env(name, t0, t1, step=0.01):
 
 
 # ── the cue sheet ────────────────────────────────────────────────────────────
-def build(vo_path=None):
+MUSIC_GAIN = 0.85
+
+
+def build(vo_path=None, vo_moral_path=None):
     M = Mix()
 
     # HOOK (defined at loop time tau, placed twice: tau and tau+20)
     for k in range(4):
-        tau = -0.65 + 0.6 * k
+        tau = TL["buzz_start"] + 0.6 * k
         if tau < TL["flip_up"]:
             M.add(v_buzz_burst(0.38), tau, 0.34, pan=0.05, name="buzz_am", loop=True)
     # pencil roll ticks: one per facet (7 px) — accelerating like the picture
@@ -335,7 +338,7 @@ def build(vo_path=None):
     M.add(v_thud(0.6, 44), TL["field_on"], 0.5, name="sub_drop")
     M.add(v_ding(0.9) * 0.6 + padto(sweep(880, 1320, 0.25), int(0.9 * SR)) * np.exp(-tt(0.9) / 0.12) * 0.4,
           TL["field_on"], 0.4, name="onset_ping")
-    M.add(v_heartbeat(TL["glow_off"] - TL["field_on"]), TL["field_on"], 0.6, name="sub_pulse_rise")
+    M.add(v_heartbeat(TL["glow_off"] - TL["field_on"], S.BPM / 120.0, S.BPM / 120.0), TL["field_on"], 0.5, name="sub_pulse_rise")
     dr = v_drone(TL["glow_off"] - TL["field_full"]) * env_adsr(TL["glow_off"] - TL["field_full"], 1.2, 0.5, 1.0, 0.03)
     # dropout under the look-at-lens
     t_ = np.arange(len(dr)) / SR + TL["field_full"]
@@ -441,7 +444,7 @@ def build(vo_path=None):
     M.add(v_thud(0.3, 70), TL["line2"], 0.3, name="word_slam")
     M.add(v_thud(0.4, 60) * 1.3 + padto(v_ding(0.4) * 0.8, int(0.4 * SR)), TL["hot"], 0.4, name="hot_word_slam")
     M.add(v_thud(0.3, 50), TL["cut_s6"], 0.3, name="cut_thump")
-    M.add(v_bell(0.7), 19.30, 0.14, name="end_bell")
+    M.add(v_click(1.0, 0.03, 500, 2600), TL["moral_out"], 0.22, name="text_snap_out")
     # VO — speech begins exactly at line1 (the file has 0.48 s of leading silence)
     if vo_path and pathlib.Path(vo_path).exists():
         import imageio_ffmpeg
@@ -454,6 +457,25 @@ def build(vo_path=None):
         vo = vo / (np.abs(vo).max() + 1e-9)
         M.add(vo, TL["line1"] - i_on / SR, 1.0, name="vo_meaning_line")
         LEDGER.append(dict(t=TL["line1"], cue="vo_word_1_phone", gain=0.9, dur=0))
+    # VO punchline — 'Warna' lands on moral1 (18.00); 'tum' ≈ 18.64; 'ulte' ≈ 18.98
+    if vo_moral_path and pathlib.Path(vo_moral_path).exists():
+        import imageio_ffmpeg
+        ff = imageio_ffmpeg.get_ffmpeg_exe()
+        p = subprocess.run([ff, "-v", "error", "-i", str(vo_moral_path), "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"], capture_output=True)
+        vm = np.frombuffer(p.stdout, dtype=np.float32).astype(float)
+        env = np.abs(vm)
+        i_on = int(np.argmax(env > env.max() * 0.06))
+        vm = hp(vm, 80)
+        vm = vm / (np.abs(vm).max() + 1e-9)
+        M.add(vm, TL["moral1"] - i_on / SR, 1.0, name="vo_moral_line")
+    # MUSIC — the procedural score (music.py), event-locked to the timeline
+    M.sfx = (M.L.copy(), M.R.copy())          # sound-design stem (the noise-floor gate measures this)
+    import music
+    Lm, Rm = music.render()
+    M.L += Lm * MUSIC_GAIN
+    M.R += Rm * MUSIC_GAIN
+    for t_, name_, g_ in music.EVENTS:
+        LEDGER.append(dict(t=t_, cue=name_, gain=round(g_ * MUSIC_GAIN, 3), dur=0))
     # silence holes (the gate requires them; they also make the sub drop hit harder)
     mask = np.ones(N)
     for a, b in ((4.5, TL["field_on"] - 0.02), (TL["glow_off"] + 0.15, TL["drop"] - 0.02)):
@@ -463,6 +485,8 @@ def build(vo_path=None):
         mask[ia - r:ia] = np.linspace(1, 0, r)
         mask[ib:ib + r] = np.linspace(0, 1, r)
     M.L *= mask; M.R *= mask
+    if hasattr(M, "sfx"):
+        M.sfx = (M.sfx[0] * mask, M.sfx[1] * mask)
     return M
 
 
@@ -483,10 +507,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="../audio/mix.wav")
     ap.add_argument("--vo", default="../audio/vo_meaning.mp3")
+    ap.add_argument("--vo-moral", default="../audio/vo_moral_b.mp3")
     a = ap.parse_args()
     out = pathlib.Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
-    M = build(a.vo)
+    M = build(a.vo, a.vo_moral)
     peak = write_wav(out, M.L, M.R)
+    if hasattr(M, "sfx"):
+        write_wav(out.parent / "mix_sfx.wav", M.sfx[0], M.sfx[1])
     led = sorted(LEDGER, key=lambda e: e["t"])
     (out.parent / "cue_ledger.json").write_text(json.dumps(led, indent=1))
     voices = sorted({e["cue"] for e in led})

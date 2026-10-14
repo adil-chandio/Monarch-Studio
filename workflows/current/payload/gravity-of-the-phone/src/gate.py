@@ -134,14 +134,25 @@ def main():
     # no noise floor: the quietest 0.5 s outside the designed holes must be real silence or real room (either < −45 dBFS)
     blk = sr // 2
     rms = np.array([20 * math.log10(float(np.sqrt((x[i:i + blk] ** 2).mean()) + 1e-9)) for i in range(0, len(x) - blk, blk)])
-    gate("no synthetic noise floor (quietest 0.5 s ≤ −45 dBFS)", rms.min() <= -45, f"quietest block {rms.min():.1f} dBFS at {np.argmin(rms) * 0.5:.1f} s")
+    # With a composed score under the sound design the master never goes quiet, so the floor is measured on the
+    # SOUND-DESIGN STEM (audio/mix_sfx.wav, written by audio.py before the music bus is added): a hiss bed would live there.
+    stem = pathlib.Path(a.dna).resolve().parent.parent / "audio" / "mix_sfx.wav"
+    if stem.exists():
+        import wave
+        with wave.open(str(stem)) as wv:
+            st = np.frombuffer(wv.readframes(wv.getnframes()), "<i2").reshape(-1, wv.getnchannels()).mean(1) / 32767.0
+        rms_s = np.array([20 * math.log10(float(np.sqrt((st[i:i + blk] ** 2).mean()) + 1e-9)) for i in range(0, len(st) - blk, blk)])
+        gate("no synthetic noise floor (quietest 0.5 s of the sound-design stem ≤ −45 dBFS; score is a separate composed bus)",
+             rms_s.min() <= -45, f"stem quietest block {rms_s.min():.1f} dBFS at {np.argmin(rms_s) * 0.5:.1f} s; master quietest {rms.min():.1f} dBFS at {np.argmin(rms) * 0.5:.1f} s")
+    else:
+        gate("no synthetic noise floor (quietest 0.5 s ≤ −45 dBFS)", rms.min() <= -45, f"quietest block {rms.min():.1f} dBFS at {np.argmin(rms) * 0.5:.1f} s")
     # 4:5 safe-centre proof: the SUBJECTS (phone, hero head + feet, the two text lines) sit inside y 285–1635 on key
     # frames (computed from the same camera the picture used), and the ink mass is more centred than uniform (≥ 0.72;
     # uniform = 1350/1920 = 0.70 — desk legs / baseboard legitimately run to the bottom edge).
     from PIL import Image
     import render as R
     proofs = []
-    keyf = [15, 90, 255, 342, 500, 585]
+    keyf = [15, 90, 255, 342, 500, 573, 585]
     sheet = Image.new("RGB", (len(keyf) * 270, 338), (30, 30, 30))
     for i, k in enumerate(keyf):
         t = k / FPS
@@ -164,6 +175,9 @@ def main():
             if S.TL["line1"] <= t < S.TL["cut_s6"]:
                 subj["text_line1"] = 440
                 subj["text_line2"] = 580
+            if S.TL["moral1"] <= t < S.TL["moral_out"]:
+                subj["text_moral_a"] = 668
+                subj["text_moral_b"] = 812
         else:
             subj["ecu_head"] = 1010
         ok_s = all(285 <= v <= 1635 for v in subj.values())

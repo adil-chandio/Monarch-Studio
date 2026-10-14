@@ -77,7 +77,7 @@ def camera(t):
         u = seg(t, TL["cut_s4"], TL["cut_s5"])
         hx, hy = handheld(t, 2.0 + 1.5 * S.field(t))
         sx, sy = hit_shake(t)
-        return Cam(540 + 48 * u + hx + sx, 1010 + 30 * u + hy + sy, 1.0 + 0.08 * u)
+        return Cam(540 + 48 * u + hx + sx, 1010 + 30 * u + hy + sy, 1.0 + 0.08 * u + 0.006 * S.beat_pulse(t))
     tf = min(t, TL["hot"])
     u = seg(tf, TL["cut_s5"], TL["hot"])
     hx, hy = handheld(t, 1.2)
@@ -145,6 +145,9 @@ def make_vignette():
 
 
 VIGNETTE = make_vignette()
+_yy, _xx = np.mgrid[0:H, 0:W].astype(np.float32)
+VIG_K = np.clip((((_xx - W / 2) / (W * 0.62)) ** 2 + ((_yy - H / 2) / (H * 0.60)) ** 2) ** 0.5 - 0.35, 0, 1) ** 1.6
+del _yy, _xx
 _rng = np.random.default_rng(7)
 GRAIN = [(_rng.normal(0, 2.6, (H, W, 1))).astype(np.float32) for _ in range(4)]
 
@@ -215,7 +218,7 @@ def contact_shadow(frame, cam, x, y, rx, ry, alpha=70):
 # ── world drawing ────────────────────────────────────────────────────────────
 def draw_floor(frame, cam, tau):
     d = ImageDraw.Draw(frame, "RGBA")
-    k = S.field(tau)
+    k = S.field_vis(tau)
     x0, y0, x1, y1 = cam.rect()
     cxw, cyw = PHONE[0], ROOM_FLOOR
     lw = max(1, int(round(1.4 * cam.z)))
@@ -523,6 +526,109 @@ def draw_dust(frame, cam, tau):
         frame.alpha_composite(tile, (int(sx - tile_n / 2), int(sy - tile_n / 2)))
 
 
+# ── field FX: flow specks, onset speed lines, strain sweat ──────────────────
+def draw_flow(frame, cam, tau):
+    parts = S.flow_particles(tau)
+    if not parts:
+        return
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    for x, y, vx, vy, a in parts:
+        sx, sy = cam.pt(x, y)
+        spd = math.hypot(vx, vy) * z
+        L = clamp(spd * 0.045, 4, 70)
+        if spd > 1:
+            ux, uy = vx * z / (spd + 1e-9), vy * z / (spd + 1e-9)
+            d.line([(sx - ux * L, sy - uy * L), (sx, sy)], fill=SOFT + (int(95 * a),), width=2)
+            d.line([(sx - ux * L * 0.45, sy - uy * L * 0.45), (sx, sy)], fill=INK + (int(70 * a),), width=2)
+        r = (1.4 + 1.2 * a) * z
+        d.ellipse([sx - r, sy - r, sx + r, sy + r], fill=INK + (int(170 * a),))
+
+
+def draw_speed_lines(frame, cam, tau):
+    """Ink focus lines converging on the phone at the field onset (0.42 s); falling lines at the drop."""
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    if TL["field_on"] <= tau < TL["field_on"] + 0.42:
+        u = (tau - TL["field_on"]) / 0.42
+        cx, cy = cam.pt(PHONE[0], PHONE[1] - 24)
+        for i in range(34):
+            h1, h2, h3 = S.hash01(i, 31), S.hash01(i, 32), S.hash01(i, 33)
+            ang = math.pi * (0.5 + 2.0 * h1)
+            r_in = (180 + 160 * h2) * z
+            r_out = (640 + 760 * h3) * z
+            r_out = r_in + (r_out - r_in) * (1 - ease_in(u, 1.4))      # the outer end rushes inward
+            if r_out <= r_in + 4:
+                continue
+            a = int(140 * (1 - u) ** 1.1 * (0.5 + 0.5 * h2))
+            w = max(1, int((1.5 + 2.5 * h3) * z * (1 - 0.5 * u)))
+            d.line([(cx + math.cos(ang) * r_in, cy + math.sin(ang) * r_in * 0.7),
+                    (cx + math.cos(ang) * r_out, cy + math.sin(ang) * r_out * 0.7)], fill=INK + (a,), width=w)
+    if TL["drop"] + 0.06 <= tau < TL["drop"] + 0.34:
+        u = (tau - TL["drop"] - 0.06) / 0.28
+        for i in range(18):
+            h1, h2 = S.hash01(i, 41), S.hash01(i, 42)
+            x = 120 + 940 * h1
+            y0 = 380 + 600 * h2 + 700 * ease_in(u, 1.3)
+            L = (60 + 90 * h2) * (1 - u)
+            sx, sy = cam.pt(x, y0)
+            if sy < ROOM_FLOOR * z:
+                d.line([(sx, sy - L * z), (sx, sy)], fill=SOFT + (int(110 * (1 - u)),), width=max(1, int(2 * z)))
+
+
+def hero_head_world(t):
+    """World position of the hero's head centre at time t (follows the flag rotation)."""
+    st = S.hero_state(t)
+    if st is None:
+        return None
+    J = S.solve(st["pose"], S.HERO_S, st["flip"])
+    if st["pivot"]:
+        if st["pivot"] == "hands":
+            pv = ((J["hand_l"][0] + J["hand_r"][0]) / 2, (J["hand_l"][1] + J["hand_r"][1]) / 2)
+        else:
+            pv = J["hip"]
+        dx, dy = J["head"][0] - pv[0], J["head"][1] - pv[1]
+        th = math.radians(st["rot"])
+        return (st["pivot_world"][0] + dx * math.cos(th) + dy * math.sin(th),
+                st["pivot_world"][1] - dx * math.sin(th) + dy * math.cos(th))
+    return (st["feet"][0] + J["head"][0], st["feet"][1] + J["head"][1])
+
+
+_HEAD_CACHE = {}
+
+
+def draw_sweat(frame, cam, tau):
+    """Strain drops leave his head and are pulled to the phone (0.5 s flights)."""
+    if not (6.9 <= tau < TL["letgo"] + 0.5):
+        return
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    for t0, j in S.sweat_drops(tau):
+        if not (t0 <= tau < t0 + 0.5):
+            continue
+        if t0 not in _HEAD_CACHE:
+            _HEAD_CACHE[t0] = hero_head_world(t0)
+        hw = _HEAD_CACHE[t0]
+        if hw is None:
+            continue
+        u = (tau - t0) / 0.5
+        h1, h2 = S.hash01(j, 51), S.hash01(j, 52)
+        x0 = hw[0] + (h1 - 0.5) * 70
+        y0 = hw[1] - 30 + (h2 - 0.5) * 60
+        f = ease_in(u, 1.9)
+        x = lerp(x0, PHONE[0], f)
+        y = lerp(y0, PHONE[1] - 20, f) - 40 * math.sin(math.pi * u) * (1 - f)
+        sx, sy = cam.pt(x, y)
+        r = (6.0 + 3.0 * h2) * z * (1 - 0.45 * f)
+        a = int(230 * min(1, u / 0.1) * (1 - f * 0.6))
+        # streak toward the phone + the drop itself
+        vx, vy = PHONE[0] - x, PHONE[1] - 20 - y
+        n = math.hypot(vx, vy) + 1e-9
+        L = (10 + 46 * f) * z
+        d.line([(sx, sy), (sx - vx / n * L, sy - vy / n * L)], fill=SOFT + (int(a * 0.5),), width=max(1, int(2 * z)))
+        d.ellipse([sx - r, sy - r * 1.25, sx + r, sy + r * 1.25], fill=(236, 240, 246, a), outline=INK + (a,), width=max(1, int(1.6 * z)))
+
+
 # ── hero ─────────────────────────────────────────────────────────────────────
 def draw_hero(frame, cam, tau, t_abs):
     st = S.hero_state(tau)
@@ -554,6 +660,11 @@ def draw_hero(frame, cam, tau, t_abs):
         paste_smear(frame, rotated, xy, (vs[0] * 3, vs[1] * 3), 0.8)
     else:
         sx, sy = cam.pt(*st["feet"])
+        qx, qy = S.land_squash(tau)
+        if abs(qx - 1) > 0.004 or abs(qy - 1) > 0.004:
+            nw, nh = max(2, int(n * qx)), max(2, int(n * qy))
+            tile = tile.resize((nw, nh), Image.BILINEAR)
+            fx, fy = fx * qx, fy * qy
         xy = (int(round(sx - fx)), int(round(sy - fy)))
         vs = (st["smear"][0] * z, st["smear"][1] * z)
         if abs(vs[0]) + abs(vs[1]) > 2:
@@ -626,6 +737,48 @@ def draw_type(frame, t):
     frame.alpha_composite(layer)
 
 
+def draw_moral(frame, t):
+    """S6 punchline over the desk: 'Warna' · 'tum' · 'ulte.' — the last word is upside-down. Snaps out on the buzz."""
+    if not (TL["moral1"] <= t < TL["moral_out"] + 0.07):
+        return
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    size = 94
+    f = font(size, 800)
+    wa, wt = f.getlength("Warna "), f.getlength("tum")
+    x0 = 1012 - (wa + wt)              # right-aligned block on the empty wall right of the lamp
+    yA, yB = 668, 812
+    xB = x0 + (wa + wt) / 2 + 60
+    u1 = seg(t, TL["moral1"], TL["moral1"] + 0.14)
+    dy1 = (1 - ease_out(u1, 2.5)) * -80
+    text_extruded(layer, (x0, yA + dy1), "Warna", size, INK, anchor="lm", alpha=int(255 * min(1, u1 * 2 + 0.2)))
+    if t >= TL["moral2"]:
+        u2 = seg(t, TL["moral2"], TL["moral2"] + 0.12)
+        dx2 = (1 - ease_out(u2, 2.5)) * 90
+        text_extruded(layer, (x0 + wa + dx2, yA), "tum", size, INK, anchor="lm", alpha=int(255 * min(1, u2 * 2 + 0.2)))
+    if t >= TL["moral3"]:
+        # 'ulte.' flips over as it lands — the word does what it says
+        u3 = seg(t, TL["moral3"], TL["moral3"] + 0.16)
+        ang = 180 * ease_out(u3, 2.2)
+        sc = 1.0 + 0.3 * (1 - ease_out(u3, 2.0))
+        wl = Image.new("RGBA", (int(size * 4.2), int(size * 1.9)), (0, 0, 0, 0))
+        text_extruded(wl, (wl.width / 2, wl.height / 2), "ulte.", int(size * 1.08 * sc), GOLD, anchor="mm", depth=9, glow=AMBER)
+        wl = wl.rotate(ang, resample=Image.BICUBIC, center=(wl.width / 2, wl.height / 2))
+        layer.alpha_composite(wl, (int(xB - wl.width / 2), int(yB - wl.height / 2)))
+    if t >= TL["moral_out"]:
+        # 2-frame snap-out: the buzz wipes the words
+        k = 1 - seg(t, TL["moral_out"], TL["moral_out"] + 0.07)
+        bbox = layer.getbbox()
+        if bbox and k > 0.02:
+            cx, cy = (bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2
+            nw, nh = max(1, int(W * k)), max(1, int(H * k))
+            small = layer.resize((nw, nh), Image.BILINEAR)
+            layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            layer.alpha_composite(small, (int(cx - cx * k), int(cy - cy * k)))
+        else:
+            return
+    frame.alpha_composite(layer)
+
+
 # ── frame assembly ───────────────────────────────────────────────────────────
 def render_frame(fi):
     t = fi / FPS
@@ -649,18 +802,28 @@ def render_frame(fi):
         draw_pencil(frame, cam, tau)
         draw_phone(frame, cam, tau)
         draw_pulse_rings(frame, cam, tau)
+        draw_speed_lines(frame, cam, tau)
         draw_prop(frame, cam, "cup", tau)
+        draw_flow(frame, cam, tau)
         draw_hero(frame, cam, tau, t)
+        draw_sweat(frame, cam, tau)
         draw_dust(frame, cam, tau)
         rgb = frame.convert("RGB")
-        rgb = draw_glow(rgb, cam, tau)
+        rgb = draw_glow(rgb, cam, tau, extra=0.10 * S.beat_pulse(tau))
         frame = rgb.convert("RGBA")
         draw_type(frame, t)
+        draw_moral(frame, t)
     # 1-frame amber tint flash on the hook cut (tint, never a flood)
     if fi == int(round(TL["cut_s2"] * FPS)):
         frame.alpha_composite(Image.new("RGBA", (W, H), AMBER + (64,)))
+    # 1-frame paper-white impact tint when the room hits the floor (gravity restored)
+    if fi == int(round((TL["drop"] + 0.30) * FPS)):
+        frame.alpha_composite(Image.new("RGBA", (W, H), (255, 252, 244, 30)))
     frame.alpha_composite(VIGNETTE)
     arr = np.asarray(frame.convert("RGB"), np.float32) + GRAIN[fi % 4]
+    k = S.field_vis(tau)
+    if k > 0.01:   # the field narrows the eye: edges darken with the pull (released over 0.2 s after the drop)
+        arr *= 1.0 - (0.30 * min(1.0, k)) * VIG_K[..., None]
     return np.clip(arr, 0, 255).astype(np.uint8)
 
 

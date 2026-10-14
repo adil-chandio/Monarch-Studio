@@ -1,10 +1,10 @@
 # Resume capsule — EMS-20261014-002
 
-**Status:** `active`  
+**Status:** `waiting_external`  
 **Title:** WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)  
 **Style:** `monarch-stickman-animation`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-14T17:53:16Z
+**Checkpoint sequence:** 2  
+**Last checkpoint:** 2026-10-14T19:02:53Z
 
 ## Goal
 
@@ -19,7 +19,7 @@ Produce the first WTF-30 video: a 20.0 s 1080x1920 30 fps paper/ink short in whi
 
 ## Exact next action
 
-User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.
+v2 delivered and documented; await user review of v2 or pick the next slate idea (doctrine §13)
 
 ## Running processes
 
@@ -37,6 +37,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0001-20261014T175316Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0002-20261014T190253Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
