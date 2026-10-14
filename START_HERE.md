@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `WF04-20261014-NOJELLY`
 - **Status:** `waiting_external`
 - **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** Review PR #2 and the delivered live-action draft. Do not re-render completed shots or recreate the PR. A true photoreal generated-action final requires an approved high-detail avatar/action or video-generation pipeline; rough 3D and photo warps must not be presented as that final.
+- **Next action:** Use the verified Drive link in records/DRIVE_DELIVERY.json if Arena viewer fails. Do not repeat rendering/upload or recreate PR #2. Await review or a capable approved high-detail character/video-generation pipeline for the still-unmet original photoreal 3D request; service banner backend cause remains unverified.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

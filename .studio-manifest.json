@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T17:37:39+00:00",
+  "generated_at": "2026-10-14T18:17:14+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "f5bc419026a19f06bd346d6b369428d438a7021ab0e54dfe804967b16cb99501",
-      "size": 847
+      "sha256": "ca75b255e2568f24a1617f66718db3df50fe3bd859b67599c2a7c2023b4f3f68",
+      "size": 880
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -371,6 +371,14 @@
       "sha256": "3c3408ffff085ba96ec5267f65b605ef8a298a49e769ccb7f7a47d462be15feb",
       "size": 9491
     },
+    "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/HANDOFF.md": {
+      "sha256": "3d958ad3d010be59d38ecdbfa0d36fdcbf96cde63722fd02d202be99279fee26",
+      "size": 2136
+    },
+    "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json": {
+      "sha256": "62b02d410dc35de4fe5c14f8fd7c126472e6e219456dc5972dbcb4f5613b40cd",
+      "size": 9792
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -598,6 +606,18 @@
     "operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/checkpoint.json": {
       "sha256": "e14d8211213df14273addee0b7481a5cf3354b2edd557288e0da105f8512bb44",
       "size": 9491
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/STATUS.md": {
+      "sha256": "71c32f8402f47599848cafe7e2d74ed64c4acf874dbe58ce9de213d092ff5ca5",
+      "size": 1054
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/SYNC.json": {
+      "sha256": "f09de869744fe68480cc05472f49b6552ec8431a7aa63755890fe9df77fb3f6e",
+      "size": 4753
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json": {
+      "sha256": "d0158965d61c78fc09b6ab05aa9351bfdb88a913d9221e9cee1ecf15fa4e37cb",
+      "size": 9792
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -2412,20 +2432,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "ee249ed6d783437f2780a5b0801f9824ff4dff1e1852d937b7ca1b0e163313fc",
-      "size": 3056
+      "sha256": "272229838835f5dfae65e0f5de9eef800246b351cb2c8ef16c7ca6ac9adefa6e",
+      "size": 3089
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "7381005b5eceea6b960a3ba3527a91809ba97c78e24abf3c65db9603b562ee8a",
-      "size": 3245
+      "sha256": "17500ac131b0533de373e6c9a65c8b20d7c1428350b4a240f5e7ac2787bb5b95",
+      "size": 3918
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "13ccee277ff35d2f08daa15aabaf130b231c2b6327d099e6673c1e8e748d0f11",
-      "size": 25658
+      "sha256": "9d60f4ac0c59a8bb82f8eba07d101a4bc98827a96ba1b9c72c2c363c9e27a151",
+      "size": 30546
     },
     "workflows/current/RESUME.md": {
-      "sha256": "6e54b83252d1131c012e245160efd82eca38315c7b2a03d26a26017293109218",
-      "size": 2103
+      "sha256": "3d958ad3d010be59d38ecdbfa0d36fdcbf96cde63722fd02d202be99279fee26",
+      "size": 2136
     },
     "workflows/current/payload/true-motion/README.md": {
       "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22",
@@ -2434,6 +2454,10 @@
     "workflows/current/payload/true-motion/records/BRIEF.json": {
       "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8",
       "size": 1000
+    },
+    "workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json": {
+      "sha256": "d0015d48922ef0ab4f446f6ba0d6ac10637b02d29a74ceb03a5b8465216f1fd9",
+      "size": 777
     },
     "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json": {
       "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df",

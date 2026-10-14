@@ -9,13 +9,13 @@
     "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T17:37:39Z",
-  "checkpoint_sequence": 5,
-  "event_sequence": 35,
-  "journal_head": "fda323bbf175798bef9eb8d88d4d3168a20404ac71e8f1df0dc454243b25584d",
-  "last_checkpoint": "2026-10-14T17:37:13Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z",
-  "next_action": "Review PR #2 and the delivered live-action draft. Do not re-render completed shots or recreate the PR. A true photoreal generated-action final requires an approved high-detail avatar/action or video-generation pipeline; rough 3D and photo warps must not be presented as that final.",
+  "updated_at": "2026-10-14T18:17:14Z",
+  "checkpoint_sequence": 6,
+  "event_sequence": 42,
+  "journal_head": "676fd1e09fde2487dd79cb471db49ad2355a1f736f16183219833542f00c0865",
+  "last_checkpoint": "2026-10-14T18:16:24Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z",
+  "next_action": "Use the verified Drive link in records/DRIVE_DELIVERY.json if Arena viewer fails. Do not repeat rendering/upload or recreate PR #2. Await review or a capable approved high-detail character/video-generation pipeline for the still-unmet original photoreal 3D request; service banner backend cause remains unverified.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
