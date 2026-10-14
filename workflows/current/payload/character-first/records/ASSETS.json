@@ -1,0 +1,151 @@
+{
+  "folder_id": "1AK1q-JV_jH1EsRhF10kVrKA57MOE5Bga",
+  "folder_url": "https://drive.google.com/drive/folders/1AK1q-JV_jH1EsRhF10kVrKA57MOE5Bga",
+  "assets": [
+    {
+      "role": "front_master",
+      "path": "/home/user/monarch-character-assets/character/FRONT_MASTER.png",
+      "bytes": 1674778,
+      "md5": "7ed15fc1dbde70cbb1d1fbc2b4af6051",
+      "sha256": "2824c832a2d83b19bda01609ae45c3a6a24a9d06f2c87d68f4a18ca217a9842c",
+      "drive_id": "1hXb7juezwOnXbfS_e1yeJ4O2IS721gjd",
+      "url": "https://drive.google.com/file/d/1hXb7juezwOnXbfS_e1yeJ4O2IS721gjd/view",
+      "upload_verified": true,
+      "relative_path": "character/FRONT_MASTER.png"
+    },
+    {
+      "role": "profile",
+      "path": "/home/user/monarch-character-assets/character/PROFILE.png",
+      "bytes": 1677899,
+      "md5": "af648ede7c617ceacf03acd5490d8223",
+      "sha256": "457a2c1fed7c192ca52cca1688401045d2be20db5e94b8181338e8b96e6cf617",
+      "drive_id": "1Gdh8wGI_nPiji4ncGA4aofrGlcvwt8Y4",
+      "url": "https://drive.google.com/file/d/1Gdh8wGI_nPiji4ncGA4aofrGlcvwt8Y4/view",
+      "upload_verified": true,
+      "relative_path": "character/PROFILE.png"
+    },
+    {
+      "role": "back",
+      "path": "/home/user/monarch-character-assets/character/BACK.png",
+      "bytes": 1736088,
+      "md5": "2bfdaddac6a24437e508a05d96950493",
+      "sha256": "ee197813e0e305c497af0f8f845bf1727b306c9a403364dedcede4217c30808b",
+      "drive_id": "1q7ELjZIUi5yEaJTywnt-yX98MIKxxyEq",
+      "url": "https://drive.google.com/file/d/1q7ELjZIUi5yEaJTywnt-yX98MIKxxyEq/view",
+      "upload_verified": true,
+      "relative_path": "character/BACK.png"
+    },
+    {
+      "role": "face_detail",
+      "path": "/home/user/monarch-character-assets/character/FACE_DETAIL.png",
+      "bytes": 2171050,
+      "md5": "5e3b6eb0f24097e83de00c58b4d4272b",
+      "sha256": "3c72d1540aca7b1dc69eef3c536fcab9109927519f3cf57b633afb8a1ecc9bcb",
+      "drive_id": "11lmr7yCzkLsqwDDXVdJSkWLP9g5_gSr8",
+      "url": "https://drive.google.com/file/d/11lmr7yCzkLsqwDDXVdJSkWLP9g5_gSr8/view",
+      "upload_verified": true,
+      "relative_path": "character/FACE_DETAIL.png"
+    },
+    {
+      "role": "character_sheet",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_SHEET.png",
+      "bytes": 6266786,
+      "md5": "ee1687c652d8e0a4eedb90b074f40c17",
+      "sha256": "113cd101262ee32af3c07945d5dda43c6d01acf0ce6ac4724039b6cfd488fda1",
+      "drive_id": "1mylJcLRJPHw5-8ew9a4RP5mwkmtmPRSl",
+      "url": "https://drive.google.com/file/d/1mylJcLRJPHw5-8ew9a4RP5mwkmtmPRSl/view",
+      "upload_verified": true,
+      "relative_path": "delivery/MONARCH_CHARACTER_SHEET.png"
+    },
+    {
+      "role": "shot_threshold",
+      "path": "/home/user/monarch-character-assets/shots/01_THRESHOLD.png",
+      "bytes": 2260721,
+      "md5": "e3aab5e7b1ecc0d6baf4766a1726b27a",
+      "sha256": "f4e05f0d7a5c22a9e0982bc434ae10ff1df4ba2977c923568478490e0f675a35",
+      "drive_id": "1P1dB9DLLOfR9oBjXswRbyxHYCucEswzo",
+      "url": "https://drive.google.com/file/d/1P1dB9DLLOfR9oBjXswRbyxHYCucEswzo/view",
+      "upload_verified": true,
+      "relative_path": "shots/01_THRESHOLD.png"
+    },
+    {
+      "role": "shot_focus",
+      "path": "/home/user/monarch-character-assets/shots/02_FOCUS.png",
+      "bytes": 2465456,
+      "md5": "6a58cf7071adf07ad22501860354fa98",
+      "sha256": "80a1036cfb81ff732f3fc3e97a3568b7271bd2399d45ff37e5b5b476c919b34c",
+      "drive_id": "1ZxYFmincJ8o_G3C5-Y67Mk6LeNVIE5Xf",
+      "url": "https://drive.google.com/file/d/1ZxYFmincJ8o_G3C5-Y67Mk6LeNVIE5Xf/view",
+      "upload_verified": true,
+      "relative_path": "shots/02_FOCUS.png"
+    },
+    {
+      "role": "shot_break",
+      "path": "/home/user/monarch-character-assets/shots/03_BREAK.png",
+      "bytes": 2384778,
+      "md5": "c5cf18c92651bf31a63e512c8cad635f",
+      "sha256": "79f2d09a47f8b195a29de01febe74187288299ff79df34b11b4b9273b3645f70",
+      "drive_id": "1xVSqXLrM6N4eAmBuZwY8qNube7L4eP2H",
+      "url": "https://drive.google.com/file/d/1xVSqXLrM6N4eAmBuZwY8qNube7L4eP2H/view",
+      "upload_verified": true,
+      "relative_path": "shots/03_BREAK.png"
+    },
+    {
+      "role": "shot_resolve",
+      "path": "/home/user/monarch-character-assets/shots/04_RESOLVE.png",
+      "bytes": 2249877,
+      "md5": "1bc3611684255fb998ad1f490a6ac8a6",
+      "sha256": "67754834b74fd432e2b698724d83fdda74b63314cb632fe3f803985226bf92db",
+      "drive_id": "1rGjPBfw6Qv4fNj11RV9Ljz9e36aZwO5P",
+      "url": "https://drive.google.com/file/d/1rGjPBfw6Qv4fNj11RV9Ljz9e36aZwO5P/view",
+      "upload_verified": true,
+      "relative_path": "shots/04_RESOLVE.png"
+    },
+    {
+      "role": "design_bible",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_AND_SHOT_BIBLE.pdf",
+      "bytes": 5411392,
+      "md5": "e9d95306bf61bd42923945380005a1d5",
+      "sha256": "c1f0ca6cfced7154f9c9cf2595710b132318ee2362cd474b0ba9f7561fdd2746",
+      "drive_id": "1OUiKUXUHxEf06EQFvpi79igItY3_pAN7",
+      "url": "https://drive.google.com/file/d/1OUiKUXUHxEf06EQFvpi79igItY3_pAN7/view",
+      "upload_verified": true,
+      "relative_path": "delivery/MONARCH_CHARACTER_AND_SHOT_BIBLE.pdf"
+    },
+    {
+      "role": "shot_board",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_SHOT_DESIGNS.png",
+      "bytes": 7264921,
+      "md5": "999aba19efea4f1537554acf5c9f2d86",
+      "sha256": "165e0e3122465238cdbebd31ed0e9b2fbbeb4ae039d0db5a6e8cb45d24a0b935",
+      "drive_id": "1igRpHNR01hR3lK_LvQQWCbOroOWMHyBv",
+      "url": "https://drive.google.com/file/d/1igRpHNR01hR3lK_LvQQWCbOroOWMHyBv/view",
+      "upload_verified": true,
+      "relative_path": "delivery/MONARCH_SHOT_DESIGNS.png"
+    },
+    {
+      "role": "brand_end",
+      "path": "/home/user/monarch-character-assets/brand/MONARCH_CROWN_END.png",
+      "bytes": 60507,
+      "md5": "2b26469d6f7cc6da6f8c2d4875059a62",
+      "sha256": "1b3042fa9264315195f0e43feb9d58578a70de6e1ae0e0694a36a47e92c99f27",
+      "drive_id": "1LeCubpukXDtOX-z9Ak0ucWVOqHS5k5k4",
+      "url": "https://drive.google.com/file/d/1LeCubpukXDtOX-z9Ak0ucWVOqHS5k5k4/view",
+      "upload_verified": true,
+      "relative_path": "brand/MONARCH_CROWN_END.png"
+    },
+    {
+      "role": "design_zip",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_FIRST_DESIGN_PACK.zip",
+      "relative_path": "delivery/MONARCH_CHARACTER_FIRST_DESIGN_PACK.zip",
+      "bytes": 34232854,
+      "md5": "61df17b4cf40eb1869887a57b1709bbe",
+      "sha256": "4a952bb17370febf90831921d4a99a114c73ff8e15ebc80066e0d73f36fda37b",
+      "drive_id": "1UlufCGm_TGPgDaXTx7SaICZ7EYHjcJA9",
+      "url": "https://drive.google.com/file/d/1UlufCGm_TGPgDaXTx7SaICZ7EYHjcJA9/view",
+      "upload_verified": true
+    }
+  ],
+  "animation_exists": false,
+  "asset_root": "/home/user/monarch-character-assets"
+}

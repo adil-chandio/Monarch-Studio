@@ -9,13 +9,13 @@
     "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T18:17:14Z",
-  "checkpoint_sequence": 6,
-  "event_sequence": 42,
-  "journal_head": "676fd1e09fde2487dd79cb471db49ad2355a1f736f16183219833542f00c0865",
-  "last_checkpoint": "2026-10-14T18:16:24Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z",
-  "next_action": "Use the verified Drive link in records/DRIVE_DELIVERY.json if Arena viewer fails. Do not repeat rendering/upload or recreate PR #2. Await review or a capable approved high-detail character/video-generation pipeline for the still-unmet original photoreal 3D request; service banner backend cause remains unverified.",
+  "updated_at": "2026-10-14T20:04:52Z",
+  "checkpoint_sequence": 10,
+  "event_sequence": 60,
+  "journal_head": "1fdcbecefa105013876059b3ee94bd2085ead2d60ba0121d6cc72055db458b5b",
+  "last_checkpoint": "2026-10-14T20:03:36Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z",
+  "next_action": "Use character-first/records/ASSETS.json to recover exact existing art rather than regenerate or request it again. Actual image-to-video/detailed character animation capability is still needed for the remaining film; do not fall back to the rejected live-action composite, mannequin or photograph warps. Preserve the existing PR, update source/receipts on its same session branch, and do not claim an Arena backend repair.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",

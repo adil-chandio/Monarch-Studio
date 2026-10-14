@@ -1,0 +1,39 @@
+{
+  "native_character_views": 4,
+  "cinematic_shot_stills": 4,
+  "brand_stills": 1,
+  "pdf_pages": 3,
+  "animation_frames_rendered": 0,
+  "video_delivered_for_current_direction": false,
+  "zip_bytes": 34232854,
+  "zip_md5": "61df17b4cf40eb1869887a57b1709bbe",
+  "zip_sha256": "4a952bb17370febf90831921d4a99a114c73ff8e15ebc80066e0d73f36fda37b",
+  "zip_crc_check": true,
+  "raw_personal_video_in_zip": false,
+  "tests": {
+    "repository": {
+      "passed": 11,
+      "failed": 0
+    },
+    "design_pipeline": {
+      "passed": 8,
+      "failed": 0
+    },
+    "legacy_motion_regression": {
+      "passed": 10,
+      "failed": 0
+    }
+  },
+  "integrity_check_scope": "Exact file bytes only; not identity/motion/visual approval.",
+  "environment_note": "Initial repository test attempt lacked NumPy in the restored runtime; installed numpy 1.26.4 and reran all three suites successfully.",
+  "zip_drive_id": "1UlufCGm_TGPgDaXTx7SaICZ7EYHjcJA9",
+  "zip_upload_checksum_match": true,
+  "visual_review": {
+    "character_views": "Reviewed together; same-reference face/hair/outfit direction, not an exact 3D scan.",
+    "shot_03": "Revised from a passive gait into a bent-knee lateral action pose.",
+    "shot_04": "Revised repeated walking framing into distinct three-quarter portrait.",
+    "boards": "Character, shot and ending layouts inspected.",
+    "user_likeness_approval": false,
+    "animation_approval": false
+  }
+}

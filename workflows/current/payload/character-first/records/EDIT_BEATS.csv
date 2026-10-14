@@ -1,0 +1,10 @@
+id,name,reference_asset_role,in_frame,out_frame_exclusive,planned_seconds,render_status,motion_direction
+01,Entry,shot_threshold,0,150,5.0,not_rendered,Two quiet heel-to-toe steps. Natural alternating arm swing. No camera trick substitutes for walking.
+02,Attention,shot_threshold,150,300,5.0,not_rendered,Ease to a stop; small torso/head orientation toward a sound. Hold planted support foot.
+03,Cuff,shot_focus,300,450,5.0,not_rendered,Right fingers pinch and release left cuff. Maintain coherent wrist/finger anatomy and face identity.
+04,Reaction,shot_break,450,600,5.0,not_rendered,Brief light fault in the environment. Head leads a small defensive turn; body weight transfers plausibly.
+05,Sidestep,shot_break,600,750,5.0,not_rendered,Grounded lateral evasive step with bent knees. Cloth follows torso motion; sparks/debris move independently.
+06,Recover,shot_break,750,900,5.0,not_rendered,Recover from lateral stance without foot skating. Lower the shielding arm and let jacket settle.
+07,Resolve,shot_resolve,900,1050,5.0,not_rendered,Controlled three-quarter upper-body settling and a small head turn toward lens. No face shape changes.
+08,Eye contact,shot_resolve,1050,1224,5.8,not_rendered,Subtle breathing and a natural blink; calm direct gaze. Let the live action finish before the brand cut.
+09,Brand,brand_end,1224,1332,3.6,not_rendered,Static crown above MONARCH STUDIO or genuine brand animation; readable 3.6-second hold and restrained fade.

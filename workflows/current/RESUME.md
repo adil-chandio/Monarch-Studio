@@ -3,8 +3,8 @@
 **Status:** `waiting_external`  
 **Title:** Monarch Face: original scenes and articulated motion, no plate warps  
 **Style:** `monarch-face-chaos`  
-**Checkpoint sequence:** 6  
-**Last checkpoint:** 2026-10-14T18:16:24Z
+**Checkpoint sequence:** 10  
+**Last checkpoint:** 2026-10-14T20:03:36Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Replace the user-rejected recycled image-warp film with new scene design and ver
 
 ## Exact next action
 
-Use the verified Drive link in records/DRIVE_DELIVERY.json if Arena viewer fails. Do not repeat rendering/upload or recreate PR #2. Await review or a capable approved high-detail character/video-generation pipeline for the still-unmet original photoreal 3D request; service banner backend cause remains unverified.
+Use character-first/records/ASSETS.json to recover exact existing art rather than regenerate or request it again. Actual image-to-video/detailed character animation capability is still needed for the remaining film; do not fall back to the rejected live-action composite, mannequin or photograph warps. Preserve the existing PR, update source/receipts on its same session branch, and do not claim an Arena backend repair.
 
 ## Running processes
 
@@ -38,6 +38,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
