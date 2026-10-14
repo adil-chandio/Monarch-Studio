@@ -9,10 +9,10 @@
     "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T21:12:30Z",
+  "updated_at": "2026-10-14T21:14:00Z",
   "checkpoint_sequence": 15,
-  "event_sequence": 81,
-  "journal_head": "5cd081590fa3cfb1e80fd6dae52fc64cef2906498d80569cc8ef9d7c9d2f4e3c",
+  "event_sequence": 83,
+  "journal_head": "5f0cc6d96553d63c5061c51b7787de6c2b0d3d72997d4d1ca2b79e11502a53e8",
   "last_checkpoint": "2026-10-14T21:10:04Z",
   "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0015-20261014T211004Z",
   "next_action": "Preserve completed character/shot designs and separately uploaded crown outro. Recover the exact outro via VIDEO_COMPONENTS.json if local media disappears; never re-render completed components merely on Continue. Remaining work is actual new-character motion for beats 01–08 plus final assembly/audio-to-action edit; photoreal motion renderer remains unavailable and Runway/Replicate connectors are unsupported. Do not substitute old live-action footage, still warps or the rejected mannequin.",

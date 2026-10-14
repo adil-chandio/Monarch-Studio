@@ -5,7 +5,7 @@
   "created_at": "2026-10-14T21:10:04Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "confirmed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "2",
+      "synced_at": "2026-10-14T21:14:00Z",
+      "note": "Native brand-outro code/receipts pushed as b26cb97; 38 tests pass. PR comment explicitly separates 108 brand frames from zero human-motion frames. No complete-film or Arena-backend-fix claim.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/pull/2#issuecomment-6178617560"
     },
     "google_docs": {
       "status": "pending",
