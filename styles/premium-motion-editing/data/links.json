@@ -4,7 +4,7 @@
   "drive_folder": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
   "github_repo": "https://github.com/adil-chandio/Monarch-Studio",
   "github_path": "styles/premium-motion-editing",
-  "publication_status": "in_progress",
+  "publication_status": "published_main_verified",
   "google_doc_hub": "https://docs.google.com/document/d/1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU/edit",
   "notion_hub": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26",
   "notion_registry_row": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e91681bd8408cb4537dacb31",
@@ -29,7 +29,7 @@
     "source_recovery": "1ZuOZJRiF_7CntW4Yrh80wxf4vbS8vi3V",
     "future_projects": "1g_X6FzsS_Uss_d-VF-mPzwDOtsVr-IST"
   },
-  "content_population_status": "source/codex/cloud hubs populated; GitHub/main verification pending",
+  "content_population_status": "published_and_verified",
   "linear_resume_issue_id": "091b76e2-1d28-43d0-a280-c55ef7dc70a4",
   "linear_resume_identifier": "MON-67",
   "google_doc_hub_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
@@ -91,6 +91,14 @@
     "md5": "6e407c5b4cca1a8da17e973915b0b0d6",
     "sha256": "dd6d08000b75288db10886254c6f13f885b8dc433735f7b3af03fddaed5a37e6",
     "size": 2481616,
-    "manifest_entries": 179
-  }
+    "manifest_entries": 179,
+    "independent_get_verified": true
+  },
+  "github_pr": "https://github.com/adil-chandio/Monarch-Studio/pull/3",
+  "github_source_commit": "8a2d5ee1488e2d0ec1b2f71754153aa4e11b70f8",
+  "github_main_url": "https://github.com/adil-chandio/Monarch-Studio/tree/main/styles/premium-motion-editing",
+  "github_merge_commit": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+  "source_package_shortcut": "1NrsQHlWHMRYPXWhKZqceN-uqdJOSTmv-",
+  "linear_state_comment_id": "82cbfa82-fa3f-4e82-ba94-df7646414fe9",
+  "notion_project_intro_block": "3f9807e1-e916-815d-80b1-e3f6c8ed12a9"
 }

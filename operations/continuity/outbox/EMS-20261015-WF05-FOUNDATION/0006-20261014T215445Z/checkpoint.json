@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0006-20261014T215445Z",
+  "created_at": "2026-10-14T21:54:45Z",
+  "summary": "WF-05 permanent Premium Motion Editing library completed. Latest policy: V5 clean layout + accepted V6 non-caption improvements; no V6 lower pills/word strip. 17 chapters / 38-page codex / 18 lessons / 14-shot case / 74 exact V5/V6 source files / 179-entry package. 25 tests passed; repo validator 21 passes, 0 errors, one explicit historical-path warning. GitHub PR #3 CI passed and main policy/registry verified; merge 4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b. Drive/native Docs/Notion/Linear hubs and source checksums verified. Existing workflows and original masters preserved; history limits explicit; no new combined full-length master claimed.",
+  "next_action": "Task complete; consult permanent archive.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261015-WF05-FOUNDATION",
+    "status": "completed",
+    "title": "Establish WF-05 Premium Motion Editing permanent style and cross-platform knowledge",
+    "style_id": "premium-motion-editing",
+    "goal": "Promote actual V5/V6 work into a comprehensive reusable WF-05 style, adopting V5 clean typography and accepted V6 motion improvements while rejecting V6 bottom caption pills. Preserve tools, code, evidence, lessons, creative/metaphor DNA, technical QA, source recovery, and new-chat startup contracts. Register in the repository, publish to GitHub, populate the existing WF-05 Drive folder, and sync the project knowledge/status hubs accurately.",
+    "acceptance_criteria": [
+      "Dedicated permanent WF-05 style and both registries; other workflows preserved",
+      "Latest user feedback encoded: no V6 lower caption pills by default; accepted V5/V6 facets clearly separated",
+      "Detailed source-backed knowledge, creative grammar, workflows, mistakes/causes/fixes, code/assets/evidence and coverage audit",
+      "Executable reusable templates/presets and fresh-chat instructions with tests; no frozen Einstein content substituted for new topics",
+      "Existing Drive WF-05 folder organized and verified; GitHub publication and configured cross-platform receipts contain real IDs",
+      "No unsupported completeness/3D/word-sync claims; no large or sensitive raw media in Git"
+    ],
+    "started_at": "2026-10-14T19:49:03Z",
+    "updated_at": "2026-10-14T21:54:45Z",
+    "checkpoint_sequence": 6,
+    "event_sequence": 31,
+    "journal_head": "661e8af1771304e518d053af2e24654b381ca7e4eda81e62a358d218a7d5c220",
+    "last_checkpoint": "2026-10-14T21:54:45Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z",
+    "next_action": "Task complete; consult permanent archive.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261015-WF05-FOUNDATION",
+    "seq": 31,
+    "timestamp": "2026-10-14T21:54:45Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "WF-05 permanent Premium Motion Editing library completed. Latest policy: V5 clean layout + accepted V6 non-caption improvements; no V6 lower pills/word strip. 17 chapters / 38-page codex / 18 lessons / 14-shot case / 74 exact V5/V6 source files / 179-entry package. 25 tests passed; repo validator 21 passes, 0 errors, one explicit historical-path warning. GitHub PR #3 CI passed and main policy/registry verified; merge 4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b. Drive/native Docs/Notion/Linear hubs and source checksums verified. Existing workflows and original masters preserved; history limits explicit; no new combined full-length master claimed.",
+    "content_sha256": "99127aa38c2ff47e105193a1d58bed8d1e5b5b238b1499b667f43fe535d44335",
+    "metadata": {
+      "sequence": 6,
+      "next_action": "Task complete; consult permanent archive.",
+      "status": "completed"
+    },
+    "prev_event_sha256": "6562f0201b212ef5a6b5a4f6e88f94564cd4c2f152143345b60f9ce662f71055",
+    "event_sha256": "661e8af1771304e518d053af2e24654b381ca7e4eda81e62a358d218a7d5c220"
+  },
+  "journal_head": "661e8af1771304e518d053af2e24654b381ca7e4eda81e62a358d218a7d5c220",
+  "git": {
+    "initialized": true,
+    "head": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+    "branch": "arena/fb829993-monarch-studio",
+    "status": [
+      " M styles/premium-motion-editing/HUB.md",
+      " M styles/premium-motion-editing/data/links.json",
+      " M styles/premium-motion-editing/records/FOUNDATION_INCIDENTS.md",
+      " M styles/premium-motion-editing/records/FOUNDATION_STATUS.json",
+      " M styles/premium-motion-editing/records/RELEASE_RECEIPT.json",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? styles/premium-motion-editing/records/GITHUB_PUBLICATION.json",
+      "?? styles/premium-motion-editing/records/PLATFORM_VERIFICATION.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/wf05-foundation/DISCOVERY.json",
+      "size": 1221,
+      "sha256": "2f8843437e196da24f908a43e8f2deb68e920bd4ec6dc97ce4871fa0818e717f"
+    },
+    {
+      "path": "workflows/current/payload/wf05-foundation/PACKAGE.json",
+      "size": 472,
+      "sha256": "47ab343b7ab40d4f6092c0ba48508eb259bfe5fa60071c38e1bf583eb7c924ed"
+    },
+    {
+      "path": "workflows/current/payload/wf05-foundation/USER_REQUEST.txt",
+      "size": 1662,
+      "sha256": "d171afe95fb68243bca7984fc9376040cb70c51654d241672965e9570942f115"
+    },
+    {
+      "path": "workflows/current/payload/wf05-foundation/bootstrap_style.py",
+      "size": 28823,
+      "sha256": "be21277e158ae6922c089eb3fb9e6c03e55291c4cc87329ce7342ae27e3b9484"
+    },
+    {
+      "path": "workflows/current/payload/wf05-foundation/write_entrypoints.py",
+      "size": 22419,
+      "sha256": "e33ec2379138e220760d32f20572250c5bf8b192e7e918024078e30428724d25"
+    },
+    {
+      "path": "workflows/current/payload/wf05-foundation/write_knowledge.py",
+      "size": 50047,
+      "sha256": "1937532128d7933992f266cf5fa2eeeb7dbccde8cb7db2c35dc98d251c038884"
+    }
+  ]
+}

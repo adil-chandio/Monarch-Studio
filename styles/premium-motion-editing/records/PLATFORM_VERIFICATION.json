@@ -1,0 +1,48 @@
+{
+  "workflow": "WF-05",
+  "scope": "User-requested permanent WF-05 style hubs/registry, not a claim that unrelated old workflow targets were rewritten",
+  "github": {
+    "main_verified": true,
+    "pr": 3,
+    "merge": "4cb4ac9a78c3f3d7f28c99bc0564cc31a65e271b",
+    "ci": "SUCCESS"
+  },
+  "drive": {
+    "folder_verified": true,
+    "original_reference_preserved": true,
+    "full_source_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+    "full_source_md5": "6e407c5b4cca1a8da17e973915b0b0d6",
+    "full_source_bytes": 2481616,
+    "independent_get": true,
+    "pdf_md5": "5507cf4684975277e5f8f1454558c096",
+    "pdf_bytes": 165423,
+    "original_master_urls_unchanged": true
+  },
+  "google_docs": {
+    "document_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+    "all_17_chapters_verified": true,
+    "required_word_occurrence_coverage": 1.0,
+    "hub_links_marker_verified": true,
+    "studio_registry_entry_marker_verified": true
+  },
+  "notion": {
+    "hub_id": "3f9807e1-e916-819b-9c53-e21326dd0f26",
+    "row_id": "3f9807e1-e916-81bd-8408-cb4537dacb31",
+    "doc00_id": "3f9807e1-e916-81af-8fd5-dde25caf448c",
+    "summary_end_block_readback": true,
+    "latest_policy_and_links_present": true
+  },
+  "linear": {
+    "project_id": "104ec829-e3db-4796-b12c-4fd062287ff3",
+    "resume_issue": "MON-67",
+    "resume_issue_remains_pointer": true,
+    "finite_task": "MON-68",
+    "task_status": "Done",
+    "registry_comment_id": "16b72d38-f7b4-4103-ae6e-c2c0eded4602"
+  },
+  "live_receipt": {
+    "id": "1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje",
+    "content_readback_verified": true,
+    "base64_update_workaround": "JSON-looking strings were coerced by connector; base64 preserved the same file ID"
+  }
+}
