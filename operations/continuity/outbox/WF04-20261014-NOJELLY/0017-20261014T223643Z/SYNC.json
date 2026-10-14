@@ -5,7 +5,7 @@
   "created_at": "2026-10-14T22:36:43Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "confirmed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "2",
+      "synced_at": "2026-10-14T23:02:30Z",
+      "note": "Pushed ae1235d: correct main-reference lock, same-music policy, verified audio extraction and full-picture conform guards. 44 tests pass. Other chat remains workflow-only; no new full film rendered.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/pull/2#issuecomment-6180361629"
     },
     "google_docs": {
       "status": "pending",
