@@ -19,7 +19,15 @@ import cv2
 import numpy as np
 from scipy.io import wavfile
 
-ROOT = Path(__file__).resolve().parents[4]
+def _repo_root() -> Path:
+    """Locate the repository root regardless of which copy of this engine runs."""
+    for candidate in Path(__file__).resolve().parents:
+        if (candidate / "styles").is_dir() and (candidate / "workflows").is_dir():
+            return candidate
+    raise RuntimeError("repository root not found above " + str(Path(__file__).resolve()))
+
+
+ROOT = _repo_root()
 PAYLOAD = ROOT / "workflows" / "current" / "payload"
 MASTER_MP4 = PAYLOAD / "MONARCH_CHAOS_VIDEO_1_MASTER.mp4"
 COMPARE_MP4 = PAYLOAD / "MONARCH_CHAOS_VIDEO_1_VS_REF_COMPARE.mp4"

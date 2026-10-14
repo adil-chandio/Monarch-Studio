@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import math
 import subprocess
+import os
 from pathlib import Path
 from typing import Any
 
@@ -12,16 +13,56 @@ import numpy as np
 from scipy.io import wavfile
 from scipy.signal import butter, filtfilt
 
-ROOT = Path(__file__).resolve().parents[4]
+def _repo_root() -> Path:
+    """Locate the repository root regardless of which copy of this engine runs."""
+    for candidate in Path(__file__).resolve().parents:
+        if (candidate / "styles").is_dir() and (candidate / "workflows").is_dir():
+            return candidate
+    raise RuntimeError("repository root not found above " + str(Path(__file__).resolve()))
+
+
+def _ffmpeg_bin() -> str:
+    """ffmpeg is not on PATH in this sandbox; imageio-ffmpeg ships a static build."""
+    import shutil
+    found = shutil.which("ffmpeg")
+    if found:
+        return found
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except ImportError as exc:  # pragma: no cover
+        raise SystemExit("ffmpeg not found — run: bash tools/bootstrap_env.sh") from exc
+
+
+FFMPEG = _ffmpeg_bin()
+
+
+ROOT = _repo_root()
 PAYLOAD = ROOT / "workflows" / "current" / "payload"
-REF_DIR = ROOT / ".runtime" / "ref_video"
+# The reference audio is a materialized render input, not repository content.
+# Keep it outside the workspace snapshot (default /tmp/monarch-stage/ref_video).
+STAGE_DIR = Path(os.environ.get("MONARCH_STAGE_DIR", "/tmp/monarch-stage"))
+REF_DIR = Path(os.environ.get("MONARCH_REF_DIR", STAGE_DIR / "ref_video"))
+
+
+def _ref_audio_path() -> Path:
+    wav = REF_DIR / "ref_audio.wav"
+    if not wav.exists():
+        raise SystemExit(
+            f"reference audio missing: {wav}\n"
+            "materialize it once per turn (see docs/STORAGE_AND_MATERIALIZATION.md):\n"
+            "  # 1. agent tool: download the reference video from Drive; the connector writes ./google_drive/\n"
+            "  mv google_drive/<reference>.mp4 /tmp/monarch-stage/ref.mp4\n"
+            "  python3 tools/stage_ref_audio.py /tmp/monarch-stage/ref.mp4 --drive-id <id> --md5 <md5>\n"
+        )
+    return wav
 
 FPS = 30
 TOTAL_FRAMES = 636
 
 
 def build_master_audio() -> tuple[Path, dict[str, Any]]:
-    sr, ref_wav = wavfile.read(REF_DIR / "ref_audio.wav")
+    sr, ref_wav = wavfile.read(_ref_audio_path())
     ref_f = ref_wav.astype(np.float32) / 32768.0
     if ref_f.ndim == 1:
         ref_f = np.stack([ref_f, ref_f], axis=1)
@@ -153,7 +194,7 @@ def build_master_audio() -> tuple[Path, dict[str, Any]]:
     tmp_wav = PAYLOAD / "master_audio_44k.wav"
     wavfile.write(tmp_wav, sr, (mix * 32767.0).astype(np.int16))
     subprocess.run(
-        ["ffmpeg", "-y", "-i", str(tmp_wav), "-ar", "48000", "-ac", "2", "-c:a", "pcm_s16le", str(out_wav), "-loglevel", "warning"],
+        [FFMPEG, "-y", "-i", str(tmp_wav), "-ar", "48000", "-ac", "2", "-c:a", "pcm_s16le", str(out_wav), "-loglevel", "warning"],
         check=True,
     )
     tmp_wav.unlink(missing_ok=True)

@@ -52,3 +52,20 @@ materialize-compact:
 
 materialize-full:
 	$(PYTHON) tools/materialize.py full
+
+# --- anti-stop tooling (2026-10-14): make snapshot loss and missing deps loud ---
+.PHONY: budget budget-json env env-check recover
+budget:
+	$(PYTHON) tools/repo_budget.py
+
+budget-json:
+	$(PYTHON) tools/repo_budget.py --json
+
+env:
+	bash tools/bootstrap_env.sh
+
+env-check:
+	bash tools/bootstrap_env.sh --check
+
+recover:
+	bash tools/session_recover.sh

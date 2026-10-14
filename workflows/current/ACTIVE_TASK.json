@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "task_id": "EMS-20261013-002",
-  "status": "completed",
-  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)",
+  "task_id": "EMS-20261014-001",
+  "status": "active",
+  "title": "WF-04 · Monarch Face · Chaos Video 2 (reference-matched next-level cut) + anti-stop continuity hardening",
   "style_id": "monarch-face-chaos",
-  "goal": "Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.",
+  "goal": "User (2026-10-14): make a video like the Drive reference VID_20261013_050529_146.mp4 with his canonical face/wardrobe, more body movement, next-level chaos/realism, ending on the crowned MONARCH STUDIO logo; and definitively fix why the session 'keeps stopping'.",
   "acceptance_criteria": [
-    "21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs."
+    "Cause of repeated stops identified with measurements and recorded; repo back under the snapshot cap; render env bootstrap + branch recovery + budget tools committed; Chaos Video 2 built from the WF-04 engine, gated 21/21, uploaded to Drive with MD5, synced and checkpointed."
   ],
-  "started_at": "2026-10-13T13:05:15Z",
-  "updated_at": "2026-10-13T13:31:38Z",
-  "checkpoint_sequence": 1,
-  "event_sequence": 10,
-  "journal_head": "63ed4223d35b5ee703d49e6af47c8a0a45ef2929a487dbcfba871524886f9042",
-  "last_checkpoint": "2026-10-13T13:31:18Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z",
-  "next_action": "Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.",
+  "started_at": "2026-10-14T15:37:12Z",
+  "updated_at": "2026-10-14T15:38:12Z",
+  "checkpoint_sequence": 0,
+  "event_sequence": 6,
+  "journal_head": "e0323e279922944187dc7ec7a87db03465bbefe9ee73971df1e31a105eb09a8d",
+  "last_checkpoint": null,
+  "last_checkpoint_path": null,
+  "next_action": "Render the WF-04 v2 pipeline verification pass, then author and render Chaos Video 2.",
   "running_processes": [],
   "remote_sync": {
-    "github": "synced",
-    "google_docs": "synced",
-    "google_drive": "synced",
-    "linear": "synced",
-    "notion": "synced"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
   }
 }

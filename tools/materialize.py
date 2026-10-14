@@ -27,6 +27,12 @@ COMPACT_PATHS = [
     "styles/monarch-noir-film/knowledge",
     "styles/monarch-noir-film/records",
     "styles/monarch-noir-film/src",
+    # WF-04 · Monarch Face: keep the render inputs (plates) and engine locally —
+    # they are the active workflow. Bigger mastered output stays on Drive.
+    "styles/monarch-face-chaos/knowledge",
+    "styles/monarch-face-chaos/plates",
+    "styles/monarch-face-chaos/records",
+    "styles/monarch-face-chaos/src",
     "tests",
     "tools",
     "workflows",

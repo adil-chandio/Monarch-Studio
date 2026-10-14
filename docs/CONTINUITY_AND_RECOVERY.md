@@ -46,6 +46,33 @@ Record its process ID with `continuity.py process add`. The process creates a ch
 
 From task initialization onward, visible user and assistant messages are stored verbatim in `CHAT_TRANSCRIPT.jsonl`, linked to the journal by SHA-256. Hidden system instructions, credentials, connector tokens and unavailable pre-initialization chat cannot be exported. Older compacted conversation cannot honestly be recreated word-for-word; existing workflow session logs remain its available evidence.
 
+## Session-start branch recovery (added 2026-10-14)
+
+Arena pins each session to its own `arena/<session>-monarch-studio` branch, and a new
+turn starts from a checkout of `main` — **not** from the previous turn's branch. The
+permanent records (this protocol) were therefore correct while the *work* appeared to
+vanish: the newest commits were sitting on other arena branches and on Drive.
+
+Run this before anything else in a fresh session:
+
+```bash
+bash tools/session_recover.sh                     # list branches + recorded next action
+bash tools/session_recover.sh --merge <ref>       # fast-forward onto the active branch
+python3 tools/repo_budget.py                      # is the worktree under the snapshot cap?
+bash tools/bootstrap_env.sh                       # numpy/Pillow/scipy/cv2/ffmpeg
+```
+
+Known session branches (2026-10-14):
+
+| branch | content |
+| --- | --- |
+| `arena/d53677cc-monarch-studio` | WF-04 · Monarch Face · Chaos Video 1 v2 delivery (merged into the 2026-10-14 session branch) |
+| `arena/a188bd4a-monarch-studio` | WF-01 · AMEER KA KUTTA v8 + 3D card transitions |
+| `arena/ab4ba9f7-monarch-studio` | WF-01 · AMEER KA KUTTA v9/v9.1 cinema pass (contains `brain: P-025` note about recovering a reset local repo) |
+
+Never force-push over these; merge or cherry-pick. Pushing this session's branch is what
+makes the next turn's recovery possible at all.
+
 ## Recovery after refresh
 
 If the page or response stops:

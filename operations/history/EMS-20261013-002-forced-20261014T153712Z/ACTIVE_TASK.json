@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261013-002",
+  "status": "completed",
+  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)",
+  "style_id": "monarch-face-chaos",
+  "goal": "Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.",
+  "acceptance_criteria": [
+    "21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs."
+  ],
+  "started_at": "2026-10-13T13:05:15Z",
+  "updated_at": "2026-10-13T13:31:38Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 10,
+  "journal_head": "63ed4223d35b5ee703d49e6af47c8a0a45ef2929a487dbcfba871524886f9042",
+  "last_checkpoint": "2026-10-13T13:31:18Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z",
+  "next_action": "Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "synced",
+    "google_docs": "synced",
+    "google_drive": "synced",
+    "linear": "synced",
+    "notion": "synced"
+  }
+}

@@ -18,8 +18,46 @@ from PIL import Image, ImageDraw, ImageFont
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from audio_engine import build_master_audio
 
+def _ffmpeg_bin() -> str:
+    """ffmpeg is not on PATH in this sandbox; imageio-ffmpeg ships a static build."""
+    import shutil
+    found = shutil.which("ffmpeg")
+    if found:
+        return found
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except ImportError as exc:  # pragma: no cover
+        raise SystemExit("ffmpeg not found — run: bash tools/bootstrap_env.sh") from exc
+
+
+FFMPEG = _ffmpeg_bin()
+
+
 PAYLOAD = Path(__file__).resolve().parents[1]
-PLATES_DIR = PAYLOAD / "plates"
+
+
+def _repo_root() -> Path:
+    for candidate in Path(__file__).resolve().parents:
+        if (candidate / "styles").is_dir() and (candidate / "workflows").is_dir():
+            return candidate
+    raise RuntimeError("repository root not found above " + str(Path(__file__).resolve()))
+
+
+def _plates_dir() -> Path:
+    """Plates have exactly one home (styles/monarch-face-chaos/plates).
+
+    Both engine copies (style + payload runner) must find them there, otherwise a
+    duplicate ~20 MB copy has to live in the payload and the workspace crosses the
+    snapshot cap. See docs/STORAGE_AND_MATERIALIZATION.md.
+    """
+    for candidate in (PAYLOAD / "plates", _repo_root() / "styles" / "monarch-face-chaos" / "plates"):
+        if candidate.is_dir():
+            return candidate
+    raise RuntimeError("source plates not found; run: python3 tools/materialize.py full")
+
+
+PLATES_DIR = _plates_dir()
 
 W, H = 1080, 1920
 FPS = 30
@@ -660,7 +698,7 @@ def main() -> None:
 
     out_mp4 = PAYLOAD / "MONARCH_CHAOS_VIDEO_1_MASTER.mp4"
     cmd = [
-        "ffmpeg", "-y",
+        FFMPEG, "-y",
         "-f", "rawvideo", "-vcodec", "rawvideo",
         "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
         "-i", "-",

@@ -55,7 +55,32 @@ Thumbs.db
 # Rebuilt delivery masters belong on Drive, not in Git
 *_FINAL.mp4
 *_master.mp4
+*_MASTER.mp4
+*MASTER*.mp4
+*_master.MP4
 master_*.mp4
+*_preview_render.mp4
+*_draft.mp4
+
+# Rendered media and rebuilt audio are deliverables, not source: keep them on
+# Drive with the recorded ID/MD5 (rule 7 of CONTRIBUTING.md). Force-add only a
+# deliberately tiny proof asset (`git add -f`).
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.flac
+
+# Drive staging / materialization directories
+# The Google Drive connector writes downloads into ./google_drive; those bytes
+# count towards the ~128 MB workspace snapshot, so stage them under /tmp:
+#   mv google_drive/* /tmp/monarch-stage/
+google_drive/
+stage/
+staging/
+_probe/
+renders/
 # The active payload keeps small source/QA records in Git, never its render outputs.
 workflows/current/payload/*.mp4
 workflows/current/payload/master_audio_*.wav

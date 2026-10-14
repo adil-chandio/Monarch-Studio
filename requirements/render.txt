@@ -1,8 +1,13 @@
 # Historical renderer/runtime dependencies.
 # Upper bounds prevent unreviewed major-version behavior changes.
+#
+# NOTE (2026-10-14): this file IS the render environment. Dependencies install
+# outside the workspace and do not survive a new turn, so every session starts
+# with `bash tools/bootstrap_env.sh` (see docs/STORAGE_AND_MATERIALIZATION.md).
 numpy>=1.24,<3
 Pillow>=10,<13
 scipy>=1.10,<2
 imageio-ffmpeg>=0.4.9,<1
+opencv-python-headless>=4.8,<5
 reportlab>=4,<5
 PyMuPDF>=1.23,<2
