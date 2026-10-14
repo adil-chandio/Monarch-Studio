@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `WF04-20261014-NOJELLY`
 - **Status:** `waiting_external`
 - **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** Use character-first/records/ASSETS.json to recover exact existing art rather than regenerate or request it again. Actual image-to-video/detailed character animation capability is still needed for the remaining film; do not fall back to the rejected live-action composite, mannequin or photograph warps. Preserve the existing PR, update source/receipts on its same session branch, and do not claim an Arena backend repair.
+- **Next action:** Do not redo the delivered character/images or ask the user to attach the master: recover them from the verified Drive IDs in character-first/records/ASSETS.json if needed. The only remaining requested production stage is actual new-body animation and final edit via a capable temporal video-generation or detailed rig pipeline. No such direct photoreal video tool is currently exposed; do not fabricate progress with still pans, warps, old video compositing or the rejected mannequin.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
