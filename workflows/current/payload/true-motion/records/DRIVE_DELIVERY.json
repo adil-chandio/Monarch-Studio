@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-10-14T18:16:24.566409+00:00",
+  "status": "uploaded_and_checksum_verified",
+  "artifact_scope": "live_action_alternative_draft_not_requested_generated_3d_final",
+  "remote": {
+    "id": "1lLFbU2xYcloE-aVYtTTijg9ayoXK4wGF",
+    "name": "MONARCH_VAULT_LIVE_ACTION_DRAFT_2026-10-14.mp4",
+    "parent_id": "1uGPfl4pwPoL-D0VIag3hIejmbR__ochC",
+    "url": "https://drive.google.com/file/d/1lLFbU2xYcloE-aVYtTTijg9ayoXK4wGF/view",
+    "bytes": 9625929,
+    "md5": "bd9ac138749b658175c26873320a4a3c"
+  },
+  "sharing": "inherited existing folder settings; no permission changes",
+  "originals_overwritten": false,
+  "private_source_zip_uploaded": false,
+  "arena_service_repair_claimed": false,
+  "pr": "https://github.com/adil-chandio/Monarch-Studio/pull/2"
+}

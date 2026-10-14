@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0004-20261014T173500Z",
+  "created_at": "2026-10-14T17:35:00Z",
+  "summary": "Alternative draft exported and presented; full decode 1332 frames /44.4s verified. 11 repository tests and 10 motion tests pass. Requested photoreal new 3D performance remains unapproved/unmet; user requested PR for branch changes.",
+  "next_action": "Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "active",
+    "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+    "style_id": "monarch-face-chaos",
+    "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+    "acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-14T17:35:00Z",
+    "checkpoint_sequence": 4,
+    "event_sequence": 29,
+    "journal_head": "53d43bb5130b3094d270cbfe76983f1957ead66c231da4f52d3fac772cc1183a",
+    "last_checkpoint": "2026-10-14T17:35:00Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z",
+    "next_action": "Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.",
+    "running_processes": [
+      {
+        "id": "monarch-original-3d-motion-check-30451e5f",
+        "name": "Vault sample-frame render",
+        "state": "completed",
+        "started_at": "2026-10-14T16:46:38Z",
+        "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+      },
+      {
+        "id": "monarch-corrected-joint-motion-r-ce4914d5",
+        "name": "Corrected vault QA render",
+        "state": "running",
+        "started_at": "2026-10-14T16:57:53Z",
+        "resume_instruction": "Query this process first. Three QA frames render in .cache/monarch-true-motion/qa-v2. Inspect then render full motion proof. Do not start another while running."
+      },
+      {
+        "id": "monarch-native-motion-frames-431c3ea6",
+        "name": "Native render after armature-parent correction",
+        "state": "running",
+        "started_at": "2026-10-14T17:02:11Z",
+        "resume_instruction": "Wait for process exit. Frames p1/p56 at .cache/monarch-true-motion/native-v3 test corrected garment world transforms. Resume renderer from these matching frames only after visual review."
+      },
+      {
+        "id": "monarch-full-44-4-second-draft-e-767b7d57",
+        "name": "Full 44.4s live-action alternative render + automatic mux/verification",
+        "state": "running",
+        "started_at": "2026-10-14T17:25:19Z",
+        "resume_instruction": "Query this exact process first. It renders matching missing shots, synthesizes original audio, muxes and verifies automatically. Final expected: deliverables/monarch-vault/MONARCH_VAULT_LIVE_ACTION_DRAFT.mp4. If it exited with error, inspect .cache/monarch-true-motion/full-export.log before retry. Do not launch duplicate."
+      },
+      {
+        "id": "monarch-finish-export-from-saved-3287176f",
+        "name": "Completed 44.4s draft export",
+        "state": "completed",
+        "started_at": "2026-10-14T17:34:58Z",
+        "resume_instruction": "Final draft exists and was presented; do not re-render. See deliverables/monarch-vault/DELIVERY_README.json and durable records/LIVE_ACTION_DELIVERY.json."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 29,
+    "timestamp": "2026-10-14T17:35:00Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Alternative draft exported and presented; full decode 1332 frames /44.4s verified. 11 repository tests and 10 motion tests pass. Requested photoreal new 3D performance remains unapproved/unmet; user requested PR for branch changes.",
+    "content_sha256": "8f4ee4d1dbab1881a76eb016961b170ae80468f2553a01196889fbdf15945199",
+    "metadata": {
+      "sequence": 4,
+      "next_action": "Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.",
+      "status": "active"
+    },
+    "prev_event_sha256": "01585560640b50632db23307705bafe25ccf5a2e6f7f27808f5b8196c2f78b4b",
+    "event_sha256": "53d43bb5130b3094d270cbfe76983f1957ead66c231da4f52d3fac772cc1183a"
+  },
+  "journal_head": "53d43bb5130b3094d270cbfe76983f1957ead66c231da4f52d3fac772cc1183a",
+  "git": {
+    "initialized": true,
+    "head": "b0879058ee37bbae5d4a65dd6a165f5559b98363",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M AGENTS.md",
+      " M docs/CONTINUITY_AND_RECOVERY.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      " M workflows/current/payload/true-motion/src/composite_live.py",
+      "?? tests/test_manifest_privacy.py",
+      "?? workflows/current/payload/true-motion/README.md",
+      "?? workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "?? workflows/current/payload/true-motion/requirements.txt",
+      "?? workflows/current/payload/true-motion/tests/test_motion.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/true-motion/README.md",
+      "size": 5356,
+      "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/BRIEF.json",
+      "size": 1000,
+      "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "size": 1921,
+      "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/requirements.txt",
+      "size": 207,
+      "sha256": "832c3d66f0cd4ec8303e55655f1c56b1ef5a988572cd5c23dca61a833007a990"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/build_vault.cpython-311.pyc",
+      "size": 61855,
+      "sha256": "84933b75617bd02a575d6bc0194e0c52af953dda6eb6a870eabf093e77b3a954"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/composite_live.cpython-311.pyc",
+      "size": 23215,
+      "sha256": "a02628b5fb4cec6e684fc0c2c807fff79440b0c70df625ef126a816c99b6fea6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/finish_live.cpython-311.pyc",
+      "size": 15567,
+      "sha256": "873b76b42bc840a376357958690ddd9dfd3efe575b47a9266048dcaaed3f235b"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/identity_head.cpython-311.pyc",
+      "size": 30438,
+      "sha256": "5adb18df459883d009622e430db2d1cdc857e7b031057a369f382806a3cddd4e"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/motion_math.cpython-311.pyc",
+      "size": 5437,
+      "sha256": "4020ca519f6d670cbdd0ab759000a85114648e913a409a79c55459258a35750f"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/render_vault.cpython-311.pyc",
+      "size": 7380,
+      "sha256": "4c29a4c2b92f1e0536b9aca75616e54172baed4c0d24cbfc54697ce89a5f55f2"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/build_vault.py",
+      "size": 30565,
+      "sha256": "64304ad9ba8771be3bea41be6aeb101d8c1d346ec07d7cd66b0a43119ce746dd"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/composite_live.py",
+      "size": 11391,
+      "sha256": "5a92640af4e4d442dd2ac0090cadbf63a36d9e180c26f365c18b20e1ea0a2f40"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/finish_live.py",
+      "size": 6681,
+      "sha256": "b509d0e4f08f6e77581a8a4c654d4998fb40095e500bfcbea35b731289823eb6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/identity_head.py",
+      "size": 12807,
+      "sha256": "4212ecf6d9c00ac5b388e8831422194c2331157469fffdef2051fc9479db491c"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/motion_math.py",
+      "size": 2726,
+      "sha256": "322b1eaa28538bde7d11fb98e70d8bca932a3f6ba7d554a717922d7daefb5aed"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/render_vault.py",
+      "size": 3555,
+      "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/__pycache__/test_motion.cpython-311.pyc",
+      "size": 9164,
+      "sha256": "797e38b7117d101b5aa4741bd9a0e47f42bc55ec71be758ff33c5ff00d479122"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/test_motion.py",
+      "size": 2943,
+      "sha256": "d42a25eaf0853f6848f4ce90c551fe3e3a5e2ae1abc1b9b130f775c85558843e"
+    }
+  ]
+}

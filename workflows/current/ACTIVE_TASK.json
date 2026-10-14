@@ -1,27 +1,70 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T02:00:00Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
-  "running_processes": [],
+  "task_id": "WF04-20261014-NOJELLY",
+  "status": "waiting_external",
+  "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+  "style_id": "monarch-face-chaos",
+  "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+  "acceptance_criteria": [
+    "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+  ],
+  "started_at": "2026-10-14T16:22:04Z",
+  "updated_at": "2026-10-14T21:14:00Z",
+  "checkpoint_sequence": 15,
+  "event_sequence": 83,
+  "journal_head": "5f0cc6d96553d63c5061c51b7787de6c2b0d3d72997d4d1ca2b79e11502a53e8",
+  "last_checkpoint": "2026-10-14T21:10:04Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0015-20261014T211004Z",
+  "next_action": "Preserve completed character/shot designs and separately uploaded crown outro. Recover the exact outro via VIDEO_COMPONENTS.json if local media disappears; never re-render completed components merely on Continue. Remaining work is actual new-character motion for beats 01–08 plus final assembly/audio-to-action edit; photoreal motion renderer remains unavailable and Runway/Replicate connectors are unsupported. Do not substitute old live-action footage, still warps or the rejected mannequin.",
+  "running_processes": [
+    {
+      "id": "monarch-original-3d-motion-check-30451e5f",
+      "name": "Vault sample-frame render",
+      "state": "completed",
+      "started_at": "2026-10-14T16:46:38Z",
+      "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+    },
+    {
+      "id": "monarch-finish-export-from-saved-3287176f",
+      "name": "Completed 44.4s draft export",
+      "state": "completed",
+      "started_at": "2026-10-14T17:34:58Z",
+      "resume_instruction": "Final draft exists and was presented; do not re-render. See deliverables/monarch-vault/DELIVERY_README.json and durable records/LIVE_ACTION_DELIVERY.json."
+    },
+    {
+      "id": "monarch-corrected-joint-motion-r-ce4914d5",
+      "name": "Corrected 3D QA samples",
+      "state": "completed",
+      "started_at": "2026-10-14T17:36:11Z",
+      "resume_instruction": "Finished; no production 3D final accepted."
+    },
+    {
+      "id": "monarch-native-motion-frames-431c3ea6",
+      "name": "Native skinning-space QA samples",
+      "state": "completed",
+      "started_at": "2026-10-14T17:36:11Z",
+      "resume_instruction": "Finished; experimental frames only."
+    },
+    {
+      "id": "monarch-full-44-4-second-draft-e-767b7d57",
+      "name": "Initial full export attempt",
+      "state": "failed",
+      "started_at": "2026-10-14T17:36:12Z",
+      "resume_instruction": "Superseded by completed resumed export monarch-finish-export-from-saved-3287176f. Do not restart."
+    },
+    {
+      "id": "monarch-crown-outro-0ee7e859",
+      "name": "Native 3.6s crown outro plus original sound",
+      "state": "completed",
+      "started_at": "2026-10-14T20:59:29Z",
+      "resume_instruction": "Finished successfully: 108 frames /3.6s, verified full decode. See BRAND_OUTRO.json; do not re-render. This is only the brand-ending component, not character animation."
+    }
+  ],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-003",
-  "completion_checkpoint": "0004-20261011T020000Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

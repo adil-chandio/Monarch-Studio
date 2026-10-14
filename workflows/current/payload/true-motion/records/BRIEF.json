@@ -1,0 +1,26 @@
+{
+  "task": "WF04-20261014-NOJELLY",
+  "request": "New original shots with real motion, no recycled plates or jelly warps",
+  "prior_rejected_commit": "95916936f05d0da0f51b550ddf426c5ebde07a2f",
+  "identity_front": {
+    "drive_id": "1W9LrK4vV0480OkUNJP5pzGLvO3-3XQqp",
+    "md5": "b8773d97dcbb3b641a132646671d073c"
+  },
+  "identity_side": {
+    "drive_id": "1d9gWRSsmAac2W-9DSiwGUrRBVy9-FImz",
+    "md5": "e9d378f87fd44bbc976b9dc29f17bf76"
+  },
+  "reference": {
+    "drive_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+    "md5": "42e52d770f6b53338639d2d1a01e2e48"
+  },
+  "proposed_scene": "Fresh mechanical vault set; charcoal blazer/black shirt; restrained red floor practicals, neutral key; real joint motion",
+  "constraints": [
+    "No still-image body warps",
+    "No optical-flow / frame interpolation in proof",
+    "No reference footage as a delivered shot",
+    "No copied sound",
+    "No technical gate count equated with approved likeness or photorealism"
+  ],
+  "render_review": "pending"
+}

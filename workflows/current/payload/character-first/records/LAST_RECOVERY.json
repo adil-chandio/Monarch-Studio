@@ -1,0 +1,21 @@
+{
+  "restored": [
+    "front_master",
+    "profile",
+    "back",
+    "face_detail",
+    "character_sheet",
+    "shot_threshold",
+    "shot_focus",
+    "shot_break",
+    "shot_resolve",
+    "design_bible",
+    "shot_board",
+    "brand_end",
+    "design_zip"
+  ],
+  "reused": [],
+  "regenerated": 0,
+  "animation_created": false,
+  "arena_service_repair_claimed": false
+}

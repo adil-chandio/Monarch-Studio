@@ -1,0 +1,5 @@
+Pillow==12.3.0
+numpy==1.26.4
+reportlab==4.4.10
+# Only for extracting private source-video reference frames, not for fake motion.
+imageio-ffmpeg==0.6.0

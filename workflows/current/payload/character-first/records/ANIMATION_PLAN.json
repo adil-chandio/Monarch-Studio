@@ -1,0 +1,135 @@
+{
+  "status": "CHARACTER_MOTION_BLOCKED_ENDING_COMPLETE",
+  "planned_fps": 30,
+  "planned_total_frames": 1332,
+  "planned_duration_seconds": 44.4,
+  "rendered_frames": 108,
+  "actual_video_file": null,
+  "native_motion_requirement": "New coherent character acting; original personal footage is identity input only, not a delivered shot.",
+  "blocking_capability": "No direct photoreal image-to-video generator is exposed in this session. Reference stills alone do not produce the requested performance.",
+  "format_target": [
+    1080,
+    1920
+  ],
+  "format_note": "Planned video format only. Native still dimensions are recorded separately and are not claimed as 1080p or 4K video.",
+  "cuts": [
+    {
+      "id": "01",
+      "name": "Entry",
+      "reference_asset_role": "shot_threshold",
+      "in_frame": 0,
+      "out_frame_exclusive": 150,
+      "duration_seconds": 5.0,
+      "motion_direction": "Two quiet heel-to-toe steps. Natural alternating arm swing. No camera trick substitutes for walking.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "02",
+      "name": "Attention",
+      "reference_asset_role": "shot_threshold",
+      "in_frame": 150,
+      "out_frame_exclusive": 300,
+      "duration_seconds": 5.0,
+      "motion_direction": "Ease to a stop; small torso/head orientation toward a sound. Hold planted support foot.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "03",
+      "name": "Cuff",
+      "reference_asset_role": "shot_focus",
+      "in_frame": 300,
+      "out_frame_exclusive": 450,
+      "duration_seconds": 5.0,
+      "motion_direction": "Right fingers pinch and release left cuff. Maintain coherent wrist/finger anatomy and face identity.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "04",
+      "name": "Reaction",
+      "reference_asset_role": "shot_break",
+      "in_frame": 450,
+      "out_frame_exclusive": 600,
+      "duration_seconds": 5.0,
+      "motion_direction": "Brief light fault in the environment. Head leads a small defensive turn; body weight transfers plausibly.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "05",
+      "name": "Sidestep",
+      "reference_asset_role": "shot_break",
+      "in_frame": 600,
+      "out_frame_exclusive": 750,
+      "duration_seconds": 5.0,
+      "motion_direction": "Grounded lateral evasive step with bent knees. Cloth follows torso motion; sparks/debris move independently.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "06",
+      "name": "Recover",
+      "reference_asset_role": "shot_break",
+      "in_frame": 750,
+      "out_frame_exclusive": 900,
+      "duration_seconds": 5.0,
+      "motion_direction": "Recover from lateral stance without foot skating. Lower the shielding arm and let jacket settle.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "07",
+      "name": "Resolve",
+      "reference_asset_role": "shot_resolve",
+      "in_frame": 900,
+      "out_frame_exclusive": 1050,
+      "duration_seconds": 5.0,
+      "motion_direction": "Controlled three-quarter upper-body settling and a small head turn toward lens. No face shape changes.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "08",
+      "name": "Eye contact",
+      "reference_asset_role": "shot_resolve",
+      "in_frame": 1050,
+      "out_frame_exclusive": 1224,
+      "duration_seconds": 5.8,
+      "motion_direction": "Subtle breathing and a natural blink; calm direct gaze. Let the live action finish before the brand cut.",
+      "render_status": "not_rendered"
+    },
+    {
+      "id": "09",
+      "name": "Brand",
+      "reference_asset_role": "brand_end",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "duration_seconds": 3.6,
+      "motion_direction": "Completed 3.6s crown/type reveal, restrained sheen/settling, readable hold and fade, with original stereo sting.",
+      "render_status": "rendered_brand_component",
+      "rendered_asset_role": "brand_outro_video"
+    }
+  ],
+  "quality_gates": [
+    "Use the same master face/hair/outfit throughout. No actor replacement.",
+    "No recorded-footage cutout, recycled scene plate or procedural mannequin final.",
+    "No body/face warps, photograph morphs or still pans presented as body motion.",
+    "Maintain natural joints, stable hands and plausible cloth attachment.",
+    "Validate planted foot contact on the visible full-body beats.",
+    "No silent duplicate/freeze-frame padding on a short source clip.",
+    "Environmental particles and camera movement must not hide broken anatomy.",
+    "Visual review and explicit delivery scope are mandatory; technical gates alone are not approval."
+  ],
+  "sound_direction": [
+    "Original low industrial room tone; do not reuse the reference soundtrack.",
+    "Restrained footfall/cuff sounds tied to actually rendered action.",
+    "Metallic fault accent at reaction; no continuous full-screen flashing.",
+    "Clean crown-brand impact and decay; loudness/true-peak checks only after a real edit exists."
+  ],
+  "rendered_character_frames": 0,
+  "rendered_brand_frames": 108,
+  "completed_components": [
+    {
+      "role": "brand_outro_video",
+      "receipt": "VIDEO_COMPONENTS.json",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "frames": 108
+    }
+  ]
+}

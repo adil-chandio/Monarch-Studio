@@ -1,0 +1,8 @@
+# Tested on Python 3.11; native X/GL dependencies also required (see README).
+bpy==4.2.22
+numpy==1.26.4
+Pillow==12.3.0
+imageio-ffmpeg==0.6.0
+scipy==1.17.1
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86

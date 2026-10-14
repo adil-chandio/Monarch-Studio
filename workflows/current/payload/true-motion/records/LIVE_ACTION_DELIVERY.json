@@ -1,0 +1,50 @@
+{
+  "status": "complete_live_action_alternative_draft_not_the_requested_generated_3d_final",
+  "file": "MONARCH_VAULT_LIVE_ACTION_DRAFT.mp4",
+  "bytes": 9625929,
+  "sha256": "957bffb81f1185999aaba0d721ce1a54633b9438ab6081a68bed8f8e6506a727",
+  "md5": "bd9ac138749b658175c26873320a4a3c",
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "decoded_frames": 1332,
+  "duration_seconds": 44.4,
+  "method": "Live-action VFX composite using the user-recorded real performance",
+  "source_motion": "Actual personal footage supplied by the user",
+  "body_warps": false,
+  "optical_flow": false,
+  "generated_body_performance": false,
+  "wardrobe": "Original recorded shirt with a black color grade. Not a newly generated tailored suit.",
+  "background": "New AI-generated original vault environment from this task",
+  "ending": "New 3D-rendered gold crown placed above MONARCH STUDIO; static held brand card",
+  "audio": "Original oscillator/noise sound design; no copied reference audio or source speech",
+  "audio_normalization": {
+    "input_i": "-30.02",
+    "input_tp": "-9.17",
+    "input_lra": "3.00",
+    "input_thresh": "-40.08",
+    "output_i": "-16.55",
+    "output_tp": "-1.50",
+    "output_lra": "2.20",
+    "output_thresh": "-26.58",
+    "normalization_type": "dynamic",
+    "target_offset": "0.55"
+  },
+  "technical_checks": {
+    "full_decode": true,
+    "frame_count": true,
+    "duration": true,
+    "portrait_resolution": true,
+    "audio_48k_stereo": true
+  },
+  "visual_acceptance": {
+    "user_approved": false,
+    "perfect_face_or_costume_match_claimed": false,
+    "known_limits": [
+      "Original selfie footage is soft/filtered.",
+      "Automatic hair/shoulder matting and clothing color masks can be imperfect.",
+      "This does not create new full-body fight/walk choreography like the reference.",
+      "The generated photoreal concept image is not presented as a moving 3D character."
+    ]
+  }
+}

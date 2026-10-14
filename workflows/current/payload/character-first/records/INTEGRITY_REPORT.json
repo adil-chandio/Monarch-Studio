@@ -1,0 +1,98 @@
+{
+  "all_files_verified": true,
+  "results": [
+    {
+      "role": "front_master",
+      "path": "/home/user/monarch-character-assets/character/FRONT_MASTER.png",
+      "drive_id": "1hXb7juezwOnXbfS_e1yeJ4O2IS721gjd",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "profile",
+      "path": "/home/user/monarch-character-assets/character/PROFILE.png",
+      "drive_id": "1Gdh8wGI_nPiji4ncGA4aofrGlcvwt8Y4",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "back",
+      "path": "/home/user/monarch-character-assets/character/BACK.png",
+      "drive_id": "1q7ELjZIUi5yEaJTywnt-yX98MIKxxyEq",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "face_detail",
+      "path": "/home/user/monarch-character-assets/character/FACE_DETAIL.png",
+      "drive_id": "11lmr7yCzkLsqwDDXVdJSkWLP9g5_gSr8",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "character_sheet",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_SHEET.png",
+      "drive_id": "1mylJcLRJPHw5-8ew9a4RP5mwkmtmPRSl",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "shot_threshold",
+      "path": "/home/user/monarch-character-assets/shots/01_THRESHOLD.png",
+      "drive_id": "1P1dB9DLLOfR9oBjXswRbyxHYCucEswzo",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "shot_focus",
+      "path": "/home/user/monarch-character-assets/shots/02_FOCUS.png",
+      "drive_id": "1ZxYFmincJ8o_G3C5-Y67Mk6LeNVIE5Xf",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "shot_break",
+      "path": "/home/user/monarch-character-assets/shots/03_BREAK.png",
+      "drive_id": "1xVSqXLrM6N4eAmBuZwY8qNube7L4eP2H",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "shot_resolve",
+      "path": "/home/user/monarch-character-assets/shots/04_RESOLVE.png",
+      "drive_id": "1rGjPBfw6Qv4fNj11RV9Ljz9e36aZwO5P",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "design_bible",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_AND_SHOT_BIBLE.pdf",
+      "drive_id": "1OUiKUXUHxEf06EQFvpi79igItY3_pAN7",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "shot_board",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_SHOT_DESIGNS.png",
+      "drive_id": "1igRpHNR01hR3lK_LvQQWCbOroOWMHyBv",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "brand_end",
+      "path": "/home/user/monarch-character-assets/brand/MONARCH_CROWN_END.png",
+      "drive_id": "1LeCubpukXDtOX-z9Ak0ucWVOqHS5k5k4",
+      "status": "verified",
+      "visual_approval_claimed": false
+    },
+    {
+      "role": "design_zip",
+      "path": "/home/user/monarch-character-assets/delivery/MONARCH_CHARACTER_FIRST_DESIGN_PACK.zip",
+      "drive_id": "1UlufCGm_TGPgDaXTx7SaICZ7EYHjcJA9",
+      "status": "verified",
+      "visual_approval_claimed": false
+    }
+  ],
+  "animation_exists": false,
+  "scope": "File-integrity check only, not a visual/identity/motion quality verdict."
+}

@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0012-20261014T202328Z",
+  "created_at": "2026-10-14T20:23:28Z",
+  "summary": "Exact media recovery now tested: 13 assets restored from the already-delivered ZIP, zero regenerated, zero uploads, four new recovery tests passed. No missing-master request is needed. UI/service issue remains a platform-support matter; animation remains unrendered.",
+  "next_action": "If local media is absent again, download the recorded design ZIP and run recover_design_assets.py; do not ask for the master or regenerate art. Do not repeat finished design work. The Arena pending-question/interruption requires platform-side investigation (support handoff in operations/incidents/WF04-service-ui-handoff.md); actual new-character motion still needs a capable video-generation/rig pipeline not currently exposed.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "waiting_external",
+    "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+    "style_id": "monarch-face-chaos",
+    "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+    "acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-14T20:23:28Z",
+    "checkpoint_sequence": 12,
+    "event_sequence": 67,
+    "journal_head": "153a56858e768ea6fb140061a326a3ea265eebf0ff2850d2c286f1ad6df70adf",
+    "last_checkpoint": "2026-10-14T20:23:28Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0012-20261014T202328Z",
+    "next_action": "If local media is absent again, download the recorded design ZIP and run recover_design_assets.py; do not ask for the master or regenerate art. Do not repeat finished design work. The Arena pending-question/interruption requires platform-side investigation (support handoff in operations/incidents/WF04-service-ui-handoff.md); actual new-character motion still needs a capable video-generation/rig pipeline not currently exposed.",
+    "running_processes": [
+      {
+        "id": "monarch-original-3d-motion-check-30451e5f",
+        "name": "Vault sample-frame render",
+        "state": "completed",
+        "started_at": "2026-10-14T16:46:38Z",
+        "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+      },
+      {
+        "id": "monarch-finish-export-from-saved-3287176f",
+        "name": "Completed 44.4s draft export",
+        "state": "completed",
+        "started_at": "2026-10-14T17:34:58Z",
+        "resume_instruction": "Final draft exists and was presented; do not re-render. See deliverables/monarch-vault/DELIVERY_README.json and durable records/LIVE_ACTION_DELIVERY.json."
+      },
+      {
+        "id": "monarch-corrected-joint-motion-r-ce4914d5",
+        "name": "Corrected 3D QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; no production 3D final accepted."
+      },
+      {
+        "id": "monarch-native-motion-frames-431c3ea6",
+        "name": "Native skinning-space QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; experimental frames only."
+      },
+      {
+        "id": "monarch-full-44-4-second-draft-e-767b7d57",
+        "name": "Initial full export attempt",
+        "state": "failed",
+        "started_at": "2026-10-14T17:36:12Z",
+        "resume_instruction": "Superseded by completed resumed export monarch-finish-export-from-saved-3287176f. Do not restart."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 67,
+    "timestamp": "2026-10-14T20:23:28Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Exact media recovery now tested: 13 assets restored from the already-delivered ZIP, zero regenerated, zero uploads, four new recovery tests passed. No missing-master request is needed. UI/service issue remains a platform-support matter; animation remains unrendered.",
+    "content_sha256": "fd8aa92aefa983041ce36692c545d13405acf646dcd7336e40a4331549690059",
+    "metadata": {
+      "sequence": 12,
+      "next_action": "If local media is absent again, download the recorded design ZIP and run recover_design_assets.py; do not ask for the master or regenerate art. Do not repeat finished design work. The Arena pending-question/interruption requires platform-side investigation (support handoff in operations/incidents/WF04-service-ui-handoff.md); actual new-character motion still needs a capable video-generation/rig pipeline not currently exposed.",
+      "status": "waiting_external"
+    },
+    "prev_event_sha256": "10066493b791bfc1bcb4a5a35ca087ea0a4cde0364173ebc66c42dc0a38b446f",
+    "event_sha256": "153a56858e768ea6fb140061a326a3ea265eebf0ff2850d2c286f1ad6df70adf"
+  },
+  "journal_head": "153a56858e768ea6fb140061a326a3ea265eebf0ff2850d2c286f1ad6df70adf",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M .gitignore",
+      " M .studio-manifest.json",
+      " M AGENTS.md",
+      " M START_HERE.md",
+      " M docs/CONTINUITY_AND_RECOVERY.md",
+      " M tools/studio.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0002-20261014T164710Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0002-20261014T164710Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0007-20261014T183344Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0007-20261014T183344Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0008-20261014T185909Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0008-20261014T185909Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0009-20261014T193608Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0009-20261014T193608Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0011-20261014T200734Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0011-20261014T200734Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/checkpoint.json",
+      "?? operations/incidents/WF04-service-ui-handoff.md",
+      "?? tests/test_manifest_privacy.py",
+      "?? workflows/current/payload/character-first/README.md",
+      "?? workflows/current/payload/character-first/records/ANIMATION_PLAN.json",
+      "?? workflows/current/payload/character-first/records/ASSETS.json",
+      "?? workflows/current/payload/character-first/records/BRIEF.json",
+      "?? workflows/current/payload/character-first/records/DELIVERY_CHECKS.json",
+      "?? workflows/current/payload/character-first/records/EDIT_BEATS.csv",
+      "?? workflows/current/payload/character-first/records/INTEGRITY_REPORT.json",
+      "?? workflows/current/payload/character-first/records/LAST_RECOVERY.json",
+      "?? workflows/current/payload/character-first/requirements.txt",
+      "?? workflows/current/payload/character-first/src/assemble_design.py",
+      "?? workflows/current/payload/character-first/src/brand_end.py",
+      "?? workflows/current/payload/character-first/src/recover_design_assets.py",
+      "?? workflows/current/payload/character-first/src/validate_assets.py",
+      "?? workflows/current/payload/character-first/tests/test_design.py",
+      "?? workflows/current/payload/character-first/tests/test_recovery.py",
+      "?? workflows/current/payload/true-motion/README.md",
+      "?? workflows/current/payload/true-motion/records/BRIEF.json",
+      "?? workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json",
+      "?? workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "?? workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "?? workflows/current/payload/true-motion/requirements.txt",
+      "?? workflows/current/payload/true-motion/src/build_vault.py",
+      "?? workflows/current/payload/true-motion/src/composite_live.py",
+      "?? workflows/current/payload/true-motion/src/finish_live.py",
+      "?? workflows/current/payload/true-motion/src/identity_head.py",
+      "?? workflows/current/payload/true-motion/src/motion_math.py",
+      "?? workflows/current/payload/true-motion/src/render_vault.py",
+      "?? workflows/current/payload/true-motion/tests/test_motion.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/character-first/README.md",
+      "size": 5015,
+      "sha256": "724ce9350c4c0460682da95325d71ea37ae7990eeb4a1922c61509663951cc26"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ANIMATION_PLAN.json",
+      "size": 4948,
+      "sha256": "523e88352395415e8f6aefa3c0096af26ae24add23d7917be987a80239e37c35"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ASSETS.json",
+      "size": 6831,
+      "sha256": "149265beda8a3c831397ad371d97b90249f29d8cbcc86a71e8dd3511ab6e02f1"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/BRIEF.json",
+      "size": 4374,
+      "sha256": "fb6168719ae17b8ac6bfd538933b48092f2f0cebc65b48704d355931c6c7d5e9"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/DELIVERY_CHECKS.json",
+      "size": 1420,
+      "sha256": "d8c6abcb69f6c1056f056a78e7dca1545435d9630a112f086701d32163326158"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/EDIT_BEATS.csv",
+      "size": 1461,
+      "sha256": "589a0edb38fb733efae0c6e0033f67eb62c6dba5a40221b345427f7af0adf433"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/INTEGRITY_REPORT.json",
+      "size": 3352,
+      "sha256": "6d002971ea05d712231333959229cc4ffb8874ebfce4428ce69415c545cded9a"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/LAST_RECOVERY.json",
+      "size": 370,
+      "sha256": "460722e5cf0fe96bf86ee8d1a1b142674a887b3cb5c904551c2fbcb322b4e77c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/requirements.txt",
+      "size": 137,
+      "sha256": "4211bdeaa579b0e2afc34ad8e1a175db88c02aec51c4240e98fb45720df0e375"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/recover_design_assets.cpython-311.pyc",
+      "size": 7561,
+      "sha256": "9ff148a59aee2880e7bb97690f0b97d1aea885cf39a66a581a8c81705b983917"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/validate_assets.cpython-311.pyc",
+      "size": 5304,
+      "sha256": "7eacbf21336835e62136f95800d217137da846d3789cf4e26cb4d526a8ad82d9"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/assemble_design.py",
+      "size": 9007,
+      "sha256": "565d5578a9013a02a021cbb97f5da4ca61ecf0e1f2264b5e55ab303579280854"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/brand_end.py",
+      "size": 2872,
+      "sha256": "58975837b2dc2717b4631d9c37fddf25b8d735b57b3725d1858f6e60510fadfd"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/recover_design_assets.py",
+      "size": 3716,
+      "sha256": "f4e52f5bdc1bc20fddcc08717f56905246e5743fe4ccbf01dada1374006b79f2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/validate_assets.py",
+      "size": 2215,
+      "sha256": "a61b61e2ee54b081c50430497099722647c8fc437d67cd9eae6e02a774ff724d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_recovery.cpython-311.pyc",
+      "size": 7094,
+      "sha256": "1673e96499743051036da21bc5fca80d837611d7926b48fd7abc2a581447a3f5"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_design.py",
+      "size": 3387,
+      "sha256": "9c2b68009eadbcafd3f32e9156a882e9d798db62eadc7f9fc63a0dc3df9e5371"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_recovery.py",
+      "size": 2532,
+      "sha256": "1a5a41a670d233a93c4537e2fe8aacea169fa29ef209524728990b8f9df0373d"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/README.md",
+      "size": 5356,
+      "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/BRIEF.json",
+      "size": 1000,
+      "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json",
+      "size": 777,
+      "sha256": "d0015d48922ef0ab4f446f6ba0d6ac10637b02d29a74ceb03a5b8465216f1fd9"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "size": 1921,
+      "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/requirements.txt",
+      "size": 207,
+      "sha256": "832c3d66f0cd4ec8303e55655f1c56b1ef5a988572cd5c23dca61a833007a990"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/build_vault.py",
+      "size": 30565,
+      "sha256": "64304ad9ba8771be3bea41be6aeb101d8c1d346ec07d7cd66b0a43119ce746dd"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/composite_live.py",
+      "size": 11391,
+      "sha256": "5a92640af4e4d442dd2ac0090cadbf63a36d9e180c26f365c18b20e1ea0a2f40"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/finish_live.py",
+      "size": 6681,
+      "sha256": "b509d0e4f08f6e77581a8a4c654d4998fb40095e500bfcbea35b731289823eb6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/identity_head.py",
+      "size": 12807,
+      "sha256": "4212ecf6d9c00ac5b388e8831422194c2331157469fffdef2051fc9479db491c"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/motion_math.py",
+      "size": 2726,
+      "sha256": "322b1eaa28538bde7d11fb98e70d8bca932a3f6ba7d554a717922d7daefb5aed"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/render_vault.py",
+      "size": 3555,
+      "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/test_motion.py",
+      "size": 2943,
+      "sha256": "d42a25eaf0853f6848f4ce90c551fe3e3a5e2ae1abc1b9b130f775c85558843e"
+    }
+  ]
+}

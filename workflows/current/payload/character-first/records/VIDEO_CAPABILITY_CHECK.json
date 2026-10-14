@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-14T20:36:10.996007+00:00",
+  "checks": [
+    {
+      "connector": "replicate",
+      "result": "unsupported"
+    },
+    {
+      "connector": "runway",
+      "result": "unsupported"
+    }
+  ],
+  "source": "Actual list_connector_tools results in this reply",
+  "meaning": "These connectors are not offered here; this is not an authentication failure or a started render.",
+  "render_job_started": false,
+  "rendered_animation_frames": 0,
+  "art_regenerated": false,
+  "next_requirement": "A usable actual video-generation/detailed character-animation capability, or newly rendered motion clips using the saved master, is required for the remaining animation/edit stage.",
+  "retry_policy": "Do not retry these unsupported connector slugs or regenerate completed designs as a substitute.",
+  "scope": "Unsupported connector findings concern photoreal character-motion rendering, not local vector brand graphics.",
+  "local_vector_brand_render_available": true
+}

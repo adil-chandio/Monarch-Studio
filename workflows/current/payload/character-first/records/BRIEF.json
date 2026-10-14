@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "created_at": "2026-10-14T18:33:44.579275+00:00",
+  "direction": "Character-first, full creative restart as explicitly corrected by the user",
+  "identity_source_policy": "Original personal video supplies face reference ONLY. No live-action compositing in the final film. No prior scene plates, prior generated character, or mannequin images used for this new character.",
+  "visual_authority": "Original personal front/profile video for face. Existing CUSTOM_HERO_REAL_BODY_SHEET_v2 is read only for slim body proportion and black shirt/charcoal blazer/black trousers/black leather boots wardrobe cues; it is not reused as scene content.",
+  "stage_1": "New front master, then consistent separate profile, rear and face-detail views assembled into a labelled character sheet. Generated views are AI likeness interpretations, not scans or 3D rig assets.",
+  "stage_2": "Create four original cinematic shot-design stills from this exact front/face/profile master. Keep new figure/wardrobe consistent; no source-footage composites.",
+  "stage_3_blocker": "Actual new character animation is not rendered: no direct photoreal image-to-video tool is available. Use the completed same-master references in a capable temporal generation or detailed rig pipeline; do not return to the rejected live-action composite or image warps.",
+  "prohibited_substitutions": [
+    "old live-action VFX draft",
+    "reused old scene stills",
+    "body/face mesh or optical-flow photo warps",
+    "rough procedural mannequin presented as a photoreal final"
+  ],
+  "ending": "Crown above MONARCH STUDIO",
+  "source_face_crops": [
+    {
+      "name": "front",
+      "source": "front",
+      "at_seconds": 3.0,
+      "path": "/home/user/monarch-character-assets/references/front.png",
+      "pixels": [
+        461,
+        576
+      ],
+      "sha256": "546aea2f0d3569939a737a1d45764f736470ef26fc822fdfcb809b9abe14ca8e"
+    },
+    {
+      "name": "three-quarter",
+      "source": "front",
+      "at_seconds": 4.5,
+      "path": "/home/user/monarch-character-assets/references/three-quarter.png",
+      "pixels": [
+        504,
+        614
+      ],
+      "sha256": "120550698ea89a3a8398dc2eedc1a1e4261db083b588776ba47c8a40bc9cea2e"
+    },
+    {
+      "name": "right-profile",
+      "source": "side",
+      "at_seconds": 4.0,
+      "path": "/home/user/monarch-character-assets/references/right-profile.png",
+      "pixels": [
+        800,
+        884
+      ],
+      "sha256": "919c4475d550e0a80abf8088aa751b2ecc3c713f2b5469a660339e8180d80ea4"
+    }
+  ],
+  "film_complete": false,
+  "next_action": "Recover completed art and crown-video component by their saved Drive IDs if needed; do not redo them. Actual new-character motion still requires a capable video-generation/detailed rig pipeline or appropriate newly rendered clips before full-film editing can finish.",
+  "missing_previous_selection": {
+    "selection": "option 1 of 2",
+    "selection_evidence": "Completed generate_image result confirms user selected option 1. User then requested continuation from exactly that choice.",
+    "expected_path": "deliverables/monarch-character-first/character/MASTER_FRONT.png",
+    "file_available_in_current_workspace": false,
+    "recovery_status": "Exact selected image must be recovered or attached; do not silently regenerate or substitute an old character.",
+    "checked_at": "2026-10-14T18:59:09.409294+00:00"
+  },
+  "selection_resolution": {
+    "user_message": "Tum dekh ke Aage BAHDO na",
+    "decision": "Proceed with a NEW reference-based master under user-delegated judgement. Do not claim exact recovery of the missing option 1. No further option-choice pause.",
+    "at": "2026-10-14T19:07:56.180033+00:00"
+  },
+  "asset_root": "/home/user/monarch-character-assets",
+  "drive_folder": {
+    "id": "1AK1q-JV_jH1EsRhF10kVrKA57MOE5Bga",
+    "url": "https://drive.google.com/drive/folders/1AK1q-JV_jH1EsRhF10kVrKA57MOE5Bga"
+  },
+  "selected_character": {
+    "method": "Agent-selected new master under latest delegated judgement; NOT recovered prior option 1",
+    "path": "/home/user/monarch-character-assets/character/FRONT_MASTER.png",
+    "sha256": "2824c832a2d83b19bda01609ae45c3a6a24a9d06f2c87d68f4a18ca217a9842c",
+    "user_approved": false,
+    "technical_asset_kind": "AI-generated full-body character reference still, not a rig"
+  },
+  "character_sheet_complete": true,
+  "cinematic_shot_designs_complete": true,
+  "crown_end_frame_complete": true,
+  "video_capability_check": "VIDEO_CAPABILITY_CHECK.json",
+  "brand_outro_video_complete": true,
+  "rendered_brand_frames": 108,
+  "rendered_character_frames": 0,
+  "video_components": "VIDEO_COMPONENTS.json"
+}
