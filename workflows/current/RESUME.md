@@ -1,10 +1,10 @@
 # Resume capsule — WF04-20261014-NOJELLY
 
-**Status:** `active`
-**Title:** Monarch Face: original scenes and articulated motion, no plate warps
-**Style:** `monarch-face-chaos`
-**Checkpoint sequence:** 4
-**Last checkpoint:** 2026-10-14T17:35:00Z
+**Status:** `waiting_external`  
+**Title:** Monarch Face: original scenes and articulated motion, no plate warps  
+**Style:** `monarch-face-chaos`  
+**Checkpoint sequence:** 5  
+**Last checkpoint:** 2026-10-14T17:37:13Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Replace the user-rejected recycled image-warp film with new scene design and ver
 
 ## Exact next action
 
-Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.
+Review PR #2 and the delivered live-action draft. Do not re-render completed shots or recreate the PR. A true photoreal generated-action final requires an approved high-detail avatar/action or video-generation pipeline; rough 3D and photo warps must not be presented as that final.
 
 ## Running processes
 
@@ -38,6 +38,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

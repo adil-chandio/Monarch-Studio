@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `WF04-20261014-NOJELLY`
-- **Status:** `active`
+- **Status:** `waiting_external`
 - **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.
+- **Next action:** Review PR #2 and the delivered live-action draft. Do not re-render completed shots or recreate the PR. A true photoreal generated-action final requires an approved high-detail avatar/action or video-generation pipeline; rough 3D and photo warps must not be presented as that final.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
