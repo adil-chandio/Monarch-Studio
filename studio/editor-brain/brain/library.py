@@ -39,6 +39,12 @@ HOOK_ARCHETYPES = [
  # ── added turn 13 from the reference study (Day One Films · DISCIPLINE) ──
  ("literary_line_black", "Literary first line on black", "One past-tense sentence on black, no hero yet ('Har din aise hi shuru hota tha.'); the first picture arrives on the full stop. Ref: DISCIPLINE 0:00–0:03.", ["dark","calm","slow","inner","lo","ref_dayone"]),
  ("loop_shown",          "The loop shown (counter jumps)", "Same room, same pose, the HUD counter jumps DAY 1 → 45 → 88 → 365 while nothing else changes — the problem is repetition, shown not told.", ["dark","time","inner","mid","ref_dayone"]),
+
+ # ── added 2026-10-14 for the WTF-30 format (MONARCH_WTF30_DOCTRINE.md §7) — visual-first hooks that read muted ──
+ ("normal_then_wrong",      "Normal, then one thing wrong",     "A perfectly ordinary action already in motion at frame 1; by 0.8 s one detail is physically wrong (a pencil rolls uphill, steam falls). No words.", ["calm","mind","mid","wtf"]),
+ ("impossible_in_progress", "Impossible already in progress",   "Frame 1 is the middle of the impossible event (the floor curling, the room too long); the piece then shows how the world got there.", ["fast","hi","epic","wtf"]),
+ ("eye_cannot_explain",     "ECU the eye cannot explain",       "Extreme close-up of an object doing what it cannot (a pupil shaped like a keyhole, ink climbing a glass); the pull-back arrives after the question.", ["dark","slow","inner","lo","wtf"]),
+ ("count_wrong",            "The count is wrong",               "Two shadows for one hero, three hands on one clock, a reflection one frame late — a counting error the eye catches before the brain.", ["tense","mind","mid","wtf"]),
 ]
 
 NARRATIVE_DEVICES = [
@@ -65,6 +71,14 @@ NARRATIVE_DEVICES = [
  ("silent_film_text",  "Silent film + text narration",       "No continuous VO: ≈ 20 on-screen lines in two colours carry the script; the voice is kept for one leitmotif line that returns changed; music and SFX do the rest.", ["calm","dark","inner","lo"], (60, 300), "open,problem,bottom,turn,grind,fight,payoff,title"),
  ("shadow_antagonist", "The shadow double as antagonist",    "The habit/voice gets a body: a dark double that whispers in text, lives in the mirror, blocks the path — and is left small in the room at the end.", ["dark","tense","inner","mid"], (40, 300), "whisper,mirror,bottom,turn,grind,blocker,left_behind"),
  ("callback_ladder",   "Callback ladder",                    "Three or four motifs planted early (alarm, mirror, room, villain) each return once, changed; the ending is the first scene replayed with the change.", ["inner","time","mid"], (40, 300), "plant1,plant2,plant3,turn,return1,return2,return3,end"),
+
+ # ── added 2026-10-14 for the WTF-30 format (MONARCH_WTF30_DOCTRINE.md §3/§5) — 20–30 s spines; the unit is one broken law, not chapters ──
+ ("one_law_broken",       "One law broken",         "NORMAL → CRACK → IMPOSSIBLE (one uncut shot, lands 6–12 s) → CONSEQUENCE → MEANING (≤ 7 words) → LOOP SEAM; one physical law, one metaphor.", ["wtf","mind","mid"], (18, 35), "normal,crack,impossible,consequence,meaning,loop"),
+ ("divergence",           "The divergence",         "A copy (reflection, shadow, echo) starts one frame behind, then acts on its own, then leaves; the original is left with the consequence.", ["wtf","dark","inner","mid"], (18, 35), "sync,lag,divergence,exit,meaning,loop"),
+ ("loop_trap",            "The loop trap",          "The same action returns him to its own start twice; the third attempt changes direction and breaks out.", ["wtf","tense","time","mid"], (18, 35), "attempt1,attempt2,turn,exit,meaning,loop"),
+ ("escalation_per_word",  "Escalation per word",    "Every repetition of one spoken/written word pushes the world one step further (the room grows, the hero shrinks) until the last word reverses it.", ["wtf","playful","mind","hi"], (18, 35), "word1,word2,word3,extreme,reverse,meaning"),
+ ("walk_around_it",       "Walk around it",         "The problem is huge from the front; one continuous move around it reveals the truth of its size; one finger finishes it.", ["wtf","epic","fear","mid"], (18, 35), "push,stop,orbit,reveal,finger,meaning"),
+ ("reverse_with_residue", "Reverse with residue",   "The event runs backward to undo itself, but one trace stays; the trace is the meaning.", ["wtf","dark","time","lo"], (18, 35), "event,spread,reverse,residue,meaning,loop"),
 ]
 
 VISUAL_WORLDS = [
@@ -107,6 +121,14 @@ VISUAL_WORLDS = [
  ("calendar_of_x",           "The calendar of X",                    "A wall calendar fills with red X marks as the counter climbs; the one cutaway that proves time.", ["time","mid","ref_dayone"]),
  ("awake_before_alarm",      "Awake before the alarm",               "ECU 4:59 → 5:00; the hero's eyes are already open; the hand comes down from the top of frame and stops it — the inverse of the snooze.", ["tense","time","inner","ref_dayone"]),
     ("lantern_corner", "Lantern corner (noir room)", "one bare room — wall, floor, a corner; a single hand lantern is the only light; the hero's wall shadow is cast physically (homothety from the lamp) so distance = size; a distance readout measures it.", ["dark", "fear", "inner", "lo"]),
+
+ # ── added 2026-10-14 for the WTF-30 format (MONARCH_WTF30_DOCTRINE.md §13 slate) — one world per video, burned after use ──
+ ("bathroom_mirror_dawn", "The bathroom mirror at dawn",          "One mirror, one sink, cold dawn light; the mirror region is a second camera with its own time; an empty-bathroom plate exists for the exit.", ["calm","inner","time","wtf"]),
+ ("phone_planet_room",    "The room where the phone is a planet", "A plain bedroom; every prop has mass and a tether to the phone on the table; the only accent is the phone's glow.", ["dark","tense","inner","wtf"]),
+ ("stretching_bedroom",   "The bedroom that stretches",           "Desk, screen, one door on the far wall; the far wall is its own depth layer so the room can grow with every word.", ["tense","time","mind","wtf"]),
+ ("empty_lot_block",      "The empty lot and the block",          "Open ground, haze, a three-metre extruded word that is two centimetres thick from the side.", ["epic","fear","physical","wtf"]),
+ ("page_floor_room",      "The room whose floor is a page",       "A room drawn on a page; the floor plate can curl from the far edge; a second plate holds the same room one year later.", ["warm","time","inner","wtf"]),
+ ("ink_desk_page",        "Ink, glass, one page",                 "A desk in lamplight, a glass of ink, a page; the spill is a particle system; the residue mask is the meaning.", ["dark","calm","mind","wtf"]),
 ]
 
 EDITING_GRAMMARS = [
@@ -295,7 +317,45 @@ SIGNATURE_MOVES = [
  ("reflection_becomes_you", "The mirror that held the Shadow is revisited; this time the reflection is the hero — one beat late, then in sync."),
  ("walk_out_leave_shadow",  "The hero walks out of the frame he started in; the camera stays on the empty room and the small shadow by the clock."),
     ("shadow_homothety", "Shadow homothety", "the villain is the hero's own lamp-cast shadow; k = D/(D−d) so it looms when he hides in the corner and shrinks to exactly his size when he touches the wall; carrying the light forward puts the shadow on the floor behind him.", ["dark", "fear", "inner", "mid"]),
+
+ # ── added 2026-10-14 for the WTF-30 format (MONARCH_WTF30_DOCTRINE.md §8/§13) — each is one broken law made physical; blocked forever once built ──
+ ("reflection_leaves_first", "The reflection finishes first and walks out of the mirror; the mirror stays empty while the hero keeps scrolling (law: mirror)."),
+ ("radial_gravity_release",  "Every prop in the room slides toward the phone as if it were a planet; letting go of the phone drops everything flat (law: gravity)."),
+ ("room_stretch_per_word",   "The far wall recedes two metres with every repeated word — a dolly-zoom made literal in one push-in (law: space)."),
+ ("facade_type_orbit",       "A three-metre extruded word turns out to be two centimetres thick when the camera orbits it; one finger pushes it over (law: scale)."),
+ ("floor_page_turn",         "The floor curls like a page being turned; the hero rides the curl; the next page is the same room a year later (law: material)."),
+ ("penrose_reentry",         "The top door of the staircase opens onto its own bottom step, continuously; walking down is the way out (law: space)."),
+ ("reverse_spill_residue",   "A spill forms words, flows back into the glass, and the words stay burned into the page (law: causality)."),
 ]
+
+# ── WTF-30: the ten physical laws a video may break — exactly ONE per video (MONARCH_WTF30_DOCTRINE.md §4) ──
+# id · name · the break · what it tends to mean
+IMPOSSIBLE_LAWS = [
+ ("gravity",    "gravity lies",          "things fall up, sideways, or toward the thing that owns him",                         "attachment, addiction, what pulls you"),
+ ("scale",      "scale lies",            "he shrinks per insult; the phone becomes a room; the problem is 10 m tall until he walks around it", "self-worth, perspective"),
+ ("time",       "time lies",             "the clock runs backward only in his reflection; a year passes in his shadow and not on him", "delay, ageing, routine"),
+ ("light",      "light lies",            "his shadow arrives early, refuses, or does the task; light casts darkness",            "the hidden self, fear"),
+ ("mirror",     "the reflection lies",   "the reflection finishes first, is older, walks out of the frame",                     "potential, the better version"),
+ ("material",   "matter lies",           "paper becomes water; the floor is a page that turns; ink flows uphill",               "fragility, impermanence"),
+ ("continuity", "space joins impossibly","one continuous camera move passes through an eye / keyhole / wall into another place", "inner vs outer world"),
+ ("count",      "number lies",           "one hero becomes 365 heroes in one pan; a crowd folds into one",                      "consistency, identity"),
+ ("space",      "geometry lies",         "the room grows with every 'thoda aur'; the staircase leads back to its own bottom",   "loops, procrastination, traps"),
+ ("causality",  "effect before cause",   "the glass breaks, then falls; the stain appears, then the spill",                     "consequence, regret"),
+]
+LAW_IDS = [law[0] for law in IMPOSSIBLE_LAWS]
+
+# WTF-30 set-pieces: signature move → (world, law, device).  In `propose --format wtf30` the signature drives the world,
+# the law and the spine, so every brief is coherent (one world, one law, one moment).  Slate v1: doctrine §13.
+WTF_SETPIECES = {
+ "reflection_leaves_first": ("bathroom_mirror_dawn", "mirror",     "divergence"),
+ "radial_gravity_release":  ("phone_planet_room",    "gravity",    "one_law_broken"),
+ "room_stretch_per_word":   ("stretching_bedroom",   "space",      "escalation_per_word"),
+ "facade_type_orbit":       ("empty_lot_block",      "scale",      "walk_around_it"),
+ "floor_page_turn":         ("page_floor_room",      "material",   "one_law_broken"),
+ "penrose_reentry":         ("dark_staircase",       "space",      "loop_trap"),
+ "reverse_spill_residue":   ("ink_desk_page",        "causality",  "reverse_with_residue"),
+ "zoom_into_eye":           ("door_corridor",        "continuity", "loop_trap"),
+}
 
 SFX_VOICES = {
  "used": ["braam","reverse_swell","glass_ting","metal_ring","paper_slide","doppler_whip","impact","heartbeat","glass_burst","click",
@@ -327,4 +387,5 @@ def counts():
     c["pattern_interrupts"] = len(PATTERN_INTERRUPTS)
     c["transition_kinds"] = len(TRANSITION_KINDS["existing"]) + len(TRANSITION_KINDS["to_build"])
     c["sfx_voices"] = len(SFX_VOICES["used"]) + len(SFX_VOICES["fresh"])
+    c["impossible_laws"] = len(IMPOSSIBLE_LAWS)
     return c

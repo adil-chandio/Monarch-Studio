@@ -221,3 +221,24 @@ format-aware in `brain/concept.py` (nothing changed for `short`):
 Registry entries now carry `format` and `workflow` (`WF-01`, `WF-03`…), plus `callbacks`, `quotable_lines`, `worlds_also` and
 `measured` when the DNA has them. Library v2.1 adds the world `lantern_corner` and the signature move `shadow_homothety`
 (the villain is the hero's own lamp-cast shadow, k = D/(D−d); first used by THE SHADOW — blocked forever by the world rule).
+
+
+## 16. Brain v2.3 — the WTF-30 format (added 2026-10-14 — task EMS-20261014-001)
+
+A third format for showing AI creativity on social media: **the 20–30 s impossible-moment short.** Full doctrine:
+`MONARCH_WTF30_DOCTRINE.md` (format law, spine in seconds, the ten breakable laws, engine recipes, 13 WTF gates, series
+strategy, concept slate v1). Trigger **`WTFGO <topic>`** · `python3 brain/concept.py propose --topic … --dur 25 --format wtf30`.
+
+> *Ek qanoon todo. Sirf ek. Baqi duniya sach rehne do.* — one everyday physical law broken once, on camera, in one uncut
+> shot that lands between 24 % and 40 % of the duration; everything else physically consistent; legible muted; a meaning line of
+> ≤ 7 words at 70–90 %; the last frame rejoins frame 1; −14 LUFS; no CTA in picture.
+
+What changed in the tools (nothing changed for `short` or `film`):
+
+1. `library.py` — `IMPOSSIBLE_LAWS` (10) · `WTF_SETPIECES` (signature → world, law, device) · 4 visual-first hooks, 6 one-law
+   devices (18–35 s windows), 6 worlds and 7 signature moves, all tagged `wtf`.
+2. `concept.py` — `FORMATS["wtf30"]` + `WTF30` constants; `propose --format wtf30` prefers `wtf` hooks/devices and lets the
+   signature move drive world/law/device so every brief is coherent; the DNA carries `law_broken`, `impossible_moment`,
+   `meaning_line`, `wtf_onset_s`, `wtf_uncut_s`, `beats`, `max_beat_gap_s`, `on_screen_words`, `meaning_snap_s`, `loop_seam`,
+   `measured`; `gate` adds G-W3/4/7/8/9/11/12/13 and measures density as beats (≥ dur/1.5, gap ≤ 2.5 s), kinds ≥ 3, new kinds ≥ 1.
+3. Frame/mix rows (G-W1/2/5/6/10) are measured by the per-video `gate_wtf30.py` against real frames and the mix.

@@ -1,27 +1,31 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T02:00:00Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "task_id": "EMS-20261014-001",
+  "status": "waiting_external",
+  "title": "WTF-30 format · 20–30 s impossible-moment AI cinema for social — doctrine, brain format, concept slate",
+  "style_id": "studio-operation",
+  "goal": "Answer 'kaise hoga yeh sab' durably: define the 20–30 second vertical impossible-moment short format (WTF-30) for showing AI creativity on social media — format law, second-by-second structure, impossible-moment taxonomy, the studio tool pipeline (brain DNA → AI plates → procedural animation → VO → sound → gates → delivery), format-specific gates, series strategy, and a first concept slate for the user to pick from.",
+  "acceptance_criteria": [
+    "A permanent doctrine document for the WTF-30 format exists under studio/editor-brain and is linked from MONARCH_EDITOR_BRAIN.md.",
+    "brain/concept.py accepts --format wtf30 with format-aware targets and freshness-gate rules; status/propose/gate run without error and existing short/film behaviour is unchanged.",
+    "A concept slate of original impossible-moment ideas is written, each checked against currently blocked worlds/signatures in the brain registry.",
+    "Honest feasibility is recorded: which steps run inside this studio (procedural render, AI plates, generated VO, synthesized sound) and what must be installed (numpy, Pillow, ffmpeg) before the first render.",
+    "The user receives the plan in chat and picks a concept or orders changes; the exact next action is recorded in RESUME.md."
+  ],
+  "started_at": "2026-10-14T16:46:02Z",
+  "updated_at": "2026-10-14T16:58:38Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 8,
+  "journal_head": "860f575d4b573691d9aa9ba0eb5e627493e79460af0fc5f73a5ed89b589f6ad5",
+  "last_checkpoint": "2026-10-14T16:58:38Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0001-20261014T165838Z",
+  "next_action": "Wait for the user to pick a slate number (doctrine §13) or send 'WTFGO <topic>' plus a style (paper = WF-01 / noir = WF-03); then: pip install --user --break-system-packages numpy pillow scipy imageio-ffmpeg → concept.py propose --format wtf30 --dur 25 → fill law/moment/meaning → three-still look sheet for approval.",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-003",
-  "completion_checkpoint": "0004-20261011T020000Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

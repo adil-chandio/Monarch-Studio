@@ -2,8 +2,9 @@
 """MONARCH EDITOR BRAIN — the pro editor's working memory as a tool.
 
     python3 brain/concept.py status                       what is blocked / fresh right now
-    python3 brain/concept.py propose --topic "..." --dur 60 [--n 3] [--mood dark] [--seed 7]
+    python3 brain/concept.py propose --topic "..." --dur 60 [--n 3] [--mood dark] [--seed 7] [--format short|film|wtf30]
                                                           -> 3 Concept-DNA briefs (brain/briefs/*.md + brain/dna/*.json)
+                                                          wtf30 = the 20–30 s impossible-moment short (MONARCH_WTF30_DOCTRINE.md)
     python3 brain/concept.py gate brain/dna/<slug>.json   freshness gate (#20) against the registry — PASS/FAIL with numbers
     python3 brain/concept.py cadence --module respect2    retention cadence of a real timeline (shots, gaps, interrupts)
     python3 brain/concept.py commit brain/dna/<slug>.json --drive-id ID --md5 MD5   remember the delivered video
@@ -96,8 +97,29 @@ def load_refs():
 
 FORMATS = {
     # short: the vertical v9 identity (default).  film: 16:9 short film 2–4 min, text-narration allowed, holds allowed.
+    # wtf30: the 20–30 s impossible-moment short (MONARCH_WTF30_DOCTRINE.md) — one physical law broken once, in one uncut shot,
+    #        legible muted, loop-seamed, platform-normalised loudness.  Density unit = physical events (beats), not cuts.
     "short": {"aspect": "1080x1920", "shot_div": 2.4, "max_still_s": 0.4, "new_every": "2–3", "lufs": "-11.6 ± 0.9 (gate −12.5..−10.5)", "holds": "none > 4 s"},
     "film":  {"aspect": "1920x1080", "shot_div": 3.6, "max_still_s": 1.5, "new_every": "3–6 (a hold must carry a line, a light or a music change)", "lufs": "-16.5 ± 1.0, LRA ≈ 4.5, last 10 s ≤ −26 dB RMS", "holds": "7–14 s allowed when carried; bursts on the beat between them"},
+    "wtf30": {"aspect": "1080x1920 (4:5 safe centre y 285–1635)", "shot_div": 4.0, "max_still_s": 0.4, "new_every": "≤ 2.5 (a physical event: light, prop, scale, readout, line — measured as beats)", "lufs": "-14.0 ± 1.0, TP ≤ −1.0 dBTP, no noise floor", "holds": "exactly one uncut set-piece ≥ 3 s containing the impossible moment; no other shot > 4 s"},
+}
+
+# WTF-30 constants (doctrine §3/§11) — windows are fractions of the duration so 20 s and 30 s scale correctly.
+WTF30 = {
+    "duration_range_s": (20.0, 30.0),
+    "wtf_onset_window": (0.24, 0.40),      # 6–10 s of 25 s; the share-thumb must arrive before the ≈12 s scroll cliff
+    "wtf_onset_hard_max_s": 12.0,
+    "wtf_uncut_min_s": 3.0,
+    "beat_div": 1.5,                       # beats ≥ dur / 1.5
+    "max_beat_gap_s": 2.5,
+    "on_screen_words_max": 7,              # excluding the meaning line
+    "meaning_words_max": 7,
+    "meaning_snap_window": (0.70, 0.90),
+    "silence_before_wtf_s": (0.3, 0.6),
+    "transition_kinds_min": 3,
+    "new_transition_kinds_min": 1,         # the impossible transition itself is the new kind
+    "lufs": (-15.0, -13.0),
+    "true_peak_max_db": -1.0,
 }
 
 
@@ -105,7 +127,7 @@ def targets(dur, device, fmt="short"):
     F = FORMATS.get(fmt, FORMATS["short"])
     shots = max(6, int(round(dur / F["shot_div"])))
     trans = shots - 1
-    return {
+    t = {
         "format": fmt, "aspect": F["aspect"], "loudness": F["lufs"], "holds": F["holds"],
         "callbacks_min": 3 if fmt == "film" else 1,
         "quotable_payoff_lines": 2,
@@ -128,6 +150,31 @@ def targets(dur, device, fmt="short"):
         "max_still_s": F["max_still_s"],
         "gates": "19 measured gates of IZZAT v2 + gate #20 freshness",
     }
+    if fmt == "wtf30":
+        W = WTF30
+        t.update({
+            "shots_min": max(4, int(round(dur / F["shot_div"]))),
+            "transitions": max(3, int(round(dur / F["shot_div"])) - 1),
+            "transition_kinds_min": W["transition_kinds_min"],
+            "transition_kinds_note": "wtf30: cut grammar + the impossible transition itself; never a cut inside the WTF window",
+            "new_transition_kinds_min": W["new_transition_kinds_min"],
+            "pattern_interrupts_min": max(2, int(dur // 6.5)),
+            "wtf_moments_min": 2,              # 1 primary impossible moment (uncut) + ≥ 1 aftershock in the consequence window
+            "beats_min": int(math.ceil(dur / W["beat_div"])),
+            "max_beat_gap_s": W["max_beat_gap_s"],
+            "duration_range_s": list(W["duration_range_s"]),
+            "wtf_onset_window_s": [round(dur * W["wtf_onset_window"][0], 1), round(min(dur * W["wtf_onset_window"][1], W["wtf_onset_hard_max_s"]), 1)],
+            "wtf_uncut_min_s": W["wtf_uncut_min_s"],
+            "silence_before_wtf_s": list(W["silence_before_wtf_s"]),
+            "on_screen_words_max": W["on_screen_words_max"],
+            "meaning_words_max": W["meaning_words_max"],
+            "meaning_snap_window_s": [round(dur * W["meaning_snap_window"][0], 1), round(dur * W["meaning_snap_window"][1], 1)],
+            "loop_seam": "last frame rejoins frame 1 (≤ 6/255 mean abs difference or a designed match-cut)",
+            "law_broken": "exactly one of " + ", ".join(L.LAW_IDS),
+            "cta": "none in picture (caption only)",
+            "gates": "19 measured gates + gate #20 freshness + the 13 WTF gates (doctrine §11)",
+        })
+    return t
 
 
 # ───────────────────────────────────────────── scoring
@@ -170,18 +217,34 @@ def propose(topic, dur, n=3, mood=None, seed=None, out=True, fmt="short"):
         allowed[s] = [it for it in pools[s] if not blocked(s, it[0], u)]
         if s == "device":
             allowed[s] = [it for it in allowed[s] if it[4][0] <= dur <= it[4][1]] or allowed[s]
+        if fmt == "wtf30" and s in ("hook", "device"):
+            # the impossible-moment short needs visual-first hooks (muted autoplay) and one-law spines, never list/lesson devices
+            allowed[s] = [it for it in allowed[s] if "wtf" in it[3]] or allowed[s]
         if mood:
             pref = [it for it in allowed[s] if mood in it[3]]
             if len(pref) >= 2:
                 allowed[s] = pref + [it for it in allowed[s] if it not in pref]
     sigs = [sm for sm in L.SIGNATURE_MOVES if not blocked("signature", sm[0], u)]
+    by_id = {s: {it[0]: it for it in pools[s]} for s in L.SLOTS}
+    if fmt == "wtf30":
+        # the impossible moment is the video: prefer set-pieces whose world is still fresh; the signature then drives world/law/device
+        wsigs = [sm for sm in sigs if sm[0] in L.WTF_SETPIECES and not blocked("world", L.WTF_SETPIECES[sm[0]][0], u)]
+        sigs = wsigs or sigs
     themes = topic_themes(topic)
     rnd = random.Random(seed if seed is not None else int(hashlib.md5(topic.encode()).hexdigest(), 16) % 10**6)
     cands = []
     for _ in range(600):
         card = {s: rnd.choice(allowed[s]) for s in L.SLOTS}
-        card["_fresh"] = {s: never_used(s, card[s][0], u) for s in L.SLOTS}
         card["signature"] = rnd.choice(sigs)
+        card["law"] = None
+        if fmt == "wtf30" and card["signature"][0] in L.WTF_SETPIECES:
+            world_id, law_id, device_id = L.WTF_SETPIECES[card["signature"][0]]
+            if world_id in by_id["world"] and not blocked("world", world_id, u):
+                card["world"] = by_id["world"][world_id]
+            if device_id in by_id["device"] and not blocked("device", device_id, u):
+                card["device"] = by_id["device"][device_id]
+            card["law"] = law_id
+        card["_fresh"] = {s: never_used(s, card[s][0], u) for s in L.SLOTS}
         sc, m1, m2 = score(card, mood, themes)
         card["_score"], card["_moods"], card["_themes"] = sc, (m1, m2), themes
         cands.append(card)
@@ -212,7 +275,7 @@ def propose(topic, dur, n=3, mood=None, seed=None, out=True, fmt="short"):
 
 
 def dna_from_card(topic, dur, c, tg):
-    return {
+    d = {
         "topic": topic, "duration_s": dur, "date": datetime.date.today().isoformat(),
         "slots": {s: c[s][0] for s in L.SLOTS},
         "signature": c["signature"][0],
@@ -225,6 +288,21 @@ def dna_from_card(topic, dur, c, tg):
         },
         "transitions": [], "sfx_voices": [], "shots": 0, "pattern_interrupts": 0, "wtf_moments": 0, "rehooks_s": [], "hook_text": "",
     }
+    if tg.get("format") == "wtf30":
+        d["format"] = "wtf30"
+        d["_fill_before_gate"].update({
+            "law_broken": "exactly one of " + ", ".join(L.LAW_IDS),
+            "impossible_moment": "one sentence: what is physically impossible and when it lands",
+            "meaning_line": "≤ 7 words, one hot word, full stop",
+            "wtf_onset_s": "measured onset of the impossible moment", "wtf_uncut_s": "uncut length of the WTF shot",
+            "beats": "physical events", "max_beat_gap_s": "longest gap between beats",
+            "on_screen_words": "total words on screen excluding the meaning line", "meaning_snap_s": "when the meaning line appears",
+            "loop_seam": "how the last frame rejoins frame 1",
+            "measured": {"lufs": "integrated LUFS of the master", "true_peak_db": "dBTP", "duration_s": "master length"},
+        })
+        d.update({"law_broken": c.get("law") or "", "impossible_moment": "", "meaning_line": "", "wtf_onset_s": None, "wtf_uncut_s": None,
+                  "beats": 0, "max_beat_gap_s": None, "on_screen_words": None, "meaning_snap_s": None, "loop_seam": "", "measured": {}})
+    return d
 
 
 def render_brief(topic, dur, c, tg, i, stamp):
@@ -251,6 +329,22 @@ def render_brief(topic, dur, c, tg, i, stamp):
     a(f"- sound: ≥ {int(tg['sfx_new_share_min']*100)} % of SFX voices new to the catalogue, one matched cue per transition kind, no noise floor, no repeated cue")
     a(f"- stillness never longer than {tg['max_still_s']} s; identity constants unchanged (palette, type, SHADE rig, grid, safe area, 19 gates)")
     a(f"- format {tg['format']} ({tg['aspect']}): loudness {tg['loudness']}; holds: {tg['holds']}; callbacks planted and returned ≥ {tg['callbacks_min']}; payoff written as {tg['quotable_payoff_lines']} quotable lines")
+    if tg.get("format") == "wtf30":
+        a("")
+        a("## WTF-30 law (MONARCH_WTF30_DOCTRINE.md) — ek qanoon todo, sirf ek; baqi duniya sach rehne do")
+        law = c.get("law")
+        if law:
+            lawrow = next((x for x in L.IMPOSSIBLE_LAWS if x[0] == law), None)
+            a(f"- **law broken: `{law}` — {lawrow[1]}** ({lawrow[2]}; tends to mean: {lawrow[3]}) — set by the signature move; the world and the spine follow it")
+        a(f"- duration {tg['duration_range_s'][0]:g}–{tg['duration_range_s'][1]:g} s; `law_broken` = {tg['law_broken']}")
+        a(f"- the impossible moment lands between {tg['wtf_onset_window_s'][0]} s and {tg['wtf_onset_window_s'][1]} s, in ONE uncut shot ≥ {tg['wtf_uncut_min_s']} s, "
+          f"preceded by a silence hole of {tg['silence_before_wtf_s'][0]}–{tg['silence_before_wtf_s'][1]} s; no text over it; the trick is never explained or repeated")
+        a(f"- density = physical events: beats ≥ {tg['beats_min']}, max gap ≤ {tg['max_beat_gap_s']} s; shots ≥ {tg['shots_min']} (cuts are few; events are many)")
+        a(f"- muted-pass: ≤ {tg['on_screen_words_max']} on-screen words in total; meaning line ≤ {tg['meaning_words_max']} words, one hot word, full stop, "
+          f"between {tg['meaning_snap_window_s'][0]} s and {tg['meaning_snap_window_s'][1]} s")
+        a(f"- loop seam: {tg['loop_seam']}; CTA: {tg['cta']}")
+        a("- consistency law: everything except the one broken law obeys physics — light vs shadow, contact shadows, parallax order, cloth lag, anticipation/settle")
+        a("- the ten laws: " + " · ".join(f"`{i}` {n}" for i, n, _, _ in L.IMPOSSIBLE_LAWS))
     refs = load_refs()
     if refs:
         a("")
@@ -271,6 +365,42 @@ def render_brief(topic, dur, c, tg, i, stamp):
       "3. Build the signature move + ≥3 new transition kinds, luma-trace each.  4. Fill `transitions`, `sfx_voices`, `shots`, `pattern_interrupts`, `wtf_moments`, `rehooks_s` in the DNA json.  "
       "5. `concept.py gate <dna>` must PASS before the final mux.  6. After delivery: `concept.py commit <dna> --drive-id … --md5 …`.")
     return "\n".join(L_) + "\n"
+
+
+# ───────────────────────────────────────────── WTF-30 rows inside gate #20 (doctrine §11; the frame/mix rows live in gate_wtf30.py)
+def _words(text):
+    return [w for w in re.findall(r"[A-Za-z0-9'’\-]+", text or "") if w]
+
+
+def wtf30_rows(d, tg, dur):
+    W = WTF30
+    rows = []
+    lo_d, hi_d = W["duration_range_s"]
+    rows.append((f"G-W13 duration = {dur:g} s ({lo_d:g}–{hi_d:g})", lo_d <= dur <= hi_d, ""))
+    law = d.get("law_broken")
+    laws = [x.strip() for x in str(law or "").replace(",", " ").split() if x.strip()]
+    rows.append((f"G-W12 law_broken = {law or 'not set'} (exactly one of the ten)", len(laws) == 1 and laws[0] in L.LAW_IDS, ", ".join(L.LAW_IDS)))
+    rows.append(("impossible_moment written", bool(d.get("impossible_moment")), (d.get("impossible_moment") or "")[:70]))
+    win = tg.get("wtf_onset_window_s") or [round(dur * W["wtf_onset_window"][0], 1), round(min(dur * W["wtf_onset_window"][1], W["wtf_onset_hard_max_s"]), 1)]
+    onset = d.get("wtf_onset_s")
+    rows.append((f"G-W3 wtf_onset_s = {onset} ({win[0]}–{win[1]} s)", onset is not None and win[0] <= float(onset) <= win[1], "share-thumb before the scroll cliff"))
+    uncut = d.get("wtf_uncut_s")
+    rows.append((f"G-W4 wtf_uncut_s = {uncut} (≥ {W['wtf_uncut_min_s']} s, no cut inside)", uncut is not None and float(uncut) >= W["wtf_uncut_min_s"], "a cut lets the brain say 'edit trick'"))
+    osw = d.get("on_screen_words")
+    rows.append((f"G-W7 on_screen_words = {osw} (≤ {W['on_screen_words_max']}, none over the WTF)", osw is not None and int(osw) <= W["on_screen_words_max"], "muted-pass comprehension"))
+    ml = d.get("meaning_line") or ""
+    mw = _words(ml)
+    snap = d.get("meaning_snap_s")
+    sw = tg.get("meaning_snap_window_s") or [round(dur * W["meaning_snap_window"][0], 1), round(dur * W["meaning_snap_window"][1], 1)]
+    ok_line = bool(ml) and len(mw) <= W["meaning_words_max"] and ml.strip().endswith(".")
+    ok_snap = snap is not None and sw[0] <= float(snap) <= sw[1]
+    rows.append((f"G-W8 meaning line = {len(mw)} words, full stop {'yes' if ml.strip().endswith('.') else 'no'}, at {snap} s ({sw[0]}–{sw[1]})", ok_line and ok_snap, ml[:60]))
+    rows.append(("G-W9 loop seam described", bool(d.get("loop_seam")), (d.get("loop_seam") or "")[:60]))
+    m = d.get("measured") or {}
+    lufs, tp = m.get("lufs"), m.get("true_peak_db")
+    ok_loud = isinstance(lufs, (int, float)) and W["lufs"][0] <= lufs <= W["lufs"][1] and isinstance(tp, (int, float)) and tp <= W["true_peak_max_db"]
+    rows.append((f"G-W11 loudness = {lufs} LUFS / TP {tp} dBTP ({W['lufs'][0]}..{W['lufs'][1]}, ≤ {W['true_peak_max_db']})", ok_loud, "platform-normalised master"))
+    return rows
 
 
 # ───────────────────────────────────────────── freshness gate (#20)
@@ -296,12 +426,18 @@ def gate(dna_path, verbose=True):
     prev = set(same_fmt[-1].get("transitions", [])) if same_fmt else set()
     everk = all_prev_kinds(reg)
     dur = float(d.get("duration_s", 0))
-    kmin = 4 if fmt == "film" else max(8 if dur >= 40 else 5, math.ceil(max(0, int(d.get("shots", 0)) - 1) / 4))
+    if fmt == "film":
+        kmin = 4
+    elif fmt == "wtf30":
+        kmin = WTF30["transition_kinds_min"]
+    else:
+        kmin = max(8 if dur >= 40 else 5, math.ceil(max(0, int(d.get("shots", 0)) - 1) / 4))
+    new_min = WTF30["new_transition_kinds_min"] if fmt == "wtf30" else RULES["trans_new_min"]
     overlap = (len(set(kinds) & prev) / len(kinds)) if kinds else 1.0
     newk = [k for k in kinds if k not in everk]
     rows.append((f"transition kinds = {len(kinds)} (min {kmin})", len(kinds) >= kmin, ", ".join(kinds) or "none listed"))
     rows.append((f"overlap with last {fmt} = {overlap:.2f} (max {RULES['trans_overlap_max']})", overlap <= RULES['trans_overlap_max'], f"shared: {sorted(set(kinds) & prev)}"))
-    rows.append((f"new kinds = {len(newk)} (min {RULES['trans_new_min']})", len(newk) >= RULES['trans_new_min'], ", ".join(newk) or "none"))
+    rows.append((f"new kinds = {len(newk)} (min {new_min})", len(newk) >= new_min, ", ".join(newk) or "none"))
     sfx = list(dict.fromkeys(d.get("sfx_voices", [])))
     evers = all_prev_sfx(reg)
     share = (sum(1 for v in sfx if v not in evers) / len(sfx)) if sfx else 0.0
@@ -316,10 +452,19 @@ def gate(dna_path, verbose=True):
             beats = int(d.get("beats", 0)); gap = float(d.get("max_beat_gap_s", 99))
             rows.append((f"beats = {beats} (min {need}; shots {have}) · max gap {gap:.1f} s (≤ 6.5)", beats >= need and gap <= 6.5, "film density = carried beats"))
             continue
+        if k == "shots" and fmt == "wtf30":
+            # wtf30: few cuts, many physical events — shots ≥ 4 AND beats ≥ dur/1.5 with no gap > 2.5 s.
+            bmin = int(tg.get("beats_min", math.ceil(dur / WTF30["beat_div"]))); gmax = float(tg.get("max_beat_gap_s", WTF30["max_beat_gap_s"]))
+            beats = int(d.get("beats", 0)); gap = float(d.get("max_beat_gap_s") or 99)
+            rows.append((f"shots = {have} (min {need})", have >= need, "cuts are few"))
+            rows.append((f"beats = {beats} (min {bmin}) · max gap {gap:.1f} s (≤ {gmax})", beats >= bmin and gap <= gmax, "wtf30 density = physical events"))
+            continue
         rows.append((f"{k} = {have} (min {need})", have >= need, ""))
     rh = d.get("rehooks_s", [])
     rows.append((f"re-hooks logged = {len(rh)} (min 3 for ≥ 40 s)", len(rh) >= (3 if dur >= 40 else 1), str(rh)))
     rows.append(("hook text logged", bool(d.get("hook_text")), d.get("hook_text", "")[:60]))
+    if fmt == "wtf30":
+        rows.extend(wtf30_rows(d, tg, dur))
     passed = all(r[1] for r in rows)
     if verbose:
         print(f"FRESHNESS GATE (#20) — {os.path.basename(dna_path)} — {'PASS' if passed else 'FAIL'} ({sum(r[1] for r in rows)}/{len(rows)})")
