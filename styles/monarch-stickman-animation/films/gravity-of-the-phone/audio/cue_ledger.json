@@ -1,0 +1,902 @@
+[
+ {
+  "t": -1.8,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": -1.3,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": -0.8,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": -0.65,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
+ },
+ {
+  "t": -0.3,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": -0.05,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
+ },
+ {
+  "t": 0.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 0.208,
+  "cue": "pencil_roll_tick",
+  "gain": 0.081,
+  "dur": 0.014
+ },
+ {
+  "t": 0.432,
+  "cue": "pencil_roll_tick",
+  "gain": 0.095,
+  "dur": 0.014
+ },
+ {
+  "t": 0.55,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
+ },
+ {
+  "t": 0.6,
+  "cue": "pencil_roll_tick",
+  "gain": 0.106,
+  "dur": 0.014
+ },
+ {
+  "t": 0.7,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 0.74,
+  "cue": "pencil_roll_tick",
+  "gain": 0.115,
+  "dur": 0.014
+ },
+ {
+  "t": 0.86,
+  "cue": "pencil_roll_tick",
+  "gain": 0.123,
+  "dur": 0.014
+ },
+ {
+  "t": 0.968,
+  "cue": "pencil_roll_tick",
+  "gain": 0.131,
+  "dur": 0.014
+ },
+ {
+  "t": 1.068,
+  "cue": "pencil_roll_tick",
+  "gain": 0.138,
+  "dur": 0.014
+ },
+ {
+  "t": 1.15,
+  "cue": "buzz_am",
+  "gain": 0.34,
+  "dur": 0.38
+ },
+ {
+  "t": 1.16,
+  "cue": "pencil_roll_tick",
+  "gain": 0.145,
+  "dur": 0.014
+ },
+ {
+  "t": 1.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 1.244,
+  "cue": "pencil_roll_tick",
+  "gain": 0.151,
+  "dur": 0.014
+ },
+ {
+  "t": 1.324,
+  "cue": "pencil_roll_tick",
+  "gain": 0.157,
+  "dur": 0.014
+ },
+ {
+  "t": 1.4,
+  "cue": "pencil_tak",
+  "gain": 0.22,
+  "dur": 0.14
+ },
+ {
+  "t": 1.45,
+  "cue": "flip_clack",
+  "gain": 0.35,
+  "dur": 0.02
+ },
+ {
+  "t": 1.55,
+  "cue": "glow_swell",
+  "gain": 0.16,
+  "dur": 10.75
+ },
+ {
+  "t": 1.7,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 1.77,
+  "cue": "flip_land",
+  "gain": 0.5,
+  "dur": 0.18
+ },
+ {
+  "t": 2.0,
+  "cue": "cut_thump",
+  "gain": 0.35,
+  "dur": 0.3
+ },
+ {
+  "t": 2.08,
+  "cue": "footstep_paper",
+  "gain": 0.42,
+  "dur": 0.11
+ },
+ {
+  "t": 2.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 2.56,
+  "cue": "footstep_paper",
+  "gain": 0.42,
+  "dur": 0.11
+ },
+ {
+  "t": 2.6,
+  "cue": "pendulum_lean_creak",
+  "gain": 0.08,
+  "dur": 0.5
+ },
+ {
+  "t": 2.7,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 3.0,
+  "cue": "page_lift_flutter",
+  "gain": 0.18,
+  "dur": 0.35
+ },
+ {
+  "t": 3.03,
+  "cue": "footstep_paper",
+  "gain": 0.42,
+  "dur": 0.11
+ },
+ {
+  "t": 3.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 3.5,
+  "cue": "footstep_paper",
+  "gain": 0.42,
+  "dur": 0.11
+ },
+ {
+  "t": 3.7,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 4.0,
+  "cue": "hero_breath",
+  "gain": 0.14,
+  "dur": 0.45
+ },
+ {
+  "t": 4.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 4.7,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 4.85,
+  "cue": "pull_riser",
+  "gain": 0.45,
+  "dur": 0.8
+ },
+ {
+  "t": 4.9,
+  "cue": "sub_drop",
+  "gain": 0.5,
+  "dur": 0.6
+ },
+ {
+  "t": 4.9,
+  "cue": "onset_ping",
+  "gain": 0.4,
+  "dur": 0.9
+ },
+ {
+  "t": 4.9,
+  "cue": "sub_pulse_rise",
+  "gain": 0.6,
+  "dur": 7.1
+ },
+ {
+  "t": 4.9,
+  "cue": "shoe_slide_squeal",
+  "gain": 0.22,
+  "dur": 0.59
+ },
+ {
+  "t": 4.95,
+  "cue": "slide_scrape_ceramic",
+  "gain": 0.22,
+  "dur": 0.46
+ },
+ {
+  "t": 5.0,
+  "cue": "page_flutter",
+  "gain": 0.3,
+  "dur": 0.65
+ },
+ {
+  "t": 5.08,
+  "cue": "page_flutter",
+  "gain": 0.3,
+  "dur": 0.62
+ },
+ {
+  "t": 5.1,
+  "cue": "lamp_metal_groan",
+  "gain": 0.16,
+  "dur": 0.9
+ },
+ {
+  "t": 5.16,
+  "cue": "page_flutter",
+  "gain": 0.3,
+  "dur": 0.58
+ },
+ {
+  "t": 5.2,
+  "cue": "clock_tick",
+  "gain": 0.07,
+  "dur": 0.009
+ },
+ {
+  "t": 5.25,
+  "cue": "book_whoosh",
+  "gain": 0.5,
+  "dur": 0.42
+ },
+ {
+  "t": 5.3,
+  "cue": "book_whoosh",
+  "gain": 0.5,
+  "dur": 0.5
+ },
+ {
+  "t": 5.32,
+  "cue": "slip_squeak",
+  "gain": 0.09,
+  "dur": 0.14
+ },
+ {
+  "t": 5.37,
+  "cue": "arrive_ceramic",
+  "gain": 0.35,
+  "dur": 0.28
+ },
+ {
+  "t": 5.4,
+  "cue": "book_whoosh",
+  "gain": 0.5,
+  "dur": 0.5
+ },
+ {
+  "t": 5.4,
+  "cue": "rug_drag",
+  "gain": 0.25,
+  "dur": 1.04
+ },
+ {
+  "t": 5.5,
+  "cue": "book_whoosh",
+  "gain": 0.5,
+  "dur": 0.48
+ },
+ {
+  "t": 5.5,
+  "cue": "lunge_breath",
+  "gain": 0.2,
+  "dur": 0.3
+ },
+ {
+  "t": 5.5,
+  "cue": "lunge_whoosh",
+  "gain": 0.3,
+  "dur": 0.4
+ },
+ {
+  "t": 5.6,
+  "cue": "pull_drone",
+  "gain": 0.16,
+  "dur": 6.4
+ },
+ {
+  "t": 5.6,
+  "cue": "notification_ding",
+  "gain": 0.42,
+  "dur": 0.6
+ },
+ {
+  "t": 5.6,
+  "cue": "nail_pop",
+  "gain": 0.5,
+  "dur": 0.03
+ },
+ {
+  "t": 5.6,
+  "cue": "clock_whoosh",
+  "gain": 0.45,
+  "dur": 0.72
+ },
+ {
+  "t": 5.67,
+  "cue": "book_slap",
+  "gain": 0.5,
+  "dur": 0.14
+ },
+ {
+  "t": 5.8,
+  "cue": "book_slap",
+  "gain": 0.5,
+  "dur": 0.14
+ },
+ {
+  "t": 5.9,
+  "cue": "slide_scrape_wood",
+  "gain": 0.4,
+  "dur": 0.95
+ },
+ {
+  "t": 5.9,
+  "cue": "book_slap",
+  "gain": 0.5,
+  "dur": 0.14
+ },
+ {
+  "t": 5.9,
+  "cue": "lamp_metal_ring",
+  "gain": 0.2,
+  "dur": 0.5
+ },
+ {
+  "t": 5.9,
+  "cue": "hands_grab",
+  "gain": 0.45,
+  "dur": 0.12
+ },
+ {
+  "t": 5.9,
+  "cue": "wood_creak_frame",
+  "gain": 0.3,
+  "dur": 1.8
+ },
+ {
+  "t": 5.98,
+  "cue": "book_slap",
+  "gain": 0.5,
+  "dur": 0.14
+ },
+ {
+  "t": 6.32,
+  "cue": "clock_clang",
+  "gain": 0.55,
+  "dur": 1.0
+ },
+ {
+  "t": 6.4,
+  "cue": "slide_scrape_paper",
+  "gain": 0.16,
+  "dur": 0.84
+ },
+ {
+  "t": 6.44,
+  "cue": "slide_scrape_paper",
+  "gain": 0.16,
+  "dur": 0.84
+ },
+ {
+  "t": 6.48,
+  "cue": "slide_scrape_paper",
+  "gain": 0.16,
+  "dur": 0.84
+ },
+ {
+  "t": 6.6,
+  "cue": "cloth_flag_flutter",
+  "gain": 0.14,
+  "dur": 4.4
+ },
+ {
+  "t": 6.8,
+  "cue": "arrive_wood",
+  "gain": 0.6,
+  "dur": 0.2
+ },
+ {
+  "t": 6.8,
+  "cue": "slide_scrape_pot",
+  "gain": 0.28,
+  "dur": 0.89
+ },
+ {
+  "t": 7.2,
+  "cue": "notification_ding",
+  "gain": 0.42,
+  "dur": 0.6
+ },
+ {
+  "t": 7.2,
+  "cue": "arrive_paper",
+  "gain": 0.35,
+  "dur": 0.14
+ },
+ {
+  "t": 7.24,
+  "cue": "arrive_paper",
+  "gain": 0.35,
+  "dur": 0.14
+ },
+ {
+  "t": 7.28,
+  "cue": "arrive_paper",
+  "gain": 0.35,
+  "dur": 0.14
+ },
+ {
+  "t": 7.65,
+  "cue": "arrive_pot",
+  "gain": 0.45,
+  "dur": 0.22
+ },
+ {
+  "t": 8.0,
+  "cue": "wood_creak_strain",
+  "gain": 0.16,
+  "dur": 0.45
+ },
+ {
+  "t": 8.65,
+  "cue": "wood_creak_strain",
+  "gain": 0.13,
+  "dur": 0.45
+ },
+ {
+  "t": 8.8,
+  "cue": "notification_ding",
+  "gain": 0.42,
+  "dur": 0.6
+ },
+ {
+  "t": 9.0,
+  "cue": "hand_slip_squeak",
+  "gain": 0.16,
+  "dur": 0.1
+ },
+ {
+  "t": 9.07,
+  "cue": "hand_slip_regrip",
+  "gain": 0.3,
+  "dur": 0.02
+ },
+ {
+  "t": 9.42,
+  "cue": "hand_slip_squeak",
+  "gain": 0.16,
+  "dur": 0.1
+ },
+ {
+  "t": 9.49,
+  "cue": "hand_slip_regrip",
+  "gain": 0.3,
+  "dur": 0.02
+ },
+ {
+  "t": 9.8,
+  "cue": "look_at_lens_sparkle",
+  "gain": 0.16,
+  "dur": 0.5
+ },
+ {
+  "t": 10.5,
+  "cue": "wood_creak_strain",
+  "gain": 0.18,
+  "dur": 0.45
+ },
+ {
+  "t": 10.85,
+  "cue": "wood_creak_strain",
+  "gain": 0.22,
+  "dur": 0.45
+ },
+ {
+  "t": 11.0,
+  "cue": "letgo_whoosh",
+  "gain": 0.75,
+  "dur": 0.47
+ },
+ {
+  "t": 11.0,
+  "cue": "release_snap",
+  "gain": 0.5,
+  "dur": 0.025
+ },
+ {
+  "t": 11.42,
+  "cue": "desk_slam",
+  "gain": 0.55,
+  "dur": 0.5
+ },
+ {
+  "t": 11.444,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.467,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.47,
+  "cue": "cup_rattle",
+  "gain": 0.25,
+  "dur": 0.2
+ },
+ {
+  "t": 11.495,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.518,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.544,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.571,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.58,
+  "cue": "hand_slap_phone",
+  "gain": 0.6,
+  "dur": 0.03
+ },
+ {
+  "t": 11.596,
+  "cue": "pile_rattle",
+  "gain": 0.12,
+  "dur": 0.01
+ },
+ {
+  "t": 11.62,
+  "cue": "flip_clack",
+  "gain": 0.35,
+  "dur": 0.02
+ },
+ {
+  "t": 11.94,
+  "cue": "flip_land_facedown",
+  "gain": 0.6,
+  "dur": 0.18
+ },
+ {
+  "t": 12.0,
+  "cue": "power_down_sweep",
+  "gain": 0.5,
+  "dur": 0.15
+ },
+ {
+  "t": 12.3,
+  "cue": "lamp_boing",
+  "gain": 0.14,
+  "dur": 1.2
+ },
+ {
+  "t": 12.35,
+  "cue": "pages_settle",
+  "gain": 0.22,
+  "dur": 0.8
+ },
+ {
+  "t": 12.48,
+  "cue": "drop_paper",
+  "gain": 0.3,
+  "dur": 0.14
+ },
+ {
+  "t": 12.52,
+  "cue": "drop_paper",
+  "gain": 0.4,
+  "dur": 0.14
+ },
+ {
+  "t": 12.54,
+  "cue": "drop_paper",
+  "gain": 0.4,
+  "dur": 0.14
+ },
+ {
+  "t": 12.54,
+  "cue": "drop_paper",
+  "gain": 0.35,
+  "dur": 0.14
+ },
+ {
+  "t": 12.54,
+  "cue": "drop_paper",
+  "gain": 0.3,
+  "dur": 0.14
+ },
+ {
+  "t": 12.58,
+  "cue": "drop_ceramic",
+  "gain": 0.35,
+  "dur": 0.28
+ },
+ {
+  "t": 12.58,
+  "cue": "drop_sub_thud",
+  "gain": 0.5,
+  "dur": 0.6
+ },
+ {
+  "t": 12.6,
+  "cue": "drop_paper",
+  "gain": 0.35,
+  "dur": 0.14
+ },
+ {
+  "t": 12.6,
+  "cue": "dust_hiss",
+  "gain": 0.09,
+  "dur": 0.9
+ },
+ {
+  "t": 12.62,
+  "cue": "drop_paper",
+  "gain": 0.5,
+  "dur": 0.14
+ },
+ {
+  "t": 12.639,
+  "cue": "drop_bounce_paper",
+  "gain": 0.175,
+  "dur": 0.14
+ },
+ {
+  "t": 12.64,
+  "cue": "drop_wood",
+  "gain": 0.6,
+  "dur": 0.22
+ },
+ {
+  "t": 12.7,
+  "cue": "drop_metal",
+  "gain": 0.5,
+  "dur": 1.1
+ },
+ {
+  "t": 12.7,
+  "cue": "drop_pot",
+  "gain": 0.45,
+  "dur": 0.25
+ },
+ {
+  "t": 12.7,
+  "cue": "settle_rumble",
+  "gain": 0.12,
+  "dur": 1.6
+ },
+ {
+  "t": 12.717,
+  "cue": "drop_bounce_paper",
+  "gain": 0.175,
+  "dur": 0.14
+ },
+ {
+  "t": 12.755,
+  "cue": "drop_bounce_paper",
+  "gain": 0.25,
+  "dur": 0.14
+ },
+ {
+  "t": 12.775,
+  "cue": "drop_bounce_wood",
+  "gain": 0.3,
+  "dur": 0.22
+ },
+ {
+  "t": 12.853,
+  "cue": "drop_bounce_metal",
+  "gain": 0.25,
+  "dur": 1.1
+ },
+ {
+  "t": 12.88,
+  "cue": "drop_bounce_pot",
+  "gain": 0.225,
+  "dur": 0.25
+ },
+ {
+  "t": 12.91,
+  "cue": "drop_paper",
+  "gain": 0.25,
+  "dur": 0.14
+ },
+ {
+  "t": 12.92,
+  "cue": "drop_paper",
+  "gain": 0.25,
+  "dur": 0.14
+ },
+ {
+  "t": 12.92,
+  "cue": "debris_tick",
+  "gain": 0.12,
+  "dur": 0.012
+ },
+ {
+  "t": 13.0,
+  "cue": "hero_stand_rustle",
+  "gain": 0.08,
+  "dur": 0.4
+ },
+ {
+  "t": 13.02,
+  "cue": "drop_paper",
+  "gain": 0.25,
+  "dur": 0.14
+ },
+ {
+  "t": 13.28,
+  "cue": "debris_tick",
+  "gain": 0.09,
+  "dur": 0.012
+ },
+ {
+  "t": 13.62,
+  "cue": "clock_tick_fallen",
+  "gain": 0.07,
+  "dur": 0.012
+ },
+ {
+  "t": 13.71,
+  "cue": "debris_tick",
+  "gain": 0.07,
+  "dur": 0.012
+ },
+ {
+  "t": 14.05,
+  "cue": "debris_tick",
+  "gain": 0.05,
+  "dur": 0.012
+ },
+ {
+  "t": 14.22,
+  "cue": "clock_tick_fallen",
+  "gain": 0.07,
+  "dur": 0.012
+ },
+ {
+  "t": 14.6,
+  "cue": "cut_air",
+  "gain": 0.05,
+  "dur": 0.5
+ },
+ {
+  "t": 14.8,
+  "cue": "glass_note_held",
+  "gain": 0.15,
+  "dur": 3.2
+ },
+ {
+  "t": 15.104,
+  "cue": "vo_meaning_line",
+  "gain": 1.0,
+  "dur": 3.2
+ },
+ {
+  "t": 15.4,
+  "cue": "word_slam",
+  "gain": 0.35,
+  "dur": 0.3
+ },
+ {
+  "t": 15.4,
+  "cue": "vo_word_1_phone",
+  "gain": 0.9,
+  "dur": 0
+ },
+ {
+  "t": 16.66,
+  "cue": "word_slam",
+  "gain": 0.3,
+  "dur": 0.3
+ },
+ {
+  "t": 17.15,
+  "cue": "hot_word_slam",
+  "gain": 0.4,
+  "dur": 0.4
+ },
+ {
+  "t": 18.2,
+  "cue": "cut_thump",
+  "gain": 0.3,
+  "dur": 0.3
+ },
+ {
+  "t": 19.3,
+  "cue": "end_bell",
+  "gain": 0.14,
+  "dur": 0.7
+ }
+]

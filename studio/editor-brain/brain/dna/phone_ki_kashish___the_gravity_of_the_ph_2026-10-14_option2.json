@@ -1,0 +1,120 @@
+{
+  "topic": "Phone ki kashish — the gravity of the phone",
+  "duration_s": 20,
+  "date": "2026-10-14",
+  "slots": {
+    "hook": "normal_then_wrong",
+    "device": "divergence",
+    "world": "bathroom_mirror_dawn",
+    "grammar": "long_take_internal",
+    "camera": "rack_focus",
+    "sonic": "sub_drone_94",
+    "type": "full_stop_voice",
+    "ending": "mirror_turn"
+  },
+  "signature": "reflection_leaves_first",
+  "targets": {
+    "format": "wtf30",
+    "aspect": "1080x1920 (4:5 safe centre y 285–1635)",
+    "loudness": "-14.0 ± 1.0, TP ≤ −1.0 dBTP, no noise floor",
+    "holds": "exactly one uncut set-piece ≥ 3 s containing the impossible moment; no other shot > 4 s",
+    "callbacks_min": 1,
+    "quotable_payoff_lines": 2,
+    "duration_s": 20,
+    "shots_min": 5,
+    "transitions": 4,
+    "transition_kinds_min": 3,
+    "transition_kinds_note": "wtf30: cut grammar + the impossible transition itself; never a cut inside the WTF window",
+    "new_transition_kinds_min": 1,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 3,
+    "wtf_moments_min": 2,
+    "rehook_at_s": [
+      5.0,
+      10.0,
+      15.0
+    ],
+    "sfx_new_share_min": 0.5,
+    "chapters": [
+      "sync",
+      "lag",
+      "divergence",
+      "exit",
+      "meaning",
+      "loop"
+    ],
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "≤ 2.5 (a physical event: light, prop, scale, readout, line — measured as beats)",
+    "max_still_s": 0.4,
+    "gates": "19 measured gates + gate #20 freshness + the 13 WTF gates (doctrine §11)",
+    "beats_min": 14,
+    "max_beat_gap_s": 2.5,
+    "duration_range_s": [
+      20.0,
+      30.0
+    ],
+    "wtf_onset_window_s": [
+      4.8,
+      8.0
+    ],
+    "wtf_uncut_min_s": 3.0,
+    "silence_before_wtf_s": [
+      0.3,
+      0.6
+    ],
+    "on_screen_words_max": 7,
+    "meaning_words_max": 7,
+    "meaning_snap_window_s": [
+      14.0,
+      18.0
+    ],
+    "loop_seam": "last frame rejoins frame 1 (≤ 6/255 mean abs difference or a designed match-cut)",
+    "law_broken": "exactly one of gravity, scale, time, light, mirror, material, continuity, count, space, causality",
+    "cta": "none in picture (caption only)"
+  },
+  "_fill_before_gate": {
+    "transitions": "list of transition kind ids actually in PLAN (existing + new)",
+    "sfx_voices": "list of SFX voice names actually in the bed ledger",
+    "shots": 0,
+    "pattern_interrupts": 0,
+    "wtf_moments": 0,
+    "rehooks_s": [],
+    "hook_text": "",
+    "law_broken": "exactly one of gravity, scale, time, light, mirror, material, continuity, count, space, causality",
+    "impossible_moment": "one sentence: what is physically impossible and when it lands",
+    "meaning_line": "≤ 7 words, one hot word, full stop",
+    "wtf_onset_s": "measured onset of the impossible moment",
+    "wtf_uncut_s": "uncut length of the WTF shot",
+    "beats": "physical events",
+    "max_beat_gap_s": "longest gap between beats",
+    "on_screen_words": "total words on screen excluding the meaning line",
+    "meaning_snap_s": "when the meaning line appears",
+    "loop_seam": "how the last frame rejoins frame 1",
+    "measured": {
+      "lufs": "integrated LUFS of the master",
+      "true_peak_db": "dBTP",
+      "duration_s": "master length"
+    }
+  },
+  "transitions": [],
+  "sfx_voices": [],
+  "shots": 0,
+  "pattern_interrupts": 0,
+  "wtf_moments": 0,
+  "rehooks_s": [],
+  "hook_text": "",
+  "format": "wtf30",
+  "law_broken": "mirror",
+  "impossible_moment": "",
+  "meaning_line": "",
+  "wtf_onset_s": null,
+  "wtf_uncut_s": null,
+  "beats": 0,
+  "max_beat_gap_s": null,
+  "on_screen_words": null,
+  "meaning_snap_s": null,
+  "loop_seam": "",
+  "measured": {}
+}

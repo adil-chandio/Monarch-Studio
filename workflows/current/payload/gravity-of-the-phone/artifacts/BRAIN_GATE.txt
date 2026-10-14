@@ -1,0 +1,29 @@
+FRESHNESS GATE (#20) — DNA.json — PASS (28/28)
+  [PASS] slot hook = eye_cannot_explain  — fresh
+  [PASS] slot device = one_law_broken  — fresh
+  [PASS] slot world = phone_planet_room  — fresh
+  [PASS] slot grammar = dolly_zoom  — fresh
+  [PASS] slot camera = handheld_micro  — fresh
+  [PASS] slot sonic = sub_breath  — fresh
+  [PASS] slot type = word_slam_shake  — fresh
+  [PASS] slot ending = freeze_hot_word  — fresh
+  [PASS] signature = radial_gravity_release  — unique
+  [PASS] transition kinds = 5 (min 3)  — tint_flash_cut, insert_cutaway, push_in_cut, phone_match_cut, loop_seam_match
+  [PASS] overlap with last wtf30 = 0.00 (max 0.4)  — shared: []
+  [PASS] new kinds = 4 (min 1)  — tint_flash_cut, push_in_cut, phone_match_cut, loop_seam_match
+  [PASS] new SFX voices share = 0.99 (min 0.5)  — 78 voices listed
+  [PASS] shots = 6 (min 5)  — cuts are few
+  [PASS] beats = 38 (min 14) · max gap 1.4 s (≤ 2.5)  — wtf30 density = physical events
+  [PASS] pattern_interrupts = 6 (min 3)  
+  [PASS] wtf_moments = 2 (min 2)  
+  [PASS] re-hooks logged = 3 (min 3 for ≥ 40 s)  — [5.0, 9.8, 15.4]
+  [PASS] hook text logged  — phone face-DOWN buzzing; a pencil rolls uphill toward it by 
+  [PASS] G-W13 duration = 20 s (20–30)  
+  [PASS] G-W12 law_broken = gravity (exactly one of the ten)  — gravity, scale, time, light, mirror, material, continuity, count, space, causality
+  [PASS] impossible_moment written  — The phone on the desk becomes the room's planet: every prop slides rad
+  [PASS] G-W3 wtf_onset_s = 4.9 (4.8–8.0 s)  — share-thumb before the scroll cliff
+  [PASS] G-W4 wtf_uncut_s = 10.0 (≥ 3.0 s, no cut inside)  — a cut lets the brain say 'edit trick'
+  [PASS] G-W7 on_screen_words = 4 (≤ 7, none over the WTF)  — muted-pass comprehension
+  [PASS] G-W8 meaning line = 4 words, full stop yes, at 15.4 s (14.0–18.0)  — Phone ulta. Zindagi seedhi.
+  [PASS] G-W9 loop seam described  — S6 is S1 evaluated at loop time (tau = t-20): buzz restarts 
+  [PASS] G-W11 loudness = -14.2 LUFS / TP -1.1 dBTP (-15.0..-13.0, ≤ -1.0)  — platform-normalised master

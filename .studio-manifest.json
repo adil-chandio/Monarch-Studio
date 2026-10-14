@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T16:58:38+00:00",
+  "generated_at": "2026-10-14T17:53:16+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "00ef5735e0035c0a37b7491d4e53371908308bbc7f2a98ea6e8c12c15db13e34",
-      "size": 924
+      "sha256": "52eeab53d2d46889fb95998098df4c9b4cf16ed60210b449e1bc49beb67ecb7d",
+      "size": 847
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -339,6 +339,22 @@
       "sha256": "bba0899a63bb9070f47bf6f92044eec9ab8080268f403fbb806b1f9bcdff244c",
       "size": 5932
     },
+    "operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T170322Z/HANDOFF.md": {
+      "sha256": "ec0b3f403ea682b2805cf8dbb4c1d6b0b79aaead7b9f50a2c11b30fc9be08b99",
+      "size": 2276
+    },
+    "operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T170322Z/checkpoint.json": {
+      "sha256": "8fd82ad18babc432f5180e8ccddfed32572743ecf87128bcf191af7e14c133e6",
+      "size": 4024
+    },
+    "operations/continuity/checkpoints/EMS-20261014-002/0001-20261014T175316Z/HANDOFF.md": {
+      "sha256": "c767a69edf2a20c7ec34bac2b513d903c3b3db6fe86f33ae0c2ba465c3a6aa16",
+      "size": 2539
+    },
+    "operations/continuity/checkpoints/EMS-20261014-002/0001-20261014T175316Z/checkpoint.json": {
+      "sha256": "b974701268235f5d03776c34b7c1b3235a28b6a868051f3d12de56d29f90da92",
+      "size": 14351
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -519,6 +535,30 @@
       "sha256": "f39e179775788b4bc61bef4a7f044344a15489b8a017bb3732368687ebd1f073",
       "size": 6002
     },
+    "operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/STATUS.md": {
+      "sha256": "61a630606430df1afba08329ebcd26bee017c8e14000f01248549e3447c99f63",
+      "size": 755
+    },
+    "operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/SYNC.json": {
+      "sha256": "8958378bd5c6a8375eff6e5e5228e64761b2f4e995aebb3594915463651bc984",
+      "size": 4360
+    },
+    "operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/checkpoint.json": {
+      "sha256": "fe611e9952bfff38c3866be5c21e30ead5a6290dd6e957976f7a1b6a805f48ae",
+      "size": 4024
+    },
+    "operations/continuity/outbox/EMS-20261014-002/0001-20261014T175316Z/STATUS.md": {
+      "sha256": "c865543d8c6f9485c6a233d7af73ddcc8502f68720700e613c8568f40286656a",
+      "size": 1346
+    },
+    "operations/continuity/outbox/EMS-20261014-002/0001-20261014T175316Z/SYNC.json": {
+      "sha256": "2b330ce6a12ef2265a270e473e2cf5ff80b9375aa2534d338099dfaaaba58efc",
+      "size": 4360
+    },
+    "operations/continuity/outbox/EMS-20261014-002/0001-20261014T175316Z/checkpoint.json": {
+      "sha256": "d2df79bc4a0c3190f7612492028506743666d398292f81989f3cf78a48a7daec",
+      "size": 14421
+    },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
       "size": 4271
@@ -635,6 +675,22 @@
       "sha256": "ddd29cc4f5a87763711f5f082f174df7a1c0a1148b6abf2a556a896e69ae3d93",
       "size": 2520
     },
+    "operations/history/EMS-20261014-001/ACTIVE_TASK.json": {
+      "sha256": "144b5897876261967c4e60d944183685db867b8f37adb74d0f692cd91c663518",
+      "size": 2148
+    },
+    "operations/history/EMS-20261014-001/CHAT_TRANSCRIPT.jsonl": {
+      "sha256": "db933321b4424b0bf4de829dec02dc7428b322e086036d0428fccabcb415df25",
+      "size": 2776
+    },
+    "operations/history/EMS-20261014-001/JOURNAL.jsonl": {
+      "sha256": "d3fa57965cc47754262a0088249c9728809f602e71419b35b48ca24e5e626aae",
+      "size": 10105
+    },
+    "operations/history/EMS-20261014-001/RESUME.md": {
+      "sha256": "ec0b3f403ea682b2805cf8dbb4c1d6b0b79aaead7b9f50a2c11b30fc9be08b99",
+      "size": 2276
+    },
     "operations/incidents/INC-20261011-001/README.md": {
       "sha256": "e304b8f8155ed1343701b305a247d27aba32eca5cd9683dce9b4a1dffa062fc0",
       "size": 2034
@@ -676,12 +732,12 @@
       "size": 21124
     },
     "studio/editor-brain/MONARCH_WTF30_DOCTRINE.md": {
-      "sha256": "163deff2cc6d7972fe4b69923c06288efb67eb255f9354400c1638ddc467cad5",
-      "size": 29466
+      "sha256": "23e403c5d50bd13a9485dac78bd01c1e153eedd086fb9b680543909b7e818714",
+      "size": 31922
     },
     "studio/editor-brain/brain/brain_export.json": {
-      "sha256": "3d2d1124add19bde89214a3f66c1ac656481f62c5a52c1203d1cea5a647dcc80",
-      "size": 62210
+      "sha256": "83cace33c2048156b89ec93fa81482b01aac0f446a995dcb0b956114073a1cbf",
+      "size": 65673
     },
     "studio/editor-brain/brain/briefs/comparison___stop_watching_other_people__2026-10-09_option1.md": {
       "sha256": "9eea0758601ac05133302d63ef7de01ee9594bec14bef30769567047f6fb5d93",
@@ -694,6 +750,18 @@
     "studio/editor-brain/brain/briefs/comparison___stop_watching_other_people__2026-10-09_option3.md": {
       "sha256": "3fcf36b943e395324d93cdd9d7b896b1a090ccbbb6c18bd1a3cf2df66f0e520b",
       "size": 4663
+    },
+    "studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option1.md": {
+      "sha256": "bc233415542abc0d8d7772ffb0a925d3c3b20747e476518bc1e9a3f4f3316a97",
+      "size": 6326
+    },
+    "studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option2.md": {
+      "sha256": "1220bdca340c42bfdfd0a7e90d645623c3baa2a2d4928585e03481a0aaeff618",
+      "size": 6454
+    },
+    "studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option3.md": {
+      "sha256": "c1ca14815eb3d26f38021e76fc2fd00bfce4dde236a9b088008b81611ecd13fd",
+      "size": 6399
     },
     "studio/editor-brain/brain/concept.py": {
       "sha256": "66d60e5cac6151c67f87172d8fd0532b4bcd2c3708e667c0b902f1778322066b",
@@ -711,6 +779,18 @@
       "sha256": "d0f89bfff738e5e7aa5d19ab5feec3a737d1c737e1863270be1789c2865b06ab",
       "size": 2010
     },
+    "studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option1.json": {
+      "sha256": "e1fd4357cef9cff1db92230b082ea1f0db26ba11860b8edb56357fe6941a47a3",
+      "size": 3757
+    },
+    "studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option2.json": {
+      "sha256": "b952d0f570cef9e5cbf680f9278b6f297d2b108a0f5a8b520060756489adb414",
+      "size": 3746
+    },
+    "studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option3.json": {
+      "sha256": "7e4908e865e53370a6df9bdd9860f5444e9ff2f2b36faf435726322bab4608cb",
+      "size": 3752
+    },
     "studio/editor-brain/brain/library.py": {
       "sha256": "8c98fd86cb40adf1351a648fa2277a0a0d8a7b17a79f5c9aa3a1d849a62dfec1",
       "size": 44580
@@ -720,8 +800,8 @@
       "size": 10552
     },
     "studio/editor-brain/brain/registry.json": {
-      "sha256": "78b8dabd09d3a11c0c776fbd2b8a4254d04096a9ecc3487ad1cdec1df33dc73f",
-      "size": 14574
+      "sha256": "ad4be52a29ae51990d8c1ecd5213a25468cc7a0c1feae71ffff926f4a13d6a3d",
+      "size": 18446
     },
     "studio/editor-brain/brain/study.py": {
       "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
@@ -1324,8 +1404,8 @@
       "size": 3863
     },
     "styles/monarch-stickman-animation/DRIVE_MANIFEST.md": {
-      "sha256": "641aced0fbfcd40e7a79296d4ba1a4ff3162462cebf625f59ee597e8a7463e29",
-      "size": 2720
+      "sha256": "26bb12f6704fba80a2f7b00cd7a591d6afc5eb3be5ac59685df8248f2eaff811",
+      "size": 3536
     },
     "styles/monarch-stickman-animation/FORENSIC_AUDIT_V7.md": {
       "sha256": "46ed3182da4e052d33e791a11d04d11330a4fb139c36d738f73edbddc188cc3d",
@@ -1372,8 +1452,8 @@
       "size": 5723044
     },
     "styles/monarch-stickman-animation/README.md": {
-      "sha256": "58839de7143485ee559913efd3fff88bfa8faf2a0ab84874558c9a8b93e3aeec",
-      "size": 5151
+      "sha256": "c90d8838919a4f0bac1a565dbd84c01bed223092f74022f02d42b82df84c369d",
+      "size": 5368
     },
     "styles/monarch-stickman-animation/RESUME_STATE.md": {
       "sha256": "50ea8d3feb797e66e43224528ae3284b3d6f5a0129998962fc843004f0d1bfa3",
@@ -1755,6 +1835,86 @@
       "sha256": "9edc0b5ecaffd84f72b8ce876efe2462ae0eeafbc1e2a8a9bb9e45470d02c034",
       "size": 1599
     },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/DNA.json": {
+      "sha256": "574c5d6eee26b7c7319040233c14fe5e3c9fc6b037af809844214604b71c353f",
+      "size": 10562
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/README.md": {
+      "sha256": "6eccb6ca1a4ae9350def358942ef5c2318054ac666eb8fa7db5776023f0ba8ae",
+      "size": 5694
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/SCRIPT_AND_TOPIC.md": {
+      "sha256": "212cee1e9dcdaf25205fed9b54e4d9040de7828f2eecb311fb7f80f0e698e348",
+      "size": 4481
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/BRAIN_GATE.txt": {
+      "sha256": "d5d4d813ad45ed9e4586e7dfb8a35852c77ff0b6dac16d3eadb842f6dd92195f",
+      "size": 2131
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/CONTACT_SHEET.jpg": {
+      "sha256": "2daf1b5bd79cafdf9ff192ec49c64df7e0b2095fc0d2ff176ea713adfe2a6b96",
+      "size": 168265
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/EVENT_LEDGER.csv": {
+      "sha256": "600a56f8a76518be416710900cf773bed3487d78284d5619b9393b81deeed97b",
+      "size": 5705
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/LOOK_SHEET.jpg": {
+      "sha256": "7a2f5a306e96e75816ee839322cb9d528c990d8b43f79d73fc4d43417b3b0173",
+      "size": 366727
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/crop_4x5_proof.jpg": {
+      "sha256": "ee640437e5e0ae53eee2e1e4cc2a5b004fad46a3d5e66397d73176f6f7937903",
+      "size": 90010
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/gate_receipt.json": {
+      "sha256": "b4d990aec9cf03cd2d966ff37246478c9ad9619b284470b90d428fa4836459df",
+      "size": 3739
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/measured.json": {
+      "sha256": "f51c0366a00dc9a73dc8762affc87772d3699a971c9898802e6c75127c407d02",
+      "size": 75
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/audio/cue_ledger.json": {
+      "sha256": "3d21d27d7d7803e51ec0aead78a677e7ed7a076b2fe917089b198abeb84756f1",
+      "size": 11297
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/audio/vo_meaning.mp3": {
+      "sha256": "cb8653279a53f206ec8b43b0b1c722b65c396ff9a667dd9fe9f41f439a6dba10",
+      "size": 13293
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/records/DELIVERY_RECEIPT.json": {
+      "sha256": "dfb6a56df5c957fc4d22695520b6e200d4c8200b038c2797aec3d5f78efd3727",
+      "size": 6455
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/records/DELIVERY_RECEIPT.md": {
+      "sha256": "ec95a3acb92e3e5ab61e2ce4bb5bfd44b5cd4ca54c74b3325e4a1bbd49f245f9",
+      "size": 2572
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/records/EXPERIMENTS_FAILURES_FIXES.md": {
+      "sha256": "c9bc64242408d325681a14e8a1260bb3104159fc7059b7bc8767d246f68af7f0",
+      "size": 4092
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/src/audio.py": {
+      "sha256": "ef9505adccf0ed9d8e65f1650a2b3491cb9e3a4e7ff03a39a26933f0c7043871",
+      "size": 23282
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/src/build.py": {
+      "sha256": "ab9e8b069f74f9974cc822f4ef4f3180c4301c9aeff33e7cba995366b1286eb3",
+      "size": 5672
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/src/gate.py": {
+      "sha256": "de493b6cf5fd5c1558197372155e7af23d2c21d803c2e4aebd77b23fc93b16be",
+      "size": 11181
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/src/render.py": {
+      "sha256": "ac07235f305233703d43f3143958d4bfa5943b71bf23b46da432960677070032",
+      "size": 33326
+    },
+    "styles/monarch-stickman-animation/films/gravity-of-the-phone/src/scene.py": {
+      "sha256": "498ab428452700a0f96040bebf84da024d0970ac9c17fe499ea1bbbde89f5ee6",
+      "size": 29582
+    },
     "styles/monarch-stickman-animation/films/tumhari-reserved-seat-v2/DNA.json": {
       "sha256": "ab1fdebb9bb4a825e93fb3b3e1efde97c4315bbbc40afbe95535423e633bca36",
       "size": 4985
@@ -2024,8 +2184,8 @@
       "size": 74632
     },
     "styles/monarch-stickman-animation/knowledge/INDEX.md": {
-      "sha256": "64544feb6db804d599a4c6975732fef307d7d934874e80e0a36bec79ea22f600",
-      "size": 3222
+      "sha256": "920245123bde005fe22b8cda6294caf21b438f34275d057eb94f5db1438a9877",
+      "size": 3957
     },
     "styles/monarch-stickman-animation/knowledge/TUMHARI_RESERVED_SEAT_LESSONS.md": {
       "sha256": "9ab0963479941dd304e905396f1f04653ab79f7228f857730581387e3173503f",
@@ -2332,20 +2492,92 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "cc1ab68afaa13f524db63917be74c11e8656447f75e8596242e9d2a9cc714940",
-      "size": 2437
+      "sha256": "78155f49a07d894ac2867d4b3cb9027f312c59fbd99c9f68c3cc30f653856f7f",
+      "size": 2409
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "d54ecec4a9b06bcc229525285e9c4529293cfb83ed0b7edb2c5f2f950885e5a6",
-      "size": 2387
+      "sha256": "4ea8b5fee1b605e500da681491d470075276d0a11ef71d4a03fd2e086d49a678",
+      "size": 389
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "ba05b08275737c074d9b8f3a1112e7cefa2f48c043e535755067614c23546576",
-      "size": 8267
+      "sha256": "8112729641013b4bbb0a3928f17985bf4625c7f5af09b589940b164660d0af7e",
+      "size": 4901
     },
     "workflows/current/RESUME.md": {
-      "sha256": "0990e4b417a636982ca4be4f781c8d4af04a29d8ec4a440c6a5bc6fecceb72c8",
-      "size": 2566
+      "sha256": "c767a69edf2a20c7ec34bac2b513d903c3b3db6fe86f33ae0c2ba465c3a6aa16",
+      "size": 2539
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/BRAIN_GATE.txt": {
+      "sha256": "d5d4d813ad45ed9e4586e7dfb8a35852c77ff0b6dac16d3eadb842f6dd92195f",
+      "size": 2131
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/CONTACT_SHEET.jpg": {
+      "sha256": "2daf1b5bd79cafdf9ff192ec49c64df7e0b2095fc0d2ff176ea713adfe2a6b96",
+      "size": 168265
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/EVENT_LEDGER.csv": {
+      "sha256": "600a56f8a76518be416710900cf773bed3487d78284d5619b9393b81deeed97b",
+      "size": 5705
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/LOOK_SHEET.jpg": {
+      "sha256": "7a2f5a306e96e75816ee839322cb9d528c990d8b43f79d73fc4d43417b3b0173",
+      "size": 366727
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/crop_4x5_proof.jpg": {
+      "sha256": "ee640437e5e0ae53eee2e1e4cc2a5b004fad46a3d5e66397d73176f6f7937903",
+      "size": 90010
+    },
+    "workflows/current/payload/gravity-of-the-phone/artifacts/gate_receipt.json": {
+      "sha256": "b4d990aec9cf03cd2d966ff37246478c9ad9619b284470b90d428fa4836459df",
+      "size": 3739
+    },
+    "workflows/current/payload/gravity-of-the-phone/audio/cue_ledger.json": {
+      "sha256": "3d21d27d7d7803e51ec0aead78a677e7ed7a076b2fe917089b198abeb84756f1",
+      "size": 11297
+    },
+    "workflows/current/payload/gravity-of-the-phone/audio/vo_meaning.mp3": {
+      "sha256": "cb8653279a53f206ec8b43b0b1c722b65c396ff9a667dd9fe9f41f439a6dba10",
+      "size": 13293
+    },
+    "workflows/current/payload/gravity-of-the-phone/dna/DNA.json": {
+      "sha256": "574c5d6eee26b7c7319040233c14fe5e3c9fc6b037af809844214604b71c353f",
+      "size": 10562
+    },
+    "workflows/current/payload/gravity-of-the-phone/render/gravity-of-the-phone_master.mp4": {
+      "sha256": "1c62246ae9bfb2987476141d7021e658bcb72b7a4a80614e5f5e8f0354f2fa61",
+      "size": 62733035
+    },
+    "workflows/current/payload/gravity-of-the-phone/render/measured.json": {
+      "sha256": "f51c0366a00dc9a73dc8762affc87772d3699a971c9898802e6c75127c407d02",
+      "size": 75
+    },
+    "workflows/current/payload/gravity-of-the-phone/render/seg_a.log": {
+      "sha256": "592e2fa2f37bf95c58ba8c0c47a7e9fd316010c1c90136be8367ce4c47ad74b1",
+      "size": 559
+    },
+    "workflows/current/payload/gravity-of-the-phone/render/seg_b.log": {
+      "sha256": "eecbcc32aad4971ea1cda017f6c8a1eb8d5932f765b712d0d716e58c2bf647d3",
+      "size": 564
+    },
+    "workflows/current/payload/gravity-of-the-phone/src/audio.py": {
+      "sha256": "ef9505adccf0ed9d8e65f1650a2b3491cb9e3a4e7ff03a39a26933f0c7043871",
+      "size": 23282
+    },
+    "workflows/current/payload/gravity-of-the-phone/src/build.py": {
+      "sha256": "ab9e8b069f74f9974cc822f4ef4f3180c4301c9aeff33e7cba995366b1286eb3",
+      "size": 5672
+    },
+    "workflows/current/payload/gravity-of-the-phone/src/gate.py": {
+      "sha256": "de493b6cf5fd5c1558197372155e7af23d2c21d803c2e4aebd77b23fc93b16be",
+      "size": 11181
+    },
+    "workflows/current/payload/gravity-of-the-phone/src/render.py": {
+      "sha256": "ac07235f305233703d43f3143958d4bfa5943b71bf23b46da432960677070032",
+      "size": 33326
+    },
+    "workflows/current/payload/gravity-of-the-phone/src/scene.py": {
+      "sha256": "498ab428452700a0f96040bebf84da024d0970ac9c17fe499ea1bbbde89f5ee6",
+      "size": 29582
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261014T175316Z",
+  "created_at": "2026-10-14T17:53:16Z",
+  "summary": "WTF-30 #1 THE GRAVITY OF THE PHONE delivered: 20.0 s 1080x1920@30 master md5 824a8133bde468c8a0a027d12da3081a (Drive 118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ, folder 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ); 12/12 measured + 28/28 freshness PASS; package promoted to styles/monarch-stickman-animation/films/gravity-of-the-phone/; registry key gravity_of_the_phone_wtf30_01; doctrine §16 post-mortem; knowledge INDEX, DRIVE_MANIFEST, README updated; validate 19 pass / 2 warn / 0 errors.",
+  "next_action": "User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-002",
+    "status": "active",
+    "title": "WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)",
+    "style_id": "monarch-stickman-animation",
+    "goal": "Produce the first WTF-30 video: a 20.0 s 1080x1920 30 fps paper/ink short in which every object in a bedroom is pulled toward a glowing phone as if it were a planet (law: gravity), the Monarch hero holds the doorframe, lets go, flips the phone face-down and everything drops flat; meaning line 'Phone ulta. Zindagi seedhi.'; loop seam back to frame 1; sound designed, mastered at -14 LUFS; passes gate #20 (wtf30 rows) and the frame/mix WTF gates; promoted into styles/monarch-stickman-animation/films/.",
+    "acceptance_criteria": [
+      "DNA from concept.py propose --format wtf30 with law_broken=gravity, signature radial_gravity_release, world phone_planet_room; gate #20 PASS before final mux.",
+      "20.0 s master 1080x1920 30 fps H.264 + AAC 48 kHz; impossible moment onset within 4.8-8.0 s in one uncut shot >= 3 s; meaning line <= 7 words at 14-18 s; loop seam last frame vs frame 1 <= 6/255 or designed match.",
+      "Measured gate report: frame-1 motion, no still > 0.4 s, luma steps, silence hole 0.3-0.6 s before onset, integrated loudness -14 +/- 1 LUFS, TP <= -1 dBTP, 4:5 safe crop proof.",
+      "Permanent package under styles/monarch-stickman-animation/films/gravity-of-the-phone/ with DNA, renderer, audio build, gate program, look sheet, event ledger, receipts; brain commit; knowledge index updated."
+    ],
+    "started_at": "2026-10-14T17:03:22Z",
+    "updated_at": "2026-10-14T17:53:16Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 6,
+    "journal_head": "88da64e7abf51d13c215426d62851609f91b523e4511b6bfbe7fe13991edb65b",
+    "last_checkpoint": "2026-10-14T17:53:16Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-002/0001-20261014T175316Z",
+    "next_action": "User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-002",
+    "seq": 6,
+    "timestamp": "2026-10-14T17:53:16Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "WTF-30 #1 THE GRAVITY OF THE PHONE delivered: 20.0 s 1080x1920@30 master md5 824a8133bde468c8a0a027d12da3081a (Drive 118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ, folder 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ); 12/12 measured + 28/28 freshness PASS; package promoted to styles/monarch-stickman-animation/films/gravity-of-the-phone/; registry key gravity_of_the_phone_wtf30_01; doctrine §16 post-mortem; knowledge INDEX, DRIVE_MANIFEST, README updated; validate 19 pass / 2 warn / 0 errors.",
+    "content_sha256": "929cbca21423f24cebc2b517613474bf78363a97b6ab4f6b863c0949350881c3",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.",
+      "status": "active"
+    },
+    "prev_event_sha256": "5dc05c953754dd848d2af67f266e34e3b8dc558d4f152da0fadcd0704e100430",
+    "event_sha256": "88da64e7abf51d13c215426d62851609f91b523e4511b6bfbe7fe13991edb65b"
+  },
+  "journal_head": "88da64e7abf51d13c215426d62851609f91b523e4511b6bfbe7fe13991edb65b",
+  "git": {
+    "initialized": true,
+    "head": "4db8a4b5dc7075847d071aaba81b44e3a00b34e3",
+    "branch": "arena/7f4f623f-monarch-studio",
+    "status": [
+      "M  .studio-manifest.json",
+      "M  START_HERE.md",
+      "A  operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T170322Z/HANDOFF.md",
+      "A  operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T170322Z/checkpoint.json",
+      "A  operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/STATUS.md",
+      "A  operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/SYNC.json",
+      "A  operations/continuity/outbox/EMS-20261014-001/0002-20261014T170322Z/checkpoint.json",
+      "A  operations/history/EMS-20261014-001/ACTIVE_TASK.json",
+      "A  operations/history/EMS-20261014-001/CHAT_TRANSCRIPT.jsonl",
+      "A  operations/history/EMS-20261014-001/JOURNAL.jsonl",
+      "A  operations/history/EMS-20261014-001/RESUME.md",
+      "M  studio/editor-brain/MONARCH_WTF30_DOCTRINE.md",
+      "M  studio/editor-brain/brain/brain_export.json",
+      "A  studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option1.md",
+      "A  studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option2.md",
+      "A  studio/editor-brain/brain/briefs/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option3.md",
+      "A  studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option1.json",
+      "A  studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option2.json",
+      "A  studio/editor-brain/brain/dna/phone_ki_kashish___the_gravity_of_the_ph_2026-10-14_option3.json",
+      "M  studio/editor-brain/brain/registry.json",
+      "M  styles/monarch-stickman-animation/DRIVE_MANIFEST.md",
+      "M  styles/monarch-stickman-animation/README.md",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/DNA.json",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/README.md",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/SCRIPT_AND_TOPIC.md",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/BRAIN_GATE.txt",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/CONTACT_SHEET.jpg",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/EVENT_LEDGER.csv",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/LOOK_SHEET.jpg",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/crop_4x5_proof.jpg",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/gate_receipt.json",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/artifacts/measured.json",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/audio/cue_ledger.json",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/audio/vo_meaning.mp3",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/records/DELIVERY_RECEIPT.json",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/records/DELIVERY_RECEIPT.md",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/records/EXPERIMENTS_FAILURES_FIXES.md",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/src/audio.py",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/src/build.py",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/src/gate.py",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/src/render.py",
+      "A  styles/monarch-stickman-animation/films/gravity-of-the-phone/src/scene.py",
+      "M  styles/monarch-stickman-animation/knowledge/INDEX.md",
+      "MM workflows/current/ACTIVE_TASK.json",
+      "M  workflows/current/CHAT_TRANSCRIPT.jsonl",
+      "MM workflows/current/JOURNAL.jsonl",
+      "M  workflows/current/RESUME.md",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/BRAIN_GATE.txt",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/CONTACT_SHEET.jpg",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/EVENT_LEDGER.csv",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/LOOK_SHEET.jpg",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/crop_4x5_proof.jpg",
+      "A  workflows/current/payload/gravity-of-the-phone/artifacts/gate_receipt.json",
+      "A  workflows/current/payload/gravity-of-the-phone/audio/cue_ledger.json",
+      "A  workflows/current/payload/gravity-of-the-phone/audio/vo_meaning.mp3",
+      "A  workflows/current/payload/gravity-of-the-phone/dna/DNA.json",
+      "A  workflows/current/payload/gravity-of-the-phone/render/measured.json",
+      "A  workflows/current/payload/gravity-of-the-phone/src/audio.py",
+      "A  workflows/current/payload/gravity-of-the-phone/src/build.py",
+      "A  workflows/current/payload/gravity-of-the-phone/src/gate.py",
+      "A  workflows/current/payload/gravity-of-the-phone/src/render.py",
+      "A  workflows/current/payload/gravity-of-the-phone/src/scene.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/BRAIN_GATE.txt",
+      "size": 2131,
+      "sha256": "d5d4d813ad45ed9e4586e7dfb8a35852c77ff0b6dac16d3eadb842f6dd92195f"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/CONTACT_SHEET.jpg",
+      "size": 168265,
+      "sha256": "2daf1b5bd79cafdf9ff192ec49c64df7e0b2095fc0d2ff176ea713adfe2a6b96"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/EVENT_LEDGER.csv",
+      "size": 5705,
+      "sha256": "600a56f8a76518be416710900cf773bed3487d78284d5619b9393b81deeed97b"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/LOOK_SHEET.jpg",
+      "size": 366727,
+      "sha256": "7a2f5a306e96e75816ee839322cb9d528c990d8b43f79d73fc4d43417b3b0173"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/crop_4x5_proof.jpg",
+      "size": 90010,
+      "sha256": "ee640437e5e0ae53eee2e1e4cc2a5b004fad46a3d5e66397d73176f6f7937903"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/artifacts/gate_receipt.json",
+      "size": 3739,
+      "sha256": "b4d990aec9cf03cd2d966ff37246478c9ad9619b284470b90d428fa4836459df"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/audio/cue_ledger.json",
+      "size": 11297,
+      "sha256": "3d21d27d7d7803e51ec0aead78a677e7ed7a076b2fe917089b198abeb84756f1"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/audio/vo_meaning.mp3",
+      "size": 13293,
+      "sha256": "cb8653279a53f206ec8b43b0b1c722b65c396ff9a667dd9fe9f41f439a6dba10"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/dna/DNA.json",
+      "size": 10562,
+      "sha256": "574c5d6eee26b7c7319040233c14fe5e3c9fc6b037af809844214604b71c353f"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/render/gravity-of-the-phone_master.mp4",
+      "size": 62733035,
+      "sha256": "1c62246ae9bfb2987476141d7021e658bcb72b7a4a80614e5f5e8f0354f2fa61"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/render/measured.json",
+      "size": 75,
+      "sha256": "f51c0366a00dc9a73dc8762affc87772d3699a971c9898802e6c75127c407d02"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/render/seg_a.log",
+      "size": 559,
+      "sha256": "592e2fa2f37bf95c58ba8c0c47a7e9fd316010c1c90136be8367ce4c47ad74b1"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/render/seg_b.log",
+      "size": 564,
+      "sha256": "eecbcc32aad4971ea1cda017f6c8a1eb8d5932f765b712d0d716e58c2bf647d3"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/__pycache__/render.cpython-311.pyc",
+      "size": 72034,
+      "sha256": "441e1eb235a65ec810ba406e41d917aa1d8be549d816d4e6dc00f9d46923a666"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/__pycache__/scene.cpython-311.pyc",
+      "size": 59059,
+      "sha256": "3b04e46f614fc36d7fd359541385885542f2fa29a42fbb25c3dd901475a5d4d1"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/audio.py",
+      "size": 23282,
+      "sha256": "ef9505adccf0ed9d8e65f1650a2b3491cb9e3a4e7ff03a39a26933f0c7043871"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/build.py",
+      "size": 5672,
+      "sha256": "ab9e8b069f74f9974cc822f4ef4f3180c4301c9aeff33e7cba995366b1286eb3"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/gate.py",
+      "size": 11181,
+      "sha256": "de493b6cf5fd5c1558197372155e7af23d2c21d803c2e4aebd77b23fc93b16be"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/render.py",
+      "size": 33326,
+      "sha256": "ac07235f305233703d43f3143958d4bfa5943b71bf23b46da432960677070032"
+    },
+    {
+      "path": "workflows/current/payload/gravity-of-the-phone/src/scene.py",
+      "size": 29582,
+      "sha256": "498ab428452700a0f96040bebf84da024d0970ac9c17fe499ea1bbbde89f5ee6"
+    }
+  ]
+}

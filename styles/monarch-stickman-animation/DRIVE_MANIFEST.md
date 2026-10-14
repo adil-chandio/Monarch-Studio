@@ -23,3 +23,12 @@ Resume trigger: **"best video reel editing"** → Linear project "Monarch Stickm
 | VIDEO_RESPECT_NOTES.md (v1+v2) | 15,356 | — | 14INr04m-LbotIa6gfliNU8TAHiLhsUBx | same |
 | RESUME_STATE.md (after turn 10) | 17,801 | — | 1wUVVqtovI8i98eatPpz4AxMdkz3QxO4j | same |
 Linear: MON-52 (Done) · MON-44 comment. Notion: Doc 10 (IZZAT v2 block), Doc 07 (ledger 57–61), Doc 08 (turn-10 table).
+
+### WTF-30 #1 — THE GRAVITY OF THE PHONE (2026-10-14)
+Drive: MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l` → WTF-30 · Monarch Impossible Moments `1w_hv-2v0-VtSI9tp8g3uuaQGgRQZmPO6` → THE GRAVITY OF THE PHONE · WTF-30 #1 · 20s · 2026-10-14 `1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ`
+| file | bytes | md5 | Drive id | folder |
+|---|---|---|---|---|
+| THE_GRAVITY_OF_THE_PHONE_WTF30_01.mp4 | 62,733,035 | 824a8133bde468c8a0a027d12da3081a (Drive-verified) | 118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ | 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ |
+| LOOK_SHEET.jpg | 366,727 | — | 1FVWPZbHGM3Icu-VABG40wIqmDUaPjKr5 | same |
+| gate_receipt.json | 3,739 | — | 1d7-ohnb_jWx1L-0n8_3KwpnQ7CYNQhRz | same |
+Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` · 12/12 measured + 28/28 freshness.

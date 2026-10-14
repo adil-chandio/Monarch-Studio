@@ -32,7 +32,9 @@ The checked brain registry remembers six deliveries:
 3. POWER v1
 4. SHADE v2
 5. IZZAT v1
-6. **IZZAT v2** — current
+6. **IZZAT v2** — current WF-01 short authority
+7. TUMHARI RESERVED SEAT (WF-01 16:9 + WF-03 noir, 2026-10-11)
+8. **THE GRAVITY OF THE PHONE** — WTF-30 #1, 20 s vertical impossible-moment short (2026-10-14) → `films/gravity-of-the-phone/`
 
 Current IZZAT v2 authority:
 

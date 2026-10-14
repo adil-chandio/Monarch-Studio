@@ -30,6 +30,15 @@ This index prevents working knowledge from disappearing inside chat history. Per
 - WF-01 master: 1920×1080 · 30 fps · 21/21 delivery PASS · 18/18 freshness PASS
 - Durable identity and hashes: `../films/tumhari-reserved-seat/records/DELIVERY_RECEIPT.{md,json}`
 
+### THE GRAVITY OF THE PHONE · WTF-30 #1 · 2026-10-14
+
+- Permanent package: `../films/gravity-of-the-phone/` (README, SCRIPT_AND_TOPIC, DNA, src, artifacts, records)
+- Format doctrine: `../../../studio/editor-brain/MONARCH_WTF30_DOCTRINE.md` (§16 post-mortem ledger)
+- 20.00 s · 1080×1920 · 30 fps · law `gravity` · WTF uncut 10.0 s · 38 beats · 78 SFX voices · `voice-00` Urdu
+- 12/12 measured gates PASS · 28/28 freshness PASS · −14.2 LUFS / TP −1.1 dBTP · loop seam 3.1/255
+- Durable identity and hashes: `../films/gravity-of-the-phone/records/DELIVERY_RECEIPT.{md,json}` (Drive file `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ`)
+- Failure/fix record: `../films/gravity-of-the-phone/records/EXPERIMENTS_FAILURES_FIXES.md`
+
 ## Historical progression
 
 - `VIDEO_V4_NOTES.md` through `VIDEO_V9_NOTES.md`.

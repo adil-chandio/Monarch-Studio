@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261014-001",
+  "status": "completed",
+  "title": "WTF-30 format · 20–30 s impossible-moment AI cinema for social — doctrine, brain format, concept slate",
+  "style_id": "studio-operation",
+  "goal": "Answer 'kaise hoga yeh sab' durably: define the 20–30 second vertical impossible-moment short format (WTF-30) for showing AI creativity on social media — format law, second-by-second structure, impossible-moment taxonomy, the studio tool pipeline (brain DNA → AI plates → procedural animation → VO → sound → gates → delivery), format-specific gates, series strategy, and a first concept slate for the user to pick from.",
+  "acceptance_criteria": [
+    "A permanent doctrine document for the WTF-30 format exists under studio/editor-brain and is linked from MONARCH_EDITOR_BRAIN.md.",
+    "brain/concept.py accepts --format wtf30 with format-aware targets and freshness-gate rules; status/propose/gate run without error and existing short/film behaviour is unchanged.",
+    "A concept slate of original impossible-moment ideas is written, each checked against currently blocked worlds/signatures in the brain registry.",
+    "Honest feasibility is recorded: which steps run inside this studio (procedural render, AI plates, generated VO, synthesized sound) and what must be installed (numpy, Pillow, ffmpeg) before the first render.",
+    "The user receives the plan in chat and picks a concept or orders changes; the exact next action is recorded in RESUME.md."
+  ],
+  "started_at": "2026-10-14T16:46:02Z",
+  "updated_at": "2026-10-14T17:03:22Z",
+  "checkpoint_sequence": 2,
+  "event_sequence": 11,
+  "journal_head": "e852ca84fce7c1566ac54459466f94382ed88e7bf1293e93860d70296d62e28f",
+  "last_checkpoint": "2026-10-14T17:03:22Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T170322Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

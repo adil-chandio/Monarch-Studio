@@ -1,0 +1,455 @@
+{
+  "topic": "Phone ki kashish — the gravity of the phone",
+  "duration_s": 20,
+  "date": "2026-10-14",
+  "slots": {
+    "hook": "eye_cannot_explain",
+    "device": "one_law_broken",
+    "world": "phone_planet_room",
+    "grammar": "dolly_zoom",
+    "camera": "handheld_micro",
+    "sonic": "sub_breath",
+    "type": "word_slam_shake",
+    "ending": "freeze_hot_word"
+  },
+  "signature": "radial_gravity_release",
+  "targets": {
+    "format": "wtf30",
+    "aspect": "1080x1920 (4:5 safe centre y 285–1635)",
+    "loudness": "-14.0 ± 1.0, TP ≤ −1.0 dBTP, no noise floor",
+    "holds": "exactly one uncut set-piece ≥ 3 s containing the impossible moment; no other shot > 4 s",
+    "callbacks_min": 1,
+    "quotable_payoff_lines": 2,
+    "duration_s": 20,
+    "shots_min": 5,
+    "transitions": 4,
+    "transition_kinds_min": 3,
+    "transition_kinds_note": "wtf30: cut grammar + the impossible transition itself; never a cut inside the WTF window",
+    "new_transition_kinds_min": 1,
+    "transition_overlap_max": 0.4,
+    "pattern_interrupts_min": 3,
+    "wtf_moments_min": 2,
+    "rehook_at_s": [
+      5.0,
+      10.0,
+      15.0
+    ],
+    "sfx_new_share_min": 0.5,
+    "chapters": [
+      "normal",
+      "crack",
+      "impossible",
+      "consequence",
+      "meaning",
+      "loop"
+    ],
+    "voice_word_one_by_s": 0.6,
+    "visual_question_by_s": 0.8,
+    "promise_by_s": 3.0,
+    "new_on_screen_every_s": "≤ 2.5 (a physical event: light, prop, scale, readout, line — measured as beats)",
+    "max_still_s": 0.4,
+    "gates": "19 measured gates + gate #20 freshness + the 13 WTF gates (doctrine §11)",
+    "beats_min": 14,
+    "max_beat_gap_s": 2.5,
+    "duration_range_s": [
+      20.0,
+      30.0
+    ],
+    "wtf_onset_window_s": [
+      4.8,
+      8.0
+    ],
+    "wtf_uncut_min_s": 3.0,
+    "silence_before_wtf_s": [
+      0.3,
+      0.6
+    ],
+    "on_screen_words_max": 7,
+    "meaning_words_max": 7,
+    "meaning_snap_window_s": [
+      14.0,
+      18.0
+    ],
+    "loop_seam": "last frame rejoins frame 1 (≤ 6/255 mean abs difference or a designed match-cut)",
+    "law_broken": "exactly one of gravity, scale, time, light, mirror, material, continuity, count, space, causality",
+    "cta": "none in picture (caption only)"
+  },
+  "transitions": [
+    "tint_flash_cut",
+    "insert_cutaway",
+    "push_in_cut",
+    "phone_match_cut",
+    "loop_seam_match"
+  ],
+  "sfx_voices": [
+    "arrive_ceramic",
+    "arrive_paper",
+    "arrive_pot",
+    "arrive_wood",
+    "book_slap",
+    "book_whoosh",
+    "buzz_am",
+    "clock_clang",
+    "clock_tick",
+    "clock_tick_fallen",
+    "clock_whoosh",
+    "cloth_flag_flutter",
+    "cup_rattle",
+    "cut_air",
+    "cut_thump",
+    "debris_tick",
+    "desk_slam",
+    "drop_bounce_metal",
+    "drop_bounce_paper",
+    "drop_bounce_pot",
+    "drop_bounce_wood",
+    "drop_ceramic",
+    "drop_metal",
+    "drop_paper",
+    "drop_pot",
+    "drop_sub_thud",
+    "drop_wood",
+    "dust_hiss",
+    "end_bell",
+    "flip_clack",
+    "flip_land",
+    "flip_land_facedown",
+    "footstep_paper",
+    "glass_note_held",
+    "glow_swell",
+    "hand_slap_phone",
+    "hand_slip_regrip",
+    "hand_slip_squeak",
+    "hands_grab",
+    "hero_breath",
+    "hero_stand_rustle",
+    "hot_word_slam",
+    "lamp_boing",
+    "lamp_metal_groan",
+    "lamp_metal_ring",
+    "letgo_whoosh",
+    "look_at_lens_sparkle",
+    "lunge_breath",
+    "lunge_whoosh",
+    "nail_pop",
+    "notification_ding",
+    "onset_ping",
+    "page_flutter",
+    "page_lift_flutter",
+    "pages_settle",
+    "pencil_roll_tick",
+    "pencil_tak",
+    "pendulum_lean_creak",
+    "pile_rattle",
+    "power_down_sweep",
+    "pull_drone",
+    "pull_riser",
+    "release_snap",
+    "rug_drag",
+    "settle_rumble",
+    "shoe_slide_squeal",
+    "slide_scrape_ceramic",
+    "slide_scrape_paper",
+    "slide_scrape_pot",
+    "slide_scrape_wood",
+    "slip_squeak",
+    "sub_drop",
+    "sub_pulse_rise",
+    "vo_meaning_line",
+    "vo_word_1_phone",
+    "wood_creak_frame",
+    "wood_creak_strain",
+    "word_slam"
+  ],
+  "shots": 6,
+  "rehooks_s": [
+    5.0,
+    9.8,
+    15.4
+  ],
+  "hook_text": "phone face-DOWN buzzing; a pencil rolls uphill toward it by itself; the phone flips itself face-UP and amber floods the desk",
+  "format": "wtf30",
+  "law_broken": "gravity",
+  "impossible_moment": "The phone on the desk becomes the room's planet: every prop slides radially toward it and piles in a ring; the hero hangs horizontal from the door jamb like a flag, lets go, flies to the desk and flips the phone face-down — gravity snaps back and everything drops flat.",
+  "meaning_line": "Phone ulta. Zindagi seedhi.",
+  "wtf_onset_s": 4.9,
+  "wtf_uncut_s": 10.0,
+  "beats": 38,
+  "max_beat_gap_s": 1.45,
+  "on_screen_words": 4,
+  "meaning_snap_s": 15.4,
+  "loop_seam": "S6 is S1 evaluated at loop time (tau = t-20): buzz restarts at 19.3, pencil begins rolling at 19.6 from 12 px before its frame-1 position; frame 600 == frame 0 by construction (mean abs diff measured by gate.py)",
+  "measured": {
+    "lufs": -14.2,
+    "true_peak_db": -1.1,
+    "lra": 7.4,
+    "duration_s": 20.0,
+    "frames": 600,
+    "loop_seam_diff": 3.1,
+    "silence_hole_db": -119.8,
+    "md5": "824a8133bde468c8a0a027d12da3081a",
+    "bytes": 62733035,
+    "detected_cuts_s": [
+      2.0,
+      2.03,
+      3.8,
+      4.6,
+      14.6,
+      18.2
+    ]
+  },
+  "film": "gravity-of-the-phone",
+  "title": "THE GRAVITY OF THE PHONE",
+  "slate_id": "WTF-30 #1",
+  "hot_word": "seedhi.",
+  "wtf_shot_s": [
+    4.6,
+    14.6
+  ],
+  "shot_list": [
+    [
+      0.0,
+      2.0,
+      "S1 desk medium: phone face-down buzzing, pencil rolls toward it, phone flips itself face-up, glow floods (CRACK 1)"
+    ],
+    [
+      2.0,
+      3.8,
+      "S2 wide room: hero enters from the door with a book; clock pendulum + pages lean toward the desk (CRACK 2)"
+    ],
+    [
+      3.8,
+      4.6,
+      "S3 ECU hero bust: notices the lean"
+    ],
+    [
+      4.6,
+      14.6,
+      "S4 THE SHOT, uncut 10.0 s: radial pull, jamb grip, horizontal flag, book sucked away, look-at-lens, let go, flight, flip face-down, glow dies, silence, drop flat"
+    ],
+    [
+      14.6,
+      18.2,
+      "S5 meaning shot: closer on hero + dead phone; line snaps 15.4"
+    ],
+    [
+      18.2,
+      20.0,
+      "S6 desk medium = S1 at loop time; buzz restarts, pencil starts rolling -> seam"
+    ]
+  ],
+  "new_transition_kinds": [
+    "phone_match_cut",
+    "loop_seam_match"
+  ],
+  "callbacks": [
+    "pencil roll (hook) returns at the seam",
+    "face-down phone (frame 1) is restored by the hero's hand at 11.9",
+    "the book the hero carries is the first thing the phone eats"
+  ],
+  "quotable_lines": [
+    "Phone ulta. Zindagi seedhi.",
+    "Jab tak phone upar hai, sab kuch uski taraf girta hai."
+  ],
+  "worlds_also": [
+    "door",
+    "desk",
+    "shelf",
+    "wall clock",
+    "rug"
+  ],
+  "beats_list": [
+    [
+      0.0,
+      "pencil rolls uphill by itself"
+    ],
+    [
+      0.0,
+      "phone buzzes face-down (frame 1 in motion)"
+    ],
+    [
+      1.45,
+      "phone flips itself face-up"
+    ],
+    [
+      1.55,
+      "amber floods the desk"
+    ],
+    [
+      2.0,
+      "cut + 1-frame tint flash"
+    ],
+    [
+      2.6,
+      "clock pendulum leans toward the desk"
+    ],
+    [
+      3.0,
+      "page corner lifts"
+    ],
+    [
+      3.3,
+      "hero notices"
+    ],
+    [
+      3.8,
+      "ECU insert"
+    ],
+    [
+      4.15,
+      "ECU: eyes go wide"
+    ],
+    [
+      4.6,
+      "cut to the room"
+    ],
+    [
+      4.9,
+      "FIELD ONSET: ring + everything starts sliding"
+    ],
+    [
+      5.0,
+      "pages fly"
+    ],
+    [
+      5.25,
+      "his book is eaten"
+    ],
+    [
+      5.5,
+      "lunge to the door frame"
+    ],
+    [
+      5.6,
+      "ding 1 + clock rips off the wall"
+    ],
+    [
+      5.9,
+      "grabs the lintel"
+    ],
+    [
+      6.4,
+      "floor books slide"
+    ],
+    [
+      6.8,
+      "plant slides"
+    ],
+    [
+      7.2,
+      "ding 2"
+    ],
+    [
+      7.4,
+      "fully horizontal — a human flag"
+    ],
+    [
+      8.8,
+      "ding 3"
+    ],
+    [
+      9.0,
+      "hands slip"
+    ],
+    [
+      9.42,
+      "hands slip again"
+    ],
+    [
+      9.8,
+      "look at the lens"
+    ],
+    [
+      11.0,
+      "lets go"
+    ],
+    [
+      11.42,
+      "lands on the desk"
+    ],
+    [
+      11.62,
+      "flips the phone face-down"
+    ],
+    [
+      12.0,
+      "glow dies"
+    ],
+    [
+      12.3,
+      "GRAVITY RESTORES: everything drops flat"
+    ],
+    [
+      13.0,
+      "stands up on the desk"
+    ],
+    [
+      13.5,
+      "looks at the fallen room"
+    ],
+    [
+      14.6,
+      "cut to the meaning shot"
+    ],
+    [
+      15.4,
+      "line 1 + VO"
+    ],
+    [
+      16.66,
+      "line 2"
+    ],
+    [
+      17.15,
+      "hot word slam"
+    ],
+    [
+      18.2,
+      "cut to the desk (loop time)"
+    ],
+    [
+      19.3,
+      "buzz returns — loop seam"
+    ]
+  ],
+  "pattern_interrupts_list": [
+    "1-frame amber tint flash at 2.0",
+    "ECU bust insert 3.8",
+    "silence hole 4.5-4.9 before onset",
+    "look-at-lens 9.8",
+    "silence hole 12.0-12.3 after glow death",
+    "hit shakes 11.45 / 12.3"
+  ],
+  "pattern_interrupts": 6,
+  "wtf_moments_list": [
+    "radial pull: whole room slides to the phone, hero hangs horizontal from the jamb (4.9-11.0)",
+    "restoration drop: everything falls flat the instant the phone is face-down (12.3)"
+  ],
+  "wtf_moments": 2,
+  "vo": {
+    "voice": "voice-00 (Urdu, masculine, narration)",
+    "file": "audio/vo_meaning.mp3",
+    "speech_starts_s": 15.4,
+    "text": "فون الٹا۔ زندگی سیدھی۔",
+    "roman": "Phone ulta. Zindagi seedhi."
+  },
+  "hot_word_s": 17.15,
+  "meaning_full_stop_pct": 85.8,
+  "delivery": {
+    "date": "2026-10-14",
+    "task_id": "EMS-20261014-002",
+    "master_file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01.mp4",
+    "bytes": 62733035,
+    "md5": "824a8133bde468c8a0a027d12da3081a",
+    "sha256": "1c62246ae9bfb2987476141d7021e658bcb72b7a4a80614e5f5e8f0354f2fa61",
+    "drive_file_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
+    "drive_folder_id": "1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
+    "drive_file_url": "https://drive.google.com/file/d/118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ/view",
+    "gates": {
+      "measured_src_gate": "12/12 PASS",
+      "brain_freshness_gate": "28/28 PASS"
+    },
+    "workspace_copy": "workflows/current/payload/gravity-of-the-phone/render/gravity-of-the-phone_master.mp4 (gitignored *_master.mp4)"
+  }
+}

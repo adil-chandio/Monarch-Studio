@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `EMS-20261014-001`
-- **Status:** `waiting_external`
-- **Title:** WTF-30 format · 20–30 s impossible-moment AI cinema for social — doctrine, brain format, concept slate
-- **Next action:** Wait for the user to pick a slate number (doctrine §13) or send 'WTFGO <topic>' plus a style (paper = WF-01 / noir = WF-03); then: pip install --user --break-system-packages numpy pillow scipy imageio-ffmpeg → concept.py propose --format wtf30 --dur 25 → fill law/moment/meaning → three-still look sheet for approval.
+- **Task:** `EMS-20261014-002`
+- **Status:** `active`
+- **Title:** WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)
+- **Next action:** User review of the delivered video. If approved: continuity.py complete (archive EMS-20261014-002). If changes requested: edit src/scene.py or src/render.py, re-render only the affected half (render.py --range), build.py, gate.py, concept.py gate, re-upload.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
