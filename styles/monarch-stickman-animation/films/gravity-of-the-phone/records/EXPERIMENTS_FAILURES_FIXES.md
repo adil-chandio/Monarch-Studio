@@ -45,6 +45,23 @@ Task `EMS-20261014-002` · 2026-10-14 · first WTF-30 delivery. Everything below
 - Periodic SFX take the score's grid.
 - Moral slot: ≤ 3 words after the meaning line, on the VO, inside the loop shot; total on-screen words still ≤ 7.
 
+## v3 upgrade (vocal-chop hook · kick-synced picture · 180° world roll) — 2026-10-14
+
+23. **Sub-sampled whip-roll.** A 180° roll of the finished frame in 0.26 s with 3 sub-samples read as a triple exposure (three sharp copies of the pencil); 7 still strobed on thin lines; **12 sub-samples** per frame gives a true radial smear with the pivot (the phone) staying sharp. Cost: 12 affine transforms × 8 frames — negligible.
+24. **Corner coverage under rotation is not a constant.** The covering zoom for a W×H frame at angle θ is `max((W|cos θ| + H|sin θ|)/W, (W|sin θ| + H|cos θ|)/H)`; it peaks (≈ 2.0 for 9:16) near 60°, not 90°, and must return to exactly 1.0 at 0° and 180° or the roll start/end jumps. A margin proportional to |sin θ| keeps it continuous.
+25. **A designed camera move trips the cut detector.** The roll frames (574–582) exceed the 12/255 threshold. The gate now carries `ROLL_WINDOWS` (reported as "designed roll frames", not counted) — only outside the WTF window, and a key frame inside a roll aborts the 4:5 proof with a clear message. The snap-back at 19.70 is a planned cut. Never excuse a cut inside the WTF.
+26. **Upside-down key frames need mirrored anchors.** On the hold frame (588) the 4:5 subjects are mapped through the roll (y → H/2 − (y − H/2)·zoom); the band is symmetric so the proof still holds (phone 881, moral lines 1262/1113).
+27. **Vocal chops are quiet by construction.** A formant-filtered pulse train lands around −26 dBFS RMS at unity (three order-2 band-passes throw most of the source away); the chop had to sit at 1.7 × and the 'uh-oh' at ~2 × to read above the arp (−24.5). Always level a new instrument against the one it must beat, not against its own peak. The amplitude-weighted spectral centroid at a chop slot (8.5 kHz) was the hats, not the vox — measure the instrument alone before judging.
+28. **Pump the picture on the kick list, skip beat 0.** The visual side-chain (zoom + chroma split) is driven by `scene.kick_times()`; the intro pulse at B(0) is excluded so frame 0 and frame 599 keep the same zoom (seam 3.13/255).
+29. **The loop hook moved with the payoff.** The buzz now returns at loop −0.30 (was −0.50) so the upside-down hold gets 0.32 s before the snap-back; the burst still crosses the seam (first sound 0.000 s) and the pencil still starts at −0.40.
+30. **Letter cascade and ink ticks share one grid** (`render.LETTER_STAGGER` = 18 ms); the VO speaks over 24 ticks at 0.05 gain without masking — ticks are 12 ms band-passed clicks, not tones.
+
+### Carry into the doctrine (v3)
+
+- Whip-roll transition recipe: ≥ 12 sub-samples, exact covering zoom with |sin θ| margin, `ROLL_WINDOWS` in the gate, snap-back as a planned cut, loop hook timed after the hold.
+- Level new instruments against the part they must beat; measure instruments alone before reading a mixed spectrum.
+- Visual side-chain from the score's kick list; never pump across the loop seam.
+
 ## What to carry into the doctrine (v1)
 
 - Crest-factor rule: if (TP − I) of the mix > 13 dB, loudnorm will go dynamic; fix the mix, then master linear + limiter.

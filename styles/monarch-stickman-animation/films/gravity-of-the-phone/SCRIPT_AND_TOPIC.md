@@ -51,3 +51,11 @@ Transitions: tint_flash_cut, insert_cutaway, push_in_cut, phone_match_cut, loop_
 - One cue per physical event (150 cues, 78 voices): phone buzz, pencil roll, phone flip, glow swell, pendulum creak, page lift, book slap, desk slam, clock dings, sliding wood/pot/metal, hand grabs and slips, cloth flutter, sub drone, heartbeat, glass note, power-down, drop thud, footsteps, word slams, VO.
 - Two silences: 4.50 → 4.88 s before the field onset; 12.15 → 12.28 s before the drop.
 - Master: linear gain to −14 LUFS + numpy look-ahead true-peak limiter at −1.3 dBTP ceiling (measured −14.2 / −1.1 after AAC), LRA 7.4 preserved.
+
+## v3 — what the third pass adds (same script, bigger ride)
+
+- **Hook that sings.** From beat 12 a formant-synthesised vocal chop ('oh · ah-oh · uh · eh-oh') rides the groove and climbs with the arp; the ear gets a melody to hold for the whole 20 s. A reversed 'oh' under the lens look, a riser into the let-go, a reverse swell into the hot word.
+- **Every drop has a voice.** Sweat plips and sizzles, sparkle grains in the field, a dry ink tick for every letter of the meaning line, a whoosh + whomp when the world turns.
+- **The picture breathes with the kick.** Camera pump + chroma split on every score kick, god-rays and an anamorphic streak from the phone, afterimages on the lunge / slips / fall, amber rim light in the ECU, a kinetic letter cascade on "Phone ulta. Zindagi seedhi."
+- **The moral pays off physically.** "Warna tum ulte." — on 'ulte.' the entire world whip-rolls 180° and holds upside-down: the upside-down word becomes the only upright thing in frame (a cartoon 'uh-oh' lands in the hold), then the buzz snaps everything back for the loop (vinyl brake). The warning literally happens to the viewer.
+- Delivery v3: Drive `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1` · md5 `f54c3b295011bb3310ce60f7d710e98b` · 12/12 + 28/28 gates.

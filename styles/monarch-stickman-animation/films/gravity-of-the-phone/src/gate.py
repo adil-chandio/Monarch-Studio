@@ -19,7 +19,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import scene as S                        # noqa: E402
 
 W, H, FPS = 1080, 1920, 30
-PLANNED_CUTS = [S.TL["cut_s2"], S.TL["cut_s3"], S.TL["cut_s4"], S.TL["cut_s5"], S.TL["cut_s6"]]
+PLANNED_CUTS = [S.TL["cut_s2"], S.TL["cut_s3"], S.TL["cut_s4"], S.TL["cut_s5"], S.TL["cut_s6"], S.TL["moral_out"]]
+# designed continuous camera moves (a whip-roll is a transition, not a cut): the detector reports but does not count them
+ROLL_WINDOWS = [(S.TL["roll_start"], S.TL["roll_start"] + S.TL["roll_dur"])]
 
 
 def ffmpeg_exe():
@@ -103,15 +105,17 @@ def main():
     cuts = [i + 1 for i in range(len(d)) if d[i] > thr]
     cut_times = [round(c / FPS, 2) for c in cuts]
     planned = [int(round(c * FPS)) for c in PLANNED_CUTS]
-    unplanned = [c for c in cuts if min(abs(c - p) for p in planned) > 1]
+    in_roll = lambda c: any(int(a * FPS) - 1 <= c <= int(round(b * FPS)) + 1 for a, b in ROLL_WINDOWS)
+    rolled = [c for c in cuts if in_roll(c)]
+    unplanned = [c for c in cuts if min(abs(c - p) for p in planned) > 1 and not in_roll(c)]
     wtf_a, wtf_b = int(S.TL["cut_s4"] * FPS), int(S.TL["cut_s5"] * FPS)
-    inside = [c for c in cuts if wtf_a + 2 <= c < wtf_b - 1]
+    inside = [c for c in cuts if wtf_a + 2 <= c < wtf_b - 1]          # roll windows never excuse a cut inside the WTF
     shots = [PLANNED_CUTS[0]] + [PLANNED_CUTS[i + 1] - PLANNED_CUTS[i] for i in range(len(PLANNED_CUTS) - 1)] + [S.DUR - PLANNED_CUTS[-1]]
     wtf_len = PLANNED_CUTS[3] - PLANNED_CUTS[2]
     others = [s for s in shots if abs(s - wtf_len) > 1e-6]
     gate("G-W6 one uncut WTF set-piece ≥ 3 s, no cut inside it, no other shot > 4 s",
          wtf_len >= 3.0 and not inside and max(others) <= 4.0 and not unplanned,
-         f"WTF shot {wtf_len:.1f} s, detected cuts at {cut_times}, unplanned {unplanned}, inside-WTF {inside}, other shots {others}")
+         f"WTF shot {wtf_len:.1f} s, detected cuts at {cut_times}, unplanned {unplanned}, inside-WTF {inside}, designed roll frames {rolled}, other shots {[round(s, 2) for s in others]}")
     # G-W10 loop seam
     f0 = decode_frame(video, 0).astype(np.float32); f599 = decode_frame(video, n - 1).astype(np.float32)
     seam = float(np.abs(f0 - f599).mean())
@@ -152,7 +156,7 @@ def main():
     from PIL import Image
     import render as R
     proofs = []
-    keyf = [15, 90, 255, 342, 500, 573, 585]
+    keyf = [15, 90, 255, 342, 500, 573, 588]      # 588 = 19.6 s: the world held upside-down (anchors mirrored by the roll)
     sheet = Image.new("RGB", (len(keyf) * 270, 338), (30, 30, 30))
     for i, k in enumerate(keyf):
         t = k / FPS
@@ -178,6 +182,11 @@ def main():
             if S.TL["moral1"] <= t < S.TL["moral_out"]:
                 subj["text_moral_a"] = 668
                 subj["text_moral_b"] = 812
+            ang, zoom = S.frame_roll(t)
+            if ang >= 179.0:                                   # the hold: the frame is upside-down about its centre
+                subj = {k_: H - (v - H / 2) * zoom - H / 2 for k_, v in subj.items()}
+            elif ang > 0.0:
+                raise SystemExit(f"key frame {k} sits inside the roll — choose key frames outside designed camera moves")
         else:
             subj["ecu_head"] = 1010
         ok_s = all(285 <= v <= 1635 for v in subj.values())

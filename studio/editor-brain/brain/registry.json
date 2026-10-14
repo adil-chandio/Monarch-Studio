@@ -417,11 +417,11 @@
     },
     {
       "key": "gravity_of_the_phone_wtf30_01",
-      "title": "THE GRAVITY OF THE PHONE · WTF-30 #1 · 20 s vertical (v2: score + moral)",
+      "title": "THE GRAVITY OF THE PHONE · WTF-30 #1 · 20 s vertical (v3: vocal-chop score, kick-synced picture, 180° world roll)",
       "date": "2026-10-14",
       "duration_s": 20,
-      "drive_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
-      "md5": "dc13effd2c86277767b29dec7769bca4",
+      "drive_id": "1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1",
+      "md5": "f54c3b295011bb3310ce60f7d710e98b",
       "slots": {
         "hook": "eye_cannot_explain",
         "device": "one_law_broken",
@@ -438,6 +438,8 @@
         "insert_cutaway",
         "push_in_cut",
         "phone_match_cut",
+        "whip_roll_180_punch",
+        "snap_back_cut",
         "loop_seam_match"
       ],
       "sfx_voices": [
@@ -469,9 +471,11 @@
         "drop_sub_thud",
         "drop_wood",
         "dust_hiss",
+        "field_sparkle",
         "flip_clack",
         "flip_land",
         "flip_land_facedown",
+        "flip_lift_whoosh",
         "footstep_paper",
         "glass_note_held",
         "glow_swell",
@@ -501,11 +505,18 @@
         "music_pulse_halftime",
         "music_relief_e_major",
         "music_reverse_swell",
+        "music_reverse_swell_hot",
+        "music_riser_letgo",
         "music_snap_fill",
         "music_stutter_gate",
         "music_tape_stop",
+        "music_uh_oh_vox",
         "music_upside_down_slide",
+        "music_vinyl_brake",
+        "music_vocal_chop_hook",
+        "music_wake_shimmer",
         "music_word_ping",
+        "music_world_roll_whomp",
         "nail_pop",
         "notification_ding",
         "onset_ping",
@@ -528,15 +539,21 @@
         "slide_scrape_pot",
         "slide_scrape_wood",
         "slip_squeak",
+        "snap_back_click",
         "sub_drop",
         "sub_pulse_rise",
+        "sweat_plip",
+        "sweat_sizzle",
         "text_snap_out",
+        "type_ink_tick",
         "vo_meaning_line",
         "vo_moral_line",
         "vo_word_1_phone",
         "wood_creak_frame",
         "wood_creak_strain",
-        "word_slam"
+        "word_slam",
+        "world_roll_whomp",
+        "world_roll_whoosh"
       ],
       "hook_text": "phone face-DOWN buzzing; a pencil rolls uphill toward it by itself; the phone flips itself face-UP and amber floods the desk",
       "format": "wtf30",
@@ -559,24 +576,40 @@
       ],
       "measured": {
         "lufs": -14.1,
-        "true_peak_db": -1.2,
-        "lra": 6.6,
+        "true_peak_db": -1.1,
+        "lra": 6.7,
         "duration_s": 20.0,
         "frames": 600,
-        "loop_seam_diff": 3.23,
-        "silence_hole_db": -115.2,
-        "md5": "dc13effd2c86277767b29dec7769bca4",
-        "bytes": 60699977,
+        "loop_seam_diff": 3.13,
+        "silence_hole_db": -125.9,
+        "md5": "f54c3b295011bb3310ce60f7d710e98b",
+        "bytes": 61573207,
         "detected_cuts_s": [
           2.0,
           2.03,
           3.8,
           4.6,
           14.6,
-          17.97
+          17.97,
+          19.13,
+          19.17,
+          19.2,
+          19.23,
+          19.27,
+          19.3,
+          19.33,
+          19.37,
+          19.4,
+          19.7
         ]
       },
       "previous_versions": [
+        {
+          "version": 2,
+          "drive_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
+          "md5": "dc13effd2c86277767b29dec7769bca4",
+          "date": "2026-10-14"
+        },
         {
           "version": 1,
           "drive_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
@@ -584,29 +617,19 @@
           "date": "2026-10-14"
         }
       ],
-      "version": 2,
+      "version": 3,
       "moral_line": "Warna tum ulte.",
       "music": {
         "bpm": 122.4,
         "grid": "beat 10 = field onset 4.90 s · beat 35 = hot word 17.157 s · beat 38 = 'tum' 18.63 s",
         "key": "E minor climb (+0 +2 +3 +5 +7) → E major relief",
-        "engine": "src/music.py (numpy): additive plucks, sub + swept saw bass, paper kick, noise hats/shaker/paper-snap, detuned-saw pad, inharmonic bells, dotted-8th ping-pong delay, side-chain pump, stutter gates on the slips, tape-stop at glow-off",
-        "sections": [
-          "intro box motif + half-time pulse 0–4.5",
-          "hole 4.5–4.88",
-          "drop boom + groove 4.9–10.78",
-          "breakdown 9.8–10.7",
-          "snap fill 10.78–11.0",
-          "reverse swell → land hit 11.0–11.42",
-          "tape stop 12.0–12.17",
-          "silence 12.17–13.0",
-          "relief E major 13.0–17.95",
-          "punchline pings + upside-down slide 18.0–19.3"
-        ]
+        "engine": "src/music.py v3 — procedural score, event-locked; vox() formant vocal-chop hook ('oh · ah-oh · uh · eh-oh') from beat 12, octave-jumping arp from bar 3, reversed 'oh' in the breakdown, riser into the let-go, reverse swell into the hot word, roll whomp + 'uh-oh' vox in the upside-down hold, vinyl brake into the loop; plucks side-chained; tanh glue",
+        "sections": "I box motif + half-time pulse + wake shimmer → II drop boom, groove, vocal-chop hook, bar variations, breakdown (reversed vox), riser + snap fill → III swell, land hit, stutter gates, tape-stop → silence → IV E-major relief, half-time → V hot-word boom, pings, slide, world-roll whomp, uh-oh, vinyl brake"
       },
-      "beats": 44,
-      "pattern_interrupts": 10,
-      "on_screen_words": 7
+      "beats": 50,
+      "pattern_interrupts": 13,
+      "on_screen_words": 7,
+      "shots": 7
     }
   ]
 }

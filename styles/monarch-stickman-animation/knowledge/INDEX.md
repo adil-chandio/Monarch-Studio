@@ -34,9 +34,9 @@ This index prevents working knowledge from disappearing inside chat history. Per
 
 - Permanent package: `../films/gravity-of-the-phone/` (README, SCRIPT_AND_TOPIC, DNA, src, artifacts, records)
 - Format doctrine: `../../../studio/editor-brain/MONARCH_WTF30_DOCTRINE.md` (§16 post-mortem ledger)
-- 20.00 s · 1080×1920 · 30 fps · law `gravity` · WTF uncut 10.0 s · **v2 (current):** 44 beats · 96 SFX voices · composed 122.4 BPM score (`src/music.py`) · meaning line + 3-word moral "Warna tum ulte." (upside-down last word) · `voice-00` Urdu
-- v2: 12/12 measured gates PASS · 28/28 freshness PASS · −14.1 LUFS / TP −1.2 dBTP / LRA 6.6 · loop seam 3.2/255 · SFX-stem floor −49.7 dBFS
-- Durable identity and hashes: `../films/gravity-of-the-phone/records/DELIVERY_RECEIPT.{md,json}` (v2, Drive file `1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp`) · v1 history `DELIVERY_RECEIPT_v1.{md,json}` (Drive `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ`)
+- 20.00 s · 1080×1920 · 30 fps · law `gravity` · WTF uncut 10.0 s · **v3 (current):** 50 beats · 111 voices · 122.4 BPM score with a formant vocal-chop hook (`src/music.py`) · kick-synced picture pump · meaning line + 3-word moral "Warna tum ulte." → the whole world rolls 180° · `voice-00` Urdu
+- v3: 12/12 measured gates PASS · 28/28 freshness PASS · −14.1 LUFS / TP −1.1 dBTP / LRA 6.7 · loop seam 3.1/255 · SFX-stem floor −50.4 dBFS
+- Durable identity and hashes: `../films/gravity-of-the-phone/records/DELIVERY_RECEIPT.{md,json}` (v3, Drive file `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1`) · history `DELIVERY_RECEIPT_v2.*` (Drive `1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp`) · `DELIVERY_RECEIPT_v1.*` (Drive `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ`)
 - Failure/fix record: `../films/gravity-of-the-phone/records/EXPERIMENTS_FAILURES_FIXES.md`
 
 ## Historical progression

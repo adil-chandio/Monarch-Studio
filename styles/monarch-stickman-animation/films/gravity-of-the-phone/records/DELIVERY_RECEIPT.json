@@ -2,32 +2,40 @@
   "title": "THE GRAVITY OF THE PHONE",
   "format": "WTF-30",
   "number": 1,
-  "version": 2,
+  "version": 3,
   "task": "EMS-20261014-002",
   "delivery": {
-    "version": 2,
+    "version": 3,
     "date": "2026-10-14",
-    "file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v2.mp4",
-    "drive_file_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
+    "file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4",
+    "drive_file_id": "1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1",
     "drive_folder_id": "1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
-    "web_view_link": "https://drive.google.com/file/d/1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp/view?usp=drivesdk",
-    "bytes": 60699977,
-    "md5": "dc13effd2c86277767b29dec7769bca4",
-    "sha256": "e0bc302cf89c4a55a4275cbcd03e13a446e0b2281cada4edddf9ea96bbf603f1",
-    "look_sheet_drive_id": "1ym5SUyr4ZlYrEUPB1dr--gNIG3n59fvP",
-    "gate_receipt_drive_id": "1PV2rrkhL3Was925qHqWiQ-a-vYA2HeEu",
+    "web_view_link": "https://drive.google.com/file/d/1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1/view?usp=drivesdk",
+    "bytes": 61573207,
+    "md5": "f54c3b295011bb3310ce60f7d710e98b",
+    "sha256": "8beef5da5cae88b4a82c6cc6d07b5a95a6d2e1dee56f632530c961495db8c5bd",
+    "look_sheet_drive_id": "1b-Usf3fQV4yjX7lYD0ucCw5CcFqxAwt_",
+    "gate_receipt_drive_id": "1fkMxnPAlM0VoM7ka2lciSdRU_yCEEX_O",
     "gates": "12/12 production (gate.py) + 28/28 brain (concept.py gate)",
-    "previous": {
-      "version": 1,
-      "drive_file_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
-      "md5": "824a8133bde468c8a0a027d12da3081a",
-      "bytes": 62733035
-    }
+    "previous": [
+      {
+        "version": 2,
+        "drive_file_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
+        "md5": "dc13effd2c86277767b29dec7769bca4",
+        "bytes": 60699977
+      },
+      {
+        "version": 1,
+        "drive_file_id": "118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ",
+        "md5": "824a8133bde468c8a0a027d12da3081a",
+        "bytes": 62733035
+      }
+    ]
   },
   "loudness": {
     "lufs": -14.1,
-    "true_peak_db": -1.2,
-    "lra": 6.6
+    "true_peak_db": -1.1,
+    "lra": 6.7
   },
   "probe": {
     "duration": 20.0,
@@ -68,17 +76,17 @@
     {
       "gate": "G-W6 one uncut WTF set-piece ≥ 3 s, no cut inside it, no other shot > 4 s",
       "ok": true,
-      "detail": "WTF shot 10.0 s, detected cuts at [2.0, 2.03, 3.8, 4.6, 14.6, 17.97], unplanned [], inside-WTF [], other shots [2.0, 1.7999999999999998, 0.7999999999999998, 3.3499999999999996, 2.0500000000000007]"
+      "detail": "WTF shot 10.0 s, detected cuts at [2.0, 2.03, 3.8, 4.6, 14.6, 17.97, 19.13, 19.17, 19.2, 19.23, 19.27, 19.3, 19.33, 19.37, 19.4, 19.7], unplanned [], inside-WTF [], designed roll frames [574, 575, 576, 577, 578, 579, 580, 581, 582], other shots [2.0, 1.8, 0.8, 3.35, 1.75, 0.3]"
     },
     {
       "gate": "G-W10 loop seam: last vs first frame mean abs diff ≤ 6/255",
       "ok": true,
-      "detail": "3.23/255"
+      "detail": "3.13/255"
     },
     {
       "gate": "G-W5 silence hole 0.3–0.6 s before the WTF onset (< −60 dBFS RMS)",
       "ok": true,
-      "detail": "4.50–4.90 s = 0.40 s at -115.2 dBFS; second hole -114.8 dBFS"
+      "detail": "4.50–4.90 s = 0.40 s at -125.9 dBFS; second hole -108.6 dBFS"
     },
     {
       "gate": "hook: sound within the first 0.1 s (frame 1 is alive)",
@@ -88,17 +96,17 @@
     {
       "gate": "G-W11 loudness −14 ± 1 LUFS, TP ≤ −1 dBTP",
       "ok": true,
-      "detail": "-14.1 LUFS, TP -1.2 dBTP, LRA 6.6 LU"
+      "detail": "-14.1 LUFS, TP -1.1 dBTP, LRA 6.7 LU"
     },
     {
       "gate": "no synthetic noise floor (quietest 0.5 s of the sound-design stem ≤ −45 dBFS; score is a separate composed bus)",
       "ok": true,
-      "detail": "stem quietest block -49.7 dBFS at 14.5 s; master quietest -19.4 dBFS at 10.0 s"
+      "detail": "stem quietest block -50.4 dBFS at 14.0 s; master quietest -18.3 dBFS at 13.0 s"
     },
     {
       "gate": "4:5 safe centre: every subject inside y 285–1635 on key frames, ink share ≥ 0.72",
       "ok": true,
-      "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.91 phone=1258,hero_feet=1465,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1311,hero_feet=1311,hero_head=689,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.5s ink 0.82 phone=1036"
+      "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.82 phone=881,text_moral_a=1262,text_moral_b=1113"
     }
   ],
   "brain_gate": "28/28 PASS"

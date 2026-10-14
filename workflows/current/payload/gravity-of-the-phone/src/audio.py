@@ -288,6 +288,41 @@ def v_flutter(dur, rate=8.0):
 
 
 # ── speed envelopes from the picture ─────────────────────────────────────────
+def v_plip(f0=2300, f1=1500, dur=0.035):
+    """A tiny wet 'plip' (a drop leaving skin): short descending sine with a soft click."""
+    return fade(sweep(f0, f1, dur) * env_exp(dur, 0.012) + hp(noise(dur), 4000) * env_exp(dur, 0.003) * 0.3, 0.001, 0.006)
+
+
+def v_sizzle(dur=0.07):
+    """A drop hits the hot screen: 'tss' — band-limited noise with a fast decay and a faint rising hiss tail."""
+    return fade(bp(noise(dur), 3500, 11000) * env_exp(dur, 0.018) + bp(noise(dur), 6000, 12000) * env_adsr(dur, 0.01, 0.02, 0.4, 0.03) * 0.3, 0.001, 0.01)
+
+
+def v_sparkle(f=5200, dur=0.05):
+    """A glass grain of the field's light — a 50 ms sine ping with a 2nd partial."""
+    return fade((sine(f, dur) + 0.4 * sine(f * 2.01, dur)) * env_exp(dur, 0.012), 0.001, 0.01)
+
+
+def v_ink_tick(dur=0.012, f=3200):
+    """A letter lands: a dry little ink tick (band-passed click)."""
+    return fade(bp(noise(dur), f * 0.7, f * 1.6) * env_exp(dur, 0.003), 0.0005, 0.004)
+
+
+def v_roll_whoosh(dur=0.30):
+    """The whole room rolls past the lens: wide noise sweep up-and-down with a Doppler dip."""
+    t_ = tt(dur)
+    u = t_ / dur
+    fc = 250 * (14 ** (1 - np.abs(u - 0.45) / 0.55))
+    x = np.zeros_like(t_)
+    nz = noise(dur)
+    # crude sweep: blockwise band-pass
+    blk = 480
+    for i in range(0, len(t_), blk):
+        f = float(fc[min(len(fc) - 1, i)])
+        x[i:i + blk] = bp(nz[i:i + blk] if i + blk <= len(nz) else np.pad(nz[i:], (0, i + blk - len(nz))), f * 0.6, f * 1.7)[:len(x[i:i + blk])]
+    return fade(x * np.exp(-((u - 0.45) / 0.3) ** 2), 0.005, 0.01)
+
+
 def prop_speed_env(name, t0, t1, step=0.01):
     ts = np.arange(t0, t1, step)
     sp = np.array([math.hypot(*S.prop_vel(name, t)) for t in ts]) * S.FPS   # px / s
@@ -318,6 +353,7 @@ def build(vo_path=None, vo_moral_path=None):
     M.add(v_wood_knock(0.14, 520), TL["pencil_end"], 0.22, pan=-0.1, name="pencil_tak", loop=True)
     # the phone flips itself: click, lift, land flat + glow swell
     M.add(v_click(1.0, 0.02, 600, 2500), TL["flip_up"], 0.35, name="flip_clack")
+    M.add(v_whoosh(TL["flip_dur"], 400, 1800, rise=True) * 0.6, TL["flip_up"], 0.22, name="flip_lift_whoosh")
     M.add(v_wood_knock(0.18, 240), TL["flip_up"] + TL["flip_dur"], 0.5, name="flip_land")
     M.add(v_glass_note(TL["glow_off"] - TL["glow_on"] + 0.3, 220, 0.5) * 0.35, TL["glow_on"], 0.16, name="glow_swell")
     M.add(v_thud(0.3, 52), TL["cut_s2"], 0.35, name="cut_thump")
@@ -394,6 +430,20 @@ def build(vo_path=None, vo_moral_path=None):
     t_ = np.arange(len(fl)) / SR + 6.6
     fl *= np.array([smooth(seg(t, 6.6, 7.6)) for t in t_]) * np.where((t_ >= TL["look_lens"]) & (t_ < TL["look_end"]), 0.25, 1.0)
     M.add(fl, 6.6, 0.14, pan=-0.2, name="cloth_flag_flutter")
+    # v3 — sweat: each strain drop leaves his head with a 'plip' and hits the hot screen with a 'tss' 0.5 s later
+    for t0, j in S.sweat_drops(TL["letgo"]):
+        h = S.hash01(j, 61)
+        M.add(v_plip(2100 + 600 * h, 1300 + 300 * h), t0, 0.11 + 0.05 * h, pan=-0.45, name="sweat_plip")
+        M.add(v_sizzle(0.06 + 0.03 * h), t0 + 0.5, 0.10 + 0.05 * h, pan=0.3, name="sweat_sizzle")
+    # v3 — the field's light grains: sparse glass pings while the flow streams to the phone (never on the grid)
+    ts_ = TL["field_full"]
+    jj = 0
+    while ts_ < TL["letgo"]:
+        h = S.hash01(jj, 62)
+        if not (TL["look_lens"] <= ts_ < TL["look_end"]):
+            M.add(v_sparkle(4200 + 2600 * h, 0.04 + 0.03 * h), ts_, 0.035 + 0.025 * h, pan=-0.6 + 1.2 * S.hash01(jj, 63), name="field_sparkle")
+        ts_ += 0.21 + 0.27 * h
+        jj += 1
     for ts_ in (TL["slip1"], TL["slip2"]):
         M.add(v_squeak(0.1), ts_, 0.16, pan=-0.5, name="hand_slip_squeak")
         M.add(v_click(1.0, 0.02, 300, 1500), ts_ + 0.07, 0.3, pan=-0.5, name="hand_slip_regrip")
@@ -445,6 +495,16 @@ def build(vo_path=None, vo_moral_path=None):
     M.add(v_thud(0.4, 60) * 1.3 + padto(v_ding(0.4) * 0.8, int(0.4 * SR)), TL["hot"], 0.4, name="hot_word_slam")
     M.add(v_thud(0.3, 50), TL["cut_s6"], 0.3, name="cut_thump")
     M.add(v_click(1.0, 0.03, 500, 2600), TL["moral_out"], 0.22, name="text_snap_out")
+    # v3 — kinetic type: one dry ink tick per letter on the cascade grid (render.LETTER_STAGGER)
+    for t0, text, off in ((TL["line1"], "Phone ulta.", 0), (TL["line2"], "Zindagi", 0), (TL["line2"], "seedhi.", 8)):
+        for i, ch in enumerate(text):
+            if ch == " ":
+                continue
+            M.add(v_ink_tick(0.012, 2600 + 900 * S.hash01(i, 64, off)), t0 + (i + off) * 0.018, 0.05, pan=-0.3 + 0.6 * (i + off) / 16, name="type_ink_tick")
+    # v3 — the world rolls on 'ulte.': whoosh + a low whomp; the buzz snaps it back with a dry click
+    M.add(v_roll_whoosh(TL["roll_dur"] + 0.06), TL["roll_start"] - 0.02, 0.55, name="world_roll_whoosh")
+    M.add(v_thud(0.4, 44) * 1.2, TL["roll_start"], 0.45, name="world_roll_whomp")
+    M.add(v_click(1.0, 0.03, 400, 2200) * 1.3 + padto(v_thud(0.12, 90), int(0.03 * SR)) * 0.6, TL["moral_out"], 0.4, name="snap_back_click")
     # VO — speech begins exactly at line1 (the file has 0.48 s of leading silence)
     if vo_path and pathlib.Path(vo_path).exists():
         import imageio_ffmpeg

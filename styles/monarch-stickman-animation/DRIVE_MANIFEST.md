@@ -28,10 +28,13 @@ Linear: MON-52 (Done) · MON-44 comment. Notion: Doc 10 (IZZAT v2 block), Doc 07
 Drive: MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l` → WTF-30 · Monarch Impossible Moments `1w_hv-2v0-VtSI9tp8g3uuaQGgRQZmPO6` → THE GRAVITY OF THE PHONE · WTF-30 #1 · 20s · 2026-10-14 `1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ`
 | file | bytes | md5 | Drive id | folder |
 |---|---|---|---|---|
-| **THE_GRAVITY_OF_THE_PHONE_WTF30_01_v2.mp4** (current) | 60,699,977 | dc13effd2c86277767b29dec7769bca4 (Drive-verified) | 1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp | 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ |
+| **THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4** (current) | 61,573,207 | f54c3b295011bb3310ce60f7d710e98b (Drive-verified) | 1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1 | 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ |
+| LOOK_SHEET_v3.jpg | — | — | 1b-Usf3fQV4yjX7lYD0ucCw5CcFqxAwt_ | same |
+| gate_receipt_v3.json | — | — | 1fkMxnPAlM0VoM7ka2lciSdRU_yCEEX_O | same |
+| THE_GRAVITY_OF_THE_PHONE_WTF30_01_v2.mp4 (v2, history) | 60,699,977 | dc13effd2c86277767b29dec7769bca4 (Drive-verified) | 1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp | same |
 | LOOK_SHEET_v2.jpg | — | — | 1ym5SUyr4ZlYrEUPB1dr--gNIG3n59fvP | same |
 | gate_receipt_v2.json | — | — | 1PV2rrkhL3Was925qHqWiQ-a-vYA2HeEu | same |
 | THE_GRAVITY_OF_THE_PHONE_WTF30_01.mp4 (v1, history) | 62,733,035 | 824a8133bde468c8a0a027d12da3081a (Drive-verified) | 118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ | same |
 | LOOK_SHEET.jpg (v1) | 366,727 | — | 1FVWPZbHGM3Icu-VABG40wIqmDUaPjKr5 | same |
 | gate_receipt.json (v1) | 3,739 | — | 1d7-ohnb_jWx1L-0n8_3KwpnQ7CYNQhRz | same |
-Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` (version 2) · 12/12 measured + 28/28 freshness · v2 = composed 122.4 BPM score, 96 SFX voices, moral "Warna tum ulte.".
+Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` (version 3) · 12/12 measured + 28/28 freshness · v3 = vocal-chop hook score, 111 voices, kick-synced picture pump, 180° world roll on "Warna tum ulte.".

@@ -1,7 +1,7 @@
 {
  "video": "../render/gravity-of-the-phone_master.mp4",
- "md5": "dc13effd2c86277767b29dec7769bca4",
- "bytes": 60699977,
+ "md5": "f54c3b295011bb3310ce60f7d710e98b",
+ "bytes": 61573207,
  "probe": {
   "duration": 20.0,
   "video_codec": "h264 (High) (avc1 / 0x31637661)",
@@ -14,8 +14,8 @@
  },
  "loudness": {
   "lufs": -14.1,
-  "true_peak_db": -1.2,
-  "lra": 6.6
+  "true_peak_db": -1.1,
+  "lra": 6.7
  },
  "gates": [
   {
@@ -46,17 +46,17 @@
   {
    "gate": "G-W6 one uncut WTF set-piece \u2265 3 s, no cut inside it, no other shot > 4 s",
    "ok": true,
-   "detail": "WTF shot 10.0 s, detected cuts at [2.0, 2.03, 3.8, 4.6, 14.6, 17.97], unplanned [], inside-WTF [], other shots [2.0, 1.7999999999999998, 0.7999999999999998, 3.3499999999999996, 2.0500000000000007]"
+   "detail": "WTF shot 10.0 s, detected cuts at [2.0, 2.03, 3.8, 4.6, 14.6, 17.97, 19.13, 19.17, 19.2, 19.23, 19.27, 19.3, 19.33, 19.37, 19.4, 19.7], unplanned [], inside-WTF [], designed roll frames [574, 575, 576, 577, 578, 579, 580, 581, 582], other shots [2.0, 1.8, 0.8, 3.35, 1.75, 0.3]"
   },
   {
    "gate": "G-W10 loop seam: last vs first frame mean abs diff \u2264 6/255",
    "ok": true,
-   "detail": "3.23/255"
+   "detail": "3.13/255"
   },
   {
    "gate": "G-W5 silence hole 0.3\u20130.6 s before the WTF onset (< \u221260 dBFS RMS)",
    "ok": true,
-   "detail": "4.50\u20134.90 s = 0.40 s at -115.2 dBFS; second hole -114.8 dBFS"
+   "detail": "4.50\u20134.90 s = 0.40 s at -125.9 dBFS; second hole -108.6 dBFS"
   },
   {
    "gate": "hook: sound within the first 0.1 s (frame 1 is alive)",
@@ -66,29 +66,39 @@
   {
    "gate": "G-W11 loudness \u221214 \u00b1 1 LUFS, TP \u2264 \u22121 dBTP",
    "ok": true,
-   "detail": "-14.1 LUFS, TP -1.2 dBTP, LRA 6.6 LU"
+   "detail": "-14.1 LUFS, TP -1.1 dBTP, LRA 6.7 LU"
   },
   {
    "gate": "no synthetic noise floor (quietest 0.5 s of the sound-design stem \u2264 \u221245 dBFS; score is a separate composed bus)",
    "ok": true,
-   "detail": "stem quietest block -49.7 dBFS at 14.5 s; master quietest -19.4 dBFS at 10.0 s"
+   "detail": "stem quietest block -50.4 dBFS at 14.0 s; master quietest -18.3 dBFS at 13.0 s"
   },
   {
    "gate": "4:5 safe centre: every subject inside y 285\u20131635 on key frames, ink share \u2265 0.72",
    "ok": true,
-   "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.91 phone=1258,hero_feet=1465,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1311,hero_feet=1311,hero_head=689,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.5s ink 0.82 phone=1036"
+   "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.82 phone=881,text_moral_a=1262,text_moral_b=1113"
   }
  ],
  "passed": 12,
  "total": 12,
- "seam_diff": 3.2298591136932373,
+ "seam_diff": 3.1336803436279297,
  "cuts_s": [
   2.0,
   2.03,
   3.8,
   4.6,
   14.6,
-  17.97
+  17.97,
+  19.13,
+  19.17,
+  19.2,
+  19.23,
+  19.27,
+  19.3,
+  19.33,
+  19.37,
+  19.4,
+  19.7
  ],
  "safe_proof": [
   {
@@ -103,10 +113,10 @@
   {
    "frame": 90,
    "t": 3.0,
-   "ink_inside_safe": 0.91,
+   "ink_inside_safe": 0.92,
    "subjects": {
-    "phone": 1258,
-    "hero_feet": 1465,
+    "phone": 1259,
+    "hero_feet": 1467,
     "hero_head": 982
    },
    "subjects_ok": true
@@ -134,11 +144,11 @@
   {
    "frame": 500,
    "t": 16.67,
-   "ink_inside_safe": 0.925,
+   "ink_inside_safe": 0.927,
    "subjects": {
-    "phone": 1311,
-    "hero_feet": 1311,
-    "hero_head": 689,
+    "phone": 1313,
+    "hero_feet": 1313,
+    "hero_head": 691,
     "text_line1": 440,
     "text_line2": 580
    },
@@ -147,7 +157,7 @@
   {
    "frame": 573,
    "t": 19.1,
-   "ink_inside_safe": 0.818,
+   "ink_inside_safe": 0.822,
    "subjects": {
     "phone": 1036,
     "text_moral_a": 668,
@@ -156,11 +166,13 @@
    "subjects_ok": true
   },
   {
-   "frame": 585,
-   "t": 19.5,
-   "ink_inside_safe": 0.818,
+   "frame": 588,
+   "t": 19.6,
+   "ink_inside_safe": 0.823,
    "subjects": {
-    "phone": 1036
+    "phone": 881,
+    "text_moral_a": 1262,
+    "text_moral_b": 1113
    },
    "subjects_ok": true
   }

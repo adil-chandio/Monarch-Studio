@@ -28,7 +28,7 @@ WOOD = (214, 200, 174)
 
 # ── timeline (seconds) — THE event ledger ───────────────────────────────────
 TL = dict(
-    buzz_start=-0.50, pencil_start=-0.40, pencil_end=1.40,
+    buzz_start=-0.30, pencil_start=-0.40, pencil_end=1.40,
     flip_up=1.45, flip_dur=0.32, glow_on=1.55, glow_full=2.05,
     cut_s2=2.00, walk_start=2.00, walk_end=3.60, pend_lean=2.60, page_lift=3.00,
     cut_s3=3.80, cut_s4=4.60,
@@ -40,11 +40,63 @@ TL = dict(
     letgo=11.00, land=11.42, slap=11.58, flip_down=11.62, glow_off=12.00,
     drop=12.30, stand=13.00, cut_s5=14.60,
     line1=15.40, line2=16.66, hot=17.15, cut_s6=17.95,
-    moral1=18.00, moral2=18.64, moral3=18.98, moral_out=19.50, end=20.00,   # 'Warna' · 'tum' · 'ulte.' (upside-down) · snap-out on the buzz
+    moral1=18.00, moral2=18.64, moral3=18.98,                                # 'Warna' · 'tum' · 'ulte.' (the word lands upside-down)
+    roll_start=19.12, roll_dur=0.26,                                         # v3: the WHOLE WORLD rolls 180° after the word — now 'ulte.' reads upright
+    moral_out=19.70, end=20.00,                                              # the buzz snaps the world back and wipes the words → loop
 )
 # music grid: 122.4 BPM → beat 0.4902 s; beat 10 = field_on (4.90), beat 35 = hot word (17.157); heartbeat = half-time
 BPM = 122.4
 BEAT = 60.0 / BPM
+
+
+def B(n):
+    """Music-grid time of beat n (beat 10 = field onset)."""
+    return n * BEAT
+
+
+def kick_times():
+    """(time, weight) of the score's kicks — the picture pumps on them (camera zoom + chroma split).
+    Absolute film time. B(0) is skipped so frame 599 → frame 0 stays a clean seam."""
+    ks = [(B(n), 0.45) for n in (2, 4, 6, 8)]                    # intro half-time pulses
+    ks.append((TL["field_on"], 1.0))                             # the drop boom
+    for n in range(11, 22):                                      # groove kicks (silent in the breakdown)
+        t = B(n)
+        if TL["look_lens"] <= t < TL["look_end"]:
+            continue
+        ks.append((t, 0.6))
+    ks.append((TL["land"], 1.0))
+    ks += [(B(n), 0.35) for n in (28, 30, 32, 34)]               # relief half-time
+    ks += [(TL["hot"], 0.9), (TL["moral1"], 0.45), (TL["moral2"], 0.4), (TL["moral3"], 0.6), (TL["roll_start"], 0.8)]
+    return ks
+
+
+KICKS = kick_times()
+
+
+def pump(t, decay=0.10):
+    """0..1 visual side-chain: the sum of decaying kick impulses at film time t."""
+    p = 0.0
+    for tk, a in KICKS:
+        if tk <= t < tk + 0.45:
+            p += a * math.exp(-(t - tk) / decay)
+    return min(1.0, p)
+
+
+def frame_roll(t):
+    """(angle_deg, zoom) of the whole-frame roll on 'ulte.': the world turns upside-down with the word (the word
+    becomes the only upright thing), holds, and the buzz snaps it back at moral_out. The zoom keeps the corners
+    covered while the frame turns (exact covering scale + 2 %), then drifts in slowly during the hold."""
+    if not (TL["roll_start"] <= t < TL["moral_out"]):
+        return 0.0, 1.0
+    t_end = TL["roll_start"] + TL["roll_dur"]
+    if t < t_end:
+        u = seg(t, TL["roll_start"], t_end)
+        ang = 180.0 * smooth(u)
+        c, s_ = abs(math.cos(math.radians(ang))), abs(math.sin(math.radians(ang)))
+        zoom = max((W * c + H * s_) / W, (W * s_ + H * c) / H) * (1.0 + 0.02 * s_)
+        return ang, zoom
+    u = seg(t, t_end, TL["moral_out"])
+    return 180.0, 1.0 + 0.05 * u
 
 
 def beat_pulse(t, decay=0.11):

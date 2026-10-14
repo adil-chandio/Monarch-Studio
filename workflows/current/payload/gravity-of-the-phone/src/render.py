@@ -65,24 +65,25 @@ def hit_shake(t):
 
 
 def camera(t):
+    pz = 1.0 + 0.014 * S.pump(t)              # the picture breathes with the score's kicks
     if t < TL["cut_s2"] or t >= TL["cut_s6"]:
-        return Cam(*DESK_CAM)
+        return Cam(DESK_CAM[0], DESK_CAM[1], DESK_CAM[2] * pz)
     if t < TL["cut_s3"]:
         u = seg(t, TL["cut_s2"], TL["cut_s3"])
         hx, hy = handheld(t, 1.6)
-        return Cam(540 + hx, 1000 + hy, 1.0 + 0.012 * u)
+        return Cam(540 + hx, 1000 + hy, (1.0 + 0.012 * u) * pz)
     if t < TL["cut_s4"]:
         return Cam(540, 1000, 1.0)   # ECU handled separately
     if t < TL["cut_s5"]:
         u = seg(t, TL["cut_s4"], TL["cut_s5"])
         hx, hy = handheld(t, 2.0 + 1.5 * S.field(t))
         sx, sy = hit_shake(t)
-        return Cam(540 + 48 * u + hx + sx, 1010 + 30 * u + hy + sy, 1.0 + 0.08 * u + 0.006 * S.beat_pulse(t))
+        return Cam(540 + 48 * u + hx + sx, 1010 + 30 * u + hy + sy, (1.0 + 0.08 * u) * pz)
     tf = min(t, TL["hot"])
     u = seg(tf, TL["cut_s5"], TL["hot"])
     hx, hy = handheld(t, 1.2)
     sx, sy = hit_shake(t)
-    return Cam(760 + hx + sx, 1030 + hy + sy, 1.25 + 0.09 * u)
+    return Cam(760 + hx + sx, 1030 + hy + sy, (1.25 + 0.09 * u) * pz)
 
 
 def hero_screen_scale(t, cam):
@@ -421,7 +422,53 @@ def draw_glow(rgb, cam, tau, extra=0.0):
     arr = np.asarray(rgb, np.float32)
     arr = arr + m * np.array([96, 52, -22], np.float32)
     arr += (m ** 2) * np.array([20, 24, 10], np.float32)
+    # v3 — god-rays: the planet's light turns slowly in the dust while the field is on
+    k = S.field_vis(tau)
+    if k > 0.03 and g > 0.05:
+        rays = god_rays(sx, sy, tau, z)[..., None] * (0.30 * min(1.0, k) * min(1.0, g))
+        arr += rays * np.array([92, 50, -18], np.float32)
+    # v3 — anamorphic streak: a flash when the screen wakes (1.55 s), then a faint pulse on the kicks
+    flash = math.exp(-max(0.0, tau - TL["glow_on"] - 0.08) / 0.22) if tau >= TL["glow_on"] + 0.08 else seg(tau, TL["glow_on"], TL["glow_on"] + 0.08)
+    streak_k = min(1.0, g) * (0.10 + 0.55 * flash + 0.28 * S.pump(tau))
+    if streak_k > 0.03:
+        arr += streak(sy - 18 * z, 0.5 * W * (0.6 + 0.4 * min(1.0, g)) * (1 + 0.5 * flash))[..., None] * streak_k * np.array([120, 70, -10], np.float32)
     return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+
+
+_RAY_CACHE = {}
+
+
+def god_rays(sx, sy, tau, z, n_rays=14):
+    """Soft wedge rays from the phone screen (quarter-res mask, blurred, upscaled); rotate 7°/s, breathe with the grid."""
+    q = 4
+    small = Image.new("L", (W // q, H // q), 0)
+    d = ImageDraw.Draw(small)
+    cx, cy = sx / q, sy / q
+    Lr = (1.15 * H) / q * z / 2.3 * 1.6
+    a0 = 7.0 * tau
+    for i in range(n_rays):
+        a = math.radians(a0 + i * 360.0 / n_rays + 11 * math.sin(0.7 * tau + i))
+        hw = math.radians(2.2 + 1.4 * S.hash01(i, 77))
+        bright = 120 + int(100 * S.hash01(i, 78))
+        bright = int(bright * (0.75 + 0.25 * math.sin(2 * math.pi * (tau / (2 * S.BEAT)) + i)))
+        pts = [(cx, cy), (cx + Lr * math.cos(a - hw), cy + Lr * math.sin(a - hw)), (cx + Lr * math.cos(a + hw), cy + Lr * math.sin(a + hw))]
+        d.polygon(pts, fill=bright)
+    small = small.filter(ImageFilter.GaussianBlur(5))
+    # fade with distance from the screen
+    yy, xx = np.mgrid[0:H // q, 0:W // q].astype(np.float32)
+    dist = np.hypot(xx - cx, yy - cy) / (Lr + 1e-6)
+    fall = np.clip(1.0 - dist, 0, 1) ** 1.3 * np.clip(dist * 9, 0, 1)
+    arr = np.asarray(small, np.float32) / 255 * fall
+    return np.asarray(Image.fromarray((arr * 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32) / 255
+
+
+def streak(y, half_len):
+    """Horizontal anamorphic streak mask centred on the phone row: bright thin core + soft halo, tapered ends."""
+    yy = np.arange(H, dtype=np.float32)[:, None] - y
+    xx = np.arange(W, dtype=np.float32)[None, :] - W / 2
+    core = np.exp(-(yy / 2.2) ** 2) * 1.0 + np.exp(-(yy / 14.0) ** 2) * 0.35
+    taper = np.clip(1.0 - (np.abs(xx) / half_len) ** 1.6, 0, 1)
+    return core * taper
 
 
 def draw_pulse_rings(frame, cam, tau):
@@ -630,7 +677,7 @@ def draw_sweat(frame, cam, tau):
 
 
 # ── hero ─────────────────────────────────────────────────────────────────────
-def draw_hero(frame, cam, tau, t_abs):
+def draw_hero(frame, cam, tau, t_abs, alpha_mul=1.0, ghost=False):
     st = S.hero_state(tau)
     if st is None:
         return
@@ -646,7 +693,9 @@ def draw_hero(frame, cam, tau, t_abs):
         img, xy = place_tile(btile, banc, hx + 0.03 * s_px, hy + 0.09 * s_px, s_px / S.HERO_S / S.S2 * 1.0, rot_cw=-14)
         tile.alpha_composite(img, xy)
     z = cam.z
-    if st["shadow"]:
+    if ghost:
+        tile.putalpha(tile.split()[3].point(lambda v: int(v * alpha_mul)))
+    if st["shadow"] and not ghost:
         contact_shadow(frame, cam, st["feet"][0], st["surface"], 0.26 * S.HERO_S, 0.045 * S.HERO_S, 70)
     if st["pivot"]:
         if st["pivot"] == "hands":
@@ -657,6 +706,9 @@ def draw_hero(frame, cam, tau, t_abs):
         sx, sy = cam.pt(*st["pivot_world"])
         xy = (int(round(sx - pv[0])), int(round(sy - pv[1])))
         vs = (st["smear"][0] * z, st["smear"][1] * z)
+        if ghost:
+            frame.alpha_composite(rotated, xy)
+            return
         paste_smear(frame, rotated, xy, (vs[0] * 3, vs[1] * 3), 0.8)
     else:
         sx, sy = cam.pt(*st["feet"])
@@ -667,10 +719,22 @@ def draw_hero(frame, cam, tau, t_abs):
             fx, fy = fx * qx, fy * qy
         xy = (int(round(sx - fx)), int(round(sy - fy)))
         vs = (st["smear"][0] * z, st["smear"][1] * z)
-        if abs(vs[0]) + abs(vs[1]) > 2:
+        if abs(vs[0]) + abs(vs[1]) > 2 and not ghost:
             paste_smear(frame, tile, xy, (vs[0] * 3, vs[1] * 3), 0.6)
         else:
             frame.alpha_composite(tile, xy)
+
+
+GHOST_WINDOWS = ((TL["lunge"], TL["grab"] + 0.08), (TL["slip1"], TL["slip1"] + 0.12), (TL["slip2"], TL["slip2"] + 0.12),
+                 (TL["letgo"], TL["land"] + 0.06))
+
+
+def draw_hero_ghosts(frame, cam, tau, t_abs):
+    """Two afterimages (−2 and −1 frames) on the fast moves: lunge, slips, the fall. Smooth, cinematic motion."""
+    if not any(a <= tau < b for a, b in GHOST_WINDOWS):
+        return
+    for dt, am in ((2 / FPS, 0.16), (1 / FPS, 0.34)):
+        draw_hero(frame, cam, tau - dt, t_abs - dt, alpha_mul=am, ghost=True)
 
 
 # ── ECU insert (S3) ──────────────────────────────────────────────────────────
@@ -689,7 +753,14 @@ def ecu_frame(t):
     look = (0.85 - 0.1 * u, 0.35 - 0.05 * u)
     blink = 1.0 if 4.08 <= t < 4.15 else 0.0
     SH.head_only(bg, 560 + 24 * u + jolt, 1010 - 10 * u, hr, expr=expr, look=look, blink=blink, ang=-0.06 + 0.03 * u, yaw=16)
-    return bg
+    # v3 — the phone's light reaches his face from frame-right: an amber rim that swells with the pulse and the shock
+    k = 0.22 + 0.30 * S.pump(t) + (0.35 * seg(t, 4.15, 4.45) if t >= 4.15 else 0.0)
+    arr = np.asarray(bg.convert("RGB"), np.float32)
+    xx = np.arange(W, dtype=np.float32)[None, :]
+    yy = np.arange(H, dtype=np.float32)[:, None]
+    rim = np.clip((xx - 520) / 560, 0, 1) ** 1.6 * np.exp(-((yy - 1010) / 520) ** 2)
+    arr += (rim * k)[..., None] * np.array([96, 52, -22], np.float32)
+    return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
 
 
 # ── type ─────────────────────────────────────────────────────────────────────
@@ -709,27 +780,45 @@ def text_extruded(layer, xy, text, size, col=INK, anchor="mm", depth=7, glow=Non
            stroke_width=max(1, size // 55), stroke_fill=(246, 241, 231, min(alpha, 210)))
 
 
+LETTER_STAGGER = 0.018   # s between letters of the meaning line (the audio 'ink ticks' use the same grid)
+LETTER_DUR = 0.12
+
+
+def text_cascade(layer, x_left, y, text, size, t, t0, col=INK, depth=7, i_off=0):
+    """Kinetic type: each letter drops in on its own (stagger LETTER_STAGGER, ease-out LETTER_DUR) — the line still
+    lands inside 0.35 s so the slam reads as one event with a live edge. Returns the x after the last letter."""
+    f = font(size, 800)
+    for i, ch in enumerate(text):
+        if ch == " ":
+            continue
+        ti = t0 + (i + i_off) * LETTER_STAGGER
+        u = seg(t, ti, ti + LETTER_DUR)
+        if u <= 0:
+            continue
+        xi = x_left + f.getlength(text[:i])
+        dy = (1 - ease_out(u, 2.5)) * -70
+        sc = 1.0 + 0.16 * (1 - ease_out(u, 2.0))
+        text_extruded(layer, (xi, y + dy), ch, int(size * sc), col, anchor="lm", depth=depth, alpha=int(255 * min(1, u * 2.5 + 0.1)))
+    return x_left + f.getlength(text)
+
+
 def draw_type(frame, t):
     if not (TL["line1"] <= t < TL["cut_s6"]):
         return
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     size = 108
     f = font(size, 800)
-    # line 1: "Phone ulta."  — slams in from above (word slam + hit)
-    u1 = seg(t, TL["line1"], TL["line1"] + 0.14)
-    dy = (1 - ease_out(u1, 2.5)) * -90
-    text_extruded(layer, (W / 2, 440 + dy), "Phone ulta.", size, INK, alpha=int(255 * min(1, u1 * 2 + 0.2)))
+    # line 1: "Phone ulta."  — letters cascade in from above on the word slam
+    wl1 = f.getlength("Phone ulta.")
+    text_cascade(layer, W / 2 - wl1 / 2, 440, "Phone ulta.", size, t, TL["line1"])
     if t >= TL["line2"]:
-        # line 2 drops in whole (in sync with the VO word "Zindagi"); the hot word turns amber and pops on "seedhi."
-        u2 = seg(t, TL["line2"], TL["line2"] + 0.14)
-        dy2 = (1 - ease_out(u2, 2.5)) * -90
+        # line 2 cascades in with the VO word "Zindagi"; the hot word turns amber and pops on "seedhi."
         w1 = f.getlength("Zindagi ")
         w2 = f.getlength("seedhi.")
         x0 = W / 2 - (w1 + w2) / 2
-        al = int(255 * min(1, u2 * 2 + 0.2))
-        text_extruded(layer, (x0, 580 + dy2), "Zindagi", size, INK, anchor="lm", alpha=al)
+        text_cascade(layer, x0, 580, "Zindagi", size, t, TL["line2"])
         if t < TL["hot"]:
-            text_extruded(layer, (x0 + w1, 580 + dy2), "seedhi.", size, INK, anchor="lm", alpha=al)
+            text_cascade(layer, x0 + w1, 580, "seedhi.", size, t, TL["line2"], i_off=8)
         else:
             u3 = seg(t, TL["hot"], TL["hot"] + 0.12)
             sc = 1.0 + 0.22 * (1 - ease_out(u3, 2.0))
@@ -805,6 +894,7 @@ def render_frame(fi):
         draw_speed_lines(frame, cam, tau)
         draw_prop(frame, cam, "cup", tau)
         draw_flow(frame, cam, tau)
+        draw_hero_ghosts(frame, cam, tau, t)
         draw_hero(frame, cam, tau, t)
         draw_sweat(frame, cam, tau)
         draw_dust(frame, cam, tau)
@@ -819,12 +909,41 @@ def render_frame(fi):
     # 1-frame paper-white impact tint when the room hits the floor (gravity restored)
     if fi == int(round((TL["drop"] + 0.30) * FPS)):
         frame.alpha_composite(Image.new("RGBA", (W, H), (255, 252, 244, 30)))
+    # v3 — the world rolls 180° on 'ulte.' (3 sub-samples per frame = motion blur on the whip)
+    ang, zoom = S.frame_roll(t)
+    if ang != 0.0 or zoom != 1.0:
+        frame = roll_frame(frame, t)
     frame.alpha_composite(VIGNETTE)
     arr = np.asarray(frame.convert("RGB"), np.float32) + GRAIN[fi % 4]
     k = S.field_vis(tau)
     if k > 0.01:   # the field narrows the eye: edges darken with the pull (released over 0.2 s after the drop)
         arr *= 1.0 - (0.30 * min(1.0, k)) * VIG_K[..., None]
+    # v3 — chroma split on the kicks (≤ 3 px, decays with the pump): the lens flinches with the beat
+    dpx = int(round(3.0 * S.pump(t)))
+    if dpx >= 1:
+        arr[..., 0] = np.roll(arr[..., 0], dpx, axis=1)
+        arr[..., 2] = np.roll(arr[..., 2], -dpx, axis=1)
     return np.clip(arr, 0, 255).astype(np.uint8)
+
+
+def roll_frame(frame, t, subs=12):
+    """Rotate + zoom the finished frame about its centre per S.frame_roll, averaging `subs` sub-frame samples."""
+    acc = None
+    rgb = frame.convert("RGB")
+    for k in range(subs):
+        ts = t + (k - (subs - 1) / 2) / (FPS * subs)
+        ang, zoom = S.frame_roll(ts)
+        th = math.radians(ang)
+        c, s_ = math.cos(th) / zoom, math.sin(th) / zoom
+        cx, cy = W / 2, H / 2
+        # output (x, y) → input: rotate by -ang about the centre, scaled 1/zoom
+        a, b, cc = c, s_, cx - c * cx - s_ * cy
+        d, e, ff = -s_, c, cy + s_ * cx - c * cy
+        img = rgb.transform((W, H), Image.AFFINE, (a, b, cc, d, e, ff), resample=Image.BICUBIC, fillcolor=(236, 231, 219))
+        arr = np.asarray(img, np.float32)
+        acc = arr if acc is None else acc + arr
+    out = Image.fromarray(np.clip(acc / subs, 0, 255).astype(np.uint8))
+    return out.convert("RGBA")
 
 
 def ffmpeg_exe():

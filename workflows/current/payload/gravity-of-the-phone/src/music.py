@@ -197,6 +197,68 @@ def slide(f0, f1, dur=0.22, level=1.0):
     return fade(x * 0.5 * level, 0.005, 0.03)
 
 
+VOWELS = dict(oh=(450, 800, 2830), ah=(700, 1220, 2600), uh=(620, 1200, 2400), eh=(530, 1850, 2500), oo=(300, 870, 2240))
+
+
+def vox(f, vowel="oh", dur=0.18, level=1.0, breath=0.10, vib=0.0045, seed=5):
+    """Formant vocal chop: a band-limited pulse source with vibrato through three parallel formant bands,
+    hard-gated like a sampled vocal hit. The hook's 'voice' without a voice."""
+    t = tt(dur)
+    f_inst = f * (1 + vib * np.sin(2 * np.pi * 5.6 * t + 1.0))
+    ph = np.cumsum(f_inst) / SR
+    src = np.zeros_like(t)
+    K = int(min(40, SR * 0.42 / f))
+    for k in range(1, K + 1):
+        src += np.sin(2 * np.pi * k * ph) / k ** 0.65
+    src = src / (np.abs(src).max() + 1e-9)
+    src = src + breath * np.random.default_rng(seed).standard_normal(len(t))
+    F1, F2, F3 = VOWELS[vowel]
+    out = (bp(src, F1 * 0.86, F1 * 1.16) * 1.0 + bp(src, F2 * 0.9, F2 * 1.11) * 0.55 + bp(src, F3 * 0.93, F3 * 1.07) * 0.28)
+    out = np.tanh(2.2 * out)
+    e = env_ad(dur, 0.008, 10.0)
+    n_r = int(0.035 * SR)
+    e[-n_r:] *= np.linspace(1, 0, n_r)
+    return fade(out * 0.5 * level * e, 0.002, 0.01)
+
+
+def riser(dur, f0=165, f1=660, level=1.0, lo=400, hi=7000):
+    """Tension riser: rising sine + rising band-limited noise, both swelling to the end."""
+    t = tt(dur)
+    f = f0 * (f1 / f0) ** (t / dur)
+    tone = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.45
+    rng = np.random.default_rng(31)
+    nz = sweep_lp(rng.standard_normal(len(t)), np.geomspace(lo, hi, len(t))) * 0.8
+    x = (tone + nz) * (t / dur) ** 1.8
+    return fade(x * 0.5 * level, 0.01, 0.004)
+
+
+def whoosh(dur=0.26, level=1.0, peak=0.45):
+    """Air moving fast: band-passed noise that rises and falls (a roll of the whole room)."""
+    t = tt(dur)
+    rng = np.random.default_rng(47)
+    u = t / dur
+    fc = 300 * (12 ** (1 - np.abs(u - peak) / max(peak, 1 - peak)))
+    x = sweep_lp(rng.standard_normal(len(t)), fc)
+    envl = np.exp(-((u - peak) / 0.28) ** 2)
+    return fade(x * envl * 0.5 * level, 0.005, 0.01)
+
+
+def brake(L, R, t0, t1):
+    """Vinyl brake: like tape_stop but faster (speed falls as (1-u)^2.4) and leaves silence after t1."""
+    i0, i1 = int(t0 * SR), int(t1 * SR)
+    n = i1 - i0
+    u = np.arange(n) / n
+    speed = (1 - u) ** 2.4
+    pos = i0 + np.cumsum(speed)
+    idx = np.arange(N)
+    outL, outR = L.copy(), R.copy()
+    outL[i0:i1] = np.interp(pos, idx, L) * (1 - u) ** 0.4
+    outR[i0:i1] = np.interp(pos, idx, R) * (1 - u) ** 0.4
+    outL[i1:] = 0.0
+    outR[i1:] = 0.0
+    return outL, outR
+
+
 # ── bus helpers ──────────────────────────────────────────────────────────────
 class Bus:
     def __init__(self):
@@ -292,6 +354,8 @@ E1, E2, E3, E4, E5, E6 = 28, 40, 52, 64, 76, 88
 MOTIF_MIN = [E5, E5 - 5, E5 - 9, E5 - 5]        # E5 B4 G4 B4  (music box, minor)
 MOTIF_MAJ = [E5, E5 - 5, E5 - 8, E5 - 5]        # E5 B4 G#4 B4 (same box, major)
 ARP = [0, 3, 7, 10, 12, 10, 7, 3, 0, 3, 7, 12, 15, 12, 7, 3]   # minor-7 arpeggio, 16ths, one bar
+# vocal-chop hook: 16th slot → (vowel, semitones above E4, length in 16ths)
+VOX_PATTERN = {2: ("oh", 0, 2), 6: ("ah", 3, 1), 7: ("oh", 0, 1), 10: ("uh", -5, 2), 14: ("eh", -2, 1), 15: ("oh", 0, 1)}
 
 
 def render():
@@ -325,6 +389,8 @@ def render():
         bass.add(sub(n2f(E1), BEAT * 0.45, 0.42), t)
     padb.add(pad([E2, E2 + 7, E3 + 3, E4 - 5], 4.5 - 1.96, 260, 2200, 0.55, 0.5, 0.15), 1.96)
     ev(1.96, "music_pad_em_open", 0.55)
+    plk.add(bell(n2f(E6), 1.4, 1.0), TL["glow_on"], 0.26, pan=0.2)       # the screen wakes: one high shimmer
+    ev(TL["glow_on"], "music_wake_shimmer", 0.26)
     plk.add(noise_swell(0.58, 0.5, 400, 7000), 3.9, 0.6)
     ev(3.9, "music_reverse_swell", 0.5)
     for i, m in enumerate((E5 + 2, E5 + 3, E5 + 5, E5 + 7)):   # 16ths climbing into the hole
@@ -368,14 +434,34 @@ def render():
                 if tq >= groove_end:
                     break
                 note = E4 + ARP[(bar_pos * 4 + q) % 16] + tr
+                if n >= 18 and q % 2 == 1:                       # bar 3+: the odd 16ths jump an octave (the climb tightens)
+                    note += 12
                 brt = 0.35 + 0.55 * ((tq - t_on) / (groove_end - t_on))
                 plk.add(pluck(n2f(note), 0.7, brt, 0.22, 0.9 if not breakdown else 0.55), tq,
                         0.22 + 0.06 * (q == 0), pan=-0.35 + 0.7 * ((q + bar_pos) % 2))
                 drum.add(hat(0.04, 0.42 if q % 2 else 0.25), tq, 1.0, pan=-0.25)
+                # v3 — the vocal-chop hook (from half a bar in): 'oh · ah-oh · uh · eh-oh', climbing with the arp
+                if n >= 12 and not breakdown:
+                    slot = bar_pos * 4 + q
+                    chop = VOX_PATTERN.get(slot)
+                    if chop:
+                        vw, dm, ln = chop
+                        plk.add(vox(n2f(E4 + dm + tr), vw, BEAT / 4 * ln * 0.92, 1.0, seed=slot), tq, 1.7,
+                                pan=0.4 if slot % 2 else -0.4)
             if bar_pos == 3:
                 drum.add(hat(0.0, 0.3, open_=True), t + BEAT / 2, 1.0, pan=-0.2)
+                if n >= 17:                                     # bar-end double snap (the groove answers itself)
+                    drum.add(paper_snap(0.45), t + BEAT * 0.75, 1.0, pan=-0.15)
+            if breakdown and bar_pos == 0:
+                rv = vox(n2f(E4 + tr), "oh", 0.62, 1.0, breath=0.2, seed=99)[::-1]   # a reversed 'oh' under the lens look
+                plk.add(rv, t, 1.3, pan=0.0)
+                ev(t, "music_reverse_vox", 0.42)
     ev(B(10), "music_groove_em_climb", 0.6)
+    ev(B(12), "music_vocal_chop_hook", 0.8)
     ev(TL["look_lens"], "music_breakdown_pulse_only", 0.5)
+    # v3 — tension riser under the fill into the let-go
+    plk.add(riser(TL["letgo"] - 10.3, 165, 660, 1.0), 10.3, 0.34, pan=0.0)
+    ev(10.3, "music_riser_letgo", 0.34)
     # bells on the three dings (in key: B5 · D6 · E6)
     for td, m in ((TL["ding1"], E5 + 7), (TL["ding2"], E5 + 10), (TL["ding3"], E6)):
         plk.add(bell(n2f(m), 1.8, 1.0), td, 0.5, pan=0.3)
@@ -404,9 +490,10 @@ def render():
     scH = sidechain_env(kicks_half, 0.35, 0.3)
     sc = np.minimum(scF, scH)
     pL, pR = pingpong(plk.L, plk.R, BEAT * 0.75, 0.38, 0.55)
+    scP = sidechain_env(kicks_full, 0.30, 0.22)                 # plucks/vox breathe with the kick too
     padL, padR = room(padb.L * sc, padb.R * sc)
-    L = pL * 1.0 + drum.L + bass.L * sc + padL
-    R = pR * 1.0 + drum.R + bass.R * sc + padR
+    L = pL * scP + drum.L + bass.L * sc + padL
+    R = pR * scP + drum.R + bass.R * sc + padR
     # slips: stutter gates (the music loses its grip with his hands)
     for ts in (TL["slip1"], TL["slip2"]):
         L, R = gate(L, R, ts, 0.05)
@@ -425,8 +512,14 @@ def render():
     relR = pR2 + dr2.R + ba2.R * sc2 + pdR2
     L = L + relL
     R = R + relR
-    # gentle bus tone + safety
+    # v3 — the buzz snaps the world back: a vinyl brake on the score (19.60 → 19.70), silence into the loop
+    L, R = brake(L, R, TL["moral_out"] - 0.10, TL["moral_out"])
+    ev(TL["moral_out"] - 0.10, "music_vinyl_brake", 1.0)
+    # gentle bus tone + glue (soft saturation for density) + safety
     L, R = hp(L, 28), hp(R, 28)
+    peak = max(np.abs(L).max(), np.abs(R).max()) + 1e-9
+    L, R = L / peak, R / peak
+    L, R = np.tanh(1.35 * L) / math.tanh(1.35), np.tanh(1.35 * R) / math.tanh(1.35)
     peak = max(np.abs(L).max(), np.abs(R).max()) + 1e-9
     g = 0.62 / peak
     return L * g, R * g
@@ -462,11 +555,24 @@ def _render_after(plk, drum, bass, padb, t_rel):
     for i, m in enumerate((E4, E4 + 4, E4 + 7, E5)):
         plk.add(pluck(n2f(m), 1.6, 0.6, 0.6), TL["hot"] + 0.015 * i, 0.3, pan=-0.3 + 0.2 * i)
     padb.add(pad([E2, E2 + 7, E3, E3 + 4, E4], TL["cut_s6"] - TL["hot"] + 0.3, 900, 2600, 0.38, 0.02, 0.5), TL["hot"])
+    plk.add(noise_swell(0.42, 0.55, 300, 6000), TL["hot"] - 0.42, 0.5)      # reverse swell into the hot word
+    ev(TL["hot"] - 0.42, "music_reverse_swell_hot", 0.5)
     plk.add(pluck(n2f(E5), 1.2, 0.6, 0.5), TL["moral1"], 0.36, pan=-0.1)
     plk.add(pluck(n2f(E5 - 5), 1.2, 0.6, 0.5), TL["moral2"], 0.34, pan=0.1)
     for i, m in enumerate((E5 - 5, E5 - 9, E5 - 12)):
         plk.add(pluck(n2f(m), 0.6, 0.6, 0.3), TL["moral3"] + 0.07 * i, 0.3, pan=0.2 - 0.2 * i)
     plk.add(slide(880, 330, 0.3, 0.9), TL["moral3"] + 0.04, 0.42)
+    # v3 — the world rolls: short reverse swell → whomp (kick + sub) + whoosh; then the cartoon 'uh-oh' in the hold
+    plk.add(noise_swell(0.17, 0.6, 400, 6000), TL["roll_start"] - 0.17, 0.45)
+    drum.add(kick(0.5, 150, 36, 0.85, 0.5), TL["roll_start"], 1.0)
+    bass.add(sub(n2f(E1), 0.6, 0.8, 0.003, 0.25), TL["roll_start"])
+    drum.add(whoosh(TL["roll_dur"] + 0.04, 1.0, 0.45), TL["roll_start"] - 0.02, 0.55)
+    kicks.append(TL["roll_start"])
+    t_uh = TL["roll_start"] + TL["roll_dur"] + 0.02
+    plk.add(vox(n2f(E4), "uh", 0.17, 1.0, seed=7), t_uh, 1.9, pan=-0.2)
+    plk.add(vox(n2f(E4 - 5), "oh", 0.26, 1.0, seed=8), t_uh + 0.19, 2.1, pan=0.2)
+    ev(TL["roll_start"], "music_world_roll_whomp", 0.85)
+    ev(t_uh, "music_uh_oh_vox", 0.9)
     ev(t_rel, "music_relief_e_major", 0.5)
     ev(B(28), "music_box_motif_major", 0.3)
     ev(TL["hot"], "music_hot_word_boom", 0.95)
