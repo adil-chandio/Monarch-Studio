@@ -1,0 +1,123 @@
+{
+  "kind": "motion action keyframes",
+  "workflow": "WF-04",
+  "task_id": "EMS-20261014-001",
+  "generation": "MONARCH CHAOS VIDEO 3 \u00b7 MOTION EDITION (v3)",
+  "created_at": "2026-10-14T21:07:00Z",
+  "why": "The user asked for REAL movement in the images instead of jelly-style warps, so the engine interpolates between authored action keyframes with dense optical flow (see src/motion_engine.py).",
+  "storage": {
+    "keys_are_outside_the_repository": true,
+    "render_dir": "/tmp/monarch-stage/keys",
+    "env_var": "MONARCH_KEYFRAME_DIR",
+    "reason": "raw identity media must stay out of the workspace snapshot (AGENTS.md rules 9 and 13)"
+  },
+  "drive": {
+    "folder": "Chaos video 2 (1uGPfl4pwPoL-D0VIag3hIejmbR__ochC)",
+    "bundle_name": "MONARCH_CHAOS03_MOTION_KEYFRAMES_v1.zip",
+    "bundle_id": "1jBKzpIEe0VJF-O-YHUV9O_NJFuowzGrx",
+    "bundle_md5": "63f01705c8b6f4c02f3b4a4d9f31fe1c"
+  },
+  "generator": "generate_image (photo-real, 9:16, canonical plate references attached; no reference-video pixels used)",
+  "keyframes": [
+    {
+      "name": "s1_walk_f1",
+      "act": "C walk",
+      "md5": "aba085b4bcfaaf06db6561b90a0c424b",
+      "bytes": 161521,
+      "prompt_refs": [
+        "plates/plate_med_red_blue.png",
+        "plates/plate_closeup_34.png"
+      ]
+    },
+    {
+      "name": "s1_walk_f2",
+      "act": "C walk",
+      "md5": "252efd2078b0252fb49ecbc88308ca02",
+      "bytes": 158304,
+      "prompt_refs": [
+        "keys/s1_walk_f1.jpg",
+        "plates/plate_med_red_blue.png"
+      ]
+    },
+    {
+      "name": "s2_point_f1",
+      "act": "C/F pointing",
+      "md5": "060b857a5c5ad4260acd5d4815aa0091",
+      "bytes": 104594,
+      "prompt_refs": [
+        "plates/plate_med_red_blue.png",
+        "plates/plate_closeup_34.png"
+      ]
+    },
+    {
+      "name": "s2_point_f2",
+      "act": "C/F pointing",
+      "md5": "79c8b6c589b926b7cff5bef0b862c257",
+      "bytes": 117660,
+      "prompt_refs": [
+        "plates/plate_med_red_blue.png",
+        "plates/plate_closeup_34.png",
+        "keys/s2_point_f1.jpg"
+      ]
+    },
+    {
+      "name": "s3_throne_f1",
+      "act": "B throne rise",
+      "md5": "8bdb384963ce1a8a56ac4cc41d9e7289",
+      "bytes": 152530,
+      "prompt_refs": [
+        "plates/plate_wide_hall.png",
+        "plates/plate_closeup_34.png"
+      ]
+    },
+    {
+      "name": "s3_throne_f2",
+      "act": "B throne rise (seated -> standing hop target)",
+      "md5": "c4890c2ee3fcbebd5a77fd09337205af",
+      "bytes": 154286,
+      "prompt_refs": [
+        "keys/s3_throne_f1.jpg"
+      ]
+    },
+    {
+      "name": "s4_guard_f1",
+      "act": "F sovereign stance",
+      "md5": "b504c8e73c81ef97e614d67cdeb56075",
+      "bytes": 142005,
+      "prompt_refs": [
+        "plates/plate_sovereign_monarch_finale.png",
+        "keys/s2_point_f2.jpg"
+      ]
+    },
+    {
+      "name": "s6_turn_f0",
+      "act": "D triad turn",
+      "md5": "0b9c143f71543fd704a2f0a55c98eaff",
+      "bytes": 147412,
+      "prompt_refs": [
+        "plates/plate_profile_side_neural.png"
+      ]
+    },
+    {
+      "name": "s6_turn_f1",
+      "act": "D triad turn (profile -> three-quarter hop target)",
+      "md5": "f79664f30ec73d2ead80904898420a3d",
+      "bytes": 148155,
+      "prompt_refs": [
+        "plates/plate_profile_side_neural.png",
+        "plates/plate_closeup_34.png"
+      ]
+    },
+    {
+      "name": "s7_burst_f1",
+      "act": "C/E/G chaos burst",
+      "md5": "4b3c6f496f32afa3c77f6e14caa4e139",
+      "bytes": 173023,
+      "prompt_refs": [
+        "plates/plate_med_dark_visor.png",
+        "keys/s1_walk_f1.jpg"
+      ]
+    }
+  ],
+  "restage": "unzip the bundle into /tmp/monarch-stage/keys (or set MONARCH_KEYFRAME_DIR) and verify md5s; motion_engine.Keyframes() will then load all ten by name."
+}

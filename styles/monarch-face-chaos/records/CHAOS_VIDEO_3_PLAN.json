@@ -1,0 +1,439 @@
+{
+  "task_id": "EMS-20261014-001",
+  "generation": "v3 \u00b7 MOTION EDITION (dense-flow action hops + living-shot micro motion)",
+  "total_frames": 1336,
+  "fps": 30,
+  "duration_s": 44.53,
+  "acts": [
+    {
+      "act": "A",
+      "name": "cold open",
+      "start": 1,
+      "end": 66,
+      "seconds": [
+        0.0,
+        2.17
+      ]
+    },
+    {
+      "act": "B",
+      "name": "throne rise",
+      "start": 67,
+      "end": 240,
+      "seconds": [
+        2.2,
+        7.97
+      ]
+    },
+    {
+      "act": "C",
+      "name": "walk + chaos projection",
+      "start": 241,
+      "end": 420,
+      "seconds": [
+        8.0,
+        13.97
+      ]
+    },
+    {
+      "act": "D",
+      "name": "triad close-ups",
+      "start": 421,
+      "end": 582,
+      "seconds": [
+        13.97,
+        19.37
+      ]
+    },
+    {
+      "act": "E",
+      "name": "chaos burst",
+      "start": 583,
+      "end": 780,
+      "seconds": [
+        19.4,
+        25.97
+      ]
+    },
+    {
+      "act": "F",
+      "name": "sovereign stance",
+      "start": 781,
+      "end": 990,
+      "seconds": [
+        25.97,
+        32.97
+      ]
+    },
+    {
+      "act": "G",
+      "name": "finale build",
+      "start": 991,
+      "end": 1214,
+      "seconds": [
+        32.97,
+        40.47
+      ]
+    },
+    {
+      "act": "H",
+      "name": "crown finale",
+      "start": 1215,
+      "end": 1336,
+      "seconds": [
+        40.47,
+        44.53
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 40
+    },
+    {
+      "start": 41,
+      "end": 66
+    },
+    {
+      "start": 67,
+      "end": 160
+    },
+    {
+      "start": 161,
+      "end": 208
+    },
+    {
+      "start": 209,
+      "end": 240
+    },
+    {
+      "start": 241,
+      "end": 251
+    },
+    {
+      "start": 252,
+      "end": 262
+    },
+    {
+      "start": 263,
+      "end": 273
+    },
+    {
+      "start": 274,
+      "end": 284
+    },
+    {
+      "start": 285,
+      "end": 320
+    },
+    {
+      "start": 321,
+      "end": 330
+    },
+    {
+      "start": 331,
+      "end": 370
+    },
+    {
+      "start": 371,
+      "end": 420
+    },
+    {
+      "start": 421,
+      "end": 470
+    },
+    {
+      "start": 471,
+      "end": 515
+    },
+    {
+      "start": 516,
+      "end": 582
+    },
+    {
+      "start": 583,
+      "end": 590
+    },
+    {
+      "start": 591,
+      "end": 598
+    },
+    {
+      "start": 599,
+      "end": 606
+    },
+    {
+      "start": 607,
+      "end": 614
+    },
+    {
+      "start": 615,
+      "end": 622
+    },
+    {
+      "start": 623,
+      "end": 630
+    },
+    {
+      "start": 631,
+      "end": 638
+    },
+    {
+      "start": 639,
+      "end": 646
+    },
+    {
+      "start": 647,
+      "end": 654
+    },
+    {
+      "start": 655,
+      "end": 662
+    },
+    {
+      "start": 663,
+      "end": 670
+    },
+    {
+      "start": 671,
+      "end": 678
+    },
+    {
+      "start": 679,
+      "end": 686
+    },
+    {
+      "start": 687,
+      "end": 694
+    },
+    {
+      "start": 695,
+      "end": 702
+    },
+    {
+      "start": 703,
+      "end": 710
+    },
+    {
+      "start": 711,
+      "end": 718
+    },
+    {
+      "start": 719,
+      "end": 726
+    },
+    {
+      "start": 727,
+      "end": 734
+    },
+    {
+      "start": 735,
+      "end": 742
+    },
+    {
+      "start": 743,
+      "end": 750
+    },
+    {
+      "start": 751,
+      "end": 758
+    },
+    {
+      "start": 759,
+      "end": 766
+    },
+    {
+      "start": 767,
+      "end": 774
+    },
+    {
+      "start": 775,
+      "end": 780
+    },
+    {
+      "start": 781,
+      "end": 788
+    },
+    {
+      "start": 789,
+      "end": 850
+    },
+    {
+      "start": 851,
+      "end": 860
+    },
+    {
+      "start": 861,
+      "end": 925
+    },
+    {
+      "start": 926,
+      "end": 990
+    },
+    {
+      "start": 991,
+      "end": 1005
+    },
+    {
+      "start": 1006,
+      "end": 1020
+    },
+    {
+      "start": 1021,
+      "end": 1033
+    },
+    {
+      "start": 1034,
+      "end": 1046
+    },
+    {
+      "start": 1047,
+      "end": 1057
+    },
+    {
+      "start": 1058,
+      "end": 1068
+    },
+    {
+      "start": 1069,
+      "end": 1077
+    },
+    {
+      "start": 1078,
+      "end": 1086
+    },
+    {
+      "start": 1087,
+      "end": 1093
+    },
+    {
+      "start": 1094,
+      "end": 1100
+    },
+    {
+      "start": 1101,
+      "end": 1106
+    },
+    {
+      "start": 1107,
+      "end": 1112
+    },
+    {
+      "start": 1113,
+      "end": 1117
+    },
+    {
+      "start": 1118,
+      "end": 1122
+    },
+    {
+      "start": 1123,
+      "end": 1127
+    },
+    {
+      "start": 1128,
+      "end": 1132
+    },
+    {
+      "start": 1133,
+      "end": 1136
+    },
+    {
+      "start": 1137,
+      "end": 1140
+    },
+    {
+      "start": 1141,
+      "end": 1144
+    },
+    {
+      "start": 1145,
+      "end": 1148
+    },
+    {
+      "start": 1149,
+      "end": 1152
+    },
+    {
+      "start": 1153,
+      "end": 1156
+    },
+    {
+      "start": 1157,
+      "end": 1160
+    },
+    {
+      "start": 1161,
+      "end": 1164
+    },
+    {
+      "start": 1165,
+      "end": 1168
+    },
+    {
+      "start": 1169,
+      "end": 1172
+    },
+    {
+      "start": 1173,
+      "end": 1176
+    },
+    {
+      "start": 1177,
+      "end": 1180
+    },
+    {
+      "start": 1181,
+      "end": 1184
+    },
+    {
+      "start": 1185,
+      "end": 1188
+    },
+    {
+      "start": 1189,
+      "end": 1192
+    },
+    {
+      "start": 1193,
+      "end": 1196
+    },
+    {
+      "start": 1197,
+      "end": 1200
+    },
+    {
+      "start": 1201,
+      "end": 1204
+    },
+    {
+      "start": 1205,
+      "end": 1208
+    },
+    {
+      "start": 1209,
+      "end": 1212
+    },
+    {
+      "start": 1213,
+      "end": 1214
+    },
+    {
+      "start": 1215,
+      "end": 1336
+    }
+  ],
+  "keyframes": [
+    "s1_walk_f1",
+    "s1_walk_f2",
+    "s2_point_f1",
+    "s2_point_f2",
+    "s3_throne_f1",
+    "s3_throne_f2",
+    "s4_guard_f1",
+    "s6_turn_f0",
+    "s6_turn_f1",
+    "s7_burst_f1"
+  ]
+}

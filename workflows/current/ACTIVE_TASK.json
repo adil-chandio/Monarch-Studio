@@ -9,10 +9,10 @@
     "Cause of repeated stops identified with measurements and recorded; repo back under the snapshot cap; render env bootstrap + branch recovery + budget tools committed; Chaos Video 2 built from the WF-04 engine, gated 21/21, uploaded to Drive with MD5, synced and checkpointed."
   ],
   "started_at": "2026-10-14T15:37:12Z",
-  "updated_at": "2026-10-14T15:51:59Z",
+  "updated_at": "2026-10-14T21:22:05Z",
   "checkpoint_sequence": 1,
-  "event_sequence": 12,
-  "journal_head": "bdd4e9ced05d74fe059faa2d16d3483fe8f0b8fd8f4da10c79f8587f7a11f19a",
+  "event_sequence": 14,
+  "journal_head": "3ff4ab3932b47c47c6067abdf70ba2208cadf6f6c7c7f82244823c1ee63e9b54",
   "last_checkpoint": "2026-10-14T15:51:53Z",
   "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0001-20261014T155153Z",
   "next_action": "Answer the user's 'why does the session keep stopping' question with the recorded rules 1-14, then ask whether Chaos Video 2 should replace or sit beside the delivered Chaos Video 1 (v1's helmet-edge bleed + gun-in-front-of-face masking are still open) and offer the next upgrade pass.",

@@ -111,18 +111,53 @@ def _ref_audio_path() -> Path:
     return wav
 
 
-def build_master_audio() -> tuple[Path, dict[str, Any]]:
-    sr, ref_wav = wavfile.read(_ref_audio_path())
-    ref_f = ref_wav.astype(np.float32) / 32768.0
-    if ref_f.ndim == 1:
-        ref_f = np.stack([ref_f, ref_f], axis=1)
+LAST_BED_KIND = "unknown"
 
-    target_samples = int(round((TOTAL_FRAMES / float(FPS)) * sr))
-    if len(ref_f) < target_samples:
-        pad = np.zeros((target_samples - len(ref_f), 2), dtype=np.float32)
-        base = np.vstack([ref_f, pad])
+
+def _synth_bed(sr: int, n: int) -> np.ndarray:
+    """Original synthesized score bed, used when the reference WAV is not staged.
+
+    No reference pixels or music are carried into the master either way; this is
+    a dark drone + heartbeat sub + air shimmer written for the 44.53 s cut.
+    """
+    t = np.arange(n, dtype=np.float32) / float(sr)
+    drone = (0.10 * np.sin(2 * np.pi * 55.0 * t) + 0.06 * np.sin(2 * np.pi * 82.5 * t + 0.7)
+             + 0.04 * np.sin(2 * np.pi * 110.0 * t + 1.3))
+    lfo = 0.75 + 0.25 * np.sin(2 * np.pi * 0.09 * t)
+    mono = drone * lfo
+    beat = np.zeros(n, dtype=np.float32)
+    for k in range(int(n / (sr * 1.6)) + 1):
+        i0 = int(k * 1.6 * sr)
+        if i0 >= n:
+            break
+        i1 = min(n, i0 + int(0.5 * sr))
+        lt = np.arange(i1 - i0, dtype=np.float32) / float(sr)
+        beat[i0:i1] += np.sin(2 * np.pi * 42.0 * lt) * np.exp(-lt * 7.0) * 0.35
+    air = np.random.default_rng(11).standard_normal(n).astype(np.float32) * 0.012
+    mono = (mono * 0.6 + beat + air) * 2.2
+    return np.stack([mono, np.roll(mono, 37)], axis=1).astype(np.float32)
+
+
+def build_master_audio() -> tuple[Path, dict[str, Any]]:
+    global LAST_BED_KIND
+    ref_path = REF_DIR / "ref_audio.wav"
+    if ref_path.exists():
+        sr, ref_wav = wavfile.read(ref_path)
+        ref_f = ref_wav.astype(np.float32) / 32768.0
+        if ref_f.ndim == 1:
+            ref_f = np.stack([ref_f, ref_f], axis=1)
+        target_samples = int(round((TOTAL_FRAMES / float(FPS)) * sr))
+        if len(ref_f) < target_samples:
+            base = np.vstack([ref_f, np.zeros((target_samples - len(ref_f), 2), dtype=np.float32)])
+        else:
+            base = ref_f[:target_samples].copy()
+        LAST_BED_KIND = "reference-bed"
     else:
-        base = ref_f[:target_samples].copy()
+        sr = 48000
+        target_samples = int(round((TOTAL_FRAMES / float(FPS)) * sr))
+        base = _synth_bed(sr, target_samples)
+        LAST_BED_KIND = "original-synth-bed"
+        print("note: reference bed not staged this session -> original synthesized score bed")
 
     sfx_l = np.zeros(target_samples, dtype=np.float32)
     sfx_r = np.zeros(target_samples, dtype=np.float32)
