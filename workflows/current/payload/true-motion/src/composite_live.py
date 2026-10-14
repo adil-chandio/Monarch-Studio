@@ -7,6 +7,7 @@ interpolated face/body frame. The simple black shirt grade is NOT a new blazer.
 """
 from __future__ import annotations
 import argparse
+import ast
 import hashlib
 import json
 import math
@@ -32,7 +33,7 @@ SHOTS=[
     dict(name='Lean / eye contact',kind='actor',source='front',start=27.,duration=5.0),
     dict(name='Side / turn away',kind='actor',source='side',start=5.8,duration=4.2),
     dict(name='Frontal performance',kind='actor',source='front',start=33.,duration=3.6),
-    dict(name='Final gesture',kind='actor',source='front',start=35.3,duration=4.0),
+    dict(name='Final gesture',kind='actor',source='front',start=34.2,duration=4.0),
     dict(name='Crown above MONARCH STUDIO',kind='brand',start=0.,duration=3.6),
 ]
 
@@ -164,6 +165,8 @@ def main():
             Image.fromarray(frame).save(a.out/f'{source}_{t}_composite.jpg',quality=95)
             Image.fromarray(np.uint8(mask*255)).save(a.out/f'{source}_{t}_mask.png')
         matte.close();print('COMPOSITE_SAMPLES_READY');return
+    processor_nodes=[n for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,(ast.FunctionDef,ast.ClassDef)) and n.name in ['smooth','image','decode','Matte','writer']]
+    processor=ast.dump(ast.Module(body=processor_nodes,type_ignores=[]),include_attributes=False)
     run={'method':'Live-action VFX composite using the user-recorded real performance',
          'identity_reshaping':False,'body_reshaping':False,'new_3d_body_performance':False,
          'new_blazer':False,'wardrobe':'Original shirt color-graded toward black; not generated tailoring',
@@ -171,7 +174,7 @@ def main():
          'original_sound':True,'original_scene_art':True,'shots':[]}
     for i,shot in enumerate(SHOTS):
         n=round(shot['duration']*FPS);path=a.out/f'shot_{i:02d}.mp4'
-        signature=hashlib.sha256(json.dumps(shot,sort_keys=True).encode()+(a.root/'vault-empty.png').read_bytes()+Path(__file__).read_bytes()).hexdigest()
+        signature=hashlib.sha256(json.dumps(shot,sort_keys=True).encode()+(a.root/'vault-empty.png').read_bytes()+processor.encode()).hexdigest()
         stamp=path.with_suffix('.json')
         if path.exists() and stamp.exists() and json.loads(stamp.read_text()).get('signature')==signature:
             print('RESUME_COMPLETE_SHOT',i,flush=True);run['shots'].append(json.loads(stamp.read_text()));continue

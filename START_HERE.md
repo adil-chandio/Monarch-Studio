@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `WF04-20261014-NOJELLY`
-- **Status:** `rendering`
+- **Status:** `active`
 - **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** Run composite_live.py for all 11 shots, then finish_live.py to synthesize original sound, mux, verify 1332 frames and save the video. Do not redo completed matching shots.
+- **Next action:** Open PR from arena/ea72fe82-monarch-studio after validation and push. Do not rebuild delivered draft. Full photoreal generated 3D film needs an approved detailed avatar/action pipeline, not more image warps.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

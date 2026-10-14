@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T17:22:56+00:00",
+  "generated_at": "2026-10-14T17:36:12+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "1b4939201f19889cd2982b8f68982714742d9c557197bce0f60146901bd484b6",
-      "size": 1205
+      "sha256": "d13a9616c98a88a823d65c958d1c4a6d4cd94ceb9f9195ee9223cf3634503415",
+      "size": 2227
     },
     "CHANGELOG.md": {
       "sha256": "b7953c9d96dc3c12cacaec116956b7bbe6b33b11deee678c2950630e95bd0e84",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "f70d261e80e162d4effbecb9f51c34a108f3bb01e69cca4a7262a36401563148",
-      "size": 730
+      "sha256": "edf26560053ee2a308597367902b25632330adb6633447535cb83500d9a865cc",
+      "size": 763
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -152,8 +152,8 @@
       "size": 4953
     },
     "docs/CONTINUITY_AND_RECOVERY.md": {
-      "sha256": "8f08dd66d408f3ca82840d4efa2ac9df9f77139147e8bffcd1593ace6838a2fb",
-      "size": 2670
+      "sha256": "9144362d17bf2a2990af2617705e57812df6fceb9759e9a32deb04c7fb4a0c8b",
+      "size": 4002
     },
     "docs/CROSS_PLATFORM_SYNC.md": {
       "sha256": "3b2d87f8428fe48b82aeaf401253d0c1768e4148b9477be60506b163a871e291",
@@ -354,6 +354,14 @@
     "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json": {
       "sha256": "b64817577bb92df82a5cc3fc0fe5dabfaa38bb54fd9d9c930955fc9487dd35e7",
       "size": 8516
+    },
+    "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/HANDOFF.md": {
+      "sha256": "fd1e9ee35bc1fbb2b3fe03865fef73ff8becd11fe4315525425a66cd027d245c",
+      "size": 2075
+    },
+    "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json": {
+      "sha256": "585e10577ac286acf405e1a6613b19ee02b2eac212809b5c9a8bbb2a636ca0b3",
+      "size": 10377
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -558,6 +566,18 @@
     "operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json": {
       "sha256": "5933b6d76604bb266e1a1fc5110c7af64641125c34ff8d6bcb23bd0739719f85",
       "size": 8516
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/STATUS.md": {
+      "sha256": "0ca26f12c41449c9991fe2da1a6f115b043415a1bd0c0cacc82133ef02304f25",
+      "size": 1011
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/SYNC.json": {
+      "sha256": "36a7f0b54fb6cd56991490cc57695664324155ff7908fb0366066250a428d336",
+      "size": 4365
+    },
+    "operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json": {
+      "sha256": "f46ec93296086d936774211bf8be59a0aaab44ec01965bde0cafaf4e74b8a5d8",
+      "size": 10377
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -2335,6 +2355,10 @@
       "sha256": "1b2a42121b475001f1f38ed62d2162a556dfe65495db02877bc42950fbadffe4",
       "size": 3190
     },
+    "tests/test_manifest_privacy.py": {
+      "sha256": "9b963e2a9f6ba2241bae5a3c9c7190fedb93cf97611ac37c54fb596aedd2ea56",
+      "size": 1471
+    },
     "tests/test_studio.py": {
       "sha256": "cb2ee5b8597958f1968b42505703df5baaaeae43f655779e8723f6bde2d28434",
       "size": 5522
@@ -2368,36 +2392,48 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "68dee4a9abe58a662e2c0f7029f3585b2ccad7794aeb19619e74da943fdf5279",
-      "size": 2535
+      "sha256": "ed2d167ed6eddd6e6e186ec452bec2064ac2eda5f613876e735b38321498ea5a",
+      "size": 2972
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "9e629b5f72c71fdec73107b1c4168d2e5a71267f367781352b76e2495444a147",
-      "size": 2535
+      "sha256": "7381005b5eceea6b960a3ba3527a91809ba97c78e24abf3c65db9603b562ee8a",
+      "size": 3245
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "af594eea9d3e8a9f124e74a73e8358f759f0fdbfd05600b28a11996b26b255ef",
-      "size": 15567
+      "sha256": "1521c284ab1af4a74f0cedfd078e01c0f918bebfe6a1e6c000879cc39a84bf4f",
+      "size": 23208
     },
     "workflows/current/RESUME.md": {
-      "sha256": "eddc201709ed2f7cd6afd18b76625abbb8d3d696a4936ac6a0a2def1610bb982",
-      "size": 1816
+      "sha256": "b806277a9916e86fd021638e010da02c80b91afcb1a829921ecf866afa27d2e5",
+      "size": 2011
+    },
+    "workflows/current/payload/true-motion/README.md": {
+      "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22",
+      "size": 5356
     },
     "workflows/current/payload/true-motion/records/BRIEF.json": {
       "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8",
       "size": 1000
     },
+    "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json": {
+      "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df",
+      "size": 1921
+    },
     "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json": {
       "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6",
       "size": 3149
+    },
+    "workflows/current/payload/true-motion/requirements.txt": {
+      "sha256": "832c3d66f0cd4ec8303e55655f1c56b1ef5a988572cd5c23dca61a833007a990",
+      "size": 207
     },
     "workflows/current/payload/true-motion/src/build_vault.py": {
       "sha256": "64304ad9ba8771be3bea41be6aeb101d8c1d346ec07d7cd66b0a43119ce746dd",
       "size": 30565
     },
     "workflows/current/payload/true-motion/src/composite_live.py": {
-      "sha256": "d6c69ede276f7355dd0fb585ac76576a6e1d5530394fd03e6287137c49b8d18a",
-      "size": 11108
+      "sha256": "5a92640af4e4d442dd2ac0090cadbf63a36d9e180c26f365c18b20e1ea0a2f40",
+      "size": 11391
     },
     "workflows/current/payload/true-motion/src/finish_live.py": {
       "sha256": "b509d0e4f08f6e77581a8a4c654d4998fb40095e500bfcbea35b731289823eb6",
@@ -2414,6 +2450,10 @@
     "workflows/current/payload/true-motion/src/render_vault.py": {
       "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130",
       "size": 3555
+    },
+    "workflows/current/payload/true-motion/tests/test_motion.py": {
+      "sha256": "d42a25eaf0853f6848f4ce90c551fe3e3a5e2ae1abc1b9b130f775c85558843e",
+      "size": 2943
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

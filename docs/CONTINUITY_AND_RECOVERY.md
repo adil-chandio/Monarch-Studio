@@ -58,3 +58,26 @@ If the page or response stops:
 6. append the recovered result and checkpoint.
 
 If state and chat disagree, immutable files, measured outputs and the latest checkpoint win; record the discrepancy rather than hiding it.
+
+## Service errors are not render errors (2026-10-14 clarification)
+
+The user supplied a screenshot of Arena's **“The AI service encountered an
+error”** banner. It proves the service/UI reported a failure, not the backend
+cause. This repository cannot repair Arena's backend or guarantee an
+uninterrupted turn. Do not attribute that banner to snapshot size, token limits,
+missing Python packages or branch resets without corresponding evidence.
+
+For local finite renders, finish the pipeline when feasible instead of ending
+just after launch. Record the process ID, wait for its real result, inspect the
+output, and present the requested artifact. Resumption must query that process
+first and reuse only fingerprint-matching, completed frame/shot files.
+
+In this revision a separate, verified local failure occurred: the last source
+clip was too short. The decoder refused to freeze/duplicate frames. Its source
+range was corrected, completed shots 0–8 were fully decoded and retained, and
+only the remaining shots/export resumed. This is a local fix—not a claim that
+the Arena service banner has been fixed.
+
+Private media/model caches and deliverables must be excluded from the studio
+manifest as well as Git. The manifest previously enumerated ignored `.cache`
+content; regression tests now cover this privacy boundary.
