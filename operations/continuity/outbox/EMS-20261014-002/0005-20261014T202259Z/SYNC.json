@@ -5,7 +5,7 @@
   "created_at": "2026-10-14T20:22:59Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,12 +31,13 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "355933e0817bdbe8c6e1a4ece22c683bdc1f7c0f",
+      "synced_at": "2026-10-14T20:23:08Z",
+      "note": "sync checkpoint pushed to arena/7f4f623f-monarch-studio; the four external platforms carry the cp0004 record (see cp0004 SYNC.json)",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/355933e0817bdbe8c6e1a4ece22c683bdc1f7c0f"
     },
     "google_docs": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
@@ -44,12 +45,13 @@
         "role": "portable human recovery and proof hub",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "see-cp0004",
+      "synced_at": "2026-10-14T20:23:09Z",
+      "note": "bookkeeping checkpoint; external record for this state lives in cp0004 SYNC.json (no new content to publish)",
+      "url": null
     },
     "google_drive": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
@@ -62,12 +64,13 @@
         "role": "repository bundles, checkpoints, recovery exports and large artifacts",
         "final_completion_status": "pending_corrected_release_bundle"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "see-cp0004",
+      "synced_at": "2026-10-14T20:23:08Z",
+      "note": "bookkeeping checkpoint; external record for this state lives in cp0004 SYNC.json (no new content to publish)",
+      "url": null
     },
     "linear": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
@@ -78,12 +81,13 @@
         "role": "active task, blockers, acceptance criteria and checkpoint status",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "see-cp0004",
+      "synced_at": "2026-10-14T20:23:09Z",
+      "note": "bookkeeping checkpoint; external record for this state lives in cp0004 SYNC.json (no new content to publish)",
+      "url": null
     },
     "notion": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
@@ -92,9 +96,10 @@
         "role": "browsable continuity, style architecture, decisions and recovery state",
         "completion_status": "pending_corrected_release_receipt"
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "see-cp0004",
+      "synced_at": "2026-10-14T20:23:08Z",
+      "note": "bookkeeping checkpoint; external record for this state lives in cp0004 SYNC.json (no new content to publish)",
+      "url": null
     }
   }
 }
