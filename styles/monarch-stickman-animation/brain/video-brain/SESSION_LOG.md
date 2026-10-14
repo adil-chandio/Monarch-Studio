@@ -68,3 +68,10 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Result:** /home/user/work/AMEER_KA_KUTTA_v9.mp4 delivered locally (19.23 s, 34.3 MB, md5 98b7fe16...). Drive upload impossible from this sandbox (P-023) - told the user. Status: v9 delivered, awaiting user review; v8 still the last Drive upload. Media persists in /home/user/work/build9 (VO, sprites); shards and intermediate wavs deleted (regenerable).
 - **Files:** `styles/monarch-stickman-animation/src/cinema9.py`, `styles/monarch-stickman-animation/src/sfx9.py`, `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`, `styles/monarch-stickman-animation/src/cards3d.py`, `styles/monarch-stickman-animation/src/husky/dog_husky.py`, `styles/monarch-stickman-animation/src/build9.sh`, `styles/monarch-stickman-animation/HANDOFF_KUTTA_v9.md`
 
+## S-010 · 2026-10-14 05:35 PKT
+
+- **Request:** User: Drive is connected - upload v9 from there. What happened?
+- **Action:** Found the sandbox reset had wiped /home/user/work (V-018 MP4, VO, sprites) and /tmp. Rebuilt from the committed recipe: bootstrap9.sh (33 s), render_husky.sh (170 sprites, ~25 min, overlapped with chunk-0 rendering), VO regenerated with voice-00 + prep_vo_kutta.py (new 20.24 s timeline), fixed T_STAMP to the split shot, SYNTH_TRIM for the AAC peak, 4 chunks x 2 workers, mix, mux, gate 21/21, uploaded with the google_drive connector the same minute, made link-viewable. VO archive also uploaded. Brain: P-023 corrected (Drive works via connector), P-024 (lost deliverable), V-019.
+- **Result:** AMEER_KA_KUTTA_v9.mp4 on Drive: 17czsstRsNA4JC84rfqja5Q8JqTeEaqsV (md5 730f840469ec460512d05a67f7d23375 verified by Drive). Status: v9 delivered, awaiting user review (not accepted).
+- **Files:** `styles/monarch-stickman-animation/src/kutta2.py`, `styles/monarch-stickman-animation/src/mux_kutta2.py`, `styles/monarch-stickman-animation/src/build9.sh`, `styles/monarch-stickman-animation/HANDOFF_KUTTA_v9.md`
+

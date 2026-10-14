@@ -184,3 +184,15 @@ Use `tools/brain.py` to add entries. Do not edit old entries.
 - **Fix:** SFX: sfx9.py synthesised designs with the same names (mux falls back automatically). Husky.glb fetched via api.github.com contents API (Accept: application/vnd.github.raw). Delivery: the MP4 is left at /home/user/work/AMEER_KA_KUTTA_v9.mp4 and the user is told the Drive upload has to happen from a session with Drive access.
 - **Verified by:** bootstrap9.sh + mux_kutta2.py runs in this session
 
+## P-023 update · 2026-10-14 · status: fixed
+
+- **Fix:** Correction: Google Drive IS reachable through the Arena google_drive connector (upload_file with a workspace file_path) - only raw curl egress from the sandbox is blocked. The v9 VO archive uploaded fine (1uhPiHPjhPs2_CPqkYEr2RPYhlK98qygE). Rule from now on: upload every gated deliverable to Drive with the connector in the SAME turn the gate passes; never leave a finished MP4 only on the sandbox disk.
+- **Verified by:** connector upload of AMEER_KA_KUTTA_v9_VO_voice00.zip, 2026-10-14
+
+## P-024 · 2026-10-14 · status: open
+
+- **Symptom:** Finished AMEER_KA_KUTTA_v9.mp4 (gate 21/21) was lost: the sandbox reset between turns wiped /home/user/work (MP4, VO, 170 Husky sprites) and /tmp venvs; only the git repo survived. The user asked for the Drive upload after the file was already gone.
+- **Cause:** I assumed Drive was unreachable because curl egress is blocked, and did not use the connector upload right after the gate. Files outside the repo do not survive a sandbox reset.
+- **Fix:** Rebuilt from the committed recipe (bootstrap9.sh 33 s, render_husky.sh ~25 min, VO regenerated with voice-00 -> new timing 20.24 s / 607 frames, build9.sh). VO archive now kept on Drive. Deliverable uploaded with the connector as soon as the gate passes (see V-019).
+- **Verified by:** this session's rebuild
+

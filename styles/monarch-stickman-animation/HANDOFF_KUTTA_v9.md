@@ -1,10 +1,15 @@
 # AMEER KA KUTTA — v9 handoff ("cinema" pass)
 
-Status: v9 rendered, gated **21/21** and left at `/home/user/work/AMEER_KA_KUTTA_v9.mp4` (19.23 s, 1080x1920 30 fps,
-34,255,847 B, md5 `98b7fe160fddcc2d0c58d4b1c3ba9a98`). Drive upload impossible from this sandbox — see P-023; v8
-remains the last Drive upload (`1D44AE8qc4wFwuAFu1UPrKPyuC-T8oshr`). Neither v8 nor v9 is accepted by the user yet.
-Gate: max_dluma 6.803, jerk_p95 1.136, trans_jerk_max 6.618, black_edge 0, decoded peak −1.8 dBFS, LUFS −12.1,
-bed flatness 0.073 (full report: `/home/user/work/v9_gate.txt`, brain V-018).
+Status: v9 rendered, gated **21/21** and **on Drive**: `17czsstRsNA4JC84rfqja5Q8JqTeEaqsV` (link-viewable) in the
+KUTTA folder `1_MhRILyCB86LWHYqLDzBPvmneA6Y2uqo` — 20.24 s, 1080x1920 30 fps, 35,714,624 B,
+md5 `730f840469ec460512d05a67f7d23375`. VO source archive (voice-00 k1..k4 + fit + timing.json):
+`1uhPiHPjhPs2_CPqkYEr2RPYhlK98qygE` — drop it into `/home/user/build/kutta/vo/` to rebuild the identical timeline.
+Neither v8 nor v9 is accepted by the user yet.
+Gate: max_dluma 6.911, jerk_p95 1.421, trans_jerk_max 7.211, black_edge 0, decoded peak −1.66 dBFS, LUFS −12.2,
+bed flatness 0.087 (brain V-019; the first v9 render V-018 was lost to a sandbox reset before upload — P-024).
+
+**Rule learned the hard way:** the sandbox resets between turns and keeps only the git repo. Upload every gated
+deliverable to Drive with the `google_drive` connector (`upload_file` + workspace `file_path`) in the same turn.
 
 ## What v9 adds on top of v8 (same script, same 12 shots / 11 3D transitions)
 
@@ -52,8 +57,13 @@ bash src/build9.sh                       # 2 shards -> mix -> KUTTA_OUT mux -> g
 DUR 19.23 s, 577 frames. VO at 0.30 / 3.09 / 8.16 / 11.45; shots room_wide 0–1.54, room_close –3.09, walk –4.21,
 door –5.02, drive –6.23, bowl –7.15, bed –8.16, throne –9.97, crown –11.45, pave –14.56, crouch –16.74, split –19.23.
 
+## v9.1 fixes made during the rebuild
+- `T_STAMP = max(VO_END + .55, split t0 + .47)`: the end-card impact/ring, punch and the slam now share one frame
+  after the flare (the first render fired the sound ~1 s early, in the crouch shot).
+- `mux_kutta2.SYNTH_TRIM` (gleam .62, riser_click .85, conjure_charge .85): bright synth designs sat on the limiter
+  and the AAC decode peaked at −1.26 dBFS; now −1.66.
+
 ## Open items
 
 - P-021 / P-022 (sit pose = Idle clip; SFX designed, not verified by ear) still open.
-- P-023: no Drive from this sandbox → upload v9 from a session with Drive access, then log the ID in VIDEO_LOG.
 - Ideas not done: a real sit clip for the Husky; per-word caption kinetic typography; a dedicated 3D crown model.

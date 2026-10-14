@@ -291,6 +291,7 @@ SAMPLE_WHOOSH = False          # per-moment SFX mapping needs the user's listeni
 
 
 SYNTH_USED = set()
+SYNTH_TRIM = {'gleam': .62, 'riser_click': .85, 'conjure_charge': .85}   # v9.1: bright synth designs sat on the limiter (AAC peak -1.26 dBFS at the gleam)
 
 
 def _lib(name, amp=1.0):
@@ -303,7 +304,7 @@ def _lib(name, amp=1.0):
         if w.getnchannels() == 2:
             a = a.reshape(-1, 2).mean(axis=1)
         return a
-    a = sfx9.synth(name, amp)
+    a = sfx9.synth(name, amp * SYNTH_TRIM.get(name, 1.0))
     if a is not None:
         SYNTH_USED.add(name)
     return a

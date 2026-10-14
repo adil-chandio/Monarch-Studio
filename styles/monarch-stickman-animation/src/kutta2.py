@@ -51,7 +51,7 @@ NF = int(round(DUR_TOTAL * FPS))
 CHAPTER = ['HOOK', 'LUXURY', 'RAJA', 'GAREEB']
 ACC = [GOLD, TEAL, ROYAL, CORAL]
 VO_END = round(VO_AT[3] + CLIP[3], 3)                 # last spoken sample
-T_STAMP = round(VO_END + 0.55, 3)                      # v9: the end card slams here (inside the 4.1 s hold)
+# T_STAMP is defined below SHOT_BY_NAME: the end card lives in the split shot, so it slams once the flare has cleared
 T_SLAM = 0.30                                          # v9: hook title first word lands with the crack hit and the VO onset
 
 # shots: (chapter, weight inside the chapter, name)
@@ -77,6 +77,7 @@ N_SHOTS = len(SHOTS)
 SHOT_BY_NAME = {s['name']: s for s in SHOTS}
 T_CROWN_LAND = round(SHOT_BY_NAME['crown']['t0'] + .55 * (SHOT_BY_NAME['crown']['t1'] - SHOT_BY_NAME['crown']['t0']), 3)  # v9: crown touchdown
 THUNDER = [round(SHOT_BY_NAME['pave']['t0'] + 1.05, 3), round(SHOT_BY_NAME['crouch']['t0'] + .80, 3)]                   # v9: GAREEB lightning
+T_STAMP = round(max(VO_END + 0.55, SHOT_BY_NAME['split']['t0'] + 0.35 + 0.12), 3)   # v9.1: stamp sound + slam + punch on the same frame, after the flare (v9 fired the sound 1 s early, in the crouch)
 
 # one transition per boundary (11), no two neighbours alike
 # v7: every boundary is a real 3D / parallax move (transitions3d.py): hinged page, depth push-through
