@@ -28,7 +28,10 @@ Linear: MON-52 (Done) · MON-44 comment. Notion: Doc 10 (IZZAT v2 block), Doc 07
 Drive: MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l` → WTF-30 · Monarch Impossible Moments `1w_hv-2v0-VtSI9tp8g3uuaQGgRQZmPO6` → THE GRAVITY OF THE PHONE · WTF-30 #1 · 20s · 2026-10-14 `1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ`
 | file | bytes | md5 | Drive id | folder |
 |---|---|---|---|---|
-| **THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4** (current) | 61,573,207 | f54c3b295011bb3310ce60f7d710e98b (Drive-verified) | 1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1 | 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ |
+| **THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4** (current) | 61,998,081 | b2735dbf9ff18dc2e8f3fbf2be341c22 (Drive-verified) | 1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl | 1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ |
+| LOOK_SHEET_v4.jpg | — | — | 1qe20v4NuD7Rcm5J_dOVxwDPu8snEVXzU | same |
+| gate_receipt_v4.json | — | — | 1kY9Kn1TeqrtgNBTyZ9RonrA4ORN190ej | same |
+| THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4 (v3, history) | 61,573,207 | f54c3b295011bb3310ce60f7d710e98b (Drive-verified) | 1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1 | same |
 | LOOK_SHEET_v3.jpg | — | — | 1b-Usf3fQV4yjX7lYD0ucCw5CcFqxAwt_ | same |
 | gate_receipt_v3.json | — | — | 1fkMxnPAlM0VoM7ka2lciSdRU_yCEEX_O | same |
 | THE_GRAVITY_OF_THE_PHONE_WTF30_01_v2.mp4 (v2, history) | 60,699,977 | dc13effd2c86277767b29dec7769bca4 (Drive-verified) | 1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp | same |
@@ -37,4 +40,4 @@ Drive: MONARCH STUDIO `1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l` → WTF-30 · Monarch 
 | THE_GRAVITY_OF_THE_PHONE_WTF30_01.mp4 (v1, history) | 62,733,035 | 824a8133bde468c8a0a027d12da3081a (Drive-verified) | 118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ | same |
 | LOOK_SHEET.jpg (v1) | 366,727 | — | 1FVWPZbHGM3Icu-VABG40wIqmDUaPjKr5 | same |
 | gate_receipt.json (v1) | 3,739 | — | 1d7-ohnb_jWx1L-0n8_3KwpnQ7CYNQhRz | same |
-Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` (version 3) · 12/12 measured + 28/28 freshness · v3 = vocal-chop hook score, 111 voices, kick-synced picture pump, 180° world roll on "Warna tum ulte.".
+Package: `films/gravity-of-the-phone/` · registry key `gravity_of_the_phone_wtf30_01` (version 4) · 12/12 measured + 28/28 freshness · v4 = Apple iPhone + comment engine (7 visible plants: 9:41 / racing clocks that stop together, Monarch-in-the-photo, the friend points at the lens on 'tum', the moth, steam bending away, spiral light), 117 voices; v3 = vocal-chop hook score, kick-synced picture pump, 180° world roll on "Warna tum ulte.".

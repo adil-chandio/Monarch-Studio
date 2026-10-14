@@ -63,7 +63,7 @@ def master_linear(mix, out, I=-14.0, TP=-1.0):
     gain_db = 0.0
     for it in range(5):
         y = x * 10 ** (gain_db / 20)
-        y, gr = true_peak_limit(y, sr, ceiling_db=TP - 0.3)
+        y, gr = true_peak_limit(y, sr, ceiling_db=TP - 0.5)   # v4: 0.5 dB headroom for AAC overshoot
         _write_wav(tmp, y, sr)
         m = measure(tmp)
         print(f"master pass {it}: gain {gain_db:+.2f} dB  limiter GR {gr:.1f} dB  ->  {m}")

@@ -59,3 +59,18 @@ Transitions: tint_flash_cut, insert_cutaway, push_in_cut, phone_match_cut, loop_
 - **The picture breathes with the kick.** Camera pump + chroma split on every score kick, god-rays and an anamorphic streak from the phone, afterimages on the lunge / slips / fall, amber rim light in the ECU, a kinetic letter cascade on "Phone ulta. Zindagi seedhi."
 - **The moral pays off physically.** "Warna tum ulte." — on 'ulte.' the entire world whip-rolls 180° and holds upside-down: the upside-down word becomes the only upright thing in frame (a cartoon 'uh-oh' lands in the hold), then the buzz snaps everything back for the loop (vinyl brake). The warning literally happens to the viewer.
 - Delivery v3: Drive `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1` · md5 `f54c3b295011bb3310ce60f7d710e98b` · 12/12 + 28/28 gates.
+
+## v4 — the iPhone and the comment engine (same script, details people must argue about)
+
+The brief: the phone must be an **Apple iPhone**, and the film must carry things — "in the wall, or in the video" — that grip the brain and make people comment even when they do not want to. The rule we set for ourselves: **no subliminal frames, no hidden tricks** — every plant is visible on a normal watch or a pause, has a physical reason inside the one broken law, and is answerable in the comments. The seven plants (`DNA.json → comment_engine.plants`):
+
+1. **The iPhone.** Face-down titanium back with the triple camera and the mark in the hook; on the flip the lock screen reads **9:41** (Apple's keynote time) over an amber log-spiral wallpaper that turns slowly — then faster once the field is on. Notification pills rise with each ding.
+2. **Time flies.** The moment the field is on, the wall clock's hands begin to race and the lock screen races with them; by the drop the room has lost five hours (9:41 → 2:41) and **both stop dead on the same frame**. Freeze-framers will check, and they will match.
+3. **Monarch in the photo.** The framed photo on the wall holds Monarch and a friend. The field pulls Monarch-in-the-photo to the glass edge nearest the phone; the friend's eyes and brow follow him. After the drop he slides back down the glass.
+4. **The friend points at you.** On 'tum' in the moral, the friend in the photo raises an arm and points straight at the lens — the only time anything in the film addresses the viewer.
+5. **The moth.** A moth circles the lamp; it leaves for the brighter screen the moment it wakes, orbits the phone tighter and faster as gravity bends, tumbles at the drop, staggers back to the lamp. (An insect obeying the phone's gravity before the humans do.)
+6. **Steam bends away.** The coffee steam, which rose straight in the hook, bends *away* from the phone while everything else falls *toward* it. Buoyancy opposes gravity — the one object in the room that is right, and it looks wrong.
+7. **Spiral light.** In the ECU, the rim light on his hood and the wall pulses in slow amber bands with the same spiral period as the wallpaper.
+
+- Everything else — score, 117-voice sound design (now with the moth flutter, 60 accelerating ratchet ticks, the stop tock, the glass thump/slide/point pop), the kinetic type, the 180° world roll — is v3, unchanged. Words still 7.
+- Delivery v4: Drive `1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl` · md5 `b2735dbf9ff18dc2e8f3fbf2be341c22` · 12/12 + 28/28 gates. Previous: v3 `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1`.

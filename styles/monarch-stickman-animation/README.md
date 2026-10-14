@@ -34,7 +34,7 @@ The checked brain registry remembers six deliveries:
 5. IZZAT v1
 6. **IZZAT v2** — current WF-01 short authority
 7. TUMHARI RESERVED SEAT (WF-01 16:9 + WF-03 noir, 2026-10-11)
-8. **THE GRAVITY OF THE PHONE** — WTF-30 #1, 20 s vertical impossible-moment short (2026-10-14; v2 the same day: composed score, 96-voice sound design, upside-down moral; v3: vocal-chop hook, kick-synced picture pump, god-rays, afterimages, kinetic type, 180° world roll) → `films/gravity-of-the-phone/`
+8. **THE GRAVITY OF THE PHONE** — WTF-30 #1, 20 s vertical impossible-moment short (2026-10-14; v2 the same day: composed score, 96-voice sound design, upside-down moral; v3: vocal-chop hook, kick-synced picture pump, god-rays, afterimages, kinetic type, 180° world roll; v4: the phone is an Apple iPhone + the comment engine — 9:41 and racing clocks, Monarch-in-the-photo, the friend who points at you, the moth, steam that bends away, spiral light) → `films/gravity-of-the-phone/`
 
 Current IZZAT v2 authority:
 

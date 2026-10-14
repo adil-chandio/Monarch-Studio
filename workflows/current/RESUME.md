@@ -3,8 +3,8 @@
 **Status:** `waiting_external`  
 **Title:** WTF-30 #1 · THE GRAVITY OF THE PHONE · 20 s vertical impossible-moment short (paper/ink, WF-01 identity)  
 **Style:** `monarch-stickman-animation`  
-**Checkpoint sequence:** 3  
-**Last checkpoint:** 2026-10-14T19:25:04Z
+**Checkpoint sequence:** 4  
+**Last checkpoint:** 2026-10-14T20:07:30Z
 
 ## Goal
 
@@ -19,7 +19,7 @@ Produce the first WTF-30 video: a 20.0 s 1080x1920 30 fps paper/ink short in whi
 
 ## Exact next action
 
-Wait for the user's reaction to v3; if approved pick the next slate idea (doctrine §13) or iterate on v3 feedback. Re-run 'pip install --user --break-system-packages numpy pillow scipy imageio-ffmpeg' at session start before rendering.
+Wait for the user's verdict on v4 (look sheet + Drive link sent). If accepted: nothing pending; if notes: iterate in workflows/current/payload/gravity-of-the-phone (re-render halves with render.py --range, rebuild with build.py, gate.py, then re-promote).
 
 ## Running processes
 
@@ -37,6 +37,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0003-20261014T192504Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-002/0004-20261014T200730Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

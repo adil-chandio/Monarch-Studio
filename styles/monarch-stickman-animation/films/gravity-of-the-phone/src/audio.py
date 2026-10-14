@@ -323,6 +323,38 @@ def v_roll_whoosh(dur=0.30):
     return fade(x * np.exp(-((u - 0.45) / 0.3) ** 2), 0.005, 0.01)
 
 
+# ── v4 — comment-engine voices ───────────────────────────────────────────────
+def v_moth_flutter(dur, rate=24.0, seed=7):
+    """Papery wing beats: band-passed noise shaped by a sharp 24 Hz pulse, gated into natural bursts."""
+    t_ = tt(dur)
+    x = bp(noise(dur), 900, 3400, 2)
+    am = (0.5 + 0.5 * np.sin(2 * np.pi * rate * t_ + 0.3 * np.sin(2 * np.pi * 1.7 * t_))) ** 3
+    # bursts: 0.25-0.7 s on, 0.15-0.5 s off (deterministic schedule)
+    gate = np.zeros_like(t_)
+    tcur, j = 0.0, 0
+    while tcur < dur:
+        on = 0.25 + 0.45 * S.hash01(seed, j, 1)
+        off = 0.15 + 0.35 * S.hash01(seed, j, 2)
+        i0, i1 = int(tcur * SR), int(min(dur, tcur + on) * SR)
+        g = np.ones(max(0, i1 - i0))
+        r = min(len(g) // 2, int(0.04 * SR))
+        if r > 0:
+            g[:r] *= np.linspace(0, 1, r); g[-r:] *= np.linspace(1, 0, r)
+        gate[i0:i1] = g
+        tcur += on + off
+        j += 1
+    return fade(x * am * gate, 0.01, 0.02)
+
+
+def v_ratchet_tick(dur=0.004, f=3000):
+    return fade(bp(noise(dur), f * 0.6, f * 1.7) * env_exp(dur, 0.0012), 0.0003, 0.002)
+
+
+def v_glass_tink(dur=0.22, f=1800):
+    t_ = tt(dur)
+    return fade((np.sin(2 * np.pi * f * t_) + 0.4 * np.sin(2 * np.pi * f * 2.76 * t_)) * np.exp(-t_ / 0.045), 0.0005, 0.01)
+
+
 def prop_speed_env(name, t0, t1, step=0.01):
     ts = np.arange(t0, t1, step)
     sp = np.array([math.hypot(*S.prop_vel(name, t)) for t in ts]) * S.FPS   # px / s
@@ -505,6 +537,32 @@ def build(vo_path=None, vo_moral_path=None):
     M.add(v_roll_whoosh(TL["roll_dur"] + 0.06), TL["roll_start"] - 0.02, 0.55, name="world_roll_whoosh")
     M.add(v_thud(0.4, 44) * 1.2, TL["roll_start"], 0.45, name="world_roll_whomp")
     M.add(v_click(1.0, 0.03, 400, 2200) * 1.3 + padto(v_thud(0.12, 90), int(0.03 * SR)) * 0.6, TL["moral_out"], 0.4, name="snap_back_click")
+    # ── v4 — THE COMMENT ENGINE (sounds that make the planted details findable) ──
+    # the moth: one long papery flutter following the shot (loud in the quiet desk shots, under the score in S4)
+    flut = v_moth_flutter(DUR + 2.2)
+    tsf = np.arange(len(flut)) / SR - 2.2                      # film time of each sample (starts at loop-time -2.2)
+    genv = np.interp(tsf, [-2.2, -2.05, 1.95, 2.0, 3.75, 3.8, 4.6, 4.65, 12.3, 14.55, 14.6, 17.9, 17.95],
+                           [0.0, 1.0, 1.0, 0.55, 0.55, 0.0, 0.0, 0.5, 0.5, 0.45, 0.4, 0.4, 1.0])
+    M.add(flut * genv, -2.2, 0.075, pan=0.28, name="moth_flutter", loop=True)
+    # the wall clock's hands race while the phone has the room: a 5-minute ratchet tick per mark (60 ticks over 5 h)
+    tsc = np.arange(TL["field_on"], TL["drop"], 0.002)
+    mins = np.array([S.clock_minutes(t_) for t_ in tsc])
+    marks = np.floor(mins / 5.0)
+    hits = tsc[np.where(np.diff(marks) > 0)[0]]
+    rat = np.zeros(int(0.5 * SR) + int((TL["drop"] - TL["field_on"]) * SR))
+    for j, th in enumerate(hits):
+        i0 = int((th - TL["field_on"]) * SR)
+        tk = v_ratchet_tick(0.004, 2600 + 900 * S.hash01(j, 71)) * (0.55 + 0.45 * min(1.0, j / 20))
+        rat[i0:i0 + len(tk)] += tk[:len(rat) - i0]
+    M.add(rat, TL["field_on"], 0.12, pan=0.05, name="clock_spin_ratchet")
+    # ... and stop dead at the drop (wooden tock + a short spring)
+    M.add(padto(v_wood_knock(0.12, 300) * 1.2, int(0.5 * SR)) + v_boing(0.5, 420) * 0.35, TL["drop"] + 0.03, 0.28, pan=0.1, name="clock_stop_tock")
+    # Monarch-in-the-photo hits the glass (field_on + 0.70), slides down it after the drop
+    M.add(v_wood_knock(0.12, 260) * 0.9 + padto(v_glass_tink(0.22, 1750) * 0.5, int(0.12 * SR)), TL["field_on"] + 0.70, 0.30, pan=0.15, name="photo_glass_thump")
+    M.add(v_squeak(0.32, 950, 620) * 0.6, TL["drop"] + 0.08, 0.07, pan=0.15, name="photo_glass_slide")
+    # the friend in the photo points at the lens on 'tum' (a tiny cartoon pop)
+    M.add(padto(v_click(1.0, 0.012, 500, 1800) * 1.2, int(0.05 * SR)) + np.sin(2 * np.pi * 640 * tt(0.05)) * env_exp(0.05, 0.012) * 0.8,
+          TL["moral2"] + 0.04, 0.14, pan=-0.45, name="photo_point_pop")
     # VO — speech begins exactly at line1 (the file has 0.48 s of leading silence)
     if vo_path and pathlib.Path(vo_path).exists():
         import imageio_ffmpeg

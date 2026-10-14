@@ -62,6 +62,22 @@ Task `EMS-20261014-002` · 2026-10-14 · first WTF-30 delivery. Everything below
 - Level new instruments against the part they must beat; measure instruments alone before reading a mixed spectrum.
 - Visual side-chain from the score's kick list; never pump across the loop seam.
 
+## v4 upgrade (iPhone · comment engine) — 2026-10-14
+
+31. **Tile figures must scale their strokes.** `_stick` drew raw-pixel radii regardless of the tile scale `K`, so Monarch-in-the-photo was an unreadable smudge at 64×80 and a fat blob at the 2× sprite scale. Pass `K` and scale every radius × K; eyes, brow and the pointing glove follow the same rule.
+32. **A flat phone needs a flattened projection.** The upright lock-screen tile projected at θ = 14° / sin E = 0.64 read as a phone *standing up* on the desk. θ = 22° with sin E = 0.50 (plus the visible thickness edge with the USB-C slot) lies flat and still shows the Dynamic Island. Draw the mark on the back as the engraved apple (leaf + bite), not a disc.
+33. **Spiral bands need contrast, not just phase.** ECU rim light modulated by the spiral at amplitude 0.22 was invisible under the grain; `k = 0.34 + 0.30·pump + 0.40·seg(4.15, 4.45)` with band modulation `rim·(0.40 + 1.10·band²)` reads as slow amber bands on the hood and the wall without lifting the paper.
+34. **Small actors at wide shots: 1.5×.** The moth at base size vanished in the 1.0× S4 wide; ×1.5 with outline/antenna widths scaled with z and a 130-alpha trail reads at every shot size and still looks like a moth, not a bat.
+35. **Check the right crop.** The first S4 moth check cropped y 1000–1200 and "found nothing" — the phone top is at y ≈ 1250 in that camera. Compute crops from the camera transform, never from memory.
+36. **AAC overshoots the WAV true peak.** The first v4 master measured −1.0 dBTP from a −1.3 WAV ceiling: the encoder adds ≈ 0.2–0.3 dB. Limiter ceiling is now TP − 0.5 (−1.5) → encoded −1.3 dBTP. Legal is not margin; leave 0.3 dB.
+37. **Comment engine rule.** Every plant is visible at normal speed or on a pause, has a physical cause inside the broken law, and has a defensible answer (the clocks match; steam bends away because buoyancy opposes gravity; the moth prefers the brighter light). No single-frame inserts, no hidden text, no audio trickery — the gates (G-W6 unplanned cuts, 7 words) stay untouched and the plants pass through them.
+
+### Carry into the doctrine (v4)
+
+- Plant for the pause button: at least three freeze-frame rewards in a WTF-30, each answerable — argument is engagement, deception is churn.
+- A device from the real world (iPhone) is drawn as a signifier set (9:41, Dynamic Island, triple camera, the mark) at tile resolution; never a logo asset.
+- Encoded true peak = limiter ceiling + ~0.3 dB; set the ceiling from the encoded target.
+
 ## What to carry into the doctrine (v1)
 
 - Crest-factor rule: if (TP − I) of the mix > 13 dB, loudnorm will go dynamic; fix the mix, then master linear + limiter.

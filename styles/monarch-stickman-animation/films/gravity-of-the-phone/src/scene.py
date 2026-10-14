@@ -373,8 +373,7 @@ def sprite_clock(r=72):
         l = 12 if i % 3 == 0 else 6
         d.line([(c + (r - 14) * S2 * math.sin(a), c - (r - 14) * S2 * math.cos(a)),
                 (c + (r - 14 - l) * S2 * math.sin(a), c - (r - 14 - l) * S2 * math.cos(a))], fill=INK, width=4)
-    d.line([(c, c), (c + 0.52 * r * S2 * math.sin(math.radians(300)), c - 0.52 * r * S2 * math.cos(math.radians(300)))], fill=INK, width=8)
-    d.line([(c, c), (c + 0.78 * r * S2 * math.sin(math.radians(60)), c - 0.78 * r * S2 * math.cos(math.radians(60)))], fill=INK, width=6)
+    # v4: no hands baked in — render.draw_clock_hands draws them live from clock_minutes() (9:41 … and then time flies)
     d.ellipse([c - 7, c - 7, c + 7, c + 7], fill=INK)
     return im, (c, c)
 
@@ -783,6 +782,150 @@ def land_squash(t):
             return 1 + d * 0.8, 1 - d
     return 1.0, 1.0
 
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# v4 — THE COMMENT ENGINE: planted details that reward the second watch (and start arguments)
+#   · the phone is an iPhone (projected lock screen: Dynamic Island, 9:41, notifications; titanium back + camera plateau)
+#   · 9:41 everywhere — and while the phone has the room, time flies: the wall clock's hands spin (5 h lost), the lock
+#     screen races with it, both stop dead at the drop
+#   · a framed photo on the wall: Monarch-in-the-photo gets pulled inside the glass, the friend turns to watch —
+#     and on 'tum' the friend points at the lens
+#   · a moth: circles the lamp, abandons it for the brighter screen, orbits the phone like a satellite while the field
+#     is on, staggers back to the lamp once the phone is face-down
+#   · the coffee steam bends AWAY from the phone (buoyancy opposes gravity — correct physics, built to be argued about)
+# ═════════════════════════════════════════════════════════════════════════════
+CLOCK_T0 = 9 * 60 + 41.0            # 9:41 — the lock screen says the same
+CLOCK_LOST_MIN = 300.0              # how much time the room loses to the phone (5 h → 2:41)
+PHOTO = (690.0, 1000.0)             # wall photo centre (world) — left of the shelf, next to the lamp arm
+PHOTO_W, PHOTO_H = 64.0, 80.0
+PHONE_THETA = 22.0                  # the phone lies on the desk with its top end turned to the right (deg)
+PHONE_SIN_E = 0.50                  # camera elevation on the desk plane (foreshortening of depth)
+PHONE_WL, PHONE_LL, PHONE_TH = 60.0, 125.0, 8.0   # footprint width / length / thickness (world px; 0.84 px per mm)
+
+
+def clock_minutes(t):
+    """Wall-clock time in minutes (12 h wraps are the reader's problem). t = world time."""
+    if t < TL["field_on"]:
+        return CLOCK_T0 + max(0.0, t) / 60.0
+    if t < TL["drop"]:
+        u = seg(t, TL["field_on"], TL["drop"])
+        return CLOCK_T0 + TL["field_on"] / 60.0 + CLOCK_LOST_MIN * ease_in(u, 1.9)
+    # stops dead at the drop, with a tiny spring-back
+    dt = t - TL["drop"]
+    base = CLOCK_T0 + TL["field_on"] / 60.0 + CLOCK_LOST_MIN
+    return base - 1.2 * math.exp(-dt / 0.12) * math.sin(2 * math.pi * 7 * dt) * (1 if dt < 0.5 else 0)
+
+
+def clock_hands(t):
+    """(hour_deg, minute_deg) clockwise from 12."""
+    m = clock_minutes(t)
+    return (m / 60.0 % 12) * 30.0, (m % 60.0) * 6.0
+
+
+def clock_rate(t):
+    """Minute-hand speed (rev/s) — drives the ratchet whirr."""
+    return (clock_minutes(t + 0.01) - clock_minutes(t)) / 0.01 / 60.0
+
+
+def lock_time_text(t):
+    m = int(clock_minutes(t)) % 720
+    h = m // 60
+    return f"{12 if h == 0 else h}:{m % 60:02d}"
+
+
+def notif_count(t):
+    """Lock-screen notification pills: one per ding, they stay until the screen goes dark."""
+    if t >= TL["glow_off"]:
+        return 0
+    return sum(1 for d in (TL["ding1"], TL["ding2"], TL["ding3"]) if t >= d)
+
+
+def spiral_phase(t):
+    """Rotation (rev) of the hypnotic wallpaper spiral: slow idle, 4x faster with the field."""
+    base = 0.22 * t
+    if t > TL["field_on"]:
+        base += 0.70 * (min(t, TL["drop"]) - TL["field_on"])
+    return base
+
+
+def photo_state(tau, t):
+    """pull 0..1 (Monarch-in-the-photo slides to the glass edge nearest the phone), turn 0..1 (the friend turns to watch),
+    point 0..1 (the friend points at the lens on 'tum' — S6 only, absolute time)."""
+    k = field(tau)
+    if tau < TL["drop"]:
+        pull = smooth(seg(tau, TL["field_on"] + 0.10, TL["field_on"] + 0.70)) * (1 if k > 0 else 0)
+        # hits the glass with a tiny bounce
+        if TL["field_on"] + 0.70 <= tau < TL["field_on"] + 1.0:
+            pull -= 0.06 * math.sin(math.pi * seg(tau, TL["field_on"] + 0.70, TL["field_on"] + 1.0))
+    else:
+        dt = tau - TL["drop"]
+        pull = max(0.0, 1.0 - ease_in(min(1.0, dt / 0.55), 2.0))     # slides down the glass
+    if tau < TL["drop"]:
+        turn = smooth(seg(tau, TL["field_on"] + 0.45, TL["field_on"] + 0.95))
+    else:
+        turn = 1.0 - smooth(seg(tau, TL["drop"] + 0.6, TL["drop"] + 1.1))
+    point = 0.0
+    if t >= TL["cut_s6"]:
+        point = smooth(seg(t, TL["moral2"], TL["moral2"] + 0.22)) * (1.0 if t < TL["moral_out"] else 0.0)
+    return dict(pull=pull, turn=turn, point=point)
+
+
+LAMP_BULB = (852.0, 1240.0)         # under the shade, in the light cone — the moth's home orbit centre
+PHONE_SCREEN = (PHONE[0], PHONE[1] - 42.0)
+
+
+def moth_state(tau):
+    """(x, y, wing_phase, blur) of the moth in world px. It owns no physics: it goes where the brightest light is."""
+    t = tau
+    # orbit centre blend: lamp → screen from glow_on (migrates in 0.6 s), back to the lamp after the flip-down
+    if t < TL["glow_on"]:
+        w = 0.0
+    elif t < TL["flip_down"] + 0.15:
+        w = smooth(seg(t, TL["glow_on"], TL["glow_on"] + 0.6))
+    else:
+        w = 1.0 - smooth(seg(t, TL["flip_down"] + 0.15, TL["flip_down"] + 1.4))
+    k = field(t)
+    cx = lerp(LAMP_BULB[0], PHONE_SCREEN[0], w)
+    cy = lerp(LAMP_BULB[1], PHONE_SCREEN[1] - 10, w)
+    # orbit radius / speed: lazy around the lamp, tighter and faster with the field (the planet owns it)
+    r = lerp(34.0, 50.0, w) * (1 - 0.45 * k)
+    ry = r * 0.55
+    rate = lerp(0.9, 1.3, w) + 1.9 * k
+    # phase integrates the rate (closed form: piecewise)
+    t_f0 = TL["field_on"]
+    ph = 0.9 * min(t, TL["glow_on"]) if t > 0 else 0.9 * t
+    if t > TL["glow_on"]:
+        ph += 1.2 * (min(t, t_f0) - TL["glow_on"])
+    if t > t_f0:
+        tt_ = min(t, TL["drop"]) - t_f0
+        ph += 1.3 * tt_ + 1.9 * tt_ * min(1.0, tt_ / (TL["field_full"] - TL["field_on"])) * 0.9
+    if t > TL["drop"]:
+        ph += 1.0 * (t - TL["drop"])
+    ang = 2 * math.pi * ph
+    wob = 3.0 * math.sin(2 * math.pi * 2.7 * t) + 2.0 * math.sin(2 * math.pi * 4.1 * t + 1.0)
+    x = cx + r * math.cos(ang) + wob
+    y = cy + ry * math.sin(ang) * (1 + 0.15 * math.sin(ang * 2)) + 0.6 * wob
+    # the drop: it tumbles for a moment (the pull it was riding vanished)
+    if TL["drop"] <= t < TL["drop"] + 0.5:
+        u = (t - TL["drop"]) / 0.5
+        y += 26 * math.sin(math.pi * u) * (1 - u)
+    wing = (t * 24.0) % 1.0
+    return x, y, wing, rate
+
+
+def steam_dir(tau, cup_xy):
+    """Unit direction the coffee steam rises in (world px, y down). Normally straight up; while the field is on, buoyancy
+    pushes it AWAY from the phone (lighter-than-air goes opposite to gravity)."""
+    k = field_vis(tau) if tau < TL["drop"] + 0.6 else 0.0
+    if k <= 0.01:
+        return 0.0, -1.0
+    dx, dy = cup_xy[0] - PHONE[0], (cup_xy[1] - 50) - (PHONE[1] - 40)
+    L = math.hypot(dx, dy) + 1e-6
+    ax, ay = dx / L, dy / L            # away from the phone
+    ux, uy = lerp(0.0, ax, 0.85 * k), lerp(-1.0, ay, 0.85 * k)
+    L2 = math.hypot(ux, uy) + 1e-6
+    return ux / L2, uy / L2
 
 if __name__ == "__main__":
     print("GRAB_FEET_X", GRAB_FEET_X, "hands up", GRIP_HANDS_UP, "HIP_LAND", HIP_LAND, "HIP_LETGO", HIP_LETGO)

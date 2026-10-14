@@ -1,7 +1,7 @@
 {
  "video": "../render/gravity-of-the-phone_master.mp4",
- "md5": "f54c3b295011bb3310ce60f7d710e98b",
- "bytes": 61573207,
+ "md5": "b2735dbf9ff18dc2e8f3fbf2be341c22",
+ "bytes": 61998081,
  "probe": {
   "duration": 20.0,
   "video_codec": "h264 (High) (avc1 / 0x31637661)",
@@ -14,8 +14,8 @@
  },
  "loudness": {
   "lufs": -14.1,
-  "true_peak_db": -1.1,
-  "lra": 6.7
+  "true_peak_db": -1.3,
+  "lra": 6.5
  },
  "gates": [
   {
@@ -36,7 +36,7 @@
   {
    "gate": "G-W2 frame 1 in motion (0\u21923 change > 0.15/255) + visual question by 0.8 s (0\u219224 change > 0.4/255)",
    "ok": true,
-   "detail": "0\u21923 1.11, 0\u219224 0.69"
+   "detail": "0\u21923 1.03, 0\u219224 0.89"
   },
   {
    "gate": "max still \u2264 0.4 s (no 12-frame window without change)",
@@ -51,12 +51,12 @@
   {
    "gate": "G-W10 loop seam: last vs first frame mean abs diff \u2264 6/255",
    "ok": true,
-   "detail": "3.13/255"
+   "detail": "3.40/255"
   },
   {
    "gate": "G-W5 silence hole 0.3\u20130.6 s before the WTF onset (< \u221260 dBFS RMS)",
    "ok": true,
-   "detail": "4.50\u20134.90 s = 0.40 s at -125.9 dBFS; second hole -108.6 dBFS"
+   "detail": "4.50\u20134.90 s = 0.40 s at -115.3 dBFS; second hole -119.4 dBFS"
   },
   {
    "gate": "hook: sound within the first 0.1 s (frame 1 is alive)",
@@ -66,22 +66,22 @@
   {
    "gate": "G-W11 loudness \u221214 \u00b1 1 LUFS, TP \u2264 \u22121 dBTP",
    "ok": true,
-   "detail": "-14.1 LUFS, TP -1.1 dBTP, LRA 6.7 LU"
+   "detail": "-14.1 LUFS, TP -1.3 dBTP, LRA 6.5 LU"
   },
   {
    "gate": "no synthetic noise floor (quietest 0.5 s of the sound-design stem \u2264 \u221245 dBFS; score is a separate composed bus)",
    "ok": true,
-   "detail": "stem quietest block -50.4 dBFS at 14.0 s; master quietest -18.3 dBFS at 13.0 s"
+   "detail": "stem quietest block -49.1 dBFS at 14.5 s; master quietest -18.2 dBFS at 13.0 s"
   },
   {
    "gate": "4:5 safe centre: every subject inside y 285\u20131635 on key frames, ink share \u2265 0.72",
    "ok": true,
-   "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.82 phone=881,text_moral_a=1262,text_moral_b=1113"
+   "detail": "0.5s ink 0.77 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.81 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.81 phone=881,text_moral_a=1262,text_moral_b=1113"
   }
  ],
  "passed": 12,
  "total": 12,
- "seam_diff": 3.1336803436279297,
+ "seam_diff": 3.401460647583008,
  "cuts_s": [
   2.0,
   2.03,
@@ -104,7 +104,7 @@
   {
    "frame": 15,
    "t": 0.5,
-   "ink_inside_safe": 0.776,
+   "ink_inside_safe": 0.767,
    "subjects": {
     "phone": 1036
    },
@@ -124,7 +124,7 @@
   {
    "frame": 255,
    "t": 8.5,
-   "ink_inside_safe": 0.931,
+   "ink_inside_safe": 0.932,
    "subjects": {
     "phone": 1241,
     "hero_pivot": 865
@@ -134,7 +134,7 @@
   {
    "frame": 342,
    "t": 11.4,
-   "ink_inside_safe": 0.921,
+   "ink_inside_safe": 0.92,
    "subjects": {
     "phone": 1235,
     "hero_pivot": 1038
@@ -157,7 +157,7 @@
   {
    "frame": 573,
    "t": 19.1,
-   "ink_inside_safe": 0.822,
+   "ink_inside_safe": 0.814,
    "subjects": {
     "phone": 1036,
     "text_moral_a": 668,
@@ -168,7 +168,7 @@
   {
    "frame": 588,
    "t": 19.6,
-   "ink_inside_safe": 0.823,
+   "ink_inside_safe": 0.814,
    "subjects": {
     "phone": 881,
     "text_moral_a": 1262,

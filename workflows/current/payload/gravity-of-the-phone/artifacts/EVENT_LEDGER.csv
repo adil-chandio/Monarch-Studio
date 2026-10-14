@@ -1,290 +1,301 @@
-t_s,kind,name,gain,pan,note
--1.8,sfx,clock_tick,0.07,,
--1.3,sfx,clock_tick,0.07,,
--0.8,sfx,clock_tick,0.07,,
--0.3,sfx,buzz_am,0.34,,
--0.3,sfx,clock_tick,0.07,,
-0.0,beat,pencil rolls uphill by itself,,,
-0.0,beat,phone buzzes face-down (frame 1 in motion),,,
-0.0,music,music_box_motif_intro,0.255,,
-0.0,music,music_pulse_halftime,0.187,,
-0.2,sfx,clock_tick,0.07,,
-0.208,sfx,pencil_roll_tick,0.081,,
-0.3,sfx,buzz_am,0.34,,
-0.432,sfx,pencil_roll_tick,0.095,,
-0.6,sfx,pencil_roll_tick,0.106,,
-0.7,sfx,clock_tick,0.07,,
-0.74,sfx,pencil_roll_tick,0.115,,
-0.86,sfx,pencil_roll_tick,0.123,,
-0.9,sfx,buzz_am,0.34,,
-0.968,sfx,pencil_roll_tick,0.131,,
-1.068,sfx,pencil_roll_tick,0.138,,
-1.16,sfx,pencil_roll_tick,0.145,,
-1.2,sfx,clock_tick,0.07,,
-1.244,sfx,pencil_roll_tick,0.151,,
-1.324,sfx,pencil_roll_tick,0.157,,
-1.4,sfx,pencil_tak,0.22,,
-1.45,beat,phone flips itself face-up,,,
-1.45,sfx,flip_clack,0.35,,
-1.45,sfx,flip_lift_whoosh,0.22,,
-1.55,beat,amber floods the desk,,,
-1.55,beat,anamorphic flare streak as the screen wakes (v3),,,
-1.55,music,music_wake_shimmer,0.221,,
-1.55,sfx,glow_swell,0.16,,
-1.7,sfx,clock_tick,0.07,,
-1.77,sfx,flip_land,0.5,,
-1.96,music,music_pad_em_open,0.468,,
-2.0,beat,cut + 1-frame tint flash,,,
-2.0,sfx,cut_thump,0.35,,
-2.08,sfx,footstep_paper,0.42,,
-2.2,sfx,clock_tick,0.07,,
-2.56,sfx,footstep_paper,0.42,,
-2.6,beat,clock pendulum leans toward the desk,,,
-2.6,sfx,pendulum_lean_creak,0.08,,
-2.7,sfx,clock_tick,0.07,,
-3.0,beat,page corner lifts,,,
-3.0,sfx,page_lift_flutter,0.18,,
-3.03,sfx,footstep_paper,0.42,,
-3.2,sfx,clock_tick,0.07,,
-3.3,beat,hero notices,,,
-3.5,sfx,footstep_paper,0.42,,
-3.7,sfx,clock_tick,0.07,,
-3.8,beat,ECU insert,,,
-3.9,music,music_reverse_swell,0.425,,
-4.0,sfx,hero_breath,0.14,,
-4.15,beat,ECU: eyes go wide,,,
-4.2,sfx,clock_tick,0.07,,
-4.6,beat,cut to the room,,,
-4.7,sfx,clock_tick,0.07,,
-4.85,sfx,pull_riser,0.45,,
-4.9,beat,FIELD ONSET: ring + everything starts sliding,,,
-4.9,music,music_drop_boom,0.807,,
-4.9,sfx,sub_drop,0.5,,
-4.9,sfx,onset_ping,0.4,,
-4.9,sfx,sub_pulse_rise,0.5,,
-4.9,sfx,shoe_slide_squeal,0.22,,
-4.902,music,music_groove_em_climb,0.51,,
-4.95,beat,speed lines converge on the phone,,,
-4.95,sfx,slide_scrape_ceramic,0.22,,
-5.0,beat,pages fly,,,
-5.0,sfx,page_flutter,0.3,,
-5.08,sfx,page_flutter,0.3,,
-5.1,sfx,lamp_metal_groan,0.16,,
-5.16,sfx,page_flutter,0.3,,
-5.2,sfx,clock_tick,0.07,,
-5.25,beat,his book is eaten,,,
-5.25,sfx,book_whoosh,0.5,,
-5.3,sfx,book_whoosh,0.5,,
-5.32,sfx,slip_squeak,0.09,,
-5.37,sfx,arrive_ceramic,0.35,,
-5.4,sfx,book_whoosh,0.5,,
-5.4,sfx,rug_drag,0.25,,
-5.5,beat,lunge to the door frame,,,
-5.5,sfx,book_whoosh,0.5,,
-5.5,sfx,lunge_breath,0.2,,
-5.5,sfx,lunge_whoosh,0.3,,
-5.6,beat,ding 1 + clock rips off the wall,,,
-5.6,music,music_bell_in_key,0.425,,
-5.6,sfx,pull_drone,0.16,,
-5.6,sfx,notification_ding,0.42,,
-5.6,sfx,nail_pop,0.5,,
-5.6,sfx,clock_whoosh,0.45,,
-5.6,sfx,field_sparkle,0.049,,
-5.67,sfx,book_slap,0.5,,
-5.8,sfx,book_slap,0.5,,
-5.88,beat,vocal-chop hook enters on the groove (v3),,,
-5.882,music,music_vocal_chop_hook,0.68,,
-5.9,beat,grabs the lintel,,,
-5.9,sfx,slide_scrape_wood,0.4,,
-5.9,sfx,book_slap,0.5,,
-5.9,sfx,lamp_metal_ring,0.2,,
-5.9,sfx,hands_grab,0.45,,
-5.9,sfx,wood_creak_frame,0.3,,
-5.959,sfx,field_sparkle,0.058,,
-5.98,sfx,book_slap,0.5,,
-6.32,sfx,clock_clang,0.55,,
-6.4,beat,floor books slide,,,
-6.4,sfx,slide_scrape_paper,0.16,,
-6.417,sfx,field_sparkle,0.056,,
-6.44,sfx,slide_scrape_paper,0.16,,
-6.48,sfx,slide_scrape_paper,0.16,,
-6.6,sfx,cloth_flag_flutter,0.14,,
-6.8,beat,plant slides,,,
-6.8,sfx,arrive_wood,0.6,,
-6.8,sfx,slide_scrape_pot,0.28,,
-6.855,sfx,field_sparkle,0.041,,
-6.9,beat,first sweat drop flies to the phone,,,
-6.9,sfx,sweat_plip,0.112,,
-7.127,sfx,field_sparkle,0.058,,
-7.2,beat,ding 2,,,
-7.2,music,music_bell_in_key,0.425,,
-7.2,sfx,notification_ding,0.42,,
-7.2,sfx,arrive_paper,0.35,,
-7.24,sfx,arrive_paper,0.35,,
-7.28,sfx,arrive_paper,0.35,,
-7.375,sfx,sweat_plip,0.13,,
-7.4,beat,fully horizontal — a human flag,,,
-7.4,sfx,sweat_sizzle,0.102,,
-7.586,sfx,field_sparkle,0.055,,
-7.65,sfx,arrive_pot,0.45,,
-7.71,sfx,sweat_plip,0.141,,
-7.875,sfx,sweat_sizzle,0.12,,
-8.0,sfx,wood_creak_strain,0.16,,
-8.017,sfx,field_sparkle,0.049,,
-8.029,sfx,sweat_plip,0.111,,
-8.21,sfx,sweat_sizzle,0.131,,
-8.381,sfx,field_sparkle,0.038,,
-8.433,sfx,sweat_plip,0.145,,
-8.529,sfx,sweat_sizzle,0.101,,
-8.624,sfx,field_sparkle,0.047,,
-8.65,sfx,wood_creak_strain,0.13,,
-8.769,sfx,sweat_plip,0.125,,
-8.8,beat,ding 3,,,
-8.8,music,music_bell_in_key,0.425,,
-8.8,sfx,notification_ding,0.42,,
-8.933,sfx,sweat_sizzle,0.135,,
-8.963,sfx,field_sparkle,0.044,,
-9.0,beat,hands slip,,,
-9.0,beat,stutter gate + ghost trail on slip 1 (v3),,,
-9.0,music,music_stutter_gate,0.85,,
-9.0,sfx,hand_slip_squeak,0.16,,
-9.07,sfx,hand_slip_regrip,0.3,,
-9.082,sfx,sweat_plip,0.113,,
-9.269,sfx,sweat_sizzle,0.115,,
-9.269,sfx,field_sparkle,0.037,,
-9.42,beat,hands slip again,,,
-9.42,sfx,hand_slip_squeak,0.16,,
-9.49,sfx,hand_slip_regrip,0.3,,
-9.498,sfx,field_sparkle,0.045,,
-9.561,sfx,sweat_plip,0.141,,
-9.582,sfx,sweat_sizzle,0.103,,
-9.8,beat,look at the lens,,,
-9.8,music,music_breakdown_pulse_only,0.425,,
-9.8,sfx,look_at_lens_sparkle,0.16,,
-9.941,sfx,sweat_plip,0.159,,
-10.061,sfx,sweat_sizzle,0.131,,
-10.3,music,music_riser_letgo,0.289,,
-10.4,sfx,sweat_plip,0.152,,
-10.441,sfx,sweat_sizzle,0.149,,
-10.5,sfx,wood_creak_strain,0.18,,
-10.784,music,music_snap_fill,0.383,,
-10.831,sfx,sweat_plip,0.138,,
-10.85,sfx,wood_creak_strain,0.22,,
-10.9,sfx,sweat_sizzle,0.142,,
-10.906,sfx,field_sparkle,0.05,,
-11.0,beat,lets go,,,
-11.0,sfx,letgo_whoosh,0.75,,
-11.0,sfx,release_snap,0.5,,
-11.331,sfx,sweat_sizzle,0.128,,
-11.42,beat,lands on the desk,,,
-11.42,music,music_land_hit_em,0.765,,
-11.42,sfx,desk_slam,0.55,,
-11.449,sfx,pile_rattle,0.12,,
-11.465,sfx,pile_rattle,0.12,,
-11.47,sfx,cup_rattle,0.25,,
-11.495,sfx,pile_rattle,0.12,,
-11.523,sfx,pile_rattle,0.12,,
-11.547,sfx,pile_rattle,0.12,,
-11.575,sfx,pile_rattle,0.12,,
-11.58,sfx,hand_slap_phone,0.6,,
-11.593,sfx,pile_rattle,0.12,,
-11.62,beat,flips the phone face-down,,,
-11.62,sfx,flip_clack,0.35,,
-11.94,sfx,flip_land_facedown,0.6,,
-12.0,beat,glow dies,,,
-12.0,music,music_tape_stop,0.85,,
-12.0,sfx,power_down_sweep,0.5,,
-12.3,beat,GRAVITY RESTORES: everything drops flat,,,
-12.3,sfx,lamp_boing,0.14,,
-12.35,sfx,pages_settle,0.22,,
-12.48,sfx,drop_paper,0.3,,
-12.52,sfx,drop_paper,0.4,,
-12.54,sfx,drop_paper,0.4,,
-12.54,sfx,drop_paper,0.35,,
-12.54,sfx,drop_paper,0.3,,
-12.58,sfx,drop_ceramic,0.35,,
-12.58,sfx,drop_sub_thud,0.5,,
-12.6,beat,impact tint frame + falling lines,,,
-12.6,sfx,drop_paper,0.35,,
-12.6,sfx,dust_hiss,0.09,,
-12.62,sfx,drop_paper,0.5,,
-12.639,sfx,drop_bounce_paper,0.175,,
-12.64,sfx,drop_wood,0.6,,
-12.7,sfx,drop_metal,0.5,,
-12.7,sfx,drop_pot,0.45,,
-12.7,sfx,settle_rumble,0.12,,
-12.717,sfx,drop_bounce_paper,0.175,,
-12.755,sfx,drop_bounce_paper,0.25,,
-12.775,sfx,drop_bounce_wood,0.3,,
-12.853,sfx,drop_bounce_metal,0.25,,
-12.88,sfx,drop_bounce_pot,0.225,,
-12.91,sfx,drop_paper,0.25,,
-12.92,sfx,drop_paper,0.25,,
-12.92,sfx,debris_tick,0.12,,
-13.0,beat,stands up on the desk,,,
-13.0,music,music_relief_e_major,0.425,,
-13.0,sfx,hero_stand_rustle,0.08,,
-13.02,sfx,drop_paper,0.25,,
-13.28,sfx,debris_tick,0.09,,
-13.5,beat,looks at the fallen room,,,
-13.62,sfx,clock_tick_fallen,0.07,,
-13.71,sfx,debris_tick,0.07,,
-13.725,music,music_box_motif_major,0.255,,
-14.05,sfx,debris_tick,0.05,,
-14.22,sfx,clock_tick_fallen,0.07,,
-14.6,beat,cut to the meaning shot,,,
-14.6,sfx,cut_air,0.05,,
-14.8,sfx,glass_note_held,0.15,,
-15.104,sfx,vo_meaning_line,1.0,,
-15.4,beat,line 1 + VO,,,
-15.4,beat,"letters cascade in one by one (kinetic type, v3)",,,
-15.4,sfx,word_slam,0.35,,
-15.4,sfx,type_ink_tick,0.05,,
-15.4,sfx,vo_word_1_phone,0.9,,
-15.418,sfx,type_ink_tick,0.05,,
-15.436,sfx,type_ink_tick,0.05,,
-15.454,sfx,type_ink_tick,0.05,,
-15.472,sfx,type_ink_tick,0.05,,
-15.508,sfx,type_ink_tick,0.05,,
-15.526,sfx,type_ink_tick,0.05,,
-15.544,sfx,type_ink_tick,0.05,,
-15.562,sfx,type_ink_tick,0.05,,
-15.58,sfx,type_ink_tick,0.05,,
-16.66,beat,line 2,,,
-16.66,sfx,word_slam,0.3,,
-16.66,sfx,type_ink_tick,0.05,,
-16.678,sfx,type_ink_tick,0.05,,
-16.696,sfx,type_ink_tick,0.05,,
-16.714,sfx,type_ink_tick,0.05,,
-16.73,music,music_reverse_swell_hot,0.425,,
-16.732,sfx,type_ink_tick,0.05,,
-16.75,sfx,type_ink_tick,0.05,,
-16.768,sfx,type_ink_tick,0.05,,
-16.804,sfx,type_ink_tick,0.05,,
-16.822,sfx,type_ink_tick,0.05,,
-16.84,sfx,type_ink_tick,0.05,,
-16.858,sfx,type_ink_tick,0.05,,
-16.876,sfx,type_ink_tick,0.05,,
-16.894,sfx,type_ink_tick,0.05,,
-16.912,sfx,type_ink_tick,0.05,,
-17.15,beat,hot word slam,,,
-17.15,music,music_hot_word_boom,0.807,,
-17.15,sfx,hot_word_slam,0.4,,
-17.716,sfx,vo_moral_line,1.0,,
-17.95,beat,cut to the desk (loop time),,,
-17.95,sfx,cut_thump,0.3,,
-18.0,beat,'Warna' slams in,,,
-18.0,music,music_word_ping,0.306,,
-18.64,beat,'tum' slides in,,,
-18.98,beat,'ulte.' flips upside-down,,,
-18.98,music,music_upside_down_slide,0.357,,
-19.1,sfx,world_roll_whoosh,0.55,,
-19.12,beat,THE WORLD ROLLS 180° — punch-zoom whip (v3),,,
-19.12,music,music_world_roll_whomp,0.722,,
-19.12,sfx,world_roll_whomp,0.45,,
-19.4,beat,'uh-oh' vocal chop in the upside-down hold (v3),,,
-19.4,music,music_uh_oh_vox,0.765,,
-19.6,music,music_vinyl_brake,0.85,,
-19.7,beat,buzz snaps the world upright; words wipe (v3),,,
-19.7,sfx,text_snap_out,0.22,,
-19.7,sfx,snap_back_click,0.4,,
+t_s,kind,name,detail
+-2.200,cue,moth_flutter,gain 0.075 dur 22.2
+-1.800,cue,clock_tick,gain 0.07 dur 0.009
+-1.300,cue,clock_tick,gain 0.07 dur 0.009
+-0.800,cue,clock_tick,gain 0.07 dur 0.009
+-0.300,cue,buzz_am,gain 0.34 dur 0.38
+-0.300,cue,clock_tick,gain 0.07 dur 0.009
+0.000,beat,pencil rolls uphill by itself,
+0.000,beat,phone buzzes face-down (frame 1 in motion),
+0.000,cue,music_box_motif_intro,gain 0.255 dur 0
+0.000,cue,music_pulse_halftime,gain 0.187 dur 0
+0.200,cue,clock_tick,gain 0.07 dur 0.009
+0.208,cue,pencil_roll_tick,gain 0.081 dur 0.014
+0.300,cue,buzz_am,gain 0.34 dur 0.38
+0.432,cue,pencil_roll_tick,gain 0.095 dur 0.014
+0.600,cue,pencil_roll_tick,gain 0.106 dur 0.014
+0.700,cue,clock_tick,gain 0.07 dur 0.009
+0.740,cue,pencil_roll_tick,gain 0.115 dur 0.014
+0.860,cue,pencil_roll_tick,gain 0.123 dur 0.014
+0.900,cue,buzz_am,gain 0.34 dur 0.38
+0.968,cue,pencil_roll_tick,gain 0.131 dur 0.014
+1.068,cue,pencil_roll_tick,gain 0.138 dur 0.014
+1.160,cue,pencil_roll_tick,gain 0.145 dur 0.014
+1.200,cue,clock_tick,gain 0.07 dur 0.009
+1.244,cue,pencil_roll_tick,gain 0.151 dur 0.014
+1.324,cue,pencil_roll_tick,gain 0.157 dur 0.014
+1.400,cue,pencil_tak,gain 0.22 dur 0.14
+1.450,beat,phone flips itself face-up,
+1.450,cue,flip_clack,gain 0.35 dur 0.02
+1.450,cue,flip_lift_whoosh,gain 0.22 dur 0.32
+1.550,beat,amber floods the desk,
+1.550,beat,anamorphic flare streak as the screen wakes (v3),
+1.550,beat,a moth abandons the lamp for the brighter screen (v4),
+1.550,cue,glow_swell,gain 0.16 dur 10.75
+1.550,cue,music_wake_shimmer,gain 0.221 dur 0
+1.700,cue,clock_tick,gain 0.07 dur 0.009
+1.770,cue,flip_land,gain 0.5 dur 0.18
+1.960,cue,music_pad_em_open,gain 0.468 dur 0
+2.000,beat,cut + 1-frame tint flash,
+2.000,cue,cut_thump,gain 0.35 dur 0.3
+2.080,cue,footstep_paper,gain 0.42 dur 0.11
+2.200,cue,clock_tick,gain 0.07 dur 0.009
+2.560,cue,footstep_paper,gain 0.42 dur 0.11
+2.600,beat,clock pendulum leans toward the desk,
+2.600,cue,pendulum_lean_creak,gain 0.08 dur 0.5
+2.700,cue,clock_tick,gain 0.07 dur 0.009
+3.000,beat,page corner lifts,
+3.000,cue,page_lift_flutter,gain 0.18 dur 0.35
+3.030,cue,footstep_paper,gain 0.42 dur 0.11
+3.200,cue,clock_tick,gain 0.07 dur 0.009
+3.300,beat,hero notices,
+3.500,cue,footstep_paper,gain 0.42 dur 0.11
+3.700,cue,clock_tick,gain 0.07 dur 0.009
+3.800,beat,ECU insert,
+3.900,cue,music_reverse_swell,gain 0.425 dur 0
+4.000,cue,hero_breath,gain 0.14 dur 0.45
+4.150,beat,ECU: eyes go wide,
+4.200,cue,clock_tick,gain 0.07 dur 0.009
+4.600,beat,cut to the room,
+4.700,cue,clock_tick,gain 0.07 dur 0.009
+4.850,cue,pull_riser,gain 0.45 dur 0.8
+4.900,beat,FIELD ONSET: ring + everything starts sliding,
+4.900,beat,the wall clock's hands start to race — time flies while the phone has the room (v4),
+4.900,cue,sub_drop,gain 0.5 dur 0.6
+4.900,cue,onset_ping,gain 0.4 dur 0.9
+4.900,cue,sub_pulse_rise,gain 0.5 dur 7.1
+4.900,cue,shoe_slide_squeal,gain 0.22 dur 0.59
+4.900,cue,clock_spin_ratchet,gain 0.12 dur 7.9
+4.900,cue,music_drop_boom,gain 0.807 dur 0
+4.902,cue,music_groove_em_climb,gain 0.51 dur 0
+4.950,beat,speed lines converge on the phone,
+4.950,cue,slide_scrape_ceramic,gain 0.22 dur 0.46
+5.000,beat,pages fly,
+5.000,cue,page_flutter,gain 0.3 dur 0.65
+5.080,cue,page_flutter,gain 0.3 dur 0.62
+5.100,cue,lamp_metal_groan,gain 0.16 dur 0.9
+5.160,cue,page_flutter,gain 0.3 dur 0.58
+5.200,cue,clock_tick,gain 0.07 dur 0.009
+5.250,beat,his book is eaten,
+5.250,cue,book_whoosh,gain 0.5 dur 0.42
+5.300,cue,book_whoosh,gain 0.5 dur 0.5
+5.320,cue,slip_squeak,gain 0.09 dur 0.14
+5.370,cue,arrive_ceramic,gain 0.35 dur 0.28
+5.400,cue,book_whoosh,gain 0.5 dur 0.5
+5.400,cue,rug_drag,gain 0.25 dur 1.04
+5.500,beat,lunge to the door frame,
+5.500,cue,book_whoosh,gain 0.5 dur 0.48
+5.500,cue,lunge_breath,gain 0.2 dur 0.3
+5.500,cue,lunge_whoosh,gain 0.3 dur 0.4
+5.600,beat,ding 1 + clock rips off the wall,
+5.600,beat,Monarch-in-the-photo hits the glass; the friend in the photo turns to watch (v4),
+5.600,cue,pull_drone,gain 0.16 dur 6.4
+5.600,cue,notification_ding,gain 0.42 dur 0.6
+5.600,cue,nail_pop,gain 0.5 dur 0.03
+5.600,cue,clock_whoosh,gain 0.45 dur 0.72
+5.600,cue,field_sparkle,gain 0.049 dur 0.057
+5.600,cue,photo_glass_thump,gain 0.3 dur 0.12
+5.600,cue,music_bell_in_key,gain 0.425 dur 0
+5.670,cue,book_slap,gain 0.5 dur 0.14
+5.800,cue,book_slap,gain 0.5 dur 0.14
+5.880,beat,vocal-chop hook enters on the groove (v3),
+5.882,cue,music_vocal_chop_hook,gain 0.68 dur 0
+5.900,beat,grabs the lintel,
+5.900,cue,slide_scrape_wood,gain 0.4 dur 0.95
+5.900,cue,book_slap,gain 0.5 dur 0.14
+5.900,cue,lamp_metal_ring,gain 0.2 dur 0.5
+5.900,cue,hands_grab,gain 0.45 dur 0.12
+5.900,cue,wood_creak_frame,gain 0.3 dur 1.8
+5.959,cue,field_sparkle,gain 0.058 dur 0.067
+5.980,cue,book_slap,gain 0.5 dur 0.14
+6.320,cue,clock_clang,gain 0.55 dur 1.0
+6.400,beat,floor books slide,
+6.400,cue,slide_scrape_paper,gain 0.16 dur 0.84
+6.417,cue,field_sparkle,gain 0.056 dur 0.065
+6.440,cue,slide_scrape_paper,gain 0.16 dur 0.84
+6.480,cue,slide_scrape_paper,gain 0.16 dur 0.84
+6.600,cue,cloth_flag_flutter,gain 0.14 dur 4.4
+6.800,beat,plant slides,
+6.800,cue,arrive_wood,gain 0.6 dur 0.2
+6.800,cue,slide_scrape_pot,gain 0.28 dur 0.89
+6.855,cue,field_sparkle,gain 0.041 dur 0.047
+6.900,beat,first sweat drop flies to the phone,
+6.900,cue,sweat_plip,gain 0.112 dur 0.035
+7.127,cue,field_sparkle,gain 0.058 dur 0.068
+7.200,beat,ding 2,
+7.200,cue,notification_ding,gain 0.42 dur 0.6
+7.200,cue,arrive_paper,gain 0.35 dur 0.14
+7.200,cue,music_bell_in_key,gain 0.425 dur 0
+7.240,cue,arrive_paper,gain 0.35 dur 0.14
+7.280,cue,arrive_paper,gain 0.35 dur 0.14
+7.375,cue,sweat_plip,gain 0.13 dur 0.035
+7.400,beat,fully horizontal — a human flag,
+7.400,cue,sweat_sizzle,gain 0.102 dur 0.061
+7.586,cue,field_sparkle,gain 0.055 dur 0.065
+7.650,cue,arrive_pot,gain 0.45 dur 0.22
+7.710,cue,sweat_plip,gain 0.141 dur 0.035
+7.875,cue,sweat_sizzle,gain 0.12 dur 0.072
+8.000,cue,wood_creak_strain,gain 0.16 dur 0.45
+8.017,cue,field_sparkle,gain 0.049 dur 0.057
+8.029,cue,sweat_plip,gain 0.111 dur 0.035
+8.210,cue,sweat_sizzle,gain 0.131 dur 0.079
+8.381,cue,field_sparkle,gain 0.038 dur 0.044
+8.433,cue,sweat_plip,gain 0.145 dur 0.035
+8.529,cue,sweat_sizzle,gain 0.101 dur 0.06
+8.624,cue,field_sparkle,gain 0.047 dur 0.054
+8.650,cue,wood_creak_strain,gain 0.13 dur 0.45
+8.769,cue,sweat_plip,gain 0.125 dur 0.035
+8.800,beat,ding 3,
+8.800,cue,notification_ding,gain 0.42 dur 0.6
+8.800,cue,music_bell_in_key,gain 0.425 dur 0
+8.933,cue,sweat_sizzle,gain 0.135 dur 0.081
+8.963,cue,field_sparkle,gain 0.044 dur 0.051
+9.000,beat,hands slip,
+9.000,beat,stutter gate + ghost trail on slip 1 (v3),
+9.000,cue,hand_slip_squeak,gain 0.16 dur 0.1
+9.000,cue,music_stutter_gate,gain 0.85 dur 0
+9.070,cue,hand_slip_regrip,gain 0.3 dur 0.02
+9.082,cue,sweat_plip,gain 0.113 dur 0.035
+9.269,cue,sweat_sizzle,gain 0.115 dur 0.069
+9.269,cue,field_sparkle,gain 0.037 dur 0.042
+9.420,beat,hands slip again,
+9.420,cue,hand_slip_squeak,gain 0.16 dur 0.1
+9.490,cue,hand_slip_regrip,gain 0.3 dur 0.02
+9.498,cue,field_sparkle,gain 0.045 dur 0.052
+9.561,cue,sweat_plip,gain 0.141 dur 0.035
+9.582,cue,sweat_sizzle,gain 0.103 dur 0.062
+9.800,beat,look at the lens,
+9.800,cue,look_at_lens_sparkle,gain 0.16 dur 0.5
+9.800,cue,music_breakdown_pulse_only,gain 0.425 dur 0
+9.941,cue,sweat_plip,gain 0.159 dur 0.035
+10.061,cue,sweat_sizzle,gain 0.131 dur 0.078
+10.300,cue,music_riser_letgo,gain 0.289 dur 0
+10.400,cue,sweat_plip,gain 0.152 dur 0.035
+10.441,cue,sweat_sizzle,gain 0.149 dur 0.089
+10.500,cue,wood_creak_strain,gain 0.18 dur 0.45
+10.784,cue,music_snap_fill,gain 0.383 dur 0
+10.831,cue,sweat_plip,gain 0.138 dur 0.035
+10.850,cue,wood_creak_strain,gain 0.22 dur 0.45
+10.900,cue,sweat_sizzle,gain 0.142 dur 0.085
+10.906,cue,field_sparkle,gain 0.05 dur 0.058
+11.000,beat,lets go,
+11.000,cue,letgo_whoosh,gain 0.75 dur 0.47
+11.000,cue,release_snap,gain 0.5 dur 0.025
+11.331,cue,sweat_sizzle,gain 0.128 dur 0.077
+11.420,beat,lands on the desk,
+11.420,cue,desk_slam,gain 0.55 dur 0.5
+11.420,cue,music_land_hit_em,gain 0.765 dur 0
+11.449,cue,pile_rattle,gain 0.12 dur 0.01
+11.465,cue,pile_rattle,gain 0.12 dur 0.01
+11.470,cue,cup_rattle,gain 0.25 dur 0.2
+11.495,cue,pile_rattle,gain 0.12 dur 0.01
+11.523,cue,pile_rattle,gain 0.12 dur 0.01
+11.547,cue,pile_rattle,gain 0.12 dur 0.01
+11.575,cue,pile_rattle,gain 0.12 dur 0.01
+11.580,cue,hand_slap_phone,gain 0.6 dur 0.03
+11.593,cue,pile_rattle,gain 0.12 dur 0.01
+11.620,beat,flips the phone face-down,
+11.620,cue,flip_clack,gain 0.35 dur 0.02
+11.940,cue,flip_land_facedown,gain 0.6 dur 0.18
+12.000,beat,glow dies,
+12.000,cue,power_down_sweep,gain 0.5 dur 0.15
+12.000,cue,music_tape_stop,gain 0.85 dur 0
+12.300,beat,GRAVITY RESTORES: everything drops flat,
+12.300,cue,lamp_boing,gain 0.14 dur 1.2
+12.330,beat,the clock stops dead at 2:41 (v4),
+12.330,cue,clock_stop_tock,gain 0.28 dur 0.5
+12.350,cue,pages_settle,gain 0.22 dur 0.8
+12.380,cue,photo_glass_slide,gain 0.07 dur 0.32
+12.480,cue,drop_paper,gain 0.3 dur 0.14
+12.520,cue,drop_paper,gain 0.4 dur 0.14
+12.540,cue,drop_paper,gain 0.4 dur 0.14
+12.540,cue,drop_paper,gain 0.35 dur 0.14
+12.540,cue,drop_paper,gain 0.3 dur 0.14
+12.580,cue,drop_ceramic,gain 0.35 dur 0.28
+12.580,cue,drop_sub_thud,gain 0.5 dur 0.6
+12.600,beat,impact tint frame + falling lines,
+12.600,cue,drop_paper,gain 0.35 dur 0.14
+12.600,cue,dust_hiss,gain 0.09 dur 0.9
+12.620,cue,drop_paper,gain 0.5 dur 0.14
+12.639,cue,drop_bounce_paper,gain 0.175 dur 0.14
+12.640,cue,drop_wood,gain 0.6 dur 0.22
+12.700,cue,drop_metal,gain 0.5 dur 1.1
+12.700,cue,drop_pot,gain 0.45 dur 0.25
+12.700,cue,settle_rumble,gain 0.12 dur 1.6
+12.717,cue,drop_bounce_paper,gain 0.175 dur 0.14
+12.755,cue,drop_bounce_paper,gain 0.25 dur 0.14
+12.775,cue,drop_bounce_wood,gain 0.3 dur 0.22
+12.853,cue,drop_bounce_metal,gain 0.25 dur 1.1
+12.880,cue,drop_bounce_pot,gain 0.225 dur 0.25
+12.910,cue,drop_paper,gain 0.25 dur 0.14
+12.920,cue,drop_paper,gain 0.25 dur 0.14
+12.920,cue,debris_tick,gain 0.12 dur 0.012
+13.000,beat,stands up on the desk,
+13.000,cue,hero_stand_rustle,gain 0.08 dur 0.4
+13.000,cue,music_relief_e_major,gain 0.425 dur 0
+13.020,cue,drop_paper,gain 0.25 dur 0.14
+13.280,cue,debris_tick,gain 0.09 dur 0.012
+13.500,beat,looks at the fallen room,
+13.620,cue,clock_tick_fallen,gain 0.07 dur 0.012
+13.710,cue,debris_tick,gain 0.07 dur 0.012
+13.725,cue,music_box_motif_major,gain 0.255 dur 0
+14.050,cue,debris_tick,gain 0.05 dur 0.012
+14.220,cue,clock_tick_fallen,gain 0.07 dur 0.012
+14.600,beat,cut to the meaning shot,
+14.600,cue,cut_air,gain 0.05 dur 0.5
+14.800,cue,glass_note_held,gain 0.15 dur 2.95
+15.104,cue,vo_meaning_line,gain 1.0 dur 3.2
+15.400,beat,line 1 + VO,
+15.400,beat,"letters cascade in one by one (kinetic type, v3)",
+15.400,cue,word_slam,gain 0.35 dur 0.3
+15.400,cue,type_ink_tick,gain 0.05 dur 0.012
+15.400,cue,vo_word_1_phone,gain 0.9 dur 0
+15.418,cue,type_ink_tick,gain 0.05 dur 0.012
+15.436,cue,type_ink_tick,gain 0.05 dur 0.012
+15.454,cue,type_ink_tick,gain 0.05 dur 0.012
+15.472,cue,type_ink_tick,gain 0.05 dur 0.012
+15.508,cue,type_ink_tick,gain 0.05 dur 0.012
+15.526,cue,type_ink_tick,gain 0.05 dur 0.012
+15.544,cue,type_ink_tick,gain 0.05 dur 0.012
+15.562,cue,type_ink_tick,gain 0.05 dur 0.012
+15.580,cue,type_ink_tick,gain 0.05 dur 0.012
+16.660,beat,line 2,
+16.660,cue,word_slam,gain 0.3 dur 0.3
+16.660,cue,type_ink_tick,gain 0.05 dur 0.012
+16.678,cue,type_ink_tick,gain 0.05 dur 0.012
+16.696,cue,type_ink_tick,gain 0.05 dur 0.012
+16.714,cue,type_ink_tick,gain 0.05 dur 0.012
+16.730,cue,music_reverse_swell_hot,gain 0.425 dur 0
+16.732,cue,type_ink_tick,gain 0.05 dur 0.012
+16.750,cue,type_ink_tick,gain 0.05 dur 0.012
+16.768,cue,type_ink_tick,gain 0.05 dur 0.012
+16.804,cue,type_ink_tick,gain 0.05 dur 0.012
+16.822,cue,type_ink_tick,gain 0.05 dur 0.012
+16.840,cue,type_ink_tick,gain 0.05 dur 0.012
+16.858,cue,type_ink_tick,gain 0.05 dur 0.012
+16.876,cue,type_ink_tick,gain 0.05 dur 0.012
+16.894,cue,type_ink_tick,gain 0.05 dur 0.012
+16.912,cue,type_ink_tick,gain 0.05 dur 0.012
+17.150,beat,hot word slam,
+17.150,cue,hot_word_slam,gain 0.4 dur 0.4
+17.150,cue,music_hot_word_boom,gain 0.807 dur 0
+17.716,cue,vo_moral_line,gain 1.0 dur 2.12
+17.950,beat,cut to the desk (loop time),
+17.950,cue,cut_thump,gain 0.3 dur 0.3
+18.000,beat,'Warna' slams in,
+18.000,cue,music_word_ping,gain 0.306 dur 0
+18.640,beat,'tum' slides in,
+18.640,beat,the friend in the photo points at the lens on 'tum' (v4),
+18.680,cue,photo_point_pop,gain 0.14 dur 0.05
+18.980,beat,'ulte.' flips upside-down,
+18.980,cue,music_upside_down_slide,gain 0.357 dur 0
+19.100,cue,world_roll_whoosh,gain 0.55 dur 0.32
+19.120,beat,THE WORLD ROLLS 180° — punch-zoom whip (v3),
+19.120,cue,world_roll_whomp,gain 0.45 dur 0.4
+19.120,cue,music_world_roll_whomp,gain 0.722 dur 0
+19.400,beat,'uh-oh' vocal chop in the upside-down hold (v3),
+19.400,cue,music_uh_oh_vox,gain 0.765 dur 0
+19.600,cue,music_vinyl_brake,gain 0.85 dur 0
+19.700,beat,buzz snaps the world upright; words wipe (v3),
+19.700,cue,text_snap_out,gain 0.22 dur 0.03
+19.700,cue,snap_back_click,gain 0.4 dur 0.03

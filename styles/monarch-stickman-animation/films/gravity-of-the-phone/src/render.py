@@ -386,6 +386,204 @@ def draw_pencil(frame, cam, tau):
     contact_shadow(frame, cam, x, y + 3, 44, 5, 50)
 
 
+# ── v4 — the iPhone: an upright 2-D tile (lock screen or titanium back) projected onto the desk plane ──
+PK = 4                       # tile px per world px
+TI_FRAME, TI_BACK, TI_EDGE, TI_EDGE2 = (184, 178, 168), (207, 200, 188), (150, 144, 136), (168, 162, 152)
+SCREEN_BG = (16, 14, 18)
+_LOCK_FONT = {}
+
+
+def _lock_font(px):
+    if px not in _LOCK_FONT:
+        _LOCK_FONT[px] = font(px, 300)
+    return _LOCK_FONT[px]
+
+
+def _spiral_wallpaper(w, h, phase):
+    """Amber hypnotic spiral (the planet's wallpaper): two arms, log-spiral, rotating with `phase` (rev)."""
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    cx, cy = w / 2, h * 0.52
+    dx, dy = (xx - cx) / w, (yy - cy) / w
+    r = np.sqrt(dx * dx + dy * dy) + 1e-4
+    ph = np.arctan2(dy, dx)
+    band = 0.5 + 0.5 * np.cos(2 * ph + 7.0 * np.log(r / 0.08) - 2 * math.pi * phase)
+    band = band ** 1.6
+    glow = np.clip(1.0 - r / 0.75, 0, 1) ** 1.4
+    base = np.array([78, 46, 8], np.float32)
+    arm = np.array([232, 160, 30], np.float32)
+    hi = np.array([255, 214, 120], np.float32)
+    rgb = base[None, None] + band[..., None] * (arm - base)[None, None] * (0.55 + 0.45 * glow[..., None])
+    rgb += (glow ** 3)[..., None] * (hi - arm)[None, None] * 0.6
+    return Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8), "RGB")
+
+
+def _rr(d, box, r, **kw):
+    d.rounded_rectangle(box, radius=r, **kw)
+
+
+def phone_tile(face_up, tau):
+    """Upright tile (WL x LL world px at PK px each) — the whole phone as seen from straight above."""
+    W_, L_ = int(S.PHONE_WL * PK), int(S.PHONE_LL * PK)
+    im = Image.new("RGBA", (W_, L_), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im, "RGBA")
+    R = 11 * PK
+    _rr(d, [0, 0, W_ - 1, L_ - 1], R, fill=TI_FRAME + (255,), outline=INK + (255,), width=int(1.4 * PK))
+    if face_up:
+        ins = int(2.4 * PK)
+        _rr(d, [ins, ins, W_ - 1 - ins, L_ - 1 - ins], R - ins, fill=SCREEN_BG + (255,))
+        # display
+        di = int(3.6 * PK)
+        sw, sh = W_ - 2 * di, L_ - 2 * di
+        wall = _spiral_wallpaper(sw, sh, S.spiral_phase(tau))
+        mask = Image.new("L", (sw, sh), 0)
+        ImageDraw.Draw(mask).rounded_rectangle([0, 0, sw - 1, sh - 1], radius=R - di, fill=255)
+        im.paste(wall, (di, di), mask)
+        d = ImageDraw.Draw(im, "RGBA")
+        # Dynamic Island
+        iw, ih = int(19 * PK), int(5.6 * PK)
+        ix0, iy0 = (W_ - iw) // 2, di + int(2.6 * PK)
+        _rr(d, [ix0, iy0, ix0 + iw, iy0 + ih], ih // 2, fill=(8, 7, 9, 255))
+        d.ellipse([ix0 + iw - int(5.2 * PK), iy0 + int(1.3 * PK), ix0 + iw - int(2.2 * PK), iy0 + int(4.3 * PK)], fill=(26, 24, 30, 255))
+        # lock glyph
+        lx, ly = W_ / 2, di + int(12.5 * PK)
+        d.arc([lx - 1.6 * PK, ly - 2.4 * PK, lx + 1.6 * PK, ly + 0.6 * PK], 180, 360, fill=(255, 240, 200, 235), width=int(0.7 * PK))
+        _rr(d, [lx - 2.3 * PK, ly - 0.8 * PK, lx + 2.3 * PK, ly + 2.4 * PK], int(0.6 * PK), fill=(255, 240, 200, 235))
+        # the time — 9:41 … until the phone has the room, then it races with the wall clock
+        txt = S.lock_time_text(tau)
+        f = _lock_font(int(20 * PK))
+        d.text((W_ / 2 + 0.2 * PK, di + 25.5 * PK), txt, font=f, fill=(24, 14, 4, 90), anchor="mm")
+        d.text((W_ / 2, di + 25 * PK), txt, font=f, fill=(255, 246, 222, 255), anchor="mm")
+        # notification pills (one per ding) rise from the bottom
+        n = S.notif_count(tau)
+        for i in range(n):
+            td = (S.TL["ding1"], S.TL["ding2"], S.TL["ding3"])[i]
+            a = smooth(seg(tau, td, td + 0.25))
+            slot = n - 1 - i
+            py_ = L_ - di - int((13.5 + 13.0 * slot) * PK) + int((1 - a) * 9 * PK)
+            px0 = di + int(3.5 * PK)
+            pw, ph_ = sw - int(7 * PK), int(11 * PK)
+            al = int(170 * a)
+            _rr(d, [px0, py_, px0 + pw, py_ + ph_], int(3.6 * PK), fill=(255, 250, 240, al))
+            _rr(d, [px0 + int(1.6 * PK), py_ + int(1.6 * PK), px0 + int(9.4 * PK), py_ + int(9.4 * PK)], int(2.2 * PK), fill=(184, 120, 8, al))
+            d.ellipse([px0 + int(4.2 * PK), py_ + int(4.2 * PK), px0 + int(6.8 * PK), py_ + int(6.8 * PK)], fill=(255, 236, 200, al))
+            for k, wfrac in ((0, 0.42), (1, 0.70)):
+                yy = py_ + int((3.3 + 3.2 * k) * PK)
+                d.rounded_rectangle([px0 + int(12 * PK), yy, px0 + int(12 * PK) + int(wfrac * (pw - 14 * PK)), yy + int(1.7 * PK)],
+                                    radius=int(0.8 * PK), fill=(60, 50, 40, int(0.55 * al)))
+        # glass sheen
+        sheen = Image.new("RGBA", (W_, L_), (0, 0, 0, 0))
+        ImageDraw.Draw(sheen).polygon([(int(0.1 * W_), 0), (int(0.55 * W_), 0), (int(0.25 * W_), L_), (0, L_), (0, int(0.7 * L_))], fill=(255, 255, 255, 22))
+        im.alpha_composite(sheen)
+    else:
+        ins = int(2.2 * PK)
+        _rr(d, [ins, ins, W_ - 1 - ins, L_ - 1 - ins], R - ins, fill=TI_BACK + (255,), outline=(150, 144, 136, 160), width=max(1, PK // 2))
+        # brushed titanium: faint vertical hairlines
+        for xq in range(ins + 3 * PK, W_ - ins - 3 * PK, int(2.6 * PK)):
+            d.line([(xq, ins + 4 * PK), (xq, L_ - ins - 4 * PK)], fill=(190, 183, 171, 28), width=1)
+        # camera plateau (top-left when the phone lies face-down with its top end away)
+        px0, py0, pw = int(5.5 * PK), int(5.5 * PK), int(28 * PK)
+        _rr(d, [px0, py0, px0 + pw, py0 + pw], int(7.5 * PK), fill=(192, 185, 173, 255), outline=INK + (140,), width=max(1, int(0.8 * PK)))
+        for (lx, ly) in ((9.0, 8.8), (9.0, 22.2), (22.4, 15.5)):
+            cxp, cyp, rr_ = px0 + lx * PK, py0 + ly * PK, 6.1 * PK
+            d.ellipse([cxp - rr_, cyp - rr_, cxp + rr_, cyp + rr_], fill=(112, 106, 98, 255), outline=INK + (200,), width=max(1, int(0.7 * PK)))
+            rr2 = 4.2 * PK
+            d.ellipse([cxp - rr2, cyp - rr2, cxp + rr2, cyp + rr2], fill=(24, 22, 30, 255))
+            rr3 = 2.2 * PK
+            d.ellipse([cxp - rr3, cyp - rr3, cxp + rr3, cyp + rr3], fill=(40, 36, 60, 255))
+            d.ellipse([cxp - 2.6 * PK, cyp - 3.0 * PK, cxp - 1.0 * PK, cyp - 1.4 * PK], fill=(255, 255, 255, 190))
+        fx, fy = px0 + 22.4 * PK, py0 + 6.2 * PK
+        d.ellipse([fx - 2.7 * PK, fy - 2.7 * PK, fx + 2.7 * PK, fy + 2.7 * PK], fill=(238, 232, 214, 255), outline=INK + (120,), width=1)
+        lx, ly = px0 + 22.4 * PK, py0 + 24.6 * PK
+        d.ellipse([lx - 2.2 * PK, ly - 2.2 * PK, lx + 2.2 * PK, ly + 2.2 * PK], fill=(30, 28, 32, 255))
+        d.ellipse([px0 + 15.0 * PK, py0 + 14.9 * PK, px0 + 16.2 * PK, py0 + 16.1 * PK], fill=(30, 28, 32, 255))
+        # the mark (an apple, bitten) — engraved
+        ax, ay, ar = W_ / 2, int(70 * PK), 6.6 * PK
+        mark = Image.new("L", (W_, L_), 0)
+        md = ImageDraw.Draw(mark)
+        md.ellipse([ax - ar, ay - 0.95 * ar, ax + ar, ay + 0.85 * ar], fill=255)                       # body
+        for sgn in (-1, 1):                                                                            # lower lobes
+            md.ellipse([ax + sgn * 0.42 * ar - 0.62 * ar, ay + 0.1 * ar, ax + sgn * 0.42 * ar + 0.62 * ar, ay + 1.1 * ar], fill=255)
+        md.ellipse([ax - 0.32 * ar, ay - 1.25 * ar, ax + 0.32 * ar, ay - 0.62 * ar], fill=0)            # the dip
+        md.ellipse([ax - 0.14 * ar, ay + 0.8 * ar, ax + 0.14 * ar, ay + 1.15 * ar], fill=0)             # bottom notch
+        md.ellipse([ax + 0.58 * ar, ay - 0.72 * ar, ax + 1.42 * ar, ay + 0.12 * ar], fill=0)            # the bite
+        leaf = Image.new("L", (int(3 * ar), int(3 * ar)), 0)
+        ImageDraw.Draw(leaf).ellipse([1.5 * ar - 0.55 * ar, 1.5 * ar - 0.22 * ar, 1.5 * ar + 0.55 * ar, 1.5 * ar + 0.22 * ar], fill=255)
+        leaf = leaf.rotate(42, resample=Image.BICUBIC)
+        mark.paste(leaf, (int(ax + 0.30 * ar - 1.5 * ar), int(ay - 1.52 * ar - 1.5 * ar)), leaf)
+        ink = Image.new("RGBA", (W_, L_), (84, 78, 72, 255))
+        im.paste(ink, (0, 0), mark.point(lambda v: int(v * 0.95)))
+    return im
+
+
+def _proj_forward():
+    """Forward affine (tile px -> world offset px) for the phone lying on the desk plane."""
+    th = math.radians(S.PHONE_THETA)
+    c, s_ = math.cos(th), math.sin(th)
+    W_, L_ = S.PHONE_WL * PK, S.PHONE_LL * PK
+    xc = S.PHONE_LL * s_ / 2
+    def fwd(px, py):
+        u = px / PK - S.PHONE_WL / 2
+        v = (L_ - py) / PK
+        X = u * c + v * s_ - xc
+        Y = -(-u * s_ + v * c) * S.PHONE_SIN_E
+        return X, Y
+    return fwd, (W_, L_)
+
+
+_PHONE_FWD, _PHONE_TILE_SIZE = _proj_forward()
+
+
+def phone_image(ps, tau, zs):
+    """RGBA image of the projected phone at screen scale zs (px per world px) + the paste offset of PHONE's anchor."""
+    face_up = ps["face"] > 0.5
+    tile = phone_tile(face_up, tau)
+    fwd, (TWp, THp) = _PHONE_FWD, _PHONE_TILE_SIZE
+    zz = zs * 2                                                           # 2x oversampled canvas
+    e = S.PHONE_TH * math.sqrt(max(0.0, 1 - S.PHONE_SIN_E ** 2))        # visible thickness (world px)
+    corners = [fwd(0, THp), fwd(TWp, THp), fwd(TWp, 0), fwd(0, 0)]       # bl, br, tr, tl (world offsets)
+    xs = [cx for cx, _ in corners]; ys = [cy for _, cy in corners]
+    m = 6
+    x0, y0 = min(xs), min(ys)
+    cw = int(math.ceil((max(xs) - x0) * zz)) + 2 * m
+    ch = int(math.ceil((max(ys) - y0 + e) * zz)) + 2 * m
+    def D(pt):
+        return ((pt[0] - x0) * zz + m, (pt[1] - y0) * zz + m)
+    canvas = Image.new("RGBA", (cw, ch), (0, 0, 0, 0))
+    d = ImageDraw.Draw(canvas, "RGBA")
+    bl, br, tr, tl = corners
+    ez = e * zz
+    ow = max(1, int(1.2 * zz))
+    # right long edge + near short edge (the visible sides of the slab)
+    d.polygon([D(br), D(tr), (D(tr)[0], D(tr)[1] + ez), (D(br)[0], D(br)[1] + ez)], fill=TI_EDGE2 + (255,), outline=INK + (255,), width=ow)
+    d.polygon([D(bl), D(br), (D(br)[0], D(br)[1] + ez), (D(bl)[0], D(bl)[1] + ez)], fill=TI_EDGE + (255,), outline=INK + (255,), width=ow)
+    # near edge: USB-C slot + speaker holes
+    mx, my = (D(bl)[0] + D(br)[0]) / 2, (D(bl)[1] + D(br)[1]) / 2 + ez * 0.5
+    d.rounded_rectangle([mx - 4.5 * zz, my - 1.1 * zz, mx + 4.5 * zz, my + 1.1 * zz], radius=1.1 * zz, fill=(40, 38, 42, 255))
+    for k in range(4):
+        for sgn in (-1, 1):
+            hx = mx + sgn * (9 + 2.6 * k) * zz
+            d.ellipse([hx - 0.55 * zz, my - 0.55 * zz, hx + 0.55 * zz, my + 0.55 * zz], fill=(50, 46, 48, 255))
+    # buttons on the long edge: volume + action when face-down, the side button when face-up
+    ex0, ey0 = D(br); ex1, ey1 = D(tr)
+    def along(f):
+        return (ex0 + (ex1 - ex0) * f, ey0 + (ey1 - ey0) * f + ez * 0.5)
+    segs = ((0.62, 0.70), (0.72, 0.80), (0.84, 0.88)) if not face_up else ((0.60, 0.74),)
+    for f0, f1 in segs:
+        a_, b_ = along(f0), along(f1)
+        d.line([a_, b_], fill=(60, 56, 58, 255), width=max(2, int(1.3 * zz)))
+    # the top face
+    fwd_pts = [(0, 0), (TWp, 0), (0, THp)]
+    dst = [D(fwd(px, py)) for px, py in fwd_pts]
+    A = np.array([[dst[0][0], dst[0][1], 1], [dst[1][0], dst[1][1], 1], [dst[2][0], dst[2][1], 1]], float)
+    bx = np.array([0, TWp, 0], float); by = np.array([0, 0, THp], float)
+    ca = np.linalg.solve(A, bx); cb = np.linalg.solve(A, by)
+    face = tile.transform((cw, ch), Image.AFFINE, (ca[0], ca[1], ca[2], cb[0], cb[1], cb[2]), resample=Image.BICUBIC)
+    canvas.alpha_composite(face)
+    out = canvas.resize((max(1, cw // 2), max(1, ch // 2)), Image.LANCZOS)
+    anchor = (-(x0 * zs) + m / 2, -(y0 * zs) + m / 2)       # where the world anchor (0, 0) sits inside `out`
+    return out, anchor
+
+
 def draw_phone(frame, cam, tau):
     ps = S.phone_state(tau)
     x, y = PHONE
@@ -394,13 +592,203 @@ def draw_phone(frame, cam, tau):
         x += 2.2 * math.sin(2 * math.pi * 25 * tau)
         rot = 1.6 * math.sin(2 * math.pi * 25 * tau + 1.0)
     y -= ps["lift"]
-    sx = 1.0
+    sx_ = 1.0
     if ps["p"] > 0:
-        sx = max(0.08, abs(math.cos(math.pi * ps["p"])))
-    tile, anc = SPR["phone_up" if ps["face"] > 0.5 else "phone_down"]
-    contact_shadow(frame, cam, PHONE[0], PHONE[1], 70, 7, 60 if ps["lift"] < 4 else 30)
-    img, xy = place_tile(tile, anc, *cam.pt(x, y), cam.z / S.S2, rot_cw=rot, scale_x=sx)
-    frame.alpha_composite(img, xy)
+        sx_ = max(0.08, abs(math.cos(math.pi * ps["p"])))
+    contact_shadow(frame, cam, PHONE[0], PHONE[1] - 6, 50, 9, 60 if ps["lift"] < 4 else 30)
+    img, anc = phone_image(ps, tau, cam.z)
+    if sx_ < 0.999 or abs(rot) > 0.05:
+        nw = max(1, int(round(img.size[0] * sx_)))
+        cxp = img.size[0] / 2
+        img = img.resize((nw, img.size[1]), Image.BICUBIC)
+        anc = (cxp * sx_ + (anc[0] - cxp) * sx_, anc[1])
+        if abs(rot) > 0.05:
+            w0, h0 = img.size
+            img = img.rotate(-rot, resample=Image.BICUBIC, expand=True)
+            vx, vy = rot_pt(anc[0] - w0 / 2, anc[1] - h0 / 2, rot)
+            anc = (img.size[0] / 2 + vx, img.size[1] / 2 + vy)
+    sxp, syp = cam.pt(x, y)
+    frame.alpha_composite(img, (int(round(sxp - anc[0])), int(round(syp - anc[1]))))
+
+
+# ── v4 — live clock hands (9:41, then time flies while the phone has the room) ─────────────────────────
+def draw_clock_hands(frame, cam, cx, cy, rot, tau):
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    hdeg, mdeg = S.clock_hands(tau)
+    sx, sy = cam.pt(cx, cy)
+    for deg, L, wdt in ((hdeg + rot, 0.52 * 72, 6), (mdeg + rot, 0.78 * 72, 4)):
+        a = math.radians(deg)
+        d.line([(sx, sy), (sx + L * z * math.sin(a), sy - L * z * math.cos(a))], fill=INK + (255,), width=max(1, int(wdt * z)))
+    # motion smear of the minute hand while it races
+    rate = abs(S.clock_rate(tau))
+    if rate > 0.25:
+        for k in range(1, 4):
+            a = math.radians(mdeg + rot - k * rate * 360 / FPS * 0.22)
+            d.line([(sx, sy), (sx + 0.78 * 72 * z * math.sin(a), sy - 0.78 * 72 * z * math.cos(a))],
+                   fill=INK + (int(110 / k),), width=max(1, int(3 * z)))
+    d.ellipse([sx - 4 * z, sy - 4 * z, sx + 4 * z, sy + 4 * z], fill=INK + (255,))
+
+
+# ── v4 — the framed photo on the wall (Monarch + a friend; the glass is not a safe place) ───────────────
+_PHOTO_CACHE = {}
+
+
+def _stick(d, X, Y, fx, fy, scale, hood, K=2.0, pull_squash=0.0, turn=0.0, point=0.0, col=INK):
+    """A tiny stick figure (feet at fx, fy; height ~ 44 * scale units). hood=True draws the SHADE/Monarch hood."""
+    s_ = scale
+    sx = 1 - 0.28 * pull_squash
+    hx, hy = fx, fy - 34 * s_
+    # legs
+    spread = 5 * s_ * (1 + 1.2 * pull_squash)
+    d.line([(X(fx - spread), Y(fy)), (X(fx), Y(fy - 16 * s_)), (X(fx + spread), Y(fy))], fill=col, width=max(2, int(2.6 * s_ * K / 2)), joint="curve")
+    # torso
+    d.line([(X(fx), Y(fy - 16 * s_)), (X(hx), Y(hy + 8 * s_))], fill=col, width=max(2, int(3.2 * s_ * K / 2)))
+    # arms
+    if point > 0:
+        # the friend points at the lens (🫵): the arm comes toward the camera, the glove big and foreshortened
+        hx_, hy_ = fx + 5.5 * s_, lerp(fy - 18 * s_, fy - 23 * s_, point)
+        d.line([(X(fx), Y(fy - 27 * s_)), (X(hx_), Y(hy_))], fill=col, width=max(2, int(2.8 * s_ * K / 2)))
+        pr = (5.2 * s_ * (0.4 + 0.6 * point)) * K
+        d.ellipse([X(hx_) - pr, Y(hy_) - pr * 0.9, X(hx_) + pr, Y(hy_) + pr * 0.9], fill=(246, 244, 238), outline=col, width=max(1, int(1.6 * s_ * K / 2)))
+        fr = (2.3 * s_ * (0.4 + 0.6 * point)) * K
+        d.ellipse([X(hx_) - fr, Y(hy_ - 0.6 * s_) - fr, X(hx_) + fr, Y(hy_ - 0.6 * s_) + fr], fill=(246, 244, 238), outline=col, width=max(1, int(1.3 * s_ * K / 2)))
+        d.line([(X(fx), Y(fy - 27 * s_)), (X(fx - 8 * s_), Y(fy - 14 * s_))], fill=col, width=max(2, int(2.6 * s_ * K / 2)))
+    elif pull_squash > 0.5:
+        # plastered on the glass: arms up and splayed, gloves flat
+        for sgn in (-1, 1):
+            d.line([(X(fx), Y(fy - 27 * s_)), (X(fx + sgn * 9 * s_), Y(fy - 40 * s_))], fill=col, width=max(2, int(2.6 * s_ * K / 2)))
+            gr = (2.6 * s_) * K
+            d.ellipse([X(fx + sgn * 9 * s_) - gr, Y(fy - 40 * s_) - gr, X(fx + sgn * 9 * s_) + gr, Y(fy - 40 * s_) + gr], fill=(246, 244, 238), outline=col, width=1)
+    else:
+        for sgn in (-1, 1):
+            d.line([(X(fx), Y(fy - 27 * s_)), (X(fx + sgn * 8 * s_), Y(fy - 14 * s_))], fill=col, width=max(2, int(2.6 * s_ * K / 2)))
+    # head
+    hr = 7.5 * s_
+    if hood:
+        pts = [(hx - hr * 1.15, hy + hr * 1.1), (hx - hr * 1.0, hy - hr * 0.9), (hx, hy - hr * 1.45), (hx + hr * 1.0, hy - hr * 0.9), (hx + hr * 1.15, hy + hr * 1.1)]
+        d.polygon([(X(px), Y(py)) for px, py in pts], fill=(40, 38, 44), outline=col, width=max(1, int(1.4 * s_ * K / 2)))
+        d.ellipse([X(hx - hr * 0.72), Y(hy - hr * 0.55), X(hx + hr * 0.72), Y(hy + hr * 0.85)], fill=(14, 12, 16))
+        ex = hx + 2.2 * s_ * pull_squash
+        for sgn in (-1, 1):
+            er = (1.4 * s_ * (1 + 0.5 * pull_squash)) * K
+            d.ellipse([X(ex + sgn * 2.6 * s_) - er, Y(hy) - er, X(ex + sgn * 2.6 * s_) + er, Y(hy) + er], fill=(250, 250, 250))
+    else:
+        d.ellipse([X(hx - hr), Y(hy - hr), X(hx + hr), Y(hy + hr)], fill=(236, 230, 216), outline=col, width=max(1, int(1.4 * s_ * K / 2)))
+        # face: eyes slide toward the pulled friend (turn), then straight at the lens (point)
+        look = lerp(0.0, 1.0, turn) * (1 - point)
+        ex = hx + 2.4 * s_ * look
+        for sgn in (-1, 1):
+            er = (0.9 * s_) * K
+            d.ellipse([X(ex + sgn * 2.4 * s_ * (1 - 0.35 * look)) - er, Y(hy - 1.0 * s_) - er, X(ex + sgn * 2.4 * s_ * (1 - 0.35 * look)) + er, Y(hy - 1.0 * s_) + er], fill=col)
+        # a raised brow while he watches
+        if turn > 0.2:
+            d.line([(X(ex - 0.5 * s_), Y(hy - 4.2 * s_ - 1.2 * s_ * turn)), (X(ex + 3.4 * s_), Y(hy - 3.6 * s_ - 1.6 * s_ * turn))], fill=col, width=max(1, int(1.2 * s_ * K / 2)))
+        mouth_w = 2.4 * s_
+        if point > 0.5:
+            d.arc([X(hx - mouth_w), Y(hy + 1.0 * s_), X(hx + mouth_w), Y(hy + 4.4 * s_)], 0, 180, fill=col, width=max(1, int(1.1 * s_ * K / 2)))
+        else:
+            d.line([(X(hx - mouth_w * 0.7), Y(hy + 3.2 * s_)), (X(hx + mouth_w * 0.7), Y(hy + 3.2 * s_ - 1.0 * s_ * turn))], fill=col, width=max(1, int(1.1 * s_ * K / 2)))
+
+
+def photo_tile(st, zs):
+    """RGBA tile of the framed photo at screen scale zs (px per world px), anchored at its centre."""
+    key = (round(st["pull"], 2), round(st["turn"], 2), round(st["point"], 2), round(zs, 2))
+    if key in _PHOTO_CACHE:
+        return _PHOTO_CACHE[key]
+    K = 2 * zs
+    w, h = int(S.PHOTO_W * K) + 8, int(S.PHOTO_H * K) + 8
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im, "RGBA")
+    X = lambda x: (x + S.PHOTO_W / 2) * K + 4
+    Y = lambda y: (y + S.PHOTO_H / 2) * K + 4
+    # frame + matte + photo paper
+    d.rectangle([X(-32), Y(-40), X(32), Y(40)], fill=WOOD + (255,), outline=INK + (255,), width=max(2, int(1.6 * K)))
+    d.rectangle([X(-27), Y(-35), X(27), Y(35)], fill=(246, 242, 232, 255), outline=INK + (120,), width=max(1, int(0.8 * K)))
+    d.rectangle([X(-22), Y(-29), X(22), Y(29)], fill=(228, 222, 206, 255), outline=INK + (200,), width=max(1, int(0.9 * K)))
+    # a horizon line inside the photo (a beach, a day off)
+    d.line([(X(-22), Y(12)), (X(22), Y(12))], fill=INK + (70,), width=max(1, int(0.8 * K)))
+    d.ellipse([X(12), Y(-24), X(19), Y(-17)], fill=(246, 242, 232, 255), outline=INK + (110,), width=1)
+    # figures: the friend (left, stays), Monarch (right, pulled to the glass edge nearest the phone)
+    sc = 0.95 * K
+    fx_friend = -10.0
+    _stick(d, X, Y, fx_friend, 27.0, 0.95, hood=False, K=K, turn=st["turn"], point=st["point"])
+    pull = st["pull"]
+    fx_m = lerp(8.0, 17.5, pull)
+    fy_m = lerp(27.0, 26.0, pull)
+    _stick(d, X, Y, fx_m, fy_m, 0.95 * (1 - 0.06 * pull), hood=True, K=K, pull_squash=pull)
+    # squash lines against the glass
+    if pull > 0.85:
+        for yy in (-6, 2, 10):
+            d.line([(X(20.5), Y(yy)), (X(21.8), Y(yy + 2))], fill=INK + (150,), width=max(1, int(0.9 * K)))
+    # glass highlight
+    hl = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    ImageDraw.Draw(hl).polygon([(X(-27), Y(-35)), (X(-8), Y(-35)), (X(-27), Y(-5))], fill=(255, 255, 255, 46))
+    ImageDraw.Draw(hl).polygon([(X(27), Y(20)), (X(27), Y(35)), (X(16), Y(35))], fill=(255, 255, 255, 30))
+    im.alpha_composite(hl)
+    out = im.resize((max(1, w // 2), max(1, h // 2)), Image.LANCZOS)
+    if len(_PHOTO_CACHE) > 400:
+        _PHOTO_CACHE.clear()
+    _PHOTO_CACHE[key] = out
+    return out
+
+
+def draw_photo(frame, cam, tau, t_abs):
+    st = S.photo_state(tau, t_abs)
+    tile = photo_tile(st, cam.z)
+    sx, sy = cam.pt(*S.PHOTO)
+    # the frame itself tilts a few degrees toward the phone while the field is on (the nail holds)
+    k = S.field_vis(tau)
+    rot = 6.0 * k
+    if abs(rot) > 0.05:
+        tile = tile.rotate(-rot, resample=Image.BICUBIC, expand=True)
+    # nail + string
+    d = ImageDraw.Draw(frame, "RGBA")
+    nx, ny = cam.pt(S.PHOTO[0], S.PHOTO[1] - 52)
+    d.ellipse([nx - 2.5 * cam.z, ny - 2.5 * cam.z, nx + 2.5 * cam.z, ny + 2.5 * cam.z], fill=INK + (255,))
+    frame.alpha_composite(tile, (int(round(sx - tile.size[0] / 2)), int(round(sy - tile.size[1] / 2))))
+
+
+# ── v4 — the moth (it goes where the brightest light is) ───────────────────────────────────────────────
+def draw_moth(frame, cam, tau):
+    x, y, wing, rate = S.moth_state(tau)
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    sx, sy = cam.pt(x, y)
+    # a short trail
+    x0, y0, _, _ = S.moth_state(tau - 1 / FPS)
+    px, py = cam.pt(x0, y0)
+    d.line([(px, py), (sx, sy)], fill=SOFT + (130,), width=max(1, int(1.6 * z)))
+    # wings (flap = alternating spread), body, antennae
+    spread = 0.35 + 0.65 * abs(math.sin(math.pi * wing * 2))
+    z = z * 1.5                                   # a cartoon moth: big enough to be found in the wide shot
+    wl = 7.0 * z * spread
+    for sgn in (-1, 1):
+        d.polygon([(sx, sy), (sx + sgn * wl, sy - 4.2 * z), (sx + sgn * wl * 0.9, sy + 2.4 * z)], fill=(228, 220, 200, 225), outline=INK + (220,), width=max(1, int(0.8 * z)))
+    d.ellipse([sx - 1.6 * z, sy - 3.0 * z, sx + 1.6 * z, sy + 3.0 * z], fill=INK + (240,))
+    d.line([(sx - 0.6 * z, sy - 3 * z), (sx - 2.6 * z, sy - 6 * z)], fill=INK + (200,), width=max(1, int(0.6 * z)))
+    d.line([(sx + 0.6 * z, sy - 3 * z), (sx + 2.6 * z, sy - 6 * z)], fill=INK + (200,), width=max(1, int(0.6 * z)))
+
+
+# ── v4 — coffee steam: it rises AWAY from the phone while the field is on (buoyancy opposes gravity) ───
+def draw_steam(frame, cam, tau, cx, cy):
+    d = ImageDraw.Draw(frame, "RGBA")
+    z = cam.z
+    ux, uy = S.steam_dir(tau, (cx, cy))
+    px_, py_ = -uy, ux                      # perpendicular (for the wiggle)
+    for j, (off, L, ph) in enumerate(((-9, 48, 0.0), (0, 64, 2.1), (9, 44, 4.0))):
+        pts = []
+        n = 12
+        for i in range(n):
+            u = i / (n - 1)
+            dist = L * u
+            wig = 5.5 * math.sin(2 * math.pi * (1.4 * u - 0.55 * tau) + ph) * (0.3 + u)
+            wx = cx + off + ux * dist + px_ * wig
+            wy = cy - 50 + uy * dist + py_ * wig
+            pts.append(cam.pt(wx, wy))
+        for i in range(n - 1):
+            a = int(120 * (1 - i / (n - 1)) ** 1.3)
+            d.line([pts[i], pts[i + 1]], fill=SOFT + (a,), width=max(1, int((2.2 - 1.2 * i / n) * z)))
 
 
 def draw_glow(rgb, cam, tau, extra=0.0):
@@ -409,7 +797,7 @@ def draw_glow(rgb, cam, tau, extra=0.0):
     if g <= 0.001:
         return rgb
     z = cam.z
-    sx, sy = cam.pt(PHONE[0], PHONE[1] - 30)
+    sx, sy = cam.pt(PHONE[0], PHONE[1] - 42)
     n = int(900 * z * 1.15)
     disc = GLOW_DISC.resize((n, n), Image.BILINEAR)
     pool = GLOW_POOL.resize((n, n), Image.BILINEAR)
@@ -525,6 +913,10 @@ def draw_prop(frame, cam, name, tau):
         paste_smear(frame, img, xy, vs)
     else:
         frame.alpha_composite(img, xy)
+    if name == "clock":
+        draw_clock_hands(frame, cam, x, y, rot, tau)
+    if name == "cup":
+        draw_steam(frame, cam, tau, x, y)
 
 
 def draw_pendulum(frame, cam, cx, cy, rot, tau):
@@ -754,11 +1146,16 @@ def ecu_frame(t):
     blink = 1.0 if 4.08 <= t < 4.15 else 0.0
     SH.head_only(bg, 560 + 24 * u + jolt, 1010 - 10 * u, hr, expr=expr, look=look, blink=blink, ang=-0.06 + 0.03 * u, yaw=16)
     # v3 — the phone's light reaches his face from frame-right: an amber rim that swells with the pulse and the shock
-    k = 0.22 + 0.30 * S.pump(t) + (0.35 * seg(t, 4.15, 4.45) if t >= 4.15 else 0.0)
+    k = 0.34 + 0.30 * S.pump(t) + (0.40 * seg(t, 4.15, 4.45) if t >= 4.15 else 0.0)
     arr = np.asarray(bg.convert("RGB"), np.float32)
     xx = np.arange(W, dtype=np.float32)[None, :]
     yy = np.arange(H, dtype=np.float32)[:, None]
     rim = np.clip((xx - 520) / 560, 0, 1) ** 1.6 * np.exp(-((yy - 1010) / 520) ** 2)
+    # v4 — the screen's spiral wallpaper turns in that light: slow hypnotic bands sweep his face
+    dxs, dys = (xx - 1180) / 700.0, (yy - 1010) / 700.0
+    rr = np.sqrt(dxs * dxs + dys * dys) + 1e-3
+    band = 0.5 + 0.5 * np.cos(2 * np.arctan2(dys, dxs) + 6.0 * np.log(rr) - 2 * math.pi * S.spiral_phase(t))
+    rim = rim * (0.40 + 1.10 * band ** 2)
     arr += (rim * k)[..., None] * np.array([96, 52, -22], np.float32)
     return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).convert("RGBA")
 
@@ -880,6 +1277,7 @@ def render_frame(fi):
         draw_floor(frame, cam, tau)
         draw_door(frame, cam)
         draw_shelf(frame, cam)
+        draw_photo(frame, cam, tau, t)
         draw_rug(frame, cam, tau)
         # back props (floor + wall)
         for name in ("plant", "fbook0", "fbook1", "fbook2", "chair", "clock"):
@@ -898,6 +1296,7 @@ def render_frame(fi):
         draw_hero(frame, cam, tau, t)
         draw_sweat(frame, cam, tau)
         draw_dust(frame, cam, tau)
+        draw_moth(frame, cam, tau)
         rgb = frame.convert("RGB")
         rgb = draw_glow(rgb, cam, tau, extra=0.10 * S.beat_pulse(tau))
         frame = rgb.convert("RGBA")

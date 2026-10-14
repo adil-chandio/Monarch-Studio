@@ -1,5 +1,11 @@
 [
  {
+  "t": -2.2,
+  "cue": "moth_flutter",
+  "gain": 0.075,
+  "dur": 22.2
+ },
+ {
   "t": -1.8,
   "cue": "clock_tick",
   "gain": 0.07,
@@ -301,6 +307,12 @@
  },
  {
   "t": 4.9,
+  "cue": "clock_spin_ratchet",
+  "gain": 0.12,
+  "dur": 7.9
+ },
+ {
+  "t": 4.9,
   "cue": "music_drop_boom",
   "gain": 0.807,
   "dur": 0
@@ -430,6 +442,12 @@
   "cue": "field_sparkle",
   "gain": 0.049,
   "dur": 0.057
+ },
+ {
+  "t": 5.6,
+  "cue": "photo_glass_thump",
+  "gain": 0.3,
+  "dur": 0.12
  },
  {
   "t": 5.6,
@@ -972,10 +990,22 @@
   "dur": 1.2
  },
  {
+  "t": 12.33,
+  "cue": "clock_stop_tock",
+  "gain": 0.28,
+  "dur": 0.5
+ },
+ {
   "t": 12.35,
   "cue": "pages_settle",
   "gain": 0.22,
   "dur": 0.8
+ },
+ {
+  "t": 12.38,
+  "cue": "photo_glass_slide",
+  "gain": 0.07,
+  "dur": 0.32
  },
  {
   "t": 12.48,
@@ -1384,6 +1414,12 @@
   "cue": "music_word_ping",
   "gain": 0.306,
   "dur": 0
+ },
+ {
+  "t": 18.68,
+  "cue": "photo_point_pop",
+  "gain": 0.14,
+  "dur": 0.05
  },
  {
   "t": 18.98,

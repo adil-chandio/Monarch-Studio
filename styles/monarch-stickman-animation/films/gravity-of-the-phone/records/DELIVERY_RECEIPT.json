@@ -2,22 +2,28 @@
   "title": "THE GRAVITY OF THE PHONE",
   "format": "WTF-30",
   "number": 1,
-  "version": 3,
+  "version": 4,
   "task": "EMS-20261014-002",
   "delivery": {
-    "version": 3,
+    "version": 4,
     "date": "2026-10-14",
-    "file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4",
-    "drive_file_id": "1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1",
+    "file": "THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4",
+    "drive_file_id": "1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl",
     "drive_folder_id": "1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ",
-    "web_view_link": "https://drive.google.com/file/d/1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1/view?usp=drivesdk",
-    "bytes": 61573207,
-    "md5": "f54c3b295011bb3310ce60f7d710e98b",
-    "sha256": "8beef5da5cae88b4a82c6cc6d07b5a95a6d2e1dee56f632530c961495db8c5bd",
-    "look_sheet_drive_id": "1b-Usf3fQV4yjX7lYD0ucCw5CcFqxAwt_",
-    "gate_receipt_drive_id": "1fkMxnPAlM0VoM7ka2lciSdRU_yCEEX_O",
+    "web_view_link": "https://drive.google.com/file/d/1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl/view?usp=drivesdk",
+    "bytes": 61998081,
+    "md5": "b2735dbf9ff18dc2e8f3fbf2be341c22",
+    "sha256": "8da959fff87a994025b173f66dcafd889e9f749304a727cbd9b89060d8743482",
+    "look_sheet_drive_id": "1qe20v4NuD7Rcm5J_dOVxwDPu8snEVXzU",
+    "gate_receipt_drive_id": "1kY9Kn1TeqrtgNBTyZ9RonrA4ORN190ej",
     "gates": "12/12 production (gate.py) + 28/28 brain (concept.py gate)",
     "previous": [
+      {
+        "version": 3,
+        "drive_file_id": "1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1",
+        "md5": "f54c3b295011bb3310ce60f7d710e98b",
+        "bytes": 61573207
+      },
       {
         "version": 2,
         "drive_file_id": "1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp",
@@ -34,8 +40,8 @@
   },
   "loudness": {
     "lufs": -14.1,
-    "true_peak_db": -1.1,
-    "lra": 6.7
+    "true_peak_db": -1.3,
+    "lra": 6.5
   },
   "probe": {
     "duration": 20.0,
@@ -47,6 +53,25 @@
     "sample_rate": 48000,
     "channels": "stereo"
   },
+  "seam_diff": 3.401460647583008,
+  "cuts_s": [
+    2.0,
+    2.03,
+    3.8,
+    4.6,
+    14.6,
+    17.97,
+    19.13,
+    19.17,
+    19.2,
+    19.23,
+    19.27,
+    19.3,
+    19.33,
+    19.37,
+    19.4,
+    19.7
+  ],
   "gates": [
     {
       "gate": "G-W1 container 1080x1920 @ 30 fps H.264 + AAC",
@@ -66,7 +91,7 @@
     {
       "gate": "G-W2 frame 1 in motion (0→3 change > 0.15/255) + visual question by 0.8 s (0→24 change > 0.4/255)",
       "ok": true,
-      "detail": "0→3 1.11, 0→24 0.69"
+      "detail": "0→3 1.03, 0→24 0.89"
     },
     {
       "gate": "max still ≤ 0.4 s (no 12-frame window without change)",
@@ -81,12 +106,12 @@
     {
       "gate": "G-W10 loop seam: last vs first frame mean abs diff ≤ 6/255",
       "ok": true,
-      "detail": "3.13/255"
+      "detail": "3.40/255"
     },
     {
       "gate": "G-W5 silence hole 0.3–0.6 s before the WTF onset (< −60 dBFS RMS)",
       "ok": true,
-      "detail": "4.50–4.90 s = 0.40 s at -125.9 dBFS; second hole -108.6 dBFS"
+      "detail": "4.50–4.90 s = 0.40 s at -115.3 dBFS; second hole -119.4 dBFS"
     },
     {
       "gate": "hook: sound within the first 0.1 s (frame 1 is alive)",
@@ -96,18 +121,117 @@
     {
       "gate": "G-W11 loudness −14 ± 1 LUFS, TP ≤ −1 dBTP",
       "ok": true,
-      "detail": "-14.1 LUFS, TP -1.1 dBTP, LRA 6.7 LU"
+      "detail": "-14.1 LUFS, TP -1.3 dBTP, LRA 6.5 LU"
     },
     {
       "gate": "no synthetic noise floor (quietest 0.5 s of the sound-design stem ≤ −45 dBFS; score is a separate composed bus)",
       "ok": true,
-      "detail": "stem quietest block -50.4 dBFS at 14.0 s; master quietest -18.3 dBFS at 13.0 s"
+      "detail": "stem quietest block -49.1 dBFS at 14.5 s; master quietest -18.2 dBFS at 13.0 s"
     },
     {
       "gate": "4:5 safe centre: every subject inside y 285–1635 on key frames, ink share ≥ 0.72",
       "ok": true,
-      "detail": "0.5s ink 0.78 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.82 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.82 phone=881,text_moral_a=1262,text_moral_b=1113"
+      "detail": "0.5s ink 0.77 phone=1036; 3.0s ink 0.92 phone=1259,hero_feet=1467,hero_head=982; 8.5s ink 0.93 phone=1241,hero_pivot=865; 11.4s ink 0.92 phone=1235,hero_pivot=1038; 16.67s ink 0.93 phone=1313,hero_feet=1313,hero_head=691,text_line1=440,text_line2=580; 19.1s ink 0.81 phone=1036,text_moral_a=668,text_moral_b=812; 19.6s ink 0.81 phone=881,text_moral_a=1262,text_moral_b=1113"
     }
   ],
-  "brain_gate": "28/28 PASS"
+  "passed": 12,
+  "total": 12,
+  "brain_gate": "28/28 PASS",
+  "comment_engine": {
+    "principle": "every plant is visible on a normal watch or a pause — no subliminal frames, no hidden tricks; each is physically motivated by the film's one broken law",
+    "plants": [
+      {
+        "id": "iphone_941",
+        "what": "the phone is an iPhone and its lock screen reads 9:41 (Apple's keynote time); the wall clock reads 9:41 too",
+        "hook": "brand-fan recognition / 'did you notice' flex",
+        "where_s": [
+          1.45,
+          2.0
+        ]
+      },
+      {
+        "id": "time_flies",
+        "what": "while the field is on, the wall clock's hands spin through 5 hours (9:41 → 2:41) and the lock screen races with them; both stop dead at the drop",
+        "hook": "relatable ('that's me every night') + spot-it",
+        "where_s": [
+          4.9,
+          12.33
+        ]
+      },
+      {
+        "id": "photo_cameo",
+        "what": "a framed photo: Monarch-in-the-photo is pulled across the glass and plastered to the edge nearest the phone; the friend turns to watch; after the drop he slides down the glass",
+        "hook": "background character + debate ('why only one of them?')",
+        "where_s": [
+          5.0,
+          12.9
+        ]
+      },
+      {
+        "id": "photo_points",
+        "what": "on 'tum' the friend in the photo points straight at the lens, then the world rolls",
+        "hook": "direct address / eye-contact reflex",
+        "where_s": [
+          18.64,
+          19.7
+        ]
+      },
+      {
+        "id": "moth",
+        "what": "a moth circles the lamp, leaves it for the brighter screen, orbits the phone like a satellite while the field is on (tighter and faster), tumbles when the field dies and staggers back to the lamp",
+        "hook": "'we are the moth' metaphor + tiny-moving-thing eye magnet",
+        "where_s": [
+          0.0,
+          14.0
+        ]
+      },
+      {
+        "id": "steam_away",
+        "what": "the coffee steam bends AWAY from the phone while everything else falls toward it (hot air is buoyant: it moves opposite to gravity)",
+        "hook": "physics debate with a defensible answer",
+        "where_s": [
+          5.0,
+          12.5
+        ]
+      },
+      {
+        "id": "spiral_light",
+        "what": "the lock-screen wallpaper is a slowly turning amber spiral; in the ECU its bands sweep his face",
+        "hook": "hypnotic motion on the brightest object",
+        "where_s": [
+          1.55,
+          11.78
+        ]
+      }
+    ]
+  },
+  "measured": {
+    "lufs": -14.1,
+    "true_peak_db": -1.3,
+    "lra": 6.5,
+    "duration_s": 20.0,
+    "frames": 600,
+    "loop_seam_diff": 3.4,
+    "silence_hole_db": -115.3,
+    "md5": "b2735dbf9ff18dc2e8f3fbf2be341c22",
+    "bytes": 61998081,
+    "detected_cuts_s": [
+      2.0,
+      2.03,
+      3.8,
+      4.6,
+      14.6,
+      17.97,
+      19.13,
+      19.17,
+      19.2,
+      19.23,
+      19.27,
+      19.3,
+      19.33,
+      19.37,
+      19.4,
+      19.7
+    ]
+  }
 }

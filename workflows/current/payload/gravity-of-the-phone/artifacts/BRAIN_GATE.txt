@@ -11,10 +11,10 @@ FRESHNESS GATE (#20) — DNA.json — PASS (28/28)
   [PASS] transition kinds = 7 (min 3)  — tint_flash_cut, insert_cutaway, push_in_cut, phone_match_cut, whip_roll_180_punch, snap_back_cut, loop_seam_match
   [PASS] overlap with last wtf30 = 0.00 (max 0.4)  — shared: []
   [PASS] new kinds = 6 (min 1)  — tint_flash_cut, push_in_cut, phone_match_cut, whip_roll_180_punch, snap_back_cut, loop_seam_match
-  [PASS] new SFX voices share = 1.00 (min 0.5)  — 111 voices listed
+  [PASS] new SFX voices share = 1.00 (min 0.5)  — 117 voices listed
   [PASS] shots = 7 (min 5)  — cuts are few
-  [PASS] beats = 50 (min 14) · max gap 1.4 s (≤ 2.5)  — wtf30 density = physical events
-  [PASS] pattern_interrupts = 13 (min 3)  
+  [PASS] beats = 55 (min 14) · max gap 1.4 s (≤ 2.5)  — wtf30 density = physical events
+  [PASS] pattern_interrupts = 16 (min 3)  
   [PASS] wtf_moments = 2 (min 2)  
   [PASS] re-hooks logged = 3 (min 3 for ≥ 40 s)  — [5.0, 9.8, 15.4]
   [PASS] hook text logged  — phone face-DOWN buzzing; a pencil rolls uphill toward it by 
@@ -26,4 +26,4 @@ FRESHNESS GATE (#20) — DNA.json — PASS (28/28)
   [PASS] G-W7 on_screen_words = 7 (≤ 7, none over the WTF)  — muted-pass comprehension
   [PASS] G-W8 meaning line = 4 words, full stop yes, at 15.4 s (14.0–18.0)  — Phone ulta. Zindagi seedhi.
   [PASS] G-W9 loop seam described  — S6/S7 are S1 evaluated at loop time (tau = t-20): the world 
-  [PASS] G-W11 loudness = -14.1 LUFS / TP -1.1 dBTP (-15.0..-13.0, ≤ -1.0)  — platform-normalised master
+  [PASS] G-W11 loudness = -14.1 LUFS / TP -1.3 dBTP (-15.0..-13.0, ≤ -1.0)  — platform-normalised master

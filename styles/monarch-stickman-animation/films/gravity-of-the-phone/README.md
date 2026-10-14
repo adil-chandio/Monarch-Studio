@@ -1,6 +1,6 @@
 # THE GRAVITY OF THE PHONE — WTF-30 #1 production package
 
-A 20.0-second, 9:16 vertical "impossible moment" film in the permanent Monarch Stickman Animation style, built under the WTF-30 doctrine (`studio/editor-brain/MONARCH_WTF30_DOCTRINE.md`). First delivery of the format. Task `EMS-20261014-002`, delivered 2026-10-14 — **current delivery is v3** (same film; v2 added the composed score, the 96-voice sound design and the 3-word moral; v3 adds the vocal-chop hook, kick-synced picture pump, god-rays, afterimages, kinetic type and the 180° world roll on 'ulte.'). v1/v2 remain on Drive and in `records/DELIVERY_RECEIPT_v1.*` / `_v2.*`.
+A 20.0-second, 9:16 vertical "impossible moment" film in the permanent Monarch Stickman Animation style, built under the WTF-30 doctrine (`studio/editor-brain/MONARCH_WTF30_DOCTRINE.md`). First delivery of the format. Task `EMS-20261014-002`, delivered 2026-10-14 — **current delivery is v4** (same film; v2 added the composed score, the 96-voice sound design and the 3-word moral; v3 added the vocal-chop hook, kick-synced picture pump, god-rays, afterimages, kinetic type and the 180° world roll on 'ulte.'; **v4 makes the phone an Apple iPhone and adds the comment engine** — seven visible, physically motivated plants people cannot help discussing: 9:41 and the racing clocks, Monarch-in-the-photo, the friend who points at you, the moth, steam that bends away, spiral light). v1/v2/v3 remain on Drive and in `records/DELIVERY_RECEIPT_v1.*` / `_v2.*` / `_v3.*`.
 
 **One law broken: gravity.** A face-down phone becomes the room's planet. Everything — pencil, pages, clock, books, plant, chair, and finally Monarch himself — slides toward it; he hangs from the door frame as a human flag for ten uncut seconds, lets go, lands on the desk, flips the phone face-down, and gravity goes back to normal. Meaning line: **"Phone ulta. Zindagi seedhi."** Moral (v2): **"Warna tum ulte."** — the last word lands upside-down.
 
@@ -30,12 +30,13 @@ Hook law: no title, no logo, first sound at 0.000 s. On-screen words: 7 (4 meani
 
 ## Accepted delivery
 
-- Master (v3): `THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4` · 61,573,207 bytes · 20.00 s · 1080×1920 @ 30 fps · H.264 High + AAC 48 kHz
-- MD5 `f54c3b295011bb3310ce60f7d710e98b` · SHA-256 `8beef5da5cae88b4a82c6cc6d07b5a95a6d2e1dee56f632530c961495db8c5bd`
-- Measured: −14.1 LUFS · TP −1.1 dBTP · LRA 6.7 · loop seam 3.1/255 · silence holes digital silence · SFX-stem floor −50.4 dBFS
+- Master (v4): `THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4` · 61,998,081 bytes · 20.00 s · 1080×1920 @ 30 fps · H.264 High + AAC 48 kHz
+- MD5 `b2735dbf9ff18dc2e8f3fbf2be341c22` · SHA-256 `8da959fff87a994025b173f66dcafd889e9f749304a727cbd9b89060d8743482`
+- Measured: −14.1 LUFS · TP −1.3 dBTP · LRA 6.5 · loop seam 3.4/255 · silence holes digital silence · SFX-stem floor −49.1 dBFS
 - Acceptance: **12/12 measured gates PASS** (`artifacts/gate_receipt.json`) · **28/28 brain freshness PASS** (`artifacts/BRAIN_GATE.txt`)
-- Drive: folder https://drive.google.com/drive/folders/1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ · v3 file id `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1` (Drive md5 verified equal) · v2 `1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp` and v1 `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ` kept
-- Exact IDs and checksums: `records/DELIVERY_RECEIPT.{md,json}` (v3) · `records/DELIVERY_RECEIPT_v2.*` · `records/DELIVERY_RECEIPT_v1.*` (history)
+- Drive: folder https://drive.google.com/drive/folders/1ITMYpBexdmGaALpaf6BlTXNuGNfAFTiQ · v4 file id `1Zi87F-qYb-tGENwdPdMGeP4jVAbeggGl` (Drive md5 verified equal) · look sheet `1qe20v4NuD7Rcm5J_dOVxwDPu8snEVXzU` · v3 `1LsfTOubsY6kHeWJatrSj4z71Qxbcpfh1`, v2 `1vzNjW3FeXOMoJ4HDGqM-km5BCKw8IUfp` and v1 `118VOjnmzDmTrTuz8iCsGPwIwWUvJDbPJ` kept
+- Exact IDs and checksums: `records/DELIVERY_RECEIPT.{md,json}` (v4) · `records/DELIVERY_RECEIPT_v3.*` · `_v2.*` · `_v1.*` (history)
+- v4 comment engine: `DNA.json → comment_engine` (7 plants with timings) · `SCRIPT_AND_TOPIC.md → v4` · `records/EXPERIMENTS_FAILURES_FIXES.md` items 31–37
 
 ## Package map
 
@@ -60,8 +61,8 @@ python3 render.py --range 0 300 --out ../../../../../build/gotp_seg_a.mp4 &
 python3 render.py --range 300 600 --out ../../../../../build/gotp_seg_b.mp4 ; wait
 python3 audio.py --out ../../../../../build/gotp_mix.wav --vo ../audio/vo_meaning.mp3 --vo-moral ../audio/vo_moral_b.mp3
 python3 build.py --segs ../../../../../build/gotp_seg_a.mp4 ../../../../../build/gotp_seg_b.mp4 \
-  --mix ../../../../../build/gotp_mix.wav --out ../../../../../build/THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4
-python3 gate.py --video ../../../../../build/THE_GRAVITY_OF_THE_PHONE_WTF30_01_v3.mp4 --dna ../DNA.json --out ../artifacts
+  --mix ../../../../../build/gotp_mix.wav --out ../../../../../build/THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4
+python3 gate.py --video ../../../../../build/THE_GRAVITY_OF_THE_PHONE_WTF30_01_v4.mp4 --dna ../DNA.json --out ../artifacts
 python3 ../../../../../studio/editor-brain/brain/concept.py gate ../DNA.json
 ```
 

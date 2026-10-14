@@ -1,6 +1,29 @@
 {
- "lufs": -14.1,
- "true_peak_db": -1.1,
- "lra": 6.7,
- "duration_s": 20.0
+  "lufs": -14.1,
+  "true_peak_db": -1.3,
+  "lra": 6.5,
+  "duration_s": 20.0,
+  "frames": 600,
+  "loop_seam_diff": 3.4,
+  "silence_hole_db": -115.3,
+  "md5": "b2735dbf9ff18dc2e8f3fbf2be341c22",
+  "bytes": 61998081,
+  "detected_cuts_s": [
+    2.0,
+    2.03,
+    3.8,
+    4.6,
+    14.6,
+    17.97,
+    19.13,
+    19.17,
+    19.2,
+    19.23,
+    19.27,
+    19.3,
+    19.33,
+    19.37,
+    19.4,
+    19.7
+  ]
 }
