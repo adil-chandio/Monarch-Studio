@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    {
+      "id": "R01",
+      "requirement": "Separate WF-05 style and registry identity",
+      "paths": [
+        "style.json",
+        "workflow.json",
+        "README.md"
+      ]
+    },
+    {
+      "id": "R02",
+      "requirement": "Exact latest approval / V6 lower caption rejection",
+      "paths": [
+        "data/approved-profile.json",
+        "records/USER_REQUEST_20261015.txt",
+        "projects/einstein-flow-state/ACCEPTANCE.json",
+        "knowledge/06_TYPOGRAPHY_AND_CAPTION_POLICY.md"
+      ]
+    },
+    {
+      "id": "R03",
+      "requirement": "All available V5/V6 source, audio, fonts and receipts",
+      "paths": [
+        "projects/einstein-flow-state/versions/v5/PROVENANCE.json",
+        "projects/einstein-flow-state/versions/v6/PROVENANCE.json",
+        "records/SOURCE_INVENTORY.json"
+      ]
+    },
+    {
+      "id": "R04",
+      "requirement": "Actual reference analysis and semantic story",
+      "paths": [
+        "knowledge/03_REFERENCE_AND_STORY.md",
+        "projects/einstein-flow-state/SHOT_BREAKDOWN.md"
+      ]
+    },
+    {
+      "id": "R05",
+      "requirement": "Tools and technical strategies",
+      "paths": [
+        "knowledge/09_TOOLCHAIN_AND_ENGINEERING.md",
+        "src/render_project.py",
+        "src/motion.py"
+      ]
+    },
+    {
+      "id": "R06",
+      "requirement": "Every registered failure/cause/fix/regression",
+      "paths": [
+        "data/lessons.json",
+        "knowledge/16_FAILURE_REGISTER.md"
+      ]
+    },
+    {
+      "id": "R07",
+      "requirement": "Version chronology, improvements and rejected alternatives",
+      "paths": [
+        "knowledge/13_VERSIONS_FAILURES_AND_IMPROVEMENTS.md",
+        "projects/einstein-flow-state/versions/v5/matte.py"
+      ]
+    },
+    {
+      "id": "R08",
+      "requirement": "Concepts, metaphors, DNA and creativity",
+      "paths": [
+        "data/visual-dna.json",
+        "data/metaphor-bank.json",
+        "brain/registry.json",
+        "knowledge/04_CREATIVE_ENGINE_AND_METAPHORS.md"
+      ]
+    },
+    {
+      "id": "R09",
+      "requirement": "Motion/depth/transition recipes and honest 2.5D boundary",
+      "paths": [
+        "data/motion-grammar.json",
+        "knowledge/05_MOTION_DEPTH_AND_TRANSITIONS.md"
+      ]
+    },
+    {
+      "id": "R10",
+      "requirement": "Natural narration and sound design",
+      "paths": [
+        "data/audio-policy.json",
+        "knowledge/07_AUDIO_NARRATION_AND_PACING.md"
+      ]
+    },
+    {
+      "id": "R11",
+      "requirement": "Flattened-source cleanup and subject protection",
+      "paths": [
+        "knowledge/08_SOURCE_CLEANUP_AND_RESTORATION.md",
+        "projects/einstein-flow-state/versions/v6/clean.py"
+      ]
+    },
+    {
+      "id": "R12",
+      "requirement": "Quality/export/delivery gates",
+      "paths": [
+        "CHECKLIST.md",
+        "knowledge/11_QA_AND_ACCEPTANCE.md",
+        "src/verify_output.py",
+        "src/policy.py"
+      ]
+    },
+    {
+      "id": "R13",
+      "requirement": "Continuity, timeout and persistence lessons",
+      "paths": [
+        "knowledge/12_CONTINUITY_AND_STORAGE.md",
+        "prompts/RECOVERY_HANDOFF.md"
+      ]
+    },
+    {
+      "id": "R14",
+      "requirement": "Reusable project/shot/asset/QA templates",
+      "paths": [
+        "templates/brief.json",
+        "templates/project.json",
+        "templates/timeline.json",
+        "templates/shot-plan.csv",
+        "templates/asset-register.csv",
+        "templates/qa-review.json",
+        "templates/delivery-receipt.json"
+      ]
+    },
+    {
+      "id": "R15",
+      "requirement": "Fresh-chat behavior and no blind case reuse",
+      "paths": [
+        "FRESH_CHAT.md",
+        "AGENTS.md",
+        "prompts/MASTER_DIRECTOR.md",
+        "prompts/QUALITY_REVIEWER.md",
+        "prompts/MOTIONGO.md"
+      ]
+    },
+    {
+      "id": "R16",
+      "requirement": "Source credit, rights, licenses and no raw private identity duplication",
+      "paths": [
+        "assets/README.md",
+        "assets/fonts/anton-OFL.txt",
+        "assets/fonts/barlowcondensed-OFL.txt",
+        "records/EVIDENCE_SCOPE.md"
+      ]
+    },
+    {
+      "id": "R17",
+      "requirement": "Visible action/chat evidence without invented missing history",
+      "paths": [
+        "records/history/EMS-20261014-FLOW-REPAIR/JOURNAL.jsonl",
+        "records/history/EMS-20261014-FLOW-REPAIR/CHAT_TRANSCRIPT.jsonl",
+        "records/history/EMS-20261014-FLOW-V6/JOURNAL.jsonl",
+        "records/history/EMS-20261014-FLOW-V6/CHAT_TRANSCRIPT.jsonl"
+      ]
+    },
+    {
+      "id": "R18",
+      "requirement": "Existing Drive folder and cross-platform organization",
+      "paths": [
+        "data/links.json",
+        "knowledge/15_CROSS_PLATFORM_AND_SOURCE_OF_TRUTH.md",
+        "HUB.md"
+      ]
+    },
+    {
+      "id": "R19",
+      "requirement": "Complete readable codex and source coverage",
+      "paths": [
+        "knowledge/INDEX.md",
+        "knowledge/MASTER_CODEX.md",
+        "records/SOURCE_INVENTORY.json",
+        "src/build_codex.py",
+        "src/audit_library.py"
+      ]
+    },
+    {
+      "id": "R20",
+      "requirement": "Explicit evidence limits and no false perfect-quality guarantee",
+      "paths": [
+        "records/EVIDENCE_SCOPE.md",
+        "knowledge/01_IDENTITY_AND_APPROVAL.md"
+      ]
+    }
+  ],
+  "external_verification": "Publication receipts are separate and must be verified before completion; path coverage does not imply remote sync.",
+  "new_combined_master_rendered": false
+}

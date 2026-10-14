@@ -1,0 +1,80 @@
+{
+  "evidence": "derived from visually inspected supplied reference and V5/V6 code; prescriptions for future work are labeled normative",
+  "world": {
+    "background": "luminous lavender/periwinkle paper, pale center, darker edges, fine linen/grain",
+    "palette": {
+      "ink_rgb": [
+        30,
+        22,
+        59
+      ],
+      "violet_secondary_rgb": [
+        76,
+        45,
+        113
+      ],
+      "depth_purple_rgb": [
+        112,
+        91,
+        173
+      ]
+    },
+    "subjects": "grayscale or violet-tinted cut-paper photographic/illustrative subjects with coherent perspective and ground shadows",
+    "composition": "one dominant conceptual subject; breathing room; hierarchy before decoration",
+    "camera": "portrait stage; near/far motion can reinforce real subject/object changes, never replace them"
+  },
+  "type": {
+    "headline_font": "Anton",
+    "connector_font": "Barlow Condensed Medium Italic",
+    "body_font": "Barlow Condensed Medium",
+    "font_licenses": "assets/fonts/*-OFL.txt",
+    "screen_text": "short high-information words; kicker -> dominant noun/claim -> connective phrase",
+    "case_scale_base": [
+      720,
+      1280
+    ],
+    "export_scale": 1.5,
+    "headline_case_sizes_base": [
+      64,
+      124
+    ],
+    "connector_case_size_base": 29,
+    "main_type_positions": [
+      "top",
+      "bottom",
+      "right"
+    ],
+    "keep_subject_faces_hands_shoes_strings_clear": true
+  },
+  "time": {
+    "output_fps": 30,
+    "narration_speed": 1.0,
+    "case_duration_seconds": 63.1,
+    "case_shots": 14,
+    "case_voice_clips": 9,
+    "case_type_states": 31,
+    "case_phrase_segments": 36,
+    "reference_outro_excluded_after_seconds": 51.64
+  },
+  "depth": {
+    "meaning": "image-space 2.5D; native source motion remains",
+    "text_extrusion_steps_v5": 8,
+    "text_extrusion_steps_v6": 13,
+    "near_far_plateaus": "keep full subject cluster constant-depth; feather only across empty paper",
+    "far_focus_sigma": 0.8,
+    "v6_transition_seconds": [
+      0.22,
+      0.25
+    ],
+    "v5_transition_seconds": 0.17
+  },
+  "constraints": [
+    "no full-frame still slideshow",
+    "no chapter-long paragraph shrunk to tiny text",
+    "no V6 lower caption pills or karaoke band",
+    "no automatic Monarch/Instagram branding",
+    "no fake fully modeled 3D claim",
+    "no unverified factual anecdote promoted to science/history",
+    "no new-topic reuse of Einstein narration/assets by accident"
+  ]
+}

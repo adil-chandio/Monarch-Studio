@@ -1,0 +1,21 @@
+{
+  "updated_local": "2026-10-15",
+  "user_feedback_source": "../../records/USER_REQUEST_20261015.txt",
+  "v5": "approved baseline direction",
+  "v6": {
+    "accepted": [
+      "depth",
+      "motion",
+      "transitions",
+      "sound",
+      "cleanup and other non-caption enhancements"
+    ],
+    "rejected": [
+      "bottom caption pills",
+      "active-word lower strip"
+    ],
+    "technical_qa_does_not_override_feedback": true
+  },
+  "production_default": "../../data/approved-profile.json",
+  "combined_new_master_exists": false
+}

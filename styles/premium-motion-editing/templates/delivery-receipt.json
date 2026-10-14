@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project_id": "",
+  "status": "pending",
+  "master": null,
+  "recovery": null,
+  "presentation_tool_succeeded": false,
+  "remote_checksum_verified": false,
+  "style_policy_verified": false,
+  "platform_receipts": {},
+  "complete": false
+}

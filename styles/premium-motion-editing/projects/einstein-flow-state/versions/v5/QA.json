@@ -1,0 +1,96 @@
+{
+  "status": "reviewed_for_delivery",
+  "path": "/home/user/Monarch-Studio/workflows/current/payload/flow-repair/delivery/Flow_State_UrduEnglish_V5.mp4",
+  "frames": 1893,
+  "duration_seconds": 63.1,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "codec": "H.264 High / yuv420p + AAC stereo 48 kHz",
+  "faststart": true,
+  "full_decode_exit": 0,
+  "size_bytes": 46387458,
+  "sha256": "d8ca1be7aee70ffb90be4aee6966a60f0b0a3d580f5ee109dda143b3e0485ed6",
+  "md5": "62c2d0b8e899c5dbfc96514a7eb265b4",
+  "speech_speed": 1.0,
+  "aac_sample_peak_dbfs": -1.52,
+  "aac_rms_dbfs": -19.57,
+  "black_frames": [],
+  "possible_social_icons": [],
+  "motion_provenance": [
+    {
+      "shot": "einstein",
+      "source_frames": 127,
+      "central_motion_delta": 38.168
+    },
+    {
+      "shot": "equations",
+      "source_frames": 60,
+      "central_motion_delta": 29.581
+    },
+    {
+      "shot": "clock",
+      "source_frames": 103,
+      "central_motion_delta": 26.693
+    },
+    {
+      "shot": "violin",
+      "source_frames": 122,
+      "central_motion_delta": 34.231
+    },
+    {
+      "shot": "watch",
+      "source_frames": 37,
+      "central_motion_delta": 27.807
+    },
+    {
+      "shot": "flow",
+      "source_frames": 182,
+      "central_motion_delta": 29.651
+    },
+    {
+      "shot": "car",
+      "source_frames": 83,
+      "central_motion_delta": 34.53
+    },
+    {
+      "shot": "runner",
+      "source_frames": 100,
+      "central_motion_delta": 14.595
+    },
+    {
+      "shot": "engine",
+      "source_frames": 105,
+      "central_motion_delta": 35.773
+    },
+    {
+      "shot": "brain",
+      "source_frames": 47,
+      "central_motion_delta": 15.44
+    },
+    {
+      "shot": "shortcut",
+      "source_frames": 121,
+      "central_motion_delta": 19.387
+    },
+    {
+      "shot": "talent",
+      "source_frames": 104,
+      "central_motion_delta": 18.325
+    },
+    {
+      "shot": "sandbags",
+      "source_frames": 198,
+      "central_motion_delta": 24.322
+    },
+    {
+      "shot": "art",
+      "source_frames": 160,
+      "central_motion_delta": 6.536
+    }
+  ],
+  "visual_samples": 42,
+  "visual_review": "Content-identical (SHA-256 matched) to the master reviewed across all 42 encoded samples before the workspace reset, including corrected opening and runner shoes.",
+  "audio_review_scope": "Decoded, timed, level/peak checked; not an independent human listening test."
+}

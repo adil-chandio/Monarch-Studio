@@ -75,3 +75,20 @@ per turn inside a workflow: deliverables → its Drive folder (md5, same turn); 
 (newest block on top) + Linear resume-issue STATE comment + Notion Doc 00 top callout + Google Doc HUB "Current
 state"; status change → registry row on all four platforms · never write one workflow's facts into another's
 sections; ambiguous name → stop and resolve by WF code + id first.
+
+
+## WF-05 · Premium Motion Editing — current addition 2026-10-15
+
+Trigger `MOTIONGO <topic or reference>`; permanent path `styles/premium-motion-editing/`. V5 clean editorial direction plus accepted V6 non-caption gains; **V6 bottom caption pills / active-word strip rejected as default**. The other historical entries above are preserved.
+
+- Drive: https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri
+- Complete Google Docs codex: https://docs.google.com/document/d/1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU/edit
+- Notion hub: https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26
+- Notion authority row: https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e91681bd8408cb4537dacb31
+- Linear resume MON-67: https://linear.app/monarchmation/issue/MON-67/00-resume-key-motiongo-wf-05-premium-motion-editing-state-and-links
+- Complete source: https://drive.google.com/file/d/1ue4xkG697LP4yH66GCJYPtMr0D17pPkd/view
+- Live publication receipt: https://drive.google.com/file/d/1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje/view
+
+No new combined full-length master is claimed; V5/V6 originals and explicit history gaps remain in the case archive.
+
+WF05_FOUNDATION_ENTRY_20261015

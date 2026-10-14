@@ -1,0 +1,8 @@
+{
+  "git_blob": "f42b43eff8eab6d669d47681578f850a16f576e8",
+  "source_commit": "5504074554dd8fb7fe2fbb5bdf60b95213cae7b4",
+  "source_path": "operations/history/EMS-20261014-001/payload/flow-v3/render.py",
+  "bytes": 5467,
+  "sha256": "bb15270a75e53d2377a25711cfe3bff4135f906e3eb29f2f0ac341eab17f0949",
+  "evidence": "Recovered static code confirms whole-scene Image.open inputs and no explicit yuv420p output setting. Original V3 master was not freshly decoded here; older playback/slideshow complaints remain correctly attributed. Full V3 image assets are not claimed recovered."
+}

@@ -17,3 +17,6 @@ Current styles:
 - A style is resolved by stable style ID plus external authority IDs—never by a similar display name.
 
 The machine-readable catalogue is [`registry.json`](registry.json). The required structure for every future style is documented in [`../docs/STYLE_LIBRARY_STANDARD.md`](../docs/STYLE_LIBRARY_STANDARD.md).
+## WF-05 · Premium Motion Editing (2026-10-15)
+
+Permanent style: `styles/premium-motion-editing/`; trigger `MOTIONGO <topic or reference>`. Its current production policy retains V5 clean layout and accepted V6 motion/depth/transition/sound, rejecting the V6 bottom caption pills. Source history, a 17-chapter codex, reusable clean compositor, templates and regression tests are indexed in that style. Other workflows and historical identities are preserved.

@@ -1,0 +1,36 @@
+{
+  "stages": {
+    "cleanup": {
+      "status": "done",
+      "input_hash": "65c6cf5375fd85391c47da9eafc993abbb5083a05076e6fef8226f8c68f0ec52",
+      "started_at": 1791998407.2615156,
+      "exit_code": 0,
+      "ended_at": 1791998655.3603165
+    },
+    "timing_audio": {
+      "status": "done",
+      "input_hash": "d41d2cc59bfa2fa3387b7b4c293d3ad5edef4d8565b20e844a8758f129a28c9e",
+      "started_at": 1791998655.3615613,
+      "exit_code": 0,
+      "ended_at": 1791998658.7381823
+    },
+    "render": {
+      "status": "done",
+      "input_hash": "a6f4a41a105055d65e3d36056a389025128dd2fcfb5cb804e88e0ef4a47909f9",
+      "started_at": 1791998658.738618,
+      "exit_code": 0,
+      "ended_at": 1791998788.7101455
+    },
+    "verification": {
+      "status": "done",
+      "input_hash": "18cb931c1eab161c53bd596a6fc8068c1ea73279b7f0f8ba865c3df37020b45e",
+      "started_at": 1791998788.710828,
+      "exit_code": 0,
+      "ended_at": 1791998816.4778197
+    }
+  },
+  "status": "delivered_verified",
+  "current_stage": "complete",
+  "exact_resume_command": "Read DELIVERY.json and return verified master link. No rebuild needed.",
+  "targeted_repair": "FINAL_REPAIR_STATE.json"
+}

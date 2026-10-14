@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "fps": 30,
+  "duration": 0,
+  "shots": [],
+  "titles": [],
+  "captions": [],
+  "voice_clips": [],
+  "note": "Populate from the NEW approved brief and actual media. Empty inputs fail validation. Do not silently copy Einstein footage/narration for a new topic."
+}

@@ -1,0 +1,14 @@
+{
+  "google_doc_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+  "verification": "independent text export compared to uploaded HTML body",
+  "chapter_headers": 17,
+  "missing_headers": [],
+  "required_word_occurrence_coverage": 1.0,
+  "end_marker": true,
+  "canonical_sha_marker": true,
+  "exported_text_sha256": "cf3b966355ae5e58c188e16bb7be64d8400ff297bb9ebfa289f76013652d2319",
+  "pdf_id": "1nW1_8awetPKTY7QoJPyvz75ZnYKmg4JN",
+  "pdf_remote_size": 165423,
+  "pdf_remote_md5": "5507cf4684975277e5f8f1454558c096",
+  "pdf_local_remote_match": true
+}

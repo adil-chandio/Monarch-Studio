@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261014T184208Z",
+  "created_at": "2026-10-14T18:42:08Z",
+  "summary": "Authorized V6 enhancement initialized; original reference/voice restored exactly; preparing V6 compositor while source clips recover",
+  "next_action": "Run prepare_visuals once; implement V6 layered-depth camera, 3D-style typography, word-paced larger captions and stronger sound accents. Keep pending master in protected delivery spool until verified upload.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-FLOW-V6",
+    "status": "active",
+    "title": "Enhance delivered Flow State V5 into V6",
+    "style_id": null,
+    "goal": "User explicitly selected further video enhancement. Keep script, voice and actual moving reference; improve multi-plane camera depth, 3D-style kinetic typography, transitions, readable word-paced captions and restrained sound accents. Deliver verified V6 and recovery source without deleting V5.",
+    "acceptance_criteria": [
+      "Reuses original selected speech and moving footage; no new slideshow",
+      "Visible V6 improvements to depth, typography, transitions and caption readability",
+      "Natural voice pace, no social tags, valid web-compatible export",
+      "Actual master and recovery upload verified; no progress-only completion"
+    ],
+    "started_at": "2026-10-14T18:41:23Z",
+    "updated_at": "2026-10-14T18:42:08Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 5,
+    "journal_head": "704d12f68a1f214591a1f4d14bbe1752a0f07d1b71b0acee941424ff2198f7a1",
+    "last_checkpoint": "2026-10-14T18:42:08Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-FLOW-V6/0001-20261014T184208Z",
+    "next_action": "Run prepare_visuals once; implement V6 layered-depth camera, 3D-style typography, word-paced larger captions and stronger sound accents. Keep pending master in protected delivery spool until verified upload.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-FLOW-V6",
+    "seq": 5,
+    "timestamp": "2026-10-14T18:42:08Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Authorized V6 enhancement initialized; original reference/voice restored exactly; preparing V6 compositor while source clips recover",
+    "content_sha256": "a76088af0289dade19c5331467fa9b9a22a2f1e6091c3e6b07dc916f382fa1d6",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Run prepare_visuals once; implement V6 layered-depth camera, 3D-style typography, word-paced larger captions and stronger sound accents. Keep pending master in protected delivery spool until verified upload.",
+      "status": "active"
+    },
+    "prev_event_sha256": "2437cc5814d96cc01110c6e8aeb90545da8e90c5673793304b7f38400a03599b",
+    "event_sha256": "704d12f68a1f214591a1f4d14bbe1752a0f07d1b71b0acee941424ff2198f7a1"
+  },
+  "journal_head": "704d12f68a1f214591a1f4d14bbe1752a0f07d1b71b0acee941424ff2198f7a1",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/fb829993-monarch-studio",
+    "status": [
+      " M AGENTS.md",
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0001-20261014T161335Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0002-20261014T162725Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0003-20261014T163426Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0004-20261014T165239Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0005-20261014T170022Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0006-20261014T171051Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0007-20261014T171705Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-FLOW-REPAIR/0008-20261014T173006Z/checkpoint.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/ACTIVE_TASK.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/CHAT_TRANSCRIPT.jsonl",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/JOURNAL.jsonl",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_CHAT.jsonl",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/POST_COMPLETION_VERIFICATION.md",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/RESUME.md",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/.gitignore",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/DELIVERY.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/DELIVERY_GATE.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/FINAL_REPAIR_STATE.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/Flow_State_Roman_Urdu.srt",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PERSISTENCE_FIX.md",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PIPELINE_STATE.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PRE_RESET_QA.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PRE_RESET_RENDER_RECEIPT.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/PROVENANCE.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/QA.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/README.md",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/RECOVERY_PACKAGE.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/RENDER_RECEIPT.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line01.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line02.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line03.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line04.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line05.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line06.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line07.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line08.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/audio/line09.mp3",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/clean.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/Anton-Regular.ttf",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/BarlowCondensed-Medium.ttf",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/BarlowCondensed-MediumItalic.ttf",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/anton-OFL.txt",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/fonts/barlowcondensed-OFL.txt",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/icon-template.png",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/matte.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/prepare_audio.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/prepare_visuals.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/render.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/repair_finish.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/requirements.txt",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/run_pipeline.py",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/timeline.json",
+      "?? operations/history/EMS-20261014-FLOW-REPAIR/payload/flow-repair/verify.py",
+      "?? workflows/current/payload/flow-v6/Flow_State_Roman_Urdu.srt",
+      "?? workflows/current/payload/flow-v6/PROVENANCE.json",
+      "?? workflows/current/payload/flow-v6/V5_DELIVERY.json",
+      "?? workflows/current/payload/flow-v6/audio/line01.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line02.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line03.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line04.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line05.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line06.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line07.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line08.mp3",
+      "?? workflows/current/payload/flow-v6/audio/line09.mp3",
+      "?? workflows/current/payload/flow-v6/clean.py",
+      "?? workflows/current/payload/flow-v6/fonts/Anton-Regular.ttf",
+      "?? workflows/current/payload/flow-v6/fonts/BarlowCondensed-Medium.ttf",
+      "?? workflows/current/payload/flow-v6/fonts/BarlowCondensed-MediumItalic.ttf",
+      "?? workflows/current/payload/flow-v6/fonts/anton-OFL.txt",
+      "?? workflows/current/payload/flow-v6/fonts/barlowcondensed-OFL.txt",
+      "?? workflows/current/payload/flow-v6/icon-template.png",
+      "?? workflows/current/payload/flow-v6/media/.gitignore",
+      "?? workflows/current/payload/flow-v6/media/reference.mp4",
+      "?? workflows/current/payload/flow-v6/prepare_audio.py",
+      "?? workflows/current/payload/flow-v6/prepare_visuals.py",
+      "?? workflows/current/payload/flow-v6/render.py",
+      "?? workflows/current/payload/flow-v6/requirements.txt",
+      "?? workflows/current/payload/flow-v6/run_pipeline.py",
+      "?? workflows/current/payload/flow-v6/timeline.json",
+      "?? workflows/current/payload/flow-v6/verify.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/flow-v6/Flow_State_Roman_Urdu.srt",
+      "size": 2205,
+      "sha256": "3be26e6480f581a6a6e03cb82d0ba60342c107c728551de3341db19d193cfe7a"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/PROVENANCE.json",
+      "size": 2415,
+      "sha256": "bfa7849c70b3ef016ef192626fd27e4db4ef7f17ce042856f669539aa4ef112e"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/V5_DELIVERY.json",
+      "size": 1178,
+      "sha256": "76722479fe408edf68f1d747b46f4c048a1dbd3e0635d228216d7269a9e3b512"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line01.mp3",
+      "size": 30861,
+      "sha256": "33e1f405a700bffc593b216ec676626fe3ff816812c3943aa864878e424ea334"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line02.mp3",
+      "size": 42189,
+      "sha256": "78c9f52f0930a64bc099c62da3447687f7ec5b3c836b8f13f37cfcf94d88a07f"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line03.mp3",
+      "size": 34509,
+      "sha256": "f3a65d62cef5083bcc1182b5d43ef0e4cbc66dc7e67d53ad38b473983bb1cdd2"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line04.mp3",
+      "size": 34893,
+      "sha256": "b21281cf8f4b2a473c2e9935c1013a786ef2a440bf89e54985ab55f7971088d5"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line05.mp3",
+      "size": 27021,
+      "sha256": "6765bfbb7cfd0327d85a279440bdc68d607ca0b689d72b426a375c821096675b"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line06.mp3",
+      "size": 22701,
+      "sha256": "ba9daa290ac329c03eda2e2d1891bf51a450fdd65518bda54ce4885ff4f67f86"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line07.mp3",
+      "size": 16941,
+      "sha256": "7986d21c0867562091a00db08812acd51e467c26260af909e8767d463e374b2e"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line08.mp3",
+      "size": 31341,
+      "sha256": "0fff77c4b33b8faae3c1e8550c57e2aa2b614d6c878da64d7e08fe4deeb39862"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/audio/line09.mp3",
+      "size": 25101,
+      "sha256": "623e81927bd1c66b8de25fed9c412b686ae5601ef4712c670656f8375da3ca17"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/clean.py",
+      "size": 6851,
+      "sha256": "acb34d9b89a0d02bcff0d41c1ab1a27d75f485c4be8e41f60d70b0d85adf2808"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/fonts/Anton-Regular.ttf",
+      "size": 170812,
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/fonts/BarlowCondensed-Medium.ttf",
+      "size": 103360,
+      "sha256": "262bd143292ce479ee0cd09a42b47ab173fca8e9c6eb5ed0b5c8a845bc371d17"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/fonts/BarlowCondensed-MediumItalic.ttf",
+      "size": 110340,
+      "sha256": "e036488bfe3ea1e9f39f006b1237c2931e7cfea7d9ecdccdf17507a5986f73d9"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/fonts/anton-OFL.txt",
+      "size": 4391,
+      "sha256": "eee1d24ff8f553eb732237c7dd9b945a78313ed49ad6de02872a47277741b44a"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/fonts/barlowcondensed-OFL.txt",
+      "size": 4377,
+      "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/icon-template.png",
+      "size": 1156,
+      "sha256": "1a70109c7bfd4e1ce618c26ee4e3cd9bcdf55512c8de6b08a501cbcbc7a8dead"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/media/.gitignore",
+      "size": 96,
+      "sha256": "4b6ea3f1b0482d917aa9cd6266d75ab1f2cbd7020b055315ff15d40bd8cbfbd5"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/media/reference.mp4",
+      "size": 35618968,
+      "sha256": "5dadbc8da6466aa6c9c023dca015cc8f96cfed5579b61aad00df8df83b55ec10"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/prepare_audio.py",
+      "size": 9764,
+      "sha256": "efb7e60b6600b8bda0cf025ad563b16b7aee941da30c040c3200df68e8b75d31"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/prepare_visuals.py",
+      "size": 2421,
+      "sha256": "26c57a421d60ebe6157bf9a182f70f1aa7c298fb661ae1a66a81c55a5c6423a7"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/render.py",
+      "size": 11790,
+      "sha256": "e39932b9105fd547d09b79356150c2f17b454dab116daa8ded39a178521f689a"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/requirements.txt",
+      "size": 97,
+      "sha256": "f46f1b2e831a6d9df16b39d2a91ebc5b3bb02bb9f644a4e902e81cd1d631826b"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/run_pipeline.py",
+      "size": 3033,
+      "sha256": "8b9cd72bdb477bab4f89df2729c86c790aa0aed38bcdbed3124b560183377928"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/timeline.json",
+      "size": 15626,
+      "sha256": "b430ae138e6707ce886fe3551bc304239b4fb92709c6b936e234c74423babecb"
+    },
+    {
+      "path": "workflows/current/payload/flow-v6/verify.py",
+      "size": 5611,
+      "sha256": "40f8453bef739ceeb011ef5b2ffca49ff59e3a1351cb266680d86a70e9a369f5"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "style_id": "premium-motion-editing",
+  "project_id": "REPLACE_WITH_PROJECT_ID",
+  "topic": "REPLACE_WITH_USER_TOPIC",
+  "mode": "new_production",
+  "timeline": "timeline.json",
+  "media_dir": "media",
+  "audio_mix": "media/mix.wav",
+  "output": "delivery/approved-edit.mp4",
+  "font_dir": null,
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "typography": {
+    "subtitle_mode": "off",
+    "plain_subtitles_requested": false,
+    "caption_pills": false,
+    "word_highlighting": false
+  },
+  "rights_status": "pending",
+  "script_status": "pending",
+  "motion_review": "pending",
+  "policy_id": "wf05-clean-editorial-20261015"
+}

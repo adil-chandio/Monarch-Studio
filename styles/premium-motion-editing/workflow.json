@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "code": "WF-05",
+  "style_id": "premium-motion-editing",
+  "slug": "wf05",
+  "name": "Premium Motion Editing",
+  "path": "styles/premium-motion-editing",
+  "trigger": {
+    "token": "MOTIONGO",
+    "grammar": "MOTIONGO <topic or reference>",
+    "aliases": [
+      "WF-05",
+      "WF5",
+      "Premium Motion Editing"
+    ],
+    "mode": "resume_existing_work_first; production_after_required_inputs_and_voice_selection"
+  },
+  "state": "READY_WITH_USER_POLICY",
+  "default_format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_codec": "libx264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "faststart": true,
+    "crf": 18,
+    "maxrate": "7M",
+    "bufsize": "14M"
+  },
+  "policy": "data/approved-profile.json",
+  "runtime": {
+    "portable": true,
+    "project_manifest_required": true,
+    "new_project_default": "workflows/current/payload/<project-id>/",
+    "historical_replay_is_not_new_production": true
+  },
+  "required_paths": [
+    "README.md",
+    "AGENTS.md",
+    "HUB.md",
+    "FRESH_CHAT.md",
+    "RESUME_STATE.md",
+    "CHECKLIST.md",
+    "knowledge/INDEX.md",
+    "knowledge/MASTER_CODEX.md",
+    "data/approved-profile.json",
+    "data/visual-dna.json",
+    "data/media-catalog.json",
+    "data/lessons.json",
+    "data/coverage.json",
+    "src/wf05.py",
+    "src/policy.py",
+    "src/render_project.py",
+    "src/motion.py",
+    "src/verify_output.py",
+    "templates/brief.json",
+    "templates/project.json",
+    "templates/timeline.json",
+    "prompts/MASTER_DIRECTOR.md",
+    "prompts/QUALITY_REVIEWER.md",
+    "records/SOURCE_INVENTORY.json",
+    "projects/einstein-flow-state/README.md",
+    "projects/einstein-flow-state/versions/v5/QA.json",
+    "projects/einstein-flow-state/versions/v6/QA.json"
+  ],
+  "authorities": {
+    "drive_folder_id": "1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+    "github_repo": "https://github.com/adil-chandio/Monarch-Studio",
+    "links_manifest": "data/links.json",
+    "google_doc_hub_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+    "notion_registry_row_id": "3f9807e1-e916-81bd-8408-cb4537dacb31",
+    "linear_resume_issue": "MON-67",
+    "source_package_drive_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+    "release_receipt_drive_id": "1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje"
+  },
+  "current_approved_direction": "V5 layout + accepted V6 motion; no V6 bottom pills",
+  "new_combined_reference_master_exists": false
+}

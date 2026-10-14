@@ -1,27 +1,40 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-11T02:00:00Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
-  "running_processes": [],
+  "task_id": "EMS-20261015-WF05-FOUNDATION",
+  "status": "syncing",
+  "title": "Establish WF-05 Premium Motion Editing permanent style and cross-platform knowledge",
+  "style_id": "premium-motion-editing",
+  "goal": "Promote actual V5/V6 work into a comprehensive reusable WF-05 style, adopting V5 clean typography and accepted V6 motion improvements while rejecting V6 bottom caption pills. Preserve tools, code, evidence, lessons, creative/metaphor DNA, technical QA, source recovery, and new-chat startup contracts. Register in the repository, publish to GitHub, populate the existing WF-05 Drive folder, and sync the project knowledge/status hubs accurately.",
+  "acceptance_criteria": [
+    "Dedicated permanent WF-05 style and both registries; other workflows preserved",
+    "Latest user feedback encoded: no V6 lower caption pills by default; accepted V5/V6 facets clearly separated",
+    "Detailed source-backed knowledge, creative grammar, workflows, mistakes/causes/fixes, code/assets/evidence and coverage audit",
+    "Executable reusable templates/presets and fresh-chat instructions with tests; no frozen Einstein content substituted for new topics",
+    "Existing Drive WF-05 folder organized and verified; GitHub publication and configured cross-platform receipts contain real IDs",
+    "No unsupported completeness/3D/word-sync claims; no large or sensitive raw media in Git"
+  ],
+  "started_at": "2026-10-14T19:49:03Z",
+  "updated_at": "2026-10-14T21:36:58Z",
+  "checkpoint_sequence": 5,
+  "event_sequence": 21,
+  "journal_head": "6cbb6bf2130f944e0a0734c1f9be2b1e4069b0da7ad92c06c7f28bc71a82fe39",
+  "last_checkpoint": "2026-10-14T21:36:09Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0005-20261014T213609Z",
+  "next_action": "Validate repository and source library, commit/push only arena/fb829993-monarch-studio, open PR and verify CI/main publication; then write final cloud receipts and archive task.",
+  "running_processes": [
+    {
+      "id": "wf-05-continuity-checkpoints-9ab72dc8",
+      "name": "WF-05 periodic checkpoint watcher",
+      "state": "running",
+      "started_at": "2026-10-14T19:51:34Z",
+      "resume_instruction": "Query watcher; do not duplicate. This is a source/knowledge promotion task, not a new video render. Continue exact next action in RESUME.md."
+    }
+  ],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261011-003",
-  "completion_checkpoint": "0004-20261011T020000Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

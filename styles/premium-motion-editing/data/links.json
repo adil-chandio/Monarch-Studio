@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "workflow_code": "WF-05",
+  "drive_folder": "https://drive.google.com/drive/folders/1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri",
+  "github_repo": "https://github.com/adil-chandio/Monarch-Studio",
+  "github_path": "styles/premium-motion-editing",
+  "publication_status": "in_progress",
+  "google_doc_hub": "https://docs.google.com/document/d/1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU/edit",
+  "notion_hub": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e916819b9c53e21326dd0f26",
+  "notion_registry_row": "https://app.notion.com/p/WF-05-Premium-Motion-Editing-3f9807e1e91681bd8408cb4537dacb31",
+  "linear_project": {
+    "id": "104ec829-e3db-4796-b12c-4fd062287ff3",
+    "name": "WF-05 \u00b7 Premium Motion Editing",
+    "entry_url": "https://linear.app/monarchmation/issue/MON-67/00-resume-key-motiongo-wf-05-premium-motion-editing-state-and-links"
+  },
+  "linear_resume_issue": "https://linear.app/monarchmation/issue/MON-67/00-resume-key-motiongo-wf-05-premium-motion-editing-state-and-links",
+  "notion_project_id": "3f9807e1-e916-819b-9c53-e21326dd0f26",
+  "notion_projects_data_source": "3f2807e1-e916-80b0-bda7-000bcaf61a93",
+  "notion_workflows_data_source": "46fbf9a3-c149-4965-81a5-fe2a48bd3999",
+  "linear_project_id": "104ec829-e3db-4796-b12c-4fd062287ff3",
+  "linear_team_id": "7d25e78c-c0f2-46b3-9c73-10bcf9c5a108",
+  "linear_registry_project_id": "0a01b89d-3c9d-4193-8416-76b32d76cfca",
+  "linear_registry_issue_id": "5a2b6ad7-bdd9-4f7f-9725-82641b7809f1",
+  "drive_sections": {
+    "style_dna": "1T4bMYZtGr4MLSl5G4x3s3CL2QXgLflY4",
+    "engine": "1PGLD2SJ_5WtBW1XfYh89s4vkHSqETGO0",
+    "case_study": "1oLBF0fUG5DHrWy4NicOtCpg0_JXCxXP-",
+    "lessons_qa": "1eDJXUaZjzJXM5hnMKVbh2x-InkdUPIcR",
+    "source_recovery": "1ZuOZJRiF_7CntW4Yrh80wxf4vbS8vi3V",
+    "future_projects": "1g_X6FzsS_Uss_d-VF-mPzwDOtsVr-IST"
+  },
+  "content_population_status": "source/codex/cloud hubs populated; GitHub/main verification pending",
+  "linear_resume_issue_id": "091b76e2-1d28-43d0-a280-c55ef7dc70a4",
+  "linear_resume_identifier": "MON-67",
+  "google_doc_hub_id": "1yg7VK9S0luG4bPHQxWGtPIKxUcKcOSI6n7JnrCxPnLU",
+  "notion_registry_row_id": "3f9807e1-e916-81bd-8408-cb4537dacb31",
+  "notion_doc00_id": "3f9807e1-e916-81af-8fd5-dde25caf448c",
+  "linear_foundation_issue_id": "5fdaa68c-6787-4cca-b172-4c42a1907ece",
+  "linear_foundation_identifier": "MON-68",
+  "linear_foundation_issue": "https://linear.app/monarchmation/issue/MON-68/wf-05-foundation-preserve-v5v6-learning-approved-policy-engine-and",
+  "pdf_drive_id": "1nW1_8awetPKTY7QoJPyvz75ZnYKmg4JN",
+  "pdf_url": "https://drive.google.com/file/d/1nW1_8awetPKTY7QoJPyvz75ZnYKmg4JN/view",
+  "fresh_chat_drive_id": "148w4Qtq2oPbWzv20fVgkmQydNTOQsao4",
+  "case_shortcuts": {
+    "reference": "1wMahkRL1BN9e52UjDx3e-Hiy7-2D1QqB",
+    "v5": "1QiwZfJZ3y1h_wrfOXwmTHCLjnKw3dyxp",
+    "v6": "1ibtS9VAjIQl23i5N5OcIXdFHFkfe2SU8",
+    "v5_recovery": "12orKXqVBijLl7csvaTk4wRTNcZ1fshyV",
+    "v6_recovery": "1_tTpnXf4M68_fy2xD0opP1Y-PUo22ZlS"
+  },
+  "drive_artifacts": {
+    "profile": {
+      "id": "1xy2ubNZFIaoez5LWIJg9KQ6RxFIvGxXS",
+      "md5": "0989a150b08fc4928ba886b17292d3d7",
+      "size": 2154
+    },
+    "lessons": {
+      "id": "1mfhozgtftvesISCEDP622nlDy3DPQSUv",
+      "md5": "aa200e2a95af10e2da19fe90f6c8166c",
+      "size": 8572
+    },
+    "shot_breakdown": {
+      "id": "1l7hkHxhQjoekcC4Qq7dBakB2xDwEbFaM",
+      "md5": "a9c6d7f387568d9d2cdae5f5eccd4f83",
+      "size": 4201
+    },
+    "canonical_codex": {
+      "id": "15v6TBBUNup32YJdkqvtIXk8GeRFAg5TT",
+      "md5": "c6fb2afedbfd7456aa7f52d7a3be1503",
+      "size": 68168
+    },
+    "new_brief": {
+      "id": "1-yyZzUVLX9o4F0A6QpXIvDcpY1bZldFF",
+      "md5": "d568042692091635ab309e1f8bc367ed",
+      "size": 652
+    }
+  },
+  "notion_summary_end_block": "3f9807e1-e916-81d5-852c-e8d454874bbc",
+  "notion_verification_status_block": "3f9807e1-e916-8198-922c-c72f4dee7ae2",
+  "studio_registry_doc_id": "1ONXXVp-yYG2P9ldUPBOSAhr8oWkS79qgzdu6eGHTm8Q",
+  "google_doc_codex_tab_id": "t.0",
+  "google_doc_navigation_mode": "normal live-links section; optional tab placement unsupported by connector",
+  "notion_doc00_status_block": "3f9807e1-e916-8182-8bb0-ff4475090230",
+  "linear_registry_comment_id": "16b72d38-f7b4-4103-ae6e-c2c0eded4602",
+  "linear_registry_comment_url": "https://linear.app/monarchmation/issue/MON-55/00-registry-monarch-studio-workflow-index-start-here-for-any-workflow#comment-16b72d38",
+  "release_receipt_id": "1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje",
+  "release_receipt_url": "https://drive.google.com/file/d/1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje/view",
+  "source_package": {
+    "id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
+    "url": "https://drive.google.com/file/d/1ue4xkG697LP4yH66GCJYPtMr0D17pPkd/view",
+    "md5": "6e407c5b4cca1a8da17e973915b0b0d6",
+    "sha256": "dd6d08000b75288db10886254c6f13f885b8dc433735f7b3af03fddaed5a37e6",
+    "size": 2481616,
+    "manifest_entries": 179
+  }
+}

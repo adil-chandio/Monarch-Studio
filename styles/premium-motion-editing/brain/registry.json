@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "purpose": "novelty memory; quality is reusable, story is not copied blindly",
+  "projects": [
+    {
+      "id": "einstein-flow-state",
+      "topic": "flow state, shortcuts and practice",
+      "world": "lavender cut-paper editorial stage",
+      "devices": [
+        "Oversized chalk hand + Einstein, clocks and orbital marks",
+        "Burning dimensional E=mc² characters",
+        "Alarm clock and chalk-setting hand",
+        "Standing violinist Einstein + expanding circular stage",
+        "Hand-held pocket watch with miniature violins",
+        "Reclining violinist on a chaise, hovering cursor arrows",
+        "Violet striped car in changing perspective",
+        "Runner, orbit and changing stride",
+        "Motorcycle with engine-headed passenger",
+        "Bandaged brain supported by crutches",
+        "Laptop suspended from bulb balloons + deflated bulb",
+        "Rising bulbs versus brain tied to a stone",
+        "Runner carrying a heavy bag in an empty stadium argument",
+        "Two rows of pen nibs"
+      ],
+      "status": "V5 direction accepted; V6 non-caption facets accepted; lower pill UI rejected",
+      "source": "projects/einstein-flow-state"
+    }
+  ],
+  "new_concepts": []
+}

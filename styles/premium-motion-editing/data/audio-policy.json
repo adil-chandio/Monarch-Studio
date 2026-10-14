@@ -1,0 +1,30 @@
+{
+  "evidence": "V5/V6 selected-clip preservation and measured decoded output; future targets are operating defaults, not guarantees",
+  "narration_speed": 1.0,
+  "input_decode_sample_rate": 48000,
+  "silence_analysis_window_seconds": 0.01,
+  "voice_activity_rms_threshold": 0.012,
+  "leading_margin_seconds": 0.065,
+  "trailing_margin_seconds": 0.13,
+  "inter_clip_quiet_seconds": 0.1,
+  "frame_aligned_padding": true,
+  "high_pass_hz": 65,
+  "target_loudnorm": {
+    "I": -16,
+    "TP": -1.5,
+    "LRA": 9
+  },
+  "output": "AAC stereo 192k / 48kHz",
+  "v5_decoded_sample_peak_dbfs": -1.52,
+  "v6_decoded_sample_peak_dbfs": -1.97,
+  "decoded_rms_dbfs": -19.57,
+  "rms_is_not_integrated_lufs": true,
+  "v6_additions": [
+    "clock ticks",
+    "chalk contact",
+    "running cadence",
+    "closing rise"
+  ],
+  "music_source": "restrained procedural tonal floor / noise accents, not a claimed Mozart performance",
+  "listening_scope": "Prior deliveries were decoded/timed/level-checked; no independent human listening pass was claimed. Future deliveries must record the actual review performed."
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "reference": {
+    "drive_id": "1qOhYxKD6H_pJn8dkr7EMO2Ro4QyJeVW2",
+    "md5": "34f35d446136c574243cb918c7b96f5f",
+    "size": 35618968,
+    "dimensions": [
+      720,
+      1282
+    ],
+    "fps": 30,
+    "creator": "@RIT2RAJ_DAS",
+    "folder_id": "1C7vAECkURqySJDgpJ_YunUtyOWh8Zuri"
+  },
+  "versions": {
+    "v5": {
+      "status": "complete_verified",
+      "recovery": {
+        "drive_id": "1Ks7BMwClAUqRnnbGJvgYOAcnMz1Tmywq",
+        "url": "https://drive.google.com/file/d/1Ks7BMwClAUqRnnbGJvgYOAcnMz1Tmywq/view?usp=drivesdk",
+        "name": "Flow_State_UrduEnglish_V5_RecoverySource.zip",
+        "size": 36105074,
+        "md5": "29d46e541d5a62364543ac22bc2bb115",
+        "upload_checksum_matches": true,
+        "independent_get_verified": true
+      },
+      "master": {
+        "drive_id": "1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC",
+        "url": "https://drive.google.com/file/d/1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC/view",
+        "name": "Flow_State_UrduEnglish_V5_FINAL.mp4",
+        "size": 46387458,
+        "md5": "62c2d0b8e899c5dbfc96514a7eb265b4",
+        "sha256": "d8ca1be7aee70ffb90be4aee6966a60f0b0a3d580f5ee109dda143b3e0485ed6",
+        "duration_seconds": 63.1,
+        "width": 1080,
+        "height": 1920,
+        "upload_checksum_matches": true,
+        "independent_get_verified": true,
+        "can_download": true,
+        "download_url": "https://drive.google.com/uc?id=1UMSvHItighGlOuSsO_EaDkrfb_eKuBZC&export=download"
+      },
+      "local_viewer_presented": true,
+      "local_viewer_path": "/home/user/Monarch-Studio/deliverables/Flow_State_UrduEnglish_V5_FINAL.mp4"
+    },
+    "v6": {
+      "status": "complete_verified",
+      "recovery": {
+        "drive_id": "1BRFaecqh9-Xa9aEdwM60Glrh-qMRcWzd",
+        "url": "https://drive.google.com/file/d/1BRFaecqh9-Xa9aEdwM60Glrh-qMRcWzd/view",
+        "name": "Flow_State_UrduEnglish_V6_RecoverySource.zip",
+        "size": 36100141,
+        "md5": "11a2a15714391c032b194b6af6f10ce1",
+        "upload_checksum_matches": true,
+        "independent_get_verified": true
+      },
+      "master": {
+        "drive_id": "1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF",
+        "url": "https://drive.google.com/file/d/1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF/view",
+        "download_url": "https://drive.google.com/uc?id=1yJ2m5A0SJK3vhX8jRA8Fqvw7nAASC6lF&export=download",
+        "name": "Flow_State_UrduEnglish_V6_FINAL.mp4",
+        "size": 45971822,
+        "md5": "dddc4f1f992d851b64295220ab2f152e",
+        "sha256": "f00e24e3673872a31096258f834eafa570752991f2ecc31c1688444a21e1ceb1",
+        "duration_seconds": 63.1,
+        "dimensions": [
+          1080,
+          1920
+        ],
+        "upload_checksum_matches": true,
+        "independent_get_verified": true,
+        "can_download": true
+      },
+      "local_viewer_presented": true,
+      "local_viewer_path": "/home/user/Monarch-Studio/deliverables/Flow_State_UrduEnglish_V6_FINAL.mp4",
+      "V5_preserved": true
+    }
+  },
+  "acceptance": {
+    "v5": "clean layout/content-level reference",
+    "v6": "motion/effects reference; lower caption pills rejected 2026-10-15",
+    "approved_profile": "data/approved-profile.json",
+    "combined_master": "not rendered/claimed in this foundation"
+  },
+  "large_media_policy": "external Drive authority by real ID/hash; no full masters in Git"
+}

@@ -6,3 +6,6 @@ scipy>=1.10,<2
 imageio-ffmpeg>=0.4.9,<1
 reportlab>=4,<5
 PyMuPDF>=1.23,<2
+
+# WF-05 prepared-motion compositor / output review.
+opencv-python-headless>=4.8,<6

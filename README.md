@@ -18,6 +18,7 @@ python3 tools/studio.py validate
 |---|---|---|---|
 | **Monarch Stickman Animation** | `SHADEGO <topic>` | Parked; IZZAT v2 is current R1 delivery | [`styles/monarch-stickman-animation`](styles/monarch-stickman-animation/) |
 | **Monarch Noir Film** | `NOIRGO <topic>` | Active with explicit Film-#3 drift; films 1–2 are R1 | [`styles/monarch-noir-film`](styles/monarch-noir-film/) |
+| **WF-05 · Premium Motion Editing** | `MOTIONGO <topic or reference>` | V5 clean direction + accepted V6 motion; lower caption pills rejected | [`styles/premium-motion-editing`](styles/premium-motion-editing/) |
 
 Each named style contains its implementation, assets, audio/plates, data, prompts, tools, gates, measured results, decisions, failures/fixes, source provenance and a permanent knowledge index.
 
@@ -122,3 +123,6 @@ Every checkpoint creates an outbox package; each platform is marked independentl
 - [`docs/STORAGE_AND_MATERIALIZATION.md`](docs/STORAGE_AND_MATERIALIZATION.md)
 
 Monarch-authored material is proprietary unless separately stated. Third-party submodules and bundled fonts retain their own licenses.
+## WF-05 new-chat entry
+
+For Premium Motion Editing read [FRESH_CHAT](styles/premium-motion-editing/FRESH_CHAT.md), [approved profile](styles/premium-motion-editing/data/approved-profile.json) and the [complete codex](styles/premium-motion-editing/knowledge/MASTER_CODEX.md). The latest user correction rejects V6 lower caption pills/word strip. Historical V5/V6 sources remain evidence, not the default for a new topic.
