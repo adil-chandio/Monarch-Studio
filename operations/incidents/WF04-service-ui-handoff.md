@@ -46,3 +46,12 @@ The delivered artifacts are character/shot-design stills and documents.
 Actual photoreal character animation and the final edited film remain unrendered;
 the session exposes no direct photoreal image-to-video generation tool. This
 capability limitation is separate from the reported service/UI interruption.
+
+
+## Subsequent production update
+
+After this incident record, the user approved an explicitly limited 2.5D
+recreation. A complete V1 is now delivered; see the latest active state and
+`records/rigged-full/DELIVERY.json`. This does not change the historical service
+observations, constitute an Arena backend repair, or establish exact/natural 3D
+performance. No support ticket was submitted automatically.

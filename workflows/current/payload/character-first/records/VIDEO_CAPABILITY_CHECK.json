@@ -35,5 +35,12 @@
     "credentials_or_secret_values_read": false,
     "jobs_dispatched": 0,
     "note": "gh workflow list --json was unsupported by the installed CLI; the read-only GitHub REST workflows endpoint was used successfully. This is not an Arena service-error diagnosis."
+  },
+  "subsequent_approved_route": {
+    "method": "local image-based whole-character rigged 2.5D",
+    "full_v1_rendered": true,
+    "receipt": "rigged-full/DELIVERY.json",
+    "natural_or_exact_3d": false,
+    "connector_status_unchanged": true
   }
 }

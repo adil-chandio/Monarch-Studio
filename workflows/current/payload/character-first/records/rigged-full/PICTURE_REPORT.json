@@ -1,0 +1,1362 @@
+{
+  "status": "complete_full_length_2_5d_picture_only",
+  "file": "/home/user/monarch-rigged-full/delivery/PICTURE_ONLY_2_5D.mp4",
+  "sha256": "e02d32e8fbabd2f3db1023fd243b344830dda3c91d40425014a4c4fd6f850c19",
+  "frames": 1332,
+  "fps": 30,
+  "seconds": 44.4,
+  "width": 720,
+  "height": 1280,
+  "shots": [
+    {
+      "shot": 0,
+      "scene": "room",
+      "in_frame": 0,
+      "out_frame_exclusive": 272,
+      "frames": 272,
+      "sha256": "34c23df3b98c899c0bf2a437cede73c76098b543b0479cd715e8f941b98b95ff",
+      "seconds": 9.06,
+      "render_seconds": 20.4,
+      "sampled_rig_metrics": []
+    },
+    {
+      "shot": 1,
+      "scene": "raised",
+      "in_frame": 272,
+      "out_frame_exclusive": 298,
+      "frames": 26,
+      "sha256": "b3022ef269a664235be068b4a5ae60f07a8f3dbeee8e6df6dee991df9cea639a",
+      "seconds": 0.86,
+      "render_seconds": 5.15,
+      "sampled_rig_metrics": [
+        {
+          "frame": 272,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.34045,
+          "min_inverse_jacobian": 0.5507209300994873,
+          "face_det_error": 0.00045168399810791016,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 297,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.2783,
+          "min_inverse_jacobian": 0.48566001653671265,
+          "face_det_error": 0.0003921985626220703,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 2,
+      "scene": "raised",
+      "in_frame": 298,
+      "out_frame_exclusive": 322,
+      "frames": 24,
+      "sha256": "48ea10a9fa8b832358599fbadea81bafecef67f441c48074b679af563e3c91ee",
+      "seconds": 0.8,
+      "render_seconds": 4.52,
+      "sampled_rig_metrics": [
+        {
+          "frame": 298,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.41074,
+          "min_inverse_jacobian": 0.48079338669776917,
+          "face_det_error": 0.00039142370223999023,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 300,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.68064,
+          "min_inverse_jacobian": 0.4698367714881897,
+          "face_det_error": 0.00040531158447265625,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 321,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.47006,
+          "min_inverse_jacobian": 0.3636612892150879,
+          "face_det_error": 0.0005074143409729004,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 3,
+      "scene": "raised",
+      "in_frame": 322,
+      "out_frame_exclusive": 356,
+      "frames": 34,
+      "sha256": "133c313c88e47eb264c28a8d00cd0e9725db7ced9fbbc4d9184af645d38a1a28",
+      "seconds": 1.13,
+      "render_seconds": 6.15,
+      "sampled_rig_metrics": [
+        {
+          "frame": 322,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.58301,
+          "min_inverse_jacobian": 0.35244220495224,
+          "face_det_error": 0.000490725040435791,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 330,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.36401,
+          "min_inverse_jacobian": 0.32099851965904236,
+          "face_det_error": 0.0003497600555419922,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 355,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.00422,
+          "min_inverse_jacobian": 0.29971304535865784,
+          "face_det_error": 8.320808410644531e-05,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 4,
+      "scene": "raised",
+      "in_frame": 356,
+      "out_frame_exclusive": 394,
+      "frames": 38,
+      "sha256": "c58377dbd4caa433221c93fc4b9c4fcd86d6151d799877ae60d49060e8d43480",
+      "seconds": 1.26,
+      "render_seconds": 6.84,
+      "sampled_rig_metrics": [
+        {
+          "frame": 356,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.96748,
+          "min_inverse_jacobian": 0.30103790760040283,
+          "face_det_error": 0.00010895729064941406,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 360,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.77375,
+          "min_inverse_jacobian": 0.3011494576931,
+          "face_det_error": 0.00013965368270874023,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 390,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.53243,
+          "min_inverse_jacobian": 0.4272254407405853,
+          "face_det_error": 0.000685572624206543,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 393,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.14606,
+          "min_inverse_jacobian": 0.4421125054359436,
+          "face_det_error": 0.0008394718170166016,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 5,
+      "scene": "open",
+      "in_frame": 394,
+      "out_frame_exclusive": 428,
+      "frames": 34,
+      "sha256": "9b2d9dfbc0061b0bdbf637d228f2a27f23da635b5573fa44e3a72f96b986177d",
+      "seconds": 1.13,
+      "render_seconds": 23.88,
+      "sampled_rig_metrics": [
+        {
+          "frame": 394,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.01852,
+          "min_inverse_jacobian": 0.4475598931312561,
+          "face_det_error": 0.0008703470230102539,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 420,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.76333,
+          "min_inverse_jacobian": 0.5265751481056213,
+          "face_det_error": 0.000835120677947998,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 427,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.77529,
+          "min_inverse_jacobian": 0.5256874561309814,
+          "face_det_error": 0.0008995532989501953,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 6,
+      "scene": "open",
+      "in_frame": 428,
+      "out_frame_exclusive": 461,
+      "frames": 33,
+      "sha256": "0e46179b89a109d662069f5c72107c8a8923fe577c5f97161e54a28dda079abe",
+      "seconds": 1.1,
+      "render_seconds": 22.86,
+      "sampled_rig_metrics": [
+        {
+          "frame": 428,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.80357,
+          "min_inverse_jacobian": 0.5244840979576111,
+          "face_det_error": 0.0008859634399414062,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 450,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.81227,
+          "min_inverse_jacobian": 0.4525458812713623,
+          "face_det_error": 0.00048470497131347656,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 460,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.21501,
+          "min_inverse_jacobian": 0.3967117369174957,
+          "face_det_error": 0.00048810243606567383,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 7,
+      "scene": "open",
+      "in_frame": 461,
+      "out_frame_exclusive": 492,
+      "frames": 31,
+      "sha256": "0df2ed28230d50049a733c6a57a316300a82245cbdf0f1875c3612f93210bd2f",
+      "seconds": 1.03,
+      "render_seconds": 21.75,
+      "sampled_rig_metrics": [
+        {
+          "frame": 461,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.35701,
+          "min_inverse_jacobian": 0.39086538553237915,
+          "face_det_error": 0.0004837512969970703,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 480,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.70759,
+          "min_inverse_jacobian": 0.2978673279285431,
+          "face_det_error": 0.00010800361633300781,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 491,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.49868,
+          "min_inverse_jacobian": 0.26731976866722107,
+          "face_det_error": 9.590387344360352e-05,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 8,
+      "scene": "red",
+      "in_frame": 492,
+      "out_frame_exclusive": 517,
+      "frames": 25,
+      "sha256": "f1781ebfd3112d4b2c5cf039c23812f0376611860ff583639cd8254e7804a863",
+      "seconds": 0.83,
+      "render_seconds": 5.47,
+      "sampled_rig_metrics": [
+        {
+          "frame": 492,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.102933,
+          "max_displacement_px": 16.24476,
+          "min_inverse_jacobian": 0.21804268658161163,
+          "face_det_error": 0.00010716915130615234,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 510,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.19355,
+          "max_displacement_px": 16.15689,
+          "min_inverse_jacobian": 0.20389464497566223,
+          "face_det_error": 0.0002968311309814453,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 516,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.213593,
+          "max_displacement_px": 15.79108,
+          "min_inverse_jacobian": 0.21241608262062073,
+          "face_det_error": 0.00038492679595947266,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 9,
+      "scene": "red",
+      "in_frame": 517,
+      "out_frame_exclusive": 540,
+      "frames": 23,
+      "sha256": "5d75883b7562e3696b77103ba2fbafb94e2de689d1c483f828980db7a71132ae",
+      "seconds": 0.76,
+      "render_seconds": 5.12,
+      "sampled_rig_metrics": [
+        {
+          "frame": 517,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.216358,
+          "max_displacement_px": 15.73712,
+          "min_inverse_jacobian": 0.2186700999736786,
+          "face_det_error": 0.00040602684020996094,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 539,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.232096,
+          "max_displacement_px": 13.82652,
+          "min_inverse_jacobian": 0.31561607122421265,
+          "face_det_error": 0.0002562403678894043,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 10,
+      "scene": "red",
+      "in_frame": 540,
+      "out_frame_exclusive": 558,
+      "frames": 18,
+      "sha256": "1e8660b2f8c7241898887959cc4a7e2c8f1c57376df9696d4e708116e553079b",
+      "seconds": 0.6,
+      "render_seconds": 3.96,
+      "sampled_rig_metrics": [
+        {
+          "frame": 540,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.230722,
+          "max_displacement_px": 13.71409,
+          "min_inverse_jacobian": 0.32128283381462097,
+          "face_det_error": 0.000256955623626709,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 557,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.181238,
+          "max_displacement_px": 11.82026,
+          "min_inverse_jacobian": 0.4195955693721771,
+          "face_det_error": 0.0004259347915649414,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 11,
+      "scene": "raised",
+      "in_frame": 558,
+      "out_frame_exclusive": 578,
+      "frames": 20,
+      "sha256": "733d16f1c8bf4a5f0c0ba88f4913e047e6fc3c9183a42537c5ff428d3f80997e",
+      "seconds": 0.66,
+      "render_seconds": 3.78,
+      "sampled_rig_metrics": [
+        {
+          "frame": 558,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.61999,
+          "min_inverse_jacobian": 0.49074825644493103,
+          "face_det_error": 0.00042378902435302734,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 570,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.47775,
+          "min_inverse_jacobian": 0.5562790036201477,
+          "face_det_error": 0.0003993511199951172,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 577,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.19265,
+          "min_inverse_jacobian": 0.5653936266899109,
+          "face_det_error": 0.00036132335662841797,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 12,
+      "scene": "red",
+      "in_frame": 578,
+      "out_frame_exclusive": 607,
+      "frames": 29,
+      "sha256": "a1d965b18b4ef7398973b722a3e4c99700f6585f1d8a1a906fcf4ab1c58688ca",
+      "seconds": 0.96,
+      "render_seconds": 6.45,
+      "sampled_rig_metrics": [
+        {
+          "frame": 578,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.064625,
+          "max_displacement_px": 10.6387,
+          "min_inverse_jacobian": 0.48103809356689453,
+          "face_det_error": 0.0003606081008911133,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 600,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.9019,
+          "min_inverse_jacobian": 0.4158758521080017,
+          "face_det_error": 0.0004076957702636719,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 606,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.57636,
+          "min_inverse_jacobian": 0.3835514783859253,
+          "face_det_error": 0.00042068958282470703,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 13,
+      "scene": "red",
+      "in_frame": 607,
+      "out_frame_exclusive": 633,
+      "frames": 26,
+      "sha256": "5de036011cbdb40a1e8f096f744dd9d8f58d3ca1ea9efa0307b4b09a421939cb",
+      "seconds": 0.86,
+      "render_seconds": 5.92,
+      "sampled_rig_metrics": [
+        {
+          "frame": 607,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.6954,
+          "min_inverse_jacobian": 0.37767624855041504,
+          "face_det_error": 0.00042259693145751953,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 630,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.3575,
+          "min_inverse_jacobian": 0.24215856194496155,
+          "face_det_error": 0.00025790929794311523,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 632,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.54187,
+          "min_inverse_jacobian": 0.2329489290714264,
+          "face_det_error": 0.0002581477165222168,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 14,
+      "scene": "red",
+      "in_frame": 633,
+      "out_frame_exclusive": 661,
+      "frames": 28,
+      "sha256": "90007a08518aff842ee4567e2890cf1e4b3a9b003c90dc47fd5e4fa056ad010f",
+      "seconds": 0.93,
+      "render_seconds": 6.29,
+      "sampled_rig_metrics": [
+        {
+          "frame": 633,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.62925,
+          "min_inverse_jacobian": 0.2273719608783722,
+          "face_det_error": 0.00024360418319702148,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 660,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.46331,
+          "min_inverse_jacobian": 0.18074452877044678,
+          "face_det_error": 0.00028884410858154297,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 15,
+      "scene": "red",
+      "in_frame": 661,
+      "out_frame_exclusive": 684,
+      "frames": 23,
+      "sha256": "65023ef96da8898e6791964c394e60a3645d006e23c19d84790a82dae3b339f0",
+      "seconds": 0.76,
+      "render_seconds": 5.17,
+      "sampled_rig_metrics": [
+        {
+          "frame": 661,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.4317,
+          "min_inverse_jacobian": 0.18217910826206207,
+          "face_det_error": 0.0002818107604980469,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 683,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.77639,
+          "min_inverse_jacobian": 0.2711264491081238,
+          "face_det_error": 8.219480514526367e-05,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 16,
+      "scene": "wide",
+      "in_frame": 684,
+      "out_frame_exclusive": 698,
+      "frames": 14,
+      "sha256": "e887da6b56207a9cf43af4677e89a2d03fd5059dae218c104448dfb886fcb661",
+      "seconds": 0.46,
+      "render_seconds": 3.79,
+      "sampled_rig_metrics": [
+        {
+          "frame": 684,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.68118,
+          "min_inverse_jacobian": 0.27692556381225586,
+          "face_det_error": 8.463859558105469e-05,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 690,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.05557,
+          "min_inverse_jacobian": 0.31679144501686096,
+          "face_det_error": 1.52587890625e-05,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 697,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.24197,
+          "min_inverse_jacobian": 0.36496609449386597,
+          "face_det_error": 8.112192153930664e-05,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 17,
+      "scene": "red",
+      "in_frame": 698,
+      "out_frame_exclusive": 730,
+      "frames": 32,
+      "sha256": "92cf0a03d1229c3a1a7e3fadc98275fc2b0b9abc87e459039dff0a9ee80706bc",
+      "seconds": 1.06,
+      "render_seconds": 6.99,
+      "sampled_rig_metrics": [
+        {
+          "frame": 698,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.1217,
+          "min_inverse_jacobian": 0.36981886625289917,
+          "face_det_error": 0.00010859966278076172,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 720,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.040595,
+          "max_displacement_px": 10.76112,
+          "min_inverse_jacobian": 0.5028946399688721,
+          "face_det_error": 0.00033664703369140625,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 729,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.109445,
+          "max_displacement_px": 10.27742,
+          "min_inverse_jacobian": 0.5290646553039551,
+          "face_det_error": 0.00046503543853759766,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 18,
+      "scene": "red",
+      "in_frame": 730,
+      "out_frame_exclusive": 755,
+      "frames": 25,
+      "sha256": "c4ad4391f95b99cb3a1aa96215f7458a47e15c14cd79a8dc3ac79743796f9dfc",
+      "seconds": 0.83,
+      "render_seconds": 5.54,
+      "sampled_rig_metrics": [
+        {
+          "frame": 730,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.116683,
+          "max_displacement_px": 10.25057,
+          "min_inverse_jacobian": 0.5293052792549133,
+          "face_det_error": 0.0004723072052001953,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 750,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.233585,
+          "max_displacement_px": 10.89942,
+          "min_inverse_jacobian": 0.493008553981781,
+          "face_det_error": 0.00048106908798217773,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 754,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.248905,
+          "max_displacement_px": 11.26116,
+          "min_inverse_jacobian": 0.4711799919605255,
+          "face_det_error": 0.0005077719688415527,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 19,
+      "scene": "red",
+      "in_frame": 755,
+      "out_frame_exclusive": 780,
+      "frames": 25,
+      "sha256": "6084572fa88397d627c315c9db4740341853a8be524be4b782f2f1e965c5fae0",
+      "seconds": 0.83,
+      "render_seconds": 5.67,
+      "sampled_rig_metrics": [
+        {
+          "frame": 755,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.252243,
+          "max_displacement_px": 11.36007,
+          "min_inverse_jacobian": 0.4654884338378906,
+          "face_det_error": 0.0005077719688415527,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 779,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.267876,
+          "max_displacement_px": 14.09872,
+          "min_inverse_jacobian": 0.3025621473789215,
+          "face_det_error": 0.0004988312721252441,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 20,
+      "scene": "close",
+      "in_frame": 780,
+      "out_frame_exclusive": 802,
+      "frames": 22,
+      "sha256": "ded5238a7b81673cc96a2437f7d37b85e90a5a5d73b828b441f1c4647533bbaf",
+      "seconds": 0.73,
+      "render_seconds": 3.14,
+      "sampled_rig_metrics": [
+        {
+          "frame": 780,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 3.53762,
+          "min_inverse_jacobian": 0.7717800736427307,
+          "face_det_error": 0.00015121698379516602,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 801,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 3.76512,
+          "min_inverse_jacobian": 0.8412171602249146,
+          "face_det_error": 0.00015604496002197266,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 21,
+      "scene": "red",
+      "in_frame": 802,
+      "out_frame_exclusive": 826,
+      "frames": 24,
+      "sha256": "dc987dcbc1cd9cd9a3d7c15596005036451e27e43d5355ef8694077f2802d4d1",
+      "seconds": 0.8,
+      "render_seconds": 5.43,
+      "sampled_rig_metrics": [
+        {
+          "frame": 802,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.167114,
+          "max_displacement_px": 16.32163,
+          "min_inverse_jacobian": 0.1905129849910736,
+          "face_det_error": 0.0004830360412597656,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 810,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.110381,
+          "max_displacement_px": 16.61788,
+          "min_inverse_jacobian": 0.1764432042837143,
+          "face_det_error": 0.0004774332046508789,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 825,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.37922,
+          "min_inverse_jacobian": 0.18970994651317596,
+          "face_det_error": 0.0004715919494628906,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 22,
+      "scene": "wide",
+      "in_frame": 826,
+      "out_frame_exclusive": 853,
+      "frames": 27,
+      "sha256": "d5cb624861e6c106ee8a5eed18fdbfefe8779d0d0e32d3cd6ad8673d684ee3e1",
+      "seconds": 0.9,
+      "render_seconds": 7.14,
+      "sampled_rig_metrics": [
+        {
+          "frame": 826,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.32755,
+          "min_inverse_jacobian": 0.19230279326438904,
+          "face_det_error": 0.00047147274017333984,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 840,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.20323,
+          "min_inverse_jacobian": 0.2504604160785675,
+          "face_det_error": 0.0004202127456665039,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 852,
+          "scene": "wide",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.80963,
+          "min_inverse_jacobian": 0.3202407658100128,
+          "face_det_error": 0.0003440380096435547,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 23,
+      "scene": "red",
+      "in_frame": 853,
+      "out_frame_exclusive": 883,
+      "frames": 30,
+      "sha256": "dad6ee0648e58660d37fd352400a046cd65f9e49480d12c2b64433af7b910b41",
+      "seconds": 1.0,
+      "render_seconds": 6.92,
+      "sampled_rig_metrics": [
+        {
+          "frame": 853,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.68468,
+          "min_inverse_jacobian": 0.32876405119895935,
+          "face_det_error": 0.0003389120101928711,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 870,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.66993,
+          "min_inverse_jacobian": 0.4291936755180359,
+          "face_det_error": 0.0001328587532043457,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 882,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 10.76416,
+          "min_inverse_jacobian": 0.47343242168426514,
+          "face_det_error": 5.9664249420166016e-05,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 24,
+      "scene": "open",
+      "in_frame": 883,
+      "out_frame_exclusive": 900,
+      "frames": 17,
+      "sha256": "f190715a4272454b9f228642ce006e22a81eb4eea78f1d856cd53de3239612f7",
+      "seconds": 0.56,
+      "render_seconds": 3.28,
+      "sampled_rig_metrics": [
+        {
+          "frame": 883,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.26998,
+          "min_inverse_jacobian": 0.570626974105835,
+          "face_det_error": 3.0875205993652344e-05,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 899,
+          "scene": "open",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.56981,
+          "min_inverse_jacobian": 0.5492219924926758,
+          "face_det_error": 0.000217437744140625,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 25,
+      "scene": "blade",
+      "in_frame": 900,
+      "out_frame_exclusive": 966,
+      "frames": 66,
+      "sha256": "541821fc42c535adcc65a6876a3a6ce91f2b94e550ddae77f1c138931172d081",
+      "seconds": 2.2,
+      "render_seconds": 6.29,
+      "sampled_rig_metrics": []
+    },
+    {
+      "shot": 26,
+      "scene": "red",
+      "in_frame": 966,
+      "out_frame_exclusive": 991,
+      "frames": 25,
+      "sha256": "9bce904321f6e46d07584666a8f0d14a85797d9aa301127b3a2666c03f66b020",
+      "seconds": 0.83,
+      "render_seconds": 5.54,
+      "sampled_rig_metrics": [
+        {
+          "frame": 966,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.160685,
+          "max_displacement_px": 16.46136,
+          "min_inverse_jacobian": 0.2044832706451416,
+          "face_det_error": 0.0008782744407653809,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 990,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.279773,
+          "max_displacement_px": 15.30019,
+          "min_inverse_jacobian": 0.2755003869533539,
+          "face_det_error": 0.0003858804702758789,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 27,
+      "scene": "red",
+      "in_frame": 991,
+      "out_frame_exclusive": 1013,
+      "frames": 22,
+      "sha256": "b778e9728b8d69231283db7876ba0f440dafee34ae30b845eb25b6711cea605c",
+      "seconds": 0.73,
+      "render_seconds": 5.1,
+      "sampled_rig_metrics": [
+        {
+          "frame": 991,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.282071,
+          "max_displacement_px": 15.20039,
+          "min_inverse_jacobian": 0.2829815745353699,
+          "face_det_error": 0.0004114508628845215,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1012,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.274491,
+          "max_displacement_px": 12.59056,
+          "min_inverse_jacobian": 0.4094606339931488,
+          "face_det_error": 0.00012344121932983398,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 28,
+      "scene": "red",
+      "in_frame": 1013,
+      "out_frame_exclusive": 1038,
+      "frames": 25,
+      "sha256": "63f6ae37362d399509f65438086d3596ee44f812d40cfe71254db11f180d776b",
+      "seconds": 0.83,
+      "render_seconds": 5.77,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1013,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.271487,
+          "max_displacement_px": 12.45731,
+          "min_inverse_jacobian": 0.415519654750824,
+          "face_det_error": 0.00013118982315063477,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1020,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.244153,
+          "max_displacement_px": 11.56014,
+          "min_inverse_jacobian": 0.4556998014450073,
+          "face_det_error": 5.97834587097168e-05,
+          "bone_scale_error": 1.1102230246251565e-16
+        },
+        {
+          "frame": 1037,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.137998,
+          "max_displacement_px": 10.03602,
+          "min_inverse_jacobian": 0.5132447481155396,
+          "face_det_error": 0.0003592967987060547,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 29,
+      "scene": "red",
+      "in_frame": 1038,
+      "out_frame_exclusive": 1067,
+      "frames": 29,
+      "sha256": "83f52d2a674604edf35221275f1fa8d00687b98ae7c696778aaabca607d7aec5",
+      "seconds": 0.96,
+      "render_seconds": 6.85,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1038,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.130346,
+          "max_displacement_px": 9.99057,
+          "min_inverse_jacobian": 0.5143583416938782,
+          "face_det_error": 0.00040602684020996094,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1050,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.030847,
+          "max_displacement_px": 10.03173,
+          "min_inverse_jacobian": 0.5033994913101196,
+          "face_det_error": 0.0004636049270629883,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1066,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.6086,
+          "min_inverse_jacobian": 0.42876294255256653,
+          "face_det_error": 0.0004527568817138672,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 30,
+      "scene": "close",
+      "in_frame": 1067,
+      "out_frame_exclusive": 1092,
+      "frames": 25,
+      "sha256": "49db18e4f359868616f92c3ec66ceaa3aec8d7b080f58e429c03c1301b9f5ec2",
+      "seconds": 0.83,
+      "render_seconds": 3.71,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1067,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.58057,
+          "min_inverse_jacobian": 0.8109853267669678,
+          "face_det_error": 0.00019299983978271484,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1080,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.77645,
+          "min_inverse_jacobian": 0.7985790967941284,
+          "face_det_error": 0.00019884109497070312,
+          "bone_scale_error": 0.0
+        },
+        {
+          "frame": 1091,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.54961,
+          "min_inverse_jacobian": 0.8108497262001038,
+          "face_det_error": 0.00019609928131103516,
+          "bone_scale_error": 0.0
+        }
+      ]
+    },
+    {
+      "shot": 31,
+      "scene": "raised",
+      "in_frame": 1092,
+      "out_frame_exclusive": 1111,
+      "frames": 19,
+      "sha256": "d9848b2a415bbd8d21b7525f455a425a9fba119019cb972ef7f867a44ed105a5",
+      "seconds": 0.63,
+      "render_seconds": 3.75,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1092,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.33332,
+          "min_inverse_jacobian": 0.36313074827194214,
+          "face_det_error": 0.0005043745040893555,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1110,
+          "scene": "raised",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.87344,
+          "min_inverse_jacobian": 0.2994331121444702,
+          "face_det_error": 0.0003942251205444336,
+          "bone_scale_error": 2.220446049250313e-16
+        }
+      ]
+    },
+    {
+      "shot": 32,
+      "scene": "close",
+      "in_frame": 1111,
+      "out_frame_exclusive": 1133,
+      "frames": 22,
+      "sha256": "a1001cccd3c924c8cd3bf0d0eee5f2715ae87d65207cf4b73952de8aa4474b85",
+      "seconds": 0.73,
+      "render_seconds": 3.21,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1111,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 5.56616,
+          "min_inverse_jacobian": 0.8032007813453674,
+          "face_det_error": 0.0001399517059326172,
+          "bone_scale_error": 0.0
+        },
+        {
+          "frame": 1132,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 4.21032,
+          "min_inverse_jacobian": 0.7909900546073914,
+          "face_det_error": 0.0001418590545654297,
+          "bone_scale_error": 0.0
+        }
+      ]
+    },
+    {
+      "shot": 33,
+      "scene": "red",
+      "in_frame": 1133,
+      "out_frame_exclusive": 1158,
+      "frames": 25,
+      "sha256": "2d7b607b782de17542f6a32ea80bdb90cad8beecf28a78bdcd6c15a003a90b56",
+      "seconds": 0.83,
+      "render_seconds": 5.75,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1133,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.64786,
+          "min_inverse_jacobian": 0.1772230565547943,
+          "face_det_error": 0.0004813671112060547,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1140,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.13588,
+          "min_inverse_jacobian": 0.20270735025405884,
+          "face_det_error": 0.0004916191101074219,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1157,
+          "scene": "red",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.1879,
+          "min_inverse_jacobian": 0.2998773157596588,
+          "face_det_error": 0.00040268898010253906,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 34,
+      "scene": "close",
+      "in_frame": 1158,
+      "out_frame_exclusive": 1182,
+      "frames": 24,
+      "sha256": "12e136184195b7d600165edbdec752d11e099c7d2ee0eb82ec77b57bdd2c22c3",
+      "seconds": 0.8,
+      "render_seconds": 3.4,
+      "sampled_rig_metrics": [
+        {
+          "frame": 1158,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 2.3491,
+          "min_inverse_jacobian": 0.7928770780563354,
+          "face_det_error": 0.0001316070556640625,
+          "bone_scale_error": 2.220446049250313e-16
+        },
+        {
+          "frame": 1170,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 1.72119,
+          "min_inverse_jacobian": 0.8235349655151367,
+          "face_det_error": 0.00011098384857177734,
+          "bone_scale_error": 0.0
+        },
+        {
+          "frame": 1181,
+          "scene": "close",
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 1.45524,
+          "min_inverse_jacobian": 0.8436436653137207,
+          "face_det_error": 6.496906280517578e-05,
+          "bone_scale_error": 1.1102230246251565e-16
+        }
+      ]
+    },
+    {
+      "shot": 35,
+      "scene": "logo",
+      "in_frame": 1182,
+      "out_frame_exclusive": 1224,
+      "frames": 42,
+      "sha256": "df4331e9346a5a0012b7bddc72c90c85fc353ce637b1fe8c0ce48af5121bd410",
+      "seconds": 1.4,
+      "render_seconds": 1.01,
+      "sampled_rig_metrics": []
+    },
+    {
+      "shot": 36,
+      "scene": "outro",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "frames": 108,
+      "sha256": "f22169c3ca1fa5e0dd5bd16bfde308baa008c74840561ee9a333ffb4088edb57",
+      "seconds": 3.6,
+      "render_seconds": 1.11,
+      "sampled_rig_metrics": []
+    }
+  ],
+  "method": "image-based bounded skeletal skinning / rigid props / authored camera and effects",
+  "image_space_skinning_used": true,
+  "face_expression_morphing": false,
+  "head_pose_kind": "rigid 2D tilt, no fabricated yaw",
+  "reference_actor_video_pixels_used": false,
+  "new_whole_character_source_images": true,
+  "natural_ai_performance": false,
+  "reconstructed_3d_human": false,
+  "pixel_perfect_choreography_claimed": false,
+  "reference_timing_scope": "Major phase/cut family and measured light-pulse timing; not every source pose/camera trajectory.",
+  "total_render_seconds": 256.41,
+  "audio_pending_reference_conform": true,
+  "settings": {
+    "method": "whole-character photographic rigged 2.5D; not natural 3D performance",
+    "width": 720,
+    "height": 1280,
+    "fps": 30,
+    "frames": 1332,
+    "renderer_sha256": "934a322f7a6df1d92d4b1ab6b897eaef991196c76ab603589b46ca548eec6462",
+    "images": {
+      "00_ROOM.png": "86ed5fafaf8b10411f42513c26106508f3f9e66b66a473aedb99df8057f20186",
+      "01_RAISED_HAND.png": "3341cc2e690dd82d9a9577c4e002016171e4d91381939c82d95db5211c3d1aa1",
+      "02_OPEN_ARMS.png": "a92a22adadfaf3504300fd42f8912fac6bc016273957845ef17ea240780eeffc",
+      "03_RED_ANGLE.png": "5325b7fb17811ad1fb730d039924657d639885078ac03721ea54b3b6e8018fee",
+      "04_CLOSE_SMIRK.png": "b4d35ebf575739363ba59bb44fbd5b30520e1c7c67f25964aa4d46626a2dd2a0",
+      "05_BLADE_POV.png": "fc94fa3c8f6816e68238cfb11fac4133a874eb105be5cd7ca9f03a604d8e0021"
+    },
+    "outro_sha256": "2282b12006bd86b7720e86eb53c87cf12ce5f315015c680a1ce5715d655ca3ce",
+    "reference_metrics_sha256": "5e70a406473801287cc034140d43570af7f9adc2404c262c9723447b1088272c"
+  }
+}

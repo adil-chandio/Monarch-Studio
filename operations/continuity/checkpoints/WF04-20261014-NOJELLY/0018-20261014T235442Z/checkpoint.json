@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0018-20261014T235442Z",
+  "created_at": "2026-10-14T23:54:42Z",
+  "summary": "Approved limited 2.5D full recreation in production. New source assets saved; complete main-reference timing plan implemented; private rig/matte/prop QA corrections made. Preparing final full-picture render, not delivering another test. Original source audio will be copied unchanged.",
+  "next_action": "Inspect corrected QA sequence, then run rigged_main_film.py for all 1332 frames and conform_reference_audio.py with the canonical original soundtrack. Stay through export and inspection. Do not reuse the chair/cables scene or label this as true 3D/natural AI performance. Assets and method approval are recorded in records/rigged-full/.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "rendering",
+    "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+    "style_id": "monarch-face-chaos",
+    "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+    "acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-14T23:54:42Z",
+    "checkpoint_sequence": 18,
+    "event_sequence": 103,
+    "journal_head": "28c9167bb005f3e056ca38cde0ffc4715860fb6c474a6d640017e424471cd95c",
+    "last_checkpoint": "2026-10-14T23:54:42Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0017-20261014T223643Z",
+    "next_action": "Inspect corrected QA sequence, then run rigged_main_film.py for all 1332 frames and conform_reference_audio.py with the canonical original soundtrack. Stay through export and inspection. Do not reuse the chair/cables scene or label this as true 3D/natural AI performance. Assets and method approval are recorded in records/rigged-full/.",
+    "running_processes": [
+      {
+        "id": "monarch-original-3d-motion-check-30451e5f",
+        "name": "Vault sample-frame render",
+        "state": "completed",
+        "started_at": "2026-10-14T16:46:38Z",
+        "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+      },
+      {
+        "id": "monarch-finish-export-from-saved-3287176f",
+        "name": "Completed 44.4s draft export",
+        "state": "completed",
+        "started_at": "2026-10-14T17:34:58Z",
+        "resume_instruction": "Final draft exists and was presented; do not re-render. See deliverables/monarch-vault/DELIVERY_README.json and durable records/LIVE_ACTION_DELIVERY.json."
+      },
+      {
+        "id": "monarch-corrected-joint-motion-r-ce4914d5",
+        "name": "Corrected 3D QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; no production 3D final accepted."
+      },
+      {
+        "id": "monarch-native-motion-frames-431c3ea6",
+        "name": "Native skinning-space QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; experimental frames only."
+      },
+      {
+        "id": "monarch-full-44-4-second-draft-e-767b7d57",
+        "name": "Initial full export attempt",
+        "state": "failed",
+        "started_at": "2026-10-14T17:36:12Z",
+        "resume_instruction": "Superseded by completed resumed export monarch-finish-export-from-saved-3287176f. Do not restart."
+      },
+      {
+        "id": "monarch-crown-outro-0ee7e859",
+        "name": "Native 3.6s crown outro plus original sound",
+        "state": "completed",
+        "started_at": "2026-10-14T20:59:29Z",
+        "resume_instruction": "Finished successfully: 108 frames /3.6s, verified full decode. See BRAND_OUTRO.json; do not re-render. This is only the brand-ending component, not character animation."
+      },
+      {
+        "id": "main-reference-timing-and-music--b24e5955",
+        "name": "Canonical main reference frame/audio analysis",
+        "state": "completed",
+        "started_at": "2026-10-14T22:30:20Z",
+        "resume_instruction": "Analysis complete: MAIN_REFERENCE_AUDIT.json. 1332 native frames /44.4s picture; original AAC and decoded PCM hashes match copied soundtrack. Audio recovery file 1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr. No new character movie created; do not switch to 21s chair reference."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 103,
+    "timestamp": "2026-10-14T23:54:42Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Approved limited 2.5D full recreation in production. New source assets saved; complete main-reference timing plan implemented; private rig/matte/prop QA corrections made. Preparing final full-picture render, not delivering another test. Original source audio will be copied unchanged.",
+    "content_sha256": "3f412b31d89b949ca01b16360b8545d80610c7f8029579a23bd429e2c001bcfc",
+    "metadata": {
+      "sequence": 18,
+      "next_action": "Inspect corrected QA sequence, then run rigged_main_film.py for all 1332 frames and conform_reference_audio.py with the canonical original soundtrack. Stay through export and inspection. Do not reuse the chair/cables scene or label this as true 3D/natural AI performance. Assets and method approval are recorded in records/rigged-full/.",
+      "status": "rendering"
+    },
+    "prev_event_sha256": "d9fce07408d030d39c2de50c2452dea59a38e9cc4c5ff84cec5d753efc13dc0f",
+    "event_sha256": "28c9167bb005f3e056ca38cde0ffc4715860fb6c474a6d640017e424471cd95c"
+  },
+  "journal_head": "28c9167bb005f3e056ca38cde0ffc4715860fb6c474a6d640017e424471cd95c",
+  "git": {
+    "initialized": true,
+    "head": "daaa00b0ee9c1b9d908d94e6d034a66b84b5dbd6",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/payload/character-first/records/BRIEF.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/KEYFRAMES.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/PRODUCTION.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/RIG_SWEEP.json",
+      "?? workflows/current/payload/character-first/src/rigged_main_film.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/character-first/README.md",
+      "size": 8031,
+      "sha256": "c0808814e57e167e6aecbef4394ed0bb1be5bdbaaea815e66522d67462832115"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ANIMATION_PLAN.json",
+      "size": 6216,
+      "sha256": "b826bf7c7271b27f41eafa2ce96381b81d828097203c6a9d6c5d497850ee054e"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ASSETS.json",
+      "size": 6952,
+      "sha256": "da7760e583e35408be022c5ce3d7692e49bc7e9d63bc4f6111c5a2b9b4aed897"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/BRAND_OUTRO.json",
+      "size": 2044,
+      "sha256": "bacb557c9dda0a36b1ba24f23900e8520505eda6c3373f53914ebeabbe264484"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/BRIEF.json",
+      "size": 6314,
+      "sha256": "11f38daf206b539b8dbcf487cd4f9d4f038397329935fa323743b535f3f6b839"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/DELIVERY_CHECKS.json",
+      "size": 1420,
+      "sha256": "d8c6abcb69f6c1056f056a78e7dca1545435d9630a112f086701d32163326158"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/EDIT_BEATS.csv",
+      "size": 1480,
+      "sha256": "5e6fdd5ef7e916ac24c20cb6a83fcf97c67f4db2b2b52b2d424b99661429c417"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/INTEGRITY_REPORT.json",
+      "size": 3352,
+      "sha256": "6d002971ea05d712231333959229cc4ffb8874ebfce4428ce69415c545cded9a"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/LAST_RECOVERY.json",
+      "size": 370,
+      "sha256": "460722e5cf0fe96bf86ee8d1a1b142674a887b3cb5c904551c2fbcb322b4e77c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/VIDEO_CAPABILITY_CHECK.json",
+      "size": 1729,
+      "sha256": "01a90d8cea6f6769309256bf05241110bc5860ef3e19b29cfa696252087eeee7"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/VIDEO_COMPONENTS.json",
+      "size": 1106,
+      "sha256": "5a983028bfa9e1da3878c431caae12b93cd87676a372152f22b5353a8d342da1"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/CONFORM_CHECKS.json",
+      "size": 312,
+      "sha256": "7ee6cd27bf518789f04b79018eeb09b2e8b51fa79a12cd228510a32ee79f41f8"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/MAIN_REFERENCE_AUDIT.json",
+      "size": 2150,
+      "sha256": "42137084c7978b0ca1cbcc26901ec86ee107888fa34bd79dbe1540dd9fbea04f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/REFERENCE_FRAME_METRICS.csv",
+      "size": 94828,
+      "sha256": "5e70a406473801287cc034140d43570af7f9adc2404c262c9723447b1088272c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/REFERENCE_LOCK.md",
+      "size": 3624,
+      "sha256": "59e4e93f9384be1ad7863cc8b01364cbd4a497bbe7f8813c563caada5b75f89c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/TRANSITION_CANDIDATES.json",
+      "size": 93430,
+      "sha256": "54f2c4c39469684150e1fabe34cd574c28442c23f7570e4887219296f3dbf7ce"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/KEYFRAMES.json",
+      "size": 2852,
+      "sha256": "ca026d44e499ffcdb533798e985c407a6d73395186e8f6b6c791f7515d8f5c75"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/PRODUCTION.json",
+      "size": 714,
+      "sha256": "dbd13e3f3c1a460dd548d87599dc15f8c1e62f01c435a86624850e8f8cf0d011"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/RIG_SWEEP.json",
+      "size": 37052,
+      "sha256": "ccbd789289448b31b59e1720852b4228236e8443cefe0deb6bde9ef6ae17647f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/requirements.txt",
+      "size": 151,
+      "sha256": "c15395e094b022ed847651ccc4f60e5835bbaae3afa693612e36da2d4dec154c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/assemble_design.cpython-311.pyc",
+      "size": 18487,
+      "sha256": "bb6702be95801d713d87038534a06fa2fcdf8175eead385a1dfb6cee38efb579"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/brand_end.cpython-311.pyc",
+      "size": 7960,
+      "sha256": "aab9b82266e207341c659b2968412c195d6654f60c1c53fab3bd3165bf203fc6"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/conform_reference_audio.cpython-311.pyc",
+      "size": 8149,
+      "sha256": "145f367b92459f1bf52d57c32e58cb0335d3b512efa8256665a027cbafe0eda3"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/recover_design_assets.cpython-311.pyc",
+      "size": 7561,
+      "sha256": "0dffa2b35729157c821a765ad041c49975d85567180ddf6a4bf43c6146111180"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/render_brand_outro.cpython-311.pyc",
+      "size": 28366,
+      "sha256": "32a2fb4326bbf192baa22bae88629ec198068a117cf6540a73460ea63a6d223b"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/rigged_main_film.cpython-311.pyc",
+      "size": 67937,
+      "sha256": "c06b317d7ca9507226192fe64d4d01141e073a5e9fef7344aa3fc337610ad374"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/validate_assets.cpython-311.pyc",
+      "size": 5304,
+      "sha256": "d8086b28c7c961724fc3664cb9bc8f502af1135990caccc18f74f01452610324"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/analyze_main_reference.py",
+      "size": 7085,
+      "sha256": "b401d32b45f3ec9bbb91305fd3c2a3bd47a2e73b831cb6805aa94e81ada524fc"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/assemble_design.py",
+      "size": 9007,
+      "sha256": "565d5578a9013a02a021cbb97f5da4ca61ecf0e1f2264b5e55ab303579280854"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/brand_end.py",
+      "size": 2872,
+      "sha256": "58975837b2dc2717b4631d9c37fddf25b8d735b57b3725d1858f6e60510fadfd"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/conform_reference_audio.py",
+      "size": 4773,
+      "sha256": "6f17236ad13cadd9871b239fd546dd54665f2979ca14372ce6d7a44f59ec81ba"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/recover_design_assets.py",
+      "size": 3716,
+      "sha256": "f4e52f5bdc1bc20fddcc08717f56905246e5743fe4ccbf01dada1374006b79f2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/render_brand_outro.py",
+      "size": 11658,
+      "sha256": "d8efcb9c297dbd521dd9d2a7e8e13c99607ac2293d8e9bb2354ef8e06863f896"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/rigged_main_film.py",
+      "size": 33032,
+      "sha256": "d00c744fcbf5e356ba6d01903c20cfc4af7e1c56dbd42f3d36be6777ea916ed6"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/validate_assets.py",
+      "size": 2215,
+      "sha256": "a61b61e2ee54b081c50430497099722647c8fc437d67cd9eae6e02a774ff724d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_design.cpython-311.pyc",
+      "size": 10703,
+      "sha256": "ea7afbd7c2863d2809546d193947e993a7f7f3ee00448583abf81165f3e8fbb0"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_outro.cpython-311.pyc",
+      "size": 5490,
+      "sha256": "d66f775e0cbc125f41abd37af5dc9e8f509a50eced70271f9c58ecbfe4c155f7"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_recovery.cpython-311.pyc",
+      "size": 7094,
+      "sha256": "f117ffb8b56b27352023b70e093323c4c2e589de0fc4f6912c9bc6802445c92c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_reference_conform.cpython-311.pyc",
+      "size": 4603,
+      "sha256": "46f34c844b897b2eea315552e6143f5694033fd878eb9f1c6ce6305abe002437"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_design.py",
+      "size": 3769,
+      "sha256": "a64c2060486cbf0419e4b94c284aab2c977f72502c45f8c9db04d6df89ceee82"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_outro.py",
+      "size": 1737,
+      "sha256": "f8182ec680ea3034113dc71638bc29340165b0b5f106f8e99cd608f26c421918"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_recovery.py",
+      "size": 2532,
+      "sha256": "1a5a41a670d233a93c4537e2fe8aacea169fa29ef209524728990b8f9df0373d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_reference_conform.py",
+      "size": 1608,
+      "sha256": "d5e193bbd7fbe941aa3e2dfd6a10cec0b01a82940fc67a03c9d9d73527d03c5f"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/README.md",
+      "size": 5356,
+      "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/BRIEF.json",
+      "size": 1000,
+      "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json",
+      "size": 777,
+      "sha256": "d0015d48922ef0ab4f446f6ba0d6ac10637b02d29a74ceb03a5b8465216f1fd9"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "size": 1921,
+      "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/requirements.txt",
+      "size": 207,
+      "sha256": "832c3d66f0cd4ec8303e55655f1c56b1ef5a988572cd5c23dca61a833007a990"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/motion_math.cpython-311.pyc",
+      "size": 5463,
+      "sha256": "c32e15395cbc4f7114df767b5c278c52c78e4bda81297f10a40ea9cf04598f70"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/build_vault.py",
+      "size": 30565,
+      "sha256": "64304ad9ba8771be3bea41be6aeb101d8c1d346ec07d7cd66b0a43119ce746dd"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/composite_live.py",
+      "size": 11391,
+      "sha256": "5a92640af4e4d442dd2ac0090cadbf63a36d9e180c26f365c18b20e1ea0a2f40"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/finish_live.py",
+      "size": 6681,
+      "sha256": "b509d0e4f08f6e77581a8a4c654d4998fb40095e500bfcbea35b731289823eb6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/identity_head.py",
+      "size": 12807,
+      "sha256": "4212ecf6d9c00ac5b388e8831422194c2331157469fffdef2051fc9479db491c"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/motion_math.py",
+      "size": 2726,
+      "sha256": "322b1eaa28538bde7d11fb98e70d8bca932a3f6ba7d554a717922d7daefb5aed"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/render_vault.py",
+      "size": 3555,
+      "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/__pycache__/test_motion.cpython-311.pyc",
+      "size": 9164,
+      "sha256": "e5e4f3b613044e68161ea2a7548baf14221d208544669abd7a248e60ba5c7019"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/test_motion.py",
+      "size": 2943,
+      "sha256": "d42a25eaf0853f6848f4ce90c551fe3e3a5e2ae1abc1b9b130f775c85558843e"
+    }
+  ]
+}

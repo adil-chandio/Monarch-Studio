@@ -4,8 +4,8 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 
 - **Task:** `WF04-20261014-NOJELLY`
 - **Status:** `waiting_external`
-- **Title:** Monarch Face: original scenes and articulated motion, no plate warps
-- **Next action:** Work only against the confirmed main reference and unchanged source music. Read main-reference/REFERENCE_LOCK.md and MAIN_REFERENCE_AUDIT.json. Previous eight-beat plan is not a verified reference cut map; 295 transition candidates need classification. Other-chat rig source is a limited 2.5D photographic puppet, not proof of exact 3D human/weapon/camera motion. Do not relabel an outro, old composite, other-chat movie or image-warp study as the requested full film.
+- **Title:** Monarch main-reference full 2.5D recreation V1 — review
+- **Next action:** Do NOT restart or resend only an outro. Full movie is Drive 14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP; source ZIP 1wSU7SQM39RVfxMR66OxHhZVtO6ySeB7_. Read records/rigged-full/DELIVERY.json and restore by hashes if local files vanish. Await actual feedback on this FULL 2.5D V1, then make targeted revisions while retaining the canonical main reference and exact original music.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

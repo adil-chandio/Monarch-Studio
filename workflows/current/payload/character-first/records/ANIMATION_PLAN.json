@@ -1,10 +1,10 @@
 {
-  "status": "CHARACTER_MOTION_BLOCKED_ENDING_COMPLETE",
+  "status": "FULL_2_5D_RECREATION_V1_RENDERED_FOR_REVIEW",
   "planned_fps": 30,
   "planned_total_frames": 1332,
   "planned_duration_seconds": 44.4,
-  "rendered_frames": 108,
-  "actual_video_file": null,
+  "rendered_frames": 1332,
+  "actual_video_file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4",
   "native_motion_requirement": "New coherent character acting; original personal footage is identity input only, not a delivered shot.",
   "blocking_capability": "No direct photoreal image-to-video generator is exposed in this session. Reference stills alone do not produce the requested performance.",
   "format_target": [
@@ -13,6 +13,421 @@
   ],
   "format_note": "Planned video format only. Native still dimensions are recorded separately and are not claimed as 1080p or 4K video.",
   "cuts": [
+    {
+      "id": "00",
+      "name": "room",
+      "in_frame": 0,
+      "out_frame_exclusive": 272,
+      "duration_seconds": 9.066666666666666,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "01",
+      "name": "raised",
+      "in_frame": 272,
+      "out_frame_exclusive": 298,
+      "duration_seconds": 0.8666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "02",
+      "name": "raised",
+      "in_frame": 298,
+      "out_frame_exclusive": 322,
+      "duration_seconds": 0.8,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "03",
+      "name": "raised",
+      "in_frame": 322,
+      "out_frame_exclusive": 356,
+      "duration_seconds": 1.1333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "04",
+      "name": "raised",
+      "in_frame": 356,
+      "out_frame_exclusive": 394,
+      "duration_seconds": 1.2666666666666666,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "05",
+      "name": "open",
+      "in_frame": 394,
+      "out_frame_exclusive": 428,
+      "duration_seconds": 1.1333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "06",
+      "name": "open",
+      "in_frame": 428,
+      "out_frame_exclusive": 461,
+      "duration_seconds": 1.1,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "07",
+      "name": "open",
+      "in_frame": 461,
+      "out_frame_exclusive": 492,
+      "duration_seconds": 1.0333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "08",
+      "name": "red",
+      "in_frame": 492,
+      "out_frame_exclusive": 517,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "09",
+      "name": "red",
+      "in_frame": 517,
+      "out_frame_exclusive": 540,
+      "duration_seconds": 0.7666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "10",
+      "name": "red",
+      "in_frame": 540,
+      "out_frame_exclusive": 558,
+      "duration_seconds": 0.6,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "11",
+      "name": "raised",
+      "in_frame": 558,
+      "out_frame_exclusive": 578,
+      "duration_seconds": 0.6666666666666666,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "12",
+      "name": "red",
+      "in_frame": 578,
+      "out_frame_exclusive": 607,
+      "duration_seconds": 0.9666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "13",
+      "name": "red",
+      "in_frame": 607,
+      "out_frame_exclusive": 633,
+      "duration_seconds": 0.8666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "14",
+      "name": "red",
+      "in_frame": 633,
+      "out_frame_exclusive": 661,
+      "duration_seconds": 0.9333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "15",
+      "name": "red",
+      "in_frame": 661,
+      "out_frame_exclusive": 684,
+      "duration_seconds": 0.7666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "16",
+      "name": "wide",
+      "in_frame": 684,
+      "out_frame_exclusive": 698,
+      "duration_seconds": 0.4666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "17",
+      "name": "red",
+      "in_frame": 698,
+      "out_frame_exclusive": 730,
+      "duration_seconds": 1.0666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "18",
+      "name": "red",
+      "in_frame": 730,
+      "out_frame_exclusive": 755,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "19",
+      "name": "red",
+      "in_frame": 755,
+      "out_frame_exclusive": 780,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "20",
+      "name": "close",
+      "in_frame": 780,
+      "out_frame_exclusive": 802,
+      "duration_seconds": 0.7333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "21",
+      "name": "red",
+      "in_frame": 802,
+      "out_frame_exclusive": 826,
+      "duration_seconds": 0.8,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "22",
+      "name": "wide",
+      "in_frame": 826,
+      "out_frame_exclusive": 853,
+      "duration_seconds": 0.9,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "23",
+      "name": "red",
+      "in_frame": 853,
+      "out_frame_exclusive": 883,
+      "duration_seconds": 1.0,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "24",
+      "name": "open",
+      "in_frame": 883,
+      "out_frame_exclusive": 900,
+      "duration_seconds": 0.5666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "25",
+      "name": "blade",
+      "in_frame": 900,
+      "out_frame_exclusive": 966,
+      "duration_seconds": 2.2,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "26",
+      "name": "red",
+      "in_frame": 966,
+      "out_frame_exclusive": 991,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "27",
+      "name": "red",
+      "in_frame": 991,
+      "out_frame_exclusive": 1013,
+      "duration_seconds": 0.7333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "28",
+      "name": "red",
+      "in_frame": 1013,
+      "out_frame_exclusive": 1038,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "29",
+      "name": "red",
+      "in_frame": 1038,
+      "out_frame_exclusive": 1067,
+      "duration_seconds": 0.9666666666666667,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "30",
+      "name": "close",
+      "in_frame": 1067,
+      "out_frame_exclusive": 1092,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "31",
+      "name": "raised",
+      "in_frame": 1092,
+      "out_frame_exclusive": 1111,
+      "duration_seconds": 0.6333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "32",
+      "name": "close",
+      "in_frame": 1111,
+      "out_frame_exclusive": 1133,
+      "duration_seconds": 0.7333333333333333,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "33",
+      "name": "red",
+      "in_frame": 1133,
+      "out_frame_exclusive": 1158,
+      "duration_seconds": 0.8333333333333334,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "34",
+      "name": "close",
+      "in_frame": 1158,
+      "out_frame_exclusive": 1182,
+      "duration_seconds": 0.8,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "35",
+      "name": "logo",
+      "in_frame": 1182,
+      "out_frame_exclusive": 1224,
+      "duration_seconds": 1.4,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    },
+    {
+      "id": "36",
+      "name": "outro",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "duration_seconds": 3.6,
+      "render_status": "rendered_2_5d_picture",
+      "method": "image-based rigged recreation / authored camera and effects",
+      "reference_match_scope": "Major phases and measured light-pulse timing, not exact 3D choreography."
+    }
+  ],
+  "quality_gates": [
+    "Use the same master face/hair/outfit throughout. No actor replacement.",
+    "No recorded-footage cutout, recycled scene plate or procedural mannequin final.",
+    "No body/face warps, photograph morphs or still pans presented as body motion.",
+    "Maintain natural joints, stable hands and plausible cloth attachment.",
+    "Validate planted foot contact on the visible full-body beats.",
+    "No silent duplicate/freeze-frame padding on a short source clip.",
+    "Environmental particles and camera movement must not hide broken anatomy.",
+    "Visual review and explicit delivery scope are mandatory; technical gates alone are not approval."
+  ],
+  "sound_direction": [
+    "Use the exact source soundtrack from the user-confirmed main reference; original encoded AAC and decoded PCM are verified.",
+    "No replacement score, normalization, added outro sting or other-chat reference audio in the matched final.",
+    "The saved crown clip can be used as video-only under the continuous source soundtrack.",
+    "Do not truncate the slightly longer original audio tail just to force the 44.4s picture duration."
+  ],
+  "rendered_character_frames": 844,
+  "rendered_brand_frames": 150,
+  "completed_components": [
+    {
+      "role": "brand_outro_video",
+      "receipt": "VIDEO_COMPONENTS.json",
+      "in_frame": 1224,
+      "out_frame_exclusive": 1332,
+      "frames": 108
+    }
+  ],
+  "main_reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "cuts_role": "Actual rendered 2.5D coverage plan; an approximation of the reference, not a certified source cut-for-cut map.",
+  "main_reference_frame_metrics": "main-reference/REFERENCE_FRAME_METRICS.csv",
+  "transition_candidate_file": "main-reference/TRANSITION_CANDIDATES.json",
+  "transition_candidates_are_confirmed_cuts": false,
+  "audio_policy": {
+    "mode": "copy_canonical_reference_audio_unchanged",
+    "source_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+    "recovery_audio_file_id": "1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr",
+    "encoded_payload_hash_match_verified": true,
+    "decoded_pcm_hash_match_verified": true,
+    "retain_source_audio_tail": true,
+    "normalize_or_resample": false,
+    "mix_our_outro_sting": false,
+    "copy_other_chat_music": false
+  },
+  "previous_creative_proposal": [
     {
       "id": "01",
       "name": "Entry",
@@ -105,47 +520,10 @@
       "rendered_asset_role": "brand_outro_video"
     }
   ],
-  "quality_gates": [
-    "Use the same master face/hair/outfit throughout. No actor replacement.",
-    "No recorded-footage cutout, recycled scene plate or procedural mannequin final.",
-    "No body/face warps, photograph morphs or still pans presented as body motion.",
-    "Maintain natural joints, stable hands and plausible cloth attachment.",
-    "Validate planted foot contact on the visible full-body beats.",
-    "No silent duplicate/freeze-frame padding on a short source clip.",
-    "Environmental particles and camera movement must not hide broken anatomy.",
-    "Visual review and explicit delivery scope are mandatory; technical gates alone are not approval."
-  ],
-  "sound_direction": [
-    "Use the exact source soundtrack from the user-confirmed main reference; original encoded AAC and decoded PCM are verified.",
-    "No replacement score, normalization, added outro sting or other-chat reference audio in the matched final.",
-    "The saved crown clip can be used as video-only under the continuous source soundtrack.",
-    "Do not truncate the slightly longer original audio tail just to force the 44.4s picture duration."
-  ],
-  "rendered_character_frames": 0,
-  "rendered_brand_frames": 108,
-  "completed_components": [
-    {
-      "role": "brand_outro_video",
-      "receipt": "VIDEO_COMPONENTS.json",
-      "in_frame": 1224,
-      "out_frame_exclusive": 1332,
-      "frames": 108
-    }
-  ],
-  "main_reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
-  "cuts_role": "Previous creative proposal only; NOT frame-conformed reference cut timings.",
-  "main_reference_frame_metrics": "main-reference/REFERENCE_FRAME_METRICS.csv",
-  "transition_candidate_file": "main-reference/TRANSITION_CANDIDATES.json",
-  "transition_candidates_are_confirmed_cuts": false,
-  "audio_policy": {
-    "mode": "copy_canonical_reference_audio_unchanged",
-    "source_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
-    "recovery_audio_file_id": "1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr",
-    "encoded_payload_hash_match_verified": true,
-    "decoded_pcm_hash_match_verified": true,
-    "retain_source_audio_tail": true,
-    "normalize_or_resample": false,
-    "mix_our_outro_sting": false,
-    "copy_other_chat_music": false
-  }
+  "rendered_2_5d_picture_frames": 1332,
+  "rendered_2_5d_character_visible_frames": 844,
+  "natural_3d_character_frames": 0,
+  "actual_video_drive_id": "14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP",
+  "actual_video_url": "https://drive.google.com/file/d/14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP/view",
+  "user_visual_approval": false
 }

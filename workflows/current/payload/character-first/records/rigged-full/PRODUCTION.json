@@ -1,0 +1,29 @@
+{
+  "reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "drive_folder_id": "1IROamT1JacXuSjTNOD9Hm0Z_0Mefccwg",
+  "method": "image-based whole-character rigged 2.5D recreation",
+  "method_approval": "User Continue after explicit limited-method offer",
+  "not_claimed": [
+    "exact 3D choreography",
+    "natural AI-generated human performance",
+    "pixel-perfect copy"
+  ],
+  "music": "unchanged canonical source AAC",
+  "picture_frames_target": 1332,
+  "picture_fps": 30,
+  "output_resolution": [
+    720,
+    1280
+  ],
+  "reference_specific_costume": "charcoal/navy suit, light shirt, crimson tie; existing identity master unchanged",
+  "status": "rendered_full_v1_for_review",
+  "outputs": [
+    {
+      "role": "full_2_5d_film",
+      "drive_id": "14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP",
+      "url": "https://drive.google.com/file/d/14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP/view",
+      "sha256": "58ee637902dd98ffe1e475afa6b1e9258d552bd1c29c12a038c8ef63d08c39dd"
+    }
+  ],
+  "user_approved_quality": false
+}

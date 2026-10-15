@@ -1,0 +1,1012 @@
+{
+  "scope": "Geometric checks only; not natural-motion/identity approval",
+  "results": {
+    "raised": {
+      "samples": 20,
+      "min_inverse_jacobian": 0.29718342423439026,
+      "max_anchor_error_px": 0.0,
+      "max_face_det_error": 0.0008394718170166016,
+      "max_bone_scale_error": 2.220446049250313e-16,
+      "rows": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.34045,
+          "min_inverse_jacobian": 0.5507209300994873,
+          "face_det_error": 0.00045168399810791016,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 272
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.9196,
+          "min_inverse_jacobian": 0.5262511968612671,
+          "face_det_error": 0.0004330873489379883,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 285
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.2783,
+          "min_inverse_jacobian": 0.48566001653671265,
+          "face_det_error": 0.0003921985626220703,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 297
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.41074,
+          "min_inverse_jacobian": 0.48079338669776917,
+          "face_det_error": 0.00039142370223999023,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 298
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.06709,
+          "min_inverse_jacobian": 0.4176068603992462,
+          "face_det_error": 0.0004661083221435547,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 310
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.47006,
+          "min_inverse_jacobian": 0.3636612892150879,
+          "face_det_error": 0.0005074143409729004,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 321
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.58301,
+          "min_inverse_jacobian": 0.35244220495224,
+          "face_det_error": 0.000490725040435791,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 322
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.93341,
+          "min_inverse_jacobian": 0.304859459400177,
+          "face_det_error": 0.00015425682067871094,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 339
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.08572,
+          "min_inverse_jacobian": 0.29718342423439026,
+          "face_det_error": 3.0994415283203125e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 352
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.00422,
+          "min_inverse_jacobian": 0.29971304535865784,
+          "face_det_error": 8.320808410644531e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 355
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.96748,
+          "min_inverse_jacobian": 0.30103790760040283,
+          "face_det_error": 0.00010895729064941406,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 356
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.44879,
+          "min_inverse_jacobian": 0.3562772274017334,
+          "face_det_error": 0.0005012750625610352,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 375
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.04749,
+          "min_inverse_jacobian": 0.4071700870990753,
+          "face_det_error": 0.0005272626876831055,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 386
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.14606,
+          "min_inverse_jacobian": 0.4421125054359436,
+          "face_det_error": 0.0008394718170166016,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 393
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.61999,
+          "min_inverse_jacobian": 0.49074825644493103,
+          "face_det_error": 0.00042378902435302734,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 558
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.61606,
+          "min_inverse_jacobian": 0.5499097108840942,
+          "face_det_error": 0.00040268898010253906,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 568
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.19265,
+          "min_inverse_jacobian": 0.5653936266899109,
+          "face_det_error": 0.00036132335662841797,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 577
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.33332,
+          "min_inverse_jacobian": 0.36313074827194214,
+          "face_det_error": 0.0005043745040893555,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1092
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.26127,
+          "min_inverse_jacobian": 0.32872873544692993,
+          "face_det_error": 0.0004311800003051758,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1101
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.87344,
+          "min_inverse_jacobian": 0.2994331121444702,
+          "face_det_error": 0.0003942251205444336,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1110
+        }
+      ]
+    },
+    "open": {
+      "samples": 14,
+      "min_inverse_jacobian": 0.26731976866722107,
+      "max_anchor_error_px": 0.0,
+      "max_face_det_error": 0.0008995532989501953,
+      "max_bone_scale_error": 2.220446049250313e-16,
+      "rows": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.01852,
+          "min_inverse_jacobian": 0.4475598931312561,
+          "face_det_error": 0.0008703470230102539,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 394
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.20381,
+          "min_inverse_jacobian": 0.5087770819664001,
+          "face_det_error": 0.0008664727210998535,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 411
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.73034,
+          "min_inverse_jacobian": 0.5320314168930054,
+          "face_det_error": 0.0008632540702819824,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 424
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.77529,
+          "min_inverse_jacobian": 0.5256874561309814,
+          "face_det_error": 0.0008995532989501953,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 427
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.80357,
+          "min_inverse_jacobian": 0.5244840979576111,
+          "face_det_error": 0.0008859634399414062,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 428
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.05452,
+          "min_inverse_jacobian": 0.48297637701034546,
+          "face_det_error": 0.0007584095001220703,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 444
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.93003,
+          "min_inverse_jacobian": 0.408123642206192,
+          "face_det_error": 0.00046443939208984375,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 458
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.21501,
+          "min_inverse_jacobian": 0.3967117369174957,
+          "face_det_error": 0.00048810243606567383,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 460
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.35701,
+          "min_inverse_jacobian": 0.39086538553237915,
+          "face_det_error": 0.0004837512969970703,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 461
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.29619,
+          "min_inverse_jacobian": 0.31489089131355286,
+          "face_det_error": 0.00014007091522216797,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 476
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.49868,
+          "min_inverse_jacobian": 0.26731976866722107,
+          "face_det_error": 9.590387344360352e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 491
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.26998,
+          "min_inverse_jacobian": 0.570626974105835,
+          "face_det_error": 3.0875205993652344e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 883
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.2049,
+          "min_inverse_jacobian": 0.5710095763206482,
+          "face_det_error": 0.0001112818717956543,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 891
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.56981,
+          "min_inverse_jacobian": 0.5492219924926758,
+          "face_det_error": 0.000217437744140625,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 899
+        }
+      ]
+    },
+    "red": {
+      "samples": 58,
+      "min_inverse_jacobian": 0.17494279146194458,
+      "max_anchor_error_px": 0.291469,
+      "max_face_det_error": 0.000885009765625,
+      "max_bone_scale_error": 2.220446049250313e-16,
+      "rows": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.102933,
+          "max_displacement_px": 16.24476,
+          "min_inverse_jacobian": 0.21804268658161163,
+          "face_det_error": 0.00010716915130615234,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 492
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.16797,
+          "max_displacement_px": 16.35724,
+          "min_inverse_jacobian": 0.1977914720773697,
+          "face_det_error": 0.0002186298370361328,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 504
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.213593,
+          "max_displacement_px": 15.79108,
+          "min_inverse_jacobian": 0.21241608262062073,
+          "face_det_error": 0.00038492679595947266,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 516
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.216358,
+          "max_displacement_px": 15.73712,
+          "min_inverse_jacobian": 0.2186700999736786,
+          "face_det_error": 0.00040602684020996094,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 517
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.235208,
+          "max_displacement_px": 14.95016,
+          "min_inverse_jacobian": 0.25866037607192993,
+          "face_det_error": 0.0004680156707763672,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 528
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.232096,
+          "max_displacement_px": 13.82652,
+          "min_inverse_jacobian": 0.31561607122421265,
+          "face_det_error": 0.0002562403678894043,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 539
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.230722,
+          "max_displacement_px": 13.71409,
+          "min_inverse_jacobian": 0.32128283381462097,
+          "face_det_error": 0.000256955623626709,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 540
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.210459,
+          "max_displacement_px": 12.68199,
+          "min_inverse_jacobian": 0.3754795491695404,
+          "face_det_error": 0.00047528743743896484,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 549
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.181238,
+          "max_displacement_px": 11.82026,
+          "min_inverse_jacobian": 0.4195955693721771,
+          "face_det_error": 0.0004259347915649414,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 557
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.064625,
+          "max_displacement_px": 10.6387,
+          "min_inverse_jacobian": 0.48103809356689453,
+          "face_det_error": 0.0003606081008911133,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 578
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.17299,
+          "min_inverse_jacobian": 0.453662633895874,
+          "face_det_error": 0.0003650188446044922,
+          "bone_scale_error": 0.0,
+          "frame": 592
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.57636,
+          "min_inverse_jacobian": 0.3835514783859253,
+          "face_det_error": 0.00042068958282470703,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 606
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.6954,
+          "min_inverse_jacobian": 0.37767624855041504,
+          "face_det_error": 0.00042259693145751953,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 607
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.27861,
+          "min_inverse_jacobian": 0.2988462448120117,
+          "face_det_error": 0.0004652738571166992,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 620
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.54187,
+          "min_inverse_jacobian": 0.2329489290714264,
+          "face_det_error": 0.0002581477165222168,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 632
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.62925,
+          "min_inverse_jacobian": 0.2273719608783722,
+          "face_det_error": 0.00024360418319702148,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 633
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.45718,
+          "min_inverse_jacobian": 0.18219392001628876,
+          "face_det_error": 0.00042307376861572266,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 647
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.46331,
+          "min_inverse_jacobian": 0.18074452877044678,
+          "face_det_error": 0.00028884410858154297,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 660
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.4317,
+          "min_inverse_jacobian": 0.18217910826206207,
+          "face_det_error": 0.0002818107604980469,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 661
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.79338,
+          "min_inverse_jacobian": 0.2132038027048111,
+          "face_det_error": 0.0001271963119506836,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 672
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.77639,
+          "min_inverse_jacobian": 0.2711264491081238,
+          "face_det_error": 8.219480514526367e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 683
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.68118,
+          "min_inverse_jacobian": 0.27692556381225586,
+          "face_det_error": 8.463859558105469e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 684
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.94366,
+          "min_inverse_jacobian": 0.3212215304374695,
+          "face_det_error": 3.0219554901123047e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 691
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.24197,
+          "min_inverse_jacobian": 0.36496609449386597,
+          "face_det_error": 8.112192153930664e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 697
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.1217,
+          "min_inverse_jacobian": 0.36981886625289917,
+          "face_det_error": 0.00010859966278076172,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 698
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.28922,
+          "min_inverse_jacobian": 0.47459349036216736,
+          "face_det_error": 0.00022912025451660156,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 714
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.102109,
+          "max_displacement_px": 10.30995,
+          "min_inverse_jacobian": 0.5273330211639404,
+          "face_det_error": 0.00044274330139160156,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 728
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.109445,
+          "max_displacement_px": 10.27742,
+          "min_inverse_jacobian": 0.5290646553039551,
+          "face_det_error": 0.00046503543853759766,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 729
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.116683,
+          "max_displacement_px": 10.25057,
+          "min_inverse_jacobian": 0.5293052792549133,
+          "face_det_error": 0.0004723072052001953,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 730
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.194141,
+          "max_displacement_px": 10.38082,
+          "min_inverse_jacobian": 0.5191400051116943,
+          "face_det_error": 0.0005017518997192383,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 742
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.248905,
+          "max_displacement_px": 11.26116,
+          "min_inverse_jacobian": 0.4711799919605255,
+          "face_det_error": 0.0005077719688415527,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 754
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.252243,
+          "max_displacement_px": 11.36007,
+          "min_inverse_jacobian": 0.4654884338378906,
+          "face_det_error": 0.0005077719688415527,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 755
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.275925,
+          "max_displacement_px": 12.71095,
+          "min_inverse_jacobian": 0.3856491446495056,
+          "face_det_error": 0.00048804283142089844,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 767
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.267876,
+          "max_displacement_px": 14.09872,
+          "min_inverse_jacobian": 0.3025621473789215,
+          "face_det_error": 0.0004988312721252441,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 779
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.167114,
+          "max_displacement_px": 16.32163,
+          "min_inverse_jacobian": 0.1905129849910736,
+          "face_det_error": 0.0004830360412597656,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 802
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.079007,
+          "max_displacement_px": 16.65538,
+          "min_inverse_jacobian": 0.17494279146194458,
+          "face_det_error": 0.00047600269317626953,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 814
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.37922,
+          "min_inverse_jacobian": 0.18970994651317596,
+          "face_det_error": 0.0004715919494628906,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 825
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.32755,
+          "min_inverse_jacobian": 0.19230279326438904,
+          "face_det_error": 0.00047147274017333984,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 826
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.30531,
+          "min_inverse_jacobian": 0.2452242225408554,
+          "face_det_error": 0.0004228353500366211,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 839
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.80963,
+          "min_inverse_jacobian": 0.3202407658100128,
+          "face_det_error": 0.0003440380096435547,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 852
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.68468,
+          "min_inverse_jacobian": 0.32876405119895935,
+          "face_det_error": 0.0003389120101928711,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 853
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.87798,
+          "min_inverse_jacobian": 0.41898322105407715,
+          "face_det_error": 0.0001552104949951172,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 868
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 10.76416,
+          "min_inverse_jacobian": 0.47343242168426514,
+          "face_det_error": 5.9664249420166016e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 882
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.160685,
+          "max_displacement_px": 16.46136,
+          "min_inverse_jacobian": 0.2044832706451416,
+          "face_det_error": 0.0008782744407653809,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 966
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.23455,
+          "max_displacement_px": 16.20092,
+          "min_inverse_jacobian": 0.22653524577617645,
+          "face_det_error": 0.000885009765625,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 978
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.279773,
+          "max_displacement_px": 15.30019,
+          "min_inverse_jacobian": 0.2755003869533539,
+          "face_det_error": 0.0003858804702758789,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 990
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.282071,
+          "max_displacement_px": 15.20039,
+          "min_inverse_jacobian": 0.2829815745353699,
+          "face_det_error": 0.0004114508628845215,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 991
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.291469,
+          "max_displacement_px": 13.91789,
+          "min_inverse_jacobian": 0.3462124168872833,
+          "face_det_error": 0.00040435791015625,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 1002
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.274491,
+          "max_displacement_px": 12.59056,
+          "min_inverse_jacobian": 0.4094606339931488,
+          "face_det_error": 0.00012344121932983398,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1012
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.271487,
+          "max_displacement_px": 12.45731,
+          "min_inverse_jacobian": 0.415519654750824,
+          "face_det_error": 0.00013118982315063477,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1013
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.218282,
+          "max_displacement_px": 10.98859,
+          "min_inverse_jacobian": 0.48164117336273193,
+          "face_det_error": 0.00012791156768798828,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1025
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.137998,
+          "max_displacement_px": 10.03602,
+          "min_inverse_jacobian": 0.5132447481155396,
+          "face_det_error": 0.0003592967987060547,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1037
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.130346,
+          "max_displacement_px": 9.99057,
+          "min_inverse_jacobian": 0.5143583416938782,
+          "face_det_error": 0.00040602684020996094,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1038
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.013342,
+          "max_displacement_px": 10.16071,
+          "min_inverse_jacobian": 0.4972373843193054,
+          "face_det_error": 0.0004538893699645996,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1052
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 11.6086,
+          "min_inverse_jacobian": 0.42876294255256653,
+          "face_det_error": 0.0004527568817138672,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 1066
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.64786,
+          "min_inverse_jacobian": 0.1772230565547943,
+          "face_det_error": 0.0004813671112060547,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1133
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 15.65227,
+          "min_inverse_jacobian": 0.22660119831562042,
+          "face_det_error": 0.0004886984825134277,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1145
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 14.1879,
+          "min_inverse_jacobian": 0.2998773157596588,
+          "face_det_error": 0.00040268898010253906,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 1157
+        }
+      ]
+    },
+    "close": {
+      "samples": 12,
+      "min_inverse_jacobian": 0.7717800736427307,
+      "max_anchor_error_px": 0.0,
+      "max_face_det_error": 0.00019884109497070312,
+      "max_bone_scale_error": 2.220446049250313e-16,
+      "rows": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 3.53762,
+          "min_inverse_jacobian": 0.7717800736427307,
+          "face_det_error": 0.00015121698379516602,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 780
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 3.63581,
+          "min_inverse_jacobian": 0.805503785610199,
+          "face_det_error": 0.0001537799835205078,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 791
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 3.76512,
+          "min_inverse_jacobian": 0.8412171602249146,
+          "face_det_error": 0.00015604496002197266,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 801
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.58057,
+          "min_inverse_jacobian": 0.8109853267669678,
+          "face_det_error": 0.00019299983978271484,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1067
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.78105,
+          "min_inverse_jacobian": 0.8045627474784851,
+          "face_det_error": 0.00019884109497070312,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 1079
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 6.54961,
+          "min_inverse_jacobian": 0.8108497262001038,
+          "face_det_error": 0.00019609928131103516,
+          "bone_scale_error": 0.0,
+          "frame": 1091
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 5.56616,
+          "min_inverse_jacobian": 0.8032007813453674,
+          "face_det_error": 0.0001399517059326172,
+          "bone_scale_error": 0.0,
+          "frame": 1111
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 4.87251,
+          "min_inverse_jacobian": 0.7994551062583923,
+          "face_det_error": 0.00014823675155639648,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1122
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 4.21032,
+          "min_inverse_jacobian": 0.7909900546073914,
+          "face_det_error": 0.0001418590545654297,
+          "bone_scale_error": 0.0,
+          "frame": 1132
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 2.3491,
+          "min_inverse_jacobian": 0.7928770780563354,
+          "face_det_error": 0.0001316070556640625,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 1158
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 1.72119,
+          "min_inverse_jacobian": 0.8235349655151367,
+          "face_det_error": 0.00011098384857177734,
+          "bone_scale_error": 0.0,
+          "frame": 1170
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 1.45524,
+          "min_inverse_jacobian": 0.8436436653137207,
+          "face_det_error": 6.496906280517578e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 1181
+        }
+      ]
+    },
+    "blade": {
+      "samples": 5,
+      "min_inverse_jacobian": 1.0,
+      "max_anchor_error_px": 0.0,
+      "max_face_det_error": 0.0,
+      "max_bone_scale_error": 0.0,
+      "rows": [
+        {
+          "kind": "rigid_prop_layer",
+          "max_anchor_error_px": 0.0,
+          "frame": 900
+        },
+        {
+          "kind": "rigid_prop_layer",
+          "max_anchor_error_px": 0.0,
+          "frame": 930
+        },
+        {
+          "kind": "rigid_prop_layer",
+          "max_anchor_error_px": 0.0,
+          "frame": 933
+        },
+        {
+          "kind": "rigid_prop_layer",
+          "max_anchor_error_px": 0.0,
+          "frame": 960
+        },
+        {
+          "kind": "rigid_prop_layer",
+          "max_anchor_error_px": 0.0,
+          "frame": 965
+        }
+      ]
+    }
+  },
+  "seconds": 18.96946213299998
+}

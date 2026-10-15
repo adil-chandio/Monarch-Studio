@@ -1,10 +1,38 @@
-id,name,reference_asset_role,in_frame,out_frame_exclusive,planned_seconds,render_status,motion_direction
-01,Entry,shot_threshold,0,150,5.0,not_rendered,Two quiet heel-to-toe steps. Natural alternating arm swing. No camera trick substitutes for walking.
-02,Attention,shot_threshold,150,300,5.0,not_rendered,Ease to a stop; small torso/head orientation toward a sound. Hold planted support foot.
-03,Cuff,shot_focus,300,450,5.0,not_rendered,Right fingers pinch and release left cuff. Maintain coherent wrist/finger anatomy and face identity.
-04,Reaction,shot_break,450,600,5.0,not_rendered,Brief light fault in the environment. Head leads a small defensive turn; body weight transfers plausibly.
-05,Sidestep,shot_break,600,750,5.0,not_rendered,Grounded lateral evasive step with bent knees. Cloth follows torso motion; sparks/debris move independently.
-06,Recover,shot_break,750,900,5.0,not_rendered,Recover from lateral stance without foot skating. Lower the shielding arm and let jacket settle.
-07,Resolve,shot_resolve,900,1050,5.0,not_rendered,Controlled three-quarter upper-body settling and a small head turn toward lens. No face shape changes.
-08,Eye contact,shot_resolve,1050,1224,5.8,not_rendered,Subtle breathing and a natural blink; calm direct gaze. Let the live action finish before the brand cut.
-09,Brand,brand_end,1224,1332,3.6,rendered_brand_component,"Completed 3.6s crown/type reveal, restrained sheen/settling, readable hold and fade, with original stereo sting."
+shot,scene,in_frame,out_frame_exclusive,picture_frames,render_status
+0,room,0,272,272,rendered_2_5d_picture
+1,raised,272,298,26,rendered_2_5d_picture
+2,raised,298,322,24,rendered_2_5d_picture
+3,raised,322,356,34,rendered_2_5d_picture
+4,raised,356,394,38,rendered_2_5d_picture
+5,open,394,428,34,rendered_2_5d_picture
+6,open,428,461,33,rendered_2_5d_picture
+7,open,461,492,31,rendered_2_5d_picture
+8,red,492,517,25,rendered_2_5d_picture
+9,red,517,540,23,rendered_2_5d_picture
+10,red,540,558,18,rendered_2_5d_picture
+11,raised,558,578,20,rendered_2_5d_picture
+12,red,578,607,29,rendered_2_5d_picture
+13,red,607,633,26,rendered_2_5d_picture
+14,red,633,661,28,rendered_2_5d_picture
+15,red,661,684,23,rendered_2_5d_picture
+16,wide,684,698,14,rendered_2_5d_picture
+17,red,698,730,32,rendered_2_5d_picture
+18,red,730,755,25,rendered_2_5d_picture
+19,red,755,780,25,rendered_2_5d_picture
+20,close,780,802,22,rendered_2_5d_picture
+21,red,802,826,24,rendered_2_5d_picture
+22,wide,826,853,27,rendered_2_5d_picture
+23,red,853,883,30,rendered_2_5d_picture
+24,open,883,900,17,rendered_2_5d_picture
+25,blade,900,966,66,rendered_2_5d_picture
+26,red,966,991,25,rendered_2_5d_picture
+27,red,991,1013,22,rendered_2_5d_picture
+28,red,1013,1038,25,rendered_2_5d_picture
+29,red,1038,1067,29,rendered_2_5d_picture
+30,close,1067,1092,25,rendered_2_5d_picture
+31,raised,1092,1111,19,rendered_2_5d_picture
+32,close,1111,1133,22,rendered_2_5d_picture
+33,red,1133,1158,25,rendered_2_5d_picture
+34,close,1158,1182,24,rendered_2_5d_picture
+35,logo,1182,1224,42,rendered_2_5d_picture
+36,outro,1224,1332,108,rendered_2_5d_picture

@@ -62,7 +62,8 @@ picture, wrong fps/aspect, the identical reference file, and the identical
 known rejected live-action draft. Hash checks cannot detect every transcoded
 misuse and do not certify identity, motion quality or original visuals.
 
-**No new full character film was produced by this analysis.** Character-motion
-frames remain unrendered. The standalone crown motion-graphics component is
-not the full film. No new reference-body reuse, jelly warps, or silent method
-change is authorized by a successful audio/frame-count check.
+**This analysis itself did not create a film.** Subsequently, the user approved
+the explicitly limited 2.5D route and a complete 1,332-frame V1 was rendered.
+See `../rigged-full/DELIVERY.json` for the actual movie and review status. It is
+not natural/reconstructed 3D or exact choreography. A successful audio/frame-count
+check still does not certify visual likeness or authorize silent method changes.

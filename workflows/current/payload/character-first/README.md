@@ -2,7 +2,12 @@
 
 ## Current result
 
-**Character/shot design and the standalone 3.6-second animated brand outro are complete. Character-body animation and the full edited film are not.**
+**A full-length 44.4-second limited 2.5D recreation V1 is now rendered and delivered for review.** It contains 1,332 picture frames with the exact original main-reference soundtrack. This is the later user-approved image-based rigging route—not natural AI performance, reconstructed 3D, or exact source choreography. User likeness/motion approval is still pending.
+
+The full-film receipt and recovery ID are in `records/rigged-full/DELIVERY.json`.
+The six NEW main-reference-specific assets are in `rigged-full/KEYFRAMES.json`.
+They are separate from the earlier look-development design ZIP. Do not resend
+only the outro or rerender finished work when the user says Continue.
 
 - Four new matching character references: front master, right-facing profile,
   rear, and detailed face portrait.
@@ -12,10 +17,11 @@
 
 The character/shot stills are generated visual-development references, not a
 face scan, rigged mesh, mocap performance, temporally verified human video, or
-proof of exact biometric likeness. The separately rendered outro is vector
-motion graphics with original sound—not a moving character or a finished film.
-The user delegated design judgement; this is not recorded as explicit approval
-of likeness or of a completed final film.
+proof of exact biometric likeness. The separate outro is vector motion graphics;
+its own original sting is NOT used in the main-reference-matched full movie.
+The user subsequently approved proceeding with the explicitly limited full
+2.5D recreation by replying Continue to that offer. This method approval is not
+recorded as approval of the resulting likeness, motion quality or exactness.
 
 ## Canonical main reference and music — latest clarification
 
@@ -37,12 +43,15 @@ This supersedes earlier proposals for an original score on the full film.
 picture input, not an outro-only or the other chat's 632-frame edit. It rejects
 the identical reference file and identical known rejected composite. It copies
 the original soundtrack unchanged and verifies picture/audio payloads after
-muxing. It does not generate human motion or certify visual accuracy, and has
-not been run to manufacture a placeholder final movie.
+muxing. It does not generate human motion or certify visual accuracy. It has now been
+run on the actually complete new 2.5D picture edit—not a placeholder—and its
+encoded audio, decoded PCM and picture-bitstream checks passed.
 
 Frame-by-frame metrics and transition *candidates* are saved under
 `records/main-reference/`; candidates are not automatically confirmed cuts.
-The earlier eight-beat plan remains a creative proposal, not an exact cut map.
+The earlier eight-beat proposal is archived in the current plan. The rendered
+37-part coverage plan follows the reference's major phases/light-pulse timing;
+it is not claimed as an exact source pose/camera/cut-for-cut reproduction.
 
 ## User correction — binding direction
 
@@ -107,9 +116,12 @@ lossless board PNGs and source-view PNGs are available separately.
 
 ## Motion/edit handoff
 
-`records/ANIMATION_PLAN.json` contains the proposed 44.4-second full edit.
-`rendered_character_frames` is still zero. Its final 108-frame brand component
-is now rendered separately; the full movie has not been assembled.
+`records/ANIMATION_PLAN.json` now contains the rendered 44.4-second V1 plan.
+There are 1,332 complete picture frames, including 844 frames with the rigged
+owner-character visible. Natural/reconstructed-3D character frames remain zero:
+the method is bounded image-based skeletal skinning plus rigid prop layers.
+`rigged-full/PICTURE_REPORT.json` and `AUDIO_CONFORM_REPORT.json` preserve the
+actual render and mux receipts; `DELIVERY.json` identifies the uploaded movie.
 
 `records/BRAND_OUTRO.json` holds the completed component's source/settings
 fingerprints, full-decode checks and audio measurements. `VIDEO_COMPONENTS.json`
@@ -133,14 +145,18 @@ duration, 48 kHz stereo audio and an encoded true-peak ceiling. The graphic is a
 crown/type reveal, restrained sheen/settle and fade; no human pixels are used.
 Its sound is an original synthesized sting, not copied reference music or voice.
 
-A capable temporal video-generation or detailed rig/animation pipeline is still
-required to produce new natural full-body acting. No such direct photoreal
-image-to-video tool is available in this session. Do not represent pans, zooms,
-independent-image morphs or a contact-sheet slideshow as satisfying that stage.
-Validate the actor in native generated frames: face/hair/wardrobe continuity,
-actual joints, plausible cloth, no sliding planted feet, stable hands, and no
-frozen/duplicated source-frame padding. Technical checks do not equal visual
-approval.
+The full V1 uses `src/rigged_main_film.py`: connected 2D bones, analytic limb IK,
+rigid facial cores/props, anchored boots, authored camera/effects and native
+per-shot exports. Image-space skeletal skinning IS used and is disclosed.
+No eye/mouth morph, arbitrary wave-body field, source-actor video, chair/cables
+scene, or replacement score is used. A matte review corrected fingertip notches,
+a prop/skin boundary fold, and a reflective-blade extraction error before final
+rendering. Rendered sample frames were inspected after encoding.
+
+If exact/natural 3D human/weapon choreography is requested later, that still
+requires a different capable render pipeline; this V1 must not be relabelled as
+one. The bounded motion and authored cuts are an approximation under the method
+the user approved. Technical checks do not equal visual/likeness approval.
 
 ## Service-banner limitation
 

@@ -1,0 +1,66 @@
+{
+  "method": "New whole-character source imagery for approved limited 2.5D recreation",
+  "assets": [
+    {
+      "name": "00_ROOM.png",
+      "path": "/home/user/monarch-rigged-full/assets/00_ROOM.png",
+      "bytes": 2349185,
+      "md5": "5b01663c9a7e1af1ee70593c21d8cc0e",
+      "sha256": "86ed5fafaf8b10411f42513c26106508f3f9e66b66a473aedb99df8057f20186",
+      "drive_id": "1euBolnk1dieAMoZEMonFfPzKae33HbiY",
+      "url": "https://drive.google.com/file/d/1euBolnk1dieAMoZEMonFfPzKae33HbiY/view",
+      "upload_verified": true
+    },
+    {
+      "name": "01_RAISED_HAND.png",
+      "path": "/home/user/monarch-rigged-full/assets/01_RAISED_HAND.png",
+      "bytes": 2200185,
+      "md5": "caf6fa73ec655c6ee05b25cfe775184f",
+      "sha256": "3341cc2e690dd82d9a9577c4e002016171e4d91381939c82d95db5211c3d1aa1",
+      "drive_id": "1AdbwHRiw0Y5ys6xD3Lbhzn88PKbPv385",
+      "url": "https://drive.google.com/file/d/1AdbwHRiw0Y5ys6xD3Lbhzn88PKbPv385/view",
+      "upload_verified": true
+    },
+    {
+      "name": "02_OPEN_ARMS.png",
+      "path": "/home/user/monarch-rigged-full/assets/02_OPEN_ARMS.png",
+      "bytes": 2241565,
+      "md5": "fe7d7e3c0ef89ab3c70ad2011a55ff91",
+      "sha256": "a92a22adadfaf3504300fd42f8912fac6bc016273957845ef17ea240780eeffc",
+      "drive_id": "1vsdfjiAQwQTknvyE5OH8uX1jxMdNkLvI",
+      "url": "https://drive.google.com/file/d/1vsdfjiAQwQTknvyE5OH8uX1jxMdNkLvI/view",
+      "upload_verified": true
+    },
+    {
+      "name": "03_RED_ANGLE.png",
+      "path": "/home/user/monarch-rigged-full/assets/03_RED_ANGLE.png",
+      "bytes": 2208156,
+      "md5": "4f76441e4a716f6e5eda72bb45fa147a",
+      "sha256": "5325b7fb17811ad1fb730d039924657d639885078ac03721ea54b3b6e8018fee",
+      "drive_id": "1Ormy71yxlZM_Mg-E9wAV3dzG7EhRgjDo",
+      "url": "https://drive.google.com/file/d/1Ormy71yxlZM_Mg-E9wAV3dzG7EhRgjDo/view",
+      "upload_verified": true
+    },
+    {
+      "name": "04_CLOSE_SMIRK.png",
+      "path": "/home/user/monarch-rigged-full/assets/04_CLOSE_SMIRK.png",
+      "bytes": 2350240,
+      "md5": "3fbb478bad5f7fe675142d36b9a46440",
+      "sha256": "b4d35ebf575739363ba59bb44fbd5b30520e1c7c67f25964aa4d46626a2dd2a0",
+      "drive_id": "1z29TH3SNfXSGOvWS1cX47QLJSvTjj3Gm",
+      "url": "https://drive.google.com/file/d/1z29TH3SNfXSGOvWS1cX47QLJSvTjj3Gm/view",
+      "upload_verified": true
+    },
+    {
+      "name": "05_BLADE_POV.png",
+      "path": "/home/user/monarch-rigged-full/assets/05_BLADE_POV.png",
+      "bytes": 2179022,
+      "md5": "38bdbfcdb553df7556386dd0523c1103",
+      "sha256": "fc94fa3c8f6816e68238cfb11fac4133a874eb105be5cd7ca9f03a604d8e0021",
+      "drive_id": "1UcpwzeknfgIUHZnWgQ9fYm9qccMsn5ae",
+      "url": "https://drive.google.com/file/d/1UcpwzeknfgIUHZnWgQ9fYm9qccMsn5ae/view",
+      "upload_verified": true
+    }
+  ],
+  "drive_folder_id": "1IROamT1JacXuSjTNOD9Hm0Z_0Mefccwg"
+}

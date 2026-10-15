@@ -2,20 +2,25 @@
   "schema_version": 1,
   "task_id": "WF04-20261014-NOJELLY",
   "status": "waiting_external",
-  "title": "Monarch Face: original scenes and articulated motion, no plate warps",
+  "title": "Monarch main-reference full 2.5D recreation V1 — review",
   "style_id": "monarch-face-chaos",
-  "goal": "Replace the user-rejected recycled image-warp film with new scene design and verified joint-driven motion; validate identity and natural movement before attempting a full-length final.",
+  "goal": "Deliver the user-approved full-length limited 2.5D whole-character recreation of the confirmed main reference, with exact original music and honest method/quality scope.",
   "acceptance_criteria": [
-    "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    "Complete 1332-frame /44.4s 2.5D picture edit using the correct main reference, not the other chat chair/cables film.",
+    "Use new whole owner-character imagery and bounded connected image-based rigging; no reference-actor footage or face sticker on that actor.",
+    "Preserve original reference AAC payload and decoded audio unchanged, including its tail.",
+    "Rigid facial core/props, anchored boots, image/encoded-frame inspection; no eye/mouth morph used as natural performance.",
+    "Crown above MONARCH STUDIO ending.",
+    "Clearly label 2.5D limitations; no exact 3D/natural AI-performance or user likeness-approval claim."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-14T23:02:30Z",
-  "checkpoint_sequence": 17,
-  "event_sequence": 99,
-  "journal_head": "2d52682eec85cf03e557cafd492b9f514b29c0081dc81bca04f15e637ccca58c",
-  "last_checkpoint": "2026-10-14T22:36:43Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0017-20261014T223643Z",
-  "next_action": "Work only against the confirmed main reference and unchanged source music. Read main-reference/REFERENCE_LOCK.md and MAIN_REFERENCE_AUDIT.json. Previous eight-beat plan is not a verified reference cut map; 295 transition candidates need classification. Other-chat rig source is a limited 2.5D photographic puppet, not proof of exact 3D human/weapon/camera motion. Do not relabel an outro, old composite, other-chat movie or image-warp study as the requested full film.",
+  "updated_at": "2026-10-15T00:27:24Z",
+  "checkpoint_sequence": 19,
+  "event_sequence": 109,
+  "journal_head": "6c937e31abbb124d7f9d2eda1c8316ff96cb38c6e0df413139c1172e8e3a34ca",
+  "last_checkpoint": "2026-10-15T00:25:29Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0019-20261015T002529Z",
+  "next_action": "Do NOT restart or resend only an outro. Full movie is Drive 14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP; source ZIP 1wSU7SQM39RVfxMR66OxHhZVtO6ySeB7_. Read records/rigged-full/DELIVERY.json and restore by hashes if local files vanish. Await actual feedback on this FULL 2.5D V1, then make targeted revisions while retaining the canonical main reference and exact original music.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
@@ -65,6 +70,13 @@
       "state": "completed",
       "started_at": "2026-10-14T22:30:20Z",
       "resume_instruction": "Analysis complete: MAIN_REFERENCE_AUDIT.json. 1332 native frames /44.4s picture; original AAC and decoded PCM hashes match copied soundtrack. Audio recovery file 1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr. No new character movie created; do not switch to 21s chair reference."
+    },
+    {
+      "id": "monarch-full-2-5d-recreation-05806fcb",
+      "name": "Complete main-reference 1332-frame 2.5D picture + exact original audio mux",
+      "state": "completed",
+      "started_at": "2026-10-15T00:07:16Z",
+      "resume_instruction": "Full recreation finished. 1332 frames/44.4s picture; original AAC payload and decoded PCM hashes match, picture bitstream unchanged. Output /home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4. Inspect encoded review, upload/save receipt and present the full video. Do not restart the render."
     }
   ],
   "remote_sync": {
@@ -73,5 +85,8 @@
     "google_drive": "pending",
     "linear": "pending",
     "notion": "pending"
-  }
+  },
+  "previous_acceptance_criteria": [
+    "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+  ]
 }

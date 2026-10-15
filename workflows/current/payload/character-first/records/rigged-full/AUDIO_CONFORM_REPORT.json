@@ -1,0 +1,14 @@
+{
+  "status": "supplied_complete_picture_muxed_with_verified_reference_audio",
+  "reference_drive_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "picture_frames": 1332,
+  "audio_encoded_payload_match": true,
+  "audio_decoded_pcm_match": true,
+  "picture_bitstream_unchanged": true,
+  "audio_filters_or_replacement_music_used": false,
+  "picture_generation_performed_by_this_tool": false,
+  "visual_approval_claimed": false,
+  "hash_limit": "Identical known wrong picture files are rejected; hashes do not detect every transcoded/altered misuse.",
+  "file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4",
+  "sha256": "58ee637902dd98ffe1e475afa6b1e9258d552bd1c29c12a038c8ef63d08c39dd"
+}
