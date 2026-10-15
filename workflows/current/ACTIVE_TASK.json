@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "WF04-20261014-NOJELLY",
   "status": "waiting_external",
-  "title": "Monarch main-reference full 2.5D recreation V1 — review",
+  "title": "Monarch main-reference full 2.5D recreation V2 — review",
   "style_id": "monarch-face-chaos",
   "goal": "Deliver the user-approved full-length limited 2.5D whole-character recreation of the confirmed main reference, with exact original music and honest method/quality scope.",
   "acceptance_criteria": [
@@ -14,13 +14,13 @@
     "Clearly label 2.5D limitations; no exact 3D/natural AI-performance or user likeness-approval claim."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-15T00:30:29Z",
-  "checkpoint_sequence": 19,
-  "event_sequence": 111,
-  "journal_head": "2031985ff824ff129f304694255ed477cac175ca6447ae375164548f6531fa57",
-  "last_checkpoint": "2026-10-15T00:25:29Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0019-20261015T002529Z",
-  "next_action": "Do NOT restart or resend only an outro. Full movie is Drive 14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP; source ZIP 1wSU7SQM39RVfxMR66OxHhZVtO6ySeB7_. Read records/rigged-full/DELIVERY.json and restore by hashes if local files vanish. Await actual feedback on this FULL 2.5D V1, then make targeted revisions while retaining the canonical main reference and exact original music.",
+  "updated_at": "2026-10-15T01:08:09Z",
+  "checkpoint_sequence": 21,
+  "event_sequence": 120,
+  "journal_head": "b0d39f1b07738105ba10f7f65f612bb2ca1e514917a06407178ecf84dfa8379d",
+  "last_checkpoint": "2026-10-15T01:06:21Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0021-20261015T010621Z",
+  "next_action": "Current review movie is V2 Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y, source ZIP 1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC. Do not restart or resend V1/outro. Read records/rigged-full/LATEST_DELIVERY.json and polish-v2/DELIVERY.json; restore exact saved media by hash if needed. Await specific review feedback before additional revisions; keep identity, original music and cut timing locked.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
@@ -77,6 +77,13 @@
       "state": "completed",
       "started_at": "2026-10-15T00:07:16Z",
       "resume_instruction": "Full recreation finished. 1332 frames/44.4s picture; original AAC payload and decoded PCM hashes match, picture bitstream unchanged. Output /home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4. Inspect encoded review, upload/save receipt and present the full video. Do not restart the render."
+    },
+    {
+      "id": "monarch-full-v2-polish-export-076eb7ad",
+      "name": "Full V2 polish: five-shot patch + original audio conform",
+      "state": "completed",
+      "started_at": "2026-10-15T00:59:38Z",
+      "resume_instruction": "Finished. Full V2 presented/uploaded as Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y. 1332 frames, exact original AAC/PCM, 1173 unchanged decoded frames identical to V1. See records/rigged-full/polish-v2/DELIVERY.json. Do not restart the render."
     }
   ],
   "remote_sync": {

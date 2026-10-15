@@ -50,7 +50,7 @@
     }
   ],
   "film_complete": true,
-  "next_action": "Present/review the completed full 2.5D V1. Do not resend only the outro or restart production. Recover video via rigged-full/DELIVERY.json if missing. Any revisions must preserve canonical reference music and be scoped to actual user feedback; do not claim exact/natural 3D.",
+  "next_action": "Review the completed full V2, not the old outro or V1. V1 remains preserved. Only five shots were polished; 1173 other decoded frames and original audio are unchanged. Restore exact latest movie by V2 delivery receipt if local media vanishes; make further changes only against actual review feedback.",
   "missing_previous_selection": {
     "selection": "option 1 of 2",
     "selection_evidence": "Completed generate_image result confirms user selected option 1. User then requested continuation from exactly that choice.",
@@ -105,11 +105,12 @@
   },
   "active_production_method": "Whole-character image-based 2.5D skeletal recreation, visibly bounded, not natural AI or reconstructed 3D performance.",
   "full_2_5d_recreation_complete": true,
-  "full_2_5d_movie_receipt": "rigged-full/DELIVERY.json",
+  "full_2_5d_movie_receipt": "rigged-full/polish-v2/DELIVERY.json",
   "film_complete_under_approved_2_5d_method": true,
   "user_final_approval": false,
   "exact_true_3d_reference_reproduction_complete": false,
   "rendered_2_5d_picture_frames": 1332,
   "rendered_2_5d_character_visible_frames": 844,
-  "natural_3d_character_frames": 0
+  "natural_3d_character_frames": 0,
+  "current_review_version": "V2 targeted polish"
 }

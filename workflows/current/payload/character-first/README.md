@@ -2,12 +2,20 @@
 
 ## Current result
 
-**A full-length 44.4-second limited 2.5D recreation V1 is now rendered and delivered for review.** It contains 1,332 picture frames with the exact original main-reference soundtrack. This is the later user-approved image-based rigging route—not natural AI performance, reconstructed 3D, or exact source choreography. User likeness/motion approval is still pending.
+**The full-length 44.4-second limited 2.5D recreation is delivered; the current review version is V2 targeted polish.** It contains 1,332 picture frames with the exact original main-reference soundtrack. This is the user-approved image-based rigging route—not natural AI performance, reconstructed 3D, or exact source choreography. User likeness/motion approval is still pending.
 
-The full-film receipt and recovery ID are in `records/rigged-full/DELIVERY.json`.
-The six NEW main-reference-specific assets are in `rigged-full/KEYFRAMES.json`.
-They are separate from the earlier look-development design ZIP. Do not resend
-only the outro or rerender finished work when the user says Continue.
+Latest full-film receipt: `records/rigged-full/polish-v2/DELIVERY.json`.
+V1 remains preserved at `records/rigged-full/DELIVERY.json`. V2 patches only five
+shots (159 frames): a blade-background smear and over-bright portrait pulses.
+The other 1,173 decoded RGB frames are identical to V1; music, cuts, camera/rig
+trajectories and character art are locked. See `FRAME_INTEGRITY.json` in the V2
+record folder for the full comparison result.
+
+The V2 recovery/source package also retains every completed picture chunk and
+was successfully reassembled without new rendering, reproducing the delivered
+movie's SHA-256. Use the verified video/ZIP receipts if local media disappears.
+The six source character/scene assets are still in `rigged-full/KEYFRAMES.json`.
+Do not resend only the outro or rerender finished work merely on Continue.
 
 - Four new matching character references: front master, right-facing profile,
   rear, and detailed face portrait.

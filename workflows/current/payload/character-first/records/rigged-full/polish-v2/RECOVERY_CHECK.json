@@ -1,0 +1,8 @@
+{
+  "reassembly_test_passed": true,
+  "new_picture_frames_rendered": 0,
+  "picture_packet_payload_matches_delivered_v2": true,
+  "audio_packet_payload_matches_delivered_v2": true,
+  "decoded_pcm_matches_delivered_v2": true,
+  "container_sha256_match": true
+}

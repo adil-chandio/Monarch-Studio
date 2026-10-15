@@ -1,0 +1,15 @@
+{
+  "file": ".cache/monarch-v2-polish/MONARCH_REFERENCE_2_5D_FULL_V2_SOURCE.zip",
+  "bytes": 22233717,
+  "md5": "f41300d80dcd869b0ac5a71b0044ee2f",
+  "sha256": "d144b75b6ad84fb84bb46e0411c163f0999a793bc62dc911d9f97a7b457f94a7",
+  "zip_crc_check": true,
+  "completed_picture_chunks": 37,
+  "can_reassemble_without_new_picture_render": true,
+  "raw_identity_or_reference_actor_video_included": false,
+  "drive_id": "1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC",
+  "url": "https://drive.google.com/file/d/1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC/view",
+  "upload_verified": true,
+  "reassembly_test_passed": true,
+  "reassembled_container_sha256_match": true
+}

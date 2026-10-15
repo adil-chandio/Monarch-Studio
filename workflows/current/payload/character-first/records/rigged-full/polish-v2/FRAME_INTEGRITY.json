@@ -1,0 +1,17 @@
+{
+  "v1_preserved_sha256": "58ee637902dd98ffe1e475afa6b1e9258d552bd1c29c12a038c8ef63d08c39dd",
+  "v2_bytes": 20286594,
+  "v2_md5": "d09370103485bc9a8e7bb2fae9add4ad",
+  "v2_sha256": "76f47275d4157a83c2756462f1799eaba9a4d5680980c6ae870112247d9de1f4",
+  "decoded_frames": 1332,
+  "unaffected_decoded_frames_identical": 1173,
+  "changed_frames_inside_patch_scope": 159,
+  "unexpected_changed_frames": 0,
+  "patch_shots": [
+    20,
+    25,
+    30,
+    32,
+    34
+  ]
+}

@@ -1,10 +1,10 @@
 {
-  "status": "FULL_2_5D_RECREATION_V1_RENDERED_FOR_REVIEW",
+  "status": "FULL_2_5D_RECREATION_V2_POLISHED_FOR_REVIEW",
   "planned_fps": 30,
   "planned_total_frames": 1332,
   "planned_duration_seconds": 44.4,
   "rendered_frames": 1332,
-  "actual_video_file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4",
+  "actual_video_file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V2.mp4",
   "native_motion_requirement": "New coherent character acting; original personal footage is identity input only, not a delivered shot.",
   "blocking_capability": "No direct photoreal image-to-video generator is exposed in this session. Reference stills alone do not produce the requested performance.",
   "format_target": [
@@ -523,7 +523,16 @@
   "rendered_2_5d_picture_frames": 1332,
   "rendered_2_5d_character_visible_frames": 844,
   "natural_3d_character_frames": 0,
-  "actual_video_drive_id": "14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP",
-  "actual_video_url": "https://drive.google.com/file/d/14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP/view",
-  "user_visual_approval": false
+  "actual_video_drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y",
+  "actual_video_url": "https://drive.google.com/file/d/1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y/view",
+  "user_visual_approval": false,
+  "current_version": 2,
+  "polish_v2_changed_shots": [
+    20,
+    25,
+    30,
+    32,
+    34
+  ],
+  "cut_times_preserved_from_v1": true
 }

@@ -1,0 +1,56 @@
+{
+  "status": "FULL_LENGTH_2_5D_RECREATION_V2_POLISHED_FOR_REVIEW",
+  "version": 2,
+  "file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V2.mp4",
+  "drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y",
+  "url": "https://drive.google.com/file/d/1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y/view",
+  "folder_id": "19SH1XXjlawhlgUR73n-f-qnPfcByGC4C",
+  "bytes": 20286594,
+  "md5": "d09370103485bc9a8e7bb2fae9add4ad",
+  "sha256": "76f47275d4157a83c2756462f1799eaba9a4d5680980c6ae870112247d9de1f4",
+  "upload_verified": true,
+  "picture_frames": 1332,
+  "picture_duration_seconds": 44.4,
+  "fps": 30,
+  "width": 720,
+  "height": 1280,
+  "original_reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "encoded_reference_audio_payload_match": true,
+  "decoded_reference_pcm_match": true,
+  "base_v1_drive_id": "14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP",
+  "base_v1_preserved": true,
+  "changed_shots": [
+    20,
+    25,
+    30,
+    32,
+    34
+  ],
+  "changed_frames": 159,
+  "unaffected_shots_retained": 32,
+  "unaffected_decoded_frames_identical": 1173,
+  "unexpected_changed_frames": 0,
+  "changes": [
+    "Clean reconstructed backdrop replaces only the old blade-inpainting footprint.",
+    "Bright portrait pulses retain skin detail without changing facial geometry; background pulses remain."
+  ],
+  "identity_images_changed": false,
+  "camera_rig_cut_timing_changed": false,
+  "method": "same approved limited photographic 2.5D",
+  "natural_or_exact_3d_claimed": false,
+  "user_visual_or_likeness_approval": false,
+  "encoded_review_frames": [
+    789,
+    924
+  ],
+  "render_seconds": 24.66,
+  "code_tests": {
+    "current_design_rig_recovery_conform_polish": 34,
+    "repository": 11,
+    "legacy_motion_regression": 10,
+    "total_passed": 55
+  },
+  "source_package_drive_id": "1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC",
+  "source_package_url": "https://drive.google.com/file/d/1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC/view",
+  "lossless_reassembly_test_passed": true
+}

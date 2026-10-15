@@ -1,0 +1,39 @@
+{
+  "base_version": "FULL_V1",
+  "base_movie_drive_id": "14v1Zi_aGVrCJF1PK5_3t5dmBGjqCYmZP",
+  "folder_id": "19SH1XXjlawhlgUR73n-f-qnPfcByGC4C",
+  "folder_url": "https://drive.google.com/drive/folders/19SH1XXjlawhlgUR73n-f-qnPfcByGC4C",
+  "patch_shots": [
+    20,
+    25,
+    30,
+    32,
+    34
+  ],
+  "changed_frames_target": 159,
+  "untouched_shots_target": 32,
+  "untouched_frames_target": 1173,
+  "locked": [
+    "original music",
+    "all cut times",
+    "character identity art",
+    "rig trajectories",
+    "camera paths",
+    "V1 original files"
+  ],
+  "repairs": [
+    "remove diagonal old-prop inpainting smear using local clean background repair",
+    "limit excessive portrait face gain/additive flash without changing face geometry"
+  ],
+  "clean_plate": {
+    "path": "/home/user/monarch-rigged-full/polish-v2/BLADE_CLEAN_PLATE.png",
+    "drive_id": "1p0N4JsrcWZLBLFiUY-_qqob9gUBYLTSj",
+    "bytes": 1937358,
+    "md5": "658dc71fdfccca2932bcf4c80f02c49a",
+    "sha256": "c1c562f5a9fa18ec93bdd19876cf41134e9c9ffba6dba3ff1687036758221788",
+    "upload_verified": true
+  },
+  "status": "full_v2_rendered_and_delivered_for_review",
+  "user_visual_approval": false,
+  "output_drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y"
+}
