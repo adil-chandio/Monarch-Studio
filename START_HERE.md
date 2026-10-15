@@ -4,8 +4,8 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 
 - **Task:** `WF04-20261014-NOJELLY`
 - **Status:** `waiting_external`
-- **Title:** Monarch main-reference full 2.5D recreation V2 — review
-- **Next action:** Current review movie is V2 Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y, source ZIP 1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC. Do not restart or resend V1/outro. Read records/rigged-full/LATEST_DELIVERY.json and polish-v2/DELIVERY.json; restore exact saved media by hash if needed. Await specific review feedback before additional revisions; keep identity, original music and cut timing locked.
+- **Title:** Monarch main-reference full 2.5D recreation V3 — review
+- **Next action:** Latest full review video is V3 Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5, source ZIP 18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g. Restore exact saved media from enhance-v3/DELIVERY.json if needed; do not restart or resend only V1/V2/outro. Await review-specific feedback before further changes; preserve original music, timings and agreed 2.5D scope.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "WF04-20261014-NOJELLY",
   "status": "waiting_external",
-  "title": "Monarch main-reference full 2.5D recreation V2 — review",
+  "title": "Monarch main-reference full 2.5D recreation V3 — review",
   "style_id": "monarch-face-chaos",
   "goal": "Deliver the user-approved full-length limited 2.5D whole-character recreation of the confirmed main reference, with exact original music and honest method/quality scope.",
   "acceptance_criteria": [
@@ -14,13 +14,13 @@
     "Clearly label 2.5D limitations; no exact 3D/natural AI-performance or user likeness-approval claim."
   ],
   "started_at": "2026-10-14T16:22:04Z",
-  "updated_at": "2026-10-15T01:09:11Z",
-  "checkpoint_sequence": 21,
-  "event_sequence": 122,
-  "journal_head": "d655dd5a9be6c69cc06d045b9b55868eb71db2c1c73920722608e60426f28f0d",
-  "last_checkpoint": "2026-10-15T01:06:21Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0021-20261015T010621Z",
-  "next_action": "Current review movie is V2 Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y, source ZIP 1hkERbeTaHHF3Cp9hVS2V_F5EWQUlezTC. Do not restart or resend V1/outro. Read records/rigged-full/LATEST_DELIVERY.json and polish-v2/DELIVERY.json; restore exact saved media by hash if needed. Await specific review feedback before additional revisions; keep identity, original music and cut timing locked.",
+  "updated_at": "2026-10-15T12:17:49Z",
+  "checkpoint_sequence": 23,
+  "event_sequence": 132,
+  "journal_head": "25632acf8d13d0971bc03f0e890c3ee2c9214def4cd71d4a8597ec75606f934f",
+  "last_checkpoint": "2026-10-15T12:16:58Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0023-20261015T121658Z",
+  "next_action": "Latest full review video is V3 Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5, source ZIP 18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g. Restore exact saved media from enhance-v3/DELIVERY.json if needed; do not restart or resend only V1/V2/outro. Await review-specific feedback before further changes; preserve original music, timings and agreed 2.5D scope.",
   "running_processes": [
     {
       "id": "monarch-original-3d-motion-check-30451e5f",
@@ -84,6 +84,13 @@
       "state": "completed",
       "started_at": "2026-10-15T00:59:38Z",
       "resume_instruction": "Finished. Full V2 presented/uploaded as Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y. 1332 frames, exact original AAC/PCM, 1173 unchanged decoded frames identical to V1. See records/rigged-full/polish-v2/DELIVERY.json. Do not restart the render."
+    },
+    {
+      "id": "monarch-full-v3-motion-polish-66c299c7",
+      "name": "Full V3 controlled hand-motion/headroom refinement",
+      "state": "completed",
+      "started_at": "2026-10-15T12:11:30Z",
+      "resume_instruction": "Full V3 rendered, inspected, presented and uploaded as Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5. All 1332 frames decode; 1200 unchanged RGB frames and all V2 repairs identical, original AAC/PCM unchanged. Do not rerender. See enhance-v3/DELIVERY.json."
     }
   ],
   "remote_sync": {

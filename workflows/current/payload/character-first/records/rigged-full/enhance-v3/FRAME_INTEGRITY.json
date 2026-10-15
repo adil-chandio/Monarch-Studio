@@ -1,0 +1,17 @@
+{
+  "v2_preserved_sha256": "76f47275d4157a83c2756462f1799eaba9a4d5680980c6ae870112247d9de1f4",
+  "v3_bytes": 20239715,
+  "v3_md5": "8a78eff1204fa23f7fcea048c20ee543",
+  "v3_sha256": "2245219a1e1a29090cd882b5a0c116c9bd439ee4f8653072612527f1734b97bf",
+  "decoded_frames": 1332,
+  "unaffected_decoded_frames_identical": 1200,
+  "changed_frames_inside_scope": 132,
+  "unexpected_changed_frames": 0,
+  "v2_repair_frames_preserved_identically": 159,
+  "changed_shots": [
+    3,
+    5,
+    6,
+    7
+  ]
+}

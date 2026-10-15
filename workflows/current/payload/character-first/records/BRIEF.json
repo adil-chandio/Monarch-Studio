@@ -50,7 +50,7 @@
     }
   ],
   "film_complete": true,
-  "next_action": "Review the completed full V2, not the old outro or V1. V1 remains preserved. Only five shots were polished; 1173 other decoded frames and original audio are unchanged. Restore exact latest movie by V2 delivery receipt if local media vanishes; make further changes only against actual review feedback.",
+  "next_action": "Review the completed full V3. V2 accepted as baseline and preserved; V3 changes only four shots. Restore exact latest movie by its delivery receipt rather than restarting. Make additional revisions from actual review feedback; original music and cut timing remain locked.",
   "missing_previous_selection": {
     "selection": "option 1 of 2",
     "selection_evidence": "Completed generate_image result confirms user selected option 1. User then requested continuation from exactly that choice.",
@@ -105,12 +105,12 @@
   },
   "active_production_method": "Whole-character image-based 2.5D skeletal recreation, visibly bounded, not natural AI or reconstructed 3D performance.",
   "full_2_5d_recreation_complete": true,
-  "full_2_5d_movie_receipt": "rigged-full/polish-v2/DELIVERY.json",
+  "full_2_5d_movie_receipt": "rigged-full/enhance-v3/DELIVERY.json",
   "film_complete_under_approved_2_5d_method": true,
   "user_final_approval": false,
   "exact_true_3d_reference_reproduction_complete": false,
   "rendered_2_5d_picture_frames": 1332,
   "rendered_2_5d_character_visible_frames": 844,
   "natural_3d_character_frames": 0,
-  "current_review_version": "V2 targeted polish"
+  "current_review_version": "V3 controlled motion/headroom polish"
 }

@@ -1,0 +1,26 @@
+{
+  "base_version": 2,
+  "base_movie_drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y",
+  "patch_shots": [
+    3,
+    5,
+    6,
+    7
+  ],
+  "changed_frames": 132,
+  "reused_shots": 33,
+  "reused_frames": 1200,
+  "identity_art_locked": true,
+  "original_audio_locked": true,
+  "cuts_locked": true,
+  "v2_repairs_locked": true,
+  "new_image_generations": 0,
+  "existing_clean_plate_drive_id": "1p0N4JsrcWZLBLFiUY-_qqob9gUBYLTSj",
+  "changes": [
+    "neutral reveal headroom",
+    "bounded outward palm lift with rigid glove weighting",
+    "staggered arm-echo build and fade"
+  ],
+  "status": "private_preview_reviewed_ready_to_render",
+  "user_visual_approval": false
+}

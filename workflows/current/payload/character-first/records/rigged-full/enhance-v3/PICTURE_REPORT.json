@@ -1,0 +1,668 @@
+{
+  "status": "full_v3_picture_enhancement_complete",
+  "file": ".cache/monarch-v3-enrichment/V3_PICTURE_ONLY.mp4",
+  "sha256": "946d6ebaabdacc8dd33518536ed333b9f380a6d4e8f37c4478b0425b34a3719e",
+  "frames": 1332,
+  "seconds": 44.4,
+  "fps": 30,
+  "width": 720,
+  "height": 1280,
+  "changed_shots": [
+    3,
+    5,
+    6,
+    7
+  ],
+  "changed_frames": 132,
+  "reused_shots": 33,
+  "reused_frames": 1200,
+  "identity_images_changed": false,
+  "face_and_foot_bone_matrices_changed": false,
+  "shot_timing_changed": false,
+  "changes": [
+    "Neutral reveal framing retains whole hair/head silhouette.",
+    "Controlled outward/upward palm gesture with rigid glove regions and unit bone lengths.",
+    "Arm echoes build and recede in staggered phases instead of constant pulsing.",
+    "Existing clean plate reused locally around arm disocclusions; no new character art."
+  ],
+  "method": "same approved limited image-based 2.5D, not natural/reconstructed 3D",
+  "v2_face_and_blade_fixes_preserved_by_chunk_reuse": true,
+  "clean_plate_match": {
+    "mean_visible_bg_difference_after_match": 4.404349327087402,
+    "colour_parameters": [
+      {
+        "gain": 1.0096905377068082,
+        "offset": 4.447639465332031
+      },
+      {
+        "gain": 1.0066162031152492,
+        "offset": 5.490547180175781
+      },
+      {
+        "gain": 1.0037518913061039,
+        "offset": 4.849925994873047
+      }
+    ],
+    "geometric_warp_applied": false
+  },
+  "settings": {
+    "method": "same limited photographic 2.5D",
+    "v1_source_sha256": "934a322f7a6df1d92d4b1ab6b897eaef991196c76ab603589b46ca548eec6462",
+    "v3_source_sha256": "6a24e71a55d7c351160233d7a32ab9fa94cfdf5846670b69ea60fea009909f26",
+    "plate_sha256": "c1c562f5a9fa18ec93bdd19876cf41134e9c9ffba6dba3ff1687036758221788",
+    "images": {
+      "00_ROOM.png": "86ed5fafaf8b10411f42513c26106508f3f9e66b66a473aedb99df8057f20186",
+      "01_RAISED_HAND.png": "3341cc2e690dd82d9a9577c4e002016171e4d91381939c82d95db5211c3d1aa1",
+      "02_OPEN_ARMS.png": "a92a22adadfaf3504300fd42f8912fac6bc016273957845ef17ea240780eeffc",
+      "03_RED_ANGLE.png": "5325b7fb17811ad1fb730d039924657d639885078ac03721ea54b3b6e8018fee",
+      "04_CLOSE_SMIRK.png": "b4d35ebf575739363ba59bb44fbd5b30520e1c7c67f25964aa4d46626a2dd2a0",
+      "05_BLADE_POV.png": "fc94fa3c8f6816e68238cfb11fac4133a874eb105be5cd7ca9f03a604d8e0021"
+    },
+    "metrics_sha256": "5e70a406473801287cc034140d43570af7f9adc2404c262c9723447b1088272c",
+    "patch_shots": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "new_identity_art": false,
+    "cut_timing_changed": false,
+    "music_changed": false
+  },
+  "shots": [
+    {
+      "shot": 0,
+      "scene": "room",
+      "frames": 272,
+      "action": "reused_byte_identical_v2",
+      "sha256": "34c23df3b98c899c0bf2a437cede73c76098b543b0479cd715e8f941b98b95ff"
+    },
+    {
+      "shot": 1,
+      "scene": "raised",
+      "frames": 26,
+      "action": "reused_byte_identical_v2",
+      "sha256": "b3022ef269a664235be068b4a5ae60f07a8f3dbeee8e6df6dee991df9cea639a"
+    },
+    {
+      "shot": 2,
+      "scene": "raised",
+      "frames": 24,
+      "action": "reused_byte_identical_v2",
+      "sha256": "48ea10a9fa8b832358599fbadea81bafecef67f441c48074b679af563e3c91ee"
+    },
+    {
+      "shot": 3,
+      "scene": "raised",
+      "frames": 34,
+      "action": "motion_headroom_polish",
+      "sha256": "34c224d74f6c56b4f85796d32d3610a8b29aa294756d0a79c30ffc451374fd87",
+      "rig_checks": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.58301,
+          "min_inverse_jacobian": 0.35244220495224,
+          "face_det_error": 0.000490725040435791,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 322,
+          "scene": "raised",
+          "shot": 3,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 60,
+          "identity_art_changed": false
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.36401,
+          "min_inverse_jacobian": 0.32099851965904236,
+          "face_det_error": 0.0003497600555419922,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 330,
+          "scene": "raised",
+          "shot": 3,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 60,
+          "identity_art_changed": false
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.97405,
+          "min_inverse_jacobian": 0.3032083809375763,
+          "face_det_error": 0.00013047456741333008,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 340,
+          "scene": "raised",
+          "shot": 3,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 60,
+          "identity_art_changed": false
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.11585,
+          "min_inverse_jacobian": 0.2886378765106201,
+          "face_det_error": 3.0994415283203125e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 350,
+          "scene": "raised",
+          "shot": 3,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 60,
+          "identity_art_changed": false
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.00422,
+          "min_inverse_jacobian": 0.29971304535865784,
+          "face_det_error": 8.320808410644531e-05,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 355,
+          "scene": "raised",
+          "shot": 3,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 60,
+          "identity_art_changed": false
+        }
+      ]
+    },
+    {
+      "shot": 4,
+      "scene": "raised",
+      "frames": 38,
+      "action": "reused_byte_identical_v2",
+      "sha256": "c58377dbd4caa433221c93fc4b9c4fcd86d6151d799877ae60d49060e8d43480"
+    },
+    {
+      "shot": 5,
+      "scene": "open",
+      "frames": 34,
+      "action": "motion_headroom_polish",
+      "sha256": "71d9462917fab3db48e7dacc8d93c7f413b6a96cc8b22016672732287582ea57",
+      "rig_checks": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.19026,
+          "min_inverse_jacobian": 0.19437086582183838,
+          "face_det_error": 0.0008703470230102539,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 394,
+          "scene": "open",
+          "shot": 5,
+          "gesture_envelope": 0.0,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.58136,
+          "min_inverse_jacobian": 0.42453733086586,
+          "face_det_error": 0.0009765625,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 400,
+          "scene": "open",
+          "shot": 5,
+          "gesture_envelope": 0.01892553345561814,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 1.1368683772161603e-13
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 13.74811,
+          "min_inverse_jacobian": 0.45098409056663513,
+          "face_det_error": 0.0008782744407653809,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 410,
+          "scene": "open",
+          "shot": 5,
+          "gesture_envelope": 0.27633395791548077,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 12.24165,
+          "min_inverse_jacobian": 0.28584086894989014,
+          "face_det_error": 0.000835120677947998,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 420,
+          "scene": "open",
+          "shot": 5,
+          "gesture_envelope": 0.6628548411810292,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 1.1368683772161603e-13
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.05539,
+          "min_inverse_jacobian": 0.3814533054828644,
+          "face_det_error": 0.0008995532989501953,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 427,
+          "scene": "open",
+          "shot": 5,
+          "gesture_envelope": 0.8915465712709832,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 1.2710574864626038e-13
+        }
+      ]
+    },
+    {
+      "shot": 6,
+      "scene": "open",
+      "frames": 33,
+      "action": "motion_headroom_polish",
+      "sha256": "e422bc05051a53ad573edf0713e6b7a684374f37e95bbb02f058f826007dcd91",
+      "rig_checks": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 16.63155,
+          "min_inverse_jacobian": 0.4314597547054291,
+          "face_det_error": 0.0008859634399414062,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 428,
+          "scene": "open",
+          "shot": 6,
+          "gesture_envelope": 0.9160821793912083,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 17.61605,
+          "min_inverse_jacobian": 0.5212491750717163,
+          "face_det_error": 0.000920414924621582,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 430,
+          "scene": "open",
+          "shot": 6,
+          "gesture_envelope": 0.9568358934570947,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 19.30872,
+          "min_inverse_jacobian": 0.4904126822948456,
+          "face_det_error": 0.0009108781814575195,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 440,
+          "scene": "open",
+          "shot": 6,
+          "gesture_envelope": 1.0,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 20.27579,
+          "min_inverse_jacobian": 0.4525458812713623,
+          "face_det_error": 0.00048470497131347656,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 450,
+          "scene": "open",
+          "shot": 6,
+          "gesture_envelope": 1.0,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 1.1368683772161603e-13
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 21.34624,
+          "min_inverse_jacobian": 0.3967117369174957,
+          "face_det_error": 0.00048810243606567383,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 460,
+          "scene": "open",
+          "shot": 6,
+          "gesture_envelope": 0.9991228355289979,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 2.3437142008433856e-13
+        }
+      ]
+    },
+    {
+      "shot": 7,
+      "scene": "open",
+      "frames": 31,
+      "action": "motion_headroom_polish",
+      "sha256": "37125c7bf8929e576cc7f7bcf1987994bc6952a7ffa71938212a2f84607a17e9",
+      "rig_checks": [
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 21.40584,
+          "min_inverse_jacobian": 0.39086538553237915,
+          "face_det_error": 0.0004837512969970703,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 461,
+          "scene": "open",
+          "shot": 7,
+          "gesture_envelope": 0.9965999024457155,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 20.77349,
+          "min_inverse_jacobian": 0.33563339710235596,
+          "face_det_error": 0.00025069713592529297,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 470,
+          "scene": "open",
+          "shot": 7,
+          "gesture_envelope": 0.9179404229053452,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 2.842170943040401e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.98726,
+          "min_inverse_jacobian": 0.2978673279285431,
+          "face_det_error": 0.00010800361633300781,
+          "bone_scale_error": 1.1102230246251565e-16,
+          "frame": 480,
+          "scene": "open",
+          "shot": 7,
+          "gesture_envelope": 0.7819327160744076,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 1.2710574864626038e-13
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.44956,
+          "min_inverse_jacobian": 0.26918792724609375,
+          "face_det_error": 8.428096771240234e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 490,
+          "scene": "open",
+          "shot": 7,
+          "gesture_envelope": 0.700860063799518,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        },
+        {
+          "kind": "bounded_skeletal_image_skinning",
+          "max_anchor_error_px": 0.0,
+          "max_displacement_px": 18.49868,
+          "min_inverse_jacobian": 0.26731976866722107,
+          "face_det_error": 9.590387344360352e-05,
+          "bone_scale_error": 2.220446049250313e-16,
+          "frame": 491,
+          "scene": "open",
+          "shot": 7,
+          "gesture_envelope": 0.7,
+          "camera_headroom_shift_px": 0,
+          "identity_art_changed": false,
+          "face_matrix_changed": false,
+          "foot_matrix_changed": false,
+          "hand_follow_error": 5.684341886080802e-14
+        }
+      ]
+    },
+    {
+      "shot": 8,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "f1781ebfd3112d4b2c5cf039c23812f0376611860ff583639cd8254e7804a863"
+    },
+    {
+      "shot": 9,
+      "scene": "red",
+      "frames": 23,
+      "action": "reused_byte_identical_v2",
+      "sha256": "5d75883b7562e3696b77103ba2fbafb94e2de689d1c483f828980db7a71132ae"
+    },
+    {
+      "shot": 10,
+      "scene": "red",
+      "frames": 18,
+      "action": "reused_byte_identical_v2",
+      "sha256": "1e8660b2f8c7241898887959cc4a7e2c8f1c57376df9696d4e708116e553079b"
+    },
+    {
+      "shot": 11,
+      "scene": "raised",
+      "frames": 20,
+      "action": "reused_byte_identical_v2",
+      "sha256": "733d16f1c8bf4a5f0c0ba88f4913e047e6fc3c9183a42537c5ff428d3f80997e"
+    },
+    {
+      "shot": 12,
+      "scene": "red",
+      "frames": 29,
+      "action": "reused_byte_identical_v2",
+      "sha256": "a1d965b18b4ef7398973b722a3e4c99700f6585f1d8a1a906fcf4ab1c58688ca"
+    },
+    {
+      "shot": 13,
+      "scene": "red",
+      "frames": 26,
+      "action": "reused_byte_identical_v2",
+      "sha256": "5de036011cbdb40a1e8f096f744dd9d8f58d3ca1ea9efa0307b4b09a421939cb"
+    },
+    {
+      "shot": 14,
+      "scene": "red",
+      "frames": 28,
+      "action": "reused_byte_identical_v2",
+      "sha256": "90007a08518aff842ee4567e2890cf1e4b3a9b003c90dc47fd5e4fa056ad010f"
+    },
+    {
+      "shot": 15,
+      "scene": "red",
+      "frames": 23,
+      "action": "reused_byte_identical_v2",
+      "sha256": "65023ef96da8898e6791964c394e60a3645d006e23c19d84790a82dae3b339f0"
+    },
+    {
+      "shot": 16,
+      "scene": "wide",
+      "frames": 14,
+      "action": "reused_byte_identical_v2",
+      "sha256": "e887da6b56207a9cf43af4677e89a2d03fd5059dae218c104448dfb886fcb661"
+    },
+    {
+      "shot": 17,
+      "scene": "red",
+      "frames": 32,
+      "action": "reused_byte_identical_v2",
+      "sha256": "92cf0a03d1229c3a1a7e3fadc98275fc2b0b9abc87e459039dff0a9ee80706bc"
+    },
+    {
+      "shot": 18,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "c4ad4391f95b99cb3a1aa96215f7458a47e15c14cd79a8dc3ac79743796f9dfc"
+    },
+    {
+      "shot": 19,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "6084572fa88397d627c315c9db4740341853a8be524be4b782f2f1e965c5fae0"
+    },
+    {
+      "shot": 20,
+      "scene": "close",
+      "frames": 22,
+      "action": "reused_byte_identical_v2",
+      "sha256": "d2c9de99cc2d0eeabc81d01af29be93c1b35cfdb89fc5f2f98d0c772a85e0b09"
+    },
+    {
+      "shot": 21,
+      "scene": "red",
+      "frames": 24,
+      "action": "reused_byte_identical_v2",
+      "sha256": "dc987dcbc1cd9cd9a3d7c15596005036451e27e43d5355ef8694077f2802d4d1"
+    },
+    {
+      "shot": 22,
+      "scene": "wide",
+      "frames": 27,
+      "action": "reused_byte_identical_v2",
+      "sha256": "d5cb624861e6c106ee8a5eed18fdbfefe8779d0d0e32d3cd6ad8673d684ee3e1"
+    },
+    {
+      "shot": 23,
+      "scene": "red",
+      "frames": 30,
+      "action": "reused_byte_identical_v2",
+      "sha256": "dad6ee0648e58660d37fd352400a046cd65f9e49480d12c2b64433af7b910b41"
+    },
+    {
+      "shot": 24,
+      "scene": "open",
+      "frames": 17,
+      "action": "reused_byte_identical_v2",
+      "sha256": "f190715a4272454b9f228642ce006e22a81eb4eea78f1d856cd53de3239612f7"
+    },
+    {
+      "shot": 25,
+      "scene": "blade",
+      "frames": 66,
+      "action": "reused_byte_identical_v2",
+      "sha256": "145860ee7d3f5c92b8e1ef793011ce0171ec759d5597e1e50ba1bc0e0bf1de15"
+    },
+    {
+      "shot": 26,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "9bce904321f6e46d07584666a8f0d14a85797d9aa301127b3a2666c03f66b020"
+    },
+    {
+      "shot": 27,
+      "scene": "red",
+      "frames": 22,
+      "action": "reused_byte_identical_v2",
+      "sha256": "b778e9728b8d69231283db7876ba0f440dafee34ae30b845eb25b6711cea605c"
+    },
+    {
+      "shot": 28,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "63f6ae37362d399509f65438086d3596ee44f812d40cfe71254db11f180d776b"
+    },
+    {
+      "shot": 29,
+      "scene": "red",
+      "frames": 29,
+      "action": "reused_byte_identical_v2",
+      "sha256": "83f52d2a674604edf35221275f1fa8d00687b98ae7c696778aaabca607d7aec5"
+    },
+    {
+      "shot": 30,
+      "scene": "close",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "d9064fbe84f1f0a381d60eafb6ed2896111296c53f2f12e777f44fd62d5e1685"
+    },
+    {
+      "shot": 31,
+      "scene": "raised",
+      "frames": 19,
+      "action": "reused_byte_identical_v2",
+      "sha256": "d9848b2a415bbd8d21b7525f455a425a9fba119019cb972ef7f867a44ed105a5"
+    },
+    {
+      "shot": 32,
+      "scene": "close",
+      "frames": 22,
+      "action": "reused_byte_identical_v2",
+      "sha256": "39358145f30280cea349ef299bdb2558d8ee5e1648925f7b6130b93a812d2ffb"
+    },
+    {
+      "shot": 33,
+      "scene": "red",
+      "frames": 25,
+      "action": "reused_byte_identical_v2",
+      "sha256": "2d7b607b782de17542f6a32ea80bdb90cad8beecf28a78bdcd6c15a003a90b56"
+    },
+    {
+      "shot": 34,
+      "scene": "close",
+      "frames": 24,
+      "action": "reused_byte_identical_v2",
+      "sha256": "565234d28c87899e33e01f67623a24bfd2700f1b4e6c0d9035c7bdd3e7382e6d"
+    },
+    {
+      "shot": 35,
+      "scene": "logo",
+      "frames": 42,
+      "action": "reused_byte_identical_v2",
+      "sha256": "df4331e9346a5a0012b7bddc72c90c85fc353ce637b1fe8c0ce48af5121bd410"
+    },
+    {
+      "shot": 36,
+      "scene": "outro",
+      "frames": 108,
+      "action": "reused_byte_identical_v2",
+      "sha256": "f22169c3ca1fa5e0dd5bd16bfde308baa008c74840561ee9a333ffb4088edb57"
+    }
+  ],
+  "render_seconds": 66.88,
+  "user_visual_approval": false
+}

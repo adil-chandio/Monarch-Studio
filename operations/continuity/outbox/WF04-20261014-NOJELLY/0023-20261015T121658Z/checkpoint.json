@@ -1,0 +1,816 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0023-20261015T121658Z",
+  "created_at": "2026-10-15T12:16:58Z",
+  "summary": "DELIVERED full V3 enhancement: corrected reveal headroom, rigid-glove palm lift, staged echo build/fade. Only 4 shots/132 frames changed; all 1200 other decoded RGB frames and all V2 fixes identical. Original audio/cuts/identity art locked. Video/source ZIP verified; 61 tests pass; recovery reproduces exact V3.",
+  "next_action": "Latest full review video is V3 Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5, source ZIP 18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g. Restore exact saved media from enhance-v3/DELIVERY.json if needed; do not restart or resend only V1/V2/outro. Await review-specific feedback before further changes; preserve original music, timings and agreed 2.5D scope.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "status": "waiting_external",
+    "title": "Monarch main-reference full 2.5D recreation V3 — review",
+    "style_id": "monarch-face-chaos",
+    "goal": "Deliver the user-approved full-length limited 2.5D whole-character recreation of the confirmed main reference, with exact original music and honest method/quality scope.",
+    "acceptance_criteria": [
+      "Complete 1332-frame /44.4s 2.5D picture edit using the correct main reference, not the other chat chair/cables film.",
+      "Use new whole owner-character imagery and bounded connected image-based rigging; no reference-actor footage or face sticker on that actor.",
+      "Preserve original reference AAC payload and decoded audio unchanged, including its tail.",
+      "Rigid facial core/props, anchored boots, image/encoded-frame inspection; no eye/mouth morph used as natural performance.",
+      "Crown above MONARCH STUDIO ending.",
+      "Clearly label 2.5D limitations; no exact 3D/natural AI-performance or user likeness-approval claim."
+    ],
+    "started_at": "2026-10-14T16:22:04Z",
+    "updated_at": "2026-10-15T12:16:58Z",
+    "checkpoint_sequence": 23,
+    "event_sequence": 131,
+    "journal_head": "9495901eecda924f303d28cdb7e37876363ccc4d5bbddad8c1c12b1336e29ac3",
+    "last_checkpoint": "2026-10-15T12:16:58Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF04-20261014-NOJELLY/0023-20261015T121658Z",
+    "next_action": "Latest full review video is V3 Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5, source ZIP 18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g. Restore exact saved media from enhance-v3/DELIVERY.json if needed; do not restart or resend only V1/V2/outro. Await review-specific feedback before further changes; preserve original music, timings and agreed 2.5D scope.",
+    "running_processes": [
+      {
+        "id": "monarch-original-3d-motion-check-30451e5f",
+        "name": "Vault sample-frame render",
+        "state": "completed",
+        "started_at": "2026-10-14T16:46:38Z",
+        "resume_instruction": "Four QA frames exist in .cache/monarch-true-motion/qa-v1; visually inspect before full render. Do not rerun."
+      },
+      {
+        "id": "monarch-finish-export-from-saved-3287176f",
+        "name": "Completed 44.4s draft export",
+        "state": "completed",
+        "started_at": "2026-10-14T17:34:58Z",
+        "resume_instruction": "Final draft exists and was presented; do not re-render. See deliverables/monarch-vault/DELIVERY_README.json and durable records/LIVE_ACTION_DELIVERY.json."
+      },
+      {
+        "id": "monarch-corrected-joint-motion-r-ce4914d5",
+        "name": "Corrected 3D QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; no production 3D final accepted."
+      },
+      {
+        "id": "monarch-native-motion-frames-431c3ea6",
+        "name": "Native skinning-space QA samples",
+        "state": "completed",
+        "started_at": "2026-10-14T17:36:11Z",
+        "resume_instruction": "Finished; experimental frames only."
+      },
+      {
+        "id": "monarch-full-44-4-second-draft-e-767b7d57",
+        "name": "Initial full export attempt",
+        "state": "failed",
+        "started_at": "2026-10-14T17:36:12Z",
+        "resume_instruction": "Superseded by completed resumed export monarch-finish-export-from-saved-3287176f. Do not restart."
+      },
+      {
+        "id": "monarch-crown-outro-0ee7e859",
+        "name": "Native 3.6s crown outro plus original sound",
+        "state": "completed",
+        "started_at": "2026-10-14T20:59:29Z",
+        "resume_instruction": "Finished successfully: 108 frames /3.6s, verified full decode. See BRAND_OUTRO.json; do not re-render. This is only the brand-ending component, not character animation."
+      },
+      {
+        "id": "main-reference-timing-and-music--b24e5955",
+        "name": "Canonical main reference frame/audio analysis",
+        "state": "completed",
+        "started_at": "2026-10-14T22:30:20Z",
+        "resume_instruction": "Analysis complete: MAIN_REFERENCE_AUDIT.json. 1332 native frames /44.4s picture; original AAC and decoded PCM hashes match copied soundtrack. Audio recovery file 1K6myCjguUtnB3gLVN8HOOjQqC97le9Vr. No new character movie created; do not switch to 21s chair reference."
+      },
+      {
+        "id": "monarch-full-2-5d-recreation-05806fcb",
+        "name": "Complete main-reference 1332-frame 2.5D picture + exact original audio mux",
+        "state": "completed",
+        "started_at": "2026-10-15T00:07:16Z",
+        "resume_instruction": "Full recreation finished. 1332 frames/44.4s picture; original AAC payload and decoded PCM hashes match, picture bitstream unchanged. Output /home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V1.mp4. Inspect encoded review, upload/save receipt and present the full video. Do not restart the render."
+      },
+      {
+        "id": "monarch-full-v2-polish-export-076eb7ad",
+        "name": "Full V2 polish: five-shot patch + original audio conform",
+        "state": "completed",
+        "started_at": "2026-10-15T00:59:38Z",
+        "resume_instruction": "Finished. Full V2 presented/uploaded as Drive 1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y. 1332 frames, exact original AAC/PCM, 1173 unchanged decoded frames identical to V1. See records/rigged-full/polish-v2/DELIVERY.json. Do not restart the render."
+      },
+      {
+        "id": "monarch-full-v3-motion-polish-66c299c7",
+        "name": "Full V3 controlled hand-motion/headroom refinement",
+        "state": "completed",
+        "started_at": "2026-10-15T12:11:30Z",
+        "resume_instruction": "Full V3 rendered, inspected, presented and uploaded as Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5. All 1332 frames decode; 1200 unchanged RGB frames and all V2 repairs identical, original AAC/PCM unchanged. Do not rerender. See enhance-v3/DELIVERY.json."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    },
+    "previous_acceptance_criteria": [
+      "New visuals, not old plates; no image-space body/face mesh warps; real 3D joint movement with stable feet and neck; crown above MONARCH STUDIO ending; no claims of photoreal likeness or final approval without visual evidence."
+    ]
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-20261014-NOJELLY",
+    "seq": 131,
+    "timestamp": "2026-10-15T12:16:58Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "DELIVERED full V3 enhancement: corrected reveal headroom, rigid-glove palm lift, staged echo build/fade. Only 4 shots/132 frames changed; all 1200 other decoded RGB frames and all V2 fixes identical. Original audio/cuts/identity art locked. Video/source ZIP verified; 61 tests pass; recovery reproduces exact V3.",
+    "content_sha256": "cdf81033b15596cee268e6c2c4c902d1edb8fed38cbf20d1bb74588233382dbb",
+    "metadata": {
+      "sequence": 23,
+      "next_action": "Latest full review video is V3 Drive 1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5, source ZIP 18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g. Restore exact saved media from enhance-v3/DELIVERY.json if needed; do not restart or resend only V1/V2/outro. Await review-specific feedback before further changes; preserve original music, timings and agreed 2.5D scope.",
+      "status": "waiting_external"
+    },
+    "prev_event_sha256": "2544bd5735807037e87cf9bc94545e3e46e054b0ef6a0184f12224cb275ecedb",
+    "event_sha256": "9495901eecda924f303d28cdb7e37876363ccc4d5bbddad8c1c12b1336e29ac3"
+  },
+  "journal_head": "9495901eecda924f303d28cdb7e37876363ccc4d5bbddad8c1c12b1336e29ac3",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/ea72fe82-monarch-studio",
+    "status": [
+      " M .gitignore",
+      " M .studio-manifest.json",
+      " M AGENTS.md",
+      " M START_HERE.md",
+      " M docs/CONTINUITY_AND_RECOVERY.md",
+      " M tools/studio.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0002-20261014T164710Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0002-20261014T164710Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0005-20261014T173713Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0007-20261014T183344Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0007-20261014T183344Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0008-20261014T185909Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0008-20261014T185909Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0009-20261014T193608Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0009-20261014T193608Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0010-20261014T200336Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0011-20261014T200734Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0011-20261014T200734Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0012-20261014T202328Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0012-20261014T202328Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0013-20261014T203611Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0013-20261014T203611Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0014-20261014T205536Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0014-20261014T205536Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0015-20261014T211004Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0015-20261014T211004Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0016-20261014T212953Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0016-20261014T212953Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0017-20261014T223643Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0017-20261014T223643Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0018-20261014T235442Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0018-20261014T235442Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0019-20261015T002529Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0019-20261015T002529Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0020-20261015T004919Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0020-20261015T004919Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0021-20261015T010621Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0021-20261015T010621Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0022-20261015T120332Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/WF04-20261014-NOJELLY/0022-20261015T120332Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0001-20261014T163140Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0002-20261014T164710Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0003-20261014T172035Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0004-20261014T173500Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0005-20261014T173713Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0006-20261014T181624Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0007-20261014T183344Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0008-20261014T185909Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0009-20261014T193608Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0010-20261014T200336Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0011-20261014T200734Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0012-20261014T202328Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0012-20261014T202328Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0012-20261014T202328Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0013-20261014T203611Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0013-20261014T203611Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0013-20261014T203611Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0014-20261014T205536Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0014-20261014T205536Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0014-20261014T205536Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0015-20261014T211004Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0015-20261014T211004Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0015-20261014T211004Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0016-20261014T212953Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0016-20261014T212953Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0016-20261014T212953Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0017-20261014T223643Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0017-20261014T223643Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0017-20261014T223643Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0018-20261014T235442Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0018-20261014T235442Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0018-20261014T235442Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0019-20261015T002529Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0019-20261015T002529Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0019-20261015T002529Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0020-20261015T004919Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0020-20261015T004919Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0020-20261015T004919Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0021-20261015T010621Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0021-20261015T010621Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0021-20261015T010621Z/checkpoint.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0022-20261015T120332Z/STATUS.md",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0022-20261015T120332Z/SYNC.json",
+      "?? operations/continuity/outbox/WF04-20261014-NOJELLY/0022-20261015T120332Z/checkpoint.json",
+      "?? operations/incidents/WF04-service-ui-handoff.md",
+      "?? tests/test_manifest_privacy.py",
+      "?? workflows/current/payload/character-first/README.md",
+      "?? workflows/current/payload/character-first/records/ANIMATION_PLAN.json",
+      "?? workflows/current/payload/character-first/records/ASSETS.json",
+      "?? workflows/current/payload/character-first/records/BRAND_OUTRO.json",
+      "?? workflows/current/payload/character-first/records/BRIEF.json",
+      "?? workflows/current/payload/character-first/records/DELIVERY_CHECKS.json",
+      "?? workflows/current/payload/character-first/records/EDIT_BEATS.csv",
+      "?? workflows/current/payload/character-first/records/INTEGRITY_REPORT.json",
+      "?? workflows/current/payload/character-first/records/LAST_RECOVERY.json",
+      "?? workflows/current/payload/character-first/records/VIDEO_CAPABILITY_CHECK.json",
+      "?? workflows/current/payload/character-first/records/VIDEO_COMPONENTS.json",
+      "?? workflows/current/payload/character-first/records/main-reference/CONFORM_CHECKS.json",
+      "?? workflows/current/payload/character-first/records/main-reference/MAIN_REFERENCE_AUDIT.json",
+      "?? workflows/current/payload/character-first/records/main-reference/REFERENCE_FRAME_METRICS.csv",
+      "?? workflows/current/payload/character-first/records/main-reference/REFERENCE_LOCK.md",
+      "?? workflows/current/payload/character-first/records/main-reference/TRANSITION_CANDIDATES.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/AUDIO_CONFORM_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/DELIVERY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/KEYFRAMES.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/LATEST_DELIVERY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/PICTURE_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/PRODUCTION.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/README_DELIVERY.md",
+      "?? workflows/current/payload/character-first/records/rigged-full/RIG_SWEEP.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/SOURCE_PACKAGE.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/AUDIO_CONFORM_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/BASE_REVIEW_FEEDBACK.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/DELIVERY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/FRAME_INTEGRITY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/PICTURE_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/PLAN.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/README_DELIVERY.md",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/RECOVERY_CHECK.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/RIG_AUDIT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/enhance-v3/SOURCE_PACKAGE.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/AUDIO_CONFORM_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/DELIVERY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/FRAME_INTEGRITY.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/PLAN.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/POLISH_REPORT.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/README_DELIVERY.md",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/RECOVERY_CHECK.json",
+      "?? workflows/current/payload/character-first/records/rigged-full/polish-v2/SOURCE_PACKAGE.json",
+      "?? workflows/current/payload/character-first/requirements.txt",
+      "?? workflows/current/payload/character-first/src/analyze_main_reference.py",
+      "?? workflows/current/payload/character-first/src/assemble_design.py",
+      "?? workflows/current/payload/character-first/src/brand_end.py",
+      "?? workflows/current/payload/character-first/src/conform_reference_audio.py",
+      "?? workflows/current/payload/character-first/src/enhance_motion_v3.py",
+      "?? workflows/current/payload/character-first/src/polish_full_v2.py",
+      "?? workflows/current/payload/character-first/src/reassemble_polished_v2.py",
+      "?? workflows/current/payload/character-first/src/reassemble_rendered_edit.py",
+      "?? workflows/current/payload/character-first/src/recover_design_assets.py",
+      "?? workflows/current/payload/character-first/src/render_brand_outro.py",
+      "?? workflows/current/payload/character-first/src/rigged_main_film.py",
+      "?? workflows/current/payload/character-first/src/validate_assets.py",
+      "?? workflows/current/payload/character-first/tests/test_design.py",
+      "?? workflows/current/payload/character-first/tests/test_enhance_v3.py",
+      "?? workflows/current/payload/character-first/tests/test_outro.py",
+      "?? workflows/current/payload/character-first/tests/test_polish_v2.py",
+      "?? workflows/current/payload/character-first/tests/test_recovery.py",
+      "?? workflows/current/payload/character-first/tests/test_reference_conform.py",
+      "?? workflows/current/payload/character-first/tests/test_rigged_full.py",
+      "?? workflows/current/payload/true-motion/README.md",
+      "?? workflows/current/payload/true-motion/records/BRIEF.json",
+      "?? workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json",
+      "?? workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "?? workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "?? workflows/current/payload/true-motion/requirements.txt",
+      "?? workflows/current/payload/true-motion/src/build_vault.py",
+      "?? workflows/current/payload/true-motion/src/composite_live.py",
+      "?? workflows/current/payload/true-motion/src/finish_live.py",
+      "?? workflows/current/payload/true-motion/src/identity_head.py",
+      "?? workflows/current/payload/true-motion/src/motion_math.py",
+      "?? workflows/current/payload/true-motion/src/render_vault.py",
+      "?? workflows/current/payload/true-motion/tests/test_motion.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/character-first/README.md",
+      "size": 10065,
+      "sha256": "d325b8e4f010f30d20e4f93cde34fa979d084ffd15d9e98934aa6848bdc53d6a"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ANIMATION_PLAN.json",
+      "size": 21183,
+      "sha256": "994a33629a1722b2a7bbe49d68048c7b6ec697d823f2a32827b8b9bf4e9aef2f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/ASSETS.json",
+      "size": 6952,
+      "sha256": "da7760e583e35408be022c5ce3d7692e49bc7e9d63bc4f6111c5a2b9b4aed897"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/BRAND_OUTRO.json",
+      "size": 2044,
+      "sha256": "bacb557c9dda0a36b1ba24f23900e8520505eda6c3373f53914ebeabbe264484"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/BRIEF.json",
+      "size": 6773,
+      "sha256": "1096deb12d80d1f4a626f8503fc78fbbd191ff3b5777571749f48fc96743c321"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/DELIVERY_CHECKS.json",
+      "size": 1420,
+      "sha256": "d8c6abcb69f6c1056f056a78e7dca1545435d9630a112f086701d32163326158"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/EDIT_BEATS.csv",
+      "size": 1596,
+      "sha256": "860b6afe97294c9c80396ceb7098cee602092835385a0c48888e2728e4e5217b"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/INTEGRITY_REPORT.json",
+      "size": 3352,
+      "sha256": "6d002971ea05d712231333959229cc4ffb8874ebfce4428ce69415c545cded9a"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/LAST_RECOVERY.json",
+      "size": 370,
+      "sha256": "460722e5cf0fe96bf86ee8d1a1b142674a887b3cb5c904551c2fbcb322b4e77c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/VIDEO_CAPABILITY_CHECK.json",
+      "size": 1977,
+      "sha256": "e7a0e80c8831fb42e1fb0fe099677f3f58f0202b013e39681757b3404cc4fb5d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/VIDEO_COMPONENTS.json",
+      "size": 1106,
+      "sha256": "5a983028bfa9e1da3878c431caae12b93cd87676a372152f22b5353a8d342da1"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/CONFORM_CHECKS.json",
+      "size": 312,
+      "sha256": "7ee6cd27bf518789f04b79018eeb09b2e8b51fa79a12cd228510a32ee79f41f8"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/MAIN_REFERENCE_AUDIT.json",
+      "size": 2150,
+      "sha256": "42137084c7978b0ca1cbcc26901ec86ee107888fa34bd79dbe1540dd9fbea04f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/REFERENCE_FRAME_METRICS.csv",
+      "size": 94828,
+      "sha256": "5e70a406473801287cc034140d43570af7f9adc2404c262c9723447b1088272c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/REFERENCE_LOCK.md",
+      "size": 3732,
+      "sha256": "27b6d8bd78f08a3e942fe112875b8524f36ffee473f82c1fd2e24ae78e535821"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/main-reference/TRANSITION_CANDIDATES.json",
+      "size": 93430,
+      "sha256": "54f2c4c39469684150e1fabe34cd574c28442c23f7570e4887219296f3dbf7ce"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/AUDIO_CONFORM_REPORT.json",
+      "size": 713,
+      "sha256": "435bcd314441b3f4bba9e8acd036a7457ca0f1f2b5dadbbb399cb685feecc5c2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/DELIVERY.json",
+      "size": 2485,
+      "sha256": "ce62160dcd255eacfec0dc26d4e93714a09038d4f6067543921f77fba8d547e2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/KEYFRAMES.json",
+      "size": 2852,
+      "sha256": "ca026d44e499ffcdb533798e985c407a6d73395186e8f6b6c791f7515d8f5c75"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/LATEST_DELIVERY.json",
+      "size": 303,
+      "sha256": "571ca1d72331f4911a2112243e6f3c2dd7142209e059401a6daa0cd60a771ba2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/PICTURE_REPORT.json",
+      "size": 45355,
+      "sha256": "1683db9d9b3945c9ec45f9d984d59086bb2249186721a89b0921156ab989be3c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/PRODUCTION.json",
+      "size": 1009,
+      "sha256": "80f4ee8d68a41f421b6acc390c848d0cb3ba8b6d6f6ea45882e07bbd5dc14bdf"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/README_DELIVERY.md",
+      "size": 3787,
+      "sha256": "b1612b2f87729f3445214cf848168dac977917c88173b13dc3ba0706c733d8b2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/RIG_SWEEP.json",
+      "size": 37052,
+      "sha256": "ccbd789289448b31b59e1720852b4228236e8443cefe0deb6bde9ef6ae17647f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/SOURCE_PACKAGE.json",
+      "size": 557,
+      "sha256": "18c9249a75ebd1449d77eb1d5ffd1951d55d120d182467588987582e3ebb5587"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/AUDIO_CONFORM_REPORT.json",
+      "size": 713,
+      "sha256": "5dde73b4909f904235c3162b3f8fec8a1b62320e5d7aa847965c2b39f3dab6d7"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/BASE_REVIEW_FEEDBACK.json",
+      "size": 253,
+      "sha256": "8a02f0672b0f9c33fed14f21531b3144735be461442a5abb2d7ea2242149503e"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/DELIVERY.json",
+      "size": 2679,
+      "sha256": "f47fe534a151a1ad6f2470c4bef21a4cc3b1023c9c76aaeb3c33284f827a82ff"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/FRAME_INTEGRITY.json",
+      "size": 498,
+      "sha256": "71a2d4a45419ef486f5127c711ce72991e9de16d925f7774ee9d9245cb592d52"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/PICTURE_REPORT.json",
+      "size": 22460,
+      "sha256": "e4a1bf278fa5caf95cf7092262f837e74d2276fdd15129683b7019809aedc2b2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/PLAN.json",
+      "size": 667,
+      "sha256": "6691b21600a9df4f3bf5bf16b5c6626c1695d83483a0c1fcb7353b8978290e53"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/README_DELIVERY.md",
+      "size": 2899,
+      "sha256": "1e288e7e74ea8eff719ebd98338e92fce3873cc61463378c91099026952a0743"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/RECOVERY_CHECK.json",
+      "size": 228,
+      "sha256": "896880f79227821e9663d6f454197582f7fbbe636b94afdbc81012dde9d861ad"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/RIG_AUDIT.json",
+      "size": 35267,
+      "sha256": "ecfc95ffffc881c4805dd73b729cb38aad485900ff2ebe1bd5203fb09236f6a1"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/enhance-v3/SOURCE_PACKAGE.json",
+      "size": 637,
+      "sha256": "645b03588d972a8ca2477668e7856748fedff9f950c11fffb304c378bb965e1e"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/AUDIO_CONFORM_REPORT.json",
+      "size": 713,
+      "sha256": "093c6e348667254baac1efa34aa502cfcbe13ccf1e288ecd9abb6a758c627fad"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/DELIVERY.json",
+      "size": 1962,
+      "sha256": "873a2e8c7527f4d3610161acd8c279831b1030e5a956bbed331cca33c6735c08"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/FRAME_INTEGRITY.json",
+      "size": 465,
+      "sha256": "8d0e1303d1cc04622f8534bfbf41418772ec910851b934a74bc30e65a5309eb4"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/PLAN.json",
+      "size": 1234,
+      "sha256": "5ab5ecb8ee040f7d3c96d99921e8f4dd39c44a8f2a410e3a5bb4b19ad49abff9"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/POLISH_REPORT.json",
+      "size": 9124,
+      "sha256": "72a1b79d1716d668a36b99e8357f82ca6365363e430c354c884b50610aa3c4db"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/README_DELIVERY.md",
+      "size": 3049,
+      "sha256": "7c6e272a821e627f63fb733caf101bca710edcd41d18561687b8d0d691401566"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/RECOVERY_CHECK.json",
+      "size": 259,
+      "sha256": "36d35d2237f6ac0dd1b918adc3e2778844b9e0f5ec1424b1dd6b387daf38bc59"
+    },
+    {
+      "path": "workflows/current/payload/character-first/records/rigged-full/polish-v2/SOURCE_PACKAGE.json",
+      "size": 641,
+      "sha256": "307914cee2985aee9769dda3cf4bd7288be70caf4e27dabe16194b90db9416d2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/requirements.txt",
+      "size": 185,
+      "sha256": "360161314bf0e1ad9e398f27fddbbe7638b5c7526f140da0aeda5806da85739c"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/assemble_design.cpython-311.pyc",
+      "size": 18487,
+      "sha256": "fc17e004ef3b3985f9c682c1aadb86bc749a57f60e8e50211e2101ae4e709056"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/brand_end.cpython-311.pyc",
+      "size": 7960,
+      "sha256": "5380d1a6f6f09c4dff7cd3c2c56d2e21e3a6a7b05396c106f8ea6483d9bb1ae4"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/conform_reference_audio.cpython-311.pyc",
+      "size": 8149,
+      "sha256": "1de77cdcf53dd27617ecb99529d9a053c5a086d5532af2ed11fb54404447ac91"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/enhance_motion_v3.cpython-311.pyc",
+      "size": 37332,
+      "sha256": "f13d30a84f45792e2e219f1d971445d9ac79864379529b127024cf112c05c264"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/polish_full_v2.cpython-311.pyc",
+      "size": 28683,
+      "sha256": "52549702b7b7c15785150c21b72494961d1fa67cafcd1bc112aaf57efdda66ad"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/recover_design_assets.cpython-311.pyc",
+      "size": 7561,
+      "sha256": "fd5753720b7ee38d997bd6c056ca3186cf6bdc191c31e7d1e34b4347fb4f42a9"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/render_brand_outro.cpython-311.pyc",
+      "size": 28366,
+      "sha256": "baa471bdec5f72a33a58a004ee56b455509b7bc94ae6afbd177dc30d918e4abd"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/rigged_main_film.cpython-311.pyc",
+      "size": 70617,
+      "sha256": "b503566475e508d319cdb57d1e7c77b20ce2a556218cb36cab1f36d756577e68"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/__pycache__/validate_assets.cpython-311.pyc",
+      "size": 5304,
+      "sha256": "6a0c697d01d7d7b96668c5a3ba851db5d71db7095a199bbcfc48453bd9fd9976"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/analyze_main_reference.py",
+      "size": 7085,
+      "sha256": "b401d32b45f3ec9bbb91305fd3c2a3bd47a2e73b831cb6805aa94e81ada524fc"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/assemble_design.py",
+      "size": 9007,
+      "sha256": "565d5578a9013a02a021cbb97f5da4ca61ecf0e1f2264b5e55ab303579280854"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/brand_end.py",
+      "size": 2872,
+      "sha256": "58975837b2dc2717b4631d9c37fddf25b8d735b57b3725d1858f6e60510fadfd"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/conform_reference_audio.py",
+      "size": 4773,
+      "sha256": "6f17236ad13cadd9871b239fd546dd54665f2979ca14372ce6d7a44f59ec81ba"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/enhance_motion_v3.py",
+      "size": 15837,
+      "sha256": "6a24e71a55d7c351160233d7a32ab9fa94cfdf5846670b69ea60fea009909f26"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/polish_full_v2.py",
+      "size": 13182,
+      "sha256": "0f72808285c9167b33431a9afc3f372cca4c6b4d36f538887b29f7dcfffa78c3"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/reassemble_polished_v2.py",
+      "size": 2195,
+      "sha256": "8bcd44b26033980eb706afb4a72278fc08345fb045c20483554fceac8c3821cb"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/reassemble_rendered_edit.py",
+      "size": 2130,
+      "sha256": "ef70243156bfeda252c193f5f73144fce5cd2657306998ee4444cc4b1bb1b3a9"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/recover_design_assets.py",
+      "size": 3716,
+      "sha256": "f4e52f5bdc1bc20fddcc08717f56905246e5743fe4ccbf01dada1374006b79f2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/render_brand_outro.py",
+      "size": 11658,
+      "sha256": "d8efcb9c297dbd521dd9d2a7e8e13c99607ac2293d8e9bb2354ef8e06863f896"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/rigged_main_film.py",
+      "size": 34253,
+      "sha256": "934a322f7a6df1d92d4b1ab6b897eaef991196c76ab603589b46ca548eec6462"
+    },
+    {
+      "path": "workflows/current/payload/character-first/src/validate_assets.py",
+      "size": 2215,
+      "sha256": "a61b61e2ee54b081c50430497099722647c8fc437d67cd9eae6e02a774ff724d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_design.cpython-311.pyc",
+      "size": 11281,
+      "sha256": "3a56a7bef597725fba608f40302969017b79b19945515fc7536ec1ed7659e457"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_enhance_v3.cpython-311.pyc",
+      "size": 10717,
+      "sha256": "83ec091496a70c2c6c961a47b1522b9f872aaeb339228ac09e4e2f8afa2b5684"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_outro.cpython-311.pyc",
+      "size": 5490,
+      "sha256": "8faf0c9e222bdcdfe6e912cd09639333f5cfa8f210ed5646be7ce72be091661f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_polish_v2.cpython-311.pyc",
+      "size": 6074,
+      "sha256": "9da8bf130e36be08e3a5aba81dc4819e6eb418c72424bdc29c6973601ed5286a"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_recovery.cpython-311.pyc",
+      "size": 7094,
+      "sha256": "b1dfe13e8e5a47655d29fff9ef7ded2871612395aeb8f4d6dd834d43e84c637e"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_reference_conform.cpython-311.pyc",
+      "size": 4603,
+      "sha256": "f06cb795573cc40f57d7b230c26b0f4b4da4608cdc75d72a67fa0daf981ccd14"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/__pycache__/test_rigged_full.cpython-311.pyc",
+      "size": 8008,
+      "sha256": "f78dafbb88ce8dc2b25170d9432fde848615ae2b0682b99cb2c0a6e74ff939d7"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_design.py",
+      "size": 4035,
+      "sha256": "ad3f825787e4bb7589c4ad3f55fea42add8233288acdc5db9c75323236dfc711"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_enhance_v3.py",
+      "size": 3488,
+      "sha256": "ac37ed6a7f210979dda472f353aed6033635519280cfeb31075461024ddac1e2"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_outro.py",
+      "size": 1737,
+      "sha256": "f8182ec680ea3034113dc71638bc29340165b0b5f106f8e99cd608f26c421918"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_polish_v2.py",
+      "size": 2015,
+      "sha256": "54a6253ee2773aff7ed3c4108bc47222e2e2bba8e0265e00408560a7c6ff6ee5"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_recovery.py",
+      "size": 2532,
+      "sha256": "1a5a41a670d233a93c4537e2fe8aacea169fa29ef209524728990b8f9df0373d"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_reference_conform.py",
+      "size": 1608,
+      "sha256": "d5e193bbd7fbe941aa3e2dfd6a10cec0b01a82940fc67a03c9d9d73527d03c5f"
+    },
+    {
+      "path": "workflows/current/payload/character-first/tests/test_rigged_full.py",
+      "size": 2414,
+      "sha256": "eba49080d0dd1c98aeebaa73bd5ed9c27fbf171af7ce44a8ff8839ffa2b5d1b3"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/README.md",
+      "size": 5356,
+      "sha256": "cd5cb99468ed2c1af8dce4d3330ab072baa4b0c712f6fa2b97122ac76c44df22"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/BRIEF.json",
+      "size": 1000,
+      "sha256": "82e8f3af53f75a6eb8cc087c2d59f7191ed1f2a26067e92b380207920d4003f8"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/DRIVE_DELIVERY.json",
+      "size": 777,
+      "sha256": "d0015d48922ef0ab4f446f6ba0d6ac10637b02d29a74ceb03a5b8465216f1fd9"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/LIVE_ACTION_DELIVERY.json",
+      "size": 1921,
+      "sha256": "2e14632f5603f7979fe846eab3f23de76ac90259f4d230f62516f0b1a4b212df"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/records/NATIVE_DEPENDENCIES.json",
+      "size": 3149,
+      "sha256": "c0a4201825463f2d1575ff47438bb0ea38bd1aa24681c07e20b613b3502a70c6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/requirements.txt",
+      "size": 207,
+      "sha256": "832c3d66f0cd4ec8303e55655f1c56b1ef5a988572cd5c23dca61a833007a990"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/__pycache__/motion_math.cpython-311.pyc",
+      "size": 5463,
+      "sha256": "b0b1769e8aba3e27a4c582c4cc5e1b12f28a6d4439321ef5d50dfc94239e8c9b"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/build_vault.py",
+      "size": 30565,
+      "sha256": "64304ad9ba8771be3bea41be6aeb101d8c1d346ec07d7cd66b0a43119ce746dd"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/composite_live.py",
+      "size": 11391,
+      "sha256": "5a92640af4e4d442dd2ac0090cadbf63a36d9e180c26f365c18b20e1ea0a2f40"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/finish_live.py",
+      "size": 6681,
+      "sha256": "b509d0e4f08f6e77581a8a4c654d4998fb40095e500bfcbea35b731289823eb6"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/identity_head.py",
+      "size": 12807,
+      "sha256": "4212ecf6d9c00ac5b388e8831422194c2331157469fffdef2051fc9479db491c"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/motion_math.py",
+      "size": 2726,
+      "sha256": "322b1eaa28538bde7d11fb98e70d8bca932a3f6ba7d554a717922d7daefb5aed"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/src/render_vault.py",
+      "size": 3555,
+      "sha256": "12839ae8dc7c166eaa594cabeb65a137c2df441e358f07c2ed9abfebf11f4130"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/__pycache__/test_motion.cpython-311.pyc",
+      "size": 9164,
+      "sha256": "488afe5ca93c3723e8b5d2303273482836e3426275e708859614a6fdb2af4738"
+    },
+    {
+      "path": "workflows/current/payload/true-motion/tests/test_motion.py",
+      "size": 2943,
+      "sha256": "d42a25eaf0853f6848f4ce90c551fe3e3a5e2ae1abc1b9b130f775c85558843e"
+    }
+  ]
+}

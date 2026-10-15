@@ -2,20 +2,20 @@
 
 ## Current result
 
-**The full-length 44.4-second limited 2.5D recreation is delivered; the current review version is V2 targeted polish.** It contains 1,332 picture frames with the exact original main-reference soundtrack. This is the user-approved image-based rigging route—not natural AI performance, reconstructed 3D, or exact source choreography. User likeness/motion approval is still pending.
+**The full-length 44.4-second limited 2.5D recreation is delivered; the current review version is V3 motion/framing refinement.** It contains 1,332 picture frames with the exact original main-reference soundtrack. This is the user-approved image-based rigging route—not natural AI performance, reconstructed 3D, or exact source choreography. V2 was accepted as the baseline for enhancement; final V3 likeness/motion approval is not inferred.
 
-Latest full-film receipt: `records/rigged-full/polish-v2/DELIVERY.json`.
-V1 remains preserved at `records/rigged-full/DELIVERY.json`. V2 patches only five
-shots (159 frames): a blade-background smear and over-bright portrait pulses.
-The other 1,173 decoded RGB frames are identical to V1; music, cuts, camera/rig
-trajectories and character art are locked. See `FRAME_INTEGRITY.json` in the V2
-record folder for the full comparison result.
+Latest receipt: `records/rigged-full/enhance-v3/DELIVERY.json`.
+V1 and V2 remain preserved. V3 changes only four shots (132 frames): neutral
+reveal headroom, a controlled palm lift with rigid glove regions, and staggered
+arm-echo timing. The other 1,200 decoded RGB frames are identical to V2, including
+all 159 V2 repair frames. Music, cut boundaries, face/foot bone matrices and
+source identity art stay locked. See the V3 rig audit and frame-integrity report.
 
-The V2 recovery/source package also retains every completed picture chunk and
-was successfully reassembled without new rendering, reproducing the delivered
-movie's SHA-256. Use the verified video/ZIP receipts if local media disappears.
-The six source character/scene assets are still in `rigged-full/KEYFRAMES.json`.
-Do not resend only the outro or rerender finished work merely on Continue.
+Recovery/source packages retain completed encoded picture chunks, allowing
+reassembly without new rendering. Use the verified latest movie/ZIP receipts
+if local media disappears. The six original scene assets remain in
+`rigged-full/KEYFRAMES.json`; V3 generated no new identity or scene images.
+Do not resend only the outro or restart finished work merely on Continue.
 
 - Four new matching character references: front master, right-facing profile,
   rear, and detailed face portrait.

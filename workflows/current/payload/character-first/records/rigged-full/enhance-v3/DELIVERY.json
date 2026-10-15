@@ -1,0 +1,72 @@
+{
+  "status": "FULL_LENGTH_2_5D_RECREATION_V3_ENHANCED_FOR_REVIEW",
+  "version": 3,
+  "file": "/home/user/monarch-rigged-full/delivery/MONARCH_REFERENCE_2_5D_FULL_V3.mp4",
+  "drive_id": "1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5",
+  "url": "https://drive.google.com/file/d/1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5/view",
+  "folder_id": "1TzJ0qrIfKE5MDafPRJosVuZSkY8xvbOY",
+  "bytes": 20239715,
+  "md5": "8a78eff1204fa23f7fcea048c20ee543",
+  "sha256": "2245219a1e1a29090cd882b5a0c116c9bd439ee4f8653072612527f1734b97bf",
+  "upload_verified": true,
+  "picture_frames": 1332,
+  "picture_duration_seconds": 44.4,
+  "fps": 30,
+  "width": 720,
+  "height": 1280,
+  "reference_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+  "encoded_reference_audio_payload_match": true,
+  "decoded_reference_pcm_match": true,
+  "base_v2_drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y",
+  "base_v2_preserved": true,
+  "changed_shots": [
+    3,
+    5,
+    6,
+    7
+  ],
+  "changed_frames": 132,
+  "unchanged_shots": 33,
+  "unaffected_decoded_frames_identical": 1200,
+  "v2_repair_frames_preserved_identically": 159,
+  "unexpected_changed_frames": 0,
+  "changes": [
+    "Neutral reveal framing retains whole hair/head silhouette.",
+    "Controlled outward/upward palm gesture with rigid glove regions and unit bone lengths.",
+    "Arm echoes build and recede in staggered phases instead of constant pulsing.",
+    "Existing clean plate reused locally around arm disocclusions; no new character art."
+  ],
+  "identity_images_changed": false,
+  "face_and_foot_matrices_changed": false,
+  "cut_timing_changed": false,
+  "method": "same approved limited photographic 2.5D",
+  "natural_or_exact_3d_claimed": false,
+  "user_visual_or_likeness_approval": false,
+  "geometry_audit": {
+    "motion_frames_checked": 98,
+    "min_inverse_jacobian": 0.19437086582183838,
+    "max_face_det_error": 0.0010270476341247559,
+    "max_bone_scale_error": 3.3306690738754696e-16,
+    "max_hand_follow_error_px": 2.3437142008433856e-13,
+    "face_and_foot_matrices_identical_to_base": true,
+    "minimum_conservative_headroom_px": 23.630234542795677,
+    "source_identity_art_changed": false,
+    "scope": "Geometry/constraint checks only, not user visual or naturalism approval."
+  },
+  "encoded_review_frames": [
+    339,
+    420,
+    440,
+    480
+  ],
+  "render_seconds": 66.88,
+  "code_tests": {
+    "current_design_rig_recovery_conform_v2_v3": 40,
+    "repository": 11,
+    "legacy_motion_regression": 10,
+    "total_passed": 61
+  },
+  "source_package_drive_id": "18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g",
+  "source_package_url": "https://drive.google.com/file/d/18nDY7_4lCZoLIVR8ZmaaY-AqinLIzB0g/view",
+  "lossless_reassembly_test_passed": true
+}

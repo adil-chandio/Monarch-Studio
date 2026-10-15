@@ -1,9 +1,9 @@
 {
-  "version": 2,
-  "receipt": "polish-v2/DELIVERY.json",
-  "drive_id": "1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y",
-  "url": "https://drive.google.com/file/d/1Bl8zQE7Lmbv_i-IfjF7xcPu7olo-aT7y/view",
-  "base_v1_preserved": true,
+  "version": 3,
+  "receipt": "enhance-v3/DELIVERY.json",
+  "drive_id": "1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5",
+  "url": "https://drive.google.com/file/d/1jCE5Xtdkenf9Cg_OfsEHh35mAeqxlpZ5/view",
+  "base_v1_and_v2_preserved": true,
   "method": "limited image-based 2.5D",
   "user_visual_approval": false
 }
