@@ -5,7 +5,7 @@
   "created_at": "2026-10-15T01:06:21Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "confirmed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "2",
+      "synced_at": "2026-10-15T01:09:11Z",
+      "note": "Pushed 46e10da and updated existing PR #2 to V2 targeted polish. 55 tests pass; 1173 unchanged decoded frames and reference audio verified. No user-approval/exact-3D claim.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/pull/2"
     },
     "google_docs": {
       "status": "pending",
