@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-15T00:27:24+00:00",
+  "generated_at": "2026-10-15T00:30:30+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -872,8 +872,8 @@
       "size": 1239
     },
     "operations/continuity/outbox/WF04-20261014-NOJELLY/0019-20261015T002529Z/SYNC.json": {
-      "sha256": "7b3d1677732223bb8e98b250aa7b4544d6125321992ae09a38d2658c4f972826",
-      "size": 4755
+      "sha256": "9dd7547ac27ef79f4905be10531fdb17c65be442fe37df8670e2ed6e71ba75cc",
+      "size": 5040
     },
     "operations/continuity/outbox/WF04-20261014-NOJELLY/0019-20261015T002529Z/checkpoint.json": {
       "sha256": "067d570af5e3ad2d38a4523e21b600098daa9186b07344e960ed41476b0fe899",
@@ -2696,7 +2696,7 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "4d4cf4c071e5a6d1375249779a209de6ce7df3df854d9ee941bfd6204e0bece6",
+      "sha256": "043c8e4c4095d647b4b2cee016e1c4578579c6183b5f0f1434b2c04dd089d450",
       "size": 5268
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
@@ -2704,8 +2704,8 @@
       "size": 8499
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "5118c11784c8206b0de2076e2391cae6cf38c9cdd8238a75942cfde36b564c90",
-      "size": 90565
+      "sha256": "75c93983f3a421d0c84ea847f1a9d6aae199e6ebac61242ffe4db1812c28b804",
+      "size": 92125
     },
     "workflows/current/RESUME.md": {
       "sha256": "71f15248ee955ad38f743aaf03610fa1a00aef2defc7c7a72268363a18039cb8",

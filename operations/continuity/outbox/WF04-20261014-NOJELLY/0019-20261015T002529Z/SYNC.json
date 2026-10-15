@@ -5,7 +5,7 @@
   "created_at": "2026-10-15T00:25:29Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "confirmed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "2",
+      "synced_at": "2026-10-15T00:30:29Z",
+      "note": "Full V1 source and verified delivery receipts pushed as 07d76db; PR title/body updated to full reference-inspired 2.5D recreation. 50 tests pass. No natural/exact 3D or user likeness-approval claim.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/pull/2"
     },
     "google_docs": {
       "status": "pending",
