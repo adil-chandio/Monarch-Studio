@@ -5,7 +5,7 @@
   "created_at": "2026-10-16T01:04:02Z",
   "targets": {
     "github": {
-      "status": "pending",
+      "status": "completed",
       "target": {
         "required": true,
         "transport": "git",
@@ -31,9 +31,10 @@
           "resolution": "preserve only git skip-worktree paths; regression test added"
         }
       },
-      "remote_id": null,
-      "synced_at": null,
-      "note": null
+      "remote_id": "fc1776f716eb3ee324de1a762d0826ec3fae799a",
+      "synced_at": "2026-10-16T01:05:30Z",
+      "note": "Content push succeeded and remote ref plus startup-file API read-back verified. Receipt/archive follow-up commit will use the same branch; main not merged.",
+      "url": "https://github.com/adil-chandio/Monarch-Studio/commit/fc1776f716eb3ee324de1a762d0826ec3fae799a"
     },
     "google_docs": {
       "status": "pending",

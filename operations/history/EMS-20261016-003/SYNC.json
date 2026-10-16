@@ -47,11 +47,16 @@
     ]
   },
   "github": {
-    "status": "pending",
+    "status": "completed",
     "repository": "adil-chandio/Monarch-Studio",
     "branch": "arena/eba29c7c-monarch-studio",
     "merged_into_main": false,
-    "note": "Drive deliverables verified; next operation is a milestone commit/push on the existing session branch. This receipt does not yet assert GitHub publication."
+    "note": "This is the verified content publication commit, not a fabricated self-referential hash of this later receipt. A follow-up receipt/archive commit is pushed to the same branch and recorded in live Drive receipt. No PR/main merge is claimed.",
+    "content_commit": "fc1776f716eb3ee324de1a762d0826ec3fae799a",
+    "content_commit_url": "https://github.com/adil-chandio/Monarch-Studio/commit/fc1776f716eb3ee324de1a762d0826ec3fae799a",
+    "branch_url": "https://github.com/adil-chandio/Monarch-Studio/tree/arena/eba29c7c-monarch-studio",
+    "verified_at": "2026-10-16T01:05:30.087322+00:00",
+    "verified": "Explicit branch push succeeded; git ls-remote matches local HEAD; GitHub API re-read START_HERE.md at the published branch."
   },
   "other_apps": "No new Notion/Linear records or notifications are implied by GitHub/Drive publication.",
   "coverage": {
