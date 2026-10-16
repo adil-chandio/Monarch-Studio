@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 · YT Agent Crew — complete multi-agent production structure  
 **Style:** `agent-workflow`  
-**Checkpoint sequence:** 0  
-**Last checkpoint:** none
+**Checkpoint sequence:** 1  
+**Last checkpoint:** 2026-10-16T14:36:09Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Build the complete no-code structure for the Monarch YouTube agent crew: manager
 
 ## Exact next action
 
-Write WF-06 structure documents and register the workflow.
+Implement WF-06 as running agents (code) after user sign-off, OR begin S0 BRIEF on CLOSE CALL FILES #01 using RUNBOOK_S01E01.md. Two open blockers: YouTube Studio analytics access for A08 and the human publish gate.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `none`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261016-004/0001-20261016T143609Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

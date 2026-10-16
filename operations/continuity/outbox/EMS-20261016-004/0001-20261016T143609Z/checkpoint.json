@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261016T143609Z",
+  "created_at": "2026-10-16T14:36:09Z",
+  "summary": "WF-06 · Monarch YT Agent Crew structure delivered (commit 1a7a526). Eight agents: A01 MANAGER, A02 HUNTER (research/ideas), A03 ARCHITECT (script), A04 VOICE, A05 CRAFTSMAN (edit), A06 PACKAGER (title/thumb/metadata), plus two added to close fatal gaps: A07 WARDEN (compliance/rights, veto) and A08 ORACLE (analytics/learning loop). Pipeline S0-S8 with measured gates, live reporting bus, numbered manager feedback, 3-strike escalation, 8-point rubric with Uniqueness-under-4-means-KILL. No code written per explicit instruction. Validation 21 pass / 0 error.",
+  "next_action": "Implement WF-06 as running agents (code) after user sign-off, OR begin S0 BRIEF on CLOSE CALL FILES #01 using RUNBOOK_S01E01.md. Two open blockers: YouTube Studio analytics access for A08 and the human publish gate.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261016-004",
+    "status": "active",
+    "title": "WF-06 · YT Agent Crew — complete multi-agent production structure",
+    "style_id": "agent-workflow",
+    "goal": "Build the complete no-code structure for the Monarch YouTube agent crew: manager-led chain of command, live reporting bus, per-agent specs, measurable stage gates, compliance veto, and a learning loop that returns analytics into research. Fill the gaps that would stop the crew reaching tabahi level.",
+    "acceptance_criteria": [
+      "Permanent structure docs under workflows/wf06_yt_agent_crew/, registered as WF-06, every agent has inputs/outputs/gates/escalation, no code written, validation passes."
+    ],
+    "started_at": "2026-10-16T14:33:04Z",
+    "updated_at": "2026-10-16T14:36:09Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 4,
+    "journal_head": "f2789a98238cee030c1c44867d6bdb1ef2d3d142a60a5cb268d44548a217aa17",
+    "last_checkpoint": "2026-10-16T14:36:09Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261016-004/0001-20261016T143609Z",
+    "next_action": "Implement WF-06 as running agents (code) after user sign-off, OR begin S0 BRIEF on CLOSE CALL FILES #01 using RUNBOOK_S01E01.md. Two open blockers: YouTube Studio analytics access for A08 and the human publish gate.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261016-004",
+    "seq": 4,
+    "timestamp": "2026-10-16T14:36:09Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "WF-06 · Monarch YT Agent Crew structure delivered (commit 1a7a526). Eight agents: A01 MANAGER, A02 HUNTER (research/ideas), A03 ARCHITECT (script), A04 VOICE, A05 CRAFTSMAN (edit), A06 PACKAGER (title/thumb/metadata), plus two added to close fatal gaps: A07 WARDEN (compliance/rights, veto) and A08 ORACLE (analytics/learning loop). Pipeline S0-S8 with measured gates, live reporting bus, numbered manager feedback, 3-strike escalation, 8-point rubric with Uniqueness-under-4-means-KILL. No code written per explicit instruction. Validation 21 pass / 0 error.",
+    "content_sha256": "ff0471cf17d7d84fe31065875b2837145bd1da5e0935814c99f2faa43cfb1bdf",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Implement WF-06 as running agents (code) after user sign-off, OR begin S0 BRIEF on CLOSE CALL FILES #01 using RUNBOOK_S01E01.md. Two open blockers: YouTube Studio analytics access for A08 and the human publish gate.",
+      "status": "active"
+    },
+    "prev_event_sha256": "0d4a57cf7b5b24598b450525a4ad1de65d8b83b9d64116ec28c69d269e9dfbb4",
+    "event_sha256": "f2789a98238cee030c1c44867d6bdb1ef2d3d142a60a5cb268d44548a217aa17"
+  },
+  "journal_head": "f2789a98238cee030c1c44867d6bdb1ef2d3d142a60a5cb268d44548a217aa17",
+  "git": {
+    "initialized": true,
+    "head": "1a7a5262ca5caa7873ed04b9caf99ec7c7b43b53",
+    "branch": "arena/617affe3-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}
