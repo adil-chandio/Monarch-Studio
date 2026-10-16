@@ -44,7 +44,19 @@ workflow only.
 | WF-02 | Powerful Personality Explainer (LEGACY — old chat 2026-10-07) | `TABAHI ACTIVATE` | LEGACY | doodle stickman, WebGL/canvas HTML engine (`crayon/pp-v4.html`) via puppeteer, 16:9 60 s explainer, 16 locked VO clips | https://app.notion.com/p/Powerful-Personality-Stickman-Explainer-v2-Full-Production-Record-3f2807e1e91681b2a334d34ea75cc5ea (page `3f2807e1-e916-81b2-a334-d34ea75cc5ea`; row `3f4807e1-e916-81a6-b24c-f09db93d02d6`) | projects `a813926c-b2ef-4956-91dd-09e91f08b7d9` (MON-20…33; open MON-32 https://linear.app/monarchmation/issue/MON-32, MON-33 errors, MON-31, MON-20) + shell `5f4f1906-2367-4951-bf4a-84ad817446a8` | `1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX` https://drive.google.com/drive/folders/1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX (HUB doc only — nothing else was ever uploaded) | `1MVReMbe56MeehNO8Il70qMhuAHNxI01PPE0Vupj0FTc` https://docs.google.com/document/d/1MVReMbe56MeehNO8Il70qMhuAHNxI01PPE0Vupj0FTc/edit | old chat's sandbox only (`START-HERE.md`, `crayon/pp-v4.html`, `audio_vo/`) | MON-31 research script · MON-32 thumbnails/music bed/.srt · MON-20 packaging |
 | WF-03 | Monarch Noir Film | `NOIRGO <topic>` | ACTIVE · film #1 THE SHADOW v1 (`16qsEno9sN_p4fggfcTN05W9LUzYsz0u4`) · film #2 THE WINDOW v1 delivered 2026-10-10 (`1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy`, 27/27, NOIRGO MAX: real-life plates + 3-D stick-human hero + full VO) | Dark cinematic animated short film, 1920x1080 24 fps, 120-180 s, own DNA per film, 27 measured gates + brain gate #20. Film #1 engine: black world, bone-white line hero, amber light + one red villain colour, cast-shadow physics, text narration + 2-3 voice lines. Film #2 engine (NOIRGO MAX, current): real-life illustrated plates + crop camera, 3-D stick-human hero (stick3d.py), full English VO + SFX voices + score | https://app.notion.com/p/WF-03-Monarch-Noir-Film-3f4807e1e9168135b919ee36b0e39165 (page 3f4807e1-e916-8135-b919-ee36b0e39165; row 3f4807e1-e916-810e-a035-fce9f7cc8f3f) | e173192b-b932-4801-ac4d-dcd7445237b8 → https://linear.app/monarchmation/issue/MON-57/00-resume-key-noirgo-wf-03-monarch-noir-film-state-links | https://drive.google.com/drive/folders/11c194r1f_IMIo5yOmT-j80Iu-sZWP3KP (11c194r1f_IMIo5yOmT-j80Iu-sZWP3KP) | https://docs.google.com/document/d/1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM (1sGGzPHXXars1-pJvB3ugnbnLuSuQ5EpE-obVidTj6rM) | workflows/wf03_monarch_noir_film/ | nothing pending — 2 films delivered (THE SHADOW v1 `16qsEno9sN_p4fggfcTN05W9LUzYsz0u4` · THE WINDOW v1 `1WaMfEroWgzuYHeSCpyU9CPY7gJ0a0iGy`, 27/27, md5 cfe189f9c09e47e6728d2f2aba017f8d); next `NOIRGO <topic>` = film #3 |
 
-Next free code: **WF-04**.
+## WF-06 · Monarch YT Agent Crew — structure addition 2026-10-16
+
+Trigger `CREWGO <topic>`; permanent path `workflows/wf06_yt_agent_crew/`. An eight-agent YouTube production crew led by a
+managing agent (A01) with measurable stage gates S0–S8, a live reporting bus (every agent reports to the manager during
+and after work), a compliance agent with **veto power** (A07) and an analytics/learning agent (A08) that returns lessons
+into the research brief.
+
+- Local root: `workflows/wf06_yt_agent_crew/` (`README.md`, `AGENT_SPECS.md`, `HANDOFF_AND_BUS.md`, `GATES_AND_SCORECARDS.md`, `COMPLIANCE_AND_ETHICS.md`, `LEARNING_LOOP.md`, `RUNBOOK_S01E01.md`)
+- Market intelligence it executes: `channel/` (forensic audit + content plan + snapshot + clip source register)
+- Status: **structure defined, no code written by explicit user instruction** (2026-10-16)
+- Two agents were added beyond the user's six-role description to close the gaps that were blocking the crew: A07 WARDEN (compliance/rights veto — the gap that let Monarch Cam fall from 955,681 to 16 views) and A08 ORACLE (post-publish analytics that close the learning loop)
+
+Next free code: **WF-07** (WF-04 was skipped historically and is not reused).
 
 ## Name-collision note
 Before 2026-10-09 both workflows were called "Monarch Stickman Animation" (3 Linear projects, 5+ Notion pages).
