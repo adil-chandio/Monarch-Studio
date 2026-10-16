@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T21:54:46+00:00",
+  "generated_at": "2026-10-16T14:16:51+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -52,20 +52,40 @@
       "size": 1007
     },
     "README.md": {
-      "sha256": "eb06409b55a6f33315ece333899ec8e42b2f5a0a6e5d2cc402bae3ad24e992eb",
-      "size": 6259
+      "sha256": "1e3950aa003c8f8c18c9931499fe5af06687da1a8bd2d32bde8e5be8b955b87e",
+      "size": 6759
     },
     "SECURITY.md": {
       "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "bbbce2ae98bfb528f020c6ba85ba758c3b8df120a15f57e8eb64226202b4e2d2",
+      "size": 583
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
       "size": 1108
+    },
+    "channel/CONTENT_PLAN_2026-10-16.md": {
+      "sha256": "2db264ea22607ff4bdea7db867e72039e094188cff8aa5de36fa7ede9f297ab6",
+      "size": 17967
+    },
+    "channel/FORENSIC_AUDIT_2026-10-16.md": {
+      "sha256": "ba019858c8c51f746235e8051942f89bc5f56776472dfca06b22d948f1607354",
+      "size": 15389
+    },
+    "channel/README.md": {
+      "sha256": "2448d12c62eab83d1b96668efe73e4b506a73a5c542385c055d63c3d09a72b95",
+      "size": 2883
+    },
+    "channel/data/CLIP_SOURCES.csv": {
+      "sha256": "7d202a74b1123527ddc27e89d5647debfe84c327a0ba35801f7bb433218f7a7f",
+      "size": 788
+    },
+    "channel/data/channel_snapshot_2026-10-16.json": {
+      "sha256": "56ac94948198046870ac461f794d2d46396f4a1e36e448a3cdaea0dfd93b6e00",
+      "size": 14948
     },
     "characters/README.md": {
       "sha256": "03f750a229005eeb9a59928db287324f7c604a5ff8e1a1c6eddb9704f6cc78c8",
@@ -3732,20 +3752,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "d89ac16bc8297bc0e5300e0e4af87cf2330e7f58a582d83ff42bda1001bfeeb1",
-      "size": 745
+      "sha256": "1d682d34f73f93651ad112bafe645e46011776897fb1fbd70be532bc9cd87f11",
+      "size": 1149
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "93f2c70acfb6c1f9eb474557c580bae52ef8d495ddec176875d8778606ce7481",
+      "size": 634
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "f736575c70e040ab905c2ad00e4019f578f323a4e7807a31c3132042583027b5",
+      "size": 2011
     },
     "workflows/current/RESUME.md": {
-      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
-      "size": 874
+      "sha256": "c0098de8b73860044aa17222fc94fd6d4368f17460ded9e8ebd8458c344293ce",
+      "size": 1286
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

@@ -12,6 +12,14 @@ python3 tools/studio.py validate
 
 [`START_HERE.md`](START_HERE.md) and [`workflows/current/RESUME.md`](workflows/current/RESUME.md) are the authoritative recovery entry points. Never restart from the beginning while they identify an unfinished task.
 
+## Channel intelligence
+
+Monarch Cam (`@monarch-cam`, `UCfYdmsLO4Q8_IHklTyYieLg`) has its own permanent strategy folder:
+
+- [`channel/FORENSIC_AUDIT_2026-10-16.md`](channel/FORENSIC_AUDIT_2026-10-16.md) — full channel forensic audit
+- [`channel/CONTENT_PLAN_2026-10-16.md`](channel/CONTENT_PLAN_2026-10-16.md) — 90-day forward plan, packaging rules and compliance gates
+- [`channel/data/channel_snapshot_2026-10-16.json`](channel/data/channel_snapshot_2026-10-16.json) — raw captured evidence
+
 ## Permanent style library
 
 | Style | Trigger | State | Permanent implementation |

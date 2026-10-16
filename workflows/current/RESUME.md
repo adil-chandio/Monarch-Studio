@@ -1,22 +1,22 @@
-# Resume capsule — NONE
+# Resume capsule — EMS-20261016-003
 
-**Status:** `idle`  
-**Title:** No active task  
-**Style:** `studio-operation`  
+**Status:** `active`  
+**Title:** Monarch Cam — channel forensic audit + forward content plan  
+**Style:** `channel-strategy`  
 **Checkpoint sequence:** 0  
 **Last checkpoint:** none
 
 ## Goal
 
-No goal recorded.
+Deep forensic analysis of the Monarch Cam YouTube channel (@monarch-cam, UCfYdmsLO4Q8_IHklTyYieLg) from live channel data, plus an evidence-backed 90-day content plan with packaging, cadence, compliance and kill criteria.
 
 ## Acceptance criteria
 
-- None recorded.
+- [ ] Permanent forensic audit + data snapshot + content plan committed under channel/, all numbers traceable to captured evidence, gaps marked as unknown not invented.
 
 ## Exact next action
 
-Start the next task with continuity.py init.
+Write channel/ deliverables and commit.
 
 ## Running processes
 

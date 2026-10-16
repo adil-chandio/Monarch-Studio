@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-14T21:54:45Z",
+  "task_id": "EMS-20261016-003",
+  "status": "active",
+  "title": "Monarch Cam — channel forensic audit + forward content plan",
+  "style_id": "channel-strategy",
+  "goal": "Deep forensic analysis of the Monarch Cam YouTube channel (@monarch-cam, UCfYdmsLO4Q8_IHklTyYieLg) from live channel data, plus an evidence-backed 90-day content plan with packaging, cadence, compliance and kill criteria.",
+  "acceptance_criteria": [
+    "Permanent forensic audit + data snapshot + content plan committed under channel/, all numbers traceable to captured evidence, gaps marked as unknown not invented."
+  ],
+  "started_at": "2026-10-16T14:14:26Z",
+  "updated_at": "2026-10-16T14:16:40Z",
   "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
+  "event_sequence": 3,
+  "journal_head": "147e04fb8220326388d709e35da581a7998883587062cfb1f65ed068c1e9bd7f",
   "last_checkpoint": null,
   "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "next_action": "Write channel/ deliverables and commit.",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261015-WF05-FOUNDATION",
-  "completion_checkpoint": "0006-20261014T215445Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }
