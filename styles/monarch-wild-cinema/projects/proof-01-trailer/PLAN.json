@@ -1,0 +1,549 @@
+{
+  "episode": "PROOF-01-TRAILER",
+  "look": "nocturne",
+  "plates": "../../assets/plates",
+  "audio": {
+    "bed": {
+      "drone": 0.154,
+      "air": 0.154,
+      "shimmer": 0.55,
+      "tension": 0.044,
+      "pad": 0.2,
+      "pad_root": 440.0,
+      "shimmer_per_second": 2.4
+    },
+    "soft_clip": 1.8,
+    "pre_peak": 0.62,
+    "cue_scale": 0.7,
+    "target_corr": 0.575,
+    "peak_guard": 0.68,
+    "target_i": -16.0,
+    "auto_cues_from_transitions": true,
+    "cues": [
+      {
+        "at": 0.0,
+        "cue": "sub_drop",
+        "gain": 1.0
+      },
+      {
+        "at": 0.0,
+        "cue": "impact",
+        "gain": 1.15
+      },
+      {
+        "at": 3.4,
+        "cue": "riser",
+        "gain": 0.85
+      },
+      {
+        "at": 4.0,
+        "cue": "impact",
+        "gain": 1.0
+      },
+      {
+        "at": 7.3,
+        "cue": "whoosh",
+        "gain": 0.9
+      },
+      {
+        "at": 7.6,
+        "cue": "impact",
+        "gain": 1.05
+      },
+      {
+        "at": 11.0,
+        "cue": "riser",
+        "gain": 0.9
+      },
+      {
+        "at": 11.8,
+        "cue": "impact",
+        "gain": 1.0
+      },
+      {
+        "at": 14.0,
+        "cue": "bell",
+        "gain": 0.6
+      },
+      {
+        "at": 16.0,
+        "cue": "whoosh",
+        "gain": 0.8
+      },
+      {
+        "at": 16.2,
+        "cue": "impact",
+        "gain": 1.05
+      },
+      {
+        "at": 19.0,
+        "cue": "tick",
+        "gain": 0.7
+      },
+      {
+        "at": 19.8,
+        "cue": "tick",
+        "gain": 0.7
+      },
+      {
+        "at": 20.6,
+        "cue": "tick",
+        "gain": 0.7
+      },
+      {
+        "at": 22.6,
+        "cue": "riser",
+        "gain": 0.95
+      },
+      {
+        "at": 23.6,
+        "cue": "pad_swell",
+        "gain": 0.7
+      },
+      {
+        "at": 24.4,
+        "cue": "hard_hit",
+        "gain": 1.0
+      },
+      {
+        "at": 27.4,
+        "cue": "riser_short",
+        "gain": 1.0
+      },
+      {
+        "at": 28.6,
+        "cue": "impact",
+        "gain": 1.2
+      },
+      {
+        "at": 30.4,
+        "cue": "whoosh_edge",
+        "gain": 0.8
+      }
+    ]
+  },
+  "shots": [
+    {
+      "id": "01",
+      "dur": 4.0,
+      "plate": "01_hook_charge.jpg",
+      "look": "nocturne",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.3,
+          0.2,
+          0.78,
+          0.98
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.04,
+          0.12
+        ],
+        "orbit": 34,
+        "roll": 0.5,
+        "breathe": 3,
+        "ramp": "tri"
+      },
+      "fx": {
+        "rays": 0.2,
+        "motes": 70,
+        "haze": 0.12,
+        "impact": [
+          0.0
+        ],
+        "shake": 9,
+        "chroma": 0.8
+      },
+      "transition_in": "hard",
+      "type": [
+        {
+          "kind": "headline",
+          "text": "40 METRES.",
+          "accent_word": "40",
+          "in": 0.12,
+          "out": 2.3,
+          "anim": "extrude_tilt",
+          "scrim": 0.55,
+          "size": 150
+        },
+        {
+          "kind": "headline",
+          "text": "THREE SECONDS.",
+          "accent_word": "THREE",
+          "in": 2.5,
+          "out": 4.0,
+          "anim": "pop",
+          "scrim": 0.55,
+          "size": 132
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "dur": 3.6,
+      "plate": "03_running.jpg",
+      "look": "alarm",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.25,
+          0.25,
+          0.75,
+          0.95
+        ],
+        "feather": [
+          0.16,
+          0.12
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.05,
+          0.13
+        ],
+        "orbit": -28,
+        "roll": 0.6,
+        "breathe": 3
+      },
+      "fx": {
+        "streaks": 0.4,
+        "streaks_from": 0.0,
+        "streaks_ramp": 0.4,
+        "haze": 0.1,
+        "motes": 50,
+        "shake": 7,
+        "impact": [
+          0.0
+        ]
+      },
+      "transition_in": "dip",
+      "type": [
+        {
+          "kind": "headline",
+          "text": "THEY RUN.",
+          "accent_word": "RUN",
+          "in": 0.2,
+          "out": 3.4,
+          "anim": "wipe",
+          "scrim": 0.45,
+          "size": 156
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "dur": 4.4,
+      "plate": "12_grizzly.jpg",
+      "look": "nocturne",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.22,
+          0.18,
+          0.8,
+          0.94
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.03,
+          0.09
+        ],
+        "orbit": 22,
+        "roll": 0.4,
+        "breathe": 2.5
+      },
+      "fx": {
+        "rays": 0.24,
+        "haze": 0.14,
+        "motes": 80,
+        "impact": [
+          0.35
+        ],
+        "shake": 6
+      },
+      "transition_in": "whip",
+      "type": [
+        {
+          "kind": "headline",
+          "text": "MOST CHARGES ARE NOT ATTACKS.",
+          "accent_word": "NOT",
+          "in": 0.3,
+          "out": 4.1,
+          "anim": "extrude_tilt",
+          "scrim": 0.6,
+          "size": 112
+        },
+        {
+          "kind": "mark",
+          "series": "MONARCH",
+          "sub": "FILES",
+          "ep": "EP 01",
+          "in": 0.0,
+          "out": 4.4,
+          "scrim": 0.5
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "dur": 3.8,
+      "plate": "04_speed.jpg",
+      "look": "alarm",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.24,
+          0.22,
+          0.78,
+          0.96
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.06,
+          0.14
+        ],
+        "orbit": 30,
+        "roll": 0.7,
+        "breathe": 4
+      },
+      "fx": {
+        "streaks": 0.55,
+        "streaks_from": 0.0,
+        "streaks_ramp": 0.5,
+        "haze": 0.1,
+        "motes": 60,
+        "impact": [
+          0.0
+        ],
+        "shake": 8
+      },
+      "transition_in": "depth",
+      "type": [
+        {
+          "kind": "stat",
+          "value": "35",
+          "unit": "MPH",
+          "note": "SPRINT SPEED",
+          "in": 0.25,
+          "out": 3.5,
+          "scrim": 0.45,
+          "big": 300,
+          "pos": "center"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "dur": 4.2,
+      "plate": "05_watching.jpg",
+      "look": "nocturne",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.28,
+          0.2,
+          0.8,
+          0.96
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.03,
+          0.1
+        ],
+        "orbit": -20,
+        "roll": 0.35,
+        "breathe": 2.5
+      },
+      "fx": {
+        "rays": 0.16,
+        "motes": 55,
+        "haze": 0.12
+      },
+      "transition_in": "wipe",
+      "type": [
+        {
+          "kind": "species",
+          "name": "GRIZZLY",
+          "answer": "DON'T RUN. DON'T FIGHT.",
+          "accent": "amber",
+          "xy": [
+            370,
+            620
+          ],
+          "in": 0.35,
+          "out": 4.0,
+          "anim": "rise",
+          "scrim": 0.42
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "dur": 4.0,
+      "plate": "07_spray.jpg",
+      "look": "first_light",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.26,
+          0.22,
+          0.76,
+          0.96
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.02,
+          0.07
+        ],
+        "orbit": 16,
+        "roll": 0.3,
+        "breathe": 2
+      },
+      "fx": {
+        "rays": 0.28,
+        "motes": 90,
+        "haze": 0.16,
+        "impact": [
+          0.5
+        ],
+        "shake": 5
+      },
+      "transition_in": "dip",
+      "type": [
+        {
+          "kind": "gauge",
+          "value": 0.92,
+          "label": "BEAR SPRAY",
+          "sub": "effectiveness",
+          "xy": [
+            1260,
+            210
+          ],
+          "in": 0.3,
+          "out": 3.8,
+          "scrim": 0.5
+        },
+        {
+          "kind": "source",
+          "cites": "Smith & Herrero 2008 - J Wildl Manage",
+          "xy": [
+            112,
+            900
+          ],
+          "in": 0.8,
+          "out": 3.8,
+          "scrim": 0.45
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "dur": 3.8,
+      "plate": "09_bear_country.jpg",
+      "look": "nocturne",
+      "depth": {
+        "mode": "hybrid",
+        "rect": [
+          0.2,
+          0.14,
+          0.84,
+          0.96
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.04,
+          0.12
+        ],
+        "orbit": 26,
+        "roll": 0.45,
+        "breathe": 3
+      },
+      "fx": {
+        "rays": 0.18,
+        "haze": 0.16,
+        "motes": 60,
+        "impact": [
+          0.0
+        ],
+        "shake": 5
+      },
+      "transition_in": "dip",
+      "type": [
+        {
+          "kind": "headline",
+          "text": "THREE THINGS TO REMEMBER",
+          "accent_word": "THREE",
+          "in": 0.15,
+          "out": 3.5,
+          "anim": "extrude_tilt",
+          "scrim": 0.62,
+          "size": 120
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "dur": 3.2,
+      "plate": "10_endcard.jpg",
+      "look": "archive",
+      "depth": {
+        "mode": "plateau",
+        "rect": [
+          0.3,
+          0.24,
+          0.7,
+          0.92
+        ]
+      },
+      "cam": {
+        "zoom": [
+          0.01,
+          0.05
+        ],
+        "orbit": 10,
+        "roll": 0.2,
+        "breathe": 1.5
+      },
+      "fx": {
+        "motes": 40,
+        "haze": 0.1,
+        "flash": [
+          0.0
+        ]
+      },
+      "transition_in": "dip",
+      "type": [
+        {
+          "kind": "headline",
+          "text": "MONARCH FILES",
+          "accent_word": "FILES",
+          "in": 0.2,
+          "out": 3.1,
+          "anim": "pop",
+          "scrim": 0.5,
+          "size": 140
+        },
+        {
+          "kind": "lower",
+          "kicker": "EPISODE 01",
+          "main": "THE BEAR ISN'T CHARGING YOU",
+          "xy": [
+            112,
+            780
+          ],
+          "in": 1.0,
+          "out": 3.1,
+          "scrim": 0.55
+        }
+      ]
+    }
+  ]
+}

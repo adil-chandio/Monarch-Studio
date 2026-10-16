@@ -1,0 +1,31 @@
+{
+  "evidence": "monarch-wild-cinema score engine; laws inherited from the noir and stickman mixes where stated",
+  "narration_speed": 1.0,
+  "policy": {
+    "no_time_stretch": "narration is never atempo'd; the picture is cut to the measured voice",
+    "padding": "no apad in this engine; the voice track is built by exact concatenation",
+    "cues": "one matched cue per transition kind, read from the same table the picture uses",
+    "voice_voices": 12,
+    "beds": ["drone (40-130 Hz)", "air (200 Hz-8 kHz)", "tension (1.1-1.8 kHz dyad)"],
+    "width": "created at the SOURCE (independent detune + phase per channel), never by a bus widener"
+  },
+  "mix": {
+    "duck_ratio": 5,
+    "duck_why": "18:1 produced 12 holes > 9 LU below the mean, one inside the CTA (stickman M21)",
+    "structure": "two passes: duck+sum+alimiter, then loudnorm",
+    "alimiter_limit": 0.63,
+    "alimiter_note": "~ -4 dBFS; AAC overshoots the PCM limiter by ~2.4 dB (noir 4.3)",
+    "loudnorm": {"I": -16.0, "TP": -1.5, "LRA": 9},
+    "output": "AAC stereo 192 kbps / 48 kHz / 2 ch"
+  },
+  "targets": {
+    "integrated_lufs": [-17.5, -15.5],
+    "true_peak_dbtp_max": -1.0,
+    "decoded_peak_dbfs_max": -1.0,
+    "lr_correlation": [0.55, 0.85],
+    "side_mid_min": 0.25,
+    "band_4_8k_voice_absent_pct_min": 10,
+    "band_120_500_whole_pct_max": 58
+  },
+  "measurement_scope": "decode, time, level-check and per-band shares are measured. No independent human listening pass is claimed; any actual listening review must be recorded as performed."
+}

@@ -38,6 +38,19 @@
       "status": "READY_WITH_USER_POLICY",
       "latest_release": "V5 direction + accepted V6 enhancements; lower pill UI rejected",
       "latest_release_path": "styles/premium-motion-editing/projects/einstein-flow-state"
+    },
+    {
+      "style_id": "monarch-wild-cinema",
+      "name": "Monarch Wild Cinema",
+      "path": "styles/monarch-wild-cinema",
+      "trigger": "CINEGO <topic>",
+      "knowledge_index": "styles/monarch-wild-cinema/knowledge/INDEX.md",
+      "workflow_code": "WF-07",
+      "contract": "styles/monarch-wild-cinema/workflow.json",
+      "status": "ENGINE_COMPLETE_PROOF_RENDERED",
+      "latest_release": "PROOF-01 trailer — engine proof with the 14-gate report",
+      "latest_release_path": "styles/monarch-wild-cinema/projects/proof-01-trailer",
+      "note": "the channel's flagship engine: generates everything it shows, reposts nothing"
     }
   ]
 }

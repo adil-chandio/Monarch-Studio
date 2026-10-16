@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-wild-cinema",
+  "workflow_code": "WF-07",
+  "trigger": "CINEGO <topic>",
+  "runtime": {
+    "entry_point": "src/run_film.py",
+    "plan_schema": "projects/*/PLAN.json",
+    "dependencies": {
+      "python": ">=3.11",
+      "pillow": ">=10",
+      "numpy": ">=1.26",
+      "opencv-python-headless": ">=4.8 (5.x verified)",
+      "imageio-ffmpeg": "7.0.2 (bundles ffmpeg 7.0.2 — no system ffmpeg required)"
+    },
+    "cost_measured": {
+      "seconds_per_frame_1080p": 0.40,
+      "minutes_per_finished_minute": 12.0,
+      "measured_on": "2 vCPU / 3.9 GB RAM / no GPU, 2026-10-16",
+      "biggest_costs": ["2.5D remap ~96 ms", "grade chain ~172 ms", "atmosphere+action ~130 ms", "type ~13 ms"]
+    }
+  },
+  "roles": {
+    "A02": "supplies the topic, the sources and the verified claims",
+    "A03": "writes PLAN.json: shots, durations, depth hints, effects, type, chart values",
+    "A04": "synthesises narration; measurement feeds the plan's durations",
+    "A05": "runs run_film.py and owns the render",
+    "A06": "runs thumbs.py; owns title and thumbnail variants",
+    "A07": "runs gates.py and owns VETO; checks every chart and source stamp for honesty",
+    "A08": "reads the 48 h / 7 d / 28 d analytics back into the look and cadence defaults"
+  },
+  "delivery": {
+    "master_container": "mp4",
+    "video": "H.264 high profile 4.2, CRF 19, yuv420p, keyint 60, faststart",
+    "audio": "AAC 192 kbps stereo 48 kHz, loudnorm I=-16 TP=-1.5 LRA=9, alimiter -4 dBFS pre-encode",
+    "companions": ["_VERTICAL.mp4 (9:16, subject-tracked crop)", "thumbs/*.jpg", "GATES.json", "BUILD.json", "TIMELINE.json"],
+    "storage": "masters to Drive; repository keeps plans, gates, receipts and the build report",
+    "receipt_fields": ["drive_id", "md5", "duration_s", "lufs", "lra", "tp", "decoded_peak_dbfs", "gate_table"]
+  },
+  "stop_conditions": [
+    "a gate fails and A07 has not recorded a human override in OVERRIDES.log",
+    "a chart compares two samples the sources do not support comparing",
+    "a claim appears on screen without a source in the source stamp or the description",
+    "the master is delivered without a decoded-domain peak measurement"
+  ],
+  "handoff": {
+    "to_publish": ["master mp4", "vertical cut", "3 thumbnails with the 120 px test", "title options", "description with sources", "pinned comment"],
+    "human_only": ["upload", "the Altered-or-synthetic-content answer (YES when generated plates or TTS are used)", "schedule", "analytics return at 48 h"]
+  }
+}

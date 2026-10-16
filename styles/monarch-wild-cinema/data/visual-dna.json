@@ -1,0 +1,57 @@
+{
+  "evidence": "derived from the MF-01 production measured in this repository and from the WF-05 visual DNA; prescriptive values are labelled normative",
+  "world": {
+    "palette": {
+      "ink_rgb": [10, 12, 16],
+      "bone_rgb": [242, 237, 227],
+      "amber_rgb": [232, 163, 61],
+      "blood_rgb": [196, 65, 43],
+      "signal_rgb": [111, 168, 160],
+      "mist_rgb": [159, 176, 192]
+    },
+    "accent_roles": "amber = identity and data, blood = danger, signal = safe/correct answer, mist = secondary text and sources",
+    "subject": "the plate's subject is lit and sharp; the environment is soft and darker — this IS the depth cue the engine reads",
+    "composition": "one dominant subject, breathing room, hierarchy before decoration",
+    "background": "cinematic night/forest field, deep teal shadows, warm bone highlights, far-plane atmospheric separation up to 0.22"
+  },
+  "type": {
+    "identity_font": "Montserrat VF (wght 900, variable axes verified by ink coverage 4.86 -> 42.91)",
+    "impact_font": "Anton",
+    "label_font": "Barlow Condensed Medium / Medium Italic",
+    "font_licenses": "assets/fonts/*-OFL.txt",
+    "screen_text": "one hot word per headline; kicker -> dominant claim -> connective phrase",
+    "case": "uppercase for claims and data; sentence case only in sources",
+    "entry_seconds": 0.34,
+    "extrusion_steps": 13,
+    "min_contrast_vs_plate": 4.5,
+    "safe_band_16x9": {"y": [60, 1020], "bottom_guard_px": 110},
+    "safe_band_vertical": {"y": [180, 1500], "note": "platform UI covers bottom 320-420 px"}
+  },
+  "time": {
+    "output_fps": 30,
+    "long_form_seconds": [120, 360],
+    "vertical_seconds": [15, 60],
+    "beat_cadence_seconds": [2, 3],
+    "pattern_interrupt_seconds": 6.5,
+    "rehook_positions_pct": [25, 50, 75]
+  },
+  "depth": {
+    "meaning": "image-space 2.5D; NOT reconstructed 3D geometry",
+    "saliency": "focus 0.62 + tone-deviation 0.24 + saturation 0.14 (a darkness prior inverts on this style — see T01)",
+    "materials": ["rect", "auto", "hybrid"],
+    "canvas_overscan": 1.22,
+    "haze_max": 0.22,
+    "camera_envelope": {"zoom": [0.02, 0.105], "orbit_px": [12, 46], "roll_deg": [0.22, 0.60], "breathe_px": 1.6}
+  },
+  "constraints": [
+    "no full-frame still slideshow",
+    "no third-party footage, music or overlays",
+    "no camera-only proof of motion",
+    "no caption pill or karaoke band",
+    "no unsupported comparison in a chart",
+    "no claim on screen without a source",
+    "no effect that does not decay",
+    "no depth boundary through a subject",
+    "no approval recorded from intention rather than measurement"
+  ]
+}

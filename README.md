@@ -12,6 +12,32 @@ python3 tools/studio.py validate
 
 [`START_HERE.md`](START_HERE.md) and [`workflows/current/RESUME.md`](workflows/current/RESUME.md) are the authoritative recovery entry points. Never restart from the beginning while they identify an unfinished task.
 
+## Channel intelligence
+
+Monarch Cam (`@monarch-cam`, `UCfYdmsLO4Q8_IHklTyYieLg`) has its own permanent strategy folder:
+
+- [`channel/FORENSIC_AUDIT_2026-10-16.md`](channel/FORENSIC_AUDIT_2026-10-16.md) — full channel forensic audit
+- [`channel/CONTENT_PLAN_2026-10-16.md`](channel/CONTENT_PLAN_2026-10-16.md) — 90-day forward plan, packaging rules and compliance gates
+- [`channel/data/channel_snapshot_2026-10-16.json`](channel/data/channel_snapshot_2026-10-16.json) — raw captured evidence
+
+## WF-07 · Monarch Wild Cinema
+
+The channel's flagship production engine (`CINEGO <topic>`) — the synthesis of every editing system in this repository, and the engine behind `MONARCH FILES`:
+
+- [`styles/monarch-wild-cinema/README.md`](styles/monarch-wild-cinema/README.md) — operating guide, pipeline, gate table, forbidden list
+- [`knowledge/INDEX.md`](styles/monarch-wild-cinema/knowledge/INDEX.md) — 11 chapters: look, depth, motion, type, atmosphere, score, data honesty, gates, failure register, runbook, compliance
+- [`src/tabahi/`](styles/monarch-wild-cinema/src/tabahi/) — the engine (`depth` · `grade` · `films` · `kinetic` · `viz` · `transitions` · `score` · `film` · `gates` · `thumbs`)
+- [`src/run_film.py`](styles/monarch-wild-cinema/src/run_film.py), [`gates.py`](styles/monarch-wild-cinema/src/tabahi/gates.py), [`thumbs.py`](styles/monarch-wild-cinema/src/tabahi/thumbs.py)
+- [`proofs/`](styles/monarch-wild-cinema/proofs/) — engine proof with its measured gate report
+- [`data/`](styles/monarch-wild-cinema/data/) — visual DNA, motion grammar, audio policy, gates as data
+
+## WF-06 · Monarch YT Agent Crew
+
+The eight-agent production crew that executes the channel plan (`CREWGO <topic>`):
+
+- [`workflows/wf06_yt_agent_crew/README.md`](workflows/wf06_yt_agent_crew/README.md) — chain of command, 8 agents, 10 operating laws, pipeline S0–S8
+- [`AGENT_SPECS.md`](workflows/wf06_yt_agent_crew/AGENT_SPECS.md) · [`HANDOFF_AND_BUS.md`](workflows/wf06_yt_agent_crew/HANDOFF_AND_BUS.md) · [`GATES_AND_SCORECARDS.md`](workflows/wf06_yt_agent_crew/GATES_AND_SCORECARDS.md) · [`COMPLIANCE_AND_ETHICS.md`](workflows/wf06_yt_agent_crew/COMPLIANCE_AND_ETHICS.md) · [`LEARNING_LOOP.md`](workflows/wf06_yt_agent_crew/LEARNING_LOOP.md) · [`RUNBOOK_S01E01.md`](workflows/wf06_yt_agent_crew/RUNBOOK_S01E01.md)
+
 ## Permanent style library
 
 | Style | Trigger | State | Permanent implementation |
@@ -19,6 +45,7 @@ python3 tools/studio.py validate
 | **Monarch Stickman Animation** | `SHADEGO <topic>` | Parked; IZZAT v2 is current R1 delivery | [`styles/monarch-stickman-animation`](styles/monarch-stickman-animation/) |
 | **Monarch Noir Film** | `NOIRGO <topic>` | Active with explicit Film-#3 drift; films 1–2 are R1 | [`styles/monarch-noir-film`](styles/monarch-noir-film/) |
 | **WF-05 · Premium Motion Editing** | `MOTIONGO <topic or reference>` | V5 clean direction + accepted V6 motion; lower caption pills rejected | [`styles/premium-motion-editing`](styles/premium-motion-editing/) |
+| **WF-07 · Monarch Wild Cinema** | `CINEGO <topic>` | Engine complete; proof rendered and gated | [`styles/monarch-wild-cinema`](styles/monarch-wild-cinema/) |
 
 Each named style contains its implementation, assets, audio/plates, data, prompts, tools, gates, measured results, decisions, failures/fixes, source provenance and a permanent knowledge index.
 

@@ -56,3 +56,12 @@ Thumbs.db
 *_FINAL.mp4
 *_master.mp4
 master_*.mp4
+
+# channel production render scratch (heavy, regenerable from build.py)
+channel/productions/*/05_PRODUCTION/render/
+channel/productions/*/05_PRODUCTION/*.mp4
+
+# WF-07 render scratch: regenerable in ~9 min from PLAN.json (see PROOFS.md §8).
+# The plan, the report JSONs and the thumbnails ARE committed; the frames are not.
+styles/monarch-wild-cinema/projects/*/build/*.mp4
+styles/monarch-wild-cinema/projects/*/build/*.wav
