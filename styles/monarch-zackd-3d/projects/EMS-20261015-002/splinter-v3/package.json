@@ -1,0 +1,20 @@
+{
+  "name": "monarch-wf02-splinter-film",
+  "version": "3.0.0",
+  "private": true,
+  "description": "KAANTA Motion Edition: continuous C2 real-3D animation and cue-locked original stereo sound",
+  "scripts": {
+    "stills": "node src/render.cjs --stills",
+    "render": "node src/render.cjs --render",
+    "test": "node --test tests/*.test.cjs",
+    "motion-check": "node src/check_motion.mjs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "133.0.0",
+    "playwright-core": "1.51.1",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}

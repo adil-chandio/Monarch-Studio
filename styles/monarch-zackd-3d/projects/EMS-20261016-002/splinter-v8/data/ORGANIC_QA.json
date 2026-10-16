@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "scope": "Three stylized hero membranes only; no biological mechanics claim. Same-time picture A/B, absolute-time return, geometry density and deformation bounds.",
+  "repeatIsExact": true,
+  "membranesMove": true,
+  "bounded": true,
+  "samples": [
+    {
+      "time": 9.3,
+      "cells": [
+        {
+          "index": 6,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.02339249849319458,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "e1a3e81a21c98ed0b16992afa1942ca1eea325a2ac3d030dff134a4fafe4924c"
+        },
+        {
+          "index": 11,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.030927002429962158,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "203a172426fb192dd648d3f2c8fb1c8d10d0c39f0961fc9ad9e4aa0051c2648a"
+        },
+        {
+          "index": 15,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.03681337833404541,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "91104e91b1d284dc225b30e3b6cae65b3579b82a7f18a90d6181b489f611d587"
+        }
+      ],
+      "imageChanges": true,
+      "captionUnchanged": true
+    },
+    {
+      "time": 10.7,
+      "cells": [
+        {
+          "index": 6,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.033656299114227295,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "8649b27e31b0a1adbe6cb356f067472bd26edcec3fc19cefa68832a4bc4d4732"
+        },
+        {
+          "index": 11,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.03077155351638794,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "5c5edca76fd3d60dc51e14bafb4baf0e92aae814b61ee01c5545dff6a2b0711f"
+        },
+        {
+          "index": 15,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.026955842971801758,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "f0ae6a1a4f9639e90b6a819fa92368fadf0771c5f448d36feccf00607e4b3feb"
+        }
+      ],
+      "imageChanges": true,
+      "captionUnchanged": true
+    },
+    {
+      "time": 13.7,
+      "cells": [
+        {
+          "index": 6,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.03802412748336792,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "1bbebda032a78b71280ea53f64811ed5e1ac01c162a055e80339ce6a3f843536"
+        },
+        {
+          "index": 11,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.036251187324523926,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "8e75ab9afc1146bf36e54834591185b2f4d2a3d9c266821e211f37fcdbf18a7a"
+        },
+        {
+          "index": 15,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.032206177711486816,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "0f1be0bad123163d7d4d747d240bc024ee7a0fa1b47221f3d00ed53ea7f5c8db"
+        }
+      ],
+      "imageChanges": true,
+      "captionUnchanged": true
+    },
+    {
+      "time": 9.3,
+      "cells": [
+        {
+          "index": 6,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.02339249849319458,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "e1a3e81a21c98ed0b16992afa1942ca1eea325a2ac3d030dff134a4fafe4924c"
+        },
+        {
+          "index": 11,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.030927002429962158,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "203a172426fb192dd648d3f2c8fb1c8d10d0c39f0961fc9ad9e4aa0051c2648a"
+        },
+        {
+          "index": 15,
+          "vertexCount": 1617,
+          "maxDisplacement": 0.03681337833404541,
+          "finite": true,
+          "opacity": 0.48,
+          "positionHash": "91104e91b1d284dc225b30e3b6cae65b3579b82a7f18a90d6181b489f611d587"
+        }
+      ],
+      "imageChanges": true,
+      "captionUnchanged": true
+    }
+  ],
+  "errors": []
+}

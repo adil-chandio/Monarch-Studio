@@ -1,0 +1,86 @@
+{
+  "task_id": "EMS-20261016-002",
+  "google_drive": {
+    "status": "completed",
+    "parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+    "folder_id": "1GgYIShB5hEnJaAXQ5BJWyQIhAzyz-wz3",
+    "folder_url": "https://drive.google.com/drive/folders/1GgYIShB5hEnJaAXQ5BJWyQIhAzyz-wz3",
+    "files": [
+      {
+        "role": "master",
+        "id": "1pUuxlt423ZZKsiHW1kHZ0I1fPzA8K9P9",
+        "name": "KAANTA_CRAFT_v8_FINAL.mp4",
+        "size": 10672253,
+        "md5": "bf8b66aa08e0891ff45862833f369785",
+        "sha256": "a34fd043d18237ff275fdc61d0f7118b437d33b3dbc1e80faaf9c92209eb60a8",
+        "verified": "Upload response size/MD5 matches local"
+      },
+      {
+        "role": "source",
+        "id": "1z8IrmbhdcJ0zG2QPVHiz_APRql3cAwHx",
+        "name": "KAANTA_CRAFT_v8_SOURCE.zip",
+        "size": 6638187,
+        "md5": "3e8aa871e5577e0fa6d424939cbaec1a",
+        "sha256": "0bb2d41ea59b6bc4be7af4a8c3ba03ac240ae0c2a5f8efe1beb14ef874fa7be3",
+        "verified": "Upload response size/MD5 matches local"
+      },
+      {
+        "role": "notes",
+        "id": "1N3plbZgy-33Q-phMNEMm8KezffK1sfg_",
+        "name": "SCRIPT_AND_PRODUCTION.md",
+        "size": 11746,
+        "md5": "59f24c3380228b9204623dfa3581e96e",
+        "sha256": "eb42177c4a28b84b772097cd0fb2a90aa0b9d54721d21d2edc8a0606c04c2399",
+        "verified": "Upload response size/MD5 matches local"
+      },
+      {
+        "role": "captions",
+        "id": "1JtcoXpyXD664vpum9WxlMl9pVC1Uif0I",
+        "name": "KAANTA_Roman_Urdu.srt",
+        "size": 1047,
+        "md5": "58a3dda9863cd4abdbd9e85469dd2237",
+        "sha256": "2d8e5b78d64053ccffed1a7480e876dd1b768f3f9105190bb485182fd1b2b1ee",
+        "verified": "Upload response size/MD5 matches local"
+      },
+      {
+        "role": "credit",
+        "id": "1DCgbWXUyzMnmhAhzuaABjwjRnh1RdyDQ",
+        "name": "KAANTA_v8_PUBLISHING_CREDIT.txt",
+        "size": 1435,
+        "md5": "cd91526e83e24c1f70c30d3661517a1b",
+        "sha256": "e33515631e2aab3effe58de7e192d3ebf5cc03332200c11b64740b9e21a6e8f1",
+        "verified": "Upload response size/MD5 matches local"
+      },
+      {
+        "role": "receipt",
+        "id": "1V4lWrQNrhRipNWkj0n6aD3b7m7y7G1cQ",
+        "name": "KAANTA_v8_DELIVERY_RECEIPT.json",
+        "size": 3655,
+        "md5": "227cafce195a5f3d5aa33aded8362a0e",
+        "sha256": "2ec98996cc7d31ac2877fa91da9f4d39e4b19f5ab205c47211c658e5a4d297cb",
+        "verified": "Upload and remote listing size/MD5 match local"
+      }
+    ],
+    "master_remote_metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration_millis": 30499,
+      "local_fps": 30,
+      "local_duration_seconds": 30.5,
+      "verified": true
+    },
+    "verification": "All6 remote files re-listed and size/MD5 matched; master metadata independently re-read1080x1920/30499ms."
+  },
+  "github": {
+    "status": "not_requested"
+  },
+  "google_docs": {
+    "status": "not_requested"
+  },
+  "notion": {
+    "status": "not_requested"
+  },
+  "linear": {
+    "status": "not_requested"
+  }
+}

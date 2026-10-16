@@ -1,0 +1,232 @@
+[
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 0,
+    "end": 90,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 122,
+    "shutterFrames": 16,
+    "focusFrames": 46,
+    "shotFrames": {
+      "01": 90
+    },
+    "sceneGroups": {
+      "finger": 90
+    },
+    "bytes": 497232,
+    "seconds": 256.331
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 90,
+    "end": 180,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 144,
+    "shutterFrames": 27,
+    "focusFrames": 90,
+    "shotFrames": {
+      "01": 21,
+      "02": 69
+    },
+    "sceneGroups": {
+      "finger": 90
+    },
+    "bytes": 566951,
+    "seconds": 257.297
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 180,
+    "end": 270,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 90,
+    "shutterFrames": 0,
+    "focusFrames": 90,
+    "shotFrames": {
+      "02": 30,
+      "03": 57,
+      "04": 3
+    },
+    "sceneGroups": {
+      "finger": 30,
+      "surface": 57,
+      "anatomy": 3
+    },
+    "bytes": 799258,
+    "seconds": 304.634
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 270,
+    "end": 360,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 90,
+    "shutterFrames": 0,
+    "focusFrames": 90,
+    "shotFrames": {
+      "04": 76,
+      "05": 14
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 1925114,
+    "seconds": 349.885
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 360,
+    "end": 450,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 90,
+    "shutterFrames": 0,
+    "focusFrames": 90,
+    "shotFrames": {
+      "05": 90
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 512641,
+    "seconds": 332.105
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 450,
+    "end": 540,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 130,
+    "shutterFrames": 20,
+    "focusFrames": 90,
+    "shotFrames": {
+      "05": 17,
+      "06": 73
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 906698,
+    "seconds": 439.095
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 540,
+    "end": 630,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 90,
+    "shutterFrames": 0,
+    "focusFrames": 27,
+    "shotFrames": {
+      "06": 27,
+      "07": 63
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 699871,
+    "seconds": 260.583
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 630,
+    "end": 720,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 90,
+    "shutterFrames": 0,
+    "focusFrames": 57,
+    "shotFrames": {
+      "07": 33,
+      "08": 57
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 1140929,
+    "seconds": 275.532
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 720,
+    "end": 810,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 110,
+    "shutterFrames": 10,
+    "focusFrames": 90,
+    "shotFrames": {
+      "08": 67,
+      "09": 23
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 608255,
+    "seconds": 372.174
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 810,
+    "end": 900,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 130,
+    "shutterFrames": 20,
+    "focusFrames": 90,
+    "shotFrames": {
+      "09": 90
+    },
+    "sceneGroups": {
+      "anatomy": 90
+    },
+    "bytes": 1046352,
+    "seconds": 413.671
+  },
+  {
+    "signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+    "capture": "canvas-png",
+    "start": 900,
+    "end": 915,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "sceneEvaluations": 15,
+    "shutterFrames": 0,
+    "focusFrames": 15,
+    "shotFrames": {
+      "09": 15
+    },
+    "sceneGroups": {
+      "anatomy": 15
+    },
+    "bytes": 139605,
+    "seconds": 47.618
+  }
+]

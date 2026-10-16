@@ -1,0 +1,56 @@
+{
+  "actions": [
+    {
+      "action": "surface approach",
+      "v4_seconds": 1.02,
+      "v5_seconds": 0.3799999999999999,
+      "shorter_percent": 62.7450980392157
+    },
+    {
+      "action": "surface close",
+      "v4_seconds": 0.41000000000000014,
+      "v5_seconds": 0.16999999999999993,
+      "shorter_percent": 58.53658536585369
+    },
+    {
+      "action": "surface pull",
+      "v4_seconds": 1.17,
+      "v5_seconds": 0.4200000000000008,
+      "shorter_percent": 64.10256410256403
+    },
+    {
+      "action": "deep approach",
+      "v4_seconds": 0.629999999999999,
+      "v5_seconds": 0.33999999999999986,
+      "shorter_percent": 46.03174603174597
+    },
+    {
+      "action": "deep close",
+      "v4_seconds": 0.3500000000000014,
+      "v5_seconds": 0.16000000000000014,
+      "shorter_percent": 54.28571428571443
+    },
+    {
+      "action": "deep pull",
+      "v4_seconds": 1.9700000000000024,
+      "v5_seconds": 0.7199999999999989,
+      "shorter_percent": 63.45177664974629
+    },
+    {
+      "action": "swelling rise",
+      "v4_seconds": 2.75,
+      "v5_seconds": 0.9499999999999993,
+      "shorter_percent": 65.45454545454548
+    },
+    {
+      "action": "possible outward movement",
+      "v4_seconds": 2.870000000000001,
+      "v5_seconds": 0.8200000000000003,
+      "shorter_percent": 71.42857142857143
+    }
+  ],
+  "camera": {
+    "v4_mean_control_span": 1.90625,
+    "v5_mean_move_window": 0.481818181818182
+  }
+}

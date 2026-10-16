@@ -1,0 +1,401 @@
+{
+  "passed": true,
+  "checks_passed": 27,
+  "checks_total": 27,
+  "master": "KAANTA_PRECISION_v5_FINAL.mp4",
+  "bytes": 8537475,
+  "sha256": "73cbb5d882745cd75eb5faa82bca39ebe2472e62559393370ae981aaa3e43e74",
+  "md5": "22f5572e7cdb3bebf2eb73cdd9142131",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "checks": [
+    {
+      "name": "H.264 portrait native-size delivery",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Frame rate and container duration",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "AAC stereo 48kHz",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Every expected frame decodes",
+      "passed": true,
+      "details": {
+        "decoded": 915,
+        "expected": 915,
+        "error": null
+      }
+    },
+    {
+      "name": "Continuous monotonic video timestamps",
+      "passed": true,
+      "details": {
+        "first": 0.0,
+        "last": 30.466666666666665
+      }
+    },
+    {
+      "name": "Authored fast action windows show actual picture motion",
+      "passed": true,
+      "details": {
+        "actions": [
+          {
+            "action": "surface approach",
+            "frames": 12,
+            "unique": 12
+          },
+          {
+            "action": "surface close",
+            "frames": 6,
+            "unique": 6
+          },
+          {
+            "action": "surface pull",
+            "frames": 13,
+            "unique": 13
+          },
+          {
+            "action": "deep approach",
+            "frames": 11,
+            "unique": 11
+          },
+          {
+            "action": "deep close",
+            "frames": 6,
+            "unique": 6
+          },
+          {
+            "action": "deep pull",
+            "frames": 22,
+            "unique": 22
+          }
+        ],
+        "whole_film_unique_anatomy_crops": 900,
+        "longest_identical_crop_run_seconds": 0.0,
+        "note": "Deliberate settles/holds are allowed; the contract is independently rendered3D with faster authored actions, not fake jitter to maximize uniqueness."
+      }
+    },
+    {
+      "name": "Anatomy remains visible through every frame",
+      "passed": true,
+      "details": {
+        "minimum_warm_tissue_fraction": 0.30759183673469387,
+        "frames_checked": 915,
+        "excluded_interval": null,
+        "purpose": "Detect lost/blank 3D frames rather than treating animated captions/background as sufficient motion."
+      }
+    },
+    {
+      "name": "Entire audio stream decodes",
+      "passed": true,
+      "details": {
+        "frames": 1430,
+        "decoded_seconds": 30.506666666666668
+      }
+    },
+    {
+      "name": "Final AAC loudness and true peak",
+      "passed": true,
+      "details": {
+        "integrated_lufs": -16.03,
+        "true_peak_dbtp": -2.57,
+        "lra_lu": 4.1
+      }
+    },
+    {
+      "name": "Fast-start MP4",
+      "passed": true,
+      "details": {
+        "top_level_atoms": [
+          "ftyp",
+          "moov",
+          "free",
+          "mdat"
+        ]
+      }
+    },
+    {
+      "name": "Caption intervals in bounds",
+      "passed": true,
+      "details": {
+        "phrases": 19,
+        "alignment": "Phrase-timed, not word-level forced alignment"
+      }
+    },
+    {
+      "name": "Explicit no-guarantee and professional-care ending",
+      "passed": true,
+      "details": {
+        "messages": "Conditional expulsion, do not wait, doctor for warning signs, do not dig"
+      }
+    },
+    {
+      "name": "Native-frame render receipts cover the master exactly",
+      "passed": true,
+      "details": {
+        "chunks": 11,
+        "covered_frames": 915,
+        "signatures": [
+          "db1af09c36376296300740c22aba7299df5a27766cd8e6811006c29bc8eb6300"
+        ]
+      }
+    },
+    {
+      "name": "V5 motion-controller checks pass",
+      "passed": true,
+      "details": {
+        "passed": 12,
+        "total": 12,
+        "scope": "C2 rails, all-six internal camera resets, cell timing, grip timing, finite frame samples"
+      }
+    },
+    {
+      "name": "User-liked narration assets remain unchanged",
+      "passed": true,
+      "details": {
+        "01_hook.wav": true,
+        "02_response.wav": true,
+        "03_movement.wav": true,
+        "04_safety.wav": true
+      }
+    },
+    {
+      "name": "Current picture source matches all recorded frame signatures",
+      "passed": true,
+      "details": {
+        "source_signature": "db1af09c36376296300740c22aba7299df5a27766cd8e6811006c29bc8eb6300"
+      }
+    },
+    {
+      "name": "Reject decorative clutter; allow only captions and two timed type beats",
+      "passed": true,
+      "details": {
+        "visible_3d_type_beats": 2,
+        "total_type_seconds": 3.0799999999999983,
+        "caption_layers": 1,
+        "hud_boxes_counters_chapter_headers": 0,
+        "page_flip": false
+      }
+    },
+    {
+      "name": "Typography is measured extruded3D geometry, not a fake-shadow label",
+      "passed": true,
+      "details": [
+        {
+          "text": "KAANTA",
+          "type": "TextGeometry",
+          "vertices": 3228,
+          "depth": 0.044
+        },
+        {
+          "text": "NAHI.",
+          "type": "TextGeometry",
+          "vertices": 5664,
+          "depth": 0.042
+        }
+      ]
+    },
+    {
+      "name": "Complete-frame revisits return to identical pixels",
+      "passed": true,
+      "details": {
+        "scope": "Full frame, out-of-order evaluation including geometry/camera/subtitles"
+      }
+    },
+    {
+      "name": "Restrained story-linked textures replace UI pings",
+      "passed": true,
+      "details": {
+        "cue_count": 8,
+        "voice_over_bed_db": 16.322292401243217,
+        "stereo_correlation": 0.9923127993350009
+      }
+    },
+    {
+      "name": "Measured score builds and gives the warning line breathing space",
+      "passed": true,
+      "details": {
+        "hook": -39.11299759404245,
+        "discovery": -35.90150445491391,
+        "build": -32.86974277129364,
+        "breathing_space": -46.31511314739601,
+        "resolve": -39.53139189093122
+      }
+    },
+    {
+      "name": "Mix preserves voice priority and mono compatibility",
+      "passed": true,
+      "details": {
+        "voice_rms_dbfs": -20.354373582408527,
+        "bed_rms_dbfs": -36.676665983651745,
+        "stereo_correlation": 0.9923127993350009
+      }
+    },
+    {
+      "name": "Credited music samples and publishing attribution accompany the source",
+      "passed": true,
+      "details": {
+        "sample_count": 25,
+        "license": "CC BY 3.0 US, as documented upstream for FluidR3_GM; not the share-alike MusyngKite/FatBoy libraries.",
+        "reference_audio_copied": false
+      }
+    },
+    {
+      "name": "V5 action windows are measurably shorter than preserved v4",
+      "passed": true,
+      "details": {
+        "actions": [
+          {
+            "action": "surface approach",
+            "v4_seconds": 1.02,
+            "v5_seconds": 0.3799999999999999,
+            "shorter_percent": 62.7450980392157
+          },
+          {
+            "action": "surface close",
+            "v4_seconds": 0.41000000000000014,
+            "v5_seconds": 0.16999999999999993,
+            "shorter_percent": 58.53658536585369
+          },
+          {
+            "action": "surface pull",
+            "v4_seconds": 1.17,
+            "v5_seconds": 0.4200000000000008,
+            "shorter_percent": 64.10256410256403
+          },
+          {
+            "action": "deep approach",
+            "v4_seconds": 0.629999999999999,
+            "v5_seconds": 0.33999999999999986,
+            "shorter_percent": 46.03174603174597
+          },
+          {
+            "action": "deep close",
+            "v4_seconds": 0.3500000000000014,
+            "v5_seconds": 0.16000000000000014,
+            "shorter_percent": 54.28571428571443
+          },
+          {
+            "action": "deep pull",
+            "v4_seconds": 1.9700000000000024,
+            "v5_seconds": 0.7199999999999989,
+            "shorter_percent": 63.45177664974629
+          },
+          {
+            "action": "swelling rise",
+            "v4_seconds": 2.75,
+            "v5_seconds": 0.9499999999999993,
+            "shorter_percent": 65.45454545454548
+          },
+          {
+            "action": "possible outward movement",
+            "v4_seconds": 2.870000000000001,
+            "v5_seconds": 0.8200000000000003,
+            "shorter_percent": 71.42857142857143
+          }
+        ],
+        "camera": {
+          "v4_mean_control_span": 1.90625,
+          "v5_mean_move_window": 0.481818181818182
+        }
+      }
+    },
+    {
+      "name": "Fast-motion blur is accounted real3D sampling, not optical flow",
+      "passed": true,
+      "details": {
+        "output_frames": 915,
+        "real_scene_evaluations": 1281,
+        "shutter_output_frames": 183,
+        "exposure_seconds": 0.006666666666666667,
+        "captions": "drawn once at center time"
+      }
+    },
+    {
+      "name": "Measured contact/release transients match authored visual anchors",
+      "passed": true,
+      "details": [
+        {
+          "cue": "wood_contact",
+          "seconds": 0.002270833333333333
+        },
+        {
+          "cue": "surface_contact",
+          "seconds": 0.0026874999999995097
+        },
+        {
+          "cue": "surface_release",
+          "seconds": 0.0057916666666670835
+        },
+        {
+          "cue": "deep_contact",
+          "seconds": 0.0030624999999986358
+        },
+        {
+          "cue": "deep_release",
+          "seconds": 0.0018958333333323196
+        }
+      ]
+    },
+    {
+      "name": "Voice placement and playback rate are retained",
+      "passed": true,
+      "details": {
+        "narration_time_stretch": false,
+        "total_duration": 30.5
+      }
+    }
+  ],
+  "manual_review": {
+    "status": "sampled_visual_review_completed",
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "scope": "Encoded chapter sheet plus16 dense approach/grip/pull samples inspected. Framing,clean overlays,type,contact/extraction sequence and caption sharpness reviewed. No independent ear/clinician certification or artistic-perfection/retention guarantee.",
+    "observations": "Faster action is visible in actual encoded sequences. No returning HUD/panels/page-turn. Brief real-scene shutter sampling preserves sharp center-time captions; earlier versions stay unchanged."
+  }
+}

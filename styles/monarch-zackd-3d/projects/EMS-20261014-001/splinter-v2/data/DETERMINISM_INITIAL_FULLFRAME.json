@@ -1,0 +1,35 @@
+{
+  "passed": false,
+  "viewport": [
+    270,
+    480
+  ],
+  "method": "Compare PNG hashes when returning to the same absolute time after different shots",
+  "samples": [
+    {
+      "time": 13.7,
+      "sha256": "b2cf20a4edbe0c3641eab811ce32501c2a571fd6cddfb4f3d0cecde098753431"
+    },
+    {
+      "time": 13.7,
+      "sha256": "a2dc23d83c3a31a7eebd8429bd28369b17e3abc9097489248f9816db7ba6fa26"
+    },
+    {
+      "time": 4.9,
+      "sha256": "0ff31edb29775311b8e19a50277f62fa04ef1d45282c763412926de3661dca6f"
+    },
+    {
+      "time": 21.5,
+      "sha256": "86c474746726a5abaf29ebcf3d5479c9bda85126afd7d8e1e2267cfbd8b097d3"
+    },
+    {
+      "time": 13.7,
+      "sha256": "a2dc23d83c3a31a7eebd8429bd28369b17e3abc9097489248f9816db7ba6fa26"
+    },
+    {
+      "time": 4.9,
+      "sha256": "0ff31edb29775311b8e19a50277f62fa04ef1d45282c763412926de3661dca6f"
+    }
+  ],
+  "errors": []
+}

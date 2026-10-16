@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "geometry": {
+    "newSurfaceVertices": 21809,
+    "newHeroCells": 3,
+    "heroNucleusLobesPerCell": 3,
+    "depthFocusMethod": "geometry-depth-guided separable Gaussian",
+    "intentionalCuts": [
+      3.68,
+      7,
+      8.88,
+      11.51,
+      15.56,
+      18.9,
+      22.08,
+      26.21
+    ],
+    "gripHalfRaw": 0.1121753416955471,
+    "surfaceGap": 0.07775042273802615,
+    "deepGap": 0.10558177488601618,
+    "heroTextMeshes": [
+      {
+        "text": "KAANTA",
+        "type": "TextGeometry",
+        "vertices": 3228,
+        "depth": 0.044
+      },
+      {
+        "text": "NAHI.",
+        "type": "TextGeometry",
+        "vertices": 5664,
+        "depth": 0.042
+      }
+    ],
+    "hudDecorations": 0
+  },
+  "viewport": [
+    270,
+    480
+  ],
+  "method": "Full-frame lossless composite PNG hashes at repeated absolute times; camera, cells, geometry, grip and captions must return to identical pixels.",
+  "samples": [
+    {
+      "time": 0.8,
+      "sha256": "88c2c9d28f2f373b636dea961c4ac790f3741d3490f7f5813134a047e4e01bb0"
+    },
+    {
+      "time": 4.82,
+      "sha256": "840c8c6a566b4a5bb0f53e28bc4d819e19befc9fda27ac18ce3701f06a49d42a"
+    },
+    {
+      "time": 7.8,
+      "sha256": "ed6a3a1d829606a6c9c0b4852314d596ff0d062c0e70d95b841af87316c25730"
+    },
+    {
+      "time": 9.3,
+      "sha256": "b0bc6db28312c4f7902a4cd5675a47cebe07f6bbdb5000268cf37f426d0216c1"
+    },
+    {
+      "time": 17.4,
+      "sha256": "30f3d995e647995f2430b65c30f0f7177106ac098876e3af198075d698f4c034"
+    },
+    {
+      "time": 27.4,
+      "sha256": "993ed869d2e9b56b837d997b22a542eb50c6a8ec82c40bdbfa80f2842cf536b3"
+    },
+    {
+      "time": 0.8,
+      "sha256": "88c2c9d28f2f373b636dea961c4ac790f3741d3490f7f5813134a047e4e01bb0"
+    },
+    {
+      "time": 4.82,
+      "sha256": "840c8c6a566b4a5bb0f53e28bc4d819e19befc9fda27ac18ce3701f06a49d42a"
+    },
+    {
+      "time": 7.8,
+      "sha256": "ed6a3a1d829606a6c9c0b4852314d596ff0d062c0e70d95b841af87316c25730"
+    },
+    {
+      "time": 9.3,
+      "sha256": "b0bc6db28312c4f7902a4cd5675a47cebe07f6bbdb5000268cf37f426d0216c1"
+    },
+    {
+      "time": 17.4,
+      "sha256": "30f3d995e647995f2430b65c30f0f7177106ac098876e3af198075d698f4c034"
+    },
+    {
+      "time": 27.4,
+      "sha256": "993ed869d2e9b56b837d997b22a542eb50c6a8ec82c40bdbfa80f2842cf536b3"
+    }
+  ],
+  "errors": []
+}

@@ -14,3 +14,7 @@ Before doing any work in this repository:
 10. Run `python3 tools/studio.py validate` before a milestone commit.
 
 If a response/process stops, query the recorded process and execute the exact next action in `RESUME.md`; do not begin again from zero.
+
+## WF-02 / WF2 style discovery
+
+When the user requests WF2, Zack d3d animation or Monarch3D Explainers, read `styles/monarch-zackd-3d/START_HERE.md`, its local `AGENTS.md`, `STYLE_DNA.json`, `QUALITY_CONTRACT.json` and master playbook before proposing/producing work. Run `python3 tools/wf02.py audit` and `python3 tools/wf02.py brief "<topic>"`. This is the separate live WF-02 style, not the legacy Powerful Personality snapshot. Preserve the user no-clutter correction and current delivered baseline. Do not claim full chat recovery, automatic cross-chat context/voice transfer, new rendering or artistic/clinical perfection merely from onboarding.

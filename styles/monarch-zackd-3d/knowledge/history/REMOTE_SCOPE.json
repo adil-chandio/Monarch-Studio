@@ -1,0 +1,11 @@
+{
+  "verified_parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "existing_child_folders_observed": 19,
+  "policy": "Parent listing included seven KAANTA V2–V8 folders plus earlier reference/splinter and character experiments. No existing folders were moved, overwritten or deleted. This library consolidates the available repository/current-conversation WF02 V2–V8 evidence; it does not claim an exhaustive review of unrelated earlier Drive experiments.",
+  "earlier_splinter_folder_discovered": {
+    "id": "1-i1w-CzjRNwKv9Y3iDh9NNxHS2xlck5A",
+    "name": "SPLINTER — Monarch 3D",
+    "certified_v1_release_in_this_repo": false
+  },
+  "screenshot_usage": "Identified target folder only; unrelated private phone UI was not archived."
+}

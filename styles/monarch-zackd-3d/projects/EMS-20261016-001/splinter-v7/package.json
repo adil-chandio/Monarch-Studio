@@ -1,0 +1,22 @@
+{
+  "name": "monarch-wf02-splinter-film",
+  "version": "7.0.0",
+  "private": true,
+  "description": "KAANTA Organic Motion v7: stateless hero membrane folds, same locked narration and clean nine-shot edit",
+  "scripts": {
+    "stills": "node src/render.cjs --stills",
+    "render": "node src/render.cjs --render",
+    "test": "node --test tests/*.test.cjs",
+    "motion-check": "node src/check_motion.mjs",
+    "focus-check": "node src/check_focus.cjs",
+    "organic-check": "node src/check_organic.cjs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "133.0.0",
+    "playwright-core": "1.51.1",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}

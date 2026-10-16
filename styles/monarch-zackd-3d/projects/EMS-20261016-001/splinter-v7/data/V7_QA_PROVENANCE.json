@@ -1,0 +1,14 @@
+{
+  "picture_signature": "f26d995a1c4351e3bef7d2d331811c8e9a5603029622ee7ad9a62364b099a597",
+  "source_frozen_during_render": true,
+  "current_report_hashes": {
+    "MOTION_QA.json": "d9222a9a873fc26956318355b10a4cdf54b523a5f1d1f3c4f0c462c61e3600c4",
+    "DIRECTOR_QA.json": "d9222a9a873fc26956318355b10a4cdf54b523a5f1d1f3c4f0c462c61e3600c4",
+    "DETERMINISM_REPORT.json": "30d0e5323562193491e4926c6b6f32e416416bbf9f22e23a454d584749221c2f",
+    "FOCUS_QA.json": "583ba3e32dd3befd3ae88197a5ad0d05f45dcd4a0f0115af74693ce56152f9a5",
+    "ORGANIC_QA.json": "b43235b43ccfb8e4f0705040a8fbdfd9a17ad115a0abbe1036b4b5701d7f92f6"
+  },
+  "baseline_reports": "data/baseline-v6 \u2014 historical only; not V7 results",
+  "actor_director_check_scope": "Inherited V6 shot plan vs V5; V7-specific visual change is verified separately by ORGANIC_QA.json",
+  "reproducibility": "Absolute-time scene evaluation; technical proofs are not clinician or subjective artistic approval."
+}

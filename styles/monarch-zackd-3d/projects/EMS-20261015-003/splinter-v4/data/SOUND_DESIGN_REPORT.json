@@ -1,0 +1,315 @@
+{
+  "music_section_rms_dbfs": {
+    "hook": -38.17502036935983,
+    "discovery": -35.926611578031086,
+    "build": -33.019102209307434,
+    "breathing_space": -46.614740290467715,
+    "resolve": -39.63583984109831
+  },
+  "version": 4,
+  "cue_count": 8,
+  "events": [
+    {
+      "kind": "wood_touch",
+      "time": 0.3,
+      "sample": 14400,
+      "gain": 0.052,
+      "duration": 0.24,
+      "visual_cue": null
+    },
+    {
+      "kind": "steel_close",
+      "time": 4.93,
+      "sample": 236640,
+      "gain": 0.078,
+      "duration": 0.24,
+      "visual_cue": "surface_contact"
+    },
+    {
+      "kind": "soft_release",
+      "time": 5.79,
+      "sample": 277920,
+      "gain": 0.055,
+      "duration": 0.42,
+      "visual_cue": "surface_release"
+    },
+    {
+      "kind": "reveal_air",
+      "time": 6.72,
+      "sample": 322560,
+      "gain": 0.045,
+      "duration": 0.68,
+      "visual_cue": null
+    },
+    {
+      "kind": "cell_texture",
+      "time": 8.95,
+      "sample": 429600,
+      "gain": 0.02,
+      "duration": 2.18,
+      "visual_cue": null
+    },
+    {
+      "kind": "pressure",
+      "time": 12.3,
+      "sample": 590400,
+      "gain": 0.019,
+      "duration": 1.05,
+      "visual_cue": null
+    },
+    {
+      "kind": "steel_close",
+      "time": 27.03,
+      "sample": 1297440,
+      "gain": 0.07,
+      "duration": 0.24,
+      "visual_cue": "deep_contact"
+    },
+    {
+      "kind": "soft_release",
+      "time": 28.87,
+      "sample": 1385760,
+      "gain": 0.05,
+      "duration": 0.42,
+      "visual_cue": "deep_release"
+    }
+  ],
+  "score_events": [
+    {
+      "section": "strings",
+      "time": 0.0,
+      "duration": 6.9,
+      "notes": [
+        "D3",
+        "F3",
+        "A3"
+      ],
+      "energy": 0.66
+    },
+    {
+      "section": "strings",
+      "time": 7.0,
+      "duration": 4.9,
+      "notes": [
+        "Bb3",
+        "D4",
+        "F3"
+      ],
+      "energy": 0.85
+    },
+    {
+      "section": "strings",
+      "time": 11.5,
+      "duration": 4.15,
+      "notes": [
+        "A3",
+        "C4",
+        "E4"
+      ],
+      "energy": 0.94
+    },
+    {
+      "section": "strings",
+      "time": 15.65,
+      "duration": 3.25,
+      "notes": [
+        "D3",
+        "F3",
+        "A3",
+        "E4"
+      ],
+      "energy": 1.1
+    },
+    {
+      "section": "strings",
+      "time": 19.0,
+      "duration": 2.85,
+      "notes": [
+        "D3",
+        "A3"
+      ],
+      "energy": 0.6
+    },
+    {
+      "section": "strings",
+      "time": 22.15,
+      "duration": 4.0,
+      "notes": [
+        "F3",
+        "A3",
+        "C4"
+      ],
+      "energy": 0.7
+    },
+    {
+      "section": "strings",
+      "time": 26.1,
+      "duration": 4.4,
+      "notes": [
+        "D3",
+        "F3",
+        "A3"
+      ],
+      "energy": 0.55
+    },
+    {
+      "section": "cello",
+      "time": 0.1,
+      "duration": 6.7,
+      "note": "D2",
+      "energy": 0.72
+    },
+    {
+      "section": "cello",
+      "time": 7.02,
+      "duration": 4.4,
+      "note": "Bb2",
+      "energy": 0.74
+    },
+    {
+      "section": "cello",
+      "time": 11.5,
+      "duration": 3.8,
+      "note": "A2",
+      "energy": 0.78
+    },
+    {
+      "section": "cello",
+      "time": 15.7,
+      "duration": 3.1,
+      "note": "D3",
+      "energy": 0.7
+    },
+    {
+      "section": "cello",
+      "time": 22.2,
+      "duration": 3.7,
+      "note": "F3",
+      "energy": 0.62
+    },
+    {
+      "section": "cello",
+      "time": 26.2,
+      "duration": 4.1,
+      "note": "D2",
+      "energy": 0.48
+    },
+    {
+      "section": "felt_piano",
+      "time": 0.62,
+      "note": "D4",
+      "velocity": 0.9
+    },
+    {
+      "section": "felt_piano",
+      "time": 2.6,
+      "note": "A3",
+      "velocity": 0.73
+    },
+    {
+      "section": "felt_piano",
+      "time": 7.18,
+      "note": "D4",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 8.2,
+      "note": "F4",
+      "velocity": 0.61
+    },
+    {
+      "section": "felt_piano",
+      "time": 9.4,
+      "note": "A3",
+      "velocity": 0.72
+    },
+    {
+      "section": "felt_piano",
+      "time": 10.65,
+      "note": "C4",
+      "velocity": 0.75
+    },
+    {
+      "section": "felt_piano",
+      "time": 11.75,
+      "note": "E4",
+      "velocity": 0.7
+    },
+    {
+      "section": "felt_piano",
+      "time": 13.0,
+      "note": "D4",
+      "velocity": 0.7
+    },
+    {
+      "section": "felt_piano",
+      "time": 14.2,
+      "note": "A3",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 15.78,
+      "note": "F4",
+      "velocity": 0.82
+    },
+    {
+      "section": "felt_piano",
+      "time": 16.9,
+      "note": "E4",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 18.0,
+      "note": "D4",
+      "velocity": 0.69
+    },
+    {
+      "section": "felt_piano",
+      "time": 22.35,
+      "note": "C4",
+      "velocity": 0.69
+    },
+    {
+      "section": "felt_piano",
+      "time": 23.8,
+      "note": "A3",
+      "velocity": 0.73
+    },
+    {
+      "section": "felt_piano",
+      "time": 25.15,
+      "note": "F4",
+      "velocity": 0.61
+    },
+    {
+      "section": "felt_piano",
+      "time": 26.72,
+      "note": "D4",
+      "velocity": 0.48
+    },
+    {
+      "section": "felt_piano",
+      "time": 28.05,
+      "note": "A3",
+      "velocity": 0.6
+    },
+    {
+      "section": "felt_piano",
+      "time": 29.26,
+      "note": "D4",
+      "velocity": 0.68
+    }
+  ],
+  "score_source": "Original arrangement using credited FluidR3 CC-BY3.0 piano/cello/strings note samples. See assets/music/ATTRIBUTION.md.",
+  "reference_audio_copied": false,
+  "ui_beeps_chimes_or_alerts": false,
+  "voice_rms_dbfs": -20.354373582408527,
+  "music_rms_dbfs": -36.719520804575666,
+  "foley_rms_dbfs": -55.01605998928063,
+  "sound_design_rms_dbfs": -36.66125934305827,
+  "stereo_correlation": 0.992617448255686,
+  "intent": "Tactile and restrained; deliberate musical space at the no-guarantee line. ASMR-style is an aesthetic intent, not a guaranteed physiological/audience response."
+}

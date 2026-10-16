@@ -1,0 +1,7 @@
+{
+  "question_id": "v6_scope",
+  "selected_option_id": "new_shots_same_voice",
+  "new_shots_allowed": true,
+  "new_script_or_voice": false,
+  "clean_frame_constraint_retained": true
+}

@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_WF02_1080x1920_FINAL.mp4",
+  "size": 20075498,
+  "sha256": "6e671349fb61521165520de00994403a19f39fd841494b8b014389cc91fd3d35",
+  "md5": "31d3955099bd8f9c05307c94179a5e04",
+  "duration": 30.5,
+  "fps": 24,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

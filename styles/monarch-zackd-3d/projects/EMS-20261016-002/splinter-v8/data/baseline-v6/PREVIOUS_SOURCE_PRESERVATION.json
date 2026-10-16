@@ -1,0 +1,11 @@
+{
+  "all_prior_source_hashes_unchanged": true,
+  "checked_files": {
+    "EMS-20261014-001": 36,
+    "EMS-20261015-002": 48,
+    "EMS-20261015-003": 74,
+    "EMS-20261015-004": 77
+  },
+  "baseline": "pre-task repository integrity manifest",
+  "previous_drive_files_modified": false
+}

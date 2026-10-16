@@ -1,0 +1,187 @@
+{
+  "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+  "info": {
+    "width": 1080,
+    "height": 1920,
+    "triangles": 55532,
+    "native3d": true,
+    "duration": 30.5
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "time": 0,
+      "shot": "01",
+      "drawCalls": 15,
+      "triangles": 55532
+    },
+    {
+      "frame": 30,
+      "time": 1.25,
+      "shot": "01",
+      "drawCalls": 15,
+      "triangles": 55532
+    },
+    {
+      "frame": 60,
+      "time": 2.5,
+      "shot": "01",
+      "drawCalls": 15,
+      "triangles": 55532
+    },
+    {
+      "frame": 90,
+      "time": 3.75,
+      "shot": "02",
+      "drawCalls": 15,
+      "triangles": 53412
+    },
+    {
+      "frame": 120,
+      "time": 5,
+      "shot": "02",
+      "drawCalls": 17,
+      "triangles": 55612
+    },
+    {
+      "frame": 150,
+      "time": 6.25,
+      "shot": "02",
+      "drawCalls": 17,
+      "triangles": 55612
+    },
+    {
+      "frame": 180,
+      "time": 7.5,
+      "shot": "03",
+      "drawCalls": 34,
+      "triangles": 714370
+    },
+    {
+      "frame": 210,
+      "time": 8.75,
+      "shot": "03",
+      "drawCalls": 34,
+      "triangles": 714370
+    },
+    {
+      "frame": 240,
+      "time": 10,
+      "shot": "04",
+      "drawCalls": 34,
+      "triangles": 714370
+    },
+    {
+      "frame": 270,
+      "time": 11.25,
+      "shot": "04",
+      "drawCalls": 34,
+      "triangles": 714370
+    },
+    {
+      "frame": 300,
+      "time": 12.5,
+      "shot": "05",
+      "drawCalls": 34,
+      "triangles": 714370
+    },
+    {
+      "frame": 330,
+      "time": 13.75,
+      "shot": "05",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 360,
+      "time": 15,
+      "shot": "05",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 390,
+      "time": 16.25,
+      "shot": "06",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 420,
+      "time": 17.5,
+      "shot": "06",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 450,
+      "time": 18.75,
+      "shot": "06",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 480,
+      "time": 20,
+      "shot": "07",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 510,
+      "time": 21.25,
+      "shot": "07",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 540,
+      "time": 22.5,
+      "shot": "08",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 570,
+      "time": 23.75,
+      "shot": "08",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 600,
+      "time": 25,
+      "shot": "08",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 630,
+      "time": 26.25,
+      "shot": "09",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 660,
+      "time": 27.5,
+      "shot": "09",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 690,
+      "time": 28.75,
+      "shot": "09",
+      "drawCalls": 35,
+      "triangles": 716922
+    },
+    {
+      "frame": 720,
+      "time": 30,
+      "shot": "09",
+      "drawCalls": 35,
+      "triangles": 716922
+    }
+  ]
+}

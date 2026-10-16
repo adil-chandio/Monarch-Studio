@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261015-004",
+  "status": "completed",
+  "title": "WF-02 KAANTA v5 fast precision motion and material/sound refinement",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Make the clean KAANTA film noticeably more decisive and reference-paced through shorter object/camera moves, improved material/detail/colour treatment and tightly synchronized premium tactile sound; do not restore rejected clutter or speed up the narration.",
+  "acceptance_criteria": [
+    "Preserve v2/v3/v4 and fixed Urdu narration; separate new v5 source/master in the confirmed WF-02 folder",
+    "Quantifiably shorter approach/close/pull/move windows, C2 smooth acceleration and intentional settles; no global speed-up or optical-flow interpolation",
+    "Material/detail and colour/lighting changes visible in actual encoded frames, not merely a filename/version change",
+    "No HUD/panels/counters/coloured pills/UI pings/page flips; restrained type and captions retained",
+    "Tactile cues follow the new physical action moments, music/voice hierarchy remains clear; measured completed MP4 and source uploaded/hash verified with music credit"
+  ],
+  "started_at": "2026-10-15T14:12:46Z",
+  "updated_at": "2026-10-15T15:27:04Z",
+  "checkpoint_sequence": 8,
+  "event_sequence": 28,
+  "journal_head": "e0fef9da4b56b49555b7dacd2c584a1a17ea2eb37f5ce9bd06a176c1cbec17a0",
+  "last_checkpoint": "2026-10-15T15:27:04Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261015-004/0008-20261015T152704Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

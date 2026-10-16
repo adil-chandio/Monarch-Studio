@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261015-005",
+  "status": "completed",
+  "title": "WF-02 KAANTA v6 cinematic shot-design revision — scope confirmation",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Create a meaningful further cinematic/animation/editing/sound improvement rather than repeatedly stacking small effects. Confirm whether new shots and/or a new hook/script are allowed, preserve the no-clutter correction and previous deliveries, then produce the agreed new version.",
+  "acceptance_criteria": [
+    "Confirm V6 redesign scope before another expensive full render; do not invent user approval",
+    "Retain the earlier clean/premium constraint: no gratuitous HUD, panels, counters, beeps or transitions",
+    "Preserve all previous source/master versions and medical safety meaning",
+    "After scope selection, deliver actual rendered/verified video and editable source in the confirmed WF-02 workflow with appropriate music credit"
+  ],
+  "started_at": "2026-10-15T17:22:37Z",
+  "updated_at": "2026-10-15T18:59:55Z",
+  "checkpoint_sequence": 11,
+  "event_sequence": 34,
+  "journal_head": "b4b7f160baa7d4e59a819b597cadecb2301e06d4d88b2763e9f9dceee5303de0",
+  "last_checkpoint": "2026-10-15T18:59:55Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261015-005/0011-20261015T185955Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

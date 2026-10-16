@@ -21,7 +21,10 @@ class StudioCliTests(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls) -> None:
-        subprocess.run(CLI + ["clean", "all"], cwd=ROOT, text=True, capture_output=True)
+        # Never erase unrelated in-progress film renders / delivery masters in
+        # .runtime/. Only remove compatibility copies these tests can create.
+        for workflow in ("wf01", "wf02", "wf03"):
+            subprocess.run(CLI + ["clean", workflow], cwd=ROOT, text=True, capture_output=True)
 
     def run_cli(self, *args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
         proc = subprocess.run(CLI + list(args), cwd=ROOT, text=True, capture_output=True)
@@ -29,12 +32,14 @@ class StudioCliTests(unittest.TestCase):
             self.fail(f"CLI failed ({proc.returncode}): {' '.join(args)}\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}")
         return proc
 
-    def test_registry_lists_exact_initial_workflows(self) -> None:
+    def test_registry_lists_live_workflows_preserving_existing_authority(self) -> None:
         proc = self.run_cli("list", "--json")
         data = json.loads(proc.stdout)
-        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03"])
-        self.assertEqual(data["workflows"][0]["trigger"], "SHADEGO <topic>")
-        self.assertEqual(data["workflows"][1]["state"], "ACTIVE_WITH_DRIFT")
+        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-02", "WF-03"])
+        by_code = {item["code"]: item for item in data["workflows"]}
+        self.assertEqual(by_code["WF-01"]["trigger"], "SHADEGO <topic>")
+        self.assertEqual(by_code["WF-02"]["style_id"], "monarch-zackd-3d")
+        self.assertEqual(by_code["WF-03"]["state"], "ACTIVE_WITH_DRIFT")
 
     def test_registered_required_paths_exist(self) -> None:
         registry = json.loads((ROOT / "studio" / "registry.json").read_text())
@@ -61,6 +66,18 @@ class StudioCliTests(unittest.TestCase):
         expected_latest = brain_registry["videos"][-1]["key"]
         self.assertIn(f"{expected_count} delivered videos", status.stdout.lower())
         self.assertIn(expected_latest.lower(), status.stdout.lower())
+
+    def test_wf02_hydration_preserves_portable_project_source(self) -> None:
+        data = json.loads(self.run_cli("list", "--json").stdout)
+        entry = next(item for item in data["workflows"] if item["code"] == "WF-02")
+        source = ROOT / entry["path"]
+        project = Path(entry["current_delivery"]["project_path"])
+        before = digest(source / project / "src" / "film.js")
+        self.run_cli("hydrate", "wf02", "--force")
+        home = ROOT / ".runtime" / "wf02" / "home" / "user"
+        self.assertEqual(before, digest(home / project / "src" / "film.js"))
+        self.assertEqual(before, digest(source / project / "src" / "film.js"))
+        self.assertTrue((home / project / "assets" / "models" / "cutaway.glb").exists())
 
     def test_wf03_hydration_recreates_legacy_layout_and_shared_dependencies(self) -> None:
         source = ROOT / "styles" / "monarch-noir-film" / "src" / "encode_window.sh"
@@ -93,6 +110,8 @@ class StudioCliTests(unittest.TestCase):
         self.assertIn("README.md", paths)
         self.assertNotIn(".studio-manifest.json", paths)
         self.assertFalse(any(path.startswith(".runtime/") for path in paths))
+        self.assertFalse(any(path.startswith(".venv/") for path in paths))
+        self.assertFalse(any(path.startswith("venv/") for path in paths))
         self.assertFalse(any(path.startswith("vendor/effectcraft/") for path in paths))
 
     def test_missing_manifest_paths_are_genuine_sparse_omissions(self) -> None:

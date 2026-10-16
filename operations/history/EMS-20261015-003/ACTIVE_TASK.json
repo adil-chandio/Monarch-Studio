@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261015-003",
+  "status": "completed",
+  "title": "WF-02 KAANTA v4 restrained cinematic / tactile-sound redesign",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Remove unnecessary, cheap-feeling visual and audio clutter from v3; create a premium reference-led cinematic 3D version with restrained colour, selective real3D typography, smooth motivated motion and tactile ASMR-style original sound/music build. Preserve previous versions and the accepted narration.",
+  "acceptance_criteria": [
+    "Remove HUD frames, chapter cards, alert bars, counters, gratuitous pops and page-turn gimmick; action leads the screen",
+    "Use selective tasteful extruded3D text and readable minimal Roman Urdu captions, not simultaneous competing text layers",
+    "Refined materials/colour/framing and camera/keyframes; actual native3D animation rather than poster pan/zoom",
+    "Tactile understated sound design and coherent background-music build, with clear Urdu narration and no guaranteed-retention claims",
+    "Render, measure, inspect and deliver new MP4/source in confirmed WF-02 Drive parent without altering v2/v3"
+  ],
+  "started_at": "2026-10-14T23:17:46Z",
+  "updated_at": "2026-10-15T00:35:15Z",
+  "checkpoint_sequence": 9,
+  "event_sequence": 29,
+  "journal_head": "7e03a4282a2f50e373a874cab1d956bae835499fda1e16115f5ffd48e0b9fb6e",
+  "last_checkpoint": "2026-10-15T00:35:15Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261015-003/0009-20261015T003515Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

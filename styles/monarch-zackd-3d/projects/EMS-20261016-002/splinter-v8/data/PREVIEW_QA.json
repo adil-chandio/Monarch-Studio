@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "review_only": true,
+  "checks": {
+    "review_resolution_only": true,
+    "all_915_frames_decode": true,
+    "fps_30": true,
+    "duration_30_5": true,
+    "timestamps_continuous": true,
+    "tissue_visible_every_frame": true
+  },
+  "metadata": {
+    "width": 270,
+    "height": 480,
+    "fps": 30.0,
+    "duration": 30.5
+  },
+  "decoded_frames": 915,
+  "minimum_tissue_fraction": 0.23054421768707484,
+  "sha256": "f15088fbc20fa7c78a2c0e051258163226fa5dafe92d9ebda38b4a738f183409",
+  "limitations": "Low-resolution full-motion review. Not the native1080x1920 final, not medical/ear/retention/perfection certification. Encoded sampling sheet supplements complete-stream decode checks.",
+  "sampled_visual_review": "Encoded ten-scene sheet inspected: subjects/tissue and captions visible; intentional macro crops, clean composition; low-res edges not judged as native final quality."
+}

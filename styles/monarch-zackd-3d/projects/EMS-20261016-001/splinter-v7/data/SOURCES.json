@@ -1,0 +1,51 @@
+{
+  "production_date_local": "2026-10-15",
+  "timezone": "Asia/Karachi",
+  "reference": {
+    "drive_id": "1zXgd_QnDbCcODXHyIwp4uzqRrQf0X03V",
+    "name": "How Splinters Get Unstuck",
+    "inspection": "Extracted video frames and visible captions; not an independent audio transcription",
+    "sha256": "265f9b98ca6d503e145e29eeb02945454a648e8e68e7ea9af76def0e90ea7c79",
+    "used_in_output": false
+  },
+  "base_cutaway": {
+    "drive_id": "1yfu7tZGut9LWcXidALvRlB9LdfxpMPM3",
+    "parent_id": "1-i1w-CzjRNwKv9Y3iDh9NNxHS2xlck5A",
+    "local": "assets/models/cutaway.glb",
+    "bytes": 4678608,
+    "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4",
+    "lineage": "Recovered earlier Monarch WF-02 SPLINTER animated model, reused and modified at render time. Not newly authored from scratch in this task."
+  },
+  "prior_notes": [
+    "1wuc7mXWoOky0u7AY_fNODiRHEiSSF6C3",
+    "1SCO2rwvH4zqrQrw0ilbPAS_8yeAPwooe"
+  ],
+  "narration": {
+    "voice_id": "voice-00",
+    "audition": "Selected by user in this session",
+    "language": "ur",
+    "source": "Four new generated clips; not reference voice imitation or original audio",
+    "reuse": "Identical existing WAVs retained; no new speech synthesis or voice audition needed."
+  },
+  "delivery_parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "revision_parent": {
+    "project": "styles/monarch-zackd-3d/projects/EMS-20261015-004/splinter-v5",
+    "master_drive_id": "18kKI_5vkVOJKFUmTAEr7Tp4ZaVK6wb2M",
+    "master_sha256": "73cbb5d882745cd75eb5faa82bca39ebe2472e62559393370ae981aaa3e43e74",
+    "preserved": true
+  },
+  "base_task_id": "EMS-20261014-001",
+  "task_id": "EMS-20261015-005",
+  "revision_changes": [
+    "Nine-shot macro director layout;8 of9 camera views materially changed,one editorial wide anchor preserved",
+    "Independent intact-skin surface insert with radial slit geometry and buried fragment",
+    "Three hero immune-cell groups with membrane,cytoplasm and segmented inner forms",
+    "Actual geometry-depth selective Gaussian focus with sharp post-focus captions",
+    "New semantic cuts and shot-local camera/focus controls,not another global speed or effect-count tweak",
+    "Original voice/script/placements retained;8-cue perspective-aware sound/music rebalance"
+  ],
+  "music_provenance": "assets/music/SAMPLE_PROVENANCE.json",
+  "music_publishing_credit": "assets/music/ATTRIBUTION.md",
+  "delivery_folder_id": "196_t6HSE2xpNp77g8aZK86Mq9X7-gR9M",
+  "scope_selection": "new_shots_same_voice"
+}

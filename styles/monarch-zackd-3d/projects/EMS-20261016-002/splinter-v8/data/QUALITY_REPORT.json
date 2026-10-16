@@ -1,0 +1,628 @@
+{
+  "passed": true,
+  "checks_passed": 34,
+  "checks_total": 34,
+  "master": "KAANTA_CRAFT_v8_FINAL.mp4",
+  "bytes": 10672253,
+  "sha256": "a34fd043d18237ff275fdc61d0f7118b437d33b3dbc1e80faaf9c92209eb60a8",
+  "md5": "bf8b66aa08e0891ff45862833f369785",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "checks": [
+    {
+      "name": "H.264 portrait native-size delivery",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Frame rate and container duration",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "AAC stereo 48kHz",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Every expected frame decodes",
+      "passed": true,
+      "details": {
+        "decoded": 915,
+        "expected": 915,
+        "error": null
+      }
+    },
+    {
+      "name": "Continuous monotonic video timestamps",
+      "passed": true,
+      "details": {
+        "first": 0.0,
+        "last": 30.466666666666665
+      }
+    },
+    {
+      "name": "Authored fast action windows show actual picture motion",
+      "passed": true,
+      "details": {
+        "actions": [
+          {
+            "action": "surface approach",
+            "frames": 12,
+            "unique": 12
+          },
+          {
+            "action": "surface close",
+            "frames": 6,
+            "unique": 6
+          },
+          {
+            "action": "surface pull",
+            "frames": 13,
+            "unique": 13
+          },
+          {
+            "action": "deep approach",
+            "frames": 11,
+            "unique": 11
+          },
+          {
+            "action": "deep close",
+            "frames": 6,
+            "unique": 6
+          },
+          {
+            "action": "deep pull",
+            "frames": 22,
+            "unique": 22
+          }
+        ],
+        "whole_film_unique_anatomy_crops": 913,
+        "longest_identical_crop_run_seconds": 0.03333333333333333,
+        "note": "Deliberate settles/holds are allowed; the contract is independently rendered3D with faster authored actions, not fake jitter to maximize uniqueness."
+      }
+    },
+    {
+      "name": "Anatomy remains visible through every frame",
+      "passed": true,
+      "details": {
+        "minimum_warm_tissue_fraction": 0.22900680272108845,
+        "frames_checked": 915,
+        "excluded_interval": null,
+        "purpose": "Detect lost/blank 3D frames rather than treating animated captions/background as sufficient motion."
+      }
+    },
+    {
+      "name": "Entire audio stream decodes",
+      "passed": true,
+      "details": {
+        "frames": 1430,
+        "decoded_seconds": 30.506666666666668
+      }
+    },
+    {
+      "name": "Final AAC loudness and true peak",
+      "passed": true,
+      "details": {
+        "integrated_lufs": -16.03,
+        "true_peak_dbtp": -2.56,
+        "lra_lu": 4.1
+      }
+    },
+    {
+      "name": "Fast-start MP4",
+      "passed": true,
+      "details": {
+        "top_level_atoms": [
+          "ftyp",
+          "moov",
+          "free",
+          "mdat"
+        ]
+      }
+    },
+    {
+      "name": "Caption intervals in bounds",
+      "passed": true,
+      "details": {
+        "phrases": 19,
+        "alignment": "Phrase-timed, not word-level forced alignment"
+      }
+    },
+    {
+      "name": "Explicit no-guarantee and professional-care ending",
+      "passed": true,
+      "details": {
+        "messages": "Conditional expulsion, do not wait, doctor for warning signs, do not dig"
+      }
+    },
+    {
+      "name": "Native-frame render receipts cover the master exactly",
+      "passed": true,
+      "details": {
+        "chunks": 11,
+        "covered_frames": 915,
+        "signatures": [
+          "c85ed35b717938bd9707598e5327988110584ac5ff7750cbbbca2260c8af535c"
+        ]
+      }
+    },
+    {
+      "name": "Retained actor/director checks pass",
+      "passed": true,
+      "details": {
+        "passed": 13,
+        "total": 13,
+        "scope": "Shot-local C2 rails, explicit semantic cuts, new surface/cell/focus views, retained voice/script and finite frame states"
+      }
+    },
+    {
+      "name": "User-liked narration assets remain unchanged",
+      "passed": true,
+      "details": {
+        "01_hook.wav": true,
+        "02_response.wav": true,
+        "03_movement.wav": true,
+        "04_safety.wav": true
+      }
+    },
+    {
+      "name": "Current picture source matches all recorded frame signatures",
+      "passed": true,
+      "details": {
+        "source_signature": "c85ed35b717938bd9707598e5327988110584ac5ff7750cbbbca2260c8af535c"
+      }
+    },
+    {
+      "name": "Reject decorative clutter; allow only captions and two timed type beats",
+      "passed": true,
+      "details": {
+        "visible_3d_type_beats": 2,
+        "total_type_seconds": 3.0799999999999983,
+        "caption_layers": 1,
+        "hud_boxes_counters_chapter_headers": 0,
+        "page_flip": false
+      }
+    },
+    {
+      "name": "Typography is measured extruded3D geometry, not a fake-shadow label",
+      "passed": true,
+      "details": [
+        {
+          "text": "KAANTA",
+          "type": "TextGeometry",
+          "vertices": 3228,
+          "depth": 0.044
+        },
+        {
+          "text": "NAHI.",
+          "type": "TextGeometry",
+          "vertices": 5664,
+          "depth": 0.042
+        }
+      ]
+    },
+    {
+      "name": "Complete-frame revisits return to identical pixels",
+      "passed": true,
+      "details": {
+        "scope": "Full frame, out-of-order evaluation including geometry/camera/subtitles"
+      }
+    },
+    {
+      "name": "Restrained story-linked textures replace UI pings",
+      "passed": true,
+      "details": {
+        "cue_count": 8,
+        "voice_over_bed_db": 17.55321186415764,
+        "stereo_correlation": 0.992354684665017
+      }
+    },
+    {
+      "name": "Measured score builds and gives the warning line breathing space",
+      "passed": true,
+      "details": {
+        "hook": -40.89666135747552,
+        "discovery": -38.31506066404083,
+        "build": -33.34118923628524,
+        "breathing_space": -49.545514219593436,
+        "resolve": -41.76282951660393
+      }
+    },
+    {
+      "name": "Mix preserves voice priority and mono compatibility",
+      "passed": true,
+      "details": {
+        "voice_rms_dbfs": -20.354373582408527,
+        "bed_rms_dbfs": -37.907585446566166,
+        "stereo_correlation": 0.992354684665017
+      }
+    },
+    {
+      "name": "Credited music samples and publishing attribution accompany the source",
+      "passed": true,
+      "details": {
+        "sample_count": 25,
+        "license": "CC BY 3.0 US, as documented upstream for FluidR3_GM; not the share-alike MusyngKite/FatBoy libraries.",
+        "reference_audio_copied": false
+      }
+    },
+    {
+      "name": "Native renderer actually visited every new shot and scene group",
+      "passed": true,
+      "details": {
+        "shots": {
+          "01": 111,
+          "02": 99,
+          "03": 57,
+          "04": 79,
+          "05": 121,
+          "06": 100,
+          "07": 96,
+          "08": 124,
+          "09": 128
+        },
+        "scene_groups": {
+          "finger": 210,
+          "surface": 57,
+          "anatomy": 648
+        },
+        "expected_groups": {
+          "finger": 210,
+          "surface": 57,
+          "anatomy": 648
+        }
+      }
+    },
+    {
+      "name": "New surface and detailed hero cells are actual measured geometry",
+      "passed": true,
+      "details": {
+        "v8DermalBundleCount": 36,
+        "v8DermalBundleVertices": 8100,
+        "newSurfaceVertices": 21809,
+        "newHeroCells": 3,
+        "heroNucleusLobesPerCell": 3,
+        "depthFocusMethod": "geometry-depth-guided separable Gaussian",
+        "intentionalCuts": [
+          3.68,
+          7,
+          8.88,
+          11.51,
+          15.56,
+          18.9,
+          22.08,
+          26.21
+        ],
+        "gripHalfRaw": 0.11409630626440048,
+        "surfaceGap": 0.07855761588523379,
+        "deepGap": 0.10686461652896505,
+        "heroTextMeshes": [
+          {
+            "text": "KAANTA",
+            "type": "TextGeometry",
+            "vertices": 3228,
+            "depth": 0.044
+          },
+          {
+            "text": "NAHI.",
+            "type": "TextGeometry",
+            "vertices": 5664,
+            "depth": 0.042
+          }
+        ],
+        "hudDecorations": 0
+      }
+    },
+    {
+      "name": "Geometry-depth focus changes the image, not the caption canvas",
+      "passed": true,
+      "details": {
+        "passed": true,
+        "method": "Same actual3D timestamp, production focus pass on/off in an isolated browser; compare scene PNG and raw caption canvas separately",
+        "proofs": [
+          {
+            "time": 7.8,
+            "scene_image_changes": true,
+            "caption_canvas_identical": true,
+            "focus_distance": 1.40112964828847,
+            "preview_blur_px": 3.5,
+            "on_sha256": "51e228bfe3b14631ae25a3fb6744dcddfefba91afde773aac9301bd34b48f5cb",
+            "off_sha256": "955212811771946bde389577a451f8b28ff591591f01cee094c10cb4f3d8a4bd"
+          },
+          {
+            "time": 9.3,
+            "scene_image_changes": true,
+            "caption_canvas_identical": true,
+            "focus_distance": 2.5226739721861797,
+            "preview_blur_px": 3.5,
+            "on_sha256": "ee05c4196138fc08f0218b5cbe08d2141e72048092e8f2cf70c84aba68f92dfd",
+            "off_sha256": "f420e9f329960075da741506d890ba0cf43907a424b34493dd53396b140a0e59"
+          },
+          {
+            "time": 27.4,
+            "scene_image_changes": true,
+            "caption_canvas_identical": true,
+            "focus_distance": 9.104404332168778,
+            "preview_blur_px": 2.5,
+            "on_sha256": "db919891abf2a6615ebaa3223db1fa5b8e2afb9dcf0560368971eea68cc80b95",
+            "off_sha256": "8939df2f1d6a711f95835504f62b0d0b315e974c1b05eb7c68b4f73015e614dc"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "User-selected original script,caption reading copy and voice placements are retained",
+      "passed": true,
+      "details": {
+        "baseline": "styles/monarch-zackd-3d/projects/EMS-20261015-004/splinter-v5",
+        "scope_choice": "full_film_visual_motion_same_narration"
+      }
+    },
+    {
+      "name": "Fast-motion blur is accounted real3D sampling, not optical flow",
+      "passed": true,
+      "details": {
+        "output_frames": 915,
+        "real_scene_evaluations": 1101,
+        "shutter_output_frames": 93,
+        "exposure_seconds": 0.006666666666666667,
+        "captions": "drawn once at center time after geometry-depth focus",
+        "no_blend_across_cuts": [
+          3.68,
+          7,
+          8.88,
+          11.51,
+          15.56,
+          18.9,
+          22.08,
+          26.21
+        ]
+      }
+    },
+    {
+      "name": "Depth-focus coverage matches the authored shot plan",
+      "passed": true,
+      "details": {
+        "rendered_focus_frames": 775,
+        "expected_focus_frames": 775,
+        "method": "geometry-depth-guided separable Gaussian, not calibrated optics"
+      }
+    },
+    {
+      "name": "Measured contact/release transients match authored visual anchors",
+      "passed": true,
+      "details": [
+        {
+          "cue": "wood_contact",
+          "seconds": 0.002270833333333333
+        },
+        {
+          "cue": "surface_contact",
+          "seconds": 0.0026874999999995097
+        },
+        {
+          "cue": "surface_release",
+          "seconds": 0.0057916666666670835
+        },
+        {
+          "cue": "deep_contact",
+          "seconds": 0.0021874999999980105
+        },
+        {
+          "cue": "deep_release",
+          "seconds": 0.009499999999999176
+        }
+      ]
+    },
+    {
+      "name": "Voice placement and playback rate are retained",
+      "passed": true,
+      "details": {
+        "narration_time_stretch": false,
+        "total_duration": 30.5
+      }
+    },
+    {
+      "name": "Retained organic membranes change actual pixels and return deterministically",
+      "passed": true,
+      "details": {
+        "repeat_exact": true,
+        "moves": true,
+        "bounded": true,
+        "samples": 4,
+        "scope": "Three stylized hero membranes only; no biological mechanics claim. Same-time picture A/B, absolute-time return, geometry density and deformation bounds."
+      }
+    },
+    {
+      "name": "V8 whole-film views and returned contact arcs differ from V7",
+      "passed": true,
+      "details": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "All nine shot cameras differ from actual V7 baseline",
+            "passed": true,
+            "details": [
+              {
+                "shot": "01",
+                "scene": "finger",
+                "time": 1.84,
+                "translationDifference": 1.6807499605472063,
+                "cameraChanged": true
+              },
+              {
+                "shot": "02",
+                "scene": "finger",
+                "time": 5.34,
+                "translationDifference": 0.3217248704570067,
+                "cameraChanged": true
+              },
+              {
+                "shot": "03",
+                "scene": "surface",
+                "time": 7.94,
+                "translationDifference": 0.2281448136275787,
+                "cameraChanged": true
+              },
+              {
+                "shot": "04",
+                "scene": "anatomy",
+                "time": 10.195,
+                "translationDifference": 0.31582979012992507,
+                "cameraChanged": true
+              },
+              {
+                "shot": "05",
+                "scene": "anatomy",
+                "time": 13.535,
+                "translationDifference": 0.436354626438953,
+                "cameraChanged": true
+              },
+              {
+                "shot": "06",
+                "scene": "anatomy",
+                "time": 17.23,
+                "translationDifference": 0.4248978882101666,
+                "cameraChanged": true
+              },
+              {
+                "shot": "07",
+                "scene": "anatomy",
+                "time": 20.49,
+                "translationDifference": 0.3417601498127013,
+                "cameraChanged": true
+              },
+              {
+                "shot": "08",
+                "scene": "anatomy",
+                "time": 24.145,
+                "translationDifference": 0.47748590515586586,
+                "cameraChanged": true
+              },
+              {
+                "shot": "09",
+                "scene": "anatomy",
+                "time": 28.355,
+                "translationDifference": 0.49927334680675206,
+                "cameraChanged": true
+              }
+            ]
+          },
+          {
+            "name": "Changes cover all three scene groups",
+            "passed": true,
+            "details": {
+              "groups": [
+                "finger",
+                "surface",
+                "anatomy"
+              ]
+            }
+          },
+          {
+            "name": "New approach arcs return exactly before gripping",
+            "passed": true,
+            "details": {
+              "surface": [
+                {
+                  "t": 4.26,
+                  "offset": 0
+                },
+                {
+                  "t": 4.449999999999999,
+                  "offset": 0.045
+                },
+                {
+                  "t": 4.82,
+                  "offset": 5.5109105961630896e-18
+                }
+              ],
+              "deep": [
+                {
+                  "t": 26.2,
+                  "offset": 0
+                },
+                {
+                  "t": 26.369999999999997,
+                  "offset": 0.055
+                },
+                {
+                  "t": 26.71,
+                  "offset": 6.735557395310442e-18
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sound dynamics changed, narration retained",
+            "passed": true,
+            "details": {
+              "cueCount": 8,
+              "voiceChange": "none"
+            }
+          }
+        ],
+        "scope": "Numerical full-film comparison against actual V7; rendered geometry/material proof is additional. No taste/clinical/retention certification."
+      }
+    },
+    {
+      "name": "V8 dermal micro-bundles are measured real geometry",
+      "passed": true,
+      "details": {
+        "bundles": 36,
+        "vertices": 8100,
+        "limit": "stylized texture geometry, not histology"
+      }
+    }
+  ],
+  "manual_review": {
+    "status": "sampled_encoded_visual_review_completed",
+    "scene_samples": 10,
+    "action_samples": 16,
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "fast_actions": "QA_FAST_ACTIONS.jpg",
+    "observations": "Inspected encoded native scene/action samples: visible tissue/subjects, in-frame captions, ordered contact and extraction, clean composition and intentional macro crops. New tissue detail remains subordinate.",
+    "limits": "Sampled visual inspection, not full frame-by-frame artistic or clinician certification; no independent ear/pronunciation/ASMR/retention review."
+  }
+}

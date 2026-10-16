@@ -1,0 +1,24 @@
+# WF2 new-video brief (fill before production)
+
+- Topic / concrete viewer question:
+- Requested language, duration/aspect/platform:
+- Scope: new topic / same-film focused pass / whole-film enhancement / authorized script-voice rewrite:
+- Current style baseline and exact user changes:
+- Sources, confidence, mechanism, uncertainty and safety qualifiers:
+- Hook -> causal process -> consequence -> conditional reversal -> safe resolution:
+- Original visual metaphor/concept and why it clarifies rather than misleads:
+- Inherited assets with licenses vs geometry that must be newly authored:
+- Voice approval / current-session registration / fixed-WAV reuse conditions:
+- Script/caption/placement lock and pronunciation-review status:
+- Shot table: purpose, camera/focus keys, subject/action, declared cut, proof timestamps:
+- Contact axis/gap/lock, tension/travel/settle controls (if applicable):
+- Material/light/palette details serving the camera:
+- Necessary3D type beats (or none); one readable caption layer:
+- Tactile anchors, measured transient timing, voice/bed/music dynamics and credits:
+- Rejected clutter list checked:
+- Current tests/A-B proofs/full-motion review and native render budget:
+- Process ID, frozen source signature and resume instruction:
+- Encoded metadata/frame/audio/visual gates and actual review limits:
+- Final/source/SRT/notes/credit/receipt IDs and local/remote checksums:
+- User artistic approval status / next requested correction:
+- New lessons appended to permanent knowledge and exact recovery entry:

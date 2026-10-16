@@ -1,0 +1,181 @@
+{
+  "license": "CC BY 3.0 US, as documented upstream for FluidR3_GM; not the share-alike MusyngKite/FatBoy libraries.",
+  "source_readme": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/README.md",
+  "samples": [
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "D2",
+      "bytes": 25585,
+      "sha256": "6233cc6f3670a287e33c7b8ece3b03a787ee1e169c8355432ce0b5e194bee612",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "A2",
+      "bytes": 25585,
+      "sha256": "e21d9ab9b30c73c0aea921c2cd0dd59fece4cc021619927c9ff3dee71f0a9679",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "D3",
+      "bytes": 25585,
+      "sha256": "b8a5ed9cf147e10f484f3ad39930130d487b12045a35cef73f48dab401e6583b",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "F3",
+      "bytes": 25585,
+      "sha256": "ff912c3211f80dc0c4f541ebd39c1db11f21cfda684d54999f9bce87aaf0cf20",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "A3",
+      "bytes": 25585,
+      "sha256": "02dee2fa184b9b94a5f72886c2370bd076103ebb76fc179982fa503e549dcc10",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "Bb3",
+      "bytes": 25585,
+      "sha256": "6ac0f67f18e15db35553d4fcd83ceec4473ebe639e31659ce93cf8466cb06644",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "C4",
+      "bytes": 25585,
+      "sha256": "b6d32e0d9d0c2e4b88165a2ec27b8787a970f131a03d96d065f28f158640af96",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "D4",
+      "bytes": 25585,
+      "sha256": "90539782bdbbbe714de579bfbbe6f478e07e112c6f78d03e8ee82462fbf2a569",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "E4",
+      "bytes": 25585,
+      "sha256": "48bcecf53832988af83f74aa65efd7daa34f1e3ebf10de4679363b89d54f3852",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "F4",
+      "bytes": 25585,
+      "sha256": "a7426425ed95ea8652a888d850c34c4b766c7c7a11c168ed6899c38a6836be0c",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "A4",
+      "bytes": 25585,
+      "sha256": "4f1671ac831bc41c845e67b18e6c9ea200fc9b753bdffe124703b7141aa928c3",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "acoustic_grand_piano",
+      "note": "C5",
+      "bytes": 25585,
+      "sha256": "7a4be6dae323ac5564ad1a617b554fd595e5e0a63f19c3581e3ee94c33ae2e4b",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/acoustic_grand_piano-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "D2",
+      "bytes": 25585,
+      "sha256": "f6db7cef319b329880f90e6e54c0ebb91418430bfab64d75536e6cd02ed99fb6",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "A2",
+      "bytes": 25585,
+      "sha256": "aa18efdb1093f29ed02248f4be834d544bc483f82218bb3ff167eb09daa8d806",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "Bb2",
+      "bytes": 25585,
+      "sha256": "3141c4b479453468913031948e46c9311cdd29eae89781204d906714a3ccf531",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "C3",
+      "bytes": 25585,
+      "sha256": "945c6f8243bbe13309a5938fb55483fd215bb760e41c77e21c890714c1d9f7ec",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "D3",
+      "bytes": 25585,
+      "sha256": "5cfcf67ae91ada4900edf8063370d7cf9c6650fe377789ee1e4057c2b9ca8fb5",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "cello",
+      "note": "F3",
+      "bytes": 25585,
+      "sha256": "4250a25b102cd3f6c31192cb5efb5916918a224c2ba062252ad835a1f24038e7",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/cello-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "D3",
+      "bytes": 25585,
+      "sha256": "901ffe7b236d7cbdb9c3ab7c793cd33610f6c068fc5567dc3ba55ce9e82bb323",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "F3",
+      "bytes": 25585,
+      "sha256": "16e42842f82ce24554d047d35d4766235439b9b6c341107fbe6a8f2db39edf6b",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "A3",
+      "bytes": 25585,
+      "sha256": "9b0bb53b2cafa9575bc3046320d754e0363f6014e83ae8807e31cdf90a453c5a",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "Bb3",
+      "bytes": 25585,
+      "sha256": "43cef3b5f7303dd861f71aed801c7810053d697813b30cb1fe5c6b4b2c9b5437",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "C4",
+      "bytes": 25585,
+      "sha256": "e2ca8e8308c6ab163508f351617af213923fc59d3d380148f1d0df756db109e3",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "D4",
+      "bytes": 25585,
+      "sha256": "89dfb88c8152a43c6d4187b9f2e25bb90130a9a3a39fe2c45fa7d84385b64db4",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    },
+    {
+      "instrument": "string_ensemble_1",
+      "note": "E4",
+      "bytes": 25585,
+      "sha256": "9cdbfb7c5ca8b2c6017531cc8cc574e1909c05b8b99ddcdbadc3d1ee68e40cb0",
+      "source_url": "https://github.com/gleitz/midi-js-soundfonts/blob/gh-pages/FluidR3_GM/string_ensemble_1-mp3.js"
+    }
+  ]
+}

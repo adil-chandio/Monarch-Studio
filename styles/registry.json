@@ -16,6 +16,19 @@
       "latest_release_path": "styles/monarch-stickman-animation/films/tumhari-reserved-seat"
     },
     {
+      "style_id": "monarch-zackd-3d",
+      "name": "Monarch 3D Explainers · WF-02",
+      "workflow_code": "WF-02",
+      "trigger": "WF2 <topic or reference>",
+      "path": "styles/monarch-zackd-3d",
+      "contract": "styles/monarch-zackd-3d/workflow.json",
+      "status": "DELIVERED_FOR_REVIEW",
+      "knowledge_index": "styles/monarch-zackd-3d/knowledge/INDEX.md",
+      "latest_release": "KAANTA · Full Film Craft v8",
+      "latest_release_path": "styles/monarch-zackd-3d/projects/EMS-20261016-002/splinter-v8",
+      "startup_entry": "styles/monarch-zackd-3d/START_HERE.md"
+    },
+    {
       "style_id": "monarch-noir-film",
       "name": "Monarch Noir Film",
       "workflow_code": "WF-03",

@@ -1,0 +1,145 @@
+{
+  "baseline": "styles/monarch-zackd-3d/projects/EMS-20261015-004/splinter-v5",
+  "narration": [
+    {
+      "file": "01_hook.wav",
+      "start": 0.24,
+      "duration": 6.6,
+      "text": "کانٹا سکن میں پھنس جائے، تو باڈی کیا کرتی ہے؟ ٹِپ باہر ہو، تو نکالنا آسان ہوتا ہے۔"
+    },
+    {
+      "file": "02_response.wav",
+      "start": 7.0,
+      "duration": 8.4,
+      "text": "لیکن اندر پھنس جائے، تو ڈیفینس سیلز اس کے گرد جمع ہوتے ہیں۔ سوجن آ سکتی ہے۔ انفیکشن ہو، تو پیپ بھی بن سکتی ہے۔"
+    },
+    {
+      "file": "03_movement.wav",
+      "start": 15.56,
+      "duration": 6.36,
+      "text": "کبھی چھوٹا کانٹا سکن کی سطح تک آ جاتا ہے۔ لیکن ہر بار نہیں! اس کا انتظار مت کرو۔"
+    },
+    {
+      "file": "04_safety.wav",
+      "start": 22.08,
+      "duration": 7.32,
+      "text": "گہرا کانٹا، بڑھتی لالی، درد یا پیپ ہو، تو ڈاکٹر سے مدد لو۔ سکن کو مت کھودو۔"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.42,
+      "end": 1.42,
+      "text": "Kaanta skin mein",
+      "accent": "Kaanta"
+    },
+    {
+      "start": 1.42,
+      "end": 2.23,
+      "text": "phans jaye...",
+      "accent": "phans"
+    },
+    {
+      "start": 2.23,
+      "end": 3.7,
+      "text": "to body kya karti hai?",
+      "accent": "body"
+    },
+    {
+      "start": 4.05,
+      "end": 5.06,
+      "text": "Tip bahar ho,",
+      "accent": "Tip"
+    },
+    {
+      "start": 5.06,
+      "end": 6.74,
+      "text": "to nikaalna aasaan hota hai.",
+      "accent": "aasaan"
+    },
+    {
+      "start": 7.18,
+      "end": 8.92,
+      "text": "Lekin andar phans jaye,",
+      "accent": "andar"
+    },
+    {
+      "start": 8.92,
+      "end": 10.1,
+      "text": "to defence cells",
+      "accent": "defence cells"
+    },
+    {
+      "start": 10.1,
+      "end": 11.51,
+      "text": "uske gird jama hote hain.",
+      "accent": "jama"
+    },
+    {
+      "start": 11.51,
+      "end": 12.83,
+      "text": "Soojan aa sakti hai.",
+      "accent": "Soojan"
+    },
+    {
+      "start": 12.83,
+      "end": 13.82,
+      "text": "Infection ho,",
+      "accent": "Infection"
+    },
+    {
+      "start": 13.82,
+      "end": 15.31,
+      "text": "to peep bhi ban sakti hai.",
+      "accent": "peep"
+    },
+    {
+      "start": 15.72,
+      "end": 17.06,
+      "text": "Kabhi chhota kaanta",
+      "accent": "Kabhi"
+    },
+    {
+      "start": 17.06,
+      "end": 18.9,
+      "text": "skin ki satah tak aa jata hai.",
+      "accent": "satah"
+    },
+    {
+      "start": 18.9,
+      "end": 20.39,
+      "text": "Lekin har baar nahi!",
+      "accent": "har baar nahi!"
+    },
+    {
+      "start": 20.39,
+      "end": 21.82,
+      "text": "Iska intezaar mat karo.",
+      "accent": "mat karo."
+    },
+    {
+      "start": 22.18,
+      "end": 24.68,
+      "text": "Gehra kaanta, barhti laali,",
+      "accent": "Gehra kaanta"
+    },
+    {
+      "start": 24.68,
+      "end": 26.21,
+      "text": "dard ya peep ho...",
+      "accent": "dard"
+    },
+    {
+      "start": 26.21,
+      "end": 27.78,
+      "text": "to doctor se madad lo.",
+      "accent": "doctor"
+    },
+    {
+      "start": 27.78,
+      "end": 29.32,
+      "text": "Skin ko mat khodo.",
+      "accent": "mat khodo."
+    }
+  ]
+}

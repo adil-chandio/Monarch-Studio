@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-zackd-3d",
+  "baseline_release_path": "projects/EMS-20261016-002/splinter-v8",
+  "format_defaults": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "audio_sample_rate": 48000,
+    "audio_channels": 2,
+    "integrated_lufs_target": -16,
+    "true_peak_ceiling_dbtp": -1.0
+  },
+  "not_universal": {
+    "duration": "30.5s/915frames are KAANTA specifics, not a forced length for every future topic",
+    "shot_count": "9shots are KAANTA specific; future narratives choose purposeful coverage",
+    "cells": "22active/3hero cells are case-study controls, not universal biology",
+    "gate_count": "34passed V8 checks, not an immutable magic gate count for future topics"
+  },
+  "mandatory": [
+    "available topic sources and safety qualifiers",
+    "explicit script/voice/scope lock",
+    "measured contact before extraction when applicable",
+    "finite stateless absolute-time scene evaluation",
+    "declared cuts and cut-aware shutter",
+    "current-source determinism and relevant visual A/B",
+    "full low-res motion preview before expensive whole-film native render",
+    "native frame coverage/source signature receipts",
+    "all expected frames decode with monotonic timestamps",
+    "actual encoded metadata/audio/loudness/true-peak measurement",
+    "encoded scene/action samples reviewed with honest limits",
+    "licenses/publishing credit retained",
+    "master/source SHA256 and size; remote size/MD5 verified",
+    "real sync IDs/results, older versions preserved"
+  ],
+  "kaanta_safety_phrases": [
+    "har baar nahi",
+    "intezaar mat karo",
+    "doctor se madad lo",
+    "skin ko mat khodo"
+  ],
+  "acceptance_statuses": [
+    "technical_pass",
+    "sampled_visual_review",
+    "user_artistic_review_pending",
+    "clinician_review_not_claimed",
+    "independent_ear_review_not_claimed"
+  ],
+  "latest_observed": {
+    "actual_master_gates": "34/34",
+    "source_tests": "7/7",
+    "director_checks": "13/13",
+    "v7_comparison_checks": "4/4",
+    "native_frames": 915,
+    "colour_evaluations": 1101,
+    "shutter_frames": 93,
+    "depth_focus_frames": 775,
+    "encoded_audio_lufs": -16.03,
+    "encoded_true_peak_dbtp": -2.56
+  },
+  "startup_reading_order": [
+    "START_HERE.md",
+    "AGENTS.md",
+    "STYLE_DNA.json",
+    "QUALITY_CONTRACT.json",
+    "knowledge/PLAYBOOK.md",
+    "knowledge/FAILURES_AND_FIXES.md",
+    "projects/EMS-20261016-002/splinter-v8/README.md",
+    "projects/EMS-20261016-002/splinter-v8/data/QUALITY_REPORT.json"
+  ]
+}

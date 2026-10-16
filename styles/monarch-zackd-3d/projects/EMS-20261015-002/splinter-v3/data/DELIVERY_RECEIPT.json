@@ -1,0 +1,79 @@
+{
+  "status": "uploaded_and_hash_verified",
+  "task_id": "EMS-20261015-002",
+  "folder": {
+    "id": "1mK5uWa-34OjxYhvrujG0E5Odb5s6Nu3z",
+    "url": "https://drive.google.com/drive/folders/1mK5uWa-34OjxYhvrujG0E5Odb5s6Nu3z"
+  },
+  "parent_folder_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "master": {
+    "id": "1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i",
+    "url": "https://drive.google.com/file/d/1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i/view",
+    "name": "KAANTA_WF02_MOTION_v3_FINAL.mp4",
+    "bytes": 23151105,
+    "md5": "9930dfbc64d21e13ff0a8acc31210d1b",
+    "sha256": "b562579419f64f642511478cfe9fee7660edac5e49e4f5fad20e6110962f7639",
+    "remote_hash_verified": true,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 30.5,
+    "remote_parent_verified": "1mK5uWa-34OjxYhvrujG0E5Odb5s6Nu3z",
+    "drive_video_metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration_millis": 30499
+    }
+  },
+  "source_bundle": {
+    "name": "KAANTA_WF02_MOTION_v3_SOURCE.zip",
+    "bytes": 5004777,
+    "files": 45,
+    "sha256": "81e89a6b79aa1cba57b6d04af28814e81abc6210518e1d5158711c3c730dff70",
+    "md5": "a0819d107ef3fccfc7861193276bedbb",
+    "id": "1JaL7rFGUZa6yHmINak5lheG8N59XH9D5",
+    "url": "https://drive.google.com/file/d/1JaL7rFGUZa6yHmINak5lheG8N59XH9D5/view",
+    "remote_hash_verified": true
+  },
+  "previous_version": {
+    "master_id": "10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT",
+    "preserved": true,
+    "user_feedback": "Liked; requested smoother motion/keyframing and richer sound."
+  },
+  "script": {
+    "id": "12jbc8JJcs4hipqYmRxVnJt3aeNvAr3I4",
+    "url": "https://drive.google.com/file/d/12jbc8JJcs4hipqYmRxVnJt3aeNvAr3I4/view",
+    "bytes": 8718,
+    "md5": "b7fc19456362fd89b75a4a02d1fb3d3b"
+  },
+  "subtitles": {
+    "id": "1QTPuzQzRVM6za9QMBQDrSvq3J3O__52h",
+    "url": "https://drive.google.com/file/d/1QTPuzQzRVM6za9QMBQDrSvq3J3O__52h/view",
+    "bytes": 1047,
+    "md5": "58a3dda9863cd4abdbd9e85469dd2237"
+  },
+  "motion_controls": {
+    "id": "1QdiMW3eh4bKe94m3bA7453WGiiaigS1L",
+    "url": "https://drive.google.com/file/d/1QdiMW3eh4bKe94m3bA7453WGiiaigS1L/view",
+    "bytes": 5033,
+    "md5": "7039f59a70f968ef9c66c8638904b076"
+  },
+  "production_date_local": "2026-10-15",
+  "quality": {
+    "actual_master_checks": "18/18",
+    "motion_controller_checks": "9/9",
+    "source_contracts": "7/7",
+    "decoded_frames": 915,
+    "distinct_anatomy_frame_crops": 915,
+    "interpolated_frames": 0,
+    "audio_integrated_lufs": -16.03,
+    "audio_true_peak_dbtp": -2.3,
+    "cue_count": 23,
+    "voice_timeline_byte_identical_to_v2": true,
+    "user_visual_approval": "pending_review",
+    "clinician_review": false
+  },
+  "sharing_permissions_changed": false,
+  "earlier_files_preserved": true,
+  "remote_scope": "Requested WF-02 Drive delivery only. Local source saved in the fixed working branch; no claim of GitHub remote/Docs/Notion/Linear synchronization."
+}

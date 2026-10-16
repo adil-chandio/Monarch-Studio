@@ -1,0 +1,265 @@
+{
+  "passed": true,
+  "checks_passed": 23,
+  "checks_total": 23,
+  "master": "KAANTA_CINEMA_v4_FINAL.mp4",
+  "bytes": 14907486,
+  "sha256": "a83022a46205cd6ce7f8aa2572bf1dfa2e2e832a5abad9ac3f056548f2e06cf5",
+  "md5": "698237182571e09c518f1373af4e9598",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "checks": [
+    {
+      "name": "H.264 portrait native-size delivery",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Frame rate and container duration",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "AAC stereo 48kHz",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Every expected frame decodes",
+      "passed": true,
+      "details": {
+        "decoded": 915,
+        "expected": 915,
+        "error": null
+      }
+    },
+    {
+      "name": "Continuous monotonic video timestamps",
+      "passed": true,
+      "details": {
+        "first": 0.0,
+        "last": 30.466666666666665
+      }
+    },
+    {
+      "name": "Moving picture is not a held-slide render",
+      "passed": true,
+      "details": {
+        "unique_anatomy_crop_hashes": 915,
+        "longest_identical_crop_run_seconds": 0.0,
+        "mean_frame_delta_8bit": 1.179264660535008,
+        "note": "Small downsampled anatomy-region changes measured, not a claim that physiology is physically simulated."
+      }
+    },
+    {
+      "name": "Anatomy remains visible through every frame",
+      "passed": true,
+      "details": {
+        "minimum_warm_tissue_fraction": 0.30100680272108843,
+        "frames_checked": 915,
+        "excluded_interval": null,
+        "purpose": "Detect lost/blank 3D frames rather than treating animated captions/background as sufficient motion."
+      }
+    },
+    {
+      "name": "Entire audio stream decodes",
+      "passed": true,
+      "details": {
+        "frames": 1430,
+        "decoded_seconds": 30.506666666666668
+      }
+    },
+    {
+      "name": "Final AAC loudness and true peak",
+      "passed": true,
+      "details": {
+        "integrated_lufs": -16.02,
+        "true_peak_dbtp": -2.38,
+        "lra_lu": 4.1
+      }
+    },
+    {
+      "name": "Fast-start MP4",
+      "passed": true,
+      "details": {
+        "top_level_atoms": [
+          "ftyp",
+          "moov",
+          "free",
+          "mdat"
+        ]
+      }
+    },
+    {
+      "name": "Caption intervals in bounds",
+      "passed": true,
+      "details": {
+        "phrases": 19,
+        "alignment": "Phrase-timed, not word-level forced alignment"
+      }
+    },
+    {
+      "name": "Explicit no-guarantee and professional-care ending",
+      "passed": true,
+      "details": {
+        "messages": "Conditional expulsion, do not wait, doctor for warning signs, do not dig"
+      }
+    },
+    {
+      "name": "Native-frame render receipts cover the master exactly",
+      "passed": true,
+      "details": {
+        "chunks": 11,
+        "covered_frames": 915,
+        "signatures": [
+          "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6"
+        ]
+      }
+    },
+    {
+      "name": "V4 motion-controller checks pass",
+      "passed": true,
+      "details": {
+        "passed": 9,
+        "total": 9,
+        "scope": "C2 rails, all-six internal camera resets, cell timing, grip timing, finite frame samples"
+      }
+    },
+    {
+      "name": "User-liked narration assets remain unchanged",
+      "passed": true,
+      "details": {
+        "01_hook.wav": true,
+        "02_response.wav": true,
+        "03_movement.wav": true,
+        "04_safety.wav": true
+      }
+    },
+    {
+      "name": "Current picture source matches all recorded frame signatures",
+      "passed": true,
+      "details": {
+        "source_signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6"
+      }
+    },
+    {
+      "name": "Reject decorative clutter; allow only captions and two timed type beats",
+      "passed": true,
+      "details": {
+        "visible_3d_type_beats": 2,
+        "total_type_seconds": 4.660000000000001,
+        "caption_layers": 1,
+        "hud_boxes_counters_chapter_headers": 0,
+        "page_flip": false
+      }
+    },
+    {
+      "name": "Typography is measured extruded3D geometry, not a fake-shadow label",
+      "passed": true,
+      "details": [
+        {
+          "text": "KAANTA",
+          "type": "TextGeometry",
+          "vertices": 3228,
+          "depth": 0.044
+        },
+        {
+          "text": "NAHI.",
+          "type": "TextGeometry",
+          "vertices": 5664,
+          "depth": 0.042
+        }
+      ]
+    },
+    {
+      "name": "Complete-frame revisits return to identical pixels",
+      "passed": true,
+      "details": {
+        "scope": "Full frame, out-of-order evaluation including geometry/camera/subtitles"
+      }
+    },
+    {
+      "name": "Restrained story-linked textures replace UI pings",
+      "passed": true,
+      "details": {
+        "cue_count": 8,
+        "voice_over_bed_db": 16.30688576064974,
+        "stereo_correlation": 0.992617448255686
+      }
+    },
+    {
+      "name": "Measured score builds and gives the warning line breathing space",
+      "passed": true,
+      "details": {
+        "hook": -38.17502036935983,
+        "discovery": -35.926611578031086,
+        "build": -33.019102209307434,
+        "breathing_space": -46.614740290467715,
+        "resolve": -39.63583984109831
+      }
+    },
+    {
+      "name": "Mix preserves voice priority and mono compatibility",
+      "passed": true,
+      "details": {
+        "voice_rms_dbfs": -20.354373582408527,
+        "bed_rms_dbfs": -36.66125934305827,
+        "stereo_correlation": 0.992617448255686
+      }
+    },
+    {
+      "name": "Credited music samples and publishing attribution accompany the source",
+      "passed": true,
+      "details": {
+        "sample_count": 25,
+        "license": "CC BY 3.0 US, as documented upstream for FluidR3_GM; not the share-alike MusyngKite/FatBoy libraries.",
+        "reference_audio_copied": false
+      }
+    }
+  ],
+  "manual_review": {
+    "status": "sampled_visual_review_completed",
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "scope": "Encoded chapter samples, type moments, clean framing, caption legibility and gripper/removal staging inspected. No independent clinician/ear-pronunciation certification or guarantee of subjective premium/ASMR/retention response.",
+    "observations": "No graphic panels/counters/headers/page-turn. Two restrained extruded-word beats; plain captions. Model/action remains visible; final extraction outcome clear."
+  }
+}

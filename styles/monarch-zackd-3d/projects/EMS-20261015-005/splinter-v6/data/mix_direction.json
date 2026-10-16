@@ -1,0 +1,22 @@
+{
+  "version": 6,
+  "intent": "Perspective-aware mix for new macro/contact/surface/hero-cell shots. Same voice/script and core musical arrangement; no extra UI cue layer.",
+  "cue_gain_multipliers": {
+    "wood_touch": 1.12,
+    "steel_close": 1.10,
+    "soft_release": 1.08,
+    "reveal_air": 0.75,
+    "cell_texture": 1.15,
+    "pressure": 0.85
+  },
+  "cell_texture_seconds": 1.65,
+  "music_automation": [
+    [0.0, 0.85], [0.7, 0.88], [3.68, 0.70], [5.5, 0.78],
+    [6.5, 0.90], [7.0, 0.95], [8.7, 0.90], [8.88, 0.70],
+    [11.3, 0.70], [11.51, 0.98], [15.56, 1.04],
+    [18.9, 0.70], [22.08, 0.84], [26.21, 0.76],
+    [28.2, 0.92], [30.5, 0.60]
+  ],
+  "narration_change": "none",
+  "credit": "Original score arrangement: Monarch Studio; credited FluidR3 GM instrument notes, CC BY3.0 US. Preserve assets/music/ATTRIBUTION.md credit when publishing."
+}

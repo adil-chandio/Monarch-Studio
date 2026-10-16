@@ -1,0 +1,33 @@
+{
+  "production_date_local": "2026-10-15",
+  "timezone": "Asia/Karachi",
+  "task_id_uses_utc_date": "EMS-20261014-001",
+  "reference": {
+    "drive_id": "1zXgd_QnDbCcODXHyIwp4uzqRrQf0X03V",
+    "name": "How Splinters Get Unstuck",
+    "inspection": "Extracted video frames and visible captions; not an independent audio transcription",
+    "sha256": "265f9b98ca6d503e145e29eeb02945454a648e8e68e7ea9af76def0e90ea7c79",
+    "used_in_output": false
+  },
+  "base_cutaway": {
+    "drive_id": "1yfu7tZGut9LWcXidALvRlB9LdfxpMPM3",
+    "parent_id": "1-i1w-CzjRNwKv9Y3iDh9NNxHS2xlck5A",
+    "local": "assets/models/cutaway.glb",
+    "bytes": 4678608,
+    "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4",
+    "lineage": "Recovered earlier Monarch WF-02 SPLINTER animated model, reused and modified at render time. Not newly authored from scratch in this task."
+  },
+  "prior_notes": [
+    "1wuc7mXWoOky0u7AY_fNODiRHEiSSF6C3",
+    "1SCO2rwvH4zqrQrw0ilbPAS_8yeAPwooe"
+  ],
+  "narration": {
+    "voice_id": "voice-00",
+    "audition": "Selected by user in this session",
+    "language": "ur",
+    "source": "Four new generated clips; not reference voice imitation or original audio"
+  },
+  "delivery_parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "delivery_folder_id": "1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF",
+  "script_drive_id": "1fmgHBgWUVEpmzHzR5eNJEHeW3QIkx6ry"
+}

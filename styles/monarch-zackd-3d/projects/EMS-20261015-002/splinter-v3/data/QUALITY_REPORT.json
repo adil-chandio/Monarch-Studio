@@ -1,0 +1,232 @@
+{
+  "passed": true,
+  "checks_passed": 18,
+  "checks_total": 18,
+  "master": "KAANTA_WF02_MOTION_v3_FINAL.mp4",
+  "bytes": 23151105,
+  "sha256": "b562579419f64f642511478cfe9fee7660edac5e49e4f5fad20e6110962f7639",
+  "md5": "9930dfbc64d21e13ff0a8acc31210d1b",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "checks": [
+    {
+      "name": "H.264 portrait native-size delivery",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Frame rate and container duration",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "AAC stereo 48kHz",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Every expected frame decodes",
+      "passed": true,
+      "details": {
+        "decoded": 915,
+        "expected": 915,
+        "error": null
+      }
+    },
+    {
+      "name": "Continuous monotonic video timestamps",
+      "passed": true,
+      "details": {
+        "first": 0.0,
+        "last": 30.466666666666665
+      }
+    },
+    {
+      "name": "Moving picture is not a held-slide render",
+      "passed": true,
+      "details": {
+        "unique_anatomy_crop_hashes": 915,
+        "longest_identical_crop_run_seconds": 0.0,
+        "mean_frame_delta_8bit": 2.2391032412102017,
+        "note": "Small downsampled anatomy-region changes measured, not a claim that physiology is physically simulated."
+      }
+    },
+    {
+      "name": "Anatomy stays visible outside the deliberate turnover",
+      "passed": true,
+      "details": {
+        "minimum_warm_tissue_fraction": 0.2669931972789116,
+        "frames_checked": 896,
+        "excluded_interval": [
+          6.7,
+          7.3
+        ],
+        "purpose": "Detect lost/blank 3D frames rather than treating animated captions/background as sufficient motion."
+      }
+    },
+    {
+      "name": "Entire audio stream decodes",
+      "passed": true,
+      "details": {
+        "frames": 1430,
+        "decoded_seconds": 30.506666666666668
+      }
+    },
+    {
+      "name": "Final AAC loudness and true peak",
+      "passed": true,
+      "details": {
+        "integrated_lufs": -16.03,
+        "true_peak_dbtp": -2.3,
+        "lra_lu": 4.1
+      }
+    },
+    {
+      "name": "Fast-start MP4",
+      "passed": true,
+      "details": {
+        "top_level_atoms": [
+          "ftyp",
+          "moov",
+          "free",
+          "mdat"
+        ]
+      }
+    },
+    {
+      "name": "Caption intervals in bounds",
+      "passed": true,
+      "details": {
+        "phrases": 19,
+        "alignment": "Phrase-timed, not word-level forced alignment"
+      }
+    },
+    {
+      "name": "Explicit no-guarantee and professional-care ending",
+      "passed": true,
+      "details": {
+        "messages": "Conditional expulsion, do not wait, doctor for warning signs, do not dig"
+      }
+    },
+    {
+      "name": "Native-frame render receipts cover the master exactly",
+      "passed": true,
+      "details": {
+        "chunks": 11,
+        "covered_frames": 915,
+        "signatures": [
+          "3c7f34b45e0c8b0685b8a26f8fb443c4f2e7f5bf3467fae7226e4e0e6b50d6d5"
+        ]
+      }
+    },
+    {
+      "name": "V3 motion-controller checks pass",
+      "passed": true,
+      "details": {
+        "passed": 9,
+        "total": 9,
+        "scope": "C2 rails, all-six internal camera resets, cell timing, grip timing, finite frame samples"
+      }
+    },
+    {
+      "name": "User-liked narration assets remain unchanged",
+      "passed": true,
+      "details": {
+        "01_hook.wav": true,
+        "02_response.wav": true,
+        "03_movement.wav": true,
+        "04_safety.wav": true
+      }
+    },
+    {
+      "name": "Current picture source matches all recorded frame signatures",
+      "passed": true,
+      "details": {
+        "source_signature": "3c7f34b45e0c8b0685b8a26f8fb443c4f2e7f5bf3467fae7226e4e0e6b50d6d5"
+      }
+    },
+    {
+      "name": "Turn-over preserves the real-frame timeline",
+      "passed": true,
+      "details": {
+        "center": 7,
+        "duration": 0.5999999999999996,
+        "recomposited_chunk_frames": 90,
+        "transformed_frames": [
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218
+        ],
+        "interpolated_frames": 0
+      }
+    },
+    {
+      "name": "Layered effects preserve voice priority and mono compatibility",
+      "passed": true,
+      "details": {
+        "cue_count": 23,
+        "voice_over_effects_rms_db": 23.89977171350978,
+        "stereo_correlation": 0.9919351062894209
+      }
+    }
+  ],
+  "manual_review": {
+    "status": "sampled_visual_review_completed",
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "scope": "Sampled visual sequence, typography, skin/forceps framing and warning labels. No claim of independent clinician review or audible pronunciation certification.",
+    "observations": "Ten encoded chapter samples plus the dense turn-over sequence inspected. Clear typography, cell gathering visible during its sentence, gripper/extraction staging and warning/professional-care labels checked. No clinician/independent pronunciation certification or claim of artistic perfection."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_PRECISION_v5_FINAL.mp4",
+  "size": 8537475,
+  "sha256": "73cbb5d882745cd75eb5faa82bca39ebe2472e62559393370ae981aaa3e43e74",
+  "md5": "22f5572e7cdb3bebf2eb73cdd9142131",
+  "duration": 30.5,
+  "fps": 30,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

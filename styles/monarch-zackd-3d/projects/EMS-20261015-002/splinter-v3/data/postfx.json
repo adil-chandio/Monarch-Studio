@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "transition": "perspective_turnover",
+  "center_cue": "scene_change",
+  "duration": 0.6,
+  "perspective_distance_in_widths": 2.4,
+  "background_top": "#071b2c",
+  "background_bottom": "#123849",
+  "scope": "One reference-informed editorial card turn between the continuously animated hand and cutaway. No optical-flow interpolation or scene stills. Only the containing 3-second encoded chunk is recomposited; other chunks remain unchanged."
+}

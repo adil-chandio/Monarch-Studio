@@ -1,0 +1,16 @@
+{
+  "v2": {
+    "sound_design_rms_dbfs": -50.50469948847126,
+    "peak_dbfs": -21.38447066352923
+  },
+  "v3": {
+    "sound_design_rms_dbfs": -44.26556327923791,
+    "peak_dbfs": -18.937924458128645
+  },
+  "voice_timeline_byte_identical": true,
+  "cue_count": {
+    "v2": 11,
+    "v3": 23
+  },
+  "interpretation": "Measured source-stem levels, not a subjective-quality score. Overall final integrated loudness remains -16.03 LUFS."
+}

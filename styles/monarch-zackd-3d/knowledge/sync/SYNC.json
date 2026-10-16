@@ -1,0 +1,77 @@
+{
+  "task_id": "EMS-20261016-003",
+  "google_drive": {
+    "status": "completed",
+    "parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+    "library_folder_id": "1frVyXY3O1KAZXm8YrT9R4T4k6xoQNiaO",
+    "library_folder_url": "https://drive.google.com/drive/folders/1frVyXY3O1KAZXm8YrT9R4T4k6xoQNiaO",
+    "files": [
+      {
+        "role": "recovery_pack",
+        "id": "1RjU2c8PNdJVzs98UuvIkSVNh3-2A5pBj",
+        "url": "https://drive.google.com/file/d/1RjU2c8PNdJVzs98UuvIkSVNh3-2A5pBj/view",
+        "local_name": "WF02_STYLE_MEMORY_V2_V8_20261016.zip",
+        "size": 43712098,
+        "md5": "d7274b547ac161911239d02f67f43db9",
+        "sha256": "3548164eb7244bb59bda2d0a7206414e8f94070f9713ac66cd4ec119f1eb6c13",
+        "verified": "Upload response and subsequent folder listing match local size/MD5; ZIP additionally get_file parent/size/MD5 re-read."
+      },
+      {
+        "role": "handbook_markdown",
+        "id": "1o7bKfshK1rfoFuVcneqgMuuiSQAYTOkq",
+        "url": "https://drive.google.com/file/d/1o7bKfshK1rfoFuVcneqgMuuiSQAYTOkq/view",
+        "local_name": "WF02_MASTER_HANDBOOK.md",
+        "size": 63454,
+        "md5": "e9273e5e5e9934186119fb3eaceb4af4",
+        "sha256": "4af25d14f15013bd3510abef3f790d0294ff856670373c091ba7a53f2840f01b",
+        "verified": "Upload response and subsequent folder listing match local size/MD5; ZIP additionally get_file parent/size/MD5 re-read."
+      },
+      {
+        "role": "startup_guide",
+        "id": "1Qn0n9nDh4fIBsjUzOid39A5vwyOeGa-H",
+        "url": "https://drive.google.com/file/d/1Qn0n9nDh4fIBsjUzOid39A5vwyOeGa-H/view",
+        "local_name": "WF02_START_HERE_NEW_CHAT.txt",
+        "size": 4653,
+        "md5": "d026561afbdffee33ecc7d967175dfe7",
+        "sha256": "36bec01e42eb63146bd086682e9c9f5c2803ec78ae51611ae18d4546246dcb52",
+        "verified": "Upload response and subsequent folder listing match local size/MD5; ZIP additionally get_file parent/size/MD5 re-read."
+      },
+      {
+        "role": "editable_google_doc",
+        "id": "1nqDXQU_FtCGSSdJm97aJ1dJN3WvoKTIEPKuhnGJl-uw",
+        "url": "https://docs.google.com/document/d/1nqDXQU_FtCGSSdJm97aJ1dJN3WvoKTIEPKuhnGJl-uw/edit",
+        "format": "application/vnd.google-apps.document",
+        "source_html_sha256": "7dda68a58fc8c0010b9d43bfa35f0adf77a34803a99542071342eef1742dc7d0",
+        "verified": "Native Doc found in target folder; end index62974; expected end marker found at62935–62974 and failure/cause/correction heading at28548. Native conversion is not claimed byte-identical to HTML."
+      }
+    ]
+  },
+  "github": {
+    "status": "pending",
+    "repository": "adil-chandio/Monarch-Studio",
+    "branch": "arena/eba29c7c-monarch-studio",
+    "merged_into_main": false,
+    "note": "Drive deliverables verified; next operation is a milestone commit/push on the existing session branch. This receipt does not yet assert GitHub publication."
+  },
+  "other_apps": "No new Notion/Linear records or notifications are implied by GitHub/Drive publication.",
+  "coverage": {
+    "project_files": 537,
+    "raw_archive_files": 39,
+    "recorded_chat_messages": 36,
+    "journal_events": 221,
+    "releases": 7,
+    "full_original_chat_available": false,
+    "prior_deliveries_preserved": true,
+    "source_zip_snapshot": "997members, dated snapshot before later publication receipt; active preservation metadata is non-replaying and pending sync at snapshot time."
+  },
+  "verification": {
+    "repository_unittest": "16/16",
+    "preservation_audit": "537project hashes,39raw-file hashes,7release QA and all archived journal chains pass",
+    "restore_smoke": "Clean extraction: WF02 audit passes, new-topic planning brief runs, continuity resumes idle without replaying old active task."
+  },
+  "publication_receipt": {
+    "id": "17JlBrKBwBTw3Hv5jYQECSEglYGQFNUg1",
+    "url": "https://drive.google.com/file/d/17JlBrKBwBTw3Hv5jYQECSEglYGQFNUg1/view",
+    "policy": "Native Git receipt records verified content commit; live Drive receipt will additionally record final receipt/archive commit after push. No self-referential commit hash or ZIP receipt hash is fabricated."
+  }
+}

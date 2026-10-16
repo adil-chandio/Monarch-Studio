@@ -1,0 +1,59 @@
+{
+  "edition": "Cinema Cut v4",
+  "palette": {
+    "background_center": "#476d84",
+    "background_edge": "#0b2838",
+    "ivory": "#e9e4da"
+  },
+  "active_cells": 22,
+  "typography": [
+    {
+      "text": "KAANTA",
+      "start": 0.12,
+      "in_end": 0.66,
+      "out_start": 1.85,
+      "end": 2.5,
+      "scene": "finger",
+      "position": [
+        0.04,
+        0.91,
+        -0.28
+      ],
+      "size": 0.32,
+      "depth": 0.044,
+      "bevel": 0.006,
+      "yaw": -0.22
+    },
+    {
+      "text": "NAHI.",
+      "start": 19.02,
+      "in_end": 19.45,
+      "out_start": 20.72,
+      "end": 21.3,
+      "scene": "anatomy",
+      "position": [
+        0.03,
+        1.28,
+        -0.25
+      ],
+      "size": 0.38,
+      "depth": 0.042,
+      "bevel": 0.006,
+      "yaw": -0.2
+    }
+  ],
+  "remove": [
+    "chapter headers",
+    "brand HUD",
+    "counters/progress rail",
+    "warning badges",
+    "caption pills/highlight colour",
+    "callout arrows",
+    "neon/floating pocket",
+    "page-turn effect",
+    "UI ticks/chirps/chimes"
+  ],
+  "caption_font_px": 46,
+  "caption_y": 1545,
+  "notes": "One purposeful clean scene cut at7s. Actual extruded type appears at only two story beats; no guaranteed engagement or clinical/perfection claim."
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 0,
+    "end": 90,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 597700,
+    "seconds": 143.4
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 90,
+    "end": 180,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 454132,
+    "seconds": 140.246
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 180,
+    "end": 270,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1296654,
+    "seconds": 193.739
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 270,
+    "end": 360,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1812929,
+    "seconds": 236.744
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 360,
+    "end": 450,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1748908,
+    "seconds": 246.255
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 450,
+    "end": 540,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1695822,
+    "seconds": 249.354
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 540,
+    "end": 630,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1508822,
+    "seconds": 233.451
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 630,
+    "end": 720,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1131076,
+    "seconds": 229.583
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 720,
+    "end": 810,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1751583,
+    "seconds": 234.742
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 810,
+    "end": 900,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1855416,
+    "seconds": 229.802
+  },
+  {
+    "signature": "64629d76b6d4062bed5fdfc4d2bf88edfc03a660573e94197502cbf25d3d36d6",
+    "capture": "canvas-png",
+    "start": 900,
+    "end": 915,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 305228,
+    "seconds": 36.326
+  }
+]

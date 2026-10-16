@@ -1,0 +1,280 @@
+{
+  "version": 4,
+  "title": "KAANTA — Cinema Cut",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration": 30.5,
+  "narration": [
+    {
+      "file": "01_hook.wav",
+      "start": 0.24,
+      "duration": 6.6,
+      "text": "کانٹا سکن میں پھنس جائے، تو باڈی کیا کرتی ہے؟ ٹِپ باہر ہو، تو نکالنا آسان ہوتا ہے۔"
+    },
+    {
+      "file": "02_response.wav",
+      "start": 7.0,
+      "duration": 8.4,
+      "text": "لیکن اندر پھنس جائے، تو ڈیفینس سیلز اس کے گرد جمع ہوتے ہیں۔ سوجن آ سکتی ہے۔ انفیکشن ہو، تو پیپ بھی بن سکتی ہے۔"
+    },
+    {
+      "file": "03_movement.wav",
+      "start": 15.56,
+      "duration": 6.36,
+      "text": "کبھی چھوٹا کانٹا سکن کی سطح تک آ جاتا ہے۔ لیکن ہر بار نہیں! اس کا انتظار مت کرو۔"
+    },
+    {
+      "file": "04_safety.wav",
+      "start": 22.08,
+      "duration": 7.32,
+      "text": "گہرا کانٹا، بڑھتی لالی، درد یا پیپ ہو، تو ڈاکٹر سے مدد لو۔ سکن کو مت کھودو۔"
+    }
+  ],
+  "shots": [
+    {
+      "id": "01",
+      "start": 0,
+      "end": 3.68,
+      "label": "CHHOTA KAANTA.",
+      "sub": "Skin ke andar kya hota hai?",
+      "scene": "finger"
+    },
+    {
+      "id": "02",
+      "start": 3.68,
+      "end": 7,
+      "label": "TIP BAHAR HAI",
+      "sub": "Surface case / clean tweezers",
+      "scene": "finger"
+    },
+    {
+      "id": "03",
+      "start": 7,
+      "end": 9.46,
+      "label": "ANDAR PHANS GAYA?",
+      "sub": "Doosra case / skin cutaway",
+      "scene": "cutaway"
+    },
+    {
+      "id": "04",
+      "start": 9.46,
+      "end": 11.7,
+      "label": "DEFENCE CELLS",
+      "sub": "Body ka protective response",
+      "scene": "cutaway"
+    },
+    {
+      "id": "05",
+      "start": 11.7,
+      "end": 15.56,
+      "label": "SOOJAN AA SAKTI HAI",
+      "sub": "Infection ho to peep ban sakti hai",
+      "scene": "cutaway"
+    },
+    {
+      "id": "06",
+      "start": 15.56,
+      "end": 18.98,
+      "label": "KABHI BAHAR AATA HAI",
+      "sub": "Possible movement / waqt compressed",
+      "scene": "cutaway"
+    },
+    {
+      "id": "07",
+      "start": 18.98,
+      "end": 22.08,
+      "label": "HAR BAAR NAHI.",
+      "sub": "Iska intezaar mat karo.",
+      "scene": "cutaway"
+    },
+    {
+      "id": "08",
+      "start": 22.08,
+      "end": 25.83,
+      "label": "WARNING SIGNS",
+      "sub": "Deep fragment / laali / dard / peep",
+      "scene": "cutaway"
+    },
+    {
+      "id": "09",
+      "start": 25.83,
+      "end": 30.5,
+      "label": "DOCTOR SE MADAD LO",
+      "sub": "Professional-care illustration",
+      "scene": "cutaway"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.42,
+      "end": 1.42,
+      "text": "Kaanta skin mein",
+      "accent": "Kaanta"
+    },
+    {
+      "start": 1.42,
+      "end": 2.23,
+      "text": "phans jaye...",
+      "accent": "phans"
+    },
+    {
+      "start": 2.23,
+      "end": 3.7,
+      "text": "to body kya karti hai?",
+      "accent": "body"
+    },
+    {
+      "start": 4.05,
+      "end": 5.06,
+      "text": "Tip bahar ho,",
+      "accent": "Tip"
+    },
+    {
+      "start": 5.06,
+      "end": 6.74,
+      "text": "to nikaalna aasaan hota hai.",
+      "accent": "aasaan"
+    },
+    {
+      "start": 7.18,
+      "end": 8.92,
+      "text": "Lekin andar phans jaye,",
+      "accent": "andar"
+    },
+    {
+      "start": 8.92,
+      "end": 10.1,
+      "text": "to defence cells",
+      "accent": "defence cells"
+    },
+    {
+      "start": 10.1,
+      "end": 11.51,
+      "text": "uske gird jama hote hain.",
+      "accent": "jama"
+    },
+    {
+      "start": 11.51,
+      "end": 12.83,
+      "text": "Soojan aa sakti hai.",
+      "accent": "Soojan"
+    },
+    {
+      "start": 12.83,
+      "end": 13.82,
+      "text": "Infection ho,",
+      "accent": "Infection"
+    },
+    {
+      "start": 13.82,
+      "end": 15.31,
+      "text": "to peep bhi ban sakti hai.",
+      "accent": "peep"
+    },
+    {
+      "start": 15.72,
+      "end": 17.06,
+      "text": "Kabhi chhota kaanta",
+      "accent": "Kabhi"
+    },
+    {
+      "start": 17.06,
+      "end": 18.9,
+      "text": "skin ki satah tak aa jata hai.",
+      "accent": "satah"
+    },
+    {
+      "start": 18.9,
+      "end": 20.39,
+      "text": "Lekin har baar nahi!",
+      "accent": "har baar nahi!"
+    },
+    {
+      "start": 20.39,
+      "end": 21.82,
+      "text": "Iska intezaar mat karo.",
+      "accent": "mat karo."
+    },
+    {
+      "start": 22.18,
+      "end": 24.68,
+      "text": "Gehra kaanta, barhti laali,",
+      "accent": "Gehra kaanta"
+    },
+    {
+      "start": 24.68,
+      "end": 26.21,
+      "text": "dard ya peep ho...",
+      "accent": "dard"
+    },
+    {
+      "start": 26.21,
+      "end": 27.78,
+      "text": "to doctor se madad lo.",
+      "accent": "doctor"
+    },
+    {
+      "start": 27.78,
+      "end": 29.32,
+      "text": "Skin ko mat khodo.",
+      "accent": "mat khodo."
+    }
+  ],
+  "sound_events": [
+    {
+      "kind": "wood_touch",
+      "time": 0.3,
+      "gain": 0.052,
+      "pan": -0.08
+    },
+    {
+      "kind": "steel_close",
+      "visual_cue": "surface_contact",
+      "time": 4.93,
+      "gain": 0.078,
+      "pan": -0.04
+    },
+    {
+      "kind": "soft_release",
+      "visual_cue": "surface_release",
+      "time": 5.79,
+      "gain": 0.055,
+      "pan": 0.05
+    },
+    {
+      "kind": "reveal_air",
+      "time": 6.72,
+      "gain": 0.045,
+      "pan": 0.02
+    },
+    {
+      "kind": "cell_texture",
+      "time": 8.95,
+      "gain": 0.02,
+      "pan": 0
+    },
+    {
+      "kind": "pressure",
+      "time": 12.3,
+      "gain": 0.019,
+      "pan": 0.03
+    },
+    {
+      "kind": "steel_close",
+      "visual_cue": "deep_contact",
+      "time": 27.03,
+      "gain": 0.07,
+      "pan": 0.05
+    },
+    {
+      "kind": "soft_release",
+      "visual_cue": "deep_release",
+      "time": 28.87,
+      "gain": 0.05,
+      "pan": 0.02
+    }
+  ],
+  "motion_controls": "data/motion.json",
+  "master_filename": "KAANTA_CINEMA_v4_FINAL.mp4"
+}

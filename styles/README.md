@@ -7,6 +7,7 @@ Current styles:
 | Style ID | Name | Workflow trigger | Permanent path |
 |---|---|---|---|
 | `monarch-stickman-animation` | Monarch Stickman Animation | `SHADEGO <topic>` | [`monarch-stickman-animation/`](monarch-stickman-animation/) |
+| `monarch-zackd-3d` | Monarch 3D Explainers · WF-02 | `WF2 <topic or reference>` | [`monarch-zackd-3d/`](monarch-zackd-3d/) |
 | `monarch-noir-film` | Monarch Noir Film | `NOIRGO <topic>` | [`monarch-noir-film/`](monarch-noir-film/) |
 
 ## Hard boundary

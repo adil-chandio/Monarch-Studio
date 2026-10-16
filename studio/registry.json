@@ -43,6 +43,46 @@
       }
     },
     {
+      "code": "WF-02",
+      "style_id": "monarch-zackd-3d",
+      "slug": "wf02",
+      "name": "Monarch 3D Explainers · WF-02",
+      "path": "styles/monarch-zackd-3d",
+      "trigger": "WF2 <topic or reference>",
+      "state": "DELIVERED_FOR_REVIEW",
+      "reconciliation": "live_2026-10-15_3d_folder_separate_from_preserved_legacy_snapshot",
+      "reproducibility": "R1_source_and_fixed_voice_assets",
+      "current_delivery": {
+        "title": "KAANTA · Full Film Craft v8",
+        "task_id": "EMS-20261016-002",
+        "project_path": "projects/EMS-20261016-002/splinter-v8",
+        "drive_id": "1pUuxlt423ZZKsiHW1kHZ0I1fPzA8K9P9",
+        "source_drive_id": "1z8IrmbhdcJ0zG2QPVHiz_APRql3cAwHx",
+        "md5": "bf8b66aa08e0891ff45862833f369785",
+        "sha256": "a34fd043d18237ff275fdc61d0f7118b437d33b3dbc1e80faaf9c92209eb60a8",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "duration_seconds": 30.5,
+        "rendered_frames": 915,
+        "gates": "34/34",
+        "director_checks": "13/13",
+        "upgrade_checks": "4/4 against V7",
+        "preview": "915-frame270px review completed before native rendering",
+        "user_visual_acceptance": "pending_review",
+        "scope_choice": "full_film_visual_motion_same_narration",
+        "previous_master_preserved": "1zRKxqy7yS_k1USCyTuGCBSOCOCNbPVjz",
+        "publishing_credit_required": "FluidR3 attribution;assets/music/ATTRIBUTION.md"
+      },
+      "authorities": {
+        "drive_folder_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+        "release_folder_id": "1GgYIShB5hEnJaAXQ5BJWyQIhAzyz-wz3"
+      },
+      "startup_entry": "styles/monarch-zackd-3d/START_HERE.md",
+      "master_playbook": "styles/monarch-zackd-3d/knowledge/PLAYBOOK.md",
+      "bootstrap_command": "python3 tools/wf02.py brief \"<topic or reference>\""
+    },
+    {
       "code": "WF-03",
       "style_id": "monarch-noir-film",
       "slug": "wf03",

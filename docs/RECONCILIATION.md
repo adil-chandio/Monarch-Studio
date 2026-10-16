@@ -109,3 +109,7 @@ Any future source conflict should be documented with:
 3. selected normalized value;
 4. whether the decision was human-authorized or mechanically derived;
 5. records updated across all four connected systems.
+
+## 2026-10-15 · Live WF-02 3D workflow registration
+
+The current user-named Drive folder `1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX` was read live as **WF-02 · Zack d 3d animation**. KAANTA is registered under `styles/monarch-zackd-3d`. The earlier **Powerful Personality / TABAHI ACTIVATE** legacy snapshot is preserved unchanged and is not this renderer. The recovered SPLINTER GLB is explicitly provenanced; the new film does not claim that pre-existing geometry was authored from scratch in this task. Delivery is technical completion for user review, not assumed artistic or clinician approval.

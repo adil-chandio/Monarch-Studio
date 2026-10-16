@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261014T201013Z",
+  "created_at": "2026-10-14T20:10:13Z",
+  "summary": "New task initialized; live WF-02 folder and splinter reference confirmed; existing same-topic production discovered.",
+  "next_action": "Read prior SPLINTER production notes and files; install isolated media inspection dependencies.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "active",
+    "title": "WF-02 Splinter 3D reference-based Urdu-English film",
+    "style_id": "monarch-zackd-3d",
+    "goal": "Study the supplied How Splinters Get Unstuck video and the live WF-02 Drive folder, produce an original accurate 3D explainer in easy Urdu-English, and deliver video plus source in that folder without overwriting earlier work.",
+    "acceptance_criteria": [
+      "Reference topic and shots inspected; source lineage retained",
+      "Actual animated 3D, not a still-image slideshow; clear easy Urdu-English narration and Roman Urdu captions",
+      "Medical caveats and no-guaranteed-spontaneous-expulsion distinction included",
+      "Playable rendered video checked and uploaded in the confirmed WF-02 Drive folder"
+    ],
+    "started_at": "2026-10-14T20:10:13Z",
+    "updated_at": "2026-10-14T20:10:13Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 5,
+    "journal_head": "e8ff798819feefa15bcd36c6bacd5a4c3283e4b278272769554672f311625a58",
+    "last_checkpoint": "2026-10-14T20:10:13Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0001-20261014T201013Z",
+    "next_action": "Read prior SPLINTER production notes and files; install isolated media inspection dependencies.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 5,
+    "timestamp": "2026-10-14T20:10:13Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "New task initialized; live WF-02 folder and splinter reference confirmed; existing same-topic production discovered.",
+    "content_sha256": "28346e9df8a85c08e4ab323b9ac2cbc0e8a017f32d77b1d8c91cc4f3e76d8fce",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Read prior SPLINTER production notes and files; install isolated media inspection dependencies.",
+      "status": "active"
+    },
+    "prev_event_sha256": "7bd20fdcf8c182111c0ed32df786a334fd47118a08e0c6c8997b17d06ffeea79",
+    "event_sha256": "e8ff798819feefa15bcd36c6bacd5a4c3283e4b278272769554672f311625a58"
+  },
+  "journal_head": "e8ff798819feefa15bcd36c6bacd5a4c3283e4b278272769554672f311625a58",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/eba29c7c-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? workflows/current/payload/USER_REQUEST.txt"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/USER_REQUEST.txt",
+      "size": 455,
+      "sha256": "731e8d47d739864c914c7b9938a41c5868ebf2ee6f13a690eabcf9fb5bd2091c"
+    }
+  ]
+}

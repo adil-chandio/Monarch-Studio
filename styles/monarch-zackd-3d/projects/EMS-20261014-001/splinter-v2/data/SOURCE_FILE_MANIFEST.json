@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "files": {
+    "KAANTA_Roman_Urdu.srt": {
+      "bytes": 1047,
+      "sha256": "9ce04e770ba94fb3d6a867eb9738ea09311b21661e6e790da0f910aabd7a330d"
+    },
+    "README.md": {
+      "bytes": 6320,
+      "sha256": "847d34da011acbae47267a88c70c12768e1744741d1cc076d201c3ec805529dc"
+    },
+    "assets/fonts/Montserrat-VF.ttf": {
+      "bytes": 744936,
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+    },
+    "assets/fonts/NOTICE.md": {
+      "bytes": 416,
+      "sha256": "9fd1ad4c08b90bd4a651ca3ef086dc3aa77155869be362cd599e401822ef0b59"
+    },
+    "assets/fonts/OFL-1.1.txt": {
+      "bytes": 4008,
+      "sha256": "74ba2e8a3e010fa81dc24958b23ad2dc885638b0b2da37ae4a2299e76b6b69f7"
+    },
+    "assets/models/cutaway.glb": {
+      "bytes": 4678608,
+      "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4"
+    },
+    "assets/vo/01_hook.wav": {
+      "bytes": 316878,
+      "sha256": "2ccecf5f21395836cbad81ead1836c2930a34c01bef69f08d6dd3da4bd78b044"
+    },
+    "assets/vo/02_response.wav": {
+      "bytes": 403278,
+      "sha256": "5a30ca37fa3706aea1c8b22fb6497cbfa7662148442d30a6ff309126f7c16b8d"
+    },
+    "assets/vo/03_movement.wav": {
+      "bytes": 305358,
+      "sha256": "ad3d4c5902d451aa8de9db53295460fa883c9bd5b0b7406e203c472989ca29b9"
+    },
+    "assets/vo/04_safety.wav": {
+      "bytes": 351438,
+      "sha256": "8b5bdd94b462798b0846f4a68b09a7bbacad94348596b50a2ae168f77c521e1e"
+    },
+    "data/AUDIO_REPORT.json": {
+      "bytes": 1600,
+      "sha256": "3ed8e92ec86db5e0afbef301467678c720ef86f709308bbd3512cccd423dae91"
+    },
+    "data/DETERMINISM_INITIAL_FULLFRAME.json": {
+      "bytes": 886,
+      "sha256": "76c3ce1eab0d8dd8f9d55753bd44cadc78cc690bd0a895b330a075e0770c122a"
+    },
+    "data/DETERMINISM_REPORT.json": {
+      "bytes": 1029,
+      "sha256": "78768fb49489877c5c23e5c77681fffc509be259b4061f03c19055c1f1f7b5b9"
+    },
+    "data/FRAME_REPORT.json": {
+      "bytes": 3256,
+      "sha256": "26cc465cf65258a2fc2b8c1dc4c845137c9f04875c8949bdfc7c0dd2310d3bd7"
+    },
+    "data/GLTF_VALIDATION.json": {
+      "bytes": 4635,
+      "sha256": "ee0a7576d9cd1031a453e9ed1c07256f7bbe8c00a7930c0631ea781f54372dd0"
+    },
+    "data/MASTER_IDENTITY.json": {
+      "bytes": 339,
+      "sha256": "2149e75da9adade8e0fb1d1a0d9042b5fb190d973bc5f943a35a8391b8b921c2"
+    },
+    "data/QA_CONTACT_SHEET.jpg": {
+      "bytes": 252058,
+      "sha256": "f89b2ac7accce6c93fe49a6be15c62a78a60d5936221062b687a50f64bfa78e9"
+    },
+    "data/QUALITY_REPORT.json": {
+      "bytes": 4386,
+      "sha256": "4237f718c0a44d17a3fd2094277ff52494c99441484333850f3eb9cb5d33a72b"
+    },
+    "data/RENDER_RECEIPTS.json": {
+      "bytes": 2035,
+      "sha256": "aee1a75b0f100c22596a7342fc7294a2221cfcf4bace17223435f04cbb19a280"
+    },
+    "data/SOURCES.json": {
+      "bytes": 1385,
+      "sha256": "a1045f9585be22bc896c0e188ee2b6ed6bf1dfa3ad59dea0ecf3015dfe0f88ff"
+    },
+    "data/timeline.json": {
+      "bytes": 5925,
+      "sha256": "ad81afc4f7ee52d5b1f87f1ce53fed386378afc3d61c734c235b33107154836a"
+    },
+    "docs/SCRIPT_AND_PRODUCTION.md": {
+      "bytes": 7446,
+      "sha256": "0b1f3aea66ac2f7ea015e876f6315dc3887b2baa14b2ba8c0e4321435d9a21d2"
+    },
+    "index.html": {
+      "bytes": 956,
+      "sha256": "0f4a1c981f06c0d9256eb3fba53e037ece92d84bca3f97be452645c681740b79"
+    },
+    "package-lock.json": {
+      "bytes": 9605,
+      "sha256": "0739d4dfcf1d8567f94e3f7dc2ba4b3051f8374e906f30e33c89b79648a2f90f"
+    },
+    "package.json": {
+      "bytes": 547,
+      "sha256": "3aa16bc16be9bbdcd6a007b9e2f8433db0ed39743e6fab0610accc584a87bb23"
+    },
+    "requirements.txt": {
+      "bytes": 61,
+      "sha256": "d95f350b33272c2ca626c2949dabf4fc5b4083c88fb035ec4cc73470e61652dc"
+    },
+    "src/assemble.py": {
+      "bytes": 7177,
+      "sha256": "50eae336b241c8f21fe28baa8822f3eda414505edb86e59e53ae1e23606344e4"
+    },
+    "src/check_determinism.cjs": {
+      "bytes": 2986,
+      "sha256": "79e9918e9294f3e69cb738091dc86bf3e3def2b64fe9e0d1e7113b57ec3ad04e"
+    },
+    "src/film.js": {
+      "bytes": 21646,
+      "sha256": "910133803b71d48d7510d7f8974eb33abcd32ee9a27e60bf2c9cfb02e5e5892b"
+    },
+    "src/gate.py": {
+      "bytes": 7165,
+      "sha256": "21fb9930ac74fe6b5bc330dc8f0e7ce30a8136e10521f185d934613d8a180acd"
+    },
+    "src/render.cjs": {
+      "bytes": 7404,
+      "sha256": "2a0ad5a382766d71f52d8f4a94f139c2fcfd3590e69d935c1533e4bc9c12605c"
+    },
+    "tests/production.test.cjs": {
+      "bytes": 3213,
+      "sha256": "7a5d2293de8e21ffeb020a659e3d70ad51a256b4feaf1a2cab6225dec23b779d"
+    }
+  },
+  "exclusions": [
+    "The manifest itself (no circular hash)",
+    "data/DELIVERY_RECEIPT.json (separate external companion)",
+    "build, node_modules, virtual environments, caches, reference video"
+  ]
+}

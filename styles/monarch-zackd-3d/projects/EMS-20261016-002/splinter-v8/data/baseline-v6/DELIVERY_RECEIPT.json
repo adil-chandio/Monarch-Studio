@@ -1,0 +1,93 @@
+{
+  "status": "uploaded_and_hash_verified",
+  "task_id": "EMS-20261015-005",
+  "scope_choice": "new_shots_same_voice",
+  "folder": {
+    "id": "196_t6HSE2xpNp77g8aZK86Mq9X7-gR9M",
+    "url": "https://drive.google.com/drive/folders/196_t6HSE2xpNp77g8aZK86Mq9X7-gR9M"
+  },
+  "parent_folder_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "master": {
+    "id": "1c-o5LKg11MAZOLNOLQHIXqwBn3ozUGEx",
+    "url": "https://drive.google.com/file/d/1c-o5LKg11MAZOLNOLQHIXqwBn3ozUGEx/view",
+    "name": "KAANTA_MACRO_v6_FINAL.mp4",
+    "bytes": 9581476,
+    "md5": "c09161c6a7197635254a3fd239928eda",
+    "sha256": "bf3c291dac1bde074482a9e1c253e6e4d6131ddb73f6f56baaa5e10608b937e2",
+    "remote_hash_verified": true,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 30.5,
+    "remote_parent_verified": "196_t6HSE2xpNp77g8aZK86Mq9X7-gR9M",
+    "drive_video_metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration_millis": 30499
+    }
+  },
+  "source_bundle": {
+    "name": "KAANTA_MACRO_v6_SOURCE.zip",
+    "bytes": 5791855,
+    "files": 80,
+    "sha256": "642c19ee438b09369f4b4b634c6a8efa8926424b7f1635e342ed525a29ff72c7",
+    "md5": "ca75f437be1877db9df444dcefa76d97",
+    "id": "1xkN3rStXAA-knTLiCrHSLI5uGKD4-JXY",
+    "url": "https://drive.google.com/file/d/1xkN3rStXAA-knTLiCrHSLI5uGKD4-JXY/view",
+    "remote_hash_verified": true
+  },
+  "previous_versions_preserved": [
+    "10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT",
+    "1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i",
+    "1Aw7InbA91uoiL2XHBTqPB_7J3vHQvolq",
+    "18kKI_5vkVOJKFUmTAEr7Tp4ZaVK6wb2M"
+  ],
+  "script": {
+    "id": "1_kci_W-TJjTivv9loQE1NpHOCE2OKuO-",
+    "url": "https://drive.google.com/file/d/1_kci_W-TJjTivv9loQE1NpHOCE2OKuO-/view",
+    "bytes": 8259,
+    "md5": "dd8bc5880a08f37db70e8e8410b052e4"
+  },
+  "subtitles": {
+    "id": "1KB7uJdNL_8MDL0gQoshgvEQOWLabL5eg",
+    "url": "https://drive.google.com/file/d/1KB7uJdNL_8MDL0gQoshgvEQOWLabL5eg/view",
+    "bytes": 1047,
+    "md5": "58a3dda9863cd4abdbd9e85469dd2237"
+  },
+  "publishing_credit": {
+    "id": "1ritLc95VFOHGFjiLkxIvZcHaNlFvgBaN",
+    "url": "https://drive.google.com/file/d/1ritLc95VFOHGFjiLkxIvZcHaNlFvgBaN/view",
+    "bytes": 1262,
+    "md5": "d8e3232ee054a4053bad57aef19faa27"
+  },
+  "production_started_local": "2026-10-15",
+  "quality": {
+    "actual_master_checks": "31/31",
+    "director_checks": "13/13",
+    "source_contracts": "7/7",
+    "output_frames": 915,
+    "real_colour_scene_evaluations": 1101,
+    "shutter_frames": 93,
+    "geometry_focus_output_frames": 775,
+    "shots": 9,
+    "scene_groups": {
+      "finger": 210,
+      "surface": 57,
+      "anatomy": 648
+    },
+    "new_surface_vertices": 21809,
+    "new_hero_cells": 3,
+    "script_voice_caption_lock": true,
+    "focus_changes_scene_not_caption_pixels": true,
+    "final_aac_lufs": -16.03,
+    "final_true_peak_dbtp": -2.44,
+    "clean_frame_retained": true,
+    "user_artistic_acceptance": "pending_review",
+    "clinician_review": false,
+    "guaranteed_perfection_asmr_or_retention": false
+  },
+  "music_attribution_required_when_publishing": true,
+  "music_credit_file_id": "1ritLc95VFOHGFjiLkxIvZcHaNlFvgBaN",
+  "sharing_permissions_changed": false,
+  "scope": "User-selected new shots/same voice. Requested WF-02 Drive delivery,local source saved on fixed branch. No remote GitHub/Docs/Notion/Linear sync claimed."
+}

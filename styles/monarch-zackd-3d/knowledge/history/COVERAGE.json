@@ -1,0 +1,325 @@
+{
+  "full_original_chat_available": false,
+  "policy": "Lossless copy of every available completed WF-02 task archive file, not a claim of complete UI chat. User/assistant messages not captured by continuity cannot be recreated verbatim. Journals contain material actions/results but are not full tool transcripts. Summary facts are labeled synthesis, never fabricated verbatim speech.",
+  "tasks": [
+    {
+      "task_id": "EMS-20261014-001",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261014-001/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261014-001/ACTIVE_TASK.json",
+          "size": 1422,
+          "sha256": "8ba6eb7d886383e7094bf180448030b5a7f36f4be5c039d93c3d44f1956ce6e7"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261014-001/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261014-001/CHAT_TRANSCRIPT.jsonl",
+          "size": 3549,
+          "sha256": "f6528ddc4eded7cadd57c6f0d3b20f1e57c7d8a9908efcd0ebf1c66a9985dbde"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261014-001/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261014-001/JOURNAL.jsonl",
+          "size": 27592,
+          "sha256": "2f19c400db17f0b18f1cbc30ec6e2932a3f4ec2799d9bd1bf2008a11b81a34cf"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261014-001/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261014-001/POST_COMPLETION_VERIFICATION.md",
+          "size": 3210,
+          "sha256": "7ff6cd3840e90b7a643bbeaa9e46a72900c509a539de4d0f10b53501f7dbaa8f"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261014-001/RESUME.md",
+          "source_path": "operations/history/EMS-20261014-001/RESUME.md",
+          "size": 1551,
+          "sha256": "1265e3dc9a97da02d63146ba441c30ee2270afe81fdb4edca831e538f7ce4b1b"
+        }
+      ],
+      "transcript_roles": {
+        "user": 1,
+        "assistant": 5
+      },
+      "source_archive": "operations/history/EMS-20261014-001",
+      "transcript_records": 6
+    },
+    {
+      "task_id": "EMS-20261015-002",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261015-002/ACTIVE_TASK.json",
+          "size": 1593,
+          "sha256": "bcf8c0a1668a2443cb04fcb2c772baa4ee0e5e6afc0ed0af6fbd6abe29952b44"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/CACHE_CLEANUP.json",
+          "source_path": "operations/history/EMS-20261015-002/CACHE_CLEANUP.json",
+          "size": 1532,
+          "sha256": "5801704d1849273656469ce3f89d30fe7f72fee7eb0549f2dc9d77aa6d0b648a"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261015-002/CHAT_TRANSCRIPT.jsonl",
+          "size": 4177,
+          "sha256": "554a573e3e5d4db460d7f4d90ce11d4a686c6f1d64ae1688c940d65779daec9f"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261015-002/JOURNAL.jsonl",
+          "size": 27057,
+          "sha256": "e6e5c5337b65cff65cf3dae9b49c2d8360e6afefca5d3bba29cccb2616abc53d"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261015-002/POST_COMPLETION_VERIFICATION.md",
+          "size": 3292,
+          "sha256": "53a45268fcc0e164575cdd87c079692d75dd5252d35fc3ac619baf2c78949f06"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-002/RESUME.md",
+          "source_path": "operations/history/EMS-20261015-002/RESUME.md",
+          "size": 1722,
+          "sha256": "f7fbdf5c8e73f7f2773c49f12cf16df3b66f04261feb208b33334967860a284b"
+        }
+      ],
+      "transcript_roles": {
+        "user": 1,
+        "assistant": 6
+      },
+      "source_archive": "operations/history/EMS-20261015-002",
+      "transcript_records": 7
+    },
+    {
+      "task_id": "EMS-20261015-003",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261015-003/ACTIVE_TASK.json",
+          "size": 1775,
+          "sha256": "dc8dfdf858158fbea15e968155f2c55fc1a4b66c270e69cd86e45fdf58a2164c"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/CACHE_CLEANUP.json",
+          "source_path": "operations/history/EMS-20261015-003/CACHE_CLEANUP.json",
+          "size": 1508,
+          "sha256": "0398faebda9fd108eb28d41a6c7747d1f98e82d9d3471486210a715a5649a113"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261015-003/CHAT_TRANSCRIPT.jsonl",
+          "size": 4438,
+          "sha256": "70493054a36635b76e990dcf57ca9c10c0b1e0fcba3d200327b02ffe906bc63f"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261015-003/JOURNAL.jsonl",
+          "size": 25774,
+          "sha256": "32bb5df6b9d4694a0fb59cd7d6f3c92de25f37642a3742566bc82f416b08b746"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261015-003/POST_COMPLETION_VERIFICATION.md",
+          "size": 3711,
+          "sha256": "f2f99f655c53f19f5001a554c7a2474bf7216134cbf22a9b329f0bd73040b24e"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-003/RESUME.md",
+          "source_path": "operations/history/EMS-20261015-003/RESUME.md",
+          "size": 1903,
+          "sha256": "6e58a64f781d629352c62d129460238c9de7acdb38227c557eb77cb83f1338c7"
+        }
+      ],
+      "transcript_roles": {
+        "user": 1,
+        "assistant": 4
+      },
+      "source_archive": "operations/history/EMS-20261015-003",
+      "transcript_records": 5
+    },
+    {
+      "task_id": "EMS-20261015-004",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261015-004/ACTIVE_TASK.json",
+          "size": 1783,
+          "sha256": "b7f251f4a1ccceb15a573c292a7bd755435387170ea0ff7b6655ec341f5628e3"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/CACHE_CLEANUP.json",
+          "source_path": "operations/history/EMS-20261015-004/CACHE_CLEANUP.json",
+          "size": 1521,
+          "sha256": "b958cbf8b60ad84f1c323571b97283ca52032bc65dabcb96b2e866d12833d0a7"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261015-004/CHAT_TRANSCRIPT.jsonl",
+          "size": 4413,
+          "sha256": "dc4d1eb2ae037b6d7ed1865589b8afe38ee05f788b06d3df0c69e82aef2b9a4b"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261015-004/JOURNAL.jsonl",
+          "size": 23849,
+          "sha256": "3c8383df9b461de4219ea8c7527a00c60e35a84a6b148d02599c517415d37101"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261015-004/POST_COMPLETION_VERIFICATION.md",
+          "size": 3847,
+          "sha256": "4d6ea798c40e3e6a7e4971584f3ebdf0dd080be7dbf95e1e9e281ff1201118a2"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-004/RESUME.md",
+          "source_path": "operations/history/EMS-20261015-004/RESUME.md",
+          "size": 1911,
+          "sha256": "e09bc6e623543133da2260ba555b6e4264acd5ebffd4f790be8142e6c50a18ec"
+        }
+      ],
+      "transcript_roles": {
+        "user": 2,
+        "assistant": 5
+      },
+      "source_archive": "operations/history/EMS-20261015-004",
+      "transcript_records": 7
+    },
+    {
+      "task_id": "EMS-20261015-005",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261015-005/ACTIVE_TASK.json",
+          "size": 1581,
+          "sha256": "8a5c6ce59b6e70ca4e3021db4562ae8a2c17687be689a245c2a62e3f0d12a84b"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/CACHE_CLEANUP.json",
+          "source_path": "operations/history/EMS-20261015-005/CACHE_CLEANUP.json",
+          "size": 1526,
+          "sha256": "94b2aa3b7faf1efa13b325b987c8e6dbcc25a0a64cf4b1b6f09eccb3814c06a4"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261015-005/CHAT_TRANSCRIPT.jsonl",
+          "size": 4459,
+          "sha256": "e0f7af19a5d11212228bc12ef07307821b3ff1e2014a28ffd468c7db0816b3c9"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261015-005/JOURNAL.jsonl",
+          "size": 29307,
+          "sha256": "c632dbbf73c457a855e7572fe392cb9defe8eac12550e0f962bf08af5b7211a3"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261015-005/POST_COMPLETION_VERIFICATION.md",
+          "size": 3913,
+          "sha256": "fd7bee698e337e52a28248ab90888b5f9998da07339c76a5d21442a5ff199c25"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261015-005/RESUME.md",
+          "source_path": "operations/history/EMS-20261015-005/RESUME.md",
+          "size": 1710,
+          "sha256": "3f9bf34d665042320c5ef57cfebbe8009e155eadb1b6c82d867223d4cc37f4f8"
+        }
+      ],
+      "transcript_roles": {
+        "user": 1,
+        "assistant": 6
+      },
+      "source_archive": "operations/history/EMS-20261015-005",
+      "transcript_records": 7
+    },
+    {
+      "task_id": "EMS-20261016-001",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261016-001/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261016-001/ACTIVE_TASK.json",
+          "size": 1504,
+          "sha256": "b2a17bf66592437cc71c957126ca290b43324e0b772b74796d7b5f50e8087907"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-001/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261016-001/CHAT_TRANSCRIPT.jsonl",
+          "size": 1065,
+          "sha256": "8718aafcfa969c4ee9c7163a005251c0b75c9c7f46ee40f93d36054f0d1b87c4"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-001/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261016-001/JOURNAL.jsonl",
+          "size": 23540,
+          "sha256": "c51481e76828118bb1cf2a3768f701d36873f162909210696dc728bde17c966b"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-001/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261016-001/POST_COMPLETION_VERIFICATION.md",
+          "size": 1529,
+          "sha256": "1382ebbb3520b6aa9837d697f6b103af0c57993bdde3839c731ba644954b8b0a"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-001/RESUME.md",
+          "source_path": "operations/history/EMS-20261016-001/RESUME.md",
+          "size": 1605,
+          "sha256": "5abeaf1febe80d8fa8a1e1d8ec987f11dc8b3968ffa21a1d6c1eacc8cb1a7078"
+        }
+      ],
+      "transcript_roles": {
+        "user": 3
+      },
+      "source_archive": "operations/history/EMS-20261016-001",
+      "transcript_records": 3
+    },
+    {
+      "task_id": "EMS-20261016-002",
+      "records": [
+        {
+          "path": "knowledge/history/raw/EMS-20261016-002/ACTIVE_TASK.json",
+          "source_path": "operations/history/EMS-20261016-002/ACTIVE_TASK.json",
+          "size": 1303,
+          "sha256": "f2e3842cf2302a2a0b1dee9bab0e1a118493f1a9f72d28860a9df4e688bad159"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-002/CHAT_TRANSCRIPT.jsonl",
+          "source_path": "operations/history/EMS-20261016-002/CHAT_TRANSCRIPT.jsonl",
+          "size": 809,
+          "sha256": "3348a467512f22b7b37ebfe6b06678b962c8e9758f33bb4061401412e2f137dd"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-002/JOURNAL.jsonl",
+          "source_path": "operations/history/EMS-20261016-002/JOURNAL.jsonl",
+          "size": 23784,
+          "sha256": "41f6ce6f86909e392fd3064741638413b6d99be0196eac729dad31075bb9e061"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-002/POST_COMPLETION_VERIFICATION.md",
+          "source_path": "operations/history/EMS-20261016-002/POST_COMPLETION_VERIFICATION.md",
+          "size": 1928,
+          "sha256": "7d2ff90be5b3e2be4eaa5ef5dcec343c5106ccf832886de5a259e7dc3e5b1447"
+        },
+        {
+          "path": "knowledge/history/raw/EMS-20261016-002/RESUME.md",
+          "source_path": "operations/history/EMS-20261016-002/RESUME.md",
+          "size": 1407,
+          "sha256": "95939d03c6e2d2468eb4067a4f84cdc1c740e04d7a1aa5e63c7a8bd0148eee7d"
+        }
+      ],
+      "transcript_roles": {
+        "user": 1
+      },
+      "source_archive": "operations/history/EMS-20261016-002",
+      "transcript_records": 1
+    }
+  ],
+  "current_preservation_task": "EMS-20261016-003",
+  "current_task_policy": "Its journal/checkpoints live in workflows/current until completion, then operations/history/EMS-20261016-003. Not frozen into this older-release snapshot.",
+  "not_included": [
+    "unrecorded earlier chat turns",
+    "hidden system/developer instructions or secrets",
+    "unrelated screenshot/status-bar content",
+    "disposable render caches; durable masters are linked on Drive"
+  ],
+  "readable_transcript_records": 36,
+  "readable_journal_events": 221
+}

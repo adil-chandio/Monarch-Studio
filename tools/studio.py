@@ -27,6 +27,11 @@ SKIP_PARTS = {
     ".git",
     ".runtime",
     ".continuity-runtime",
+    ".venv",
+    "venv",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
     "vendor",
     "__pycache__",
     "node_modules",
@@ -665,7 +670,7 @@ def generated_copy(src: Path, dst: Path, replacements: dict[str, str], stats: di
 def mirror_tree(src: Path, dst: Path, replacements: dict[str, str], stats: dict[str, int]) -> None:
     for path in sorted(src.rglob("*")):
         rel = path.relative_to(src)
-        if any(part in {".git", ".runtime", "__pycache__", "build"} for part in rel.parts):
+        if any(part in {".git", ".runtime", "__pycache__", "build", "node_modules", ".venv", "venv"} for part in rel.parts):
             continue
         target = dst / rel
         if path.is_dir():
@@ -689,6 +694,10 @@ def hydrate(entry: dict[str, Any], force: bool = False) -> Path:
 
     if entry["slug"] == "wf01":
         mirror_tree(src, home, replacements, stats)
+    elif entry["slug"] == "wf02":
+        # Current 3D projects are already relative-path portable. Preserve their
+        # source bytes rather than applying the older workflows' path rewrite.
+        mirror_tree(src, home, {}, stats)
     elif entry["slug"] == "wf03":
         legacy = home / "workflows" / "wf03_monarch_noir_film"
         mirror_tree(src, legacy, replacements, stats)
@@ -797,7 +806,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_validate.set_defaults(func=command_validate)
 
     p_hydrate = sub.add_parser("hydrate", help="create a generated legacy-compatible runtime")
-    p_hydrate.add_argument("workflow", help="workflow alias/code (wf01, wf03, WF-01, WF-03)")
+    p_hydrate.add_argument("workflow", help="workflow alias/code (wf01, wf02, wf03 or WF-01, WF-02, WF-03)")
     p_hydrate.add_argument("--force", action="store_true", help="replace an existing runtime")
     p_hydrate.set_defaults(func=command_hydrate)
 
@@ -808,7 +817,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_run.set_defaults(func=command_run)
 
     p_clean = sub.add_parser("clean", help="remove generated compatibility runtime(s)")
-    p_clean.add_argument("workflow", nargs="?", default="all", help="wf01, wf03 or all")
+    p_clean.add_argument("workflow", nargs="?", default="all", help="wf01, wf02, wf03 or all")
     p_clean.set_defaults(func=command_clean)
 
     p_manifest = sub.add_parser("manifest", help="create the repository SHA-256 manifest")

@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "version": 4,
+  "duration": 30.5,
+  "fps": 30,
+  "units": "scene units, seconds, radians; camera value=[x,y,z,lookX,lookY,lookZ,fov_degrees]",
+  "camera_interpolation": "C2 quintic Hermite, shared knot velocity and zero knot acceleration; one deliberate scene cut at 7s only",
+  "camera": {
+    "finger": [
+      {
+        "time": 0,
+        "value": [
+          1.65,
+          1.22,
+          9.0,
+          0.07,
+          -0.79,
+          0,
+          31
+        ]
+      },
+      {
+        "time": 0.8,
+        "value": [
+          1.6,
+          1.17,
+          8.78,
+          0.07,
+          -0.77,
+          0,
+          31
+        ]
+      },
+      {
+        "time": 2.7,
+        "value": [
+          1.31,
+          1.03,
+          8.22,
+          0.08,
+          -0.69,
+          0,
+          31
+        ]
+      },
+      {
+        "time": 4.4,
+        "value": [
+          1.14,
+          1.04,
+          8.12,
+          0.08,
+          -0.63,
+          0,
+          31
+        ]
+      },
+      {
+        "time": 5.7,
+        "value": [
+          1.11,
+          1.16,
+          8.32,
+          0.08,
+          -0.42,
+          0,
+          31
+        ]
+      },
+      {
+        "time": 7,
+        "value": [
+          1.1,
+          1.25,
+          8.55,
+          0.08,
+          -0.24,
+          0,
+          31
+        ]
+      }
+    ],
+    "anatomy": [
+      {
+        "time": 7,
+        "value": [
+          1.15,
+          1.25,
+          12.2,
+          0,
+          -1.06,
+          -0.04,
+          32
+        ]
+      },
+      {
+        "time": 8.7,
+        "value": [
+          0.85,
+          1.1,
+          11.25,
+          0,
+          -1.04,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 10.8,
+        "value": [
+          0.55,
+          0.8,
+          10.0,
+          -0.02,
+          -1.03,
+          0.06,
+          32
+        ]
+      },
+      {
+        "time": 12.2,
+        "value": [
+          0.52,
+          1.16,
+          10.2,
+          0,
+          -0.8600000000000001,
+          0.04,
+          32
+        ]
+      },
+      {
+        "time": 14.8,
+        "value": [
+          0.55,
+          1.43,
+          10.9,
+          0.03,
+          -0.72,
+          0.02,
+          32
+        ]
+      },
+      {
+        "time": 17.5,
+        "value": [
+          0.76,
+          1.54,
+          11.1,
+          0.08,
+          -0.5800000000000001,
+          0.02,
+          32
+        ]
+      },
+      {
+        "time": 19.3,
+        "value": [
+          0.94,
+          1.63,
+          12.3,
+          0.07,
+          -0.8500000000000001,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 22.1,
+        "value": [
+          1.02,
+          1.63,
+          12.25,
+          0.07,
+          -0.8600000000000001,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 25.2,
+        "value": [
+          0.85,
+          1.47,
+          12.0,
+          0.09,
+          -0.81,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 27.4,
+        "value": [
+          0.72,
+          1.6,
+          12.25,
+          0.17,
+          -0.52,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 29.2,
+        "value": [
+          1.03,
+          2.05,
+          13.15,
+          0.24,
+          -0.16999999999999998,
+          0,
+          32
+        ]
+      },
+      {
+        "time": 30.5,
+        "value": [
+          1.12,
+          2.2,
+          13.65,
+          0.24,
+          -0.15,
+          0,
+          32
+        ]
+      }
+    ]
+  },
+  "splinter": {
+    "angle": 0.33161255787892263,
+    "surface_scale": [
+      0.25,
+      0.25,
+      0.29
+    ],
+    "deep_scale": [
+      0.57,
+      0.74,
+      1
+    ],
+    "surface_angle": 0.24
+  },
+  "cues": {
+    "scene_change": 7,
+    "surface_approach_start": 3.48,
+    "surface_approach_end": 4.5,
+    "surface_close_start": 4.52,
+    "surface_contact": 4.93,
+    "surface_pull_start": 5.13,
+    "surface_release": 5.79,
+    "surface_clear": 6.3,
+    "cells_start": 8.68,
+    "cells_arrive": 10.03,
+    "swell_start": 11.1,
+    "swell_full": 13.85,
+    "infection_start": 13.18,
+    "infection_full": 15.05,
+    "emerge_start": 15.73,
+    "emerge_end": 18.6,
+    "deep_approach_start": 26.05,
+    "deep_approach_end": 26.68,
+    "deep_close_start": 26.68,
+    "deep_contact": 27.03,
+    "deep_pull_start": 27.33,
+    "deep_release": 28.87,
+    "deep_clear": 29.3
+  },
+  "cells": {
+    "active_count": 22,
+    "visualization": "schematic selective white-cell population, not a measured cell count"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "edition": "Full Film Craft v8",
+  "palette": {
+    "background_center": "#365e6c",
+    "background_edge": "#122936",
+    "ivory": "#e9e4da",
+    "background_mid": "#244452"
+  },
+  "active_cells": 22,
+  "typography": [
+    {
+      "text": "KAANTA",
+      "start": 0.1,
+      "in_end": 0.28,
+      "out_start": 1.38,
+      "end": 1.6,
+      "scene": "finger",
+      "position": [
+        0.04,
+        0.86,
+        -0.28
+      ],
+      "size": 0.26,
+      "depth": 0.044,
+      "bevel": 0.006,
+      "yaw": -0.22
+    },
+    {
+      "text": "NAHI.",
+      "start": 18.98,
+      "in_end": 19.18,
+      "out_start": 20.34,
+      "end": 20.56,
+      "scene": "anatomy",
+      "position": [
+        0.03,
+        1.28,
+        -0.25
+      ],
+      "size": 0.38,
+      "depth": 0.042,
+      "bevel": 0.006,
+      "yaw": -0.2
+    }
+  ],
+  "remove": [
+    "chapter headers",
+    "brand HUD",
+    "counters/progress rail",
+    "warning badges",
+    "caption pills/highlight colour",
+    "callout arrows",
+    "neon/floating pocket",
+    "page-turn effect",
+    "UI ticks/chirps/chimes"
+  ],
+  "caption_font_px": 46,
+  "caption_y": 1545,
+  "notes": "Full-film V8: tighter opening, redesigned bounded camera rails across all shots, less plastic materials, refined grain, contact compression and approach arcs; restrained full-film sound perspective. Same narration, no decorative clutter.",
+  "hero_cells": [
+    6,
+    11,
+    15
+  ]
+}

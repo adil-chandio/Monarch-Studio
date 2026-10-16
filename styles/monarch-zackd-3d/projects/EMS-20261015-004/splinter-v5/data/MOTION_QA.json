@@ -1,0 +1,325 @@
+{
+  "passed": true,
+  "checks_passed": 12,
+  "checks_total": 12,
+  "checks": [
+    {
+      "name": "Faster camera rails retain C2 joins",
+      "passed": true,
+      "details": {
+        "positionError": 0,
+        "velocityError": 2.50616523202999e-8,
+        "accelerationError": 0.015070511140884327,
+        "finite_difference_step_seconds": 0.00001
+      }
+    },
+    {
+      "name": "All specified action windows are materially shorter than v4",
+      "passed": true,
+      "details": [
+        {
+          "action": "surface approach",
+          "v4_seconds": 1.02,
+          "v5_seconds": 0.3799999999999999,
+          "shorter_percent": 62.7450980392157
+        },
+        {
+          "action": "surface close",
+          "v4_seconds": 0.41000000000000014,
+          "v5_seconds": 0.16999999999999993,
+          "shorter_percent": 58.53658536585369
+        },
+        {
+          "action": "surface pull",
+          "v4_seconds": 1.17,
+          "v5_seconds": 0.4200000000000008,
+          "shorter_percent": 64.10256410256403
+        },
+        {
+          "action": "deep approach",
+          "v4_seconds": 0.629999999999999,
+          "v5_seconds": 0.33999999999999986,
+          "shorter_percent": 46.03174603174597
+        },
+        {
+          "action": "deep close",
+          "v4_seconds": 0.3500000000000014,
+          "v5_seconds": 0.16000000000000014,
+          "shorter_percent": 54.28571428571443
+        },
+        {
+          "action": "deep pull",
+          "v4_seconds": 1.9700000000000024,
+          "v5_seconds": 0.7199999999999989,
+          "shorter_percent": 63.45177664974629
+        },
+        {
+          "action": "swelling rise",
+          "v4_seconds": 2.75,
+          "v5_seconds": 0.9499999999999993,
+          "shorter_percent": 65.45454545454548
+        },
+        {
+          "action": "possible outward movement",
+          "v4_seconds": 2.870000000000001,
+          "v5_seconds": 0.8200000000000003,
+          "shorter_percent": 71.42857142857143
+        }
+      ]
+    },
+    {
+      "name": "Camera uses short move/settle windows, not whole-shot drift",
+      "passed": true,
+      "details": {
+        "v4_mean_control_span": 1.90625,
+        "v5_mean_move_window": 0.481818181818182,
+        "v5_max_move_window": 0.5800000000000001,
+        "moves": [
+          {
+            "scene": "finger",
+            "start": 0.18,
+            "end": 0.7
+          },
+          {
+            "scene": "finger",
+            "start": 3.78,
+            "end": 4.18
+          },
+          {
+            "scene": "finger",
+            "start": 5.02,
+            "end": 5.5
+          },
+          {
+            "scene": "anatomy",
+            "start": 7,
+            "end": 7.44
+          },
+          {
+            "scene": "anatomy",
+            "start": 8.88,
+            "end": 9.46
+          },
+          {
+            "scene": "anatomy",
+            "start": 11.44,
+            "end": 11.98
+          },
+          {
+            "scene": "anatomy",
+            "start": 16.82,
+            "end": 17.28
+          },
+          {
+            "scene": "anatomy",
+            "start": 18.9,
+            "end": 19.32
+          },
+          {
+            "scene": "anatomy",
+            "start": 22.1,
+            "end": 22.54
+          },
+          {
+            "scene": "anatomy",
+            "start": 26.16,
+            "end": 26.6
+          },
+          {
+            "scene": "anatomy",
+            "start": 27.03,
+            "end": 27.61
+          }
+        ]
+      }
+    },
+    {
+      "name": "Narration rate and total frame contract are not sped up",
+      "passed": true,
+      "details": {
+        "fps": 30,
+        "duration": 30.5,
+        "output_frames": 915
+      }
+    },
+    {
+      "name": "No accidental camera reset at chapter labels",
+      "passed": true,
+      "details": [
+        {
+          "time": 9.46,
+          "delta": 2.1065000811460206e-15
+        },
+        {
+          "time": 11.7,
+          "delta": 0.000012335195157418237
+        },
+        {
+          "time": 15.56,
+          "delta": 0
+        },
+        {
+          "time": 18.98,
+          "delta": 0.000006018765610232748
+        },
+        {
+          "time": 22.08,
+          "delta": 0
+        },
+        {
+          "time": 25.83,
+          "delta": 0
+        }
+      ]
+    },
+    {
+      "name": "One semantic scene cut only",
+      "passed": true,
+      "details": {
+        "time": 7,
+        "shutter_excludes_cross_scene_blend": true
+      }
+    },
+    {
+      "name": "Absolute-time controls stay stateless",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "Faster cells arrive by the gathering phrase",
+      "passed": true,
+      "details": {
+        "active_cells": 22,
+        "all_arrived_by": 9.775,
+        "gathering_caption_start": 10.1
+      }
+    },
+    {
+      "name": "Contact/release anchors come from the motion authority",
+      "passed": true,
+      "details": [
+        {
+          "kind": "wood_touch",
+          "anchor": 0.15,
+          "pre_roll": 0,
+          "clip_start": 0.15,
+          "visual_cue": "wood_contact"
+        },
+        {
+          "kind": "steel_close",
+          "anchor": 4.82,
+          "pre_roll": 0,
+          "clip_start": 4.82,
+          "visual_cue": "surface_contact"
+        },
+        {
+          "kind": "soft_release",
+          "anchor": 5.22,
+          "pre_roll": 0.1,
+          "clip_start": 5.12,
+          "visual_cue": "surface_release"
+        },
+        {
+          "kind": "steel_close",
+          "anchor": 26.71,
+          "pre_roll": 0,
+          "clip_start": 26.71,
+          "visual_cue": "deep_contact"
+        },
+        {
+          "kind": "soft_release",
+          "anchor": 27.52,
+          "pre_roll": 0.1,
+          "clip_start": 27.419999999999998,
+          "visual_cue": "deep_release"
+        }
+      ]
+    },
+    {
+      "name": "Fast motion is finite and bounded to the authored move budget",
+      "passed": true,
+      "details": {
+        "bad_samples": 0,
+        "maximum_camera_translation_per_output_frame": 0.26742643712770725,
+        "allowed": 0.35
+      }
+    },
+    {
+      "name": "Extraction remains monotonic, with grip before pull",
+      "passed": true,
+      "details": {
+        "surfaceReverse": 0,
+        "deepReverse": 0,
+        "surface_pull_seconds": 0.4200000000000008,
+        "deep_pull_seconds": 0.7199999999999989
+      }
+    },
+    {
+      "name": "Fast camera frames use bounded real-scene shutter samples",
+      "passed": true,
+      "details": {
+        "unprotected_fast_frames": 0,
+        "shutter_output_frames": 183,
+        "scene_samples_per_active_frame": 3,
+        "exposure_seconds": 0.006666666666666667,
+        "no_optical_flow": true,
+        "captions_drawn_once_at_center_time": true
+      }
+    }
+  ],
+  "comparison": [
+    {
+      "action": "surface approach",
+      "v4_seconds": 1.02,
+      "v5_seconds": 0.3799999999999999,
+      "shorter_percent": 62.7450980392157
+    },
+    {
+      "action": "surface close",
+      "v4_seconds": 0.41000000000000014,
+      "v5_seconds": 0.16999999999999993,
+      "shorter_percent": 58.53658536585369
+    },
+    {
+      "action": "surface pull",
+      "v4_seconds": 1.17,
+      "v5_seconds": 0.4200000000000008,
+      "shorter_percent": 64.10256410256403
+    },
+    {
+      "action": "deep approach",
+      "v4_seconds": 0.629999999999999,
+      "v5_seconds": 0.33999999999999986,
+      "shorter_percent": 46.03174603174597
+    },
+    {
+      "action": "deep close",
+      "v4_seconds": 0.3500000000000014,
+      "v5_seconds": 0.16000000000000014,
+      "shorter_percent": 54.28571428571443
+    },
+    {
+      "action": "deep pull",
+      "v4_seconds": 1.9700000000000024,
+      "v5_seconds": 0.7199999999999989,
+      "shorter_percent": 63.45177664974629
+    },
+    {
+      "action": "swelling rise",
+      "v4_seconds": 2.75,
+      "v5_seconds": 0.9499999999999993,
+      "shorter_percent": 65.45454545454548
+    },
+    {
+      "action": "possible outward movement",
+      "v4_seconds": 2.870000000000001,
+      "v5_seconds": 0.8200000000000003,
+      "shorter_percent": 71.42857142857143
+    }
+  ],
+  "limits": [
+    "Reference-informed pacing, not frame-for-frame duplication",
+    "Shorter authored movement windows do not certify universal premium taste or audience retention",
+    "Illustrative anatomy, not a validated tissue mechanics simulation"
+  ]
+}

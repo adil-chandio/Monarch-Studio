@@ -1,0 +1,81 @@
+{
+  "task_id": "EMS-20261016-001",
+  "title": "KAANTA · Organic Motion v7",
+  "folder_id": "1YPpOkcm_hh843HI4V69cQL5rQrFL5tMI",
+  "files": [
+    {
+      "role": "master",
+      "id": "1zRKxqy7yS_k1USCyTuGCBSOCOCNbPVjz",
+      "name": "KAANTA_ORGANIC_v7_FINAL.mp4",
+      "size": 9591433,
+      "md5": "ec4ac17f84184ad49d99210574692743",
+      "sha256": "3f5572f0fe203f72fd9f99aa00d9903f3e5fe5eec2fe721e3f4ad6b7a6d942e1",
+      "verified": "upload response size/md5 matches local master"
+    },
+    {
+      "role": "source",
+      "id": "19yqQoZErqVmqpvx21kBlFz7i3cpcLBF1",
+      "name": "KAANTA_ORGANIC_v7_SOURCE.zip",
+      "size": 6213808,
+      "md5": "efc0315f1526773117af13e8ab7d78a5",
+      "sha256": "c277cf261e10f1460c5fdba79e7ea5a1bee78067311d9b89631e1ca47a714cdd",
+      "verified": "upload response size/md5 matches local"
+    },
+    {
+      "role": "notes",
+      "id": "1CuLhwrfgPqQlrFPvJ62y_bM5eA12btZT",
+      "name": "SCRIPT_AND_PRODUCTION.md",
+      "size": 9230,
+      "md5": "14259a649107c15cac9e345986f1f364",
+      "sha256": "5681c1ec4a5f863dad76d915de138f2c91fafdcbda9ba4e04b4178d51f10a0e4",
+      "verified": "upload response size/md5 matches local"
+    },
+    {
+      "role": "captions",
+      "id": "1PI5cHiWW3gwlD7ndwvfh1rdKwEb6jgnJ",
+      "name": "KAANTA_Roman_Urdu.srt",
+      "size": 1047,
+      "md5": "58a3dda9863cd4abdbd9e85469dd2237",
+      "sha256": "2d8e5b78d64053ccffed1a7480e876dd1b768f3f9105190bb485182fd1b2b1ee",
+      "verified": "upload response size/md5 matches local"
+    },
+    {
+      "role": "credit",
+      "id": "1rpHwF16c5IR3DS5THhY-qdCEPpfmPfOA",
+      "name": "KAANTA_v7_PUBLISHING_CREDIT.txt",
+      "size": 1077,
+      "md5": "39cad88ac2ae64a365c559e1158557f1",
+      "sha256": "2ff10d602cc051fb9d90a8d60c6b1a7fca202d8aa80456ff2ff6567421274fff",
+      "verified": "upload response size/md5 matches local"
+    }
+  ],
+  "actual_master_checks": "32/32",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "output_frames": 915,
+  "scene_evaluations": 1101,
+  "shutter_frames": 93,
+  "depth_focus_frames": 775,
+  "source_archive_files": 95,
+  "scope": "Focused organic hero membrane motion/detail, same voice/script, nine-shot edit and credited score. Not a new hook or full re-edit.",
+  "previous_master_preserved": "1c-o5LKg11MAZOLNOLQHIXqwBn3ozUGEx",
+  "manual_review": {
+    "status": "sampled_encoded_visual_review_completed",
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "fast_actions": "QA_FAST_ACTIONS.jpg",
+    "observations": "Reviewed 10 encoded scene samples and 16 encoded fast-action samples. Subject/tissue remains visible, contact/extraction is ordered, captions are within frame, restrained typography and no decorative HUD. Intentional macro crops retained.",
+    "limits": "Sampled inspection only, not full-frame-by-frame artistic certification, independent clinician review or independent audible pronunciation/ASMR/retention review."
+  },
+  "user_visual_acceptance": "pending_review",
+  "source_receipt_policy": "This receipt is a separate companion, excluded from source ZIP to avoid circular hashing.",
+  "publishing_credit": "See KAANTA_v7_PUBLISHING_CREDIT.txt and assets/music/ATTRIBUTION.md; retain CC BY3.0 US attribution."
+}

@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "files": {
+    "KAANTA_Roman_Urdu.srt": {
+      "bytes": 1047,
+      "sha256": "2d8e5b78d64053ccffed1a7480e876dd1b768f3f9105190bb485182fd1b2b1ee"
+    },
+    "README.md": {
+      "bytes": 8274,
+      "sha256": "5e757b4cb576d24b4dd29117aa3ed9808da7ca4597e6096f6378bf5785884594"
+    },
+    "assets/fonts/Montserrat-Cinema.typeface.json": {
+      "bytes": 3248,
+      "sha256": "785f19db2a2619b5c5d2a66e6d0f62b65e424064f8cbf83a9a844ffca87da0aa"
+    },
+    "assets/fonts/Montserrat-VF.ttf": {
+      "bytes": 744936,
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+    },
+    "assets/fonts/NOTICE.md": {
+      "bytes": 416,
+      "sha256": "9fd1ad4c08b90bd4a651ca3ef086dc3aa77155869be362cd599e401822ef0b59"
+    },
+    "assets/fonts/OFL-1.1.txt": {
+      "bytes": 4008,
+      "sha256": "74ba2e8a3e010fa81dc24958b23ad2dc885638b0b2da37ae4a2299e76b6b69f7"
+    },
+    "assets/models/cutaway.glb": {
+      "bytes": 4678608,
+      "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4"
+    },
+    "assets/music/ATTRIBUTION.md": {
+      "bytes": 1262,
+      "sha256": "5909468fd21f9774e655491f35614c29365eef1cd11f94ab754b897f2aa4864c"
+    },
+    "assets/music/CONVERSION_MIT_LICENSE.txt": {
+      "bytes": 1079,
+      "sha256": "fe4516b4b4d9aad14ac4466830f524b682115c74c15efac7dc5381a506464549"
+    },
+    "assets/music/SAMPLE_PROVENANCE.json": {
+      "bytes": 7587,
+      "sha256": "4e9d60f4bb396bc7db085203e1efe27826071b9f3ea62aea35a0b0baad333167"
+    },
+    "assets/music/UPSTREAM_README.md": {
+      "bytes": 3372,
+      "sha256": "e42378ee860c7f866f6e6d3f60ba80a19e99ed218b5e292d2431d94a5dd5b8f4"
+    },
+    "assets/music/acoustic_grand_piano/A2.mp3": {
+      "bytes": 25585,
+      "sha256": "e21d9ab9b30c73c0aea921c2cd0dd59fece4cc021619927c9ff3dee71f0a9679"
+    },
+    "assets/music/acoustic_grand_piano/A3.mp3": {
+      "bytes": 25585,
+      "sha256": "02dee2fa184b9b94a5f72886c2370bd076103ebb76fc179982fa503e549dcc10"
+    },
+    "assets/music/acoustic_grand_piano/A4.mp3": {
+      "bytes": 25585,
+      "sha256": "4f1671ac831bc41c845e67b18e6c9ea200fc9b753bdffe124703b7141aa928c3"
+    },
+    "assets/music/acoustic_grand_piano/Bb3.mp3": {
+      "bytes": 25585,
+      "sha256": "6ac0f67f18e15db35553d4fcd83ceec4473ebe639e31659ce93cf8466cb06644"
+    },
+    "assets/music/acoustic_grand_piano/C4.mp3": {
+      "bytes": 25585,
+      "sha256": "b6d32e0d9d0c2e4b88165a2ec27b8787a970f131a03d96d065f28f158640af96"
+    },
+    "assets/music/acoustic_grand_piano/C5.mp3": {
+      "bytes": 25585,
+      "sha256": "7a4be6dae323ac5564ad1a617b554fd595e5e0a63f19c3581e3ee94c33ae2e4b"
+    },
+    "assets/music/acoustic_grand_piano/D2.mp3": {
+      "bytes": 25585,
+      "sha256": "6233cc6f3670a287e33c7b8ece3b03a787ee1e169c8355432ce0b5e194bee612"
+    },
+    "assets/music/acoustic_grand_piano/D3.mp3": {
+      "bytes": 25585,
+      "sha256": "b8a5ed9cf147e10f484f3ad39930130d487b12045a35cef73f48dab401e6583b"
+    },
+    "assets/music/acoustic_grand_piano/D4.mp3": {
+      "bytes": 25585,
+      "sha256": "90539782bdbbbe714de579bfbbe6f478e07e112c6f78d03e8ee82462fbf2a569"
+    },
+    "assets/music/acoustic_grand_piano/E4.mp3": {
+      "bytes": 25585,
+      "sha256": "48bcecf53832988af83f74aa65efd7daa34f1e3ebf10de4679363b89d54f3852"
+    },
+    "assets/music/acoustic_grand_piano/F3.mp3": {
+      "bytes": 25585,
+      "sha256": "ff912c3211f80dc0c4f541ebd39c1db11f21cfda684d54999f9bce87aaf0cf20"
+    },
+    "assets/music/acoustic_grand_piano/F4.mp3": {
+      "bytes": 25585,
+      "sha256": "a7426425ed95ea8652a888d850c34c4b766c7c7a11c168ed6899c38a6836be0c"
+    },
+    "assets/music/cello/A2.mp3": {
+      "bytes": 25585,
+      "sha256": "aa18efdb1093f29ed02248f4be834d544bc483f82218bb3ff167eb09daa8d806"
+    },
+    "assets/music/cello/Bb2.mp3": {
+      "bytes": 25585,
+      "sha256": "3141c4b479453468913031948e46c9311cdd29eae89781204d906714a3ccf531"
+    },
+    "assets/music/cello/C3.mp3": {
+      "bytes": 25585,
+      "sha256": "945c6f8243bbe13309a5938fb55483fd215bb760e41c77e21c890714c1d9f7ec"
+    },
+    "assets/music/cello/D2.mp3": {
+      "bytes": 25585,
+      "sha256": "f6db7cef319b329880f90e6e54c0ebb91418430bfab64d75536e6cd02ed99fb6"
+    },
+    "assets/music/cello/D3.mp3": {
+      "bytes": 25585,
+      "sha256": "5cfcf67ae91ada4900edf8063370d7cf9c6650fe377789ee1e4057c2b9ca8fb5"
+    },
+    "assets/music/cello/F3.mp3": {
+      "bytes": 25585,
+      "sha256": "4250a25b102cd3f6c31192cb5efb5916918a224c2ba062252ad835a1f24038e7"
+    },
+    "assets/music/string_ensemble_1/A3.mp3": {
+      "bytes": 25585,
+      "sha256": "9b0bb53b2cafa9575bc3046320d754e0363f6014e83ae8807e31cdf90a453c5a"
+    },
+    "assets/music/string_ensemble_1/Bb3.mp3": {
+      "bytes": 25585,
+      "sha256": "43cef3b5f7303dd861f71aed801c7810053d697813b30cb1fe5c6b4b2c9b5437"
+    },
+    "assets/music/string_ensemble_1/C4.mp3": {
+      "bytes": 25585,
+      "sha256": "e2ca8e8308c6ab163508f351617af213923fc59d3d380148f1d0df756db109e3"
+    },
+    "assets/music/string_ensemble_1/D3.mp3": {
+      "bytes": 25585,
+      "sha256": "901ffe7b236d7cbdb9c3ab7c793cd33610f6c068fc5567dc3ba55ce9e82bb323"
+    },
+    "assets/music/string_ensemble_1/D4.mp3": {
+      "bytes": 25585,
+      "sha256": "89dfb88c8152a43c6d4187b9f2e25bb90130a9a3a39fe2c45fa7d84385b64db4"
+    },
+    "assets/music/string_ensemble_1/E4.mp3": {
+      "bytes": 25585,
+      "sha256": "9cdbfb7c5ca8b2c6017531cc8cc574e1909c05b8b99ddcdbadc3d1ee68e40cb0"
+    },
+    "assets/music/string_ensemble_1/F3.mp3": {
+      "bytes": 25585,
+      "sha256": "16e42842f82ce24554d047d35d4766235439b9b6c341107fbe6a8f2db39edf6b"
+    },
+    "assets/vo/01_hook.wav": {
+      "bytes": 316878,
+      "sha256": "2ccecf5f21395836cbad81ead1836c2930a34c01bef69f08d6dd3da4bd78b044"
+    },
+    "assets/vo/02_response.wav": {
+      "bytes": 403278,
+      "sha256": "5a30ca37fa3706aea1c8b22fb6497cbfa7662148442d30a6ff309126f7c16b8d"
+    },
+    "assets/vo/03_movement.wav": {
+      "bytes": 305358,
+      "sha256": "ad3d4c5902d451aa8de9db53295460fa883c9bd5b0b7406e203c472989ca29b9"
+    },
+    "assets/vo/04_safety.wav": {
+      "bytes": 351438,
+      "sha256": "8b5bdd94b462798b0846f4a68b09a7bbacad94348596b50a2ae168f77c521e1e"
+    },
+    "data/AUDIO_REPORT.json": {
+      "bytes": 1826,
+      "sha256": "b662679571e7ab09735ed6e8ceb9bc48067a1447561405b9cf6aba300f278eef"
+    },
+    "data/DETERMINISM_REPORT.json": {
+      "bytes": 2362,
+      "sha256": "7ae3edaf6d9ae1b45a735c7d8eae15836abcae48b4f101ead86f0e36fb655027"
+    },
+    "data/DIRECTOR_QA.json": {
+      "bytes": 9921,
+      "sha256": "d9222a9a873fc26956318355b10a4cdf54b523a5f1d1f3c4f0c462c61e3600c4"
+    },
+    "data/FOCUS_QA.json": {
+      "bytes": 1264,
+      "sha256": "369a713946edd9154970ef0bf447e444444794372aff619a667d6174e459eb14"
+    },
+    "data/FRAME_REPORT.json": {
+      "bytes": 16887,
+      "sha256": "05160f54a12719ea4e7a78a5f055aaa0c18652a75f3e78cfb62c598d488488a4"
+    },
+    "data/MASTER_IDENTITY.json": {
+      "bytes": 332,
+      "sha256": "f2de9a7c0836db25d85d724f681f052a9d231e870049d241a503c45ca05beff6"
+    },
+    "data/MOTION_QA.json": {
+      "bytes": 9921,
+      "sha256": "d9222a9a873fc26956318355b10a4cdf54b523a5f1d1f3c4f0c462c61e3600c4"
+    },
+    "data/NARRATION_LOCK.json": {
+      "bytes": 3418,
+      "sha256": "1496182f06c60aa92e1db53c7746f8d9af1363feace4edc2cf4be7de3ce735c1"
+    },
+    "data/PREVIOUS_SOURCE_PRESERVATION.json": {
+      "bytes": 283,
+      "sha256": "bda81980247b66d1060e003795251fcbb9696768737fafa22d1e8c5c654a75b1"
+    },
+    "data/QA_CONTACT_SHEET.jpg": {
+      "bytes": 177673,
+      "sha256": "53218f7ce034f8899a4c1305d6254545a1e5563e8da05b1be44830553d4753c9"
+    },
+    "data/QA_FAST_ACTIONS.jpg": {
+      "bytes": 232584,
+      "sha256": "06c560d7c0ab8b5b36d2cd3fb43ec37278fdaa6f88621333a6aaf3fe102b5910"
+    },
+    "data/QUALITY_REPORT.json": {
+      "bytes": 13407,
+      "sha256": "329b5acba24159b828d65549013d1fa5b23a7f3d518af1e9d37b94c41eec7d28"
+    },
+    "data/RENDER_RECEIPTS.json": {
+      "bytes": 4796,
+      "sha256": "eff097735b08ba89b460e22240cf39f60ddc9b09f16e81b931dd10f1f31400a9"
+    },
+    "data/SOUND_DESIGN_REPORT.json": {
+      "bytes": 8333,
+      "sha256": "77683c9ed89d4cb901e3c239f791efcd7a5c9f9a79a9335584c65807dd7a2f37"
+    },
+    "data/SOURCES.json": {
+      "bytes": 2505,
+      "sha256": "4df38ae089684579e2383fb347dd90e7a50aaa34a5f2672e31d2885f4682889c"
+    },
+    "data/VOICE_LOCK.json": {
+      "bytes": 474,
+      "sha256": "a901198136d80e84ca5bd8a6cc24aec85b08d906c81fa10879939a950d48cdef"
+    },
+    "data/design.json": {
+      "bytes": 1413,
+      "sha256": "ddc859d55a6d7dc0731ef168e09daa145a2534641d619d47f7d1e4fd341b1867"
+    },
+    "data/mix_direction.json": {
+      "bytes": 856,
+      "sha256": "7b64592d59eb1747c464b14e040cce731169ca5c2df634d207a727affdfb43c6"
+    },
+    "data/motion.json": {
+      "bytes": 10578,
+      "sha256": "ff75c361d0248e20bbce269e267c8bede8bb10fa274e5c30664fe3436ace2134"
+    },
+    "data/shot_plan.json": {
+      "bytes": 14741,
+      "sha256": "f51ece9ea43a44bde6432100f67fe627bc865e353fedcb298dc053b16bd8607d"
+    },
+    "data/timeline.json": {
+      "bytes": 7081,
+      "sha256": "71f77b7e29e286a0e6d3e20e59adb347b44fc664b5ab698fa55b2dec3216c93b"
+    },
+    "docs/SCRIPT_AND_PRODUCTION.md": {
+      "bytes": 8259,
+      "sha256": "25bd15367df3b6976d0d2dd8439bc6b4c9447980b26cac6ea6ae779a300e9833"
+    },
+    "index.html": {
+      "bytes": 984,
+      "sha256": "aedd221301735ae380b58ab705a1daa00f11cf9cfd944b1f76d992a9d974296a"
+    },
+    "package-lock.json": {
+      "bytes": 9605,
+      "sha256": "906af62009451177773cf53d9002e15247341e7315b1fd745545bd3be1f9a3c1"
+    },
+    "package.json": {
+      "bytes": 663,
+      "sha256": "5d9d61c4be2e5f47e775f8e7a5868aa26185ae5655b15059d0a4fd21482ef4a6"
+    },
+    "requirements.txt": {
+      "bytes": 79,
+      "sha256": "534c5a4dd4f31f0697ed7b7f65ee13ea88ebda513a7af6bbe3f3d997cdb1be39"
+    },
+    "src/assemble.py": {
+      "bytes": 6036,
+      "sha256": "2ca2bf24f65172fbdcfaaf1f475974c74ca638bfbeb57a9528be19c6ddcb7fcc"
+    },
+    "src/build_typeface.py": {
+      "bytes": 1962,
+      "sha256": "52ad6720e8c49751072349ed65cb648c79577c573525d5eef53ccbc20aa664ae"
+    },
+    "src/check_determinism.cjs": {
+      "bytes": 3028,
+      "sha256": "a0a351f4b23e64b7f9a02f4ee87964fdac5844b5337b1b0009341085559e3688"
+    },
+    "src/check_focus.cjs": {
+      "bytes": 3723,
+      "sha256": "2a97415bed80dd3817aae43d0cc781a181b633b187b5577bddd1edfb1905193e"
+    },
+    "src/check_motion.mjs": {
+      "bytes": 6324,
+      "sha256": "8be2d00ad00764cfe6b4bd94359ecd19c451d734cf4215d6c8d094090f736877"
+    },
+    "src/director.mjs": {
+      "bytes": 2734,
+      "sha256": "96708bcebabe5c93b6d805e81e487da32243d4861f4e7744a4377b99a49601d3"
+    },
+    "src/film.js": {
+      "bytes": 33487,
+      "sha256": "d5c3baba92059ff4486ac78f4aee0500be93bddc2cc7f6a23d32c21b6c581e26"
+    },
+    "src/focus-pass.js": {
+      "bytes": 4798,
+      "sha256": "8becb651e7efa293154d69d83fb3d26ffd298ccdbfe54a5be091be3d5c2b526b"
+    },
+    "src/gate.py": {
+      "bytes": 16433,
+      "sha256": "31ac8143c2846772c46f022e50fd641b63ad8fd69e425d1fb9d02d8d3c5a1103"
+    },
+    "src/motion.mjs": {
+      "bytes": 5488,
+      "sha256": "0169239403b7333a0df07ccf3c0b8f565b68ca676b1605b0cdac995131c50f51"
+    },
+    "src/render.cjs": {
+      "bytes": 9229,
+      "sha256": "babe6681d13b2934423b3289e7a922f64fd88213c165e317831556268a3b00fc"
+    },
+    "src/sound_design.py": {
+      "bytes": 8920,
+      "sha256": "0bdd0596e9ab2488402ef5b14750854a3cd17806b75036cb527871d4607a0089"
+    },
+    "tests/production.test.cjs": {
+      "bytes": 3213,
+      "sha256": "520edbb90ed82df11cb0b069cbdcdda0dbb1aaea1e7c36a5c2d30e050297ea76"
+    }
+  },
+  "excludes": [
+    "This manifest itself",
+    "Final Drive receipt provided separately to avoid circular archive hashing",
+    "Build/runtime/dependency caches and reference footage"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "monarch-wf02-splinter-film",
+  "version": "6.0.0",
+  "private": true,
+  "description": "KAANTA Macro Director Cut: new macro/surface/hero-cell shot design and geometry-depth focus; original voice/script locked",
+  "scripts": {
+    "stills": "node src/render.cjs --stills",
+    "render": "node src/render.cjs --render",
+    "test": "node --test tests/*.test.cjs",
+    "motion-check": "node src/check_motion.mjs",
+    "focus-check": "node src/check_focus.cjs"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "133.0.0",
+    "playwright-core": "1.51.1",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}

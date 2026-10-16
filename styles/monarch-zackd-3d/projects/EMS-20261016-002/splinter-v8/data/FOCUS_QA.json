@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "method": "Same actual3D timestamp, production focus pass on/off in an isolated browser; compare scene PNG and raw caption canvas separately",
+  "proofs": [
+    {
+      "time": 7.8,
+      "scene_image_changes": true,
+      "caption_canvas_identical": true,
+      "focus_distance": 1.40112964828847,
+      "preview_blur_px": 3.5,
+      "on_sha256": "51e228bfe3b14631ae25a3fb6744dcddfefba91afde773aac9301bd34b48f5cb",
+      "off_sha256": "955212811771946bde389577a451f8b28ff591591f01cee094c10cb4f3d8a4bd"
+    },
+    {
+      "time": 9.3,
+      "scene_image_changes": true,
+      "caption_canvas_identical": true,
+      "focus_distance": 2.5226739721861797,
+      "preview_blur_px": 3.5,
+      "on_sha256": "ee05c4196138fc08f0218b5cbe08d2141e72048092e8f2cf70c84aba68f92dfd",
+      "off_sha256": "f420e9f329960075da741506d890ba0cf43907a424b34493dd53396b140a0e59"
+    },
+    {
+      "time": 27.4,
+      "scene_image_changes": true,
+      "caption_canvas_identical": true,
+      "focus_distance": 9.104404332168778,
+      "preview_blur_px": 2.5,
+      "on_sha256": "db919891abf2a6615ebaa3223db1fa5b8e2afb9dcf0560368971eea68cc80b95",
+      "off_sha256": "8939df2f1d6a711f95835504f62b0d0b315e974c1b05eb7c68b4f73015e614dc"
+    }
+  ],
+  "errors": []
+}

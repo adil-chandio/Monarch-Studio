@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "checks_passed": 12,
+  "checks_total": 12,
+  "master": "KAANTA_WF02_1080x1920_FINAL.mp4",
+  "bytes": 20075498,
+  "sha256": "6e671349fb61521165520de00994403a19f39fd841494b8b014389cc91fd3d35",
+  "md5": "31d3955099bd8f9c05307c94179a5e04",
+  "metadata": {
+    "video_codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pixel_format": "yuv420p",
+    "duration": 30.5,
+    "audio_codec": "aac",
+    "audio_rate": 48000,
+    "audio_channels": 2
+  },
+  "checks": [
+    {
+      "name": "H.264 portrait native-size delivery",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Frame rate and container duration",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "AAC stereo 48kHz",
+      "passed": true,
+      "details": {
+        "video_codec": "h264",
+        "width": 1080,
+        "height": 1920,
+        "fps": 24.0,
+        "pixel_format": "yuv420p",
+        "duration": 30.5,
+        "audio_codec": "aac",
+        "audio_rate": 48000,
+        "audio_channels": 2
+      }
+    },
+    {
+      "name": "Every expected frame decodes",
+      "passed": true,
+      "details": {
+        "decoded": 732,
+        "expected": 732,
+        "error": null
+      }
+    },
+    {
+      "name": "Continuous monotonic video timestamps",
+      "passed": true,
+      "details": {
+        "first": 0.0,
+        "last": 30.458333333333332
+      }
+    },
+    {
+      "name": "Moving picture is not a held-slide render",
+      "passed": true,
+      "details": {
+        "unique_anatomy_crop_hashes": 732,
+        "longest_identical_crop_run_seconds": 0.0,
+        "mean_frame_delta_8bit": 1.7399973214848425,
+        "note": "Small downsampled anatomy-region changes measured, not a claim that physiology is physically simulated."
+      }
+    },
+    {
+      "name": "Entire audio stream decodes",
+      "passed": true,
+      "details": {
+        "frames": 1430,
+        "decoded_seconds": 30.506666666666668
+      }
+    },
+    {
+      "name": "Final AAC loudness and true peak",
+      "passed": true,
+      "details": {
+        "integrated_lufs": -16.03,
+        "true_peak_dbtp": -2.57,
+        "lra_lu": 4.1
+      }
+    },
+    {
+      "name": "Fast-start MP4",
+      "passed": true,
+      "details": {
+        "top_level_atoms": [
+          "ftyp",
+          "moov",
+          "free",
+          "mdat"
+        ]
+      }
+    },
+    {
+      "name": "Caption intervals in bounds",
+      "passed": true,
+      "details": {
+        "phrases": 19,
+        "alignment": "Phrase-timed, not word-level forced alignment"
+      }
+    },
+    {
+      "name": "Explicit no-guarantee and professional-care ending",
+      "passed": true,
+      "details": {
+        "messages": "Conditional expulsion, do not wait, doctor for warning signs, do not dig"
+      }
+    },
+    {
+      "name": "Native-frame render receipts cover the master exactly",
+      "passed": true,
+      "details": {
+        "chunks": 9,
+        "covered_frames": 732,
+        "signatures": [
+          "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6"
+        ]
+      }
+    }
+  ],
+  "manual_review": {
+    "status": "sampled_visual_review_completed",
+    "contact_sheet": "QA_CONTACT_SHEET.jpg",
+    "scope": "Sampled visual sequence, typography, skin/forceps framing and warning labels. No claim of independent clinician review or audible pronunciation certification.",
+    "samples_seconds": [
+      0.8,
+      4.9,
+      8.4,
+      10.7,
+      13.7,
+      17.4,
+      20.3,
+      23.9,
+      27.2,
+      29.9
+    ],
+    "observations": "Encoded contact sheet inspected: coherent surface/deep-case sequence, visible animated anatomy and removal outcome, legible captions, conditional infection/no-guarantee warnings and professional-care label. Stylistic quality and pronunciation remain subject to user review; no clinical certification."
+  }
+}

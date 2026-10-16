@@ -1,0 +1,170 @@
+{
+  "passed": true,
+  "checks_passed": 9,
+  "checks_total": 9,
+  "checks": [
+    {
+      "name": "Camera keys are interpolated exactly with C2 joins",
+      "passed": true,
+      "details": {
+        "maxPositionMismatch": 0,
+        "maxVelocityMismatch": 2.1459467272787336e-7,
+        "maxAccelerationMismatch": 0.01273930916968108
+      }
+    },
+    {
+      "name": "All six old internal camera resets removed",
+      "passed": true,
+      "details": [
+        {
+          "time": 9.46,
+          "delta": 0.0000033858350322038735
+        },
+        {
+          "time": 11.7,
+          "delta": 0.000003655367053672089
+        },
+        {
+          "time": 15.56,
+          "delta": 0.0000023369971931700195
+        },
+        {
+          "time": 18.98,
+          "delta": 0.0000023810594005697064
+        },
+        {
+          "time": 22.08,
+          "delta": 1.257634532785856e-7
+        },
+        {
+          "time": 25.83,
+          "delta": 4.662279491219732e-7
+        }
+      ]
+    },
+    {
+      "name": "One intentional hand-to-anatomy scene cut is explicit",
+      "passed": true,
+      "details": {
+        "time": 7,
+        "not_claimed_continuous_across_different_scenes": true
+      }
+    },
+    {
+      "name": "Absolute-time controls are stateless",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "All 32 cells arrive during the spoken gathering sentence",
+      "passed": true,
+      "details": {
+        "all_arrived_by": 10.69,
+        "gathering_caption": [
+          10.1,
+          11.51
+        ]
+      }
+    },
+    {
+      "name": "Grip and release sounds share the visual cue authority",
+      "passed": true,
+      "details": [
+        {
+          "kind": "grip_click",
+          "visual_cue": "surface_contact",
+          "time": 4.93,
+          "max_frame_quantization_seconds": 0.03333333333333333
+        },
+        {
+          "kind": "wood_release",
+          "visual_cue": "surface_release",
+          "time": 5.58,
+          "max_frame_quantization_seconds": 0.03333333333333333
+        },
+        {
+          "kind": "grip_click",
+          "visual_cue": "deep_contact",
+          "time": 26.72,
+          "max_frame_quantization_seconds": 0.03333333333333333
+        },
+        {
+          "kind": "wood_release",
+          "visual_cue": "deep_release",
+          "time": 28.55,
+          "max_frame_quantization_seconds": 0.03333333333333333
+        }
+      ]
+    },
+    {
+      "name": "Frame-by-frame motion is finite and bounded",
+      "passed": true,
+      "details": {
+        "badSamples": 0,
+        "maximum_camera_translation_per_frame": 0.12581316285206293,
+        "fps": 30
+      }
+    },
+    {
+      "name": "Controlled extraction does not reverse after the resistance beat",
+      "passed": true,
+      "details": {
+        "surfaceReverse": 0,
+        "deepReverse": 0
+      }
+    },
+    {
+      "name": "Two grips lock before their pulls begin",
+      "passed": true,
+      "details": {
+        "surface_contact": 4.93,
+        "surface_pull": 5.13,
+        "deep_contact": 26.72,
+        "deep_pull": 27.04
+      }
+    }
+  ],
+  "comparison": {
+    "v2_internal_camera_cuts": [
+      3.1701734968294724,
+      3.83071794837469,
+      0.8859458222713167,
+      3.733965720249718,
+      5.01398045468867,
+      2.1863211109075444
+    ],
+    "v2_maximum_internal_camera_cut_translation": 5.01398045468867,
+    "v3_internal_boundary_steps": [
+      {
+        "time": 9.46,
+        "delta": 0.0000033858350322038735
+      },
+      {
+        "time": 11.7,
+        "delta": 0.000003655367053672089
+      },
+      {
+        "time": 15.56,
+        "delta": 0.0000023369971931700195
+      },
+      {
+        "time": 18.98,
+        "delta": 0.0000023810594005697064
+      },
+      {
+        "time": 22.08,
+        "delta": 1.257634532785856e-7
+      },
+      {
+        "time": 25.83,
+        "delta": 4.662279491219732e-7
+      }
+    ],
+    "note": "This compares actual authored camera position discontinuities, not an objective artistic-quality score. Both versions retain a separate intentional scene change at 7 seconds."
+  },
+  "limits": [
+    "Illustrative authored motion, not a tissue mechanics simulation",
+    "No optical-flow frame interpolation",
+    "No promise of matching reference frame-for-frame"
+  ]
+}

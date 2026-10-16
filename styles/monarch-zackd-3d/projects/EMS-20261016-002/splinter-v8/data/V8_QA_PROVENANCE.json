@@ -1,0 +1,18 @@
+{
+  "native_picture_signature": "c85ed35b717938bd9707598e5327988110584ac5ff7750cbbbca2260c8af535c",
+  "current_report_hashes": {
+    "DIRECTOR_QA.json": "fb7d8060241d6d90689a9b325633474b773cd73808c766383d792b5179ab4cb6",
+    "MOTION_QA.json": "fb7d8060241d6d90689a9b325633474b773cd73808c766383d792b5179ab4cb6",
+    "UPGRADE_QA.json": "01c1a51eca1713a18b4102333aa4e822c26ce4c074a8876b2745ab0ab1254ad7",
+    "DETERMINISM_REPORT.json": "0f055dab4597b9ea41c167b9c5d493f4d8593a51f406ce583162f311307d1073",
+    "FOCUS_QA.json": "4c77e871d95d252ff2263b96bc152afece8a3858a091a4b0df486bd823ba95a8",
+    "ORGANIC_QA.json": "b43235b43ccfb8e4f0705040a8fbdfd9a17ad115a0abbe1036b4b5701d7f92f6",
+    "PREVIEW_QA.json": "ace25e97ecb6fdd3d383c711bfec843c161dc180eb5b749f06f3096e184630f5"
+  },
+  "baseline_folders": [
+    "baseline-v6",
+    "baseline-v7"
+  ],
+  "baseline_policy": "Historical reports are provenance only, never V8 pass evidence.",
+  "scope": "Whole-film art-direction/camera/material/contact/mix pass; original narration unchanged; not independently clinician reviewed."
+}

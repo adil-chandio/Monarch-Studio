@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "geometry": {
+    "gripHalfRaw": 0.1121753416955471,
+    "surfaceGap": 0.07775042273802615,
+    "deepGap": 0.10558177488601618,
+    "heroTextMeshes": [
+      {
+        "text": "KAANTA",
+        "type": "TextGeometry",
+        "vertices": 3228,
+        "depth": 0.044
+      },
+      {
+        "text": "NAHI.",
+        "type": "TextGeometry",
+        "vertices": 5664,
+        "depth": 0.042
+      }
+    ],
+    "hudDecorations": 0
+  },
+  "viewport": [
+    270,
+    480
+  ],
+  "method": "Full-frame lossless composite PNG hashes at repeated absolute times; camera, cells, geometry, grip and captions must return to identical pixels.",
+  "samples": [
+    {
+      "time": 0.8,
+      "sha256": "58181de8607f4b4ebb7441c21d3056ac4e0db9538d0e0fc86bd726161c615e84"
+    },
+    {
+      "time": 5.23,
+      "sha256": "887c265a56c9526aa5ea7853c8d2b5f8368b1af0256695217437c3b4c3418365"
+    },
+    {
+      "time": 9.12,
+      "sha256": "c6efbb22d2701b4cc03cf47460e0deef46de78807e53dfbf9a8b302d8391e20d"
+    },
+    {
+      "time": 19.05,
+      "sha256": "bda2e72865a4e344513ad1394a0c4e80fc8b4a8ef990adc9d1a65c6b7c9ea01b"
+    },
+    {
+      "time": 27.3,
+      "sha256": "b11d36f486ffc9da303f114f6ceef0dea311c934efab3c8e7d59a44e3af0d395"
+    },
+    {
+      "time": 0.8,
+      "sha256": "58181de8607f4b4ebb7441c21d3056ac4e0db9538d0e0fc86bd726161c615e84"
+    },
+    {
+      "time": 5.23,
+      "sha256": "887c265a56c9526aa5ea7853c8d2b5f8368b1af0256695217437c3b4c3418365"
+    },
+    {
+      "time": 9.12,
+      "sha256": "c6efbb22d2701b4cc03cf47460e0deef46de78807e53dfbf9a8b302d8391e20d"
+    },
+    {
+      "time": 19.05,
+      "sha256": "bda2e72865a4e344513ad1394a0c4e80fc8b4a8ef990adc9d1a65c6b7c9ea01b"
+    },
+    {
+      "time": 27.3,
+      "sha256": "b11d36f486ffc9da303f114f6ceef0dea311c934efab3c8e7d59a44e3af0d395"
+    }
+  ],
+  "errors": []
+}

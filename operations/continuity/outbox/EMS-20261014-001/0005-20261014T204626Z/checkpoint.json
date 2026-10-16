@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0005-20261014T204626Z",
+  "created_at": "2026-10-14T20:46:26Z",
+  "summary": "Audio mix and script uploaded; source gates pass, GLB validates, picture-region determinism confirmed; native render continues from registered process.",
+  "next_action": "Continue monitoring wf-02-3d-video-render-af896fc1 without restarting. Prepare final playback gate/source docs. Mux only after picture-complete; upload checked MP4 and source bundle to folder 1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "rendering",
+    "title": "WF-02 Splinter 3D reference-based Urdu-English film",
+    "style_id": "monarch-zackd-3d",
+    "goal": "Study the supplied How Splinters Get Unstuck video and the live WF-02 Drive folder, produce an original accurate 3D explainer in easy Urdu-English, and deliver video plus source in that folder without overwriting earlier work.",
+    "acceptance_criteria": [
+      "Reference topic and shots inspected; source lineage retained",
+      "Actual animated 3D, not a still-image slideshow; clear easy Urdu-English narration and Roman Urdu captions",
+      "Medical caveats and no-guaranteed-spontaneous-expulsion distinction included",
+      "Playable rendered video checked and uploaded in the confirmed WF-02 Drive folder"
+    ],
+    "started_at": "2026-10-14T20:10:13Z",
+    "updated_at": "2026-10-14T20:46:26Z",
+    "checkpoint_sequence": 5,
+    "event_sequence": 19,
+    "journal_head": "3f080eacfcff78247072957d893dd7f319747ace076c7e2db3706eab38daf255",
+    "last_checkpoint": "2026-10-14T20:46:26Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0005-20261014T204626Z",
+    "next_action": "Continue monitoring wf-02-3d-video-render-af896fc1 without restarting. Prepare final playback gate/source docs. Mux only after picture-complete; upload checked MP4 and source bundle to folder 1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF.",
+    "running_processes": [
+      {
+        "id": "wf-02-3d-video-render-af896fc1",
+        "name": "WF-02 native 1080p 3D master / 732 frames",
+        "state": "running",
+        "started_at": "2026-10-14T20:34:41Z",
+        "resume_instruction": "Query get_process_output wf-02-3d-video-render-af896fc1. If exited successfully, run assemble.py on .runtime/wf02-master/picture.mp4. If stopped, run same renderer command: completed chunk receipts resume without rerendering."
+      }
+    ],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 19,
+    "timestamp": "2026-10-14T20:46:26Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Audio mix and script uploaded; source gates pass, GLB validates, picture-region determinism confirmed; native render continues from registered process.",
+    "content_sha256": "b39f89800a9751ee8e4c542b3b5e7b7ecf397a2d8bd5509a0f1eeb3d5d3232b0",
+    "metadata": {
+      "sequence": 5,
+      "next_action": "Continue monitoring wf-02-3d-video-render-af896fc1 without restarting. Prepare final playback gate/source docs. Mux only after picture-complete; upload checked MP4 and source bundle to folder 1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF.",
+      "status": "rendering"
+    },
+    "prev_event_sha256": "a1cde1ee2c9e91e2f9495ac026ecb3719804fa4dc949062cc31dd23d92f26c2a",
+    "event_sha256": "3f080eacfcff78247072957d893dd7f319747ace076c7e2db3706eab38daf255"
+  },
+  "journal_head": "3f080eacfcff78247072957d893dd7f319747ace076c7e2db3706eab38daf255",
+  "git": {
+    "initialized": true,
+    "head": "7909bde7b7b9c030f4f09ee247655ad4c3ab126b",
+    "branch": "arena/eba29c7c-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261014T201013Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261014T201013Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T201207Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0002-20261014T201207Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0003-20261014T203409Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0003-20261014T203409Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0004-20261014T203441Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0004-20261014T203441Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261014T201013Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261014T201013Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261014T201013Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261014T201207Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261014T201207Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261014T201207Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0003-20261014T203409Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0003-20261014T203409Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0003-20261014T203409Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0004-20261014T203441Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0004-20261014T203441Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0004-20261014T203441Z/checkpoint.json",
+      "?? workflows/current/payload/USER_REQUEST.txt",
+      "?? workflows/current/payload/splinter-v2/KAANTA_Roman_Urdu.srt",
+      "?? workflows/current/payload/splinter-v2/assets/fonts/Montserrat-VF.ttf",
+      "?? workflows/current/payload/splinter-v2/assets/fonts/OFL-1.1.txt",
+      "?? workflows/current/payload/splinter-v2/assets/models/cutaway.glb",
+      "?? workflows/current/payload/splinter-v2/assets/vo/01_hook.wav",
+      "?? workflows/current/payload/splinter-v2/assets/vo/02_response.wav",
+      "?? workflows/current/payload/splinter-v2/assets/vo/03_movement.wav",
+      "?? workflows/current/payload/splinter-v2/assets/vo/04_safety.wav",
+      "?? workflows/current/payload/splinter-v2/data/AUDIO_REPORT.json",
+      "?? workflows/current/payload/splinter-v2/data/DETERMINISM_INITIAL_FULLFRAME.json",
+      "?? workflows/current/payload/splinter-v2/data/DETERMINISM_REPORT.json",
+      "?? workflows/current/payload/splinter-v2/data/GLTF_VALIDATION.json",
+      "?? workflows/current/payload/splinter-v2/data/SOURCES.json",
+      "?? workflows/current/payload/splinter-v2/data/timeline.json",
+      "?? workflows/current/payload/splinter-v2/docs/SCRIPT_AND_PRODUCTION.md",
+      "?? workflows/current/payload/splinter-v2/index.html",
+      "?? workflows/current/payload/splinter-v2/package.json",
+      "?? workflows/current/payload/splinter-v2/src/assemble.py",
+      "?? workflows/current/payload/splinter-v2/src/check_determinism.cjs",
+      "?? workflows/current/payload/splinter-v2/src/film.js",
+      "?? workflows/current/payload/splinter-v2/src/render.cjs",
+      "?? workflows/current/payload/splinter-v2/tests/production.test.cjs"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/USER_REQUEST.txt",
+      "size": 455,
+      "sha256": "731e8d47d739864c914c7b9938a41c5868ebf2ee6f13a690eabcf9fb5bd2091c"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/KAANTA_Roman_Urdu.srt",
+      "size": 1047,
+      "sha256": "9ce04e770ba94fb3d6a867eb9738ea09311b21661e6e790da0f910aabd7a330d"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/fonts/Montserrat-VF.ttf",
+      "size": 744936,
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/fonts/OFL-1.1.txt",
+      "size": 4008,
+      "sha256": "74ba2e8a3e010fa81dc24958b23ad2dc885638b0b2da37ae4a2299e76b6b69f7"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/models/cutaway.glb",
+      "size": 4678608,
+      "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/vo/01_hook.wav",
+      "size": 316878,
+      "sha256": "2ccecf5f21395836cbad81ead1836c2930a34c01bef69f08d6dd3da4bd78b044"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/vo/02_response.wav",
+      "size": 403278,
+      "sha256": "5a30ca37fa3706aea1c8b22fb6497cbfa7662148442d30a6ff309126f7c16b8d"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/vo/03_movement.wav",
+      "size": 305358,
+      "sha256": "ad3d4c5902d451aa8de9db53295460fa883c9bd5b0b7406e203c472989ca29b9"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/assets/vo/04_safety.wav",
+      "size": 351438,
+      "sha256": "8b5bdd94b462798b0846f4a68b09a7bbacad94348596b50a2ae168f77c521e1e"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/AUDIO_REPORT.json",
+      "size": 1600,
+      "sha256": "3ed8e92ec86db5e0afbef301467678c720ef86f709308bbd3512cccd423dae91"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/DETERMINISM_INITIAL_FULLFRAME.json",
+      "size": 886,
+      "sha256": "76c3ce1eab0d8dd8f9d55753bd44cadc78cc690bd0a895b330a075e0770c122a"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/DETERMINISM_REPORT.json",
+      "size": 1029,
+      "sha256": "78768fb49489877c5c23e5c77681fffc509be259b4061f03c19055c1f1f7b5b9"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/GLTF_VALIDATION.json",
+      "size": 4635,
+      "sha256": "ee0a7576d9cd1031a453e9ed1c07256f7bbe8c00a7930c0631ea781f54372dd0"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/SOURCES.json",
+      "size": 1385,
+      "sha256": "a1045f9585be22bc896c0e188ee2b6ed6bf1dfa3ad59dea0ecf3015dfe0f88ff"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/data/timeline.json",
+      "size": 5925,
+      "sha256": "ad81afc4f7ee52d5b1f87f1ce53fed386378afc3d61c734c235b33107154836a"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/docs/SCRIPT_AND_PRODUCTION.md",
+      "size": 7446,
+      "sha256": "0b1f3aea66ac2f7ea015e876f6315dc3887b2baa14b2ba8c0e4321435d9a21d2"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/index.html",
+      "size": 956,
+      "sha256": "0f4a1c981f06c0d9256eb3fba53e037ece92d84bca3f97be452645c681740b79"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/package.json",
+      "size": 480,
+      "sha256": "1b3917e516a05b8f116e2a3af7bfe12a0c3c307d732bd9b8267e1e494a32824d"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/src/__pycache__/assemble.cpython-311.pyc",
+      "size": 18054,
+      "sha256": "bf5a2e4b1c8fba3dec564ad6f8622a00e2197af6804b9136494babafc0396e50"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/src/assemble.py",
+      "size": 7177,
+      "sha256": "50eae336b241c8f21fe28baa8822f3eda414505edb86e59e53ae1e23606344e4"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/src/check_determinism.cjs",
+      "size": 2986,
+      "sha256": "79e9918e9294f3e69cb738091dc86bf3e3def2b64fe9e0d1e7113b57ec3ad04e"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/src/film.js",
+      "size": 21646,
+      "sha256": "910133803b71d48d7510d7f8974eb33abcd32ee9a27e60bf2c9cfb02e5e5892b"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/src/render.cjs",
+      "size": 7404,
+      "sha256": "2a0ad5a382766d71f52d8f4a94f139c2fcfd3590e69d935c1533e4bc9c12605c"
+    },
+    {
+      "path": "workflows/current/payload/splinter-v2/tests/production.test.cjs",
+      "size": 3213,
+      "sha256": "7a5d2293de8e21ffeb020a659e3d70ad51a256b4feaf1a2cab6225dec23b779d"
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "signature": "db1af09c36376296300740c22aba7299df5a27766cd8e6811006c29bc8eb6300",
+  "info": {
+    "version": 5,
+    "sceneShutterSamples": 3,
+    "shutterExposure": 0.006666666666666667,
+    "real3dType": 2,
+    "activeCells": 22,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "triangles": 43648,
+    "native3d": true,
+    "duration": 30.5,
+    "interpolation": "Faster C2 move/settle controls; real scene-only shutter samples during fast movement, no optical flow"
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "time": 0,
+      "shot": "01",
+      "drawCalls": 9,
+      "triangles": 42572,
+      "camera": [
+        1.6,
+        1.24,
+        9.1,
+        0.07,
+        -0.8,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 30,
+      "time": 1,
+      "shot": "01",
+      "drawCalls": 31,
+      "triangles": 43648,
+      "camera": [
+        1.25,
+        1.08,
+        8.36,
+        0.08,
+        -0.72,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 60,
+      "time": 2,
+      "shot": "01",
+      "drawCalls": 9,
+      "triangles": 42572,
+      "camera": [
+        1.25,
+        1.08,
+        8.36,
+        0.08,
+        -0.72,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 90,
+      "time": 3,
+      "shot": "01",
+      "drawCalls": 9,
+      "triangles": 42572,
+      "camera": [
+        1.25,
+        1.08,
+        8.36,
+        0.08,
+        -0.72,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 120,
+      "time": 4,
+      "shot": "02",
+      "drawCalls": 27,
+      "triangles": 127716,
+      "camera": [
+        1.0779932062499995,
+        1.0206873125,
+        8.0397114875,
+        0.08,
+        -0.65475604375,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 150,
+      "time": 5,
+      "shot": "02",
+      "drawCalls": 14,
+      "triangles": 45748,
+      "camera": [
+        0.96,
+        0.98,
+        7.82,
+        0.08,
+        -0.61,
+        0,
+        31
+      ],
+      "surfaceLift": 0,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 180,
+      "time": 6,
+      "shot": "02",
+      "drawCalls": 14,
+      "triangles": 45748,
+      "camera": [
+        0.92,
+        1.2,
+        8.36,
+        0.09,
+        -0.24,
+        0,
+        31
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 210,
+      "time": 7,
+      "shot": "03",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.8,
+        1.55,
+        12,
+        0,
+        -1.1,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 240,
+      "time": 8,
+      "shot": "03",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.15,
+        1.15,
+        11.2,
+        0,
+        -1.05,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 270,
+      "time": 9,
+      "shot": "03",
+      "drawCalls": 57,
+      "triangles": 1132566,
+      "camera": [
+        1.1119878145295523,
+        1.121490860897164,
+        11.063789668730896,
+        -0.0025341456980298425,
+        -1.048732927150985,
+        0.004434754971552224,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 300,
+      "time": 10,
+      "shot": "04",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        0.55,
+        0.7,
+        9.05,
+        -0.04,
+        -1.03,
+        0.07,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 330,
+      "time": 11,
+      "shot": "04",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        0.55,
+        0.7,
+        9.05,
+        -0.04,
+        -1.03,
+        0.07,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 360,
+      "time": 12,
+      "shot": "05",
+      "drawCalls": 57,
+      "triangles": 1132566,
+      "camera": [
+        1.4,
+        2.1,
+        9.75,
+        0,
+        -0.65,
+        -0.03,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 390,
+      "time": 13,
+      "shot": "05",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.4,
+        2.1,
+        9.75,
+        0,
+        -0.65,
+        -0.03,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 420,
+      "time": 14,
+      "shot": "05",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.4,
+        2.1,
+        9.75,
+        0,
+        -0.65,
+        -0.03,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 450,
+      "time": 15,
+      "shot": "05",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.4,
+        2.1,
+        9.75,
+        0,
+        -0.65,
+        -0.03,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 480,
+      "time": 16,
+      "shot": "06",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.4,
+        2.1,
+        9.75,
+        0,
+        -0.65,
+        -0.03,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 510,
+      "time": 17,
+      "shot": "06",
+      "drawCalls": 57,
+      "triangles": 1132566,
+      "camera": [
+        1.2336108796563527,
+        1.88823202865354,
+        9.946641687678856,
+        0.02117679713464602,
+        -0.5441160143267699,
+        -0.008823202865353978,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 540,
+      "time": 18,
+      "shot": "06",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        0.85,
+        1.4,
+        10.4,
+        0.07,
+        -0.3,
+        0.04,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 570,
+      "time": 19,
+      "shot": "07",
+      "drawCalls": 105,
+      "triangles": 1138230,
+      "camera": [
+        0.8774081125809579,
+        1.436544150107944,
+        10.555312637958762,
+        0.07,
+        -0.3511618101511215,
+        0.03634558498920561,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 600,
+      "time": 20,
+      "shot": "07",
+      "drawCalls": 35,
+      "triangles": 379410,
+      "camera": [
+        1.15,
+        1.8,
+        12.1,
+        0.07,
+        -0.86,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 630,
+      "time": 21,
+      "shot": "07",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.15,
+        1.8,
+        12.1,
+        0.07,
+        -0.86,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 660,
+      "time": 22,
+      "shot": "07",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        1.15,
+        1.8,
+        12.1,
+        0.07,
+        -0.86,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 690,
+      "time": 23,
+      "shot": "08",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        -0.55,
+        1.45,
+        11.35,
+        0.04,
+        -0.87,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 720,
+      "time": 24,
+      "shot": "08",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        -0.55,
+        1.45,
+        11.35,
+        0.04,
+        -0.87,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 750,
+      "time": 25,
+      "shot": "08",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        -0.55,
+        1.45,
+        11.35,
+        0.04,
+        -0.87,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 780,
+      "time": 26,
+      "shot": "09",
+      "drawCalls": 19,
+      "triangles": 377522,
+      "camera": [
+        -0.55,
+        1.45,
+        11.35,
+        0.04,
+        -0.87,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 810,
+      "time": 27,
+      "shot": "09",
+      "drawCalls": 75,
+      "triangles": 1142262,
+      "camera": [
+        0.75,
+        1.5,
+        12,
+        0.12,
+        -0.5,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 0.046073789094003885,
+      "shutterSamples": 3
+    },
+    {
+      "frame": 840,
+      "time": 28,
+      "shot": "09",
+      "drawCalls": 24,
+      "triangles": 380698,
+      "camera": [
+        1.03,
+        2.02,
+        13.2,
+        0.24,
+        0.11,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 2.1199999999999997,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 870,
+      "time": 29,
+      "shot": "09",
+      "drawCalls": 24,
+      "triangles": 380698,
+      "camera": [
+        1.03,
+        2.02,
+        13.2,
+        0.24,
+        0.11,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 2.1199999999999997,
+      "shutterSamples": 1
+    },
+    {
+      "frame": 900,
+      "time": 30,
+      "shot": "09",
+      "drawCalls": 24,
+      "triangles": 380698,
+      "camera": [
+        1.03,
+        2.02,
+        13.2,
+        0.24,
+        0.11,
+        0,
+        32
+      ],
+      "surfaceLift": 0.98,
+      "deepLift": 2.1199999999999997,
+      "shutterSamples": 1
+    }
+  ]
+}

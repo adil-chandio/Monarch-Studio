@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "version": 6,
+  "duration": 30.5,
+  "fps": 30,
+  "units": "scene units, seconds, radians; camera value=[x,y,z,lookX,lookY,lookZ,fov_degrees]",
+  "camera_interpolation": "C2 quintic move-and-settle windows with zero endpoint velocity/acceleration; explicit holds; one semantic scene change at7s",
+  "camera": {
+    "finger": [
+      {
+        "time": 0,
+        "value": [
+          1.6,
+          1.24,
+          9.1,
+          0.07,
+          -0.8,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 0.18,
+        "value": [
+          1.6,
+          1.24,
+          9.1,
+          0.07,
+          -0.8,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 0.7,
+        "value": [
+          1.25,
+          1.08,
+          8.36,
+          0.08,
+          -0.72,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 3.78,
+        "value": [
+          1.25,
+          1.08,
+          8.36,
+          0.08,
+          -0.72,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 4.18,
+        "value": [
+          0.96,
+          0.98,
+          7.82,
+          0.08,
+          -0.61,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 5.02,
+        "value": [
+          0.96,
+          0.98,
+          7.82,
+          0.08,
+          -0.61,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 5.5,
+        "value": [
+          0.92,
+          1.2,
+          8.36,
+          0.09,
+          -0.24,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 7,
+        "value": [
+          0.92,
+          1.2,
+          8.36,
+          0.09,
+          -0.24,
+          0,
+          31
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "anatomy": [
+      {
+        "time": 7,
+        "value": [
+          1.8,
+          1.55,
+          12.0,
+          0,
+          -1.1,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 7.44,
+        "value": [
+          1.15,
+          1.15,
+          11.2,
+          0,
+          -1.05,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 8.88,
+        "value": [
+          1.15,
+          1.15,
+          11.2,
+          0,
+          -1.05,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 9.46,
+        "value": [
+          0.55,
+          0.7,
+          9.05,
+          -0.04,
+          -1.03,
+          0.07,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 11.44,
+        "value": [
+          0.55,
+          0.7,
+          9.05,
+          -0.04,
+          -1.03,
+          0.07,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 11.98,
+        "value": [
+          1.4,
+          2.1,
+          9.75,
+          0,
+          -0.65,
+          -0.03,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 16.82,
+        "value": [
+          1.4,
+          2.1,
+          9.75,
+          0,
+          -0.65,
+          -0.03,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 17.28,
+        "value": [
+          0.85,
+          1.4,
+          10.4,
+          0.07,
+          -0.3,
+          0.04,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 18.9,
+        "value": [
+          0.85,
+          1.4,
+          10.4,
+          0.07,
+          -0.3,
+          0.04,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 19.32,
+        "value": [
+          1.15,
+          1.8,
+          12.1,
+          0.07,
+          -0.86,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 22.1,
+        "value": [
+          1.15,
+          1.8,
+          12.1,
+          0.07,
+          -0.86,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 22.54,
+        "value": [
+          -0.55,
+          1.45,
+          11.35,
+          0.04,
+          -0.87,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 26.16,
+        "value": [
+          -0.55,
+          1.45,
+          11.35,
+          0.04,
+          -0.87,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 26.6,
+        "value": [
+          0.75,
+          1.5,
+          12.0,
+          0.12,
+          -0.5,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 27.03,
+        "value": [
+          0.75,
+          1.5,
+          12.0,
+          0.12,
+          -0.5,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 27.61,
+        "value": [
+          1.03,
+          2.02,
+          13.2,
+          0.24,
+          0.11,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "time": 30.5,
+        "value": [
+          1.03,
+          2.02,
+          13.2,
+          0.24,
+          0.11,
+          0,
+          32
+        ],
+        "velocity": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "splinter": {
+    "angle": 0.33161255787892263,
+    "surface_scale": [
+      0.25,
+      0.25,
+      0.29
+    ],
+    "deep_scale": [
+      0.57,
+      0.74,
+      1
+    ],
+    "surface_angle": 0.24
+  },
+  "cues": {
+    "scene_change": 7,
+    "surface_approach_start": 4.26,
+    "surface_approach_end": 4.64,
+    "surface_close_start": 4.65,
+    "surface_contact": 4.82,
+    "surface_pull_start": 5.02,
+    "surface_release": 5.22,
+    "surface_clear": 5.44,
+    "cells_start": 8.88,
+    "cells_arrive": 9.56,
+    "swell_start": 11.58,
+    "swell_full": 12.53,
+    "infection_start": 13.18,
+    "infection_full": 14.1,
+    "emerge_start": 16.83,
+    "emerge_end": 17.65,
+    "deep_approach_start": 26.2,
+    "deep_approach_end": 26.54,
+    "deep_close_start": 26.55,
+    "deep_contact": 26.71,
+    "deep_pull_start": 26.92,
+    "deep_release": 27.52,
+    "deep_clear": 27.64,
+    "wood_contact": 0.15
+  },
+  "cells": {
+    "active_count": 22,
+    "visualization": "schematic selective white-cell population, not a measured cell count"
+  },
+  "pull_profiles": {
+    "surface_tension_duration": 0.07,
+    "surface_travel_delay": 0.07,
+    "deep_tension_duration": 0.07,
+    "deep_travel_delay": 0.07
+  },
+  "camera_moves": [
+    {
+      "scene": "finger",
+      "start": 0.18,
+      "end": 0.7
+    },
+    {
+      "scene": "finger",
+      "start": 3.78,
+      "end": 4.18
+    },
+    {
+      "scene": "finger",
+      "start": 5.02,
+      "end": 5.5
+    },
+    {
+      "scene": "anatomy",
+      "start": 7,
+      "end": 7.44
+    },
+    {
+      "scene": "anatomy",
+      "start": 8.88,
+      "end": 9.46
+    },
+    {
+      "scene": "anatomy",
+      "start": 11.44,
+      "end": 11.98
+    },
+    {
+      "scene": "anatomy",
+      "start": 16.82,
+      "end": 17.28
+    },
+    {
+      "scene": "anatomy",
+      "start": 18.9,
+      "end": 19.32
+    },
+    {
+      "scene": "anatomy",
+      "start": 22.1,
+      "end": 22.54
+    },
+    {
+      "scene": "anatomy",
+      "start": 26.16,
+      "end": 26.6
+    },
+    {
+      "scene": "anatomy",
+      "start": 27.03,
+      "end": 27.61
+    }
+  ],
+  "shutter": {
+    "samples": 3,
+    "half_exposure_seconds": 0.0033333333333333335,
+    "windows": [
+      [
+        0.1,
+        0.62
+      ],
+      [
+        4.32,
+        4.81
+      ],
+      [
+        5.06,
+        5.46
+      ],
+      [
+        16.89,
+        17.55
+      ],
+      [
+        26.22,
+        26.58
+      ],
+      [
+        26.98,
+        27.66
+      ]
+    ],
+    "no_cross_scene_blend_seconds": 0.03333333333333333,
+    "note": "Three weighted real-scene samples during selected physical action windows,disabled around all declared camera cuts; director supplies the new camera/focus shots.",
+    "weights": [
+      0.25,
+      0.5,
+      0.25
+    ]
+  }
+}

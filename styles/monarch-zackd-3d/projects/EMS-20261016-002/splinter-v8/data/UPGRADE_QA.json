@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "All nine shot cameras differ from actual V7 baseline",
+      "passed": true,
+      "details": [
+        {
+          "shot": "01",
+          "scene": "finger",
+          "time": 1.84,
+          "translationDifference": 1.6807499605472063,
+          "cameraChanged": true
+        },
+        {
+          "shot": "02",
+          "scene": "finger",
+          "time": 5.34,
+          "translationDifference": 0.3217248704570067,
+          "cameraChanged": true
+        },
+        {
+          "shot": "03",
+          "scene": "surface",
+          "time": 7.94,
+          "translationDifference": 0.2281448136275787,
+          "cameraChanged": true
+        },
+        {
+          "shot": "04",
+          "scene": "anatomy",
+          "time": 10.195,
+          "translationDifference": 0.31582979012992507,
+          "cameraChanged": true
+        },
+        {
+          "shot": "05",
+          "scene": "anatomy",
+          "time": 13.535,
+          "translationDifference": 0.436354626438953,
+          "cameraChanged": true
+        },
+        {
+          "shot": "06",
+          "scene": "anatomy",
+          "time": 17.23,
+          "translationDifference": 0.4248978882101666,
+          "cameraChanged": true
+        },
+        {
+          "shot": "07",
+          "scene": "anatomy",
+          "time": 20.49,
+          "translationDifference": 0.3417601498127013,
+          "cameraChanged": true
+        },
+        {
+          "shot": "08",
+          "scene": "anatomy",
+          "time": 24.145,
+          "translationDifference": 0.47748590515586586,
+          "cameraChanged": true
+        },
+        {
+          "shot": "09",
+          "scene": "anatomy",
+          "time": 28.355,
+          "translationDifference": 0.49927334680675206,
+          "cameraChanged": true
+        }
+      ]
+    },
+    {
+      "name": "Changes cover all three scene groups",
+      "passed": true,
+      "details": {
+        "groups": [
+          "finger",
+          "surface",
+          "anatomy"
+        ]
+      }
+    },
+    {
+      "name": "New approach arcs return exactly before gripping",
+      "passed": true,
+      "details": {
+        "surface": [
+          {
+            "t": 4.26,
+            "offset": 0
+          },
+          {
+            "t": 4.449999999999999,
+            "offset": 0.045
+          },
+          {
+            "t": 4.82,
+            "offset": 5.5109105961630896e-18
+          }
+        ],
+        "deep": [
+          {
+            "t": 26.2,
+            "offset": 0
+          },
+          {
+            "t": 26.369999999999997,
+            "offset": 0.055
+          },
+          {
+            "t": 26.71,
+            "offset": 6.735557395310442e-18
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sound dynamics changed, narration retained",
+      "passed": true,
+      "details": {
+        "cueCount": 8,
+        "voiceChange": "none"
+      }
+    }
+  ],
+  "scope": "Numerical full-film comparison against actual V7; rendered geometry/material proof is additional. No taste/clinical/retention certification."
+}

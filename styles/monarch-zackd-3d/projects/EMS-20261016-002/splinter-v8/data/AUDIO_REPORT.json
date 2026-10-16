@@ -1,0 +1,58 @@
+{
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration": 30.5,
+  "voice_id": "voice-00",
+  "voice_selection": "The user-liked v2 WAV assets reused without resynthesis or time stretching",
+  "clips": [
+    {
+      "file": "01_hook.wav",
+      "start": 0.24,
+      "measured_duration": 6.6,
+      "sha256": "2ccecf5f21395836cbad81ead1836c2930a34c01bef69f08d6dd3da4bd78b044"
+    },
+    {
+      "file": "02_response.wav",
+      "start": 7.0,
+      "measured_duration": 8.4,
+      "sha256": "5a30ca37fa3706aea1c8b22fb6497cbfa7662148442d30a6ff309126f7c16b8d"
+    },
+    {
+      "file": "03_movement.wav",
+      "start": 15.56,
+      "measured_duration": 6.36,
+      "sha256": "ad3d4c5902d451aa8de9db53295460fa883c9bd5b0b7406e203c472989ca29b9"
+    },
+    {
+      "file": "04_safety.wav",
+      "start": 22.08,
+      "measured_duration": 7.32,
+      "sha256": "8b5bdd94b462798b0846f4a68b09a7bbacad94348596b50a2ae168f77c521e1e"
+    }
+  ],
+  "premaster_loudness": {
+    "input_i": "-16.73",
+    "input_tp": "-3.19",
+    "input_lra": "4.10",
+    "input_thresh": "-27.73",
+    "output_i": "-16.11",
+    "output_tp": "-2.57",
+    "output_lra": "2.40",
+    "output_thresh": "-26.89",
+    "normalization_type": "dynamic",
+    "target_offset": "0.11"
+  },
+  "normalized_loudness": {
+    "input_i": "-16.72",
+    "input_tp": "-3.21",
+    "input_lra": "2.80",
+    "input_thresh": "-27.51",
+    "output_i": "-16.00",
+    "output_tp": "-2.48",
+    "output_lra": "2.90",
+    "output_thresh": "-26.78",
+    "normalization_type": "linear",
+    "target_offset": "0.00"
+  },
+  "sound_design": "V8 full-film perspective-rebalanced original arranged piano/cello/string score from credited CC-BY3.0 instrument notes;8 tightened procedural tactile cues with contact/release anchor timing. No reference audio. See music attribution and SOUND_DESIGN_REPORT.json."
+}

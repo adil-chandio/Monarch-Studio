@@ -1,0 +1,83 @@
+{
+  "status": "uploaded_and_hash_verified",
+  "task_id": "EMS-20261015-003",
+  "folder": {
+    "id": "1Z2lk4C01uKThecQyUhbcYxINtUox34Q0",
+    "url": "https://drive.google.com/drive/folders/1Z2lk4C01uKThecQyUhbcYxINtUox34Q0"
+  },
+  "parent_folder_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "master": {
+    "id": "1Aw7InbA91uoiL2XHBTqPB_7J3vHQvolq",
+    "url": "https://drive.google.com/file/d/1Aw7InbA91uoiL2XHBTqPB_7J3vHQvolq/view",
+    "name": "KAANTA_CINEMA_v4_FINAL.mp4",
+    "bytes": 14907486,
+    "md5": "698237182571e09c518f1373af4e9598",
+    "sha256": "a83022a46205cd6ce7f8aa2572bf1dfa2e2e832a5abad9ac3f056548f2e06cf5",
+    "remote_hash_verified": true,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "duration": 30.5,
+    "remote_parent_verified": "1Z2lk4C01uKThecQyUhbcYxINtUox34Q0",
+    "drive_video_metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration_millis": 30499
+    }
+  },
+  "source_bundle": {
+    "name": "KAANTA_CINEMA_v4_SOURCE.zip",
+    "bytes": 5550691,
+    "files": 71,
+    "sha256": "fecb1cb49c315020d7f4cfca9b44e1c715bc76d72cfa5c3b9d162688592df897",
+    "md5": "e80876a4f2aed16b9db1fa2397c54cee",
+    "id": "1hT_Np5RZTdNocdpdlgwRt5pleP2PitPJ",
+    "url": "https://drive.google.com/file/d/1hT_Np5RZTdNocdpdlgwRt5pleP2PitPJ/view",
+    "remote_hash_verified": true
+  },
+  "previous_versions_preserved": [
+    "10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT",
+    "1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i"
+  ],
+  "script": {
+    "id": "1gtu-kfyvmkxs2VRi9QMf77lK5CcNG9_b",
+    "url": "https://drive.google.com/file/d/1gtu-kfyvmkxs2VRi9QMf77lK5CcNG9_b/view",
+    "bytes": 8852,
+    "md5": "ef6aca97a175aeda6e100ab0c47efc63"
+  },
+  "subtitles": {
+    "id": "1c-QxUkoeAIZ_nIZzrcmMk7td_Y4CQDAn",
+    "url": "https://drive.google.com/file/d/1c-QxUkoeAIZ_nIZzrcmMk7td_Y4CQDAn/view",
+    "bytes": 1047,
+    "md5": "58a3dda9863cd4abdbd9e85469dd2237"
+  },
+  "publishing_credit": {
+    "id": "1gxoOfCrt3BXhW3AWu48T_kQ_VmKLW7kP",
+    "url": "https://drive.google.com/file/d/1gxoOfCrt3BXhW3AWu48T_kQ_VmKLW7kP/view",
+    "bytes": 1254,
+    "md5": "25dc5a51018260e311c3f9b1be2c0ce2"
+  },
+  "production_date_local": "2026-10-15",
+  "quality": {
+    "actual_master_checks": "23/23",
+    "motion_checks": "9/9",
+    "source_contracts": "7/7",
+    "decoded_native_frames": 915,
+    "fps": 30,
+    "duration": 30.5,
+    "visible_3d_type_beats": 2,
+    "hud_panels_counters": 0,
+    "page_turn": false,
+    "tactile_cues": 8,
+    "original_narration_assets_unchanged": true,
+    "final_aac_lufs": -16.02,
+    "final_true_peak_dbtp": -2.38,
+    "user_artistic_acceptance": "pending_review",
+    "clinician_review": false,
+    "guaranteed_asmr_or_retention": false
+  },
+  "music_attribution_required_when_publishing": true,
+  "music_credit_file_id": "1gxoOfCrt3BXhW3AWu48T_kQ_VmKLW7kP",
+  "sharing_permissions_changed": false,
+  "scope": "Requested WF-02 Drive delivery. Local branch source preserved. No remote GitHub/Docs/Notion/Linear sync claimed."
+}

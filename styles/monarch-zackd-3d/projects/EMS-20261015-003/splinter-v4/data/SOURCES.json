@@ -1,0 +1,50 @@
+{
+  "production_date_local": "2026-10-15",
+  "timezone": "Asia/Karachi",
+  "reference": {
+    "drive_id": "1zXgd_QnDbCcODXHyIwp4uzqRrQf0X03V",
+    "name": "How Splinters Get Unstuck",
+    "inspection": "Extracted video frames and visible captions; not an independent audio transcription",
+    "sha256": "265f9b98ca6d503e145e29eeb02945454a648e8e68e7ea9af76def0e90ea7c79",
+    "used_in_output": false
+  },
+  "base_cutaway": {
+    "drive_id": "1yfu7tZGut9LWcXidALvRlB9LdfxpMPM3",
+    "parent_id": "1-i1w-CzjRNwKv9Y3iDh9NNxHS2xlck5A",
+    "local": "assets/models/cutaway.glb",
+    "bytes": 4678608,
+    "sha256": "b010f5c181d1707ea825d06271affaf11825b5b8d97434c301f155b60e1966d4",
+    "lineage": "Recovered earlier Monarch WF-02 SPLINTER animated model, reused and modified at render time. Not newly authored from scratch in this task."
+  },
+  "prior_notes": [
+    "1wuc7mXWoOky0u7AY_fNODiRHEiSSF6C3",
+    "1SCO2rwvH4zqrQrw0ilbPAS_8yeAPwooe"
+  ],
+  "narration": {
+    "voice_id": "voice-00",
+    "audition": "Selected by user in this session",
+    "language": "ur",
+    "source": "Four new generated clips; not reference voice imitation or original audio",
+    "reuse": "Identical existing WAVs retained; no new speech synthesis or voice audition needed."
+  },
+  "delivery_parent_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "revision_parent": {
+    "project": "styles/monarch-zackd-3d/projects/EMS-20261015-002/splinter-v3",
+    "master_drive_id": "1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i",
+    "master_sha256": "b562579419f64f642511478cfe9fee7660edac5e49e4f5fad20e6110962f7639",
+    "preserved": true
+  },
+  "base_task_id": "EMS-20261014-001",
+  "task_id": "EMS-20261015-003",
+  "revision_changes": [
+    "Explicit user correction: subtract unnecessary cheap-feeling additions",
+    "No HUD/header/counter/cards/arrows/pills/page-turn",
+    "Two lit extruded type beats, not faux3D labels",
+    "Revised restrained palette/texture/shape/shadow treatment",
+    "Monotonic pulls and motivated C2 rails",
+    "8 tactile textures and original piano/cello/string score from credited FluidR3 CC-BY3.0 instrument notes"
+  ],
+  "delivery_folder_id": "1Z2lk4C01uKThecQyUhbcYxINtUox34Q0",
+  "music_provenance": "assets/music/SAMPLE_PROVENANCE.json",
+  "music_publishing_credit": "assets/music/ATTRIBUTION.md"
+}

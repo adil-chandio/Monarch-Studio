@@ -1,0 +1,35 @@
+{
+  "passed": false,
+  "viewport": [
+    270,
+    480
+  ],
+  "method": "Full-frame lossless composite PNG hashes at repeated absolute times; camera, cells, geometry, grip and captions must return to identical pixels.",
+  "samples": [
+    {
+      "time": 13.7,
+      "sha256": "43f7312e734b67425e16482089faefacf6557209334f0b1ed053afaf95dcf594"
+    },
+    {
+      "time": 13.7,
+      "sha256": "b3308963af25fd64aa7f2c8a472a320d6586a47769c127a3d00c5e631c321a24"
+    },
+    {
+      "time": 4.9,
+      "sha256": "d6a29a2f866437e2d9f3bfdffdcb1d3c6b9ab185d5c975d392fc107df494bbc5"
+    },
+    {
+      "time": 21.5,
+      "sha256": "a7697780436361df568a482c58a9846dabf8d51c5bc3890cf9b6f13d22791ca1"
+    },
+    {
+      "time": 13.7,
+      "sha256": "b3308963af25fd64aa7f2c8a472a320d6586a47769c127a3d00c5e631c321a24"
+    },
+    {
+      "time": 4.9,
+      "sha256": "d6a29a2f866437e2d9f3bfdffdcb1d3c6b9ab185d5c975d392fc107df494bbc5"
+    }
+  ],
+  "errors": []
+}

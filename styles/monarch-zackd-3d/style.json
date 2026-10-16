@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-zackd-3d",
+  "name": "Monarch 3D Explainers · WF-02",
+  "user_workflow_name": "Zack d 3d animation",
+  "workflow_code": "WF-02",
+  "path": "styles/monarch-zackd-3d",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "primary_renderers": [
+    "projects/EMS-20261016-002/splinter-v8/src/film.js",
+    "projects/EMS-20261016-002/splinter-v8/src/render.cjs"
+  ],
+  "primary_gates": [
+    "projects/EMS-20261016-002/splinter-v8/src/gate.py",
+    "projects/EMS-20261016-002/splinter-v8/src/check_motion.mjs",
+    "projects/EMS-20261016-002/splinter-v8/src/check_focus.cjs",
+    "projects/EMS-20261016-002/splinter-v8/src/check_organic.cjs",
+    "projects/EMS-20261016-002/splinter-v8/src/check_upgrade.mjs"
+  ],
+  "current_release": "KAANTA · Full Film Craft v8",
+  "current_release_path": "projects/EMS-20261016-002/splinter-v8",
+  "current_release_task": "EMS-20261016-002",
+  "reproducibility": "R1_source_and_fixed_voice_assets",
+  "user_visual_acceptance": "pending_review",
+  "release_history": [
+    {
+      "task_id": "EMS-20261014-001",
+      "project_path": "projects/EMS-20261014-001/splinter-v2",
+      "master_id": "10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT",
+      "title": "KAANTA · Urdu-English v2"
+    },
+    {
+      "task_id": "EMS-20261015-002",
+      "project_path": "projects/EMS-20261015-002/splinter-v3",
+      "master_id": "1Wl8S1M6jT3SNU6vEHJt9Kw3sePz0TH-i",
+      "title": "KAANTA · Motion Edition v3"
+    },
+    {
+      "task_id": "EMS-20261015-003",
+      "project_path": "projects/EMS-20261015-003/splinter-v4",
+      "master_id": "1Aw7InbA91uoiL2XHBTqPB_7J3vHQvolq",
+      "title": "KAANTA · Cinema Cut v4"
+    },
+    {
+      "task_id": "EMS-20261015-004",
+      "project_path": "projects/EMS-20261015-004/splinter-v5",
+      "master_id": "18kKI_5vkVOJKFUmTAEr7Tp4ZaVK6wb2M",
+      "title": "KAANTA · Precision Cut v5"
+    },
+    {
+      "task_id": "EMS-20261015-005",
+      "project_path": "projects/EMS-20261015-005/splinter-v6",
+      "master_id": "1c-o5LKg11MAZOLNOLQHIXqwBn3ozUGEx",
+      "title": "KAANTA · Macro Director Cut v6"
+    },
+    {
+      "task_id": "EMS-20261016-001",
+      "project_path": "projects/EMS-20261016-001/splinter-v7",
+      "master_id": "1zRKxqy7yS_k1USCyTuGCBSOCOCNbPVjz",
+      "title": "KAANTA · Organic Motion v7"
+    },
+    {
+      "task_id": "EMS-20261016-002",
+      "project_path": "projects/EMS-20261016-002/splinter-v8",
+      "master_id": "1pUuxlt423ZZKsiHW1kHZ0I1fPzA8K9P9",
+      "title": "KAANTA · Full Film Craft v8"
+    }
+  ],
+  "startup_entry": "START_HERE.md",
+  "style_dna": "STYLE_DNA.json",
+  "quality_contract": "QUALITY_CONTRACT.json",
+  "master_playbook": "knowledge/PLAYBOOK.md",
+  "new_chat_prompt": "NEW_CHAT_PROMPT.md"
+}

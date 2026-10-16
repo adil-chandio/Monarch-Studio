@@ -1,0 +1,78 @@
+{
+  "scope": "Only this completed v6 task's derived raw render/picture/mix intermediates after verified cloud delivery. Final viewer MP4/source ZIP,canonical input assets and proof receipts retained;older versions untouched.",
+  "removed": [
+    {
+      "file": "chunk-00000.mp4",
+      "bytes": 497232
+    },
+    {
+      "file": "chunk-00090.mp4",
+      "bytes": 566951
+    },
+    {
+      "file": "chunk-00180.mp4",
+      "bytes": 799915
+    },
+    {
+      "file": "chunk-00270.mp4",
+      "bytes": 1920113
+    },
+    {
+      "file": "chunk-00360.mp4",
+      "bytes": 510787
+    },
+    {
+      "file": "chunk-00450.mp4",
+      "bytes": 907998
+    },
+    {
+      "file": "chunk-00540.mp4",
+      "bytes": 698289
+    },
+    {
+      "file": "chunk-00630.mp4",
+      "bytes": 1138619
+    },
+    {
+      "file": "chunk-00720.mp4",
+      "bytes": 607222
+    },
+    {
+      "file": "chunk-00810.mp4",
+      "bytes": 1046209
+    },
+    {
+      "file": "chunk-00900.mp4",
+      "bytes": 139614
+    },
+    {
+      "file": "picture.mp4",
+      "bytes": 8824904
+    },
+    {
+      "file": "voice_timeline.wav",
+      "bytes": 2928044
+    },
+    {
+      "file": "music_score.wav",
+      "bytes": 5856044
+    },
+    {
+      "file": "tactile_effects.wav",
+      "bytes": 5856044
+    },
+    {
+      "file": "sound_design.wav",
+      "bytes": 5856044
+    },
+    {
+      "file": "premaster.wav",
+      "bytes": 5856044
+    },
+    {
+      "file": "mix.wav",
+      "bytes": 8784102
+    }
+  ],
+  "master_preserved": "KAANTA_MACRO_v6_FINAL.mp4"
+}

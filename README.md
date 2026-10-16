@@ -17,11 +17,24 @@ python3 tools/studio.py validate
 | Style | Trigger | State | Permanent implementation |
 |---|---|---|---|
 | **Monarch Stickman Animation** | `SHADEGO <topic>` | Parked; IZZAT v2 is current R1 delivery | [`styles/monarch-stickman-animation`](styles/monarch-stickman-animation/) |
+| **Monarch 3D Explainers · WF-02** | `WF2 <topic or reference>` | KAANTA v8 Full Film Craft delivered for review; earlier versions preserved | [`styles/monarch-zackd-3d`](styles/monarch-zackd-3d/) |
 | **Monarch Noir Film** | `NOIRGO <topic>` | Active with explicit Film-#3 drift; films 1–2 are R1 | [`styles/monarch-noir-film`](styles/monarch-noir-film/) |
 
 Each named style contains its implementation, assets, audio/plates, data, prompts, tools, gates, measured results, decisions, failures/fixes, source provenance and a permanent knowledge index.
 
 Shared locked character authority is under [`characters/monarch`](characters/monarch/).
+
+## WF-02 new-chat / permanent style memory
+
+For `WF2 <topic or reference>`, read [the WF-02 startup guide](styles/monarch-zackd-3d/START_HERE.md), [master playbook](styles/monarch-zackd-3d/knowledge/PLAYBOOK.md) and [new-chat prompt](styles/monarch-zackd-3d/NEW_CHAT_PROMPT.md). Sources V2–V8, failures/fixes, creative/technical DNA, available raw history and current quality contracts are preserved; missing original chat is explicitly not invented.
+
+```bash
+python3 tools/wf02.py audit
+python3 tools/wf02.py brief "<new topic>"
+python3 tools/wf02.py pack --out .runtime/WF02_STYLE_MEMORY.zip
+```
+
+The brief is planning, not automatic new-video generation. Give the new chat repository/Drive-pack access and the startup path. Published session-branch content is not automatically merged into main; see preservation sync receipts under the style knowledge folder.
 
 ## Active-work boundary
 

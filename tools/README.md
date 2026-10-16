@@ -38,3 +38,15 @@ python3 tools/materialize.py full
 ```
 
 Use full mode before complete renders that need archived audio/plate assets.
+
+## `wf02.py`
+
+WF-02 permanent style discovery, preservation audit, new-topic planning contract and scoped recovery ZIP. Never implicitly renders, synthesizes speech, uploads or pushes.
+
+```bash
+python3 tools/wf02.py audit
+python3 tools/wf02.py brief "<topic or reference>"
+python3 tools/wf02.py pack --out .runtime/WF02_STYLE_MEMORY.zip
+```
+
+Audit checks immutable project hashes, available raw-history copies/coverage, release QA and startup/registry alignment. Pack includes WF02 source/history plus shared recovery tooling, not unrelated style binaries or missing original chat. Source/ZIP hashes and remote sync receipts remain distinct.

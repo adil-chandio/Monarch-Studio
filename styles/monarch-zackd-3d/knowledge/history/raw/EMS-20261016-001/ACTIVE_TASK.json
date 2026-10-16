@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261016-001",
+  "status": "completed",
+  "title": "KAANTA · Organic Motion v7 — render and delivery",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Finish the current V7 native render, verify actual encoded master, deliver a separate version on Drive and permanently preserve editable source without overwriting V6.",
+  "acceptance_criteria": [
+    "1080x1920, 30fps, 30.5s, all 915 frames decode",
+    "Same four voice WAVs, script, captions and medical safety qualifiers preserved",
+    "V7 organic membrane A/B, deterministic return and focus/caption tests pass",
+    "Actual-master technical gates and sampled visual review pass",
+    "Separate Drive master/source uploads verified by size and checksum, real IDs in SYNC.json",
+    "Permanent style source and registries updated; previous releases preserved"
+  ],
+  "started_at": "2026-10-15T20:21:08Z",
+  "updated_at": "2026-10-15T21:22:53Z",
+  "checkpoint_sequence": 8,
+  "event_sequence": 33,
+  "journal_head": "cbd1e29f4369c3bd2b1a6e0f927d480cd8ce9d2209dabee29e7a2c89a98b4975",
+  "last_checkpoint": "2026-10-15T21:22:53Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261016-001/0008-20261015T212253Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "not_requested",
+    "google_docs": "not_requested",
+    "google_drive": "completed",
+    "linear": "not_requested",
+    "notion": "not_requested"
+  }
+}

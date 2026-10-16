@@ -1,0 +1,409 @@
+{
+  "passed": true,
+  "checks_passed": 13,
+  "checks_total": 13,
+  "checks": [
+    {
+      "name": "User-selected same voice/script/placements retained",
+      "passed": true,
+      "details": {
+        "baseline": "styles/monarch-zackd-3d/projects/EMS-20261015-004/splinter-v5",
+        "narration_clips": 4,
+        "caption_phrases": 19,
+        "time_stretch": false
+      }
+    },
+    {
+      "name": "All original voice files retain their hashes",
+      "passed": true,
+      "details": {
+        "files": [
+          "01_hook.wav",
+          "02_response.wav",
+          "03_movement.wav",
+          "04_safety.wav"
+        ]
+      }
+    },
+    {
+      "name": "Nine narrative shots cover the native-frame contract",
+      "passed": true,
+      "details": {
+        "shots": 9,
+        "duration": 30.5,
+        "frames": 915
+      }
+    },
+    {
+      "name": "Camera cuts are explicit semantic shot boundaries",
+      "passed": true,
+      "details": {
+        "cuts": [
+          3.68,
+          7,
+          8.88,
+          11.51,
+          15.56,
+          18.9,
+          22.08,
+          26.21
+        ],
+        "not_claimed_continuous_across_cuts": true
+      }
+    },
+    {
+      "name": "Shot-local camera rails retain C2 joins",
+      "passed": true,
+      "details": {
+        "positionError": 0,
+        "velocityError": 2.021296264016021e-8,
+        "accelerationError": 0.01191277628509653
+      }
+    },
+    {
+      "name": "Every frame has finite, correctly scoped camera/focus state",
+      "passed": true,
+      "details": {
+        "bad_frames": 0,
+        "max_same_shot_camera_step": 0.20469256365558572,
+        "shot_counts": {
+          "01": 111,
+          "02": 99,
+          "03": 57,
+          "04": 79,
+          "05": 121,
+          "06": 100,
+          "07": 96,
+          "08": 124,
+          "09": 128
+        },
+        "scene_counts": {
+          "finger": 210,
+          "surface": 57,
+          "anatomy": 648
+        },
+        "depth_focus_frames": 775,
+        "shutter_frames": 93
+      }
+    },
+    {
+      "name": "New surface insert and hero-cell shot occupy real timeline frames",
+      "passed": true,
+      "details": {
+        "surface_frames": 57,
+        "hero_track_frames": 79
+      }
+    },
+    {
+      "name": "Cell-tracking focus follows the actual animated hero",
+      "passed": true,
+      "details": [
+        {
+          "time": 8.9,
+          "error": 0,
+          "distance": 2.441051043651988
+        },
+        {
+          "time": 9.3,
+          "error": 0,
+          "distance": 2.688961486697459
+        },
+        {
+          "time": 9.8,
+          "error": 0,
+          "distance": 2.9168180271839037
+        },
+        {
+          "time": 10.5,
+          "error": 0,
+          "distance": 3.088932080089406
+        }
+      ]
+    },
+    {
+      "name": "Focus is restrained and does not blur the editorial wide reversal",
+      "passed": true,
+      "details": {
+        "max_native_blur_px": 7,
+        "method": "Geometry-depth guided separable Gaussian selective focus; restrained radius, native scene colour before output transform; captions drawn afterward"
+      }
+    },
+    {
+      "name": "Actor/director evaluation remains stateless",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "Inherited fast pulls stay monotonic and grip first",
+      "passed": true,
+      "details": {
+        "reversed": 0,
+        "surface_pull": 0.42,
+        "deep_pull": 0.72
+      }
+    },
+    {
+      "name": "Shared tactile anchors still match actor cues",
+      "passed": true,
+      "details": [
+        {
+          "cue": "wood_contact",
+          "anchor": 0.15,
+          "pre_roll": 0
+        },
+        {
+          "cue": "surface_contact",
+          "anchor": 4.82,
+          "pre_roll": 0
+        },
+        {
+          "cue": "surface_release",
+          "anchor": 5.22,
+          "pre_roll": 0.1
+        },
+        {
+          "cue": "deep_contact",
+          "anchor": 26.71,
+          "pre_roll": 0
+        },
+        {
+          "cue": "deep_release",
+          "anchor": 27.52,
+          "pre_roll": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Director actually changes the photography, not only version labels",
+      "passed": true,
+      "details": {
+        "changed_views": 8,
+        "total": 9,
+        "comparisons": [
+          {
+            "id": "01",
+            "time": 1.84,
+            "kind": "finger",
+            "old_camera": [
+              1.25,
+              1.08,
+              8.36,
+              0.08,
+              -0.72,
+              0,
+              31
+            ],
+            "new_camera": [
+              1.75,
+              1.2,
+              6.35,
+              0.12,
+              -0.46,
+              0,
+              30
+            ],
+            "translation_difference": 2.0747288979526934
+          },
+          {
+            "id": "02",
+            "time": 5.34,
+            "kind": "finger",
+            "old_camera": [
+              0.9283950617283951,
+              1.1538271604938268,
+              8.246666666666666,
+              0.08790123456790123,
+              -0.31765432098765445,
+              0,
+              31
+            ],
+            "new_camera": [
+              -1.0998205388800002,
+              1.5120064819200005,
+              3.961288637440001,
+              0.19498205388800002,
+              0.6648025927680002,
+              0.09749102694400001,
+              38.5017946112
+            ],
+            "translation_difference": 4.754620468788987
+          },
+          {
+            "id": "03",
+            "time": 7.94,
+            "kind": "surface",
+            "old_camera": [
+              1.15,
+              1.15,
+              11.2,
+              0,
+              -1.05,
+              0,
+              32
+            ],
+            "new_camera": [
+              0.34483219728170994,
+              0.7006401517551615,
+              1.006928220044984,
+              0,
+              -0.015,
+              0,
+              38
+            ],
+            "translation_difference": 10.234692558893213
+          },
+          {
+            "id": "04",
+            "time": 10.195,
+            "kind": "anatomy",
+            "old_camera": [
+              0.55,
+              0.7,
+              9.05,
+              -0.04,
+              -1.03,
+              0.07,
+              32
+            ],
+            "new_camera": [
+              0.5031080034337924,
+              -0.3412975697864575,
+              3.272529949106785,
+              -0.07096606022330114,
+              -0.5909271952492948,
+              0.35030775813550546,
+              38
+            ],
+            "translation_difference": 5.870746092035765
+          },
+          {
+            "id": "05",
+            "time": 13.535,
+            "kind": "anatomy",
+            "old_camera": [
+              1.4,
+              2.1,
+              9.75,
+              0,
+              -0.65,
+              -0.03,
+              32
+            ],
+            "new_camera": [
+              1.25,
+              2.25,
+              7,
+              0.04,
+              -0.12,
+              0.1,
+              34
+            ],
+            "translation_difference": 2.75816968296006
+          },
+          {
+            "id": "06",
+            "time": 17.23,
+            "kind": "anatomy",
+            "old_camera": [
+              0.8559616297251402,
+              1.4075875287410886,
+              10.39295443759756,
+              0.06924124712589125,
+              -0.3037937643705444,
+              0.03924124712589122,
+              32
+            ],
+            "new_camera": [
+              -0.8878811132150429,
+              1.3793540259368378,
+              7.989767495266155,
+              0.1527648608481197,
+              0.1379534990532308,
+              0.12,
+              34
+            ],
+            "translation_difference": 2.96935887399585
+          },
+          {
+            "id": "07",
+            "time": 20.49,
+            "kind": "anatomy",
+            "old_camera": [
+              1.15,
+              1.8,
+              12.1,
+              0.07,
+              -0.86,
+              0,
+              32
+            ],
+            "new_camera": [
+              1.15,
+              1.8,
+              12.1,
+              0.07,
+              -0.86,
+              0,
+              32
+            ],
+            "translation_difference": 0
+          },
+          {
+            "id": "08",
+            "time": 24.145,
+            "kind": "anatomy",
+            "old_camera": [
+              -0.55,
+              1.45,
+              11.35,
+              0.04,
+              -0.87,
+              0,
+              32
+            ],
+            "new_camera": [
+              1.9,
+              1.5,
+              9.2,
+              0.1,
+              -0.74,
+              0.05,
+              34
+            ],
+            "translation_difference": 3.2599846625406084
+          },
+          {
+            "id": "09",
+            "time": 28.355,
+            "kind": "anatomy",
+            "old_camera": [
+              1.03,
+              2.02,
+              13.2,
+              0.24,
+              0.11,
+              0,
+              32
+            ],
+            "new_camera": [
+              2.440266998062979,
+              2.453689330750639,
+              10.334223326876597,
+              0.32,
+              0.6146310669249361,
+              0.11463106692493609,
+              34
+            ],
+            "translation_difference": 3.2232926304713234
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Shot cuts are intentional, continuity is checked within shots",
+    "Geometry-depth selective focus is an art-directed approximation, not calibrated optics",
+    "Illustrative cell internals/surface anatomy, not clinical microscopy or validated mechanics",
+    "Technical checks do not certify perfect taste, ASMR response or audience retention"
+  ]
+}

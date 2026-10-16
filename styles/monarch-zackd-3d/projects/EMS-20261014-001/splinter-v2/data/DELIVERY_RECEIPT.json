@@ -1,0 +1,63 @@
+{
+  "status": "uploaded_and_hash_verified",
+  "folder": {
+    "id": "1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF",
+    "url": "https://drive.google.com/drive/folders/1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF"
+  },
+  "parent_folder_id": "1LTkHpkEUFSui8Lqyy8I0j5-1AceSziWX",
+  "script": {
+    "id": "1fmgHBgWUVEpmzHzR5eNJEHeW3QIkx6ry",
+    "url": "https://drive.google.com/file/d/1fmgHBgWUVEpmzHzR5eNJEHeW3QIkx6ry/view",
+    "bytes": 7446,
+    "md5": "8445aa2e8b607a2faf6358d3f7799872"
+  },
+  "subtitles": {
+    "id": "1qrGS8EduNiDqd5mrDcosw8hgYbb8MX5b",
+    "url": "https://drive.google.com/file/d/1qrGS8EduNiDqd5mrDcosw8hgYbb8MX5b/view",
+    "bytes": 1047,
+    "md5": "6fbea4787171d1289e898491ac2b8043"
+  },
+  "master": {
+    "id": "10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT",
+    "url": "https://drive.google.com/file/d/10YyHXoz1avbHTrSzOW7xWZwiZUvTEMOT/view",
+    "name": "KAANTA_WF02_1080x1920_FINAL.mp4",
+    "bytes": 20075498,
+    "md5": "31d3955099bd8f9c05307c94179a5e04",
+    "sha256": "6e671349fb61521165520de00994403a19f39fd841494b8b014389cc91fd3d35",
+    "remote_hash_verified": true,
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "duration": 30.5,
+    "remote_parent_verified": "1SqX_S44eVowdTAyBVzAFerYUYFJd6NtF",
+    "drive_video_metadata": {
+      "duration_millis": 30499,
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "source_bundle": {
+    "name": "KAANTA_WF02_EDITABLE_SOURCE.zip",
+    "bytes": 4953476,
+    "sha256": "82cea24201bf7f2bf54f9ea27f107010c9b8244d90836f9560bbb81764dee865",
+    "md5": "3adcac7be57eb00bf0b364aa6a1a1ee3",
+    "files": 33,
+    "id": "16umpzS8tqzlQTLspAL2dQzEAO2dlh6WN",
+    "url": "https://drive.google.com/file/d/16umpzS8tqzlQTLspAL2dQzEAO2dlh6WN/view",
+    "remote_hash_verified": true
+  },
+  "scope": "User-requested WF-02 Drive delivery. No old media overwritten; permissions unchanged. Git worktree saved; no claim of remote GitHub/Notion/Linear/Docs sync.",
+  "production_date_local": "2026-10-15",
+  "quality": {
+    "technical_checks_passed": 12,
+    "technical_checks_total": 12,
+    "decoded_frames": 732,
+    "unique_anatomy_crop_frames": 732,
+    "integrated_lufs": -16.03,
+    "true_peak_dbtp": -2.57,
+    "clinician_review": false,
+    "user_visual_approval": "pending_review"
+  },
+  "earlier_files_preserved": true,
+  "sharing_permissions_changed": false
+}

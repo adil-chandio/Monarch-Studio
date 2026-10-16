@@ -27,6 +27,7 @@ COMPACT_PATHS = [
     "styles/monarch-noir-film/knowledge",
     "styles/monarch-noir-film/records",
     "styles/monarch-noir-film/src",
+    "styles/monarch-zackd-3d",
     "tests",
     "tools",
     "workflows",

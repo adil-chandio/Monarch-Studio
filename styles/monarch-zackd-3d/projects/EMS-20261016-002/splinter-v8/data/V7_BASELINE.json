@@ -1,0 +1,933 @@
+{
+  "shot_plan": {
+    "version": 6,
+    "scope_choice": "new_shots_same_voice",
+    "duration": 30.5,
+    "shots": [
+      {
+        "id": "01",
+        "start": 0,
+        "end": 3.68,
+        "scene": "finger",
+        "purpose": "Oblique fingertip entry macro; pad texture and wood contact lead the hook",
+        "camera": [
+          {
+            "time": 0,
+            "value": [
+              2.4,
+              1.5,
+              7.1,
+              0.12,
+              -0.45,
+              0,
+              30
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.18,
+            "value": [
+              2.4,
+              1.5,
+              7.1,
+              0.12,
+              -0.45,
+              0,
+              30
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.78,
+            "value": [
+              1.75,
+              1.2,
+              6.35,
+              0.12,
+              -0.46,
+              0,
+              30
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 3.68,
+            "value": [
+              1.75,
+              1.2,
+              6.35,
+              0.12,
+              -0.46,
+              0,
+              30
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "finger_surface",
+          "range": 0.18,
+          "strength": 18,
+          "max_blur_px": 5
+        }
+      },
+      {
+        "id": "02",
+        "start": 3.68,
+        "end": 7,
+        "scene": "finger",
+        "purpose": "Opposite-side metal-contact macro, then move with the shallow extraction",
+        "camera": [
+          {
+            "time": 3.68,
+            "value": [
+              -0.95,
+              1.1,
+              2.95,
+              0.18,
+              0.5,
+              0.09,
+              40
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 5.02,
+            "value": [
+              -0.95,
+              1.1,
+              2.95,
+              0.18,
+              0.5,
+              0.09,
+              40
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 5.52,
+            "value": [
+              -1.15,
+              1.65,
+              4.3,
+              0.2,
+              0.72,
+              0.1,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 7,
+            "value": [
+              -1.15,
+              1.65,
+              4.3,
+              0.2,
+              0.72,
+              0.1,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "finger_contact",
+          "range": 0.16,
+          "strength": 16,
+          "max_blur_px": 6
+        }
+      },
+      {
+        "id": "03",
+        "start": 7,
+        "end": 8.88,
+        "scene": "surface",
+        "purpose": "New intact-skin puncture landscape, before the internal response reveal",
+        "camera": [
+          {
+            "time": 7,
+            "value": [
+              0.5,
+              0.82,
+              1.18,
+              0,
+              -0.015,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 7.25,
+            "value": [
+              0.5,
+              0.82,
+              1.18,
+              0,
+              -0.015,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 8.5,
+            "value": [
+              0.24,
+              0.62,
+              0.89,
+              0,
+              -0.015,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 8.88,
+            "value": [
+              0.24,
+              0.62,
+              0.89,
+              0,
+              -0.015,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "surface_entry",
+          "range": 0.035,
+          "strength": 34,
+          "max_blur_px": 7
+        }
+      },
+      {
+        "id": "04",
+        "start": 8.88,
+        "end": 11.51,
+        "scene": "anatomy",
+        "purpose": "Track a detailed hero defence cell into the gathering cluster",
+        "track_cell": 6,
+        "camera": [
+          {
+            "time": 8.88,
+            "value": [
+              0.4,
+              0.2,
+              2.4,
+              0,
+              0.04,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 9.7,
+            "value": [
+              0.55,
+              0.28,
+              2.85,
+              0,
+              0.04,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 11.1,
+            "value": [
+              0.65,
+              0.32,
+              3.15,
+              0,
+              0.04,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 11.51,
+            "value": [
+              0.65,
+              0.32,
+              3.15,
+              0,
+              0.04,
+              0,
+              38
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "cell",
+          "range": 0.085,
+          "strength": 35,
+          "max_blur_px": 7
+        }
+      },
+      {
+        "id": "05",
+        "start": 11.51,
+        "end": 15.56,
+        "scene": "anatomy",
+        "purpose": "Elevated swelling macro; focus follows the affected surface",
+        "camera": [
+          {
+            "time": 11.51,
+            "value": [
+              1.7,
+              2.55,
+              6.7,
+              0,
+              -0.13,
+              0.1,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 12.12,
+            "value": [
+              1.25,
+              2.25,
+              7.0,
+              0.04,
+              -0.12,
+              0.1,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 15.56,
+            "value": [
+              1.25,
+              2.25,
+              7.0,
+              0.04,
+              -0.12,
+              0.1,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "wound",
+          "range": 0.25,
+          "strength": 12,
+          "max_blur_px": 5
+        }
+      },
+      {
+        "id": "06",
+        "start": 15.56,
+        "end": 18.9,
+        "scene": "anatomy",
+        "purpose": "Low surface-angle view of the possible emergence, with a focus handoff",
+        "camera": [
+          {
+            "time": 15.56,
+            "value": [
+              -1.15,
+              1.15,
+              7.4,
+              0.12,
+              0.02,
+              0.12,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 16.78,
+            "value": [
+              -1.15,
+              1.15,
+              7.4,
+              0.12,
+              0.02,
+              0.12,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 17.55,
+            "value": [
+              -0.75,
+              1.5,
+              8.3,
+              0.17,
+              0.2,
+              0.12,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 18.9,
+            "value": [
+              -0.75,
+              1.5,
+              8.3,
+              0.17,
+              0.2,
+              0.12,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "emerge",
+          "range": 0.2,
+          "strength": 15,
+          "max_blur_px": 6
+        }
+      },
+      {
+        "id": "07",
+        "start": 18.9,
+        "end": 22.08,
+        "scene": "anatomy",
+        "purpose": "Deliberate wider no-guarantee reversal; clean 3D NAHI beat",
+        "camera": [
+          {
+            "time": 18.9,
+            "value": [
+              1.15,
+              1.8,
+              12.1,
+              0.07,
+              -0.86,
+              0,
+              32
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 22.08,
+            "value": [
+              1.15,
+              1.8,
+              12.1,
+              0.07,
+              -0.86,
+              0,
+              32
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "none",
+          "range": 0.3,
+          "strength": 0,
+          "max_blur_px": 0
+        }
+      },
+      {
+        "id": "08",
+        "start": 22.08,
+        "end": 26.21,
+        "scene": "anatomy",
+        "purpose": "Diagonal clinical detail view, racking attention from depth to redness",
+        "camera": [
+          {
+            "time": 22.08,
+            "value": [
+              2.7,
+              1.35,
+              9.3,
+              0.14,
+              -0.8,
+              0.08,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 23.3,
+            "value": [
+              1.9,
+              1.5,
+              9.2,
+              0.1,
+              -0.74,
+              0.05,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 26.21,
+            "value": [
+              1.9,
+              1.5,
+              9.2,
+              0.1,
+              -0.74,
+              0.05,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "warning_rack",
+          "range": 0.3,
+          "strength": 10,
+          "max_blur_px": 4.5
+        }
+      },
+      {
+        "id": "09",
+        "start": 26.21,
+        "end": 30.5,
+        "scene": "anatomy",
+        "purpose": "Professional-care grip close-up; camera rises with the freed fragment",
+        "camera": [
+          {
+            "time": 26.21,
+            "value": [
+              1.8,
+              1.4,
+              8.6,
+              0.18,
+              0.08,
+              0.16,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 26.92,
+            "value": [
+              1.8,
+              1.4,
+              8.6,
+              0.18,
+              0.08,
+              0.16,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 27.68,
+            "value": [
+              2.4,
+              2.4,
+              10.2,
+              0.32,
+              0.62,
+              0.12,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 29.5,
+            "value": [
+              2.55,
+              2.6,
+              10.7,
+              0.32,
+              0.6,
+              0.1,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 30.5,
+            "value": [
+              2.55,
+              2.6,
+              10.7,
+              0.32,
+              0.6,
+              0.1,
+              34
+            ],
+            "velocity": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "focus": {
+          "kind": "wood_tip",
+          "range": 0.3,
+          "strength": 12,
+          "max_blur_px": 5
+        }
+      }
+    ],
+    "intentional_cuts": [
+      3.68,
+      7,
+      8.88,
+      11.51,
+      15.56,
+      18.9,
+      22.08,
+      26.21
+    ],
+    "focus_method": "Geometry-depth guided separable Gaussian selective focus; restrained radius, native scene colour before output transform; captions drawn afterward",
+    "not_claimed": "Clinical simulation, exact optical-lens calibration, reference-frame duplication or guaranteed audience response"
+  },
+  "mix_direction": {
+    "version": 6,
+    "intent": "Perspective-aware mix for new macro/contact/surface/hero-cell shots. Same voice/script and core musical arrangement; no extra UI cue layer.",
+    "cue_gain_multipliers": {
+      "wood_touch": 1.12,
+      "steel_close": 1.1,
+      "soft_release": 1.08,
+      "reveal_air": 0.75,
+      "cell_texture": 1.15,
+      "pressure": 0.85
+    },
+    "cell_texture_seconds": 1.65,
+    "music_automation": [
+      [
+        0.0,
+        0.85
+      ],
+      [
+        0.7,
+        0.88
+      ],
+      [
+        3.68,
+        0.7
+      ],
+      [
+        5.5,
+        0.78
+      ],
+      [
+        6.5,
+        0.9
+      ],
+      [
+        7.0,
+        0.95
+      ],
+      [
+        8.7,
+        0.9
+      ],
+      [
+        8.88,
+        0.7
+      ],
+      [
+        11.3,
+        0.7
+      ],
+      [
+        11.51,
+        0.98
+      ],
+      [
+        15.56,
+        1.04
+      ],
+      [
+        18.9,
+        0.7
+      ],
+      [
+        22.08,
+        0.84
+      ],
+      [
+        26.21,
+        0.76
+      ],
+      [
+        28.2,
+        0.92
+      ],
+      [
+        30.5,
+        0.6
+      ]
+    ],
+    "narration_change": "none",
+    "credit": "Original score arrangement: Monarch Studio; credited FluidR3 GM instrument notes, CC BY3.0 US. Preserve assets/music/ATTRIBUTION.md credit when publishing."
+  },
+  "master_id": "1zRKxqy7yS_k1USCyTuGCBSOCOCNbPVjz",
+  "scope": "V7 retained as baseline; not V8 evidence"
+}

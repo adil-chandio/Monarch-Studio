@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "viewport": [
+    270,
+    480
+  ],
+  "method": "Bit-identical picture-region PNG hashes (x0 y70 w270 h350) at repeated absolute times; includes anatomy and captions. Excludes a tiny initial brand-mark rasterization difference measured in the separate full-frame diagnostic.",
+  "samples": [
+    {
+      "time": 13.7,
+      "sha256": "7e343847c58bc841f353b313a89055aae816e1b8f3504d7a6b9e01484cb2d074"
+    },
+    {
+      "time": 13.7,
+      "sha256": "7e343847c58bc841f353b313a89055aae816e1b8f3504d7a6b9e01484cb2d074"
+    },
+    {
+      "time": 4.9,
+      "sha256": "6dc30771f2a813c5fdec823f62ba89e4f0ba9cf6efe9964aad769d2f61644730"
+    },
+    {
+      "time": 21.5,
+      "sha256": "b76aaf2f459611d42dddb661e1939072239aa70f1e76f44208cd600b82273e2d"
+    },
+    {
+      "time": 13.7,
+      "sha256": "7e343847c58bc841f353b313a89055aae816e1b8f3504d7a6b9e01484cb2d074"
+    },
+    {
+      "time": 4.9,
+      "sha256": "6dc30771f2a813c5fdec823f62ba89e4f0ba9cf6efe9964aad769d2f61644730"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,428 @@
+{
+  "music_section_rms_dbfs": {
+    "hook": -40.89666135747552,
+    "discovery": -38.31506066404083,
+    "build": -33.34118923628524,
+    "breathing_space": -49.545514219593436,
+    "resolve": -41.76282951660393
+  },
+  "version": 6,
+  "mix_direction": {
+    "version": 8,
+    "intent": "V8 full-film restrained dynamic mix: clear contact windows, deeper cell bed, softer warning breathing space. Same credited score, eight tactile cues and voice.",
+    "cue_gain_multipliers": {
+      "wood_touch": 1.2,
+      "steel_close": 1.13,
+      "soft_release": 1.16,
+      "reveal_air": 0.65,
+      "cell_texture": 1.2,
+      "pressure": 0.85
+    },
+    "cell_texture_seconds": 1.65,
+    "music_automation": [
+      [
+        0,
+        0.77
+      ],
+      [
+        0.7,
+        0.88
+      ],
+      [
+        3.68,
+        0.7
+      ],
+      [
+        4.62,
+        0.6
+      ],
+      [
+        5.5,
+        0.82
+      ],
+      [
+        6.5,
+        0.9
+      ],
+      [
+        7,
+        0.94
+      ],
+      [
+        8.7,
+        0.87
+      ],
+      [
+        8.88,
+        0.66
+      ],
+      [
+        11.3,
+        0.72
+      ],
+      [
+        11.51,
+        1.02
+      ],
+      [
+        15.56,
+        1.08
+      ],
+      [
+        18.9,
+        0.6
+      ],
+      [
+        22.08,
+        0.78
+      ],
+      [
+        26.21,
+        0.68
+      ],
+      [
+        26.65,
+        0.57
+      ],
+      [
+        28.2,
+        0.92
+      ],
+      [
+        30.5,
+        0.54
+      ]
+    ],
+    "narration_change": "none",
+    "credit": "Original score arrangement: Monarch Studio; credited FluidR3 GM instrument notes, CC BY3.0 US. Preserve assets/music/ATTRIBUTION.md credit when publishing."
+  },
+  "cue_count": 8,
+  "events": [
+    {
+      "kind": "wood_touch",
+      "time": 0.15,
+      "anchor_time": 0.15,
+      "pre_roll": 0,
+      "sample": 7200,
+      "gain": 0.0624,
+      "duration": 0.14,
+      "visual_cue": "wood_contact",
+      "measured_peak_time": 0.15227083333333333
+    },
+    {
+      "kind": "steel_close",
+      "time": 4.82,
+      "anchor_time": 4.82,
+      "pre_roll": 0,
+      "sample": 231360,
+      "gain": 0.0951912,
+      "duration": 0.16,
+      "visual_cue": "surface_contact",
+      "measured_peak_time": 4.8226875
+    },
+    {
+      "kind": "soft_release",
+      "time": 5.12,
+      "anchor_time": 5.22,
+      "pre_roll": 0.1,
+      "sample": 245760,
+      "gain": 0.07018,
+      "duration": 0.34,
+      "visual_cue": "surface_release",
+      "measured_peak_time": 5.225791666666667
+    },
+    {
+      "kind": "reveal_air",
+      "time": 6.86,
+      "anchor_time": 6.86,
+      "pre_roll": 0,
+      "sample": 329280,
+      "gain": 0.0247,
+      "duration": 0.32,
+      "visual_cue": null,
+      "measured_peak_time": 7.01175
+    },
+    {
+      "kind": "cell_texture",
+      "time": 8.9,
+      "anchor_time": 8.9,
+      "pre_roll": 0,
+      "sample": 427200,
+      "gain": 0.021599999999999998,
+      "duration": 1.65,
+      "visual_cue": null,
+      "measured_peak_time": 9.632333333333333
+    },
+    {
+      "kind": "pressure",
+      "time": 11.7,
+      "anchor_time": 11.7,
+      "pre_roll": 0,
+      "sample": 561600,
+      "gain": 0.0204,
+      "duration": 0.6,
+      "visual_cue": null,
+      "measured_peak_time": 11.968979166666667
+    },
+    {
+      "kind": "steel_close",
+      "time": 26.71,
+      "anchor_time": 26.71,
+      "pre_roll": 0,
+      "sample": 1282080,
+      "gain": 0.085428,
+      "duration": 0.16,
+      "visual_cue": "deep_contact",
+      "measured_peak_time": 26.7121875
+    },
+    {
+      "kind": "soft_release",
+      "time": 27.419999999999998,
+      "anchor_time": 27.52,
+      "pre_roll": 0.1,
+      "sample": 1316160,
+      "gain": 0.06380000000000001,
+      "duration": 0.34,
+      "visual_cue": "deep_release",
+      "measured_peak_time": 27.5295
+    }
+  ],
+  "score_events": [
+    {
+      "section": "strings",
+      "time": 0.0,
+      "duration": 6.9,
+      "notes": [
+        "D3",
+        "F3",
+        "A3"
+      ],
+      "energy": 0.66
+    },
+    {
+      "section": "strings",
+      "time": 7.0,
+      "duration": 4.9,
+      "notes": [
+        "Bb3",
+        "D4",
+        "F3"
+      ],
+      "energy": 0.85
+    },
+    {
+      "section": "strings",
+      "time": 11.5,
+      "duration": 4.15,
+      "notes": [
+        "A3",
+        "C4",
+        "E4"
+      ],
+      "energy": 0.94
+    },
+    {
+      "section": "strings",
+      "time": 15.65,
+      "duration": 3.25,
+      "notes": [
+        "D3",
+        "F3",
+        "A3",
+        "E4"
+      ],
+      "energy": 1.1
+    },
+    {
+      "section": "strings",
+      "time": 19.0,
+      "duration": 2.85,
+      "notes": [
+        "D3",
+        "A3"
+      ],
+      "energy": 0.6
+    },
+    {
+      "section": "strings",
+      "time": 22.15,
+      "duration": 4.0,
+      "notes": [
+        "F3",
+        "A3",
+        "C4"
+      ],
+      "energy": 0.7
+    },
+    {
+      "section": "strings",
+      "time": 26.1,
+      "duration": 4.4,
+      "notes": [
+        "D3",
+        "F3",
+        "A3"
+      ],
+      "energy": 0.55
+    },
+    {
+      "section": "cello",
+      "time": 0.1,
+      "duration": 6.7,
+      "note": "D2",
+      "energy": 0.72
+    },
+    {
+      "section": "cello",
+      "time": 7.02,
+      "duration": 4.4,
+      "note": "Bb2",
+      "energy": 0.74
+    },
+    {
+      "section": "cello",
+      "time": 11.5,
+      "duration": 3.8,
+      "note": "A2",
+      "energy": 0.78
+    },
+    {
+      "section": "cello",
+      "time": 15.7,
+      "duration": 3.1,
+      "note": "D3",
+      "energy": 0.7
+    },
+    {
+      "section": "cello",
+      "time": 22.2,
+      "duration": 3.7,
+      "note": "F3",
+      "energy": 0.62
+    },
+    {
+      "section": "cello",
+      "time": 26.2,
+      "duration": 4.1,
+      "note": "D2",
+      "energy": 0.48
+    },
+    {
+      "section": "felt_piano",
+      "time": 0.52,
+      "note": "D4",
+      "velocity": 0.9
+    },
+    {
+      "section": "felt_piano",
+      "time": 2.26,
+      "note": "A3",
+      "velocity": 0.73
+    },
+    {
+      "section": "felt_piano",
+      "time": 7.18,
+      "note": "D4",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 8.98,
+      "note": "F4",
+      "velocity": 0.61
+    },
+    {
+      "section": "felt_piano",
+      "time": 9.46,
+      "note": "A3",
+      "velocity": 0.72
+    },
+    {
+      "section": "felt_piano",
+      "time": 10.35,
+      "note": "C4",
+      "velocity": 0.75
+    },
+    {
+      "section": "felt_piano",
+      "time": 11.75,
+      "note": "E4",
+      "velocity": 0.7
+    },
+    {
+      "section": "felt_piano",
+      "time": 13.0,
+      "note": "D4",
+      "velocity": 0.7
+    },
+    {
+      "section": "felt_piano",
+      "time": 14.2,
+      "note": "A3",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 16.92,
+      "note": "F4",
+      "velocity": 0.82
+    },
+    {
+      "section": "felt_piano",
+      "time": 17.3,
+      "note": "E4",
+      "velocity": 0.76
+    },
+    {
+      "section": "felt_piano",
+      "time": 18.1,
+      "note": "D4",
+      "velocity": 0.69
+    },
+    {
+      "section": "felt_piano",
+      "time": 22.35,
+      "note": "C4",
+      "velocity": 0.69
+    },
+    {
+      "section": "felt_piano",
+      "time": 23.8,
+      "note": "A3",
+      "velocity": 0.73
+    },
+    {
+      "section": "felt_piano",
+      "time": 25.15,
+      "note": "F4",
+      "velocity": 0.61
+    },
+    {
+      "section": "felt_piano",
+      "time": 26.95,
+      "note": "D4",
+      "velocity": 0.48
+    },
+    {
+      "section": "felt_piano",
+      "time": 27.78,
+      "note": "A3",
+      "velocity": 0.6
+    },
+    {
+      "section": "felt_piano",
+      "time": 29.26,
+      "note": "D4",
+      "velocity": 0.68
+    }
+  ],
+  "score_source": "Original arrangement using credited FluidR3 CC-BY3.0 piano/cello/strings note samples. See assets/music/ATTRIBUTION.md.",
+  "reference_audio_copied": false,
+  "ui_beeps_chimes_or_alerts": false,
+  "voice_rms_dbfs": -20.354373582408527,
+  "music_rms_dbfs": -37.94859308019562,
+  "foley_rms_dbfs": -58.05943239062299,
+  "sound_design_rms_dbfs": -37.907585446566166,
+  "stereo_correlation": 0.992354684665017,
+  "intent": "Perspective-aware close-contact and hero-cell textures for the new shot design; no UI stings. Deliberate musical space at the no-guarantee line. ASMR-style is an aesthetic intent, not a guaranteed physiological/audience response."
+}

@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_ORGANIC_v7_FINAL.mp4",
+  "size": 9591433,
+  "sha256": "3f5572f0fe203f72fd9f99aa00d9903f3e5fe5eec2fe721e3f4ad6b7a6d942e1",
+  "md5": "ec4ac17f84184ad49d99210574692743",
+  "duration": 30.5,
+  "fps": 30,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

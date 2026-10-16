@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_CRAFT_v8_FINAL.mp4",
+  "size": 10672253,
+  "sha256": "a34fd043d18237ff275fdc61d0f7118b437d33b3dbc1e80faaf9c92209eb60a8",
+  "md5": "bf8b66aa08e0891ff45862833f369785",
+  "duration": 30.5,
+  "fps": 30,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

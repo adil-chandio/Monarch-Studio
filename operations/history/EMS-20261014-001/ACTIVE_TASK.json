@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261014-001",
+  "status": "completed",
+  "title": "WF-02 Splinter 3D reference-based Urdu-English film",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Study the supplied How Splinters Get Unstuck video and the live WF-02 Drive folder, produce an original accurate 3D explainer in easy Urdu-English, and deliver video plus source in that folder without overwriting earlier work.",
+  "acceptance_criteria": [
+    "Reference topic and shots inspected; source lineage retained",
+    "Actual animated 3D, not a still-image slideshow; clear easy Urdu-English narration and Roman Urdu captions",
+    "Medical caveats and no-guaranteed-spontaneous-expulsion distinction included",
+    "Playable rendered video checked and uploaded in the confirmed WF-02 Drive folder"
+  ],
+  "started_at": "2026-10-14T20:10:13Z",
+  "updated_at": "2026-10-14T21:24:47Z",
+  "checkpoint_sequence": 9,
+  "event_sequence": 34,
+  "journal_head": "6808d1ad1d07278a6d47c1fdae4580b7d1f3ac523b7266e00943c32fc76fc1ac",
+  "last_checkpoint": "2026-10-14T21:24:47Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0009-20261014T212447Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

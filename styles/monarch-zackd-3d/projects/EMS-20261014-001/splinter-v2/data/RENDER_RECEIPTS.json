@@ -1,0 +1,92 @@
+[
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 0,
+    "end": 90,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 892437,
+    "seconds": 211.16
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 90,
+    "end": 180,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 1245797,
+    "seconds": 217.619
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 180,
+    "end": 270,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 3094931,
+    "seconds": 365.22
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 270,
+    "end": 360,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 3560175,
+    "seconds": 377.54
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 360,
+    "end": 450,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 2902861,
+    "seconds": 386.712
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 450,
+    "end": 540,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 2489041,
+    "seconds": 341.62
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 540,
+    "end": 630,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 2419919,
+    "seconds": 357.709
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 630,
+    "end": 720,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 2394978,
+    "seconds": 336.774
+  },
+  {
+    "signature": "32eb6a4da8a9815a4231204464f8f293540ab0103f8f89d6dfd36530885a1df6",
+    "start": 720,
+    "end": 732,
+    "fps": 24,
+    "width": 1080,
+    "height": 1920,
+    "bytes": 337880,
+    "seconds": 44.724
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_CINEMA_v4_FINAL.mp4",
+  "size": 14907486,
+  "sha256": "a83022a46205cd6ce7f8aa2572bf1dfa2e2e832a5abad9ac3f056548f2e06cf5",
+  "md5": "698237182571e09c518f1373af4e9598",
+  "duration": 30.5,
+  "fps": 30,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task_id": "EMS-20261016-002",
+  "status": "completed",
+  "title": "KAANTA V8 full-film visual and motion pass",
+  "style_id": "monarch-zackd-3d",
+  "goal": "Enhance the whole film across opening, material treatment, camera/action staging and sound dynamics; preserve narration and clean-frame constraints. Preview first, native render only after proof.",
+  "acceptance_criteria": [
+    "Meaningful changes across all three scene groups, not just hero cells",
+    "Same narration, safety qualifiers and clean composition",
+    "Preview and current-source tests before native rendering; verified final master and separate delivery"
+  ],
+  "started_at": "2026-10-15T23:32:22Z",
+  "updated_at": "2026-10-16T00:32:48Z",
+  "checkpoint_sequence": 8,
+  "event_sequence": 30,
+  "journal_head": "7b67ee29eecf13bc575acc57abf9a546cf4406660591f174416559af96ecac5e",
+  "last_checkpoint": "2026-10-16T00:32:48Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261016-002/0008-20261016T003248Z",
+  "next_action": "Task complete; consult permanent archive.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "not_requested",
+    "google_docs": "not_requested",
+    "google_drive": "completed",
+    "linear": "not_requested",
+    "notion": "not_requested"
+  }
+}

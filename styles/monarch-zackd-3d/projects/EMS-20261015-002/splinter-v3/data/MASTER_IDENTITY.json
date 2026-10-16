@@ -1,0 +1,14 @@
+{
+  "file": "KAANTA_WF02_MOTION_v3_FINAL.mp4",
+  "size": 23151105,
+  "sha256": "b562579419f64f642511478cfe9fee7660edac5e49e4f5fad20e6110962f7639",
+  "md5": "9930dfbc64d21e13ff0a8acc31210d1b",
+  "duration": 30.5,
+  "fps": 30,
+  "native_3d_size": [
+    1080,
+    1920
+  ],
+  "reference_audio_used": false,
+  "reference_frames_used": false
+}

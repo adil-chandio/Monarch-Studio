@@ -1,0 +1,281 @@
+{
+  "version": 2,
+  "title": "KAANTA — Skin ke andar kya hota hai?",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "duration": 30.5,
+  "narration": [
+    {
+      "file": "01_hook.wav",
+      "start": 0.24,
+      "duration": 6.6,
+      "text": "کانٹا سکن میں پھنس جائے، تو باڈی کیا کرتی ہے؟ ٹِپ باہر ہو، تو نکالنا آسان ہوتا ہے۔"
+    },
+    {
+      "file": "02_response.wav",
+      "start": 7.0,
+      "duration": 8.4,
+      "text": "لیکن اندر پھنس جائے، تو ڈیفینس سیلز اس کے گرد جمع ہوتے ہیں۔ سوجن آ سکتی ہے۔ انفیکشن ہو، تو پیپ بھی بن سکتی ہے۔"
+    },
+    {
+      "file": "03_movement.wav",
+      "start": 15.56,
+      "duration": 6.36,
+      "text": "کبھی چھوٹا کانٹا سکن کی سطح تک آ جاتا ہے۔ لیکن ہر بار نہیں! اس کا انتظار مت کرو۔"
+    },
+    {
+      "file": "04_safety.wav",
+      "start": 22.08,
+      "duration": 7.32,
+      "text": "گہرا کانٹا، بڑھتی لالی، درد یا پیپ ہو، تو ڈاکٹر سے مدد لو۔ سکن کو مت کھودو۔"
+    }
+  ],
+  "shots": [
+    {
+      "id": "01",
+      "start": 0,
+      "end": 3.68,
+      "label": "CHHOTA KAANTA.",
+      "sub": "Skin ke andar kya hota hai?",
+      "scene": "finger"
+    },
+    {
+      "id": "02",
+      "start": 3.68,
+      "end": 7,
+      "label": "TIP BAHAR HAI",
+      "sub": "Surface case / clean tweezers",
+      "scene": "finger"
+    },
+    {
+      "id": "03",
+      "start": 7,
+      "end": 9.46,
+      "label": "ANDAR PHANS GAYA?",
+      "sub": "Doosra case / skin cutaway",
+      "scene": "cutaway"
+    },
+    {
+      "id": "04",
+      "start": 9.46,
+      "end": 11.7,
+      "label": "DEFENCE CELLS",
+      "sub": "Body ka protective response",
+      "scene": "cutaway"
+    },
+    {
+      "id": "05",
+      "start": 11.7,
+      "end": 15.56,
+      "label": "SOOJAN AA SAKTI HAI",
+      "sub": "Infection ho to peep ban sakti hai",
+      "scene": "cutaway"
+    },
+    {
+      "id": "06",
+      "start": 15.56,
+      "end": 18.98,
+      "label": "KABHI BAHAR AATA HAI",
+      "sub": "Possible movement / waqt compressed",
+      "scene": "cutaway"
+    },
+    {
+      "id": "07",
+      "start": 18.98,
+      "end": 22.08,
+      "label": "HAR BAAR NAHI.",
+      "sub": "Iska intezaar mat karo.",
+      "scene": "cutaway"
+    },
+    {
+      "id": "08",
+      "start": 22.08,
+      "end": 25.83,
+      "label": "WARNING SIGNS",
+      "sub": "Deep fragment / laali / dard / peep",
+      "scene": "cutaway"
+    },
+    {
+      "id": "09",
+      "start": 25.83,
+      "end": 30.5,
+      "label": "DOCTOR SE MADAD LO",
+      "sub": "Professional-care illustration",
+      "scene": "cutaway"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.24,
+      "end": 1.65,
+      "text": "Kaanta skin mein",
+      "accent": "Kaanta"
+    },
+    {
+      "start": 1.65,
+      "end": 2.72,
+      "text": "phans jaye...",
+      "accent": "phans"
+    },
+    {
+      "start": 2.72,
+      "end": 3.75,
+      "text": "to body kya karti hai?",
+      "accent": "body"
+    },
+    {
+      "start": 3.75,
+      "end": 5,
+      "text": "Tip bahar ho,",
+      "accent": "Tip"
+    },
+    {
+      "start": 5,
+      "end": 6.84,
+      "text": "to nikaalna aasaan hota hai.",
+      "accent": "aasaan"
+    },
+    {
+      "start": 7,
+      "end": 8.56,
+      "text": "Lekin andar phans jaye,",
+      "accent": "andar"
+    },
+    {
+      "start": 8.56,
+      "end": 10.33,
+      "text": "to defence cells",
+      "accent": "defence cells"
+    },
+    {
+      "start": 10.33,
+      "end": 11.65,
+      "text": "uske gird jama hote hain.",
+      "accent": "jama"
+    },
+    {
+      "start": 11.65,
+      "end": 12.94,
+      "text": "Soojan aa sakti hai.",
+      "accent": "Soojan"
+    },
+    {
+      "start": 12.94,
+      "end": 14,
+      "text": "Infection ho,",
+      "accent": "Infection"
+    },
+    {
+      "start": 14,
+      "end": 15.4,
+      "text": "to peep bhi ban sakti hai.",
+      "accent": "peep"
+    },
+    {
+      "start": 15.56,
+      "end": 17.08,
+      "text": "Kabhi chhota kaanta",
+      "accent": "Kabhi"
+    },
+    {
+      "start": 17.08,
+      "end": 18.98,
+      "text": "skin ki satah tak aa jata hai.",
+      "accent": "satah"
+    },
+    {
+      "start": 18.98,
+      "end": 20.46,
+      "text": "Lekin har baar nahi!",
+      "accent": "har baar nahi!"
+    },
+    {
+      "start": 20.46,
+      "end": 21.92,
+      "text": "Iska intezaar mat karo.",
+      "accent": "mat karo."
+    },
+    {
+      "start": 22.08,
+      "end": 24.54,
+      "text": "Gehra kaanta, barhti laali,",
+      "accent": "Gehra kaanta"
+    },
+    {
+      "start": 24.54,
+      "end": 25.83,
+      "text": "dard ya peep ho...",
+      "accent": "dard"
+    },
+    {
+      "start": 25.83,
+      "end": 27.7,
+      "text": "to doctor se madad lo.",
+      "accent": "doctor"
+    },
+    {
+      "start": 27.7,
+      "end": 29.4,
+      "text": "Skin ko mat khodo.",
+      "accent": "mat khodo."
+    }
+  ],
+  "sound_events": [
+    {
+      "time": 0.18,
+      "kind": "tap",
+      "gain": 0.08
+    },
+    {
+      "time": 3.68,
+      "kind": "whoosh",
+      "gain": 0.055
+    },
+    {
+      "time": 4.95,
+      "kind": "metal",
+      "gain": 0.045
+    },
+    {
+      "time": 5.5,
+      "kind": "lift",
+      "gain": 0.04
+    },
+    {
+      "time": 7,
+      "kind": "whoosh",
+      "gain": 0.055
+    },
+    {
+      "time": 9.46,
+      "kind": "pulse",
+      "gain": 0.024
+    },
+    {
+      "time": 11.7,
+      "kind": "pulse",
+      "gain": 0.027
+    },
+    {
+      "time": 15.56,
+      "kind": "whoosh",
+      "gain": 0.03
+    },
+    {
+      "time": 18.98,
+      "kind": "warn",
+      "gain": 0.038
+    },
+    {
+      "time": 25.83,
+      "kind": "bell",
+      "gain": 0.024
+    },
+    {
+      "time": 27.1,
+      "kind": "metal",
+      "gain": 0.022
+    }
+  ]
+}

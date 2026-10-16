@@ -1,0 +1,226 @@
+{
+  "original_synthesis": true,
+  "reference_audio_copied": false,
+  "events": [
+    {
+      "kind": "wood_contact",
+      "time": 0.28,
+      "sample": 13440,
+      "gain": 0.11,
+      "pan": -0.05,
+      "visual_cue": null,
+      "synthesized_duration": 0.22
+    },
+    {
+      "kind": "lens_sweep",
+      "time": 2.7,
+      "sample": 129600,
+      "gain": 0.036,
+      "pan": 0.18,
+      "visual_cue": null,
+      "synthesized_duration": 0.66
+    },
+    {
+      "kind": "tool_air",
+      "time": 3.85,
+      "sample": 184800,
+      "gain": 0.065,
+      "pan": -0.3,
+      "visual_cue": null,
+      "synthesized_duration": 0.57
+    },
+    {
+      "kind": "grip_click",
+      "time": 4.93,
+      "sample": 236640,
+      "gain": 0.12,
+      "pan": -0.04,
+      "visual_cue": "surface_contact",
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "wood_release",
+      "time": 5.58,
+      "sample": 267840,
+      "gain": 0.092,
+      "pan": 0.1,
+      "visual_cue": "surface_release",
+      "synthesized_duration": 0.43
+    },
+    {
+      "kind": "dive",
+      "time": 6.63,
+      "sample": 318240,
+      "gain": 0.095,
+      "pan": 0.0,
+      "visual_cue": null,
+      "synthesized_duration": 0.74
+    },
+    {
+      "kind": "cell_bloom",
+      "time": 8.94,
+      "sample": 429120,
+      "gain": 0.033,
+      "pan": -0.4,
+      "visual_cue": null,
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "cell_bloom",
+      "time": 9.47,
+      "sample": 454560,
+      "gain": 0.033,
+      "pan": -0.13,
+      "visual_cue": null,
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "cell_bloom",
+      "time": 10.03,
+      "sample": 481440,
+      "gain": 0.033,
+      "pan": 0.14,
+      "visual_cue": null,
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "cell_bloom",
+      "time": 10.57,
+      "sample": 507360,
+      "gain": 0.033,
+      "pan": 0.41000000000000003,
+      "visual_cue": null,
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "swell",
+      "time": 11.64,
+      "sample": 558720,
+      "gain": 0.056,
+      "pan": 0.0,
+      "visual_cue": null,
+      "synthesized_duration": 0.74
+    },
+    {
+      "kind": "fluid",
+      "time": 13.24,
+      "sample": 635520,
+      "gain": 0.035,
+      "pan": 0.15,
+      "visual_cue": null,
+      "synthesized_duration": 0.47
+    },
+    {
+      "kind": "rise",
+      "time": 15.75,
+      "sample": 756000,
+      "gain": 0.057,
+      "pan": -0.16,
+      "visual_cue": null,
+      "synthesized_duration": 0.86
+    },
+    {
+      "kind": "release_air",
+      "time": 18.18,
+      "sample": 872640,
+      "gain": 0.032,
+      "pan": 0.16,
+      "visual_cue": null,
+      "synthesized_duration": 0.48
+    },
+    {
+      "kind": "caution",
+      "time": 19.02,
+      "sample": 912960,
+      "gain": 0.077,
+      "pan": 0.0,
+      "visual_cue": null,
+      "synthesized_duration": 0.65
+    },
+    {
+      "kind": "soft_tick",
+      "time": 22.38,
+      "sample": 1074240,
+      "gain": 0.037,
+      "pan": -0.35,
+      "visual_cue": null,
+      "synthesized_duration": 0.22
+    },
+    {
+      "kind": "soft_tick",
+      "time": 23.66,
+      "sample": 1135680,
+      "gain": 0.037,
+      "pan": 0.0,
+      "visual_cue": null,
+      "synthesized_duration": 0.22
+    },
+    {
+      "kind": "soft_tick",
+      "time": 24.93,
+      "sample": 1196640,
+      "gain": 0.037,
+      "pan": 0.35,
+      "visual_cue": null,
+      "synthesized_duration": 0.22
+    },
+    {
+      "kind": "tool_air",
+      "time": 25.64,
+      "sample": 1230720,
+      "gain": 0.06,
+      "pan": 0.28,
+      "visual_cue": null,
+      "synthesized_duration": 0.57
+    },
+    {
+      "kind": "grip_click",
+      "time": 26.72,
+      "sample": 1282560,
+      "gain": 0.105,
+      "pan": 0.06,
+      "visual_cue": "deep_contact",
+      "synthesized_duration": 0.3
+    },
+    {
+      "kind": "strain",
+      "time": 27.16,
+      "sample": 1303680,
+      "gain": 0.047,
+      "pan": -0.1,
+      "visual_cue": null,
+      "synthesized_duration": 0.48
+    },
+    {
+      "kind": "wood_release",
+      "time": 28.55,
+      "sample": 1370400,
+      "gain": 0.085,
+      "pan": 0.08,
+      "visual_cue": "deep_release",
+      "synthesized_duration": 0.43
+    },
+    {
+      "kind": "resolve",
+      "time": 29.06,
+      "sample": 1394880,
+      "gain": 0.06,
+      "pan": 0.0,
+      "visual_cue": null,
+      "synthesized_duration": 1.02
+    }
+  ],
+  "cue_count": 23,
+  "voice_rms_dbfs": -20.354373582408527,
+  "sound_design_rms_dbfs": -44.254145295918306,
+  "stereo_correlation": 0.9919351062894209,
+  "ducking": "Envelope-ducked original pad/plucks and foley; narration stays centered",
+  "mix_components": [
+    "metal contact transients",
+    "wood release/strain",
+    "stereo air sweeps",
+    "subtle cell/fluid details",
+    "soft caution/resolve tones",
+    "restrained original harmonic bed"
+  ]
+}

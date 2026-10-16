@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-zackd-3d",
+  "workflow_code": "WF-02",
+  "user_name": "Zack d 3d animation",
+  "trigger": "WF2 <topic or reference>",
+  "intent": "Reference-informed original, clean premium educational 3D explainers; not creator/voice impersonation or frame duplication",
+  "baseline_release_path": "projects/EMS-20261016-002/splinter-v8",
+  "priority_order": [
+    "factual/medical scope and safe qualifiers",
+    "readable causal story and action",
+    "geometry/contact staging",
+    "camera and controlled motion",
+    "materials/light/composition",
+    "voice clarity",
+    "tasteful sound/music",
+    "subordinate captions/type",
+    "technical delivery and reproducibility"
+  ],
+  "creative_grammar": [
+    "concrete mechanism, not decorative abstraction",
+    "macro contact -> internal cause -> consequence -> conditional reversal -> safe resolution",
+    "tension -> contact/lock -> release -> settle",
+    "surface/depth contrast and scale reveal",
+    "eye follows actual subject; focus transfer follows narrative",
+    "negative space and deliberate settles; no fake jitter"
+  ],
+  "look": {
+    "palette": "restrained petrol/slate background, warm tissue, ivory cells/type, controlled steel; adapt to topic, not mandatory skin on everything",
+    "materials": "localized pores/ridges, grain/fibres, brushed metal; bounded subtle relief, not uniformly glossy plastic",
+    "camera": "purposeful macro angles, bounded C2 rails, explicit cuts, restrained selective focus",
+    "typography": "one plain readable caption layer; sparse real extruded3D narrative words if earned"
+  },
+  "sound": {
+    "voice_first": true,
+    "reference_audio_copy": false,
+    "taste": "soft tactile contact/release/friction textures, no game/UI chirps",
+    "music": "credited original arrangement with measured build and warning-line negative space",
+    "same_film_voice_policy": "Fixed WAVs/script/placements retained unless authorized; no automatic cross-session voice-ID reuse"
+  },
+  "reject": [
+    "gratuitous HUD",
+    "chapter cards",
+    "counters/progress rails",
+    "caption pills",
+    "warning panels",
+    "generic arrows",
+    "page-turn transitions",
+    "UI pings/beeps/chimes",
+    "excessive ghost trails",
+    "random per-frame jitter",
+    "unearned camera motion",
+    "unverified quality percentages",
+    "claims that technical gates certify clinical/artistic perfection"
+  ],
+  "scope_policy": {
+    "focused_pass": "name the exact changed subject(s)",
+    "whole_film_pass": "cover every shot/scene group and compare with actual prior controls/images",
+    "new_topic": "new factual mechanism, script/voice/geometry/action and shot plan; baseline is grammar/tooling, not canned content"
+  },
+  "references": [
+    "knowledge/CREATIVE_DNA.md",
+    "knowledge/FAILURES_AND_FIXES.md",
+    "knowledge/PRODUCTION_SOP.md"
+  ]
+}
