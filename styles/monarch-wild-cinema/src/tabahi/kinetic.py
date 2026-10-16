@@ -66,8 +66,12 @@ def headline(text: str, size: int = 132, accent_word: str | None = None,
     else:
         x = C.W - 112.0 - tw
     if y is None:
-        y = {"lower": C.H - 300 - f.size, "center": (C.H - f.size) / 2,
-             "upper": 150, "cinema": int(C.H * 0.62)}.get(pos, C.H - 300 - f.size)
+        # PORTRAIT: "lower" means "the bottom of the SAFE band", not "300 px from
+        # the canvas edge". In a 1920-tall Short the last 300 px are platform UI.
+        lower = (C.SAFE[1] - f.size - 40) if C.PORTRAIT else (C.H - 300 - f.size)
+        upper = (C.SAFE[0] + 20) if C.PORTRAIT else 150
+        y = {"lower": lower, "center": (C.H - f.size) / 2,
+             "upper": upper, "cinema": int(C.H * 0.62)}.get(pos, lower)
 
     accent_rgb = C.ACCENTS.get(accent, C.AMBER)
     if shadow:
@@ -164,15 +168,64 @@ def corner_mark(series: str = "MONARCH", sub: str = "FILES", ep: str = "") -> Im
     """Persistent brand mark. Same coordinates in every production (brand law)."""
     layer = Image.new("RGBA", (C.W, C.H), (0, 0, 0, 0))
     d = C.rec_draw(layer)
-    f = C.font("display", 21)
-    # safe band: G06 wants ink inside y 60-1020, and the mark's ascender starts
-    # above its anchor, so the anchor sits at 72
-    x, y = 64, 72
+    f = C.font("display", 25)
+    # safe band: G06 wants the ink inside the canvas's safe band, and the mark's
+    # ascender starts above its anchor — 72 horizontally, just under the platform
+    # UI in a Short (a portrait frame puts the handle over the top 13 %)
+    # Portrait note (measured, not assumed): the type keeps its point size, so the
+    # mark occupies ~25 % of a 1080-wide portrait frame against ~14 % of a
+    # 1920-wide landscape one. Read back on the delivered vertical master this
+    # reads as a deliberate brand tag rather than a bug, and it is the right size
+    # for a frame consumed at arm's length — so it stays, as a decision: a mark
+    # scaled to landscape proportion (≈14 px) is unreadable on a phone.
+    x, y = 64, (C.SAFE[0] + 12) if C.PORTRAIT else 72
+    # A soft dark HALO, not a scrim panel. MEASURED on a delivered frame: the mark
+    # is bone/amber over a graded plate and, on a lit shot (03, a fog-lit grizzly),
+    # it measured 3.70:1 against the surrounding sky — under the 4.5:1 gate. A
+    # rectangular scrim fixes the number and leaves a hard black box on the plate
+    # (T21); a blurred copy of the mark's own glyphs darkens exactly the pixels the
+    # letters sit on, which is how broadcast marks are cut for bright footage.
+    # A glyph-shaped SHADOW, not a scrim panel and not a smudge. Three measured
+    # attempts are recorded in the failure register: (T21) a rectangular scrim
+    # left a hard-cornered black box on the plate; a gaussian halo alone reached
+    # only 3.85:1 on the vertical cut of shot 03, because a wide blur of a THIN
+    # glyph stroke (25 px type, ~4 px stroke) has almost no coverage at the 2-5 px
+    # ring the gate samples; a pad+blur round-rect "cloud" fixed the number and
+    # put a visible dark oval on the fog. What works is what broadcast does:
+    # dilate the glyph mask so the dark area FULLY covers the ring, then blur it
+    # just enough to lose the hard edge, and stack a wide low-alpha pass under it
+    # so there is no boundary at all.
+    _halo = Image.new("RGBA", layer.size, (0, 0, 0, 0))
+    _hd = ImageDraw.Draw(_halo)
+    C.draw_tracked(_hd, (x, y), series, f, (0, 0, 0, 255), 3.4)
+    C.draw_tracked(_hd, (x + C.text_w(d, series, f, 3.4) + 15, y), sub, f, (0, 0, 0, 255), 3.4)
+    if ep:
+        _hd.text((x, y + 36), ep, font=C.font("label", 21), fill=(0, 0, 0, 255))
+
+    import cv2 as _cv2
+    _bb = _halo.getbbox()
+    if _bb:
+        import numpy as _np
+        _pad = 72
+        _box = (max(_bb[0] - _pad, 0), max(_bb[1] - _pad, 0),
+                min(_bb[2] + _pad, layer.size[0]), min(_bb[3] + _pad, layer.size[1]))
+        _a = _np.array(_halo.crop(_box))[..., 3]
+        for _dia, _blur, _alpha in ((26, 16, 105), (14, 7, 180), (7, 2.5, 225)):
+            _k = _cv2.getStructuringElement(_cv2.MORPH_ELLIPSE, (_dia * 2 + 1,) * 2)
+            _m = _cv2.dilate(_a, _k)
+            _im = Image.fromarray(_np.clip(_m.astype(_np.float32) * (_alpha / 255.0),
+                                           0, 255).astype(_np.uint8))
+            _im = _im.filter(ImageFilter.GaussianBlur(_blur))
+            _lay = Image.new("RGBA", (_box[2] - _box[0], _box[3] - _box[1]), (0, 0, 0, 0))
+            _lay.putalpha(_im)
+            _dark = Image.new("RGBA", layer.size, (0, 0, 0, 0))
+            _dark.paste(_lay, (_box[0], _box[1]))
+            layer.alpha_composite(_dark)
     C.draw_tracked(d, (x, y), series, f, C.BONE, 3.4)
     xe = x + C.text_w(d, series, f, 3.4) + 15
     C.draw_tracked(d, (xe, y), sub, f, C.AMBER, 3.4)
     if ep:
-        d.text((x, y + 32), ep, font=C.font("label", 19), fill=(255, 255, 255, 170))
+        d.text((x, y + 36), ep, font=C.font("label", 21), fill=(255, 255, 255, 215))
     return layer
 
 

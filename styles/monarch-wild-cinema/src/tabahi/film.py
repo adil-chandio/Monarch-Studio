@@ -78,7 +78,10 @@ _LAYER_CACHE: dict[str, dict | None] = {}
 
 
 def _key(spec: dict) -> str:
-    return hashlib.sha1(json.dumps(spec, sort_keys=True).encode()).hexdigest()[:16]
+    """Cache key. The CANVAS is part of the identity: a headline laid out for
+    1920x1080 is not the same layer as one laid out for 1080x1920, and sharing
+    the cache between the two would put a landscape layer on a portrait frame."""
+    return hashlib.sha1(f"{C.W}x{C.H}|{json.dumps(spec, sort_keys=True)}".encode()).hexdigest()[:16]
 
 
 def _add_scrim(lay, amount: float = 0.42, pad: int = 48, feather: int = 34, pos=(0, 0)):
@@ -125,27 +128,68 @@ def _build_pil(spec: dict):
     4.5:1. Type over a lit wildlife plate does not reach that without a
     backdrop, so the scrim is applied centrally, for all kinds, from the spec.
     """
-    lay, pos = _build_pil_raw(spec)
-    amt = spec.get("scrim")
-    if amt:
-        lay = _add_scrim(lay, float(amt), pos=pos)
-    return lay, _clamp_pos(lay, pos)
+    _raw, lay, pos = _build_pil_pair(spec)
+    return lay, pos
 
 
-def _clamp_pos(lay, pos, margin: int = 24):
-    """Keep a positioned layer fully inside the frame.
+def _build_pil_pair(spec: dict):
+    """(raw ink layer, scrimmed layer, fitted position).
 
-    MEASURED (read back from the delivered master, shot 06): the gauge card was
-    placed at x=1260 with a 616 px layer width, so its label ran 46 px past the
-    right edge — "BEAR SPRAY" rendered as "BEAR SPRA". Nothing in the plan was
-    wrong; the position simply was not checked against the layer size. Full-
-    frame layers (headline/stat/mark) keep their (0,0) anchor.
+    One place computes the position, so a gate can never sample a box that the
+    renderer did not use. MEASURED: G05 briefly measured 1.00 because it asked
+    the builder for the pre-fit position while the delivered frame used the
+    fitted one — it compared the glyphs with themselves.
     """
-    if lay.size == (C.W, C.H):
+    raw, pos = _build_pil_raw(spec)
+    pos = _fit_safe(raw, pos)
+    # No scrim on the brand mark: MEASURED in the delivered frame — a scrim sized
+    # to a small corner mark paints a hard-cornered black rectangle over the plate
+    # (the ~1500 opaque pixels give `_add_scrim` a tiny panel and the 34 px feather
+    # has nothing to fade into). The mark is bone + amber over a graded plate and
+    # measures 6.5:1 unaided.
+    amt = spec.get("scrim")
+    if amt and spec.get("kind") != "mark":
+        lay = _add_scrim(raw, float(amt), pos=pos)
+    else:
+        lay = raw
+    return raw, lay, pos
+
+
+def _fit_safe(lay, pos, margin: int = 24):
+    """Translate a positioned layer until its INK sits inside the safe band.
+
+    MEASURED (9:16 attempt #2, measured on the built layers): nominal placement
+    is not enough. `pos` is a layer anchor, but what the viewer reads is the ink,
+    and the ink extends past `anchor + size` by the extrusion depth (13 steps),
+    the glow and the underline. A portrait headline placed by its nominal bottom
+    landed at y 1402-1665 against a safe band that ends at 1620 — i.e. inside the
+    platform's action bar. This measures the RAW alpha-ink bbox and translates.
+    The scrim panel is deliberately excluded: it is a soft gradient and may bleed
+    past the band, the letters may not.
+
+    Horizontal: the ink is centred inside the band as well, which also fixes
+    landscape `xy` values that were written for a 1920-wide frame.
+    """
+    bb = lay.getchannel("A").getbbox()
+    if bb is None:
         return pos
-    w, h = lay.size
-    x = int(min(max(pos[0], margin), max(C.W - w - margin, margin)))
-    y = int(min(max(pos[1], margin), max(C.H - h - margin, margin)))
+    x, y = int(pos[0]), int(pos[1])
+    y0, y1 = y + bb[1], y + bb[3]
+    x0, x1 = x + bb[0], x + bb[2]
+    safe0, safe1 = C.SAFE
+
+    if y1 - y0 <= (safe1 - safe0):
+        if y0 < safe0:
+            y += safe0 - y0
+        elif y1 > safe1:
+            y -= y1 - safe1
+    else:                       # taller than the band: align to its top
+        y += safe0 - y0
+    if x1 - x0 <= (C.W - 2 * margin):
+        if x0 < margin:
+            x += margin - x0
+        elif x1 > C.W - margin:
+            x -= x1 - (C.W - margin)
     return (x, y)
 
 
@@ -163,30 +207,46 @@ def _build_pil_raw(spec: dict):
                            big=spec.get("big", 260)), (0, 0)
     if kind == "rule":
         lay = K.rule_card(int(spec["number"]), spec["text"], accent)
+        if lay.size[0] > C.W - 96:
+            lay = lay.resize((C.W - 96, max(int(lay.size[1] * (C.W - 96) / lay.size[0]), 1)),
+                             Image.LANCZOS)
         return lay, spec.get("xy", (int((C.W - lay.size[0]) / 2),
                                     C.H - 520 + int(spec["number"]) * 170))
     if kind == "species":
-        lay = K.species_card(spec["name"], spec["answer"], accent, spec.get("width", 1180))
-        return lay, spec.get("xy", (int((C.W - lay.size[0]) / 2), C.H - lay.size[1] - 150))
+        lay = K.species_card(spec["name"], spec["answer"], accent,
+                             min(int(spec.get("width", 1180)), C.W - 96))
+        if "xy" in spec:
+            return lay, spec["xy"]
+        bottom = (C.SAFE[1] - lay.size[1] - 20) if C.PORTRAIT else (C.H - lay.size[1] - 150)
+        return lay, (int((C.W - lay.size[0]) / 2), bottom)
     if kind == "lower":
-        lay = K.lower_third(spec["kicker"], spec["main"], accent, spec.get("width", 1080))
-        return lay, spec.get("xy", (112, C.H - 360))
+        lay = K.lower_third(spec["kicker"], spec["main"], accent,
+                            min(int(spec.get("width", 1080)), C.W - 96))
+        return lay, spec.get("xy", (112, (C.SAFE[1] - lay.size[1] - 20) if C.PORTRAIT
+                                    else (C.H - 360)))
     from . import viz as V
     if kind == "chart":
         lay = V.bar_chart([tuple(r) for r in spec["rows"]], spec.get("title", ""),
                           spec.get("unit", ""), accent, spec.get("reveal", 1.0),
-                          spec.get("width", 1180))
+                          min(int(spec.get("width", 1180)), C.W - 96))
         return lay, spec.get("xy", (112, C.H - lay.size[1] - 130))
     if kind == "range":
         lay = V.range_chart(spec["rows"], spec.get("title", ""), spec.get("note", ""),
                             spec.get("reveal", 1.0))
         return lay, spec.get("xy", (112, C.H - lay.size[1] - 130))
     if kind == "gauge":
-        lay = V.gauge(spec["value"], spec["label"], spec.get("sub", ""), accent,
-                      spec.get("size", 520))
-        return lay, spec.get("xy", (C.W - lay.size[0] - 130, C.H - lay.size[1] - 130))
+        # portrait: a 520 px gauge in a 1080 px frame leaves no margin for the
+        # source stamp or the headline, so the default size drops with the canvas
+        gsize = int(spec.get("size", 520 if not C.PORTRAIT else 430))
+        lay = V.gauge(spec["value"], spec["label"], spec.get("sub", ""), accent, gsize)
+        if "xy" in spec:
+            return lay, spec["xy"]
+        dx = 130 if not C.PORTRAIT else 90
+        dy = (130 if not C.PORTRAIT else 40)
+        return lay, (C.W - lay.size[0] - dx, (C.SAFE[0] + 30) if C.PORTRAIT
+                     else (C.H - lay.size[1] - dy))
     if kind == "source":
-        lay = V.source_stamp(spec["cites"])
+        lay = V.source_stamp(spec["cites"], width=min(1180, C.W - 96))
         return lay, spec.get("xy", (112, C.H - lay.size[1] - 150))
     if kind == "callout":
         lay = V.callout(spec["text"], accent)
@@ -446,9 +506,16 @@ class Film:
 # MASTER ASSEMBLY
 # ─────────────────────────────────────────────────────────────────────────────
 
-def mux(picture, audio, out, size=(C.W, C.H), crf: int = 19, preset: str = "medium",
+def mux(picture, audio, out, size=None, crf: int = 19, preset: str = "medium",
         audio_bitrate: str = "192k") -> pathlib.Path:
-    """Encode the delivery master: H.264 high profile, AAC 48 kHz stereo."""
+    """Encode the delivery master: H.264 high profile, AAC 48 kHz stereo.
+
+    The container's dimensions come from the PICTURE, never from a parameter
+    (`size` is accepted and ignored for call compatibility): the vertical master
+    is muxed by this same function, and a hard-coded 1920x1080 default here would
+    silently letterbox it. G18 reads the dimensions back out of the delivered
+    file precisely because that class of mistake is invisible in the log.
+    """
     out = pathlib.Path(out)
     C.run([C.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error",
            "-i", str(picture), "-i", str(audio),
@@ -478,6 +545,85 @@ def verify(master, expect_seconds: float | None = None) -> dict:
     if expect_seconds:
         info["av_duration_delta_s"] = round(abs(info.get("duration_s", 0) - expect_seconds), 3)
     return info
+
+
+def render_vertical(plan: dict, out_path, fps: int = C.FPS, plate_dir=None,
+                    crf: int = 12, preset: str = "ultrafast") -> pathlib.Path:
+    """Render the 9:16 cut: tracked crop, then TYPE laid out for the portrait frame.
+
+    MEASURED GAP this closes: `vertical_path` cropped camera + grade into 1080x1920
+    and left the type behind, because every type builder reads `core.W/H` at call
+    time and the canvas was fixed at 1920x1080. The result was a real Shorts master
+    with no reason for a viewer to watch it — a landscape composition letterboxed
+    into a phone. Here the type pass runs inside `core.canvas(VW, VH)`, so the same
+    layer grammar (headline, stat, species card, lower third, mark) lays itself out
+    for the portrait frame, and a shot may declare `vertical_type` to compose the
+    Short differently from the long-form cut.
+
+    Placement is TRACKED, not centred: the crop window follows each shot's declared
+    subject rect and is damped across shot boundaries, so the animal stays framed.
+
+    Vertical-safe geometry (brand law, `knowledge/04`): the type lives between
+    y 420 and y 1620 of 1920, because the platform's UI covers the top ~13 % and
+    the bottom ~25 % of a Short.
+    """
+    out_path = pathlib.Path(out_path)
+    w = Writer(out_path, (C.VW, C.VH), fps=fps, crf=crf, preset=preset)
+    stages: dict[str, D.Stage] = {}
+    grades: dict[str, G.Grade] = {}
+    prev_frame = None
+    prev_cx = 0.5
+    global_idx = 0
+    root = pathlib.Path(plate_dir or plan.get("plates", C.PLATES))
+    t_cursor = 0.0
+    for shot in plan["shots"]:
+        plate_p = root / shot["plate"]
+        key = f"{shot['plate']}|{json.dumps(shot.get('depth', {}), sort_keys=True)}"
+        if key not in stages:
+            stages[key] = D.stage_from_file(plate_p, shot.get("depth", {}))
+        stage = stages[key]
+        look = shot.get("look", plan.get("look", "nocturne"))
+        if look not in grades:
+            grades[look] = G.Grade(look)
+        gr = grades[look]
+        cam = shot.get("cam", {})
+        fx = shot.get("fx", {}) or {}
+        types = shot.get("vertical_type", shot.get("type", [])) or []
+        direction = shot.get("direction", 1)
+        k_frames = T.frames_for(shot.get("transition_in", "hard"))
+        d_alpha = stage._d_alpha if fx.get("motes") else None
+        rect = shot.get("depth", {}).get("rect", (0.2, 0.12, 0.8, 0.98))
+        target_cx = (rect[0] + rect[2]) / 2.0
+        n = max(int(round(shot["dur"] * fps)), 1)
+        cw = int(C.H * 9 / 16)
+        for i in range(n):
+            p = i / (n - 1) if n > 1 else 1.0
+            local_t = i / fps
+            frame = stage.frame(p, cam, direction)
+            frame = gr.apply(frame, global_idx)
+            frame = apply_fx(frame, fx, local_t, global_idx, d_alpha)
+            cx = prev_cx + (target_cx - prev_cx) * C.e_io(C.clamp(i / (0.5 * fps)))
+            x0 = int(C.clamp(cx * C.W - cw / 2, 0, C.W - cw))
+            fv = C.resize(frame[:, x0:x0 + cw], C.VW, C.VH)
+            if types:
+                with C.canvas(C.VW, C.VH):
+                    fv = draw_type(fv, types, local_t, shot["dur"])
+            if i < k_frames and prev_frame is not None:
+                pass          # a cross-shot vertical transition would need the
+                              # previous VERTICAL frame; kept out until designed
+            fv = apply_shake(fv, fx, local_t)
+            w.write(fv)
+            prev_frame = fv.copy()
+            prev_cx = cx
+            global_idx += 1
+            if global_idx % 240 == 0:
+                C.say(f"    v-frame {global_idx:5d}  shot {shot['id']}  t={t_cursor + local_t:6.2f}s")
+        t_cursor += shot["dur"]
+        if True:
+            C.say(f"  v-shot {shot['id']:>3}  {shot['dur']:5.1f}s  {shot['plate']:<24} "
+                  f"types={len(types)} frames={n}")
+    w.close()
+    return out_path
 
 
 def vertical_path(plan: dict, out_path, fps: int = C.FPS, plate_dir=None) -> pathlib.Path:

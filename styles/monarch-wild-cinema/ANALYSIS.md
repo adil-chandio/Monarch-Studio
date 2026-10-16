@@ -158,6 +158,32 @@ CALL FILES-compatible** so an episode can be re-planned in the old tooling.
 
 ---
 
+### 6.1 The vertical cut is a delivery format, not a downscale (2026-10-17)
+
+**Decision:** the style ships **two masters** from one plan — 1920×1080 and 1080×1920 — and the
+vertical one is a first-class artefact: `core.canvas(VW, VH)` re-scopes every builder, the camera
+and grade run at full size, a subject-tracked crop carries the frame to portrait, and the type is
+composed *inside* the portrait canvas. Three gates (G17/G18/G19) run only against that file.
+
+**Alternative dropped:** letterboxing the 16:9 master into a 9:16 frame, or an automatic centre
+crop. Both are cheap, both put the subject off-frame on a phone, and neither answers the platform's
+real constraint — the Shorts UI owns the top ~13 % and the bottom ~20 % of the picture. A viewer
+looking at a Short sees the plate through a window the design must know about; ignoring it is how a
+"perfect" landscape film reads as an amateur upload in the feed.
+
+**What the measurement changed:** the first vertical attempt was a real 1080×1920 render with **no
+type in it** — the type was threaded into the landscape canvas only, so the crop simply did not
+carry it (T19). The second put a headline under the platform's button column (T20). The third left
+a hard-cornered black scrim box on the plate around the brand mark (T21). Each was found by
+**reading the delivered frame back as an image**, not by reasoning about the code — the same rule
+that found the blown god-rays and the strobe flash.
+
+**What it costs:** the portrait pass is ≈ 250 s for 31 s of film on 2 cores (full-size camera the
+whole way; the crop is the cheap part), i.e. the vertical master adds roughly 60 % to a build. That
+is the price of a Short that does not look like a re-upload.
+
+---
+
 ## 7. Cost of the system (measured on this box, 2 cores, no GPU)
 
 | Stage | Cost |

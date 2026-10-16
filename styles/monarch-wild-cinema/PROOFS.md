@@ -221,17 +221,39 @@ reading the image back, never by reasoning about the code.**
 
 ---
 
-## 10. Final gate run — 16 / 16 PASS
+## 10. Final gate run — 19 / 19 PASS, two masters
 
 ```
 G01 frames produced 930 (>=930)        G02 duplicate frames 0          G03 motion p10 0.394 (>0.12)
-G04 max dLuma inside shots 7.64 (<8)   G15 cut-point delta 2.74 (<26)  G05 type contrast 6.33 (>=4.5)
+G04 max dLuma inside shots 7.64 (<8)   G15 cut-point delta 2.74 (<26)  G05 type contrast 6.51 (>=4.5)
 G06 type in safe band 0                G16 text runs in canvas 0       G07 decoded peak -3.4 dBFS (<=-1)
 G08 loudness -16.10 LUFS (+-1 of -16.5) G09 true peak -3.41 dBTP      G10 correlation 0.561 (0.55-0.85)
 G11 side/mid 0.282 (>0.25)             G12 A/V delta 0.0 s             G13 4-8 kHz 25.2 % (>10)
-G14 120-500 Hz 25.5 % (<58)
+G14 120-500 Hz 25.5 % (<58)            G18 vertical geometry 1080x1920
+G17 portrait type in the Shorts band 0  G19 vertical type contrast 4.73 (>=4.5)
 ```
 
-`reports/CONTACT_SHEET.jpg` is one frame from each of the eight shots; `reports/thumbs/ALL_THUMBS.jpg`
-is the five thumbnail concepts with their feed-size versions underneath. Both were read back and
-inspected — which is how the last four defects in §9 were caught.
+Same film, two files: `delivery/PROOF-01-TRAILER_MASTER.mp4` (1920×1080) and
+`delivery/PROOF-01-TRAILER_VERTICAL.mp4` (1080×1920, the same `master.wav` muxed in). The vertical
+gates run only when the 9:16 file is handed to `gates.py --vertical`, which is why the report has
+three more rows than the first version of this page.
+
+`reports/CONTACT_SHEET.jpg` is one frame from each of the eight shots; `CONTACT_SHEET_VERTICAL.jpg`
+is the same eight in portrait. Both were read back and inspected — which is how every visual defect
+recorded in §9, the T19–T21 portrait failures and the T23/T24 mark-treatment loop were found. **A
+gate report is not a substitute for looking; it is what stops the looking from being the only
+evidence.**
+
+### The brand mark, end to end (the clearest example of the loop)
+
+| Attempt | Vertical contrast | Verdict |
+|---|---|---|
+| scrim panel behind the mark | — | **rejected on sight**: a hard-cornered black rectangle on the plate (T21) |
+| no treatment (plate only) | 3.70 | fails the gate |
+| gaussian halo, blur 7 | 3.90 | fails; thin strokes lose their blur energy (T23) |
+| three-radius halo (4/10/22 px) | 3.90 | fails; a wider blur of the same ink is *weaker*, not stronger |
+| pad + blur round-rect cloud | 6.41 | passes the gate, **rejected on sight**: a visible dark oval on the fog (T24) |
+| dilated + blurred glyph shadow | **7.37 vertical / 7.37 landscape** | ships — reads as a broadcast drop shadow at 2× |
+
+The cost of finding this was six probe renders at ~25 s each, against an 11-minute full build that
+would have been re-run six times otherwise.

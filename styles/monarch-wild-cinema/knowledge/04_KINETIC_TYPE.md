@@ -108,3 +108,43 @@ stat 2.07, mark 1.21–1.33, gauge 1.17, lower 2.48 — one layer of twelve pass
   glyphs measure 14.85:1.
 
 After the fix, the same twelve layers measure **6.33–15.63:1**, worst 6.33.
+
+---
+
+## 4.y · The portrait frame: a second safe band, not a smaller canvas (2026-10-16)
+
+A 9:16 Short is not "the same film, narrower". Two things change, and both are measured:
+
+**1 · The safe band moves.** On a 1920-wide landscape frame the type-safe band is y 60–1020. On a
+1080×1920 portrait frame the platform's handle covers the top ~13 % and the action bar plus
+description cover the bottom ~25 %, so the band is **y 420–1620**. Measured on the first attempt:
+laying the trailer's type out with the landscape rules put the headline at **y 1459–1692** — the
+letters sat under the like/share buttons, and the species card ran to **x 1204** in a 1080-wide
+frame.
+
+**2 · Placement is by INK, not by anchor.** `film._fit_safe` measures the raw alpha-ink bounding
+box and translates the layer until that box is inside the band. It has to be the ink because the
+ink extends past `anchor + size` by the extrusion depth (13 steps), the glow and the underline —
+a headline placed by its nominal bottom measured 45 px too low. The **scrim is deliberately
+excluded** from the fit: it is a soft gradient and may bleed past the band; the letters may not.
+
+Everything else follows from `core.canvas(W, H)`, a context manager that temporarily repoints
+`core.W`, `core.H`, `core.PORTRAIT` and `core.SAFE`. Builders read those at call time, so:
+
+```python
+from tabahi import core as C, film as FM
+with C.canvas(C.VW, C.VH):
+    frame_v = FM.draw_type(frame_v, types, local_t, dur)   # laid out for the phone
+```
+
+Consequences that fell out of it, all measured:
+
+| | |
+|---|---|
+| Cards must respect the canvas | a `species_card` defaulted to 1180 px wide; portrait clamps every card to `C.W - 96` or the card leaves the frame |
+| The same spec, two layouts | `_key()` includes the canvas in the layer-cache key, so a landscape layer can never be reused on a portrait frame |
+| A shot may differ between cuts | a shot's `vertical_type` overrides `type` for the Short only (fewer words, bigger type, different position) |
+| Headline `pos` is band-relative | portrait `"lower"` means "the bottom of the safe band", not "300 px from the canvas edge" |
+
+**Gate G17** fails the build when portrait ink leaves the band; **G18** checks the 9:16 master's
+geometry. Both run only when `gates.py --vertical <file>` is given.

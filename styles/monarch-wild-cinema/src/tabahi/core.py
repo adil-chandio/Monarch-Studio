@@ -61,6 +61,13 @@ def run(cmd: list[str], label: str = "", quiet: bool = False) -> subprocess.Comp
 W, H, FPS = 1920, 1080, 30
 SR = 48000
 VW, VH = 1080, 1920                      # vertical (Shorts) output
+PORTRAIT = False                         # set by `canvas()`; builders read it
+# Type-safe geometry. A Short is covered by platform UI above and below: the
+# top ~13 % holds the channel handle and the bottom ~25 % holds the action bar
+# and the description. MEASURED: laying the trailer's type out at the landscape
+# "lower" position put the headline at y 1459-1692 of 1920, i.e. underneath the
+# like/share buttons. The safe band is therefore canvas-dependent.
+SAFE = (60, H - 60)                      # horizontal: y 60 .. 1020
 
 # Palette — the Monarch Wild Cinema identity.
 INK = (10, 12, 16)
@@ -154,6 +161,40 @@ def font(style: str, size: int) -> ImageFont.FreeTypeFont:
             pass
     _font_cache[key] = f
     return f
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CANVAS CONTEXT  (a film renders 16:9 or 9:16, and every builder reads W/H)
+# ─────────────────────────────────────────────────────────────────────────────
+
+class canvas:
+    """Temporarily point W/H (and the frame W) at another canvas size.
+
+    Used by `film.render_vertical`: every type, card and FX builder reads
+    `core.W` / `core.H` at call time, so re-rendering a shot's TYPE pass at
+    1080x1920 is a context switch rather than a second layout implementation.
+    The 2.5-D camera is resolution-independent already.
+
+        with canvas(C.VW, C.VH):
+            frame_v = build_type_only(frame_v16, types, t, dur)
+    """
+
+    def __init__(self, w: int, h: int):
+        self.w, self.h = int(w), int(h)
+        self._old = None
+
+    def __enter__(self):
+        g = globals()
+        self._old = (g["W"], g["H"], g["PORTRAIT"], g["SAFE"])
+        g["W"], g["H"] = self.w, self.h
+        g["PORTRAIT"] = self.h > self.w
+        g["SAFE"] = (420, self.h - 300) if g["PORTRAIT"] else (60, self.h - 60)
+        return self
+
+    def __exit__(self, *exc):
+        g = globals()
+        (g["W"], g["H"], g["PORTRAIT"], g["SAFE"]) = self._old
+        return False
 
 
 # ─────────────────────────────────────────────────────────────────────────────

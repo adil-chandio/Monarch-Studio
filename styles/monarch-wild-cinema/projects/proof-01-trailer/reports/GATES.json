@@ -1,6 +1,6 @@
 {
-  "master": "projects/proof-01-trailer/build/PROOF-01-TRAILER_MASTER.mp4",
-  "master_bytes": 49215297,
+  "master": "projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4",
+  "master_bytes": 49245137,
   "duration_s": 31.0,
   "planned_s": 31.0,
   "gates": [
@@ -47,7 +47,7 @@
     {
       "gate": "G05",
       "name": "min type contrast (delivered)",
-      "value": 6.33,
+      "value": 6.51,
       "target": ">= 4.5",
       "verdict": "PASS",
       "note": "glyph core vs its real backdrop; worst: 04:35"
@@ -131,11 +131,35 @@
       "target": "<= 0.10 s",
       "verdict": "PASS",
       "note": ""
+    },
+    {
+      "gate": "G18",
+      "name": "vertical geometry",
+      "value": "1080x1920",
+      "target": "1080x1920",
+      "verdict": "PASS",
+      "note": "9:16 master at the brand resolution"
+    },
+    {
+      "gate": "G17",
+      "name": "portrait type inside the Shorts band",
+      "value": 0,
+      "target": "0",
+      "verdict": "PASS",
+      "note": "safe band y 420-1620 of 1920: "
+    },
+    {
+      "gate": "G19",
+      "name": "vertical type contrast (delivered)",
+      "value": 4.73,
+      "target": ">= 4.5",
+      "verdict": "PASS",
+      "note": "worst: 07:headline"
     }
   ],
-  "passed": 16,
+  "passed": 19,
   "failed": 0,
   "unmeasured": 0,
-  "total": 16,
+  "total": 19,
   "result": "PASS"
 }

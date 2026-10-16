@@ -131,9 +131,10 @@ cd styles/monarch-wild-cinema
     --out-dir projects/<slug>/build \
     --vertical
 
-# gate it
+# gate it — 16:9 and (when a Shorts master exists) 9:16 in ONE report
 /home/user/.venv/bin/python src/tabahi/gates.py --master projects/<slug>/build/<EP>_MASTER.mp4 \
-    --plan projects/<slug>/PLAN.json --out projects/<slug>/reports/GATES.json
+    --plan projects/<slug>/PLAN.json --out projects/<slug>/reports/GATES.json \
+    --vertical projects/<slug>/build/<EP>_VERTICAL.mp4
 
 # thumbnails
 /home/user/.venv/bin/python src/tabahi/thumbs.py --plan projects/<slug>/PLAN.json \
@@ -144,6 +145,23 @@ Cost on this sandbox (2 cores, no GPU): **≈ 0.40 s/frame** at 1080p, i.e.
 **≈ 12 minutes per finished minute** of long-form. A 3-minute episode is a
 coffee break, not an overnight job. Measured after the optimisations recorded in
 `knowledge/09_FAILURE_REGISTER.md`.
+
+---
+
+### Two masters from one plan
+
+`--vertical` renders the **9:16 Shorts master** in the same run: the camera move and grade execute
+at full 1920×1080 (so the depth parallax stays at its designed amplitude), then a damped,
+subject-tracked crop carries the frame to 1080×1920 and the type is composed inside the portrait
+canvas. One `master.wav` is muxed into both, so they are the same film seen two ways — not two
+films. A shot may carry `vertical_type` to compose differently for the phone.
+
+Three gates run **only** against that file: **G17** (no portrait type outside the Shorts safe band
+y 420–1620), **G18** (1080×1920) and **G19** (worst delivered vertical type contrast ≥ 4.5). They
+exist because a crop moves the plate under the type: the brand mark measured 6.5:1 in 16:9 and
+3.85:1 in the 9:16 cut of the *same shot*. A landscape pass is not evidence about a Short.
+
+Cost: the portrait pass is ≈ 250 s for 31 s on 2 cores — about +60 % on a build, paid once per film.
 
 ---
 

@@ -47,9 +47,32 @@ def frame_diffs(lum: np.ndarray) -> np.ndarray:
     return np.abs(np.diff(lum.astype(np.float32), axis=0)).mean(axis=(1, 2))
 
 
+def _probe_geometry(path) -> dict:
+    st = subprocess.run([C.ffmpeg(), "-hide_banner", "-i", str(path)],
+                        capture_output=True, text=True).stderr
+    w = h = 0
+    for line in st.splitlines():
+        if "Video:" in line:
+            for tok in (t.strip() for t in line.split(",")):
+                a, _, b = tok.partition("x")
+                if a.isdigit() and b.isdigit():
+                    w, h = int(a), int(b)
+                    break
+            break
+    return {"w": w, "h": h}
+
+
 def _frame_rgb(master, at: float):
-    """Decode one full-resolution frame — G05/G06 measure the delivered pixels."""
-    st = subprocess.run([C.ffmpeg(), "-v", "error", "-ss", f"{max(at, 0):.3f}", "-i", str(master),
+    """Decode one full-resolution frame — G05/G06 measure the delivered pixels.
+
+    MEASURED BUG: `-ss` BEFORE `-i` is a fast (keyframe) seek. With a 2 s GOP the
+    frame that came back was up to two seconds early — the gate was measuring a
+    frame from the PREVIOUS shot, which is why shot 03's corner mark reported
+    1.00:1 (fg == bg exactly, i.e. flat plate) while the mark in the real frame
+    reads 6.5:1. Seeking AFTER the input is decode-accurate; a 31 s file costs
+    nothing to decode up to the timestamp.
+    """
+    st = subprocess.run([C.ffmpeg(), "-v", "error", "-i", str(master), "-ss", f"{max(at, 0):.3f}",
                          "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
                         capture_output=True)
     if len(st.stdout) < C.W * C.H * 3:
@@ -76,7 +99,7 @@ def plate_mean_luma(stage, p=0.5, look="nocturne") -> float:
     return float(C.luma(f).mean() / 255.0)
 
 
-def run(master, plan_path=None, spans=None, out=None) -> dict:
+def run(master, plan_path=None, spans=None, out=None, vertical=None) -> dict:
     master = pathlib.Path(master)
     rows = []
 
@@ -166,7 +189,10 @@ def run(master, plan_path=None, spans=None, out=None) -> dict:
         card_clip = []
         for shot in plan["shots"]:
             for spec in shot.get("type", []) or []:
-                lay, pos = FM._build_pil_raw(spec)
+                # the RAW layer (no scrim) for masks, the FITTED position from the
+                # shared pair API, so the sampled box is always the box the
+                # renderer drew into
+                lay, _scr, pos = FM._build_pil_pair(spec)
                 al = np.array(lay)
                 a = al[..., 3]
                 ink = a > 250
@@ -212,7 +238,20 @@ def run(master, plan_path=None, spans=None, out=None) -> dict:
                 pm = panel[oys.min():oys.max() + 1, oxs.min():oxs.max() + 1]
                 if sub.shape[:2] != im.shape[:2]:
                     continue
-                fg = sub[im].mean(axis=0)
+                # a backdrop mush must not be sampled: if the glyph mask and its
+                # surroundings are the same colour the box is wrong, not the type.
+                # MEASURED (mark, shot 03): a 9x11 glyph mask over a dark scrim
+                # patch reported 1.00:1 while the delivered mark reads 6.5:1.
+                if int(im.sum()) < 400:
+                    continue
+                # INK SAMPLE: the interior of the glyph stroke. MEASURED: the
+                # 1-px anti-aliased rim of a 21 px mark blends into whatever is
+                # behind it, so averaging the whole mask reported fg 202 for ink
+                # that is 242 in the layer.
+                ksz = 3 if max(im.shape) < 40 else 5
+                core_m = cv2.erode(im.astype(np.uint8), np.ones((ksz, ksz), np.uint8)) > 0
+                sample = core_m if int(core_m.sum()) >= 60 else im
+                fg = sub[sample].mean(axis=0)
                 # A CARD layer carries a panel that is a large contiguous region
                 # (05 species 9x its glyph area, 08 lower 7.7x). Small text
                 # layers have a 150-220 alpha band too — it is their own
@@ -222,7 +261,11 @@ def run(master, plan_path=None, spans=None, out=None) -> dict:
                 if pm.sum() > 3.0 * im.sum():
                     bg = sub[pm].mean(axis=0)          # a card: the panel is the backdrop
                 else:
-                    ring = cv2.dilate(im.astype(np.uint8), np.ones((11, 11), np.uint8)) > 0
+                    # RING WIDTH follows the glyph size: on a 14 px mark an 11x11
+                    # ring reaches past the halo and samples open plate; a 5x5 ring
+                    # measures the backdrop the letters are actually read against.
+                    kk = 5 if max(im.shape) < 40 else 11
+                    ring = cv2.dilate(im.astype(np.uint8), np.ones((kk, kk), np.uint8)) > 0
                     ring &= ~im
                     if ring.sum() < 64:
                         mrg = 40
@@ -235,6 +278,10 @@ def run(master, plan_path=None, spans=None, out=None) -> dict:
                     else:
                         bg = sub[ring].mean(axis=0)
                 c = _wcag(fg, bg)
+                import os as _os
+                if _os.environ.get("TB_DEBUG_G05"):
+                    C.say(f"    [g05] {shot['id']}:{spec['kind']:<9} t={t_show:6.2f} "
+                          f"fg={fg.round(0)} bg={bg.round(0)} c={c:.2f} ink={int(im.sum())}")
                 if c < worst_c:
                     label = str(spec.get("text", spec.get("value", spec.get("name", "?"))))[:26]
                     worst_c, worst_lbl = c, f"{shot['id']}:{label}"
@@ -290,6 +337,87 @@ def run(master, plan_path=None, spans=None, out=None) -> dict:
         delta = v.get("av_duration_delta_s")
         add("G12", "video/audio duration delta", delta, "<= 0.10 s",
             delta is not None and delta <= 0.10)
+    # ── vertical (Shorts) ───────────────────────────────────────────────────
+    # G17/G18 run only when a 9:16 master is handed in. They exist because the
+    # first vertical cut was a real 1080x1920 render with NO type: the crop and
+    # the camera were there, the reason to watch was not. A portrait frame also
+    # has a different safe band (the platform's handle and action bar cover the
+    # top ~13 % and the bottom ~25 %), so type that passes in 16:9 can sit under
+    # the like button in 9:16.
+    if vertical and plan:
+        vinfo = _probe_geometry(vertical)
+        ok_geom = (vinfo["w"], vinfo["h"]) == (C.VW, C.VH)
+        add("G18", "vertical geometry", f"{vinfo['w']}x{vinfo['h']}",
+            f"{C.VW}x{C.VH}", ok_geom, "9:16 master at the brand resolution")
+        bad = []
+        with C.canvas(C.VW, C.VH):
+            band = C.SAFE
+            for shot in plan["shots"]:
+                for spec in shot.get("vertical_type", shot.get("type", [])) or []:
+                    lay, _sc, (x, y) = FM._build_pil_pair(spec)
+                    bb = lay.getchannel("A").getbbox()
+                    if bb is None:
+                        continue
+                    y0, y1 = y + bb[1], y + bb[3]
+                    x0, x1 = x + bb[0], x + bb[2]
+                    if not (band[0] <= y0 and y1 <= band[1] and 0 <= x0 and x1 <= C.W):
+                        bad.append(f"{shot['id']}:{spec['kind']}@y{y0}-{y1}")
+        add("G17", "portrait type inside the Shorts band", len(bad), "0", not bad,
+            f"safe band y {band[0]}-{band[1]} of {C.VH}: " + "; ".join(bad[:3]))
+
+        # G19: the same legibility question, asked of the VERTICAL master. The
+        # portrait crop changes the plate under the type, so a layer that passes
+        # in 16:9 can fail in 9:16 (measured: shot 03's mark 6.5:1 -> 4.03:1
+        # because the crop pulled a lit patch of fog under it).
+        vworst, vlbl = 99.0, None
+        with C.canvas(C.VW, C.VH):
+            for shot in plan["shots"]:
+                for spec in shot.get("vertical_type", shot.get("type", [])) or []:
+                    lay, _sc, (x, y) = FM._build_pil_pair(spec)
+                    al = np.array(lay)
+                    a = al[..., 3]
+                    ink = a > 250
+                    if int(ink.sum()) < 150:
+                        ink = a > 200
+                    if int(ink.sum()) < 150:
+                        continue
+                    oys, oxs = np.where(a > 8)
+                    y0, y1 = y + int(oys.min()), y + int(oys.max()) + 1
+                    x0, x1 = x + int(oxs.min()), x + int(oxs.max()) + 1
+                    t_v = starts[str(shot["id"])] + float(spec.get("in", 0.0))
+                    t_out = min(float(spec.get("out", 1e9)), shot["dur"])
+                    t_show = t_v + min(1.0, max((t_out - float(spec.get("in", 0.0))) * 0.5, 0.25))
+                    fr = _frame_rgb(vertical, t_show)
+                    if fr is None:
+                        continue
+                    sub = fr[y0:y1, x0:x1].astype(np.float32)
+                    im = ink[oys.min():oys.max() + 1, oxs.min():oxs.max() + 1]
+                    if sub.shape[:2] != im.shape[:2] or int(im.sum()) < 400:
+                        continue
+                    panel = ((a >= 150) & (a <= 220))[oys.min():oys.max() + 1,
+                                                       oxs.min():oxs.max() + 1]
+                    if panel.sum() > 3.0 * im.sum():
+                        bg = sub[panel].mean(axis=0)
+                    else:
+                        kk = 5 if max(im.shape) < 40 else 11
+                        ring = cv2.dilate(im.astype(np.uint8), np.ones((kk, kk), np.uint8)) > 0
+                        ring &= ~im
+                        if ring.sum() < 64:
+                            continue
+                        bg = sub[ring].mean(axis=0)
+                    c = _wcag(sub[im].mean(axis=0), bg)
+                    import os as _os
+                    if _os.environ.get("TB_DEBUG_G05"):
+                        C.say(f"    [g19] {shot['id']}:{spec['kind']:<9} t={t_show:6.2f} "
+                              f"fg={sub[im].mean(axis=0).round(0)} bg={bg.round(0)} c={c:.2f}")
+                    if c < vworst:
+                        vworst, vlbl = c, f"{shot['id']}:{spec['kind']}"
+        add("G19", "vertical type contrast (delivered)", round(vworst, 2) if vworst < 99 else None,
+            ">= 4.5", vworst >= 4.5, f"worst: {vlbl}")
+
+    # MEASURED BUG: the summary used to be computed BEFORE the vertical block, so
+    # a report could print PASS while G17/G19 had failed — the counts simply did
+    # not include them. The summary is built after every gate has been added.
     report = {
         "master": str(master),
         "master_bytes": master.stat().st_size,
@@ -324,8 +452,9 @@ def main():
     ap.add_argument("--master", required=True)
     ap.add_argument("--plan")
     ap.add_argument("--out")
+    ap.add_argument("--vertical", help="9:16 master to run G17/G18 against")
     args = ap.parse_args()
-    rep = run(args.master, args.plan, out=args.out)
+    rep = run(args.master, args.plan, out=args.out, vertical=args.vertical)
     print_report(rep)
     raise SystemExit(0 if rep["result"] == "PASS" else 1)
 

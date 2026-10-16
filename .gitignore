@@ -69,4 +69,5 @@ styles/monarch-wild-cinema/projects/*/build/*.wav
 # WF-07 delivered media: kept OUT of git (the pack + regenerable project are the source of
 # truth), but placed outside build/ so it survives snapshots — build/ is excluded.
 styles/monarch-wild-cinema/projects/*/delivery/*.mp4
+styles/monarch-wild-cinema/projects/*/_render/
 styles/monarch-wild-cinema/projects/*/delivery/*.wav

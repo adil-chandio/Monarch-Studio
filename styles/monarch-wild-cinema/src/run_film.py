@@ -155,9 +155,16 @@ def _pickup(f, plan, out_dir, picture, args, plate_dir):
     C.say(f"  stereo  corr={st['lr_correlation']:.3f} side/mid={st['side_mid']:.3f} ({st['verdict']})")
     C.say("  bands   " + "  ".join(f"{k}:{v:.1f}%" for k, v in bands["whole"].items()))
     if args.vertical:
-        C.say("\n[+] vertical 9:16 cut")
-        vpath = FM.vertical_path(plan, out_dir / f"{plan.get('episode','episode')}_VERTICAL.mp4",
-                                 plate_dir=plate_dir)
+        # MEASURED: this call used to emit a SILENT 1080x1920 file - render_vertical
+        # writes the picture-only pass, and nothing muxed master.wav into it. The
+        # delivered vertical is the same film as the master, so it carries the same
+        # mix (one master.wav, two containers). The silent file is removed.
+        C.say("\n[+] vertical 9:16 cut (type re-laid out for the portrait frame)")
+        sil = out_dir / f"{plan.get('episode','episode')}_VERTICAL_silent.mp4"
+        vpath = out_dir / f"{plan.get('episode','episode')}_VERTICAL.mp4"
+        FM.render_vertical(plan, sil, plate_dir=plate_dir)
+        FM.mux(sil, out_dir / "master.wav", vpath, crf=args.crf, preset="medium")
+        sil.unlink()
         C.say(f"  {vpath} ({vpath.stat().st_size/1e6:.1f} MB)")
 
 
@@ -261,9 +268,16 @@ def main():
         C.say("  bands   " + "  ".join(f"{k}:{v:.1f}%" for k, v in bands["whole"].items()))
 
     if args.vertical:
-        C.say("\n[+] vertical 9:16 cut")
-        vpath = FM.vertical_path(plan, out_dir / f"{plan.get('episode','episode')}_VERTICAL.mp4",
-                                 plate_dir=plate_dir)
+        # MEASURED: this call used to emit a SILENT 1080x1920 file - render_vertical
+        # writes the picture-only pass, and nothing muxed master.wav into it. The
+        # delivered vertical is the same film as the master, so it carries the same
+        # mix (one master.wav, two containers). The silent file is removed.
+        C.say("\n[+] vertical 9:16 cut (type re-laid out for the portrait frame)")
+        sil = out_dir / f"{plan.get('episode','episode')}_VERTICAL_silent.mp4"
+        vpath = out_dir / f"{plan.get('episode','episode')}_VERTICAL.mp4"
+        FM.render_vertical(plan, sil, plate_dir=plate_dir)
+        FM.mux(sil, out_dir / "master.wav", vpath, crf=args.crf, preset="medium")
+        sil.unlink()
         C.say(f"  {vpath} ({vpath.stat().st_size/1e6:.1f} MB)")
 
     C.say(f"\nDONE in {time.time()-t0:.0f}s")

@@ -47,10 +47,10 @@
       "knowledge_index": "styles/monarch-wild-cinema/knowledge/INDEX.md",
       "workflow_code": "WF-07",
       "contract": "styles/monarch-wild-cinema/workflow.json",
-      "status": "ENGINE_COMPLETE_PROOF_RENDERED",
-      "latest_release": "PROOF-01 trailer — engine proof with the 14-gate report",
+      "status": "ENGINE_COMPLETE_PROOF_RENDERED_DUAL_FORMAT",
+      "latest_release": "PROOF-01 trailer — 16:9 master + 9:16 Shorts master, 19-gate report",
       "latest_release_path": "styles/monarch-wild-cinema/projects/proof-01-trailer",
-      "note": "the channel's flagship engine: generates everything it shows, reposts nothing"
+      "note": "the channel's flagship engine: generates everything it shows, reposts nothing; one plan renders a landscape and a portrait master"
     }
   ]
 }

@@ -84,3 +84,28 @@ reads it as filler even when they cannot name why.
 The same rule governs `flash`, `impact` and `shake`: each one is an *event*
 with a cause, timed to the cue, with its own decay curve. Effects that never
 decay (`shake` sustained, `flash` held) read as a broken codec, not as energy.
+
+---
+
+## 3.y · The vertical cut (2026-10-16)
+
+`film.render_vertical` produces the Shorts master: the 2.5-D camera and the grade run at full
+1920×1080, then a **subject-tracked crop** (each shot's declared `depth.rect` gives the subject
+centre, damped across shot boundaries with an ease so the window glides instead of snapping)
+lands it in 1080×1920, and the **type pass re-runs inside `core.canvas(VW, VH)`** so the words are
+laid out for the phone.
+
+Two honest limits, both visible in the delivered file:
+
+1. **No cross-shot transition in the vertical cut yet.** The horizontal master blends the
+   *previous* frame into the *next* one; the vertical renderer does not carry a previous
+   **vertical** frame across a shot boundary. Cuts between shots are therefore hard. The two hard
+   cuts in the 16:9 cut measured 9.9 and 18.8 luma — which is why they were moved onto dips — and
+   the same discipline is what the vertical needs.
+2. **FX are tuned for landscape.** `impact` and `flash` take a normalised centre, so they scale,
+   but a burst that reads at 1920 wide is proportionally larger in a 1080-wide crop. Worth
+   re-tuning with a real Short, not guessed at here.
+
+**The portrait rule that came out of this:** a landscape composition is not a Short. The vertical
+cut needs its own plan pass — fewer words per beat, bigger type, subjects centred — which is why
+`vertical_type` exists as a per-shot override rather than a global scale factor.

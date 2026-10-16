@@ -108,3 +108,47 @@ rays.
 | Violations the first rule had | The panel of every card layer is drawn edge-to-edge on purpose, so a raw alpha-bbox check flagged all four cards; the second rule (glyph core vs the far edges) still flagged decorative accent bars. That is why the check is now a **contract** rather than a heuristic. |
 | What it cannot do | G16 validates the **builder against the plan**, so the picture must be re-rendered whenever type code changes. G05 samples delivered frames and is the backstop for a stale render. |
 | Cost | Free — the rects are recorded during layer construction, which already happens once per unique spec. |
+
+## G05 measures the HOLD, and the hold can be darker than the entry
+
+`_frame_rgb` is decode-accurate (`-ss` after `-i`), and the sample lands at `t_in + 1.0 s`, clamped
+to the middle of a short beat: `min(1.0, max((out - in) * 0.5, 0.25))`. That is deliberate — the
+question "can this be read?" is about the **hold**, not the entry frame, which is semi-transparent
+by design (the entrance ramps alpha from 0.25).
+
+Consequence, measured: a layer that passes in the long-form cut can fail in the vertical cut while
+the *same layer* at the *same position* passes, because the tracked crop moved the plate underneath
+it. The 16:9 mark measured 6.5:1 on shot 03; the 9:16 crop of the same shot measured **4.03:1** —
+the crop pulls a lit patch of fog under the mark. That is not a gate bug, it is the vertical cut
+needing its own treatment (`vertical_type`), which is why that key exists.
+
+## G17–G19 — the gates that exist because of the 9:16 cut (2026-10-17)
+
+| Gate | Question | Target | Where measured | Why |
+|---|---|---|---|---|
+| G17 | portrait type inside the Shorts band | 0 violations | `gates.py --vertical`, from the **fitted** position | a Short's chrome owns the top and bottom of the frame; type inside the canvas but under the buttons is still covered (T19, T20) |
+| G18 | vertical geometry | 1080×1920 | `film.render_vertical` | the first vertical cut was a correct 1080×1920 file with **no type in it** — geometry is not composition |
+| G19 | worst delivered vertical type contrast | ≥ 4.5 | `gates.py --vertical`, decode-accurate frames | a crop changes the plate under the type: the same mark on the same shot measured 6.5:1 in 16:9 and 3.85:1 in 9:16 |
+
+G19 reuses the G05 sampling law exactly (WCAG ink-vs-surroundings on the delivered frame, hold
+time, eroded core, glyph-sized ring or panel-band background) because two contrast gates that
+measure different things cannot be compared. **G05 is not evidence about the vertical cut and G19 is
+not evidence about the landscape cut**; a style that ships both must run both.
+
+### The mark treatment, in one law
+
+Small type cannot be made legible by blurring. The mark is 25 px, so a stroke is ~4 px and a
+gaussian of that stroke has almost no alpha left at the ring the gate samples — v1 (blur 7) 3.90,
+v2 (three-radius halo) 3.98, v3 (wider halo) 3.90 on the vertical cut: three attempts, all under
+target. What works is **coverage**: dilate the glyph mask by 7/14/26 px with an elliptical kernel,
+blur 2.5/7/16 px so no edge is visible, and stack at alpha 225/180/105 under the letters. Measured
+on the shot that failed: **7.37:1 (vertical) / 7.37:1 (landscape)**. It reads as a broadcast drop
+shadow at 2× and leaves no shape of its own — the soft-oval version that also fixed the number was
+rejected on sight (T24).
+
+### A PASS line must be derived from the rows, last
+
+The report's summary used to be computed before the vertical block appended G17–G19, so a report
+could print `RESULT 16/16 PASS` while both vertical gates had failed (T25). The summary is now the
+last thing built, from the full row list — and the printed verdict is re-derived, never carried.
+

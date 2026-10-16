@@ -228,6 +228,60 @@ Continues the ledger of `monarch-stickman-animation` (M1–M38). Entries here ar
 
 ---
 
+## T19 · The vertical cut had no type at all
+
+- **Symptom:** the first 9:16 master was a real, well-graded 1080×1920 render — of a landscape
+  composition, with no words in it.
+- **Cause:** every type builder reads `core.W` / `core.H` at call time and the canvas was fixed at
+  1920×1080, so the vertical renderer simply skipped the type pass. `vertical_path` cropped the
+  camera and the grade and left the reason to watch behind.
+- **Fix:** `core.canvas(W, H)` (a context manager that repoints `W`, `H`, `PORTRAIT` and `SAFE`) plus
+  `film.render_vertical`, which re-runs the type pass inside the portrait frame. A shot may carry
+  `vertical_type` to compose the Short differently from the long-form cut.
+
+## T20 · Portrait type sat under the platform's buttons
+
+- **Symptom:** the first vertical render *with* type put the headline at **y 1459–1692** of 1920 and
+  the species card reached **x 1204** of 1080.
+- **Cause:** two things. (a) `"lower"` was hard-coded as `H - 300 - size`, which in a 1920-tall frame
+  is inside the action bar; the safe band is **y 420–1620** in a Short. (b) placement used the
+  layer's nominal anchor, but the ink extends past `anchor + size` by the extrusion depth (13
+  steps), the glow and the underline — a headline placed by its nominal bottom measured **45 px**
+  too low.
+- **Fix:** `core.SAFE` is canvas-dependent, `kinetic.headline` treats portrait `"lower"` as the
+  bottom of the safe band, cards clamp to `C.W - 96`, and `film._fit_safe` translates a layer by its
+  **raw alpha-ink bbox** (scrim excluded — a soft gradient may bleed, the letters may not).
+  **Gate G17** fails a build whose portrait ink leaves the band; **G18** checks the 9:16 geometry.
+
+## T21 · A scrim painted a hard rectangle over the brand mark
+
+- **Symptom:** read back from a delivered frame, the corner mark sat on a sharp black box with a
+  visible straight edge — not a design choice, an artifact.
+- **Cause:** the mark is ~1500 opaque pixels in a corner, so `_add_scrim` produced a tiny panel and
+  the 34 px feather had nothing to fade into.
+- **Fix:** no scrim on `kind == "mark"` (bone + amber over a graded plate measures **6.5:1** unaided).
+
+## T22 · The gate sampled the wrong frame, and the wrong box
+
+Two measurement bugs in G05, both caught by asking *what the numbers would look like if the gate
+were right*:
+
+1. **Fast seek.** `-ss` **before** `-i` is a keyframe seek; with a 2 s GOP the gate measured a frame
+   up to two seconds early — a frame from the *previous shot*, which is why shot 03's corner mark
+   reported exactly **1.00:1** (flat plate: fg == bg). Seeking after the input is decode-accurate.
+2. **Two position sources.** G05/G06 asked the builder for the *pre-fit* position while the renderer
+   drew at the *fitted* one, so the gate sampled a box the film never used. Fixed with one shared
+   `film._build_pil_pair()` that returns the raw layer, the scrimmed layer and the fitted position —
+   the gate and the renderer can no longer disagree by construction.
+3. A minimum glyph-sample guard (< 400 px) keeps a tiny mask from being scored against a mush of
+   its own surroundings.
+
+**Law:** a gate that disagrees with a delivered frame must first prove it is looking at the same
+pixels. Two of the last three G05 "failures" were the gate's fault, and the fix was never to lower
+the target.
+
+---
+
 ## Inherited laws this engine obeys by construction
 
 Cross-referenced, not duplicated:
@@ -242,3 +296,42 @@ Cross-referenced, not duplicated:
 | whole-file spectrum grades the wrong thing once voice dominates | ledger #35 | band energy split by voice presence |
 | no caption pill / karaoke band | WF-05 approved profile | the type system has no pill renderer at all |
 | the scene carries the image; type highlights it | editor brain §6 | type is one layer per idea, never a paragraph |
+
+### T23 — a gaussian halo alone does not raise contrast on thin type
+*Symptom:* the corner mark measured **3.70:1** on shot 03 after its scrim was removed; a blurred
+copy of the glyphs (black 235) lifted it only to 3.90, and a three-radius version (4/1.0 + 10/0.88
++ 22/0.5) to **3.90:1 in the vertical cut** and 3.98 in 16:9 — still under 4.5.
+*Cause:* the mark is 25 px type, so its stroke is ~4 px wide. A gaussian blur of a 4 px stroke has
+very little energy left at the 2–5 px ring the gate samples (measured: the ring stayed at RGB
+89–91, i.e. the plate's own brightness). Widening the radius spreads the same ink further and
+makes it *weaker*, not stronger — this is why the v1→v3 loop barely moved the number.
+*Law:* for small type, darken by **coverage**, not by blur. Dilate the glyph mask so the dark area
+fully contains the ring, then blur just enough to lose the hard edge.
+
+### T24 — a pad+blur round-rect "cloud" fixes the number and is visible as a shape
+*Symptom:* a rounded rectangle over the ink bbox (+20 px, radius 34, blur 26, black 165) raised the
+vertical mark to **6.41:1** and put a dark oval on the fog that is plainly visible at 2× — a scrim
+in soft clothing. Rejected on sight, not on the number.
+*Law:* a contrast fix that can be seen as an object on the plate is a defect even when it passes
+the gate. The correct test is both: the gate **and** the 2× crop read back as an image.
+
+### T25 — the gate report counted the gates that ran FIRST
+*Symptom:* a report printed `RESULT 16/16 PASS` while G17 and G19 had both failed: `report` and
+`report["result"]` were built before the vertical block appended its rows, so `failed` was 0.
+*Cause:* summary computed in the middle of the function, gates added after it.
+*Law:* the summary is the last thing computed, from the complete row list — and a "PASS" line that
+was never re-derived from the rows is worth nothing. Same family as T22: a gate must prove it
+looks at what it claims to look at.
+
+### T26 — `--vertical` shipped a silent Short, and `mux(size=…)` was a dead parameter
+*Symptom:* `run_film.py --vertical` produced a correct 1080×1920 file with **no audio stream**.
+`film.render_vertical` writes the picture-only pass by design (that is what keeps the crop cheap),
+and nothing muxed `master.wav` into it. The gate set at the time could not see it: G17–G19 ask about
+geometry and contrast, and the A/V-duration gate reads the *master*.
+*Second finding in the same line of code:* `FM.mux(..., size=(C.W, C.H))` accepted a size and never
+used it. Harmless while only 16:9 existed; a trap the moment the same function muxed a portrait file
+— the failure mode would have been a silently letterboxed Short.
+*Law:* a delivery flag must be proved end to end, not just for the step it names. The vertical path
+now muxes the same `master.wav` and deletes the silent intermediate, and `mux` states that the
+container's size comes from the picture.
+
