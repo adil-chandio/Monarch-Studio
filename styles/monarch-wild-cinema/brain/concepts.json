@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-wild-cinema",
+  "channel": "@monarch-cam",
+  "concepts": [
+    {
+      "id": "PROOF-01-TRAILER",
+      "title": "The Bear Isn't Charging You",
+      "format": "promo trailer (31 s, 16:9 + 9:16 cut)",
+      "hook": "40 METRES / THREE SECONDS",
+      "promise": "MOST CHARGES ARE NOT ATTACKS",
+      "payoff": "35 MPH sprint speed, 92 % spray effectiveness (cited on screen)",
+      "question_the_film_answers": "what is a charge actually for, and what works against it",
+      "plates": ["01_hook_charge", "03_running", "12_grizzly", "04_speed", "05_watching",
+                 "07_spray", "09_bear_country", "10_endcard"],
+      "status": "SHIPPED",
+      "shipped": "2026-10-16",
+      "gates": "16/16 PASS",
+      "novelty_verdict": "new angle for the channel: the catalogue's winning video explained what to do; this explains why the bear does it",
+      "status_after": "PLATES RESERVED — 05_watching and 12_grizzly are now the grizzly answer cards"
+    },
+    {
+      "id": "MF-02-CANDIDATE-A",
+      "title": "Four Bears, Four Rules",
+      "format": "long-form 4-6 min",
+      "hook": "the same advice kills you with the wrong bear",
+      "question_the_film_answers": "grizzly vs black vs polar vs sloth bear — what changes in the response",
+      "reserved_plates": ["11_black_bear", "13_polar_bear", "14_sloth_bear", "06_bear_family"],
+      "status": "RESERVED",
+      "blocked_on": "none — the four species plates already exist",
+      "novelty_verdict": "distinct from MF-01 (which is grizzly-only) and from PROOF-01 (which is single-question)"
+    },
+    {
+      "id": "MF-02-CANDIDATE-B",
+      "title": "What Fifty Years Changes",
+      "format": "long-form 4-6 min",
+      "hook": "this animal's range in 2075",
+      "question_the_film_answers": "a speculative, clearly-labelled projection from published range data",
+      "status": "BLOCKED",
+      "blocked_on": "SPECULATION POLICY — the film must label every projection as a projection; A07 must not let a projection read as a measurement (knowledge/11 §3)"
+    }
+  ]
+}

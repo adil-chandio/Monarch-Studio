@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "note": "14 owned plates. No third-party footage exists in this style, by design (audit: permissioned clips are the studio's standing blocker). Every film composes from this set.",
+  "plates": [
+    {"file": "01_hook_charge.jpg",  "species": "grizzly",     "role": "hook",        "mood": "confrontation", "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "02_bluff_charge.jpg", "species": "grizzly",     "role": "explanation", "mood": "motion",        "used_in": []},
+    {"file": "03_running.jpg",      "species": "black bear",  "role": "question",    "mood": "chase",         "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "04_speed.jpg",        "species": "grizzly",     "role": "number",      "mood": "sprint",        "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "05_watching.jpg",     "species": "grizzly",     "role": "answer card", "mood": "close",         "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "06_bear_family.jpg",  "species": "grizzly",     "role": "context",     "mood": "protective",    "used_in": []},
+    {"file": "07_spray.jpg",        "species": "human tool",  "role": "payoff",      "mood": "measured",      "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "08_walking_away.jpg", "species": "grizzly",     "role": "resolve",     "mood": "calm",          "used_in": []},
+    {"file": "09_bear_country.jpg", "species": "landscape",   "role": "re-hook",     "mood": "scale",         "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "10_endcard.jpg",      "species": "landscape",   "role": "endcard",     "mood": "series",        "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "11_black_bear.jpg",   "species": "black bear",  "role": "species card","mood": "portrait",     "used_in": []},
+    {"file": "12_grizzly.jpg",      "species": "grizzly",     "role": "species card","mood": "portrait",     "used_in": ["PROOF-01-TRAILER"]},
+    {"file": "13_polar_bear.jpg",   "species": "polar bear",  "role": "species card","mood": "portrait",     "used_in": []},
+    {"file": "14_sloth_bear.jpg",   "species": "sloth bear",  "role": "species card","mood": "portrait",     "used_in": []}
+  ]
+}
