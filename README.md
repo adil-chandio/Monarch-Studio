@@ -28,7 +28,9 @@ The channel's flagship production engine (`CINEGO <topic>`) — the synthesis of
 - [`knowledge/INDEX.md`](styles/monarch-wild-cinema/knowledge/INDEX.md) — 11 chapters: look, depth, motion, type, atmosphere, score, data honesty, gates, failure register, runbook, compliance
 - [`src/tabahi/`](styles/monarch-wild-cinema/src/tabahi/) — the engine (`depth` · `grade` · `films` · `kinetic` · `viz` · `transitions` · `score` · `film` · `gates` · `thumbs`)
 - [`src/run_film.py`](styles/monarch-wild-cinema/src/run_film.py), [`gates.py`](styles/monarch-wild-cinema/src/tabahi/gates.py), [`thumbs.py`](styles/monarch-wild-cinema/src/tabahi/thumbs.py)
-- [`proofs/`](styles/monarch-wild-cinema/proofs/) — engine proof with its measured gate report
+- [`ANALYSIS.md`](styles/monarch-wild-cinema/ANALYSIS.md) — the study of every editing system already in the studio, and what carried
+- [`PROOFS.md`](styles/monarch-wild-cinema/PROOFS.md) + [`proofs/PROOF_01.md`](styles/monarch-wild-cinema/proofs/PROOF_01.md) — engine proof with its measured gate report (**16/16 PASS**)
+- delivered film: [`delivery/`](styles/monarch-wild-cinema/projects/proof-01-trailer/delivery/) (media) + [`reports/`](styles/monarch-wild-cinema/projects/proof-01-trailer/reports/) (gates, thumbs, contact sheet)
 - [`data/`](styles/monarch-wild-cinema/data/) — visual DNA, motion grammar, audio policy, gates as data
 
 ## WF-06 · Monarch YT Agent Crew
