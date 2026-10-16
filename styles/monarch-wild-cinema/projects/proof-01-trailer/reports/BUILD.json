@@ -1,0 +1,42 @@
+{
+  "episode": "PROOF-01-TRAILER",
+  "shots": 8,
+  "total_s": 31.0,
+  "master": "/home/user/Monarch-Studio/styles/monarch-wild-cinema/projects/proof-01-trailer/_render/PROOF-01-TRAILER_MASTER.mp4",
+  "master_mb": 50.06,
+  "video": {
+    "path": "/home/user/Monarch-Studio/styles/monarch-wild-cinema/projects/proof-01-trailer/_render/PROOF-01-TRAILER_MASTER.mp4",
+    "size_bytes": 50057672,
+    "duration_s": 31.0,
+    "video": "h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 12715 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "audio": "aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 193 kb/s (default)",
+    "av_duration_delta_s": 0.0
+  },
+  "loudness": {
+    "i_lufs": "-16.13",
+    "lra": "1.60",
+    "lra_low": null,
+    "lra_high": null,
+    "true_peak": "-5.71",
+    "target_offset": "-0.20",
+    "mean_volume_dbfs": -18.7,
+    "decoded_peak_dbfs": -6.0
+  },
+  "stereo": {
+    "lr_correlation": 0.5668472051620483,
+    "side_mid": 0.27658984065055847,
+    "verdict": "stereo"
+  },
+  "bands": {
+    "whole": {
+      "20-120": 15.7519013608036,
+      "120-500": 38.78125085220839,
+      "500-2000": 42.36725840015308,
+      "2000-4000": 0.6995493238674082,
+      "4000-8000": 1.1110799728447405,
+      "8000-16000": 0.974975204853425
+    }
+  },
+  "render_seconds": 525.9,
+  "engine": "monarch-wild-cinema/tabahi"
+}

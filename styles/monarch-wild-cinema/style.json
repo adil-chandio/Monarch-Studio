@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-wild-cinema",
+  "name": "Monarch Wild Cinema",
+  "workflow_code": "WF-07",
+  "path": "styles/monarch-wild-cinema",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "trigger": "CINEGO <topic>",
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "entry_point": "src/run_film.py",
+  "primary_renderers": [
+    "src/tabahi/film.py"
+  ],
+  "primary_gates": [
+    "src/tabahi/gates.py"
+  ],
+  "thumbnail_system": "src/tabahi/thumbs.py",
+  "format": {
+    "long_form": { "width": 1920, "height": 1080, "fps": 30, "target_seconds": [120, 360] },
+    "vertical": { "width": 1080, "height": 1920, "fps": 30, "target_seconds": [15, 60] }
+  },
+  "source_policy": {
+    "third_party_footage": "forbidden — generates, does not repost",
+    "plates": "assets/plates (generated for this channel, owned outright)",
+    "music": "procedurally synthesised (src/tabahi/score.py); no licensed or unlicensed music",
+    "compliance_spine": "zero third-party media removes the channel's largest policy exposure"
+  },
+  "looks": ["nocturne", "first_light", "archive", "alarm"],
+  "reference_project": "projects/proof-01-trailer",
+  "reference_episode": "../../channel/productions/MF-01",
+  "reproducibility": "declarative PLAN.json + pinned fonts + pinned ffmpeg via imageio-ffmpeg; a plan replays byte-comparable modulo encoder threading",
+  "latest_user_feedback": "Raise every Monarch Studio editing system to the next level for this channel: animations and style that can carry a video to viral.",
+  "status": "engine complete, proof rendered, gates measured — see proofs/PROOF_01.md"
+}

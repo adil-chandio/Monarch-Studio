@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "camera": {
+    "vocabulary": ["push", "pull", "orbit", "drift", "roll", "breathe", "yaw"],
+    "ramp_default": "linear-dominant 0.15*e_io + 0.85*u",
+    "why": "an eased ramp reaches zero velocity at both ends and a typographic card then measures as frozen (stickman ledger #33)",
+    "always_moving": "breathe 1.6 px guarantees identical_frames = 0",
+    "meaning": "supplement subject motion, never certify a static frame"
+  },
+  "transitions": [
+    {"id": "hard", "seconds": 0.0, "cue": "hard_hit", "purpose": "violent beat change"},
+    {"id": "dip", "seconds": 0.22, "cue": "impact_soft", "purpose": "state change through tinted dark"},
+    {"id": "whip", "seconds": 0.24, "cue": "doppler_whip", "purpose": "fast causal hand-off"},
+    {"id": "depth", "seconds": 0.26, "cue": "riser_short", "purpose": "conceptual escalation"},
+    {"id": "wipe", "seconds": 0.24, "cue": "whoosh_edge", "purpose": "measured spatial hand-off"},
+    {"id": "dissolve", "seconds": 0.60, "cue": "pad_swell", "purpose": "time passing; at most once per episode"}
+  ],
+  "blend_model": "frozen outgoing frame into live incoming frames (single-pass streaming, no long dissolve between two moving scenes)",
+  "ceiling": {"max_dluma_between_frames": 8, "measured_by": "transitions.luma_profile"},
+  "anti_patterns": [
+    "the same kind at consecutive boundaries",
+    "an effect on every seam",
+    "a dissolve between two action beats",
+    "sustained shake or held flash",
+    "streaks on a beat whose narration is not about speed",
+    "camera values outside the declared envelope"
+  ]
+}

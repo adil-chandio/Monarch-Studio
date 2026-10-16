@@ -1,0 +1,181 @@
+{
+  "master": "projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4",
+  "master_bytes": 50090136,
+  "duration_s": 31.0,
+  "planned_s": 31.0,
+  "gates": [
+    {
+      "gate": "G01",
+      "name": "frames produced",
+      "value": 930,
+      "target": ">= 930",
+      "verdict": "PASS",
+      "note": "planned 930"
+    },
+    {
+      "gate": "G02",
+      "name": "duplicate frames",
+      "value": 0,
+      "target": "0",
+      "verdict": "PASS",
+      "note": "a frozen frame reads as a broken upload"
+    },
+    {
+      "gate": "G04",
+      "name": "max dLuma inside shots",
+      "value": 6.98,
+      "target": "< 8",
+      "verdict": "PASS",
+      "note": "strobe rule; 0.35 s cut windows excluded"
+    },
+    {
+      "gate": "G15",
+      "name": "cut-point luma delta",
+      "value": 2.89,
+      "target": "< 26",
+      "verdict": "PASS",
+      "note": "BT.1702 flash threshold; transitions must spread the cut"
+    },
+    {
+      "gate": "G03",
+      "name": "per-shot motion p10 (worst)",
+      "value": 0.418,
+      "target": "> 0.12",
+      "verdict": "PASS",
+      "note": "shot 08"
+    },
+    {
+      "gate": "G05",
+      "name": "min type contrast (delivered)",
+      "value": 6.55,
+      "target": ">= 4.5",
+      "verdict": "PASS",
+      "note": "glyph core vs its real backdrop; worst: 04:35"
+    },
+    {
+      "gate": "G06",
+      "name": "type inside safe band",
+      "value": 0,
+      "target": "0",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G16",
+      "name": "card ink inside its canvas",
+      "value": 0,
+      "target": "0",
+      "verdict": "PASS",
+      "note": "a card that clips its own label reads as a typo: "
+    },
+    {
+      "gate": "G07",
+      "name": "decoded sample peak dBFS",
+      "value": -3.4,
+      "target": "<= -1.0",
+      "verdict": "PASS",
+      "note": "measured AFTER the codec, not before encoding"
+    },
+    {
+      "gate": "G08",
+      "name": "integrated loudness LUFS",
+      "value": "-16.39",
+      "target": "-16.5 +- 1.0",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G09",
+      "name": "true peak dBTP",
+      "value": "-3.43",
+      "target": "<= -1.0",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G10",
+      "name": "L/R correlation (voice, in its spans)",
+      "value": 0.991,
+      "target": ">= 0.90",
+      "verdict": "PASS",
+      "note": "centred narration; bed corr 0.171, whole master 0.938"
+    },
+    {
+      "gate": "G11",
+      "name": "side/mid energy (bed)",
+      "value": 0.708,
+      "target": "> 0.25",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G20",
+      "name": "narration present in the master (speech band)",
+      "value": 10.25,
+      "target": ">= 4 dB",
+      "verdict": "PASS",
+      "note": "8 declared lines, 3.26x speech-band lift in the spans"
+    },
+    {
+      "gate": "G21",
+      "name": "narration level over the bed",
+      "value": 9.9,
+      "target": ">= 6 dB",
+      "verdict": "PASS",
+      "note": "worst line at 27.95s (voice stem vs bed at gain 0.34; ducking only widens this)"
+    },
+    {
+      "gate": "G13",
+      "name": "4-8 kHz share (whole)",
+      "value": 11.5,
+      "target": "> 10",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G14",
+      "name": "120-500 Hz share (whole)",
+      "value": 50.4,
+      "target": "< 58",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G12",
+      "name": "video/audio duration delta",
+      "value": 0.0,
+      "target": "<= 0.10 s",
+      "verdict": "PASS",
+      "note": ""
+    },
+    {
+      "gate": "G18",
+      "name": "vertical geometry",
+      "value": "1080x1920",
+      "target": "1080x1920",
+      "verdict": "PASS",
+      "note": "9:16 master at the brand resolution"
+    },
+    {
+      "gate": "G17",
+      "name": "portrait type inside the Shorts band",
+      "value": 0,
+      "target": "0",
+      "verdict": "PASS",
+      "note": "safe band y 420-1620 of 1920: "
+    },
+    {
+      "gate": "G19",
+      "name": "vertical type contrast (delivered)",
+      "value": 4.73,
+      "target": ">= 4.5",
+      "verdict": "PASS",
+      "note": "worst: 07:headline"
+    }
+  ],
+  "passed": 21,
+  "failed": 0,
+  "unmeasured": 0,
+  "total": 21,
+  "result": "PASS"
+}

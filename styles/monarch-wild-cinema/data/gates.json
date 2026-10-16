@@ -1,0 +1,183 @@
+{
+  "schema_version": 2,
+  "tool": "src/tabahi/gates.py",
+  "unmeasured_policy": "UNMEASURED fails; the only override is a recorded human entry in OVERRIDES.log naming gate, measured value and reason",
+  "gates": [
+    {
+      "id": "G01",
+      "name": "frames produced",
+      "target": ">= 99.5% of planned",
+      "source": "ffmpeg decode"
+    },
+    {
+      "id": "G02",
+      "name": "duplicate frames",
+      "target": "0",
+      "source": "frame diff"
+    },
+    {
+      "id": "G03",
+      "name": "per-shot motion p10",
+      "target": "> 0.12",
+      "source": "frame diff per shot"
+    },
+    {
+      "id": "G04",
+      "name": "max dLuma inside shots",
+      "target": "< 8 (inside a shot, excluding a 0.35 s window after each cut)",
+      "source": "decoded luma trace (ledger M14), cut windows excluded"
+    },
+    {
+      "id": "G05",
+      "name": "min type contrast (delivered)",
+      "target": ">= 4.5:1",
+      "source": "WCAG ink vs surrounding pixels, decoded frame"
+    },
+    {
+      "id": "G06",
+      "name": "type inside safe band",
+      "target": "y 60-1020 (16:9)",
+      "source": "alpha-ink bbox vs safe band"
+    },
+    {
+      "id": "G07",
+      "name": "decoded sample peak",
+      "target": "<= -1.0 dBFS",
+      "source": "volumedetect AFTER decode"
+    },
+    {
+      "id": "G08",
+      "name": "integrated loudness",
+      "target": "-16.5 +- 1.0 LUFS",
+      "source": "loudnorm json"
+    },
+    {
+      "id": "G09",
+      "name": "true peak",
+      "target": "<= -1.0 dBTP",
+      "source": "loudnorm json"
+    },
+    {
+      "id": "G10",
+      "name": "L/R correlation",
+      "target": "0.55 - 0.85",
+      "source": "decoded stereo"
+    },
+    {
+      "id": "G11",
+      "name": "side/mid energy",
+      "target": "> 0.25",
+      "source": "decoded stereo"
+    },
+    {
+      "id": "G12",
+      "name": "video/audio duration delta",
+      "target": "<= 0.10 s",
+      "source": "container"
+    },
+    {
+      "id": "G13",
+      "name": "4-8 kHz share (voice absent)",
+      "target": "> 10%",
+      "source": "FFT band share"
+    },
+    {
+      "id": "G14",
+      "name": "120-500 Hz share (whole file)",
+      "target": "< 58%",
+      "source": "FFT band share"
+    },
+    {
+      "id": "G15",
+      "name": "cut-point luma delta",
+      "target": "< 26",
+      "source": "decoded luma trace at each measured cut (BT.1702 flash threshold)"
+    },
+    {
+      "id": "G16",
+      "name": "text run inside its canvas",
+      "target": "0 violations",
+      "source": "core.RecDraw text rects recorded during layer build"
+    },
+    {
+      "id": "G17",
+      "name": "portrait type inside the Shorts band",
+      "target": "0 violations",
+      "kind": "measured",
+      "why": "A Short's chrome owns the top and bottom of a 1080x1920 frame (platform handle, title, buttons, caption). Type outside y 420-1620 is covered on a real phone even when it is inside the canvas.",
+      "source": "gates.py G17 with --vertical; uses the fitted position (same builder the renderer uses)"
+    },
+    {
+      "id": "G18",
+      "name": "vertical geometry",
+      "target": "1080x1920",
+      "kind": "measured",
+      "why": "The first vertical cut was a real 1080x1920 render with NO type in it: geometry alone is not evidence of a Shorts master.",
+      "source": "gates.py G18 / film.render_vertical"
+    },
+    {
+      "id": "G19",
+      "name": "vertical type contrast (delivered)",
+      "target": ">= 4.5",
+      "kind": "measured",
+      "why": "The portrait crop changes the plate under the type. The shot 03 mark measured 6.5:1 in 16:9 and 3.85:1 in the vertical cut of the same shot - the tracked crop pulled a lit fog patch under it. A 16:9 pass is not evidence about 9:16.",
+      "source": "gates.py G19 (needs --vertical)"
+    },
+    {
+      "id": "G20",
+      "name": "narration present in the master (speech band)",
+      "target": ">= 4 dB",
+      "kind": "measured",
+      "why": "A plan that DECLARES narration and a master that CONTAINS it are different claims. A build once declared eight lines and shipped none: G20 read 0.04 dB of speech-band lift in the declared spans (music-led fallback, T29).",
+      "source": "gates.py G20 - 300-3400 Hz RMS inside the declared spans vs outside, on the delivered file"
+    },
+    {
+      "id": "G21",
+      "name": "narration level over the bed",
+      "target": ">= 6 dB",
+      "kind": "measured",
+      "why": "Ducking keeps the bed out of the voice's way, but the voice must also simply be LOUDER than the bed. Measured 9.9 dB at the worst line.",
+      "source": "gates.py G21 - voice stem vs bed at the plan's mix_bed_gain, per declared span"
+    }
+  ],
+  "revisions": [
+    {
+      "date": "2026-10-16",
+      "gate": "G04",
+      "was": "max dLuma between ANY two frames < 8",
+      "now": "max dLuma INSIDE a shot < 8 (0.35 s cut windows excluded) + G15",
+      "evidence": "PROOF-01: the six largest frame-to-frame jumps were 77.2, 72.5, 70.2, 51.7, 47.7, 47.0 and every one landed on a shot boundary; the in-shot mean dLuma was 0.5-2.8. The old target read a hard cut as a strobe.",
+      "why_honest": "the strobe risk lives inside a shot; a cut is editing grammar. The cut is now gated separately against the BT.1702 flash threshold, which is STRICTER than the old rule for the frames around a cut."
+    },
+    {
+      "date": "2026-10-16",
+      "gate": "G05",
+      "was": "type ink vs the PLATE's mean luma",
+      "now": "type ink vs the surrounding pixels of the DELIVERED frame (WCAG)",
+      "evidence": "the proxy scored 2.25:1 on a headline the renderer had already fixed with a scrim, and would have passed type sitting on a blown highlight. Measured on delivered frames the same pack reads 1.17-5.86 across layers.",
+      "why_honest": "a proxy cannot see the scrim, the shadow, the bloom or the grade. The gate now measures what a viewer sees."
+    },
+    {
+      "date": "2026-10-16",
+      "gate": "G06",
+      "was": "layer canvas extent vs the safe band",
+      "now": "alpha-ink bbox vs the safe band",
+      "evidence": "three layer kinds are full-frame canvases with the ink in a corner; the canvas measurement reported 'mark@y0-1080' for a corner mark at y 77-123.",
+      "why_honest": "the gate asks where the type sits; the canvas is not the type."
+    },
+    {
+      "date": "2026-10-16",
+      "gate": "G16 (new)",
+      "was": "-",
+      "now": "every recorded text run must fit its own canvas",
+      "evidence": "read back from the delivered master: the shot-06 gauge label ran 46 px past its card and shipped as 'BEAR SPRA'. Cause: draw_tracked anchors at the LEFT edge and the gauge passed the card's CENTRE.",
+      "why_honest": "no exception, no plan error, invisible to every other gate — the only way to catch a silent text clip is to record where text landed. NOTE: G16 validates the builder against the plan, so the picture must be re-rendered whenever the type code changes; G05 samples delivered frames and would still catch an unreadable render."
+    },
+    {
+      "date": "2026-10-17",
+      "gate": "G10 / G11",
+      "change": "with narration, G10 grades the VOICE's correlation inside its own spans (>= 0.90) and G11 grades the BED stem's width; without a score stem both keep their original whole-file form",
+      "evidence": "delivered master with narration: corr 0.938 / S-M 0.032 (whole file) vs voice-in-spans 0.991 and bed stem 0.171 / 0.708. The whole-file number is dominated by a centred, mono narrator - it is not evidence about the bed."
+    }
+  ]
+}

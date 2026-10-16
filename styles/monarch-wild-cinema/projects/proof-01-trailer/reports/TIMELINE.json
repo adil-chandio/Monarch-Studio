@@ -1,0 +1,102 @@
+{
+  "fps": 30,
+  "size": [
+    1920,
+    1080
+  ],
+  "total_s": 31.0,
+  "shots": [
+    {
+      "id": "01",
+      "start": 0.0,
+      "dur": 4.0,
+      "plate": "01_hook_charge.jpg",
+      "transition_in": "hard",
+      "look": "nocturne",
+      "types": [
+        "headline",
+        "headline"
+      ]
+    },
+    {
+      "id": "02",
+      "start": 4.0,
+      "dur": 3.6,
+      "plate": "03_running.jpg",
+      "transition_in": "dip",
+      "look": "alarm",
+      "types": [
+        "headline"
+      ]
+    },
+    {
+      "id": "03",
+      "start": 7.6,
+      "dur": 4.4,
+      "plate": "12_grizzly.jpg",
+      "transition_in": "whip",
+      "look": "nocturne",
+      "types": [
+        "headline",
+        "mark"
+      ]
+    },
+    {
+      "id": "04",
+      "start": 12.0,
+      "dur": 3.8,
+      "plate": "04_speed.jpg",
+      "transition_in": "depth",
+      "look": "alarm",
+      "types": [
+        "stat"
+      ]
+    },
+    {
+      "id": "05",
+      "start": 15.8,
+      "dur": 4.2,
+      "plate": "05_watching.jpg",
+      "transition_in": "wipe",
+      "look": "nocturne",
+      "types": [
+        "species"
+      ]
+    },
+    {
+      "id": "06",
+      "start": 20.0,
+      "dur": 4.0,
+      "plate": "07_spray.jpg",
+      "transition_in": "dip",
+      "look": "first_light",
+      "types": [
+        "gauge",
+        "source"
+      ]
+    },
+    {
+      "id": "07",
+      "start": 24.0,
+      "dur": 3.8,
+      "plate": "09_bear_country.jpg",
+      "transition_in": "dip",
+      "look": "nocturne",
+      "types": [
+        "headline"
+      ]
+    },
+    {
+      "id": "08",
+      "start": 27.8,
+      "dur": 3.2,
+      "plate": "10_endcard.jpg",
+      "transition_in": "dip",
+      "look": "archive",
+      "types": [
+        "headline",
+        "lower"
+      ]
+    }
+  ]
+}

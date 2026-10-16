@@ -1,0 +1,4 @@
+clip_id,video_planned,source_platform,source_url,original_owner,contact_or_handle,permission_status,licence_or_basis,permission_date,evidence_file,used_in_episode,publish_ok,notes
+EXAMPLE-001,CLOSE CALL FILES #01,youtube,https://youtube.com/watch?v=EXAMPLE,Example Trail Cam Channel,@exampletrailcam,GRANTED,written permission via comment DM,2026-10-16,receipts/example001.png,#01,YES,owner asked for credit line in description
+EXAMPLE-002,CLOSE CALL FILES #01,pexels,https://pexels.com/video/EXAMPLE,Pexels contributor,pexels,LICENSED,Pexels License,2026-10-16,receipts/pexels001.png,#01,YES,stock licence allows commercial use
+EXAMPLE-003,CLOSE CALL FILES #01,unknown,https://example.com/viral-bear-clip,Unknown,unknown,UNVERIFIED,NONE,,,UNUSED,NO,DO NOT USE - source rights unverified
