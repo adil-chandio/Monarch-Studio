@@ -1,0 +1,163 @@
+{
+  "_doc": "Raw channel snapshot captured 2026-10-16 from live public sources. Every number here is a captured observation, not an estimate. Fields marked null were not observable from outside YouTube Studio and are NOT guessed.",
+  "_sources": [
+    "https://www.youtube.com/@monarch-cam (channel home render)",
+    "https://www.youtube.com/feeds/videos.xml?channel_id=UCfYdmsLO4Q8_IHklTyYieLg (RSS, 15 newest uploads, exact timestamps)",
+    "https://www.youtube.com/watch?v=<id> (per-video pages: exact upload date, views, likes, full description, transcript)",
+    "https://socialblade.com/youtube/channel/UCfYdmsLO4Q8_IHklTyYieLg (subs, lifetime views, 14-day daily table)",
+    "https://invidious.f5.si/api/v1/channels/UCfYdmsLO4Q8_IHklTyYieLg (about, tags, popular/latest sort)",
+    "https://invidious.f5.si/api/v1/channels/UCfYdmsLO4Q8_IHklTyYieLg/shorts?sort_by=popular"
+  ],
+  "captured_at": "2026-10-16",
+  "identity": {
+    "name": "Monarch Cam",
+    "handle": "@monarch-cam",
+    "channel_id": "UCfYdmsLO4Q8_IHklTyYieLg",
+    "created_on": "2024-02-08",
+    "subscribers": 3830,
+    "lifetime_views": 2147271,
+    "video_count": 73,
+    "verified": false,
+    "category_primary": "Pets & Animals / Entertainment",
+    "about_text": "🔥 KARMA CAM - Where Justice Gets Served! 🔥\n\nWelcome to your daily dose of INSTANT KARMA!\n\nWhat you'll find here:\n⚡ Instant Karma - Rude people getting owned\n😈 Dark Humor - British-style sarcasm\n🎯 Relatable POVs - \"That's so me!\" moments\n💯 Satisfaction Guaranteed - Every video hits different\n\nNew videos DAILY!\nFollow for your daily dose of justice. \n\nBecause what goes around... comes around. 🔔\n\nBusiness: [your email here]",
+    "about_defects": [
+      "Channel is named Monarch Cam but the About block is still branded KARMA CAM (leftover from an earlier pivot).",
+      "Promises 'New videos DAILY' while real 2026 cadence is ~1.9 uploads per month.",
+      "Business contact is the literal template placeholder '[your email here]'.",
+      "No link to any site, playlist, or series; no channel trailer observed."
+    ],
+    "channel_tags": [
+      "lets Know World", "Animals", "Animals history", "Ancient animals", "history", "facts",
+      "interesting facts", "Animals facts", "wild life", "Cute animals", "wildlife",
+      "dangerous animals", "biggest animals"
+    ],
+    "tabs_available": ["home", "videos", "shorts"],
+    "playlists_observed": null
+  },
+  "traffic_and_growth": {
+    "last_30_days": { "subscribers": 0, "views": 21898, "uploads": 2 },
+    "last_14_days": { "subscribers": -10, "views": 6109, "uploads": 1 },
+    "daily_average_views": 730,
+    "weekly_average_views": 284,
+    "daily_table_2026_10_03_to_2026_10_16": [
+      { "date": "2026-10-03", "subs": null, "views": 754, "videos": 72, "delta_videos": null },
+      { "date": "2026-10-04", "subs": null, "views": 555, "videos": 73, "delta_videos": 1 },
+      { "date": "2026-10-05", "subs": null, "views": 817, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-06", "subs": null, "views": 804, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-07", "subs": null, "views": 296, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-08", "subs": null, "views": 63, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-09", "subs": null, "views": 244, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-10", "subs": null, "views": 711, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-11", "subs": null, "views": 55, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-12", "subs": -10, "views": 398, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-13", "subs": null, "views": 0, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-14", "subs": null, "views": 345, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-15", "subs": null, "views": 234, "videos": 73, "delta_videos": 0 },
+      { "date": "2026-10-16", "subs": null, "views": 39, "videos": 73, "delta_videos": 0 }
+    ],
+    "third_party_estimates": {
+      "socialblade_grade": "C-",
+      "socialblade_rank_global": 1188546,
+      "monthly_earnings_estimate_usd": "5-88",
+      "yearly_earnings_estimate_usd": "94-1500"
+    },
+    "derived": {
+      "subs_per_view_lifetime": 0.00178,
+      "views_per_subscriber_lifetime": 560.6,
+      "views_per_video_lifetime_average": 29415,
+      "top5_share_of_lifetime_views": 0.843,
+      "longform_share_of_known_views": 0.947
+    }
+  },
+  "longform_by_views": [
+    { "id": "J5utnZFV1xE", "title": "Heart-Stopping Bear Attacks Filmed Live!", "views": 955681, "likes": 3396, "length": "7:27", "uploaded": "2024-09-09", "format": "clip compilation + light AI VO intro + on-screen topic captions + original clip audio" },
+    { "id": "cBuip12iVcs", "title": "Top 10 Invisible Creatures That Will Impress You", "views": 367000, "likes": null, "length": "6:24", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "SLpqoYCEPuk", "title": "20 Shocking Moments When Animals Collided with Trains", "views": 213000, "likes": null, "length": "8:32", "uploaded_approx": "~Oct/Nov 2025", "format": "counted compilation" },
+    { "id": "XwEKgx_nTyc", "title": "Top 10 Invisible Creatures That Will Impress You - Part 2", "views": 140000, "likes": null, "length": "4:28", "uploaded_approx": "~Oct 2024", "format": "top-10 list, sequel" },
+    { "id": "hCtUrhVQwQ8", "title": "Heart-Stopping Bear Attacks Filmed Live! - Part 2", "views": 134000, "likes": null, "length": "9:01", "uploaded_approx": "~Oct 2024", "format": "clip compilation, sequel" },
+    { "id": "d9K85rRcGuE", "title": "Real Creatures That Inspired Big Screen Monsters", "views": 55000, "likes": null, "length": "3:37", "uploaded_approx": "~Oct 2024", "format": "listicle" },
+    { "id": "Fqqy9UKcl1U", "title": "Mind-Blowing Top 10 Exotic Animals You've Never Heard of Before", "views": 47000, "likes": null, "length": "4:23", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "r6UUjsCb81c", "title": "Heart-Stopping Bear Attacks Filmed Live! - Part 3", "views": 46000, "likes": null, "length": "8:56", "uploaded_approx": "~Oct 2024", "format": "clip compilation, sequel" },
+    { "id": "VowVqRZyQo4", "title": "Heart-Stopping Bear Attacks Caught on Camera!", "views": 21000, "likes": null, "length": "6:51", "uploaded_approx": "~Oct 2024", "format": "clip compilation" },
+    { "id": "0BuO8lmSNc0", "title": "Heart-Stopping Shark Attacks Filmed Live!", "views": 7600, "likes": null, "length": "10:22", "uploaded_approx": "~Oct 2024", "format": "clip compilation" },
+    { "id": "Lo4Ko9rmg6I", "title": "How Did David Copperfield Make the Statue of Liberty Disappear?", "views": 6900, "likes": null, "length": "3:07", "uploaded_approx": "~Oct 2024", "format": "explainer" },
+    { "id": "7Hp_XLn2Kyk", "title": "Mind-Blowingly Cute Animals You Haven't Seen Yet!", "views": 4000, "likes": null, "length": "9:02", "uploaded_approx": "~Oct 2024", "format": "listicle" },
+    { "id": "OURLeng94wk", "title": "6 DEADLY ANIMALS WE'RE GLAD ARE EXTINCT (NO ONE WANTS THESE BACK)", "views": 3800, "likes": null, "length": "4:22", "uploaded_approx": "~Oct 2024", "format": "listicle" },
+    { "id": "cypaXJC3zg4", "title": "Mind-Blowing Top 10 Newborn Creatures That Will Amaze You!", "views": 3800, "likes": null, "length": "8:22", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "xMClsv3vQeY", "title": "Breathtaking Ocean Moments Captured Live!", "views": 3700, "likes": null, "length": "24:14", "uploaded_approx": "~Oct 2024", "format": "long compilation" },
+    { "id": "K5nsi4sQSQg", "title": "Top 10 Rarest & Most Impressive Snakes - Part 1", "views": 3600, "likes": null, "length": "8:07", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "SjXJm_8inf4", "title": "Mind-Blowing Top 10 Deadly Creatures That Will Shock You - Part 2", "views": 3600, "likes": null, "length": "8:04", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "nqEMvsOzGtc", "title": "I DARE You to Watch These FUNNIEST Animal Videos!", "views": 3365, "likes": 33, "length": "8:54", "uploaded": "2025-01-28", "format": "funny animal compilation with VO" },
+    { "id": "_N2gYa0tz8I", "title": "Top 10 Invisible Creatures That Will Impress You - Part 3", "views": 3200, "likes": null, "length": "8:11", "uploaded_approx": "~Oct 2024", "format": "top-10 list, sequel" },
+    { "id": "zK98zE3tR6w", "title": "Mind-Blowing Top 10 Deadly Creatures That Will Shock You", "views": 3000, "likes": null, "length": "8:22", "uploaded_approx": "~Oct 2024", "format": "top-10 list" },
+    { "id": "OIwZ4_8xAqc", "title": "They Thought They Were Safe... Until The Bear Did This!", "views": 2709, "likes": 18, "length": "5:27", "uploaded": "2026-01-20", "format": "bear compilation + AI VO, 'Daily Dose of Smiles' branding inside description, Soundridemusic credit" },
+    { "id": "sL2nPK5xiEg", "title": "The MOST SHOCKING Train Crashes in History Revealed!", "views": 261, "likes": 3, "length": "9:20", "uploaded": "2025-01-21", "format": "compilation + VO" },
+    { "id": "WcdMbL-fNy8", "title": "Caught on Camera! INSTANT KARMA for Idiots in Cars", "views": 153, "likes": 2, "length": "6:06", "uploaded": "2025-01-24", "format": "dashcam compilation + VO" },
+    { "id": "p_FmLBIoFWw", "title": "Moments of Nature That Will Leave You Speechless", "views": 111, "likes": 3, "length": "10:32", "uploaded": "2025-01-17", "format": "disaster/weather compilation + VO" },
+    { "id": "dxhjYjkWZvY", "title": "I Was WRONG About Bears — #1 Will TERRIFY You", "views": 16, "likes": 0, "length": "9:40", "uploaded": "2026-09-27", "format": "AI-narrated ranking; YouTube 'Made with AI' disclosure label present; 0 likes" }
+  ],
+  "shorts_by_views": [
+    { "id": "8MzufHF-3sI", "title": "Never Mess With A Mother Elephant! 🐘😡 #shorts #wildlife", "views": 26000, "uploaded": "2026-02-05" },
+    { "id": "-7GYcxI900Q", "title": "He escaped by a MILLISECOND! 😱🦌 #shorts #wildlife", "views": 26000, "uploaded": "2026-02-07" },
+    { "id": "uvUjQ_-zHJ8", "title": "Last Old Man☠️🫡 #shorts #viral #wildlife", "views": 6000, "uploaded": null },
+    { "id": "biflvmOUtNs", "title": "Bro is out here living his best life 😭 #shorts #funny", "views": 5800, "uploaded": "2026-09-07" },
+    { "id": "BfcgNGPu4Lo", "title": "\"How is this even legal? 😱 #aviation #unreal #shorts\"", "views": 5200, "uploaded": null },
+    { "id": "YoIhPItomgc", "title": "Instant Karma for lgnoring TrafficRules ! 😂😂", "views": 3000, "uploaded": "2026-07-11", "defect": "typo 'lgnoring' in title" },
+    { "id": "UN_30Hk2Qi0", "title": "If you have Thalassophobia, DO NOT watch this... 💀🌊", "views": 1300, "uploaded": "2026-06-05" },
+    { "id": "Zrxnsr6OI5E", "title": "I caught a glitch in the forest... 🍃🐜", "views": 1000, "uploaded": "2026-05-06" },
+    { "id": "NNI0eY2c3Us", "title": "Cutest traffic jam ever! 🥺 #shorts", "views": 988, "uploaded": "2026-07-12" },
+    { "id": "r9LwaPjBnjA", "title": "Bears Caught on Camera… Wait Till the Last One 😭🐻 #Shorts", "views": 614, "uploaded": "2026-10-03", "note": "5 moments in one short; pinned comment invites 1-5 voting; description admits 'source rights are unverified'" },
+    { "id": "JpiwY6zO1mQ", "title": "Pov: Sigma Mouse 💀😂", "views": null, "uploaded": "2026-04-26" },
+    { "id": "bOrtOtXklr8", "title": "💀🤔 #shorts #bear #bearattack #wildlife", "views": null, "uploaded": "2026-03-05", "defect": "title is only emoji + hashtags, zero words" },
+    { "id": "UlSgvXywph8", "title": "\"This photo was taken 4 days before the Titanic sank\"", "views": null, "uploaded": "2026-02-16" },
+    { "id": "PCS1xFXoWuI", "title": "Last man treats a Bear like a Pet! 😱 #shorts #wildlife", "views": null, "uploaded": "2026-02-15" },
+    { "id": "hTf3oLgm3AY", "title": "He actually SCARED the Crocodile! 🤯🐊 #shorts #wildlife", "views": null, "uploaded": "2026-02-06" },
+    { "id": "YCnwTmLAOPc", "title": "Crocodile vs Elephant: Who wins? 😱 #shorts #wildlife", "views": null, "uploaded": "2026-02-02" }
+  ],
+  "upload_calendar_2026": {
+    "_note": "Left half of 2026 is complete because the RSS feed carried exact timestamps for the 15 newest uploads. Earlier 2026 and all of 2024-2025 dates are only known for videos whose watch pages were opened (marked exactly) — the rest are unverified and not listed.",
+    "2026-02-02": ["YCnwTmLAOPc (short)"],
+    "2026-02-05": ["8MzufHF-3sI (short)"],
+    "2026-02-06": ["hTf3oLgm3AY (short)"],
+    "2026-02-07": ["-7GYcxI900Q (short)"],
+    "2026-02-15": ["PCS1xFXoWuI (short)"],
+    "2026-02-16": ["UlSgvXywph8 (short)"],
+    "2026-03-05": ["bOrtOtXklr8 (short)"],
+    "2026-04-26": ["JpiwY6zO1mQ (short)"],
+    "2026-05-06": ["Zrxnsr6OI5E (short)"],
+    "2026-06-05": ["UN_30Hk2Qi0 (short)"],
+    "2026-07-11": ["YoIhPItomgc (short)"],
+    "2026-07-12": ["NNI0eY2c3Us (short)"],
+    "2026-08": [],
+    "2026-09-07": ["biflvmOUtNs (short)"],
+    "2026-09-27": ["dxhjYjkWZvY (long-form)"],
+    "2026-10-03": ["r9LwaPjBnjA (short)"],
+    "gap_2026-10-04_to_2026-10-16": "no upload for 13 days as of capture"
+  },
+  "content_mix_2026": {
+    "uploads_2026_to_date": 16,
+    "shorts": 15,
+    "longform": 1,
+    "longform_last_9_months": 2,
+    "august_2026_uploads": 0
+  },
+  "policy_context_captured": {
+    "youtube_inauthentic_content_policy": "Renamed from 'repetitious content' on 2025-07-15. Mass-produced, templated, low-variation uploads lose monetization; compilations stay monetizable only when the editing/commentary/education adds significant original value.",
+    "reused_content_note": "Permission from the original creator does not exempt a channel from the reused-content policy for monetization.",
+    "channel_risk_markers_observed": [
+      "Boilerplate 'We do not fully own the material compiled in this video' disclaimer repeated verbatim across long-form descriptions.",
+      "'Copyright disclaimer section 107 of the Copyright Act 1976' invoked as if it were a licence.",
+      "Newest short's own description states 'source rights are unverified'.",
+      "'Made with AI' disclosure label present on the newest long-form.",
+      "Near-identical description template, intro and outro across the 2025 long-form uploads."
+    ]
+  },
+  "unknown_not_guessed": [
+    "YouTube Studio analytics: impressions CTR, average view duration, retention curves per video.",
+    "Traffic sources split (Browse / Suggested / Shorts feed / Search / External).",
+    "Which videos produced the 3,830 subscribers and when they were lost.",
+    "Monetization status and actual RPM/CPM; comment counts and comment sentiment.",
+    "The remaining ~33 videos not surfaced by the public popular/latest windows (titles + views).",
+    "Whether the 2024-2025 compilation clips were licensed, permission-granted, or unverified."
+  ]
+}

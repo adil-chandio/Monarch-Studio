@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261016T141658Z",
+  "created_at": "2026-10-16T14:16:58Z",
+  "summary": "Monarch Cam forensic audit + 90-day content plan delivered under channel/. Captured live: 3,830 subs, 2,147,271 views, 73 videos, 0 subs in 30 days, 21,898 views/30d. Key evidence: top 5 videos = 84.3% of lifetime views; long-form 94.7%; bear content ~54%; subs-per-view 0.178%; newest long-form 16 views/0 likes with Made-with-AI label; About still branded KARMA CAM with '[your email here]'; August 2026 had zero uploads; 2026 = 15 Shorts vs 1 long-form. Validation 21 pass / 0 error. Commit 9e573bc.",
+  "next_action": "Fetch YouTube Studio analytics (CTR, AVD, traffic sources, subscriber attribution, RPM) to close the eight open data gaps, then start Phase 0 Repair: About rewrite, playlists, trailer, typo/AI-video cleanup, clip source register.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261016-003",
+    "status": "active",
+    "title": "Monarch Cam — channel forensic audit + forward content plan",
+    "style_id": "channel-strategy",
+    "goal": "Deep forensic analysis of the Monarch Cam YouTube channel (@monarch-cam, UCfYdmsLO4Q8_IHklTyYieLg) from live channel data, plus an evidence-backed 90-day content plan with packaging, cadence, compliance and kill criteria.",
+    "acceptance_criteria": [
+      "Permanent forensic audit + data snapshot + content plan committed under channel/, all numbers traceable to captured evidence, gaps marked as unknown not invented."
+    ],
+    "started_at": "2026-10-16T14:14:26Z",
+    "updated_at": "2026-10-16T14:16:58Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 4,
+    "journal_head": "75c138f1a9a406f842d216851279c1f8f3cb90978c4ec73f4d5bc743fd7463b9",
+    "last_checkpoint": "2026-10-16T14:16:58Z",
+    "last_checkpoint_path": null,
+    "next_action": "Fetch YouTube Studio analytics (CTR, AVD, traffic sources, subscriber attribution, RPM) to close the eight open data gaps, then start Phase 0 Repair: About rewrite, playlists, trailer, typo/AI-video cleanup, clip source register.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261016-003",
+    "seq": 4,
+    "timestamp": "2026-10-16T14:16:58Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Monarch Cam forensic audit + 90-day content plan delivered under channel/. Captured live: 3,830 subs, 2,147,271 views, 73 videos, 0 subs in 30 days, 21,898 views/30d. Key evidence: top 5 videos = 84.3% of lifetime views; long-form 94.7%; bear content ~54%; subs-per-view 0.178%; newest long-form 16 views/0 likes with Made-with-AI label; About still branded KARMA CAM with '[your email here]'; August 2026 had zero uploads; 2026 = 15 Shorts vs 1 long-form. Validation 21 pass / 0 error. Commit 9e573bc.",
+    "content_sha256": "303a6268488f9f41022226f4d9d36c9ee4566ac894e2f2884e79c3c2af587068",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Fetch YouTube Studio analytics (CTR, AVD, traffic sources, subscriber attribution, RPM) to close the eight open data gaps, then start Phase 0 Repair: About rewrite, playlists, trailer, typo/AI-video cleanup, clip source register.",
+      "status": "active"
+    },
+    "prev_event_sha256": "147e04fb8220326388d709e35da581a7998883587062cfb1f65ed068c1e9bd7f",
+    "event_sha256": "75c138f1a9a406f842d216851279c1f8f3cb90978c4ec73f4d5bc743fd7463b9"
+  },
+  "journal_head": "75c138f1a9a406f842d216851279c1f8f3cb90978c4ec73f4d5bc743fd7463b9",
+  "git": {
+    "initialized": true,
+    "head": "9e573bc77d8498f5620334282ac3cbe3d48b11a9",
+    "branch": "arena/617affe3-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}
