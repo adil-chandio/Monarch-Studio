@@ -13,12 +13,12 @@ and every claim below came off a delivered file.
 
 | | |
 |---|---|
-| Master | `projects/proof-01-trailer/build/PROOF-01-TRAILER_MASTER.mp4` — 49.22 MB, 31.0 s, 12 497 kb/s h264 + AAC 194 kb/s 48 kHz |
-| Vertical 9:16 | `projects/proof-01-trailer/build/PROOF-01-TRAILER_VERTICAL.mp4` (1080×1920, subject-tracked crop) |
+| Master | `projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4` — 49.22 MB, 31.0 s, 12 497 kb/s h264 + AAC 194 kb/s 48 kHz |
+| Vertical 9:16 | `projects/proof-01-trailer/delivery/PROOF-01-TRAILER_VERTICAL.mp4` (1080×1920, subject-tracked crop) |
 | Picture intermediate | `build/picture.mp4` (crf 12 · ultrafast, 930 frames, 535 s wall clock) |
-| Gate report | `build/GATES.json` — **16/16 PASS, 0 FAIL, 0 UNMEASURED** |
-| Build report | `build/BUILD.json` |
-| Thumbnails | `build/thumbs/` — 5 concepts + 5 feed-size tests + `ALL_THUMBS.jpg` |
+| Gate report | `reports/GATES.json` — **16/16 PASS, 0 FAIL, 0 UNMEASURED** |
+| Build report | `reports/BUILD.json` |
+| Thumbnails | `reports/thumbs/` — 5 concepts + 5 feed-size tests + `ALL_THUMBS.jpg` |
 | Score / mix | `build/score.wav`, `build/master.wav` |
 
 ---
@@ -105,7 +105,7 @@ path is sharding shots across processes.
 
 **Nothing in this proof needs a human decision except publishing.** If the trailer is wanted as a
 channel upload, the remaining human steps are the same shape as MF-01: download the master, use
-the recommended thumbnail (`B_testing` scored best on local contrast; see `build/thumbs/`), paste
+the recommended thumbnail (`B_testing` scored best on local contrast; see `reports/thumbs/`), paste
 the description, and mark **altered/synthetic = YES**.
 
 Recommended next actions for the crew (no human input required):

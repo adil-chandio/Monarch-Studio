@@ -65,3 +65,8 @@ channel/productions/*/05_PRODUCTION/*.mp4
 # The plan, the report JSONs and the thumbnails ARE committed; the frames are not.
 styles/monarch-wild-cinema/projects/*/build/*.mp4
 styles/monarch-wild-cinema/projects/*/build/*.wav
+
+# WF-07 delivered media: kept OUT of git (the pack + regenerable project are the source of
+# truth), but placed outside build/ so it survives snapshots — build/ is excluded.
+styles/monarch-wild-cinema/projects/*/delivery/*.mp4
+styles/monarch-wild-cinema/projects/*/delivery/*.wav

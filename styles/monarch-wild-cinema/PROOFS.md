@@ -8,13 +8,13 @@ Artefacts live in `projects/proof-01-trailer/` (plates, plan) and `build/` (rend
 | Artefact | Path |
 |---|---|
 | Plan (the picture, as data) | `projects/proof-01-trailer/PLAN.json` |
-| Delivered master (31.0 s, 1920×1080/30) | `projects/proof-01-trailer/build/PROOF-01-TRAILER_MASTER.mp4` |
+| Delivered master (31.0 s, 1920×1080/30) | `projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4` |
 | Picture intermediate (crf 12, ultrafast) | `projects/proof-01-trailer/build/picture.mp4` |
 | Score + mix | `build/score.wav`, `build/master.wav` |
-| Gate report | `build/GATES.json` |
-| Build report | `build/BUILD.json` |
-| Shot timeline | `build/TIMELINE.json` |
-| Thumbnail concepts + feed tests | `build/thumbs/` |
+| Gate report | `reports/GATES.json` |
+| Build report | `reports/BUILD.json` |
+| Shot timeline | `reports/TIMELINE.json` |
+| Thumbnail concepts + feed tests | `reports/thumbs/` |
 
 ---
 
@@ -22,14 +22,14 @@ Artefacts live in `projects/proof-01-trailer/` (plates, plan) and `build/` (rend
 
 | | |
 |---|---|
-| File | `build/PROOF-01-TRAILER_MASTER.mp4` |
+| File | `delivery/PROOF-01-TRAILER_MASTER.mp4` |
 | Size / duration | **49.22 MB** · **31.0 s** · 8 shots · 1920×1080 · 30 fps |
 | Video / audio | h264 High 12 497 kb/s · AAC 194 kb/s 48 kHz stereo |
 | Loudness | **−16.00 LUFS** · LRA 1.60 · true peak **−5.33 dBTP** · decoded peak −5.7 dBFS |
 | Stereo | L/R correlation **0.561** · side/mid **0.282** |
 | Bands | 20–120 **10.3 %** · 120–500 25.5 % · 500–2 k 25.9 % · 2–4 k 3.6 % · **4–8 k 25.2 %** · 8–16 k 9.0 % |
-| Gates | **16 / 16 PASS** · 0 FAIL · 0 UNMEASURED (`build/GATES.json`) |
-| Vertical 9:16 | `build/PROOF-01-TRAILER_VERTICAL.mp4` — 1080×1920, 53.0 MB, same mix (−16.10 LUFS), subject-tracked crop |
+| Gates | **16 / 16 PASS** · 0 FAIL · 0 UNMEASURED (`reports/GATES.json`) |
+| Vertical 9:16 | `delivery/PROOF-01-TRAILER_VERTICAL.mp4` — 1080×1920, 53.0 MB, same mix (−16.10 LUFS), subject-tracked crop |
 | Wall clock | **535 s** for the whole film, audio and measurement included |
 
 ---
@@ -185,7 +185,7 @@ fraction, and re-renders it at **213×120** — the size the feed actually shows
 | D_four — "PLAY DEAD IS A LIE" | ✅ | 7.14 | 29.7 % |
 | E_measured — "9 IN 10" | ✅ | 7.07 | 3.9 % |
 
-Contact sheet: `build/thumbs/ALL_THUMBS.jpg` (full frames on top, feed-size row underneath).
+Contact sheet: `reports/thumbs/ALL_THUMBS.jpg` (full frames on top, feed-size row underneath).
 
 ---
 
@@ -232,6 +232,6 @@ G11 side/mid 0.282 (>0.25)             G12 A/V delta 0.0 s             G13 4-8 k
 G14 120-500 Hz 25.5 % (<58)
 ```
 
-`build/CONTACT_SHEET.jpg` is one frame from each of the eight shots; `build/thumbs/ALL_THUMBS.jpg`
+`reports/CONTACT_SHEET.jpg` is one frame from each of the eight shots; `reports/thumbs/ALL_THUMBS.jpg`
 is the five thumbnail concepts with their feed-size versions underneath. Both were read back and
 inspected — which is how the last four defects in §9 were caught.

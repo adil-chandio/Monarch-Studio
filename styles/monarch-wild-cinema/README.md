@@ -133,7 +133,7 @@ cd styles/monarch-wild-cinema
 
 # gate it
 /home/user/.venv/bin/python src/tabahi/gates.py --master projects/<slug>/build/<EP>_MASTER.mp4 \
-    --plan projects/<slug>/PLAN.json --out projects/<slug>/build/GATES.json
+    --plan projects/<slug>/PLAN.json --out projects/<slug>/reports/GATES.json
 
 # thumbnails
 /home/user/.venv/bin/python src/tabahi/thumbs.py --plan projects/<slug>/PLAN.json \

@@ -27,9 +27,9 @@
 
 # gates (16, measured on the delivered master)
 /home/user/.venv/bin/python src/tabahi/gates.py \
-    --master projects/proof-01-trailer/build/PROOF-01-TRAILER_MASTER.mp4 \
+    --master projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4 \
     --plan projects/proof-01-trailer/PLAN.json \
-    --out projects/proof-01-trailer/build/GATES.json
+    --out projects/proof-01-trailer/reports/GATES.json
 
 # thumbnails (5 concepts + 213×120 feed tests + contact sheet)
 /home/user/.venv/bin/python src/tabahi/thumbs.py --plates assets/plates \
@@ -40,7 +40,7 @@ python - <<'PY'
 import sys, json, pathlib; sys.path.insert(0, "src")
 from tabahi import film as FM
 plan = json.loads(pathlib.Path("projects/proof-01-trailer/PLAN.json").read_text())
-FM.vertical_path(plan, "projects/proof-01-trailer/build/PROOF-01-TRAILER_VERTICAL.mp4",
+FM.vertical_path(plan, "projects/proof-01-trailer/delivery/PROOF-01-TRAILER_VERTICAL.mp4",
                  plate_dir="assets/plates")
 PY
 ```

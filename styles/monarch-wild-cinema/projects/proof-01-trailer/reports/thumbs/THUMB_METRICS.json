@@ -1,0 +1,42 @@
+{
+  "A_threat": {
+    "local_contrast": 10.17541790008545,
+    "bright_pct": 7.284820031298904,
+    "readable": true,
+    "file": "projects/proof-01-trailer/build/thumbs/A_threat.jpg",
+    "main": "DON'T RUN.",
+    "sub": "THE INSTINCT THAT GETS PEOPLE KILLED"
+  },
+  "B_testing": {
+    "local_contrast": 10.796266555786133,
+    "bright_pct": 4.788732394366197,
+    "readable": true,
+    "file": "projects/proof-01-trailer/build/thumbs/B_testing.jpg",
+    "main": "IT IS TESTING YOU",
+    "sub": "FOUR BEARS. FOUR ANSWERS."
+  },
+  "C_speed": {
+    "local_contrast": 11.063663482666016,
+    "bright_pct": 2.9655712050078247,
+    "readable": true,
+    "file": "projects/proof-01-trailer/build/thumbs/C_speed.jpg",
+    "main": "YOU CANNOT OUTRUN THIS",
+    "sub": "27 MPH FOR SECONDS. 35 MPH SPRINT."
+  },
+  "D_four": {
+    "local_contrast": 7.135983467102051,
+    "bright_pct": 29.745696400625977,
+    "readable": true,
+    "file": "projects/proof-01-trailer/build/thumbs/D_four.jpg",
+    "main": "PLAY DEAD IS A LIE",
+    "sub": "WHAT TO DO INSTEAD."
+  },
+  "E_measured": {
+    "local_contrast": 7.069267272949219,
+    "bright_pct": 3.8849765258215965,
+    "readable": true,
+    "file": "projects/proof-01-trailer/build/thumbs/E_measured.jpg",
+    "main": "9 IN 10",
+    "sub": "WHAT ACTUALLY STOPS A CHARGE."
+  }
+}

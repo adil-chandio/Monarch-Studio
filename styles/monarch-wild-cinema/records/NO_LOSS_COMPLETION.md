@@ -8,7 +8,7 @@ Checked against `docs/STYLE_LIBRARY_STANDARD.md` on 2026-10-16.
 | 2 | exact commands, toolchain, dependency versions or bounds | `records/TOOLCHAIN.md` |
 | 3 | what was attempted, what failed and why | `knowledge/09_FAILURE_REGISTER.md` (T01–T18), `PROOFS.md` §3/§5 |
 | 4 | decisions and rejected alternatives | `records/ENGINE_DECISION.md`, `ANALYSIS.md` §4/§6 |
-| 5 | measured gate report and master identity | `projects/proof-01-trailer/build/GATES.json` (16/16 PASS), `BUILD.json`, `proofs/PROOF_01.md` |
+| 5 | measured gate report and master identity | `projects/proof-01-trailer/reports/GATES.json` (16/16 PASS), `BUILD.json`, `proofs/PROOF_01.md` |
 | 6 | Drive IDs / hashes / Notion / Linear / Doc IDs | **OWED** — nothing has been uploaded for WF-07 yet; the master is local only |
 | 7 | chat/action checkpoint archive | **OWED** — the session's EMS checkpoints cover WF-06 and MF-01; WF-07 needs a checkpoint entry once the next production starts |
 | 8 | updated style index and repository manifest | `knowledge/INDEX.md`, `styles/registry.json`, `styles/README.md`, root `README.md`, `studio/MONARCH_STUDIO_REGISTRY.snapshot.md` (next free code **WF-08**) |
