@@ -130,3 +130,27 @@ shimmer (exact FFT mask 4.4–7.2 kHz) and the sustained mid energy from a 440 H
 **Band-limiting:** a 2-pole filter leaks enough above its corner to put **34.2 %** of the mix in
 8–16 kHz while the target band measured 17.8 %. Use `fft_band` (raised-cosine mask) whenever a
 band *share* is gated.
+
+## The voice chain (added 2026-10-17, with the first narrated master)
+
+A music-led mix and a narrated mix are different problems, and the narrated one has laws of its own:
+
+* **The voice gets its own chain, never the bus.** `highpass=125` + gentle compression (3.5:1, 6 ms
+  attack) + a -5 dB dip at 280 Hz (Q ~1.3). MEASURED: raw TTS lines put **63 % of their energy in
+  120-500 Hz** and only 6.8 % in 4-8 kHz — the mix measured 120-500 Hz **63.2 %** (G14 wants < 58)
+  and 4-8 kHz **6.7 %** (G13 wants > 10). After the chain: **50.4 %** and **11.5 %**, and the voice
+  still has body (20-120 Hz only 2 %).
+* **Place narration at ABSOLUTE times** (`score.place_voice`), not by concatenating clips with fixed
+  gaps: a trailer's lines are written to land on shots, and the picture does not move for the VO.
+* **Silence-trim every line before placing it.** MEASURED: eight TTS lines with lead-in/tail silence
+  ran 31.82 s against a 31.0 s film; trimming the silences took them to **24.88 s** with no tempo
+  change at all. Speed up a narrator only after trimming — never before.
+* **Ducking is not the level of the voice.** Measured on the delivered master: narration sits
+  **9.9 dB** above the bed at the worst line, with the sidechain (8:1) adding more in practice.
+  Two numbers are needed and both are now gates: G20 (the voice is present in the delivered file,
+  in its spans) and G21 (it is above the bed).
+* **A centred voice rewrites the file's stereo statistics, and that is correct.** Master correlation
+  measured **0.938** with narration against **0.171** for the bed alone; side/mid 0.032 vs 0.708.
+  Judging "the mix is too mono" from the master would be judging the narrator. G10 is now the voice's
+  correlation inside its own spans (>= 0.90, measured 0.991) and G11 is the bed's width (0.708).
+

@@ -26,32 +26,33 @@ and every claim below came off a delivered file.
 ## 2. Gate report (as delivered)
 
 ```
-G01  frames produced                                 930         >= 930   PASS
-G02  duplicate frames                                  0              0   PASS
-G04  max dLuma inside shots                         7.64            < 8   PASS
-G15  cut-point luma delta                           2.74           < 26   PASS
-G03  per-shot motion p10 (worst)                   0.394         > 0.12   PASS
-G05  min type contrast (delivered)                  6.51         >= 4.5   PASS
-G06  type inside safe band                             0              0   PASS
-G16  card ink inside its canvas                        0              0   PASS
-G07  decoded sample peak dBFS                       -3.4        <= -1.0   PASS
-G08  integrated loudness LUFS                     -16.10   -16.5 +- 1.0   PASS
-G09  true peak dBTP                                -3.41        <= -1.0   PASS
-G10  L/R correlation                               0.561    0.55 - 0.85   PASS
-G11  side/mid energy                               0.282         > 0.25   PASS
-G13  4-8 kHz share (whole)                          25.2           > 10   PASS
-G14  120-500 Hz share (whole)                       25.5           < 58   PASS
-G12  video/audio duration delta                      0.0      <= 0.10 s   PASS
-G18  vertical geometry                         1080x1920      1080x1920   PASS
-G17  portrait type inside the Shorts band              0              0   PASS
-G19  vertical type contrast (delivered)             4.73         >= 4.5   PASS
+G01  frames produced                                       930         >= 930   PASS
+G02  duplicate frames                                        0              0   PASS
+G04  max dLuma inside shots                               6.98            < 8   PASS
+G15  cut-point luma delta                                 2.89           < 26   PASS
+G03  per-shot motion p10 (worst)                         0.418         > 0.12   PASS
+G05  min type contrast (delivered)                        6.55         >= 4.5   PASS
+G06  type inside safe band                                   0              0   PASS
+G16  card ink inside its canvas                              0              0   PASS
+G07  decoded sample peak dBFS                             -3.4        <= -1.0   PASS
+G08  integrated loudness LUFS                           -16.39   -16.5 +- 1.0   PASS
+G09  true peak dBTP                                      -3.43        <= -1.0   PASS
+G10  L/R correlation (voice, in its spans)               0.991        >= 0.90   PASS
+G11  side/mid energy (bed)                               0.708         > 0.25   PASS
+G20  narration present in the master (speech band        10.25        >= 4 dB   PASS
+G21  narration level over the bed                          9.9        >= 6 dB   PASS
+G13  4-8 kHz share (whole)                                11.5           > 10   PASS
+G14  120-500 Hz share (whole)                             50.4           < 58   PASS
+G12  video/audio duration delta                            0.0      <= 0.10 s   PASS
+G18  vertical geometry                               1080x1920      1080x1920   PASS
+G17  portrait type inside the Shorts band                    0              0   PASS
+G19  vertical type contrast (delivered)                   4.73         >= 4.5   PASS
 ```
 
-**19/19 PASS** · 0 FAIL · 0 UNMEASURED — written by
-`gates.py` from the delivered files and the plan, with no human in the loop
-(`projects/proof-01-trailer/reports/GATES.json`). G17–G19 were read from the **9:16 master** in the
-same run; `reports/CONTACT_SHEET_VERTICAL.jpg` is the same eight shots in portrait.
-
+**21/21 PASS** — written by `gates.py` from the delivered files, the plan and the
+score stem (`reports/GATES.json`). This is the **narrated** master: it carries eight spoken lines,
+placed at absolute times, with the bed ducked under them (G20 proves the voice is in the delivered
+file; G21 proves it sits 9.9 dB above the bed).
 Three of these gates were **re-scoped** and one was **added** during this build; each change is
 recorded in `data/gates.json → revisions` with its evidence, and the reasoning is in
 `knowledge/08_MEASURED_GATES.md`. Short version: G04 was measuring the edit instead of the strobe
@@ -100,8 +101,11 @@ measurement — **0.58 s/frame**. A 6-minute film is ≈ 1 h 45 m on this box; t
 path is sharding shots across processes.
 
 **Not proven yet (stated so nobody assumes otherwise):**
-- No real narration has been through `build_voice_track` in this style. The report's audio is
-  **music-led**; the VO path is built and untested with a human take.
+- **Narration is now IN the master** (this line said the opposite in the first version of this
+  file). Eight lines, placed at absolute times through `score.place_voice`, with the bed ducked and
+  a broadcast voice chain (high-pass 125 Hz, 3.5:1, -5 dB at 280 Hz). What is still not proven is a
+  **human take**: the voice here is synthesized (Arena TTS, en-US masculine). The path is the same
+  for a real recording — drop the files in and the same gates apply.
 - The vertical cut now **carries the type** (this was open in the first version of this file):
   `core.canvas(VW, VH)` re-scopes every builder to 1080×1920 and `film.render_vertical` composites
   the layers inside the portrait canvas after the subject-tracked crop. What is still not designed

@@ -335,3 +335,52 @@ used it. Harmless while only 16:9 existed; a trap the moment the same function m
 now muxes the same `master.wav` and deletes the silent intermediate, and `mux` states that the
 container's size comes from the picture.
 
+### T27 — a gain-walk cannot solve a chain that renormalises the level
+*Symptom:* with narration present, the solve stalled at **-15.14 LUFS** against a -16.0 target
+(`peak-limited: crest too wide`) and the master missed the G08 band.
+*Cause:* two stages in the delivery chain are **level-pinning**: `limit_linked` renormalises to the
+ceiling, and the final peak guard renormalises to `peak_guard`. Measured on one bus: gain 1.00 →
+-15.04 LUFS, 0.85 → -15.04, 0.71 → -15.04, 0.60 → -16.13. Over a whole region of gains the output
+level does not move. A walk (`gain *= 10**(err/20)`) reads that plateau as "no improvement" and
+stops — 0.9 LU from the target, every time.
+*Law:* **solve level by bisection, not by walking**, and only enter the limiter when the delivered
+peak proves the ceiling would otherwise break. Two passes: A = bisect the honest gain; B = bisect
+again with the limiter, and keep B only if it lands closer. Solved: **-16.00 LUFS, limiter off.**
+
+### T28 — the comment that was not the ceiling
+*Symptom (caught by reading, not by a gate):* `solve_mix` carried the comment "a common gain, not a
+limiter — trimming for G07/G09 cannot disturb G10/G11" above a `peak_guard` block that is exactly
+that trim, per-sample, in the middle of the loop where the balancer's work gets scaled.
+*Fix:* the delivery chain is now one named function (`_deliver`) so the claim and the code live in
+the same place, and the docstring says what the guard does instead of denying it.
+
+### T29 — a plan-relative path that resolved against the wrong directory
+*Symptom:* a full build with **eight declared narration lines** came out music-led. G20 read 0.04 dB
+of speech-band lift, G21 -150 dB, G13 collapsed to 1.1 % (the bed alone). All three gates were
+pointing at the same fact: **there was no voice in the file.**
+*Cause:* `run_film.py` resolved `plates` against the plan's directory but never told the narration
+resolver where the plan lived, so `vo/line_01.mp3` was looked up relative to the CWD, "did not
+exist", and `_voice_for` fell back to music-led with a quiet one-line notice.
+*Law:* **a fallback that changes the shape of the artefact must be loud, and every plan-relative
+path must use the same base.** The fallback now prints in capitals and names the problem; `_dir` is
+set from the plan path for every consumer. The deeper lesson is the gate design: G20/G21 only run
+when narration is *declared*, which is exactly why "declared but missing" needed its own proof —
+they supplied it, three gates independently, and the build was never allowed to look finished.
+
+### T30 — the gate formula that compared two different normalisations
+*Symptom:* G21 read **-0.86 dB** on a master where the narration was in fact ~12 dB above the bed.
+*Cause:* it compared the delivered master against the *raw score stem*, i.e. a normalised file
+against an unnormalised one, over spans shorter than the loudness window.
+*Law:* a ratio that is a **mix-time** property must be measured at mix time: on the two stems, at
+the plan's declared `mix_bed_gain`. Rewritten that way it reads **9.9 dB** at the worst line, and
+the note says ducking only widens it.
+
+### T31 — the shot that begins with a hit, and the gate that calls it a strobe
+*Symptom:* G04 (in-shot dLuma < 8) failed at **8.02**, on frame 2, in shot 01 — the only failure.
+*Cause:* the opening frame carries the designed `impact` flash plus the largest `shake` in the film,
+0.07 s after the first frame. It is a cut-adjacent hit, not a strobe: the same shot is steady
+(`p99 11.96 → in-shot max 6.98`) once the hit is softened.
+*Fix:* `impact` moved to 0.12 s and `shake` 9 → 5 on that shot; the push (`zoom` 0.02→0.20) is
+untouched, so the shot still lands. Recorded because the honest reading is "the gate was right
+about the first 0.07 s" — the film should not open on a flash.
+

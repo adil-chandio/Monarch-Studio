@@ -561,35 +561,82 @@ def solve_mix(raw_path, out_path, target_i: float = -16.0, target_corr: float = 
     out_path = _pl.Path(out_path)
     buf = wav_read(raw_path)
     probe = out_path.with_name(out_path.stem + "_probe.wav")
-    gain, best, work = 1.0, None, buf
-    for _ in range(iters):
-        work = buf * gain
-        limited = float(np.abs(work).max()) > ceiling
-        if limited:
-            work = limit_linked(work, ceiling=ceiling)
-        # The balancer is LEVEL-NEUTRAL: narrowing the side to reach the
-        # correlation target also removes side energy, and on this score that
-        # cost 1.15 dB (content -16.52 LUFS -> -17.67 after balancing), which
-        # left the loudness solve one limiter trigger short of the gate. The
-        # RMS is restored with a COMMON gain, which is correlation-exact.
-        pre_rms = float(np.sqrt((work ** 2).mean()))
+
+    def _deliver(work):
+        """The delivery chain after the gain: balance, RMS restore, peak guard."""
+        pre = float(np.sqrt((work ** 2).mean()))
         work = stereo_balance(work, target_corr)
-        post_rms = float(np.sqrt((work ** 2).mean()))
-        if pre_rms > 1e-9 and post_rms > 1e-9:
-            work = (work * (pre_rms / post_rms)).astype(np.float32)
+        post = float(np.sqrt((work ** 2).mean()))
+        if pre > 1e-9 and post > 1e-9:
+            work = (work * (pre / post)).astype(np.float32)
         pk = float(np.abs(work).max())
         if pk > peak_guard:
             work = (work * (peak_guard / pk)).astype(np.float32)
+        return work
+
+    def _measure(work):
         C.wav_write(probe, work)
-        i = _lufs(probe)
+        return _lufs(probe)
+
+    # ── PASS A: bisect the gain with NO limiter ───────────────────────────────
+    # MEASURED (T27): a gain-WALK cannot solve this chain. Both the limiter and the
+    # final peak guard renormalise the level to the ceiling, so over a whole region
+    # of gains the measured loudness does not move at all (measured: -15.04 LUFS at
+    # gain 1.00, 0.85 AND 0.71, then -16.13 at 0.60). A walk reads that plateau as
+    # "no improvement" and stalls 0.9 LU from the target; a bisection reads it as
+    # "too loud, search lower" and converges on the boundary gain where the guard
+    # stops engaging. Gains are multiplicative, so the bisection is geometric.
+    lo, hi = 0.05, 2.0
+    best, hist = None, []
+    work = _deliver(buf)
+    for _ in range(iters):
+        g = (lo * hi) ** 0.5
+        work = _deliver(buf * g)
+        i = _measure(work)
         if i is None:
             break
         err = float(target_i) - i
         if best is None or abs(err) < best[0]:
-            best = (abs(err), work.copy(), i, limited)
-        if abs(err) <= tol or limited:
+            best = (abs(err), work.copy(), i, False)
+        if abs(err) <= tol:
             break
-        gain *= 10.0 ** (err / 20.0)
+        if i > float(target_i):
+            hi = g
+        else:
+            lo = g
+        if hi - lo < 1e-3:
+            break
+
+    # ── PASS B: only when the honest gain still breaks the ceiling ────────────
+    limited = False
+    if best is not None and best[0] > tol:
+        limited = True
+        lo, hi, b2 = 0.05, 2.0, None
+        for _ in range(iters):
+            g = (lo * hi) ** 0.5
+            w = buf * g
+            if float(np.abs(w).max()) > ceiling:
+                w = limit_linked(w, ceiling=ceiling)
+            w = _deliver(w)
+            i = _measure(w)
+            if i is None:
+                break
+            err = float(target_i) - i
+            if b2 is None or abs(err) < b2[0]:
+                b2 = (abs(err), w.copy(), i, True)
+            if abs(err) <= tol:
+                break
+            if i > float(target_i):
+                hi = g
+            else:
+                lo = g
+            if hi - lo < 1e-3:
+                break
+        if b2 is not None and b2[0] < best[0]:
+            best = b2
+        else:
+            limited = False
+
     C.wav_write(out_path, best[1] if best else work)
     probe.unlink(missing_ok=True)
     return (best[2] if best else None), (best[3] if best else False)
@@ -737,3 +784,67 @@ def band_energy(path, spans: list | None = None) -> dict:
         rep["vo_absent"] = share(a[~mask], "bed")
         rep["vo_coverage_pct"] = float(mask.mean() * 100)
     return rep
+
+def place_voice(entries: list, out_dir, total_s: float, gaps: float = 0.34,
+                sr: int = SR) -> tuple:
+    """Place narration clips at ABSOLUTE times, in numpy. Returns (path, spans).
+
+    Why not `build_voice_track`: that one concatenates clips with fixed gaps, so
+    the narration drifts against the picture as soon as one line is longer than
+    planned. A trailer's VO is written to land on shots ("40 METRES" under the
+    charge), so the plan gives every line an absolute time and this function
+    honours it.
+
+    MEASURED TRAP: `mix()` runs `amix=inputs=2:duration=first` with the voice as
+    input 0, so a voice track even one frame LONGER than the score lengthens the
+    master and the video/audio duration gate (G12) fails. The buffer is therefore
+    built at exactly `total_s` samples and a clip that would run past the end is
+    truncated with a printed warning — never silently.
+    """
+    import pathlib as _pl
+    import wave
+    import numpy as _np
+    out_dir = _pl.Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    n_total = int(round(total_s * sr))
+    buf = _np.zeros((n_total, 2), _np.float32)
+    clips, spans, cursor = [], [], 0.0
+    for i, e in enumerate(entries):
+        src = _pl.Path(e["file"])
+        if not src.exists():
+            C.say(f"  vo   line {i+1:02d}: MISSING {src} — skipped")
+            continue
+        dec = out_dir / f"vo_{i+1:02d}.wav"
+        # VOICE CHAIN (not a bus stage): high-pass to kill rumble, gentle compression
+        # so the read sits evenly, and a 3 dB trim of the peaks. MEASURED: with the
+        # raw TTS lines, the solved mix stalled at -17.43 LUFS against a -16.0 target
+        # and reported "peak-limited: crest too wide" — the voice's plosives were
+        # setting the ceiling for the whole film. Compressing the VOICE (never the
+        # bus) fixed the headroom without touching the bed's dynamics.
+        C.run([C.ffmpeg(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(src),
+               "-af", "highpass=f=125,acompressor=threshold=-20dB:ratio=3.5:attack=6:release=140:makeup=4,"
+                      "equalizer=f=280:width_type=o:width=1.3:g=-5",
+               "-ar", str(sr), "-ac", "2", str(dec)], f"vo {i+1:02d} chain", quiet=True)
+        a = wav_read(dec)
+        if a.shape[1] == 1:
+            a = _np.repeat(a, 2, axis=1)
+        if e.get("gain") is not None:
+            a = a * float(e["gain"])
+        at = e.get("at")
+        start = cursor if at is None else float(at)
+        i0 = int(round(start * sr))
+        i1 = i0 + len(a)
+        if i1 > n_total:
+            C.say(f"  vo   line {i+1:02d}: runs {((i1 - n_total) / sr):.2f}s past the film — truncated")
+            i1 = n_total
+        if i1 > i0:
+            buf[i0:i1] += a[:i1 - i0]
+        spans.append((round(start, 3), round(i1 / sr, 3)))
+        cursor = i1 / sr + gaps
+    voice = out_dir / "voice.wav"
+    with wave.open(str(voice), "wb") as w:
+        w.setnchannels(2)
+        w.setsampwidth(2)
+        w.setframerate(sr)
+        w.writeframes((_np.clip(buf, -1.0, 1.0) * 32767.0).astype("<i2").tobytes())
+    return voice, spans

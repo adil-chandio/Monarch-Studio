@@ -1,6 +1,6 @@
 {
   "master": "projects/proof-01-trailer/delivery/PROOF-01-TRAILER_MASTER.mp4",
-  "master_bytes": 49245137,
+  "master_bytes": 50090136,
   "duration_s": 31.0,
   "planned_s": 31.0,
   "gates": [
@@ -23,7 +23,7 @@
     {
       "gate": "G04",
       "name": "max dLuma inside shots",
-      "value": 7.64,
+      "value": 6.98,
       "target": "< 8",
       "verdict": "PASS",
       "note": "strobe rule; 0.35 s cut windows excluded"
@@ -31,7 +31,7 @@
     {
       "gate": "G15",
       "name": "cut-point luma delta",
-      "value": 2.74,
+      "value": 2.89,
       "target": "< 26",
       "verdict": "PASS",
       "note": "BT.1702 flash threshold; transitions must spread the cut"
@@ -39,15 +39,15 @@
     {
       "gate": "G03",
       "name": "per-shot motion p10 (worst)",
-      "value": 0.394,
+      "value": 0.418,
       "target": "> 0.12",
       "verdict": "PASS",
-      "note": "shot 06"
+      "note": "shot 08"
     },
     {
       "gate": "G05",
       "name": "min type contrast (delivered)",
-      "value": 6.51,
+      "value": 6.55,
       "target": ">= 4.5",
       "verdict": "PASS",
       "note": "glyph core vs its real backdrop; worst: 04:35"
@@ -79,7 +79,7 @@
     {
       "gate": "G08",
       "name": "integrated loudness LUFS",
-      "value": "-16.10",
+      "value": "-16.39",
       "target": "-16.5 +- 1.0",
       "verdict": "PASS",
       "note": ""
@@ -87,31 +87,47 @@
     {
       "gate": "G09",
       "name": "true peak dBTP",
-      "value": "-3.41",
+      "value": "-3.43",
       "target": "<= -1.0",
       "verdict": "PASS",
       "note": ""
     },
     {
       "gate": "G10",
-      "name": "L/R correlation",
-      "value": 0.561,
-      "target": "0.55 - 0.85",
+      "name": "L/R correlation (voice, in its spans)",
+      "value": 0.991,
+      "target": ">= 0.90",
       "verdict": "PASS",
-      "note": "stereo"
+      "note": "centred narration; bed corr 0.171, whole master 0.938"
     },
     {
       "gate": "G11",
-      "name": "side/mid energy",
-      "value": 0.282,
+      "name": "side/mid energy (bed)",
+      "value": 0.708,
       "target": "> 0.25",
       "verdict": "PASS",
       "note": ""
     },
     {
+      "gate": "G20",
+      "name": "narration present in the master (speech band)",
+      "value": 10.25,
+      "target": ">= 4 dB",
+      "verdict": "PASS",
+      "note": "8 declared lines, 3.26x speech-band lift in the spans"
+    },
+    {
+      "gate": "G21",
+      "name": "narration level over the bed",
+      "value": 9.9,
+      "target": ">= 6 dB",
+      "verdict": "PASS",
+      "note": "worst line at 27.95s (voice stem vs bed at gain 0.34; ducking only widens this)"
+    },
+    {
       "gate": "G13",
       "name": "4-8 kHz share (whole)",
-      "value": 25.2,
+      "value": 11.5,
       "target": "> 10",
       "verdict": "PASS",
       "note": ""
@@ -119,7 +135,7 @@
     {
       "gate": "G14",
       "name": "120-500 Hz share (whole)",
-      "value": 25.5,
+      "value": 50.4,
       "target": "< 58",
       "verdict": "PASS",
       "note": ""
@@ -157,9 +173,9 @@
       "note": "worst: 07:headline"
     }
   ],
-  "passed": 19,
+  "passed": 21,
   "failed": 0,
   "unmeasured": 0,
-  "total": 19,
+  "total": 21,
   "result": "PASS"
 }

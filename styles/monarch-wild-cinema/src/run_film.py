@@ -125,6 +125,26 @@ def build_score(plan: dict, total: float, out_dir: pathlib.Path) -> pathlib.Path
     return path
 
 
+def _voice_for(plan, out_dir, total_s):
+    """(voice_path, spans, has_voice). Narration entries are {file, at} and the
+    file path is relative to the plan's directory, exactly like `plates`."""
+    raw = plan.get("audio", {}).get("vo", []) or []
+    base = pathlib.Path(plan.get("_dir", "."))
+    entries = []
+    for e in raw:
+        if isinstance(e, str):
+            entries.append({"file": str((base / e).resolve()), "at": None})
+        elif isinstance(e, dict) and e.get("file"):
+            entries.append({**e, "file": str((base / e["file"]).resolve())})
+    if not entries:
+        return None, None, False
+    if any(pathlib.Path(e["file"]).exists() for e in entries):
+        return (*S.place_voice(entries, out_dir, total_s), True)
+    C.say("  vo   !! the plan declares narration but NO line file was found - building MUSIC-LED. "
+          "Check the file paths in audio.vo.")
+    return None, None, False
+
+
 def _pickup(f, plan, out_dir, picture, args, plate_dir):
     """Score + mix + master + optional vertical, given an existing picture."""
     C.say("[2/4] score")
@@ -141,7 +161,8 @@ def _pickup(f, plan, out_dir, picture, args, plate_dir):
                    target_i=float(plan.get("audio", {}).get("target_i", -16.0)),
                    target_corr=float(plan.get("audio", {}).get("target_corr", 0.575)),
                    peak_guard=float(plan.get("audio", {}).get("peak_guard", 0.68)),
-                   has_voice=bool(voice_files))
+                   duck_ratio=int(plan.get("audio", {}).get("mix_duck", 5)),
+                   has_voice=has_voice)
     C.say("[4/4] master")
     master = FM.mux(picture, out_dir / "master.wav",
                     out_dir / f"{plan.get('episode','episode')}_MASTER.mp4", crf=args.crf,
@@ -184,6 +205,13 @@ def main():
     t0 = time.time()
     plan_path = pathlib.Path(args.plan).resolve()
     plan = json.loads(plan_path.read_text())
+    # MEASURED BUG: the plan's own directory was never handed to the narration
+    # resolver, so `vo/line_01.mp3` resolved against the CWD, the files "did not
+    # exist", and the build fell back to music-led SILENTLY — a build with no voice
+    # at all passed 17/21 gates because the two gates that would have caught it
+    # (G20/G21) only run when narration is declared. The fallback is now impossible
+    # to miss: it is printed, and _dir makes the declared lines resolvable.
+    plan["_dir"] = str(plan_path.parent)
     out_dir = pathlib.Path(args.out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     plate_dir = plan.get("plates")
@@ -228,11 +256,10 @@ def main():
 
     # 3 · MIX
     C.say("[3/4] mix")
+    total_s = sum(sh["dur"] for sh in plan["shots"])
     voice_files = plan.get("audio", {}).get("vo", [])
-    spans = None
-    if voice_files:
-        voice, spans = S.build_voice_track([pathlib.Path(v) for v in voice_files], out_dir)
-    else:
+    voice, spans, has_voice = _voice_for(plan, out_dir, total_s)
+    if not has_voice:
         # music-led: the score becomes the "voice" input to the 2-pass chain so
         # the delivery loudness is still normalised to the same target
         voice = score_path
@@ -241,7 +268,8 @@ def main():
                    target_i=float(plan.get("audio", {}).get("target_i", -16.0)),
                    target_corr=float(plan.get("audio", {}).get("target_corr", 0.575)),
                    peak_guard=float(plan.get("audio", {}).get("peak_guard", 0.68)),
-                   has_voice=bool(voice_files))
+                   duck_ratio=int(plan.get("audio", {}).get("mix_duck", 5)),
+                   has_voice=has_voice)
 
     # 4 · MUX + MEASURE
     C.say("[4/4] master")

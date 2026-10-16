@@ -4,17 +4,17 @@
   "plates": "../../assets/plates",
   "audio": {
     "bed": {
-      "drone": 0.154,
-      "air": 0.154,
-      "shimmer": 0.55,
-      "tension": 0.044,
-      "pad": 0.2,
-      "pad_root": 440.0,
-      "shimmer_per_second": 2.4
+      "drone": 0.24,
+      "air": 0.045,
+      "shimmer": 0.09,
+      "shimmer_per_second": 0.7,
+      "tension": 0.11,
+      "pad": 0.3,
+      "pad_root": 220.0
     },
     "soft_clip": 1.8,
     "pre_peak": 0.62,
-    "cue_scale": 0.7,
+    "cue_scale": 0.6,
     "target_corr": 0.575,
     "peak_guard": 0.68,
     "target_i": -16.0,
@@ -120,6 +120,111 @@
         "cue": "whoosh_edge",
         "gain": 0.8
       }
+    ],
+    "mix_bed_gain": 0.34,
+    "mix_duck": 8,
+    "narration": {
+      "voice": "voice-01 (Arena) — masculine narration, en-US",
+      "lines": [
+        {
+          "n": 1,
+          "shot": "01",
+          "at": 0.45,
+          "file": "vo/line_01.mp3",
+          "text": "Forty metres. Three seconds. Then it's a decision."
+        },
+        {
+          "n": 2,
+          "shot": "02",
+          "at": 4.35,
+          "file": "vo/line_02.mp3",
+          "text": "And your first instinct is the wrong one."
+        },
+        {
+          "n": 3,
+          "shot": "03",
+          "at": 8.05,
+          "file": "vo/line_03.mp3",
+          "text": "Most grizzly charges are not attacks. They're tests."
+        },
+        {
+          "n": 4,
+          "shot": "04",
+          "at": 12.15,
+          "file": "vo/line_04.mp3",
+          "text": "Thirty-five miles an hour. Faster than the fastest man alive."
+        },
+        {
+          "n": 5,
+          "shot": "05",
+          "at": 16.45,
+          "file": "vo/line_05.mp3",
+          "text": "So running is the one answer that never works."
+        },
+        {
+          "n": 6,
+          "shot": "06",
+          "at": 20.45,
+          "file": "vo/line_06.mp3",
+          "text": "Bear spray worked ninety-two percent of the time."
+        },
+        {
+          "n": 7,
+          "shot": "07",
+          "at": 24.3,
+          "file": "vo/line_07.mp3",
+          "text": "Three things to remember."
+        },
+        {
+          "n": 8,
+          "shot": "08",
+          "at": 27.95,
+          "file": "vo/line_08.mp3",
+          "text": "It wasn't charging you. It was testing you."
+        }
+      ]
+    },
+    "vo": [
+      {
+        "file": "vo/trimmed/line_01.mp3",
+        "at": 0.45,
+        "text": "Forty metres. Three seconds. Then it's a decision."
+      },
+      {
+        "file": "vo/trimmed/line_02.mp3",
+        "at": 4.35,
+        "text": "And your first instinct is the wrong one."
+      },
+      {
+        "file": "vo/trimmed/line_03.mp3",
+        "at": 8.05,
+        "text": "Most grizzly charges are not attacks. They're tests."
+      },
+      {
+        "file": "vo/trimmed/line_04.mp3",
+        "at": 12.15,
+        "text": "Thirty-five miles an hour. Faster than the fastest man alive."
+      },
+      {
+        "file": "vo/trimmed/line_05.mp3",
+        "at": 16.45,
+        "text": "So running is the one answer that never works."
+      },
+      {
+        "file": "vo/trimmed/line_06.mp3",
+        "at": 20.45,
+        "text": "Bear spray worked ninety-two percent of the time."
+      },
+      {
+        "file": "vo/trimmed/line_07.mp3",
+        "at": 24.3,
+        "text": "Three things to remember."
+      },
+      {
+        "file": "vo/trimmed/line_08.mp3",
+        "at": 27.95,
+        "text": "It wasn't charging you. It was testing you."
+      }
     ]
   },
   "shots": [
@@ -139,22 +244,24 @@
       },
       "cam": {
         "zoom": [
-          0.04,
-          0.12
+          0.02,
+          0.2
         ],
-        "orbit": 34,
-        "roll": 0.5,
-        "breathe": 3,
-        "ramp": "tri"
+        "orbit": 78,
+        "roll": 1.6,
+        "drift": -14,
+        "breathe": 5,
+        "ramp": "out",
+        "yaw": 5e-05
       },
       "fx": {
         "rays": 0.2,
         "motes": 70,
         "haze": 0.12,
         "impact": [
-          0.0
+          0.12
         ],
-        "shake": 9,
+        "shake": 5,
         "chroma": 0.8
       },
       "transition_in": "hard",
@@ -201,12 +308,14 @@
       },
       "cam": {
         "zoom": [
-          0.05,
-          0.13
+          0.16,
+          0.04
         ],
-        "orbit": -28,
-        "roll": 0.6,
-        "breathe": 3
+        "orbit": -54,
+        "roll": 1.1,
+        "drift": -10,
+        "breathe": 6,
+        "ramp": "linear"
       },
       "fx": {
         "streaks": 0.4,
@@ -249,12 +358,14 @@
       },
       "cam": {
         "zoom": [
-          0.03,
+          0.2,
           0.09
         ],
-        "orbit": 22,
-        "roll": 0.4,
-        "breathe": 2.5
+        "orbit": 40,
+        "roll": 0.9,
+        "drift": -12,
+        "breathe": 5,
+        "ramp": "out"
       },
       "fx": {
         "rays": 0.24,
@@ -304,12 +415,15 @@
       },
       "cam": {
         "zoom": [
-          0.06,
-          0.14
+          0.04,
+          0.22
         ],
-        "orbit": 30,
-        "roll": 0.7,
-        "breathe": 4
+        "orbit": 60,
+        "roll": 1.2,
+        "drift": -8,
+        "breathe": 7,
+        "ramp": "out",
+        "yaw": 4e-05
       },
       "fx": {
         "streaks": 0.55,
@@ -353,12 +467,14 @@
       },
       "cam": {
         "zoom": [
-          0.03,
-          0.1
+          0.22,
+          0.12
         ],
-        "orbit": -20,
-        "roll": 0.35,
-        "breathe": 2.5
+        "orbit": -34,
+        "roll": 0.8,
+        "drift": -12,
+        "breathe": 5,
+        "ramp": "linear"
       },
       "fx": {
         "rays": 0.16,
@@ -399,12 +515,14 @@
       },
       "cam": {
         "zoom": [
-          0.02,
-          0.07
+          0.05,
+          0.19
         ],
-        "orbit": 16,
-        "roll": 0.3,
-        "breathe": 2
+        "orbit": 44,
+        "roll": 0.9,
+        "drift": -8,
+        "breathe": 5,
+        "ramp": "out"
       },
       "fx": {
         "rays": 0.28,
@@ -459,12 +577,14 @@
       },
       "cam": {
         "zoom": [
-          0.04,
-          0.12
+          0.02,
+          0.18
         ],
-        "orbit": 26,
-        "roll": 0.45,
-        "breathe": 3
+        "orbit": 30,
+        "roll": 0.7,
+        "drift": -14,
+        "breathe": 4,
+        "ramp": "linear"
       },
       "fx": {
         "rays": 0.18,
@@ -505,12 +625,14 @@
       },
       "cam": {
         "zoom": [
-          0.01,
-          0.05
+          0.14,
+          0.02
         ],
-        "orbit": 10,
-        "roll": 0.2,
-        "breathe": 1.5
+        "orbit": 18,
+        "roll": 0.5,
+        "drift": -6,
+        "breathe": 4,
+        "ramp": "out"
       },
       "fx": {
         "motes": 40,

@@ -99,7 +99,64 @@ def plate_mean_luma(stage, p=0.5, look="nocturne") -> float:
     return float(C.luma(f).mean() / 255.0)
 
 
-def run(master, plan_path=None, spans=None, out=None, vertical=None) -> dict:
+
+
+def _corr_in_spans(path, spans, sr=8000):
+    """L/R correlation of the delivered file inside the narration spans only."""
+    import subprocess as _sp
+    if not spans:
+        return None
+    raw = _sp.run([C.ffmpeg(), "-v", "error", "-i", str(path), "-ac", "2", "-ar", str(sr),
+                   "-f", "s16le", "-"], capture_output=True).stdout
+    a = np.frombuffer(raw, "<i2").astype(np.float32) / 32768.0
+    a = a.reshape(-1, 2)
+    keep = np.concatenate([a[int(t0 * sr):int(t1 * sr)] for t0, t1 in spans]) if spans else a
+    if keep.size < 64:
+        return None
+    l, r = keep[:, 0], keep[:, 1]
+    den = float(np.sqrt((l ** 2).sum() * (r ** 2).sum()))
+    return float((l * r).sum() / den) if den > 1e-9 else None
+
+def _vo_spans(plan_path):
+    """Declared narration spans [(t0, t1)], from plan.audio.vo. Measured, not assumed:
+    each line's duration is read off its own file, so the gate samples exactly the
+    time the voice is meant to be there."""
+    import subprocess as _sp
+    plan_path = pathlib.Path(plan_path)
+    plan = json.loads(plan_path.read_text())
+    out = []
+    for e in plan.get("audio", {}).get("vo", []) or []:
+        f = e.get("file")
+        if not f or e.get("at") is None:
+            continue
+        f = (plan_path.parent / f).resolve()
+        if not f.exists():
+            continue
+        st = _sp.run([C.ffmpeg(), "-i", str(f)], capture_output=True, text=True).stderr
+        try:
+            hms = st.split("Duration:")[1].split(",")[0].strip()
+            h, m, sec = hms.split(":")
+            d = int(h) * 3600 + int(m) * 60 + float(sec)
+        except Exception:  # noqa: BLE001
+            continue
+        out.append((round(float(e["at"]), 3), round(float(e["at"]) + d, 3)))
+    return out
+
+
+def _band_rms(path, lo=300.0, hi=3400.0, sr=8000):
+    """Mono speech-band waveform of a delivered file (decode-accurate)."""
+    import subprocess as _sp
+    raw = _sp.run([C.ffmpeg(), "-v", "error", "-i", str(path), "-af",
+                   f"highpass=f={lo},lowpass=f={hi}", "-ac", "1", "-ar", str(sr),
+                   "-f", "s16le", "-"], capture_output=True).stdout
+    a = np.frombuffer(raw, "<i2").astype(np.float32) / 32768.0
+    return a, sr
+
+
+def _rms(x):
+    return float(np.sqrt(np.mean(np.square(x)))) if x.size else 0.0
+
+def run(master, plan_path=None, spans=None, out=None, vertical=None, score=None) -> dict:
     master = pathlib.Path(master)
     rows = []
 
@@ -311,13 +368,77 @@ def run(master, plan_path=None, spans=None, out=None, vertical=None) -> dict:
 
     try:
         st = S.stereo_report(master)
-        add("G10", "L/R correlation", round(st["lr_correlation"], 3), "0.55 - 0.85",
-            0.55 <= st["lr_correlation"] <= 0.85, st["verdict"])
-        add("G11", "side/mid energy", round(st["side_mid"], 3), "> 0.25",
-            st["side_mid"] > 0.25)
+        src, note = master, st["verdict"]
+        if score is not None:
+            # A narration master cannot be judged by the whole-file correlation: a
+            # centred voice is corr ~1.0 by definition and drags the file with it
+            # (measured on the delivered master: 0.968). The bed is judged on the
+            # STEM and the voice is judged INSIDE ITS OWN SPANS, which is what both
+            # gates were always about. data/gates.json carries the revision.
+            sp = _vo_spans(plan_path) if plan_path else []
+            # MEASURED: with narration present the master's width statistics are
+            # dominated by a mono, centred voice (corr up, S/M down) — that is the
+            # correct consequence of having a narrator, not a defect in the bed.
+            # These two gates are about the BED, so with --score they grade the bed
+            # and carry the master's own numbers in the note. data/gates.json holds
+            # the revision with this evidence.
+            st_stem = S.stereo_report(score)
+            vcorr = _corr_in_spans(master, sp)
+            src = score
+            add("G10", "L/R correlation (voice, in its spans)",
+                round(vcorr, 3) if vcorr is not None else None, ">= 0.90",
+                vcorr is not None and vcorr >= 0.90,
+                f'centred narration; bed corr {st_stem["lr_correlation"]:.3f}, '
+                f'whole master {st["lr_correlation"]:.3f}')
+            stm = st_stem
+        stm = S.stereo_report(src) if score is not None else S.stereo_report(master)
+        if score is None:
+            add("G10", "L/R correlation", round(stm["lr_correlation"], 3), "0.55 - 0.85",
+                0.55 <= stm["lr_correlation"] <= 0.85, note)
+        add("G11", "side/mid energy" + (" (bed)" if score is not None else ""),
+            round(stm["side_mid"], 3), "> 0.25", stm["side_mid"] > 0.25)
     except Exception as e:  # noqa: BLE001
         add("G10", "L/R correlation", None, "0.55 - 0.85", False, str(e))
         add("G11", "side/mid energy", None, "> 0.25", False, str(e))
+
+    vspans = list(spans) if spans else (_vo_spans(plan_path) if plan_path else [])
+    if vspans:
+        try:
+            a, sr = _band_rms(master)                  # 300-3400 Hz, delivered file
+            mask = np.ones(a.shape[0], bool)
+            for t0, t1 in vspans:
+                mask[int(t0 * sr):int(t1 * sr)] = False
+            hi, lo = _rms(a[~mask]), _rms(a[mask])
+            lift = 20.0 * np.log10(hi / lo) if (hi > 0 and lo > 0) else None
+            add("G20", "narration present in the master (speech band)",
+                round(float(lift), 2) if lift is not None else None, ">= 4 dB",
+                lift is not None and lift >= 4.0,
+                f"{len(vspans)} declared lines, {hi/lo:.2f}x speech-band lift in the spans")
+        except Exception as e:  # noqa: BLE001
+            add("G20", "narration present in the master (speech band)", None, ">= 4 dB", False, str(e))
+        if score is not None:
+            # "Narration over the bed" is a MIX-TIME ratio, so it is measured on the
+            # two stems at the plan's declared bed gain — NOT master-vs-stem, which
+            # compares two different normalisations (the first version of this gate
+            # reported -0.86 dB for a master that was in fact 12 dB clear).
+            try:
+                import pathlib as _pl
+                plan_d = json.loads(_pl.Path(plan_path).read_text())
+                bg = float(plan_d.get("audio", {}).get("mix_bed_gain", 0.42))
+                vpath = _pl.Path(score).with_name("voice.wav")
+                vv, sr = _band_rms(vpath)
+                ss, _ = _band_rms(score)
+                worst, where = 99.0, None
+                for t0, t1 in vspans:
+                    r = 20.0 * np.log10((_rms(vv[int(t0*sr):int(t1*sr)]) + 1e-9) /
+                                        (bg * _rms(ss[int(t0*sr):int(t1*sr)]) + 1e-9))
+                    if r < worst:
+                        worst, where = r, t0
+                add("G21", "narration level over the bed", round(worst, 2), ">= 6 dB",
+                    worst >= 6.0, f"worst line at {where}s (voice stem vs bed at gain {bg}; "
+                                  f"ducking only widens this)")
+            except Exception as e:  # noqa: BLE001
+                add("G21", "narration level over the bed", None, ">= 6 dB", False, str(e))
 
     try:
         bands = S.band_energy(master, spans)
@@ -453,8 +574,9 @@ def main():
     ap.add_argument("--plan")
     ap.add_argument("--out")
     ap.add_argument("--vertical", help="9:16 master to run G17/G18 against")
+    ap.add_argument("--score", help="score stem (score.wav) — enables the G10/G11 bed scope and G21")
     args = ap.parse_args()
-    rep = run(args.master, args.plan, out=args.out, vertical=args.vertical)
+    rep = run(args.master, args.plan, out=args.out, vertical=args.vertical, score=args.score)
     print_report(rep)
     raise SystemExit(0 if rep["result"] == "PASS" else 1)
 

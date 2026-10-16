@@ -122,6 +122,22 @@
       "kind": "measured",
       "why": "The portrait crop changes the plate under the type. The shot 03 mark measured 6.5:1 in 16:9 and 3.85:1 in the vertical cut of the same shot - the tracked crop pulled a lit fog patch under it. A 16:9 pass is not evidence about 9:16.",
       "source": "gates.py G19 (needs --vertical)"
+    },
+    {
+      "id": "G20",
+      "name": "narration present in the master (speech band)",
+      "target": ">= 4 dB",
+      "kind": "measured",
+      "why": "A plan that DECLARES narration and a master that CONTAINS it are different claims. A build once declared eight lines and shipped none: G20 read 0.04 dB of speech-band lift in the declared spans (music-led fallback, T29).",
+      "source": "gates.py G20 - 300-3400 Hz RMS inside the declared spans vs outside, on the delivered file"
+    },
+    {
+      "id": "G21",
+      "name": "narration level over the bed",
+      "target": ">= 6 dB",
+      "kind": "measured",
+      "why": "Ducking keeps the bed out of the voice's way, but the voice must also simply be LOUDER than the bed. Measured 9.9 dB at the worst line.",
+      "source": "gates.py G21 - voice stem vs bed at the plan's mix_bed_gain, per declared span"
     }
   ],
   "revisions": [
@@ -155,7 +171,13 @@
       "was": "-",
       "now": "every recorded text run must fit its own canvas",
       "evidence": "read back from the delivered master: the shot-06 gauge label ran 46 px past its card and shipped as 'BEAR SPRA'. Cause: draw_tracked anchors at the LEFT edge and the gauge passed the card's CENTRE.",
-      "why_honest": "no exception, no plan error, invisible to every other gate \u2014 the only way to catch a silent text clip is to record where text landed. NOTE: G16 validates the builder against the plan, so the picture must be re-rendered whenever the type code changes; G05 samples delivered frames and would still catch an unreadable render."
+      "why_honest": "no exception, no plan error, invisible to every other gate — the only way to catch a silent text clip is to record where text landed. NOTE: G16 validates the builder against the plan, so the picture must be re-rendered whenever the type code changes; G05 samples delivered frames and would still catch an unreadable render."
+    },
+    {
+      "date": "2026-10-17",
+      "gate": "G10 / G11",
+      "change": "with narration, G10 grades the VOICE's correlation inside its own spans (>= 0.90) and G11 grades the BED stem's width; without a score stem both keep their original whole-file form",
+      "evidence": "delivered master with narration: corr 0.938 / S-M 0.032 (whole file) vs voice-in-spans 0.991 and bed stem 0.171 / 0.708. The whole-file number is dominated by a centred, mono narrator - it is not evidence about the bed."
     }
   ]
 }

@@ -148,6 +148,24 @@ coffee break, not an overnight job. Measured after the optimisations recorded in
 
 ---
 
+### Narration is a first-class input (not an afterthought)
+
+`audio.vo` in the plan is a list of `{file, at}` — **absolute** times, because a trailer's lines are
+written to land on shots. `score.place_voice` decodes each line through the voice chain (high-pass
+125 Hz, 3.5:1 compression, -5 dB at 280 Hz — measured: this is what moved the mix from 63 % to 50 %
+in the 120-500 Hz band and from 6.7 % to 11.5 % in 4-8 kHz), places it in a buffer built at exactly
+the film's length, and returns the spans so the gates can measure inside them.
+
+The bed is ducked under the voice (8:1) and the mix solver solves loudness against the peak guard by
+**bisection** — a gain-walk cannot converge through a level-pinning limiter (measured: three
+different gains, one identical loudness).
+
+Two gates exist for narrated masters, and both came from a real failure: **G20** (the voice is in the
+delivered file — a build once declared eight lines and shipped none) and **G21** (it sits above the
+bed — measured 9.9 dB at the worst line).
+
+---
+
 ### Two masters from one plan
 
 `--vertical` renders the **9:16 Shorts master** in the same run: the camera move and grade execute
