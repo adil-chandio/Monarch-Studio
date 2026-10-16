@@ -12,6 +12,7 @@ Checked against `docs/STYLE_LIBRARY_STANDARD.md` on 2026-10-16.
 | 6 | Drive IDs / hashes / Notion / Linear / Doc IDs | Drive folder **`WF-07 · PROOF-01 Trailer — publish files (16:9 + 9:16)`** `1ANkoVyWG5kC7XH2NEFhKuIA48IvFDpfc` (inside `Wf-06 • Monarch Cam Channel`): master `1jhVg4q7H681mGG1jn-47AgQhcAOYTRQI` · vertical `1TmM36v_uNgpDpJHTNIxtZHHsrjp_DN-X` · contact sheet 16:9 `1bygfBOgpCjM04QbuZWF0BgpLLKWwjNWO` · contact sheet 9:16 `1Rr71ycDlwSHvu0rdk2AtGPnIKBPoofNB` · thumbnail B `1zEEiqAv3RnrRIFwgou8mcpqgp7ykbcjq` · publish package (Doc) `1o8bCmdTZ-OcM0V2oTYZ5IKF-44GE-8XGDS-CzssGvV0` · gate report `1CG3jJpmy5s3OjFv-GRI8S3G-TKvg1YhM` |
 | 7 | chat/action checkpoint archive | **OWED** — the session's EMS checkpoints cover WF-06 and MF-01; WF-07 needs a checkpoint entry once the next production starts |
 | 9 | publish package for the owner | `reports/PUBLISH.md` (title, description, tags, settings, and the 48-hour ask) — uploaded to the same Drive folder as a Google Doc |
+| 10 | narration pipeline + voice asset | `score.place_voice` (absolute-time placement, VO chain, silence-trimmed lines in `projects/proof-01-trailer/vo/`), gates **G20**/**G21**, laws recorded in `knowledge/06` and register **T27–T31** |
 | 8 | updated style index and repository manifest | `knowledge/INDEX.md`, `styles/registry.json`, `styles/README.md`, root `README.md`, `studio/MONARCH_STUDIO_REGISTRY.snapshot.md` (next free code **WF-08**) |
 
 ## Open items carried forward (do not lose these)
@@ -27,10 +28,15 @@ Checked against `docs/STYLE_LIBRARY_STANDARD.md` on 2026-10-16.
    cropping a 16:9 composition — and no cross-shot transitions in the vertical cut yet.
 2. **Real narration.** `score.build_voice_track` has never carried a human take in this style;
    the proof master is music-led.
-3. **Drive upload — DONE.** Both masters, both contact sheets, the thumbnail, the gate report and
-   the publish package are in `WF-07 · PROOF-01 Trailer — publish files (16:9 + 9:16)`
-   (`1ANkoVyWG5kC7XH2NEFhKuIA48IvFDpfc`) inside `Wf-06 • Monarch Cam Channel`. What is left for the
-   owner is pressing publish, not preparing anything.
+3. **Drive upload — DONE, and now NARRATED.** The folder `WF-07 · PROOF-01 Trailer — publish files
+   (16:9 + 9:16)` (`1ANkoVyWG5kC7XH2NEFhKuIA48IvFDpfc`) holds the **narrated** pair and a 12-second
+   excerpt, all built after the owner rejected the music-only cut on sight. Current files:
+   master (narrated) `1S-lIviW7gSdb3eE4G3SvlaR9VYggdOJU` · vertical (narrated)
+   `1XMqOsSd5lF-LSw9PeBnPoPELx_gntGWl` · 12 s excerpt `1kp7u_FsEZ5J8HgvSxYsmkhUlgeP6Vsq1` ·
+   contact sheet 9:16 `1sFdivkUsFBqejx0AgDRNluTUWqP5E2Om` · publish package (Doc)
+   `1o8bCmdTZ-OcM0V2oTYZ5IKF-44GE-8XGDS-CzssGvV0` · gate report `1CG3jJpmy5s3OjFv-GRI8S3G-TKvg1YhM`.
+   The pre-narration files were **trashed**, not left to rot in the same folder — an owner must never
+   have to guess which of two masters is current.
 4. **A08 loop is blind** until the owner sends 48-hour numbers for a published video.
 5. **Which video publishes first** — *The Bear's Invisible Map* (V12, already final) or MF-01 —
    is still an open question for the owner.
