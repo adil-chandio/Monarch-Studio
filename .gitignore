@@ -56,3 +56,7 @@ Thumbs.db
 *_FINAL.mp4
 *_master.mp4
 master_*.mp4
+
+# channel production render scratch (heavy, regenerable from build.py)
+channel/productions/*/05_PRODUCTION/render/
+channel/productions/*/05_PRODUCTION/*.mp4
