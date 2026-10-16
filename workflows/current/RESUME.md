@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 · YT Agent Crew — complete multi-agent production structure  
 **Style:** `agent-workflow`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-16T14:36:09Z
+**Checkpoint sequence:** 2  
+**Last checkpoint:** 2026-10-16T15:06:08Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Build the complete no-code structure for the Monarch YouTube agent crew: manager
 
 ## Exact next action
 
-Implement WF-06 as running agents (code) after user sign-off, OR begin S0 BRIEF on CLOSE CALL FILES #01 using RUNBOOK_S01E01.md. Two open blockers: YouTube Studio analytics access for A08 and the human publish gate.
+HUMAN publishes MONARCH_FILES_01_master.mp4 (Tuesday 14:00 UTC) using POST_NOW.md, answering 'Altered or synthetic content' = YES. Then A08 records the 48h snapshot: CTR, AVD, retention at 0:20 and at shot 16 (polar bear, flagged), traffic sources. Then render the 3 fan-out Shorts specced in PACKAGE.md section 7. Then open MF-02 S0 BRIEF 'The Bear That Walked Into Town'.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261016-004/0001-20261016T143609Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261016-004/0002-20261016T150608Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
