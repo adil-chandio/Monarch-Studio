@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0007-20261017T144057Z",
+  "created_at": "2026-10-17T14:40:57Z",
+  "summary": "Branch source-only WIP fd1d279 pushed; private raw/mesh assets not committed. v3 cinematic master remains blocked on 3D likeness source and explicit creative review. Existing v2 kept historical. Tests 14/14 and validate 21 PASS/1 historical warning.",
+  "next_action": "Await user-provided rig/scan or neutral unfiltered front/45°/profile/back face+body turntable and the decision about photo PBR textures on true 3D. Do not treat WIP fit as cinematic; rebuild hair/neck/blazer/fingers, render a short genuine 3D motion proof for user visual approval, then produce reference-timed full film with crown above title and sync an approved master. If no new input, report blocker honestly rather than recycling 2.5D images.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "waiting_external",
+    "title": "WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)",
+    "style_id": "monarch-face-chaos",
+    "goal": "Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warped still plates; match the supplied reference edit and locked REAL face v5 / body v2, eliminate jelly face deformation, deliver an honest cinematic 3D result with crown above MONARCH STUDIO.",
+    "acceptance_criteria": [
+      "The face is rendered from a stable 3D head mesh (no 2.5D still-image warp); body and wardrobe use 3D meshes with deliberate head/torso/hand keyframes and physically coherent camera/light movement.",
+      "Reference beats and locked identity/wardrobe are evaluated side by side; user can inspect a short 3D likeness/animation proof before any full master is labeled final.",
+      "Final 1080x1920 30fps master, sound, crown over MONARCH STUDIO, objective and visual QA; preserve previous v2 unchanged until v3 is approved."
+    ],
+    "started_at": "2026-10-13T19:17:56Z",
+    "updated_at": "2026-10-17T14:40:57Z",
+    "checkpoint_sequence": 7,
+    "event_sequence": 22,
+    "journal_head": "ed921671024fea747edfe9e77860cfbd2858f2bf06e1115df605a773d75153b5",
+    "last_checkpoint": "2026-10-17T14:40:57Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0006-20261017T144025Z",
+    "next_action": "Await user-provided rig/scan or neutral unfiltered front/45°/profile/back face+body turntable and the decision about photo PBR textures on true 3D. Do not treat WIP fit as cinematic; rebuild hair/neck/blazer/fingers, render a short genuine 3D motion proof for user visual approval, then produce reference-timed full film with crown above title and sync an approved master. If no new input, report blocker honestly rather than recycling 2.5D images.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 22,
+    "timestamp": "2026-10-17T14:40:57Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Branch source-only WIP fd1d279 pushed; private raw/mesh assets not committed. v3 cinematic master remains blocked on 3D likeness source and explicit creative review. Existing v2 kept historical. Tests 14/14 and validate 21 PASS/1 historical warning.",
+    "content_sha256": "928cfe27b7806ba1018c08227ddaafc39a49167ebe55fe2b9aef5ac1fe1effdf",
+    "metadata": {
+      "sequence": 7,
+      "next_action": "Await user-provided rig/scan or neutral unfiltered front/45°/profile/back face+body turntable and the decision about photo PBR textures on true 3D. Do not treat WIP fit as cinematic; rebuild hair/neck/blazer/fingers, render a short genuine 3D motion proof for user visual approval, then produce reference-timed full film with crown above title and sync an approved master. If no new input, report blocker honestly rather than recycling 2.5D images.",
+      "status": "waiting_external"
+    },
+    "prev_event_sha256": "fc30e8cbedd8efcb7af8fc64535d6cb3321ca5b728f1bebea917279f792161f6",
+    "event_sha256": "ed921671024fea747edfe9e77860cfbd2858f2bf06e1115df605a773d75153b5"
+  },
+  "journal_head": "ed921671024fea747edfe9e77860cfbd2858f2bf06e1115df605a773d75153b5",
+  "git": {
+    "initialized": true,
+    "head": "fd1d279f952f985d9af56eb1c5e44543add21b5d",
+    "branch": "arena/d53677cc-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/README.md",
+      "size": 1741,
+      "sha256": "4ae484c44fe3b79c686d20e333d8b123db785e4dc5bb8acd3e64cda59b2ae739"
+    }
+  ]
+}

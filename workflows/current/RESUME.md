@@ -3,8 +3,8 @@
 - **Status:** `waiting_external`
 - **Title:** WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)
 - **Style:** `monarch-face-chaos`
-- **Checkpoint sequence:** 6
-- **Last checkpoint:** 2026-10-17T14:40:25Z
+- **Checkpoint sequence:** 7
+- **Last checkpoint:** 2026-10-17T14:40:57Z
 
 ## Goal
 
@@ -18,7 +18,7 @@ Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warp
 
 ## Exact next action
 
-Await a textured 3D head/body scan or neutral unfiltered face/full-body 360-degree capture, and clarify whether photo-derived PBR textures on true 3D meshes are permitted. The user did not answer those clarifications. Recreate ignored assets/venv if needed, then replace prototype hair/neck/blazer/hands with professional geometry, inspect an actual 3D motion proof with the user, and only after visual approval render the complete reference-timed Chaos 1 v3 master with crown-above-title and quality gates. Never substitute v2 image plates or mark remote delivery synced before a real video exists.
+Await user-provided rig/scan or neutral unfiltered front/45°/profile/back face+body turntable and the decision about photo PBR textures on true 3D. Do not treat WIP fit as cinematic; rebuild hair/neck/blazer/fingers, render a short genuine 3D motion proof for user visual approval, then produce reference-timed full film with crown above title and sync an approved master. If no new input, report blocker honestly rather than recycling 2.5D images.
 
 ## Running processes
 
@@ -36,6 +36,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-001/0006-20261017T144025Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-001/0007-20261017T144057Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
