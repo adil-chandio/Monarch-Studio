@@ -1,22 +1,24 @@
-# Resume capsule — EMS-20261013-002
+# Resume capsule — EMS-20261014-001
 
-- **Status:** `completed`
-- **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)
+- **Status:** `waiting_external`
+- **Title:** WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)
 - **Style:** `monarch-face-chaos`
-- **Checkpoint sequence:** 1
-- **Last checkpoint:** 2026-10-13T13:31:18Z
+- **Checkpoint sequence:** 6
+- **Last checkpoint:** 2026-10-17T14:40:25Z
 
 ## Goal
 
-Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.
+Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warped still plates; match the supplied reference edit and locked REAL face v5 / body v2, eliminate jelly face deformation, deliver an honest cinematic 3D result with crown above MONARCH STUDIO.
 
 ## Acceptance criteria
 
-- [ ] 21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs.
+- [ ] The face is rendered from a stable 3D head mesh (no 2.5D still-image warp); body and wardrobe use 3D meshes with deliberate head/torso/hand keyframes and physically coherent camera/light movement.
+- [ ] Reference beats and locked identity/wardrobe are evaluated side by side; user can inspect a short 3D likeness/animation proof before any full master is labeled final.
+- [ ] Final 1080x1920 30fps master, sound, crown over MONARCH STUDIO, objective and visual QA; preserve previous v2 unchanged until v3 is approved.
 
 ## Exact next action
 
-Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.
+Await a textured 3D head/body scan or neutral unfiltered face/full-body 360-degree capture, and clarify whether photo-derived PBR textures on true 3D meshes are permitted. The user did not answer those clarifications. Recreate ignored assets/venv if needed, then replace prototype hair/neck/blazer/hands with professional geometry, inspect an actual 3D motion proof with the user, and only after visual approval render the complete reference-timed Chaos 1 v3 master with crown-above-title and quality gates. Never substitute v2 image plates or mark remote delivery synced before a real video exists.
 
 ## Running processes
 
@@ -34,6 +36,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261014-001/0006-20261017T144025Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

@@ -116,6 +116,8 @@ class StudioCliTests(unittest.TestCase):
         self.assertIn("README.md", paths)
         self.assertNotIn(".studio-manifest.json", paths)
         self.assertFalse(any(path.startswith(".runtime/") for path in paths))
+        self.assertFalse(any(path.startswith(".venv/") for path in paths))
+        self.assertFalse(any(path.startswith("google_drive/") for path in paths))
         self.assertFalse(any(path.startswith("vendor/effectcraft/") for path in paths))
 
     def test_missing_manifest_paths_are_genuine_sparse_omissions(self) -> None:

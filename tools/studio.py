@@ -27,6 +27,9 @@ SKIP_PARTS = {
     ".git",
     ".runtime",
     ".continuity-runtime",
+    ".venv",
+    "venv",
+    "google_drive",  # connector downloads can include private face/video sources
     "vendor",
     "__pycache__",
     "node_modules",

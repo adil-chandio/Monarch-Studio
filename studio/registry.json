@@ -106,7 +106,8 @@
         "height": 1920,
         "fps": 30,
         "gates": "21/21",
-        "freshness": "21/21"
+        "freshness": "21/21",
+        "user_review": "rejected_jelly_face_and_2_5d_plates_2026-10-17"
       },
       "authorities": {
         "drive_folder_id": "1EM8Q5IfeCCqQyBB-E12jJbAblM9n0oNg",
@@ -117,6 +118,15 @@
         "linear_project_id": "91320e77-d1f7-4f74-a5f0-0131252fd192",
         "linear_resume_issue": "MON-65",
         "google_doc_hub_id": "1Vx2t3z5Kx_gUMd2nkPjdqa3kc-BGDe8sj2Cua4pvxEY"
+      },
+      "active_rebuild": {
+        "task_id": "EMS-20261014-001",
+        "request_received_local_date": "2026-10-17",
+        "version": "v3-true3d",
+        "state": "lookdev_visual_qa_blocked",
+        "source": "styles/monarch-face-chaos/true3d/README.md",
+        "deliverable": "none",
+        "required_review": "locked likeness, wardrobe, hands, natural motion, no 2D image plates/jelly, reference beats, crown title, cinema-quality output"
       }
     }
   ],

@@ -1,7 +1,9 @@
-# WF-04 · Monarch Face 🔥👑 · Chaos Video 1 v2
+# EMS-20261014-001 · WF-04 Chaos Video 1 true-3D rebuild
 
-Current source and QA records for task `EMS-20261013-002`. Rendered media is **not** committed to Git: local copies live in `.runtime/deliverables/`; the authoritative Drive master is [MONARCH_CHAOS_VIDEO_1_MASTER_v2.mp4](https://drive.google.com/file/d/10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M/view?usp=drivesdk) (MD5 `f5d09353fab1ae7d52fb0a906f4f5598`).
+2026-10-17 user correction: v2's image-plate face has a jelly/rubber motion effect; user requests an actual realistic 3D character and film matching Chaos Video 1 reference, keeping REAL face v5 / body v2 identity, charcoal blazer/open-collar black shirt and 👑 above MONARCH STUDIO.
 
-The payload includes 10 source plates, `src/` (renderer, audio engine, 21-gate verifier), the `21/21` gate report, delivery receipt and visual inspection sheets. Download the [reproducible source ZIP](https://drive.google.com/file/d/1Devm-wKU3QZ5DTXgL5pHV2Udqxl6S59f/view?usp=drivesdk) to restore the exact delivered source, including the audio WAV. Source and current IDs are promoted to `styles/monarch-face-chaos/`.
+**Current state: visual QA blocked, no v3 master.** The true mesh/renderer source and structural gates live in `styles/monarch-face-chaos/true3d/`. First CPU-raytraced 3D head/torso proof failed the requested photoreal hair, anatomy, tailoring and cinematic quality; do not label or upload it as final. User repeated the request rather than selecting whether photo UV textures are allowed or providing a rig/scan. Keep v2 as historical and do not use image plates/flow as a substitute for geometry.
 
-Both earlier v2 revisions remain accessible as `_v2_pre_motion_boost` and `_v2_pre_flash_fix` Drive files. Its shared IDs are preserved in `DELIVERY_RECEIPT.json`.
+**Private source inputs:** locked v5 face Drive `1YTschdKJjpmsl4jIgC15y8yjek0zf1-M`, v2 body `177bFsA2oy--XSZOqbRycGieIbYJuX8S-`, reference video `1-S-wGrKYtRDL5iQf8iQBLJhKHRB71RlY` (MD5 `4eb7850feddcf400e1034ffa1d3834ce`), side-face footage `1ZtYyXj7buyP52reUgtg3kgAfmF8pwR4N`. Do not commit raw face/reference media. The ignored `.runtime` and `.venv` were lost on a sandbox reset; reconstruct them from private authorities only if a next look-dev/render step is warranted.
+
+**Required before release:** credible 3D scan/rig + hair/wardrobe/finger rig; head-turn/gesture/camera motion proof; user-visible visual sign-off for this model version; full reference-beat 3D scene rebuild; clean crown/logo finale; audio master and explicit subjective + objective QA. Until then `review_gate.py` is intentionally BLOCKED. No v3 Drive delivery or cross-platform final sync should be marked completed.

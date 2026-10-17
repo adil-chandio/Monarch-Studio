@@ -1,5 +1,7 @@
 # Monarch Face · Cyber-Sovereign Chaos (`WF-04`)
 
+> **2026-10-17 user review:** The delivered v2 was **rejected**: its 2.5D image-plate face moves like jelly. The prior 21/21 checks measured format/edit continuity, **not** this subjective failure. v2 Drive links stay live as *historical* deliveries, not an approved cinematic 3D master. An actual 3D remake is in [true3d/](true3d/README.md) **look development only**; its current mesh/wardrobe fails visual QA and no v3 master has been delivered. Do not call the photo-textured prototype the requested finished 3D film.
+
 - **Style ID:** `monarch-face-chaos`
 - **Workflow contract:** `WF-04`
 - **Trigger:** `CHAOSGO <reference_or_topic>`
@@ -26,7 +28,7 @@ Every frame is driven by a deterministic Python compositing & procedural VFX eng
 - **SHA-256:** `c2f343bd6a791009996d544f0ac03152357baef3950e63a8e5c064037d7524bf`
 - **Specs:** `1080×1920`, `30.00 fps`, `636 frames` (`21.20 s`), `-13.90 LUFS`, `-1.50 dBFS` True Peak, `21/21` gates passed.
 
-## Current release · `MONARCH CHAOS VIDEO 1 v2 · SOVEREIGN OVERLOAD`
+## Last delivered (historical; user-rejected visual approach) · `MONARCH CHAOS VIDEO 1 v2 · SOVEREIGN OVERLOAD`
 
 - **Task ID:** `EMS-20261013-002` · **21/21 objective gates PASS**.
 - **Latest master:** [MONARCH_CHAOS_VIDEO_1_MASTER_v2.mp4](https://drive.google.com/file/d/10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M/view?usp=drivesdk) (`Chaos video 1` folder; Drive ID `10nBp4Nsr3FlqxTOCKoU2cu5N44PYz-7M`; root copy `1sBFi9jFjCp8a7OpRpbA8gb7EZm0CTA_I`).

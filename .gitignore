@@ -1,6 +1,8 @@
 # Generated compatibility/runtime and render output
 .runtime/
 .continuity-runtime/
+# Connector downloads may contain raw personal identity / face-reference media.
+/google_drive/
 .continuity.lock
 build/
 **/build/

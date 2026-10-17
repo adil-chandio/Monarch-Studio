@@ -18,5 +18,15 @@
   "current_fully_sourced_release": "MONARCH CHAOS VIDEO 1 v2 \u00b7 SOVEREIGN OVERLOAD \u00b7 WF-04",
   "reproducibility": "R1",
   "current_release_path": "records/DELIVERY_RECEIPT.json",
-  "current_release_task": "EMS-20261013-002"
+  "current_release_task": "EMS-20261013-002",
+  "last_delivery_user_review": "rejected_jelly_face_and_2_5d_plates",
+  "active_revision": {
+    "task_id": "EMS-20261014-001",
+    "request_received_local_date": "2026-10-17",
+    "version": "v3-true3d",
+    "state": "lookdev_visual_qa_blocked",
+    "source": "true3d/README.md",
+    "deliverable": "none",
+    "required_review": "locked likeness, wardrobe, hands, natural motion, no 2D image plates/jelly, reference beats, crown title, cinema-quality output"
+  }
 }

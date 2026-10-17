@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0002-20261013T191844Z",
+  "created_at": "2026-10-13T19:18:44Z",
+  "summary": "Retrieved locked v5/v2 character references and reference clip; selected actual mesh/rig route via bpy rather than plate warp.",
+  "next_action": "Install 3D/landmark/video tooling in ignored .venv; inspect reference and make true-3D likeness proof.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "active",
+    "title": "WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)",
+    "style_id": "monarch-face-chaos",
+    "goal": "Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warped still plates; match the supplied reference edit and locked REAL face v5 / body v2, eliminate jelly face deformation, deliver an honest cinematic 3D result with crown above MONARCH STUDIO.",
+    "acceptance_criteria": [
+      "The face is rendered from a stable 3D head mesh (no 2.5D still-image warp); body and wardrobe use 3D meshes with deliberate head/torso/hand keyframes and physically coherent camera/light movement.",
+      "Reference beats and locked identity/wardrobe are evaluated side by side; user can inspect a short 3D likeness/animation proof before any full master is labeled final.",
+      "Final 1080x1920 30fps master, sound, crown over MONARCH STUDIO, objective and visual QA; preserve previous v2 unchanged until v3 is approved."
+    ],
+    "started_at": "2026-10-13T19:17:56Z",
+    "updated_at": "2026-10-13T19:18:44Z",
+    "checkpoint_sequence": 2,
+    "event_sequence": 6,
+    "journal_head": "828ac3e6928443df3a54eadb75f9f0019d17e0e00d7056219d9b1bc05d38a109",
+    "last_checkpoint": "2026-10-13T19:18:44Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0002-20261013T191844Z",
+    "next_action": "Install 3D/landmark/video tooling in ignored .venv; inspect reference and make true-3D likeness proof.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 6,
+    "timestamp": "2026-10-13T19:18:44Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Retrieved locked v5/v2 character references and reference clip; selected actual mesh/rig route via bpy rather than plate warp.",
+    "content_sha256": "11dcda867bad44e561bbbf4f722e8fb00e449acb3b91b8e2096d6d61d8c1b4ca",
+    "metadata": {
+      "sequence": 2,
+      "next_action": "Install 3D/landmark/video tooling in ignored .venv; inspect reference and make true-3D likeness proof.",
+      "status": "active"
+    },
+    "prev_event_sha256": "8c355c02fe68a30f365dcc64f64917c75f8e23523e41dec9158a73b6b3110601",
+    "event_sha256": "828ac3e6928443df3a54eadb75f9f0019d17e0e00d7056219d9b1bc05d38a109"
+  },
+  "journal_head": "828ac3e6928443df3a54eadb75f9f0019d17e0e00d7056219d9b1bc05d38a109",
+  "git": {
+    "initialized": true,
+    "head": "e15bddf48b47562c266bccf8d4ef7fb494b18e62",
+    "branch": "arena/d53677cc-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      " D workflows/current/payload/DELIVERY_GATES.md",
+      " D workflows/current/payload/DELIVERY_RECEIPT.json",
+      " D workflows/current/payload/GATE_REPORT.json",
+      " D workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      " D workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      " D workflows/current/payload/README.md",
+      " D workflows/current/payload/plates/plate_close_amber_sil.png",
+      " D workflows/current/payload/plates/plate_close_cyan.png",
+      " D workflows/current/payload/plates/plate_close_cyan_visor.png",
+      " D workflows/current/payload/plates/plate_closeup_34.png",
+      " D workflows/current/payload/plates/plate_med_dark_visor.png",
+      " D workflows/current/payload/plates/plate_med_red_blue.png",
+      " D workflows/current/payload/plates/plate_med_red_sil.png",
+      " D workflows/current/payload/plates/plate_profile_side_neural.png",
+      " D workflows/current/payload/plates/plate_sovereign_monarch_finale.png",
+      " D workflows/current/payload/plates/plate_wide_hall.png",
+      " D workflows/current/payload/src/audio_engine.py",
+      " D workflows/current/payload/src/build_chaos_video1.py",
+      " D workflows/current/payload/src/gate_chaos_video1.py",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261013T191802Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261013T191802Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/checkpoint.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

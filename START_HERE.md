@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `EMS-20261013-002`
-- **Status:** `completed`
-- **Title:** WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)
-- **Next action:** Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.
+- **Task:** `EMS-20261014-001`
+- **Status:** `waiting_external`
+- **Title:** WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)
+- **Next action:** Await a textured 3D head/body scan or neutral unfiltered face/full-body 360-degree capture, and clarify whether photo-derived PBR textures on true 3D meshes are permitted. The user did not answer those clarifications. Recreate ignored assets/venv if needed, then replace prototype hair/neck/blazer/hands with professional geometry, inspect an actual 3D motion proof with the user, and only after visual approval render the complete reference-timed Chaos 1 v3 master with crown-above-title and quality gates. Never substitute v2 image plates or mark remote delivery synced before a real video exists.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

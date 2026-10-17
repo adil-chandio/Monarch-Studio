@@ -1,27 +1,29 @@
 {
   "schema_version": 1,
-  "task_id": "EMS-20261013-002",
-  "status": "completed",
-  "title": "WF-04 · Monarch Face · Chaos Video 1 v2 (Canonical Boss Wardrobe & Face + Dynamic Body Movement + Crown Finale + Full 5-Platform Sync)",
+  "task_id": "EMS-20261014-001",
+  "status": "waiting_external",
+  "title": "WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)",
   "style_id": "monarch-face-chaos",
-  "goal": "Finalize and polish Chaos Video 1 v2 with enhanced 2.5D body/head/hand movement, clean golden flash transition into the 👑 MONARCH STUDIO finale, 21/21 gates, and full synchronization across Google Drive, Notion, Linear, Google Docs, and GitHub.",
+  "goal": "Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warped still plates; match the supplied reference edit and locked REAL face v5 / body v2, eliminate jelly face deformation, deliver an honest cinematic 3D result with crown above MONARCH STUDIO.",
   "acceptance_criteria": [
-    "21/21 gates passed, uploaded to Google Drive with MD5 verification, and synced across GitHub, Google Drive, Notion, Linear, and Google Docs."
+    "The face is rendered from a stable 3D head mesh (no 2.5D still-image warp); body and wardrobe use 3D meshes with deliberate head/torso/hand keyframes and physically coherent camera/light movement.",
+    "Reference beats and locked identity/wardrobe are evaluated side by side; user can inspect a short 3D likeness/animation proof before any full master is labeled final.",
+    "Final 1080x1920 30fps master, sound, crown over MONARCH STUDIO, objective and visual QA; preserve previous v2 unchanged until v3 is approved."
   ],
-  "started_at": "2026-10-13T13:05:15Z",
-  "updated_at": "2026-10-13T13:31:38Z",
-  "checkpoint_sequence": 1,
-  "event_sequence": 10,
-  "journal_head": "63ed4223d35b5ee703d49e6af47c8a0a45ef2929a487dbcfba871524886f9042",
-  "last_checkpoint": "2026-10-13T13:31:18Z",
-  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261013-002/0001-20261013T133118Z",
-  "next_action": "Await user review or a NEW explicit WF-04 reference/topic; do not infer Chaos video 2 production from its reference-only Drive folder.",
+  "started_at": "2026-10-13T19:17:56Z",
+  "updated_at": "2026-10-17T14:40:25Z",
+  "checkpoint_sequence": 6,
+  "event_sequence": 20,
+  "journal_head": "66f95639592449974c665982b6cb2fd24379a3739c4cca38f61d6d9b93707f4d",
+  "last_checkpoint": "2026-10-17T14:40:25Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0006-20261017T144025Z",
+  "next_action": "Await a textured 3D head/body scan or neutral unfiltered face/full-body 360-degree capture, and clarify whether photo-derived PBR textures on true 3D meshes are permitted. The user did not answer those clarifications. Recreate ignored assets/venv if needed, then replace prototype hair/neck/blazer/hands with professional geometry, inspect an actual 3D motion proof with the user, and only after visual approval render the complete reference-timed Chaos 1 v3 master with crown-above-title and quality gates. Never substitute v2 image plates or mark remote delivery synced before a real video exists.",
   "running_processes": [],
   "remote_sync": {
-    "github": "synced",
-    "google_docs": "synced",
-    "google_drive": "synced",
-    "linear": "synced",
-    "notion": "synced"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
   }
 }

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0003-20261013T192501Z",
+  "created_at": "2026-10-13T19:25:01Z",
+  "summary": "True-3D fallback Panda3D offscreen renderer proven; fitted MediaPipe 468-point geometry from locked v5 sheet; exploring headless CPU path tracing for photoreal finish.",
+  "next_action": "Use official canonical face topology and headless path tracer; build a 3D bust proof with fixed mesh topology and rigid head rotation, no frame warps.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "status": "active",
+    "title": "WF-04 · Chaos Video 1 v3 · true-3D character remake (no face warp)",
+    "style_id": "monarch-face-chaos",
+    "goal": "Rebuild Chaos Video 1 from an actual rigged 3D Monarch character instead of warped still plates; match the supplied reference edit and locked REAL face v5 / body v2, eliminate jelly face deformation, deliver an honest cinematic 3D result with crown above MONARCH STUDIO.",
+    "acceptance_criteria": [
+      "The face is rendered from a stable 3D head mesh (no 2.5D still-image warp); body and wardrobe use 3D meshes with deliberate head/torso/hand keyframes and physically coherent camera/light movement.",
+      "Reference beats and locked identity/wardrobe are evaluated side by side; user can inspect a short 3D likeness/animation proof before any full master is labeled final.",
+      "Final 1080x1920 30fps master, sound, crown over MONARCH STUDIO, objective and visual QA; preserve previous v2 unchanged until v3 is approved."
+    ],
+    "started_at": "2026-10-13T19:17:56Z",
+    "updated_at": "2026-10-13T19:25:01Z",
+    "checkpoint_sequence": 3,
+    "event_sequence": 9,
+    "journal_head": "385f8dba5415c9dca00b3793bfe023ea04afe3d2c531190a1c0445f402cc6b17",
+    "last_checkpoint": "2026-10-13T19:25:01Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261014-001/0002-20261013T191844Z",
+    "next_action": "Use official canonical face topology and headless path tracer; build a 3D bust proof with fixed mesh topology and rigid head rotation, no frame warps.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261014-001",
+    "seq": 9,
+    "timestamp": "2026-10-13T19:25:01Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "True-3D fallback Panda3D offscreen renderer proven; fitted MediaPipe 468-point geometry from locked v5 sheet; exploring headless CPU path tracing for photoreal finish.",
+    "content_sha256": "4245bf8859347fa5c53663205273dcf49691a0b5253b95c44d24859927fce486",
+    "metadata": {
+      "sequence": 3,
+      "next_action": "Use official canonical face topology and headless path tracer; build a 3D bust proof with fixed mesh topology and rigid head rotation, no frame warps.",
+      "status": "active"
+    },
+    "prev_event_sha256": "1d94a4e77b97e58c8933b3d7fdd065427ad644b15a14f4b8c22fcbf0be0188b9",
+    "event_sha256": "385f8dba5415c9dca00b3793bfe023ea04afe3d2c531190a1c0445f402cc6b17"
+  },
+  "journal_head": "385f8dba5415c9dca00b3793bfe023ea04afe3d2c531190a1c0445f402cc6b17",
+  "git": {
+    "initialized": true,
+    "head": "e15bddf48b47562c266bccf8d4ef7fb494b18e62",
+    "branch": "arena/d53677cc-monarch-studio",
+    "status": [
+      " M START_HERE.md",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      " M workflows/current/RESUME.md",
+      " D workflows/current/payload/DELIVERY_GATES.md",
+      " D workflows/current/payload/DELIVERY_RECEIPT.json",
+      " D workflows/current/payload/GATE_REPORT.json",
+      " D workflows/current/payload/MONARCH_CHAOS_VIDEO_1_CONTACT_SHEET.jpg",
+      " D workflows/current/payload/MONARCH_CHAOS_VIDEO_1_LOOK_SHEET.jpg",
+      " D workflows/current/payload/README.md",
+      " D workflows/current/payload/plates/plate_close_amber_sil.png",
+      " D workflows/current/payload/plates/plate_close_cyan.png",
+      " D workflows/current/payload/plates/plate_close_cyan_visor.png",
+      " D workflows/current/payload/plates/plate_closeup_34.png",
+      " D workflows/current/payload/plates/plate_med_dark_visor.png",
+      " D workflows/current/payload/plates/plate_med_red_blue.png",
+      " D workflows/current/payload/plates/plate_med_red_sil.png",
+      " D workflows/current/payload/plates/plate_profile_side_neural.png",
+      " D workflows/current/payload/plates/plate_sovereign_monarch_finale.png",
+      " D workflows/current/payload/plates/plate_wide_hall.png",
+      " D workflows/current/payload/src/audio_engine.py",
+      " D workflows/current/payload/src/build_chaos_video1.py",
+      " D workflows/current/payload/src/gate_chaos_video1.py",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261013T191802Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0001-20261013T191802Z/checkpoint.json",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0002-20261013T191844Z/HANDOFF.md",
+      "?? operations/continuity/checkpoints/EMS-20261014-001/0002-20261013T191844Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0001-20261013T191802Z/checkpoint.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261013T191844Z/STATUS.md",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261013T191844Z/SYNC.json",
+      "?? operations/continuity/outbox/EMS-20261014-001/0002-20261013T191844Z/checkpoint.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

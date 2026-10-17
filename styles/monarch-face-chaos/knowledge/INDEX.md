@@ -1,6 +1,8 @@
 # Knowledge Index · `monarch-face-chaos` (`WF-04`)
 
-## Core Architecture
+**User correction 2026-10-17:** Sections below document the historical v1/v2 **image-plate** implementation, not a user-approved current creative solution. The 2.5D `cv2.remap` face moved like jelly in the delivered v2 despite 21/21 technical gates. New direction: true 3D model, camera/rigged motion and reference-level cinematic quality; [true3d/README.md](../true3d/README.md) records the early geometric prototype and explicit visual-QA blocker. No v3 film is complete.
+
+## Historical v1/v2 architecture
 
 1. **Identity Lock (`characters/monarch/`)**:
    - Uses `CUSTOM_HERO_REAL_SHEET_v5.png` (`v1`–`v8` front and 3/4 views) and `v9` (`Side face` anchor) for 100% locked facial geometry, skin tone (`#C68B59`), spectacles (`#D4AF37`), and beard/mustache silhouette.
