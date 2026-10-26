@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T21:54:46+00:00",
+  "generated_at": "2026-10-26T19:39:19+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "a440e4ab949bfa51f01ea37d0e079954130cea8b2374deeec834bcee9376164a",
+      "size": 703
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -142,6 +142,26 @@
     "characters/monarch/tooling/spec_stick_face_v4.json": {
       "sha256": "366addd6d1f53ae156187f1a9172d845b679da71b9c6fcfb5eaff47ce8b4077a",
       "size": 4246
+    },
+    "demo/engine-check/README.md": {
+      "sha256": "6523d09532ea99dd3a9db23d44032a762953eea7c46f9c9f15ab2ead6dec65be",
+      "size": 2509
+    },
+    "demo/engine-check/WF05_ENGINE_CHECK_demo.mp4": {
+      "sha256": "2b89a2d838aed279d058b58d9006e9d4c66855aeb83b852eb01555195cb327ac",
+      "size": 6086106
+    },
+    "demo/engine-check/previews/frame-1.4.png": {
+      "sha256": "86a069ee524d4b61241ce80f3873b50c089aacbb1e615d0d2e24a3fc2bca133a",
+      "size": 235374
+    },
+    "demo/engine-check/previews/frame-3.5.png": {
+      "sha256": "86035a69bbeb3614c0a7ffcc0db8edc0d52ac910cc86856105c527742cbbafd6",
+      "size": 197954
+    },
+    "demo/engine-check/previews/frame-5.3.png": {
+      "sha256": "ff2b86d2b52f5e4005ba4971c90c291752cbd525a9938ce85275fab44aae6d2b",
+      "size": 227264
     },
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
@@ -474,6 +494,14 @@
     "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "860e42f431c3034bd44e00f247a75a66e4becac084c55748dfc22bbaeb4b20ce",
       "size": 6651
+    },
+    "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/HANDOFF.md": {
+      "sha256": "41cb34cce645ee9f5514de3681f9c0c8efe18d171b500baf09593d7cb1657a9d",
+      "size": 1654
+    },
+    "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/checkpoint.json": {
+      "sha256": "d5203f83d46c8d7ed9a30448f836966a44ccbc11124bd9a8682ce00e4e7fd3c9",
+      "size": 5014
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -858,6 +886,18 @@
     "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "460e5a0bfa1aa184d9b550a90f293025c80647fb96b31b959b3ac75324666862",
       "size": 6651
+    },
+    "operations/continuity/outbox/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/STATUS.md": {
+      "sha256": "32bca1a5a8bcadbfbfce99d26a8a0b3aa9a4c86512e8ec6ac6d03df4bd5f8b5a",
+      "size": 1129
+    },
+    "operations/continuity/outbox/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/SYNC.json": {
+      "sha256": "d2462804d47792dbe0229e25ee93c1a64598197472db9c727aa438f10b11dcbc",
+      "size": 4368
+    },
+    "operations/continuity/outbox/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/checkpoint.json": {
+      "sha256": "69afacd4d05564a97cc7618b014d6bd5c6c7b479eb563c62f6f56f4940c42201",
+      "size": 5092
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -3732,20 +3772,56 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "d89ac16bc8297bc0e5300e0e4af87cf2330e7f58a582d83ff42bda1001bfeeb1",
-      "size": 745
+      "sha256": "283009079de0afd383fc81c8c4cb1917d840d0f25965c0f606b5b0d8eb07e045",
+      "size": 1524
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "2d6d9e07fdbd0283ad409a7a5aabd61642eb96d4f96a2b8142d3445f56551f8e",
+      "size": 585
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "a31bc2902ae425d8cf669a5f0d207613b70d0fc9492b7aee810428de088048ac",
+      "size": 5758
     },
     "workflows/current/RESUME.md": {
-      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
-      "size": 874
+      "sha256": "41cb34cce645ee9f5514de3681f9c0c8efe18d171b500baf09593d7cb1657a9d",
+      "size": 1654
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/INTAKE.md": {
+      "sha256": "292e517fcbed959e346730ebb476d17e8932a450219664449c37803aefff5e02",
+      "size": 5928
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/REFERENCE.json": {
+      "sha256": "c7a71de2c4be9f6bb5c4d9b36516c4deaaefe85a60a7797c9b389c94ce3a74a1",
+      "size": 1825
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/USER_MESSAGE.txt": {
+      "sha256": "406496f3ee3ba9d00228a6882659a8a517b8c7ea747e0451a6b49e0870b8d386",
+      "size": 557
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/ENGINE_CHECK_RECEIPT.json": {
+      "sha256": "7942ab99971ad01aad65f13ee67a2f8df72d38cd8866d37463826720245b6fc8",
+      "size": 3504
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/engine_check_mix.wav": {
+      "sha256": "5392ad49e6b93fd7d74fd128b76d1d804aa044b11aba840f1b5d50cb57ef1f89",
+      "size": 1152044
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_a.mp4": {
+      "sha256": "ccdd9ca5cc57c1ce167388aaecae241259fa58c648b1099e3c0a0fb1ded9e85e",
+      "size": 4033942
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_b.mp4": {
+      "sha256": "18728159d7943e45c7bb96c89fd30890160f301795fc731a40a3240a5e0b5cc2",
+      "size": 4226999
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_c.mp4": {
+      "sha256": "653bb0c9ec0b00b2b79da642ec881d1f0478f3e172e0b0bd9656dcc3bf95d393",
+      "size": 3791606
+    },
+    "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/render_engine_check.py": {
+      "sha256": "43bc5c1b997993cccd631b40594a13f62ae40a3278ff8870859a248d5dcdf2c7",
+      "size": 15619
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

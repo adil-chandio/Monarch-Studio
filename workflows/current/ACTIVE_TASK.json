@@ -1,27 +1,30 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-14T21:54:45Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "task_id": "WF05-20261026-REF-INTAKE",
+  "status": "waiting_external",
+  "title": "WF-05 · resume supplied reference work in this repository session",
+  "style_id": "premium-motion-editing",
+  "goal": "Continue the WF-05 premium motion editing work shown in the supplied chat transcript: verify the supplied Drive reference, establish local capability, and take the reference through analysis into an edit delivery from this repository.",
+  "acceptance_criteria": [
+    "Reference identity verified from a real connector result",
+    "Local pipeline capability proven in this environment (decode/encode path)",
+    "Reference footage staged locally or an explicit alternative confirmed by the user",
+    "Style analysis grounded in decoded frames, not guessed from metadata"
+  ],
+  "started_at": "2026-10-26T19:26:55Z",
+  "updated_at": "2026-10-26T19:39:09Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 8,
+  "journal_head": "608cf7c78ce44429ef8af0e0d22a7e3030c4ccd8824ed77abe21d14168590698",
+  "last_checkpoint": "2026-10-26T19:27:22Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z",
+  "next_action": "Ask user: attach the MP4 (Route A) or confirm topic-only start (Route B); on receipt decode frames with ffmpeg before any content claim.",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261015-WF05-FOUNDATION",
-  "completion_checkpoint": "0006-20261014T215445Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }

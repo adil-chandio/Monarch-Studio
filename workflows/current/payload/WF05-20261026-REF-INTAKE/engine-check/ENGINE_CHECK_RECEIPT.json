@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "artifact": "ENGINE CHECK \u2014 capability proof, not a topic deliverable",
+  "style_id": "premium-motion-editing",
+  "policy_id": "wf05-clean-editorial-20261015",
+  "engine_sources": {
+    "render_project.py": "9b42507302412376fe3bfde1dfd91e810d7cce098d50b23f138e81391a36bca6",
+    "motion.py": "78870d54b028bcab466e0a212c4e4b1f0ea4e6297c4eb1a86db387aa8fb329a2"
+  },
+  "typography": {
+    "mode": "integrated_headings",
+    "subtitle_mode": "off",
+    "caption_pills": false,
+    "word_highlighting": false
+  },
+  "plates": [
+    {
+      "file": "plate_a.mp4",
+      "sha256": "ccdd9ca5cc57c1ce167388aaecae241259fa58c648b1099e3c0a0fb1ded9e85e",
+      "frames": 90,
+      "size": "720x1280"
+    },
+    {
+      "file": "plate_b.mp4",
+      "sha256": "18728159d7943e45c7bb96c89fd30890160f301795fc731a40a3240a5e0b5cc2",
+      "frames": 90,
+      "size": "720x1280"
+    },
+    {
+      "file": "plate_c.mp4",
+      "sha256": "653bb0c9ec0b00b2b79da642ec881d1f0478f3e172e0b0bd9656dcc3bf95d393",
+      "frames": 90,
+      "size": "720x1280"
+    }
+  ],
+  "render": {
+    "frames": 180,
+    "expected": 180,
+    "elapsed_seconds": 16.73,
+    "layout_boxes": [
+      {
+        "index": 0,
+        "box": [
+          258,
+          217,
+          821,
+          726
+        ],
+        "font_base": 118.0,
+        "position": "top"
+      },
+      {
+        "index": 1,
+        "box": [
+          185,
+          1332,
+          895,
+          1724
+        ],
+        "font_base": 104.0,
+        "position": "bottom"
+      },
+      {
+        "index": 2,
+        "box": [
+          228,
+          217,
+          851,
+          708
+        ],
+        "font_base": 112.0,
+        "position": "top"
+      }
+    ],
+    "audio": {
+      "sample_rate": 48000,
+      "channels": 2,
+      "peak_dbfs": -2.85,
+      "accents": [
+        2.0,
+        4.2,
+        4.55
+      ],
+      "narration": false
+    }
+  },
+  "verify": {
+    "ffmpeg_probe_excerpt": [
+      "Duration: 00:00:06.00, start: 0.000000, bitrate: 8114 kb/s",
+      "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1920, 7911 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+      "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 191 kb/s (default)"
+    ],
+    "decoded_frames": 180,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "full_decode_ok": true
+  },
+  "master": {
+    "path": "demo/engine-check/WF05_ENGINE_CHECK_demo.mp4",
+    "size": 6086106,
+    "md5": "85274e610d7141cb64bada011352a4ef",
+    "sha256": "2b89a2d838aed279d058b58d9006e9d4c66855aeb83b852eb01555195cb327ac",
+    "duration_seconds": 6.0
+  },
+  "claim": "Decode \u2192 approved depth motion/type \u2192 H.264 encode \u2192 decode verification all executed in this sandbox. Reference footage was NOT used and no reference-content claim is made.",
+  "motion_evidence": {
+    "within_shot_motion": {
+      "0.5-0.9": 4.759,
+      "1.2-1.6": 2.959,
+      "2.6-3.0": 10.714,
+      "3.4-3.8": 2.136,
+      "4.6-5.0": 15.59,
+      "5.2-5.6": 2.916
+    },
+    "static_pair_control": 1.483,
+    "transition_window": {
+      "1.95-2.02": 1.746,
+      "2.05-2.12": 3.861,
+      "4.15-4.22": 0.707,
+      "4.25-4.32": 3.763
+    }
+  },
+  "motion_evidence_note": "Mean absolute luma difference (0-255) between decoded frames of the delivered demo; non-zero within-shot values prove temporal motion, higher values at 2.0s/4.2s mark the depth-push and feathered-cut transitions."
+}
