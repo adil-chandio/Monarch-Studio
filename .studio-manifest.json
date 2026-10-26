@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-26T20:12:19+00:00",
+  "generated_at": "2026-10-26T21:12:05+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -24,8 +24,8 @@
       "size": 867
     },
     ".gitignore": {
-      "sha256": "4a03a8415046b19af19ff05cdce6b31653d01a21aad3b89d6c01dc67731b0c25",
-      "size": 644
+      "sha256": "3da3fd3b7f5ca9c89c241717ebf0b58557d01c1c673738e1a5fce53f8e975c94",
+      "size": 930
     },
     ".gitmodules": {
       "sha256": "1f235cdd8ca9b6884dfec35a43400f95d033f1bf17c8e3c14dd1738c74454809",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "43db1134695196e03012c279600d82a65d996ffb95c1b24bac9da9ad74e190c5",
-      "size": 619
+      "sha256": "068476233a2a93b5ce9efd0b947d0bdebd91b47bcdf3006f0e117566a551b890",
+      "size": 892
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -495,6 +495,38 @@
       "sha256": "860e42f431c3034bd44e00f247a75a66e4becac084c55748dfc22bbaeb4b20ce",
       "size": 6651
     },
+    "operations/continuity/checkpoints/WF04-CHAOS04/0001-20261026T201243Z/HANDOFF.md": {
+      "sha256": "fc8e0bad8c62ccc85df6887322ff662369cba8020fdbd0f8c9be14eed17f5d3a",
+      "size": 1532
+    },
+    "operations/continuity/checkpoints/WF04-CHAOS04/0001-20261026T201243Z/checkpoint.json": {
+      "sha256": "c1c7d7be9c272983f2e0c008686b631bed644a380ffb4005284558aecb54386c",
+      "size": 11822
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0001-20261026T204855Z/HANDOFF.md": {
+      "sha256": "542edb898c5abbc3d355b68e995940525264d665c57d1974b48b3f4d5ef2b0a8",
+      "size": 1378
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0001-20261026T204855Z/checkpoint.json": {
+      "sha256": "c50dfa19209c7da93b21916bea454fc6fb3b73eccef09a39ce91add8cea1aadd",
+      "size": 11261
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0002-20261026T210427Z/HANDOFF.md": {
+      "sha256": "3a71516b3a5b168f68701df6319686125246c4f06cbabd8cb5659047c6414391",
+      "size": 1384
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0002-20261026T210427Z/checkpoint.json": {
+      "sha256": "11d91520f500212d7618acded2ef3f348497d0440d1bb453e84f75b1fde30d70",
+      "size": 11412
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0003-20261026T211204Z/HANDOFF.md": {
+      "sha256": "8502597e5489a3d8b930f0acd9ede86669487b7894e9e9ba9847d7905c5a6944",
+      "size": 1556
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0003-20261026T211204Z/checkpoint.json": {
+      "sha256": "8042529ff7b3ec91938f381c8426437480e2008e146029a109d7b993e836cc81",
+      "size": 13122
+    },
     "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/HANDOFF.md": {
       "sha256": "41cb34cce645ee9f5514de3681f9c0c8efe18d171b500baf09593d7cb1657a9d",
       "size": 1654
@@ -894,6 +926,54 @@
     "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "460e5a0bfa1aa184d9b550a90f293025c80647fb96b31b959b3ac75324666862",
       "size": 6651
+    },
+    "operations/continuity/outbox/WF04-CHAOS04/0001-20261026T201243Z/STATUS.md": {
+      "sha256": "ae4e6a455b6611d37bd453acad1ad0f5e7738ea1c7750382c0333adb2a7253c1",
+      "size": 1007
+    },
+    "operations/continuity/outbox/WF04-CHAOS04/0001-20261026T201243Z/SYNC.json": {
+      "sha256": "ca0d6ab416c0f79cf49856441162a865e99a63d04854c596d5d0dd1015a6d83a",
+      "size": 4356
+    },
+    "operations/continuity/outbox/WF04-CHAOS04/0001-20261026T201243Z/checkpoint.json": {
+      "sha256": "cae7203d790831b7316978b26bbd56b4b59786c3a9d4b03ffd5c694bc78c7f08",
+      "size": 11888
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0001-20261026T204855Z/STATUS.md": {
+      "sha256": "9a033dd5b15e4ed37dafdaec26708dbb62417a902884b0afe30e24b93ed58421",
+      "size": 1002
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0001-20261026T204855Z/SYNC.json": {
+      "sha256": "9bab231b4ae266f3ad3bf7024981fec943b84ef3acd39dc9f06a9997553d6cea",
+      "size": 4361
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0001-20261026T204855Z/checkpoint.json": {
+      "sha256": "04d459bfb01d5104589794a0e5b585cdfcd1babaf7544b25731af5326f60b8fe",
+      "size": 11332
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0002-20261026T210427Z/STATUS.md": {
+      "sha256": "ee69fd6fd911c1b2df0231d1c128984b570a64f3a99836c22926ea58eb4cf15d",
+      "size": 942
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0002-20261026T210427Z/SYNC.json": {
+      "sha256": "0b098baba5d0acda3bfb743daa518ad60745c65d03e78af688927f8b3dfefa83",
+      "size": 4361
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0002-20261026T210427Z/checkpoint.json": {
+      "sha256": "7b6bbaea106a0e83d51a1be91d4928006662ea114ba5fd64dd28bd548ae426ec",
+      "size": 11412
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0003-20261026T211204Z/STATUS.md": {
+      "sha256": "0e51bf80ebe93eb8ecfb5809b1236a59f7af81e724fb74a93b973cd323095fbe",
+      "size": 1452
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0003-20261026T211204Z/SYNC.json": {
+      "sha256": "499eed4cad69cee8d39b966cc2685901c79b267a6bb94e2b006f065342800a17",
+      "size": 4361
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0003-20261026T211204Z/checkpoint.json": {
+      "sha256": "5498adf46ca13d15c3325e396898d70d2fb30f012a845b2598e4b5b1c45305bb",
+      "size": 13122
     },
     "operations/continuity/outbox/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/STATUS.md": {
       "sha256": "32bca1a5a8bcadbfbfce99d26a8a0b3aa9a4c86512e8ec6ac6d03df4bd5f8b5a",
@@ -4360,24 +4440,44 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "dfe68869f51c4dc97f31d8897372c6357013b0ce3c987d5d0abe6c376b2650aa",
-      "size": 1230
+      "sha256": "9ee9698b2b59fd493f2f3ce143a404b019ee5df8aba4828a5d27ae2e1a8e2130",
+      "size": 1424
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "a956d2a116ce7d3d7f125487d921b29d1469713739adbaf328748ea8cba7d69d",
-      "size": 1841
+      "sha256": "349f9d2fb79fa5ca96cb09c6349e5e1f7fc7a0833c061b0993f3ab15887ba301",
+      "size": 24581
     },
     "workflows/current/RESUME.md": {
-      "sha256": "eeb979ba116801d4c761939a495fab6ce53859a86719a9732eb95577434c2008",
-      "size": 1365
+      "sha256": "8502597e5489a3d8b930f0acd9ede86669487b7894e9e9ba9847d7905c5a6944",
+      "size": 1556
     },
     "workflows/current/payload/WF04-CHAOS04/.gitignore": {
       "sha256": "d0d52e7138fde09489f9de94a9b5f40aa6a6c5c00dbeda3c57725005b4484ccb",
       "size": 133
+    },
+    "workflows/current/payload/WF04-CHAOS04/INSPECTION.md": {
+      "sha256": "e26fd26ab3c22982b4ea5aa3bda16771a133e4c99f7c707b015cb244f4e8c6f4",
+      "size": 5705
+    },
+    "workflows/current/payload/WF04-CHAOS04/PLAN_3D_MONARCH.md": {
+      "sha256": "ff326979e8efe6ed7c5c1397f6da80fb36ae48488345fd2d221ffc501c104d7d",
+      "size": 10622
+    },
+    "workflows/current/payload/WF04-CHAOS04/README.md": {
+      "sha256": "8c7e6c9f4f89aa0d0f4e24f93554a14cf29011dfd61cff5744c7c415a539a0d8",
+      "size": 2017
+    },
+    "workflows/current/payload/WF04-CHAOS04/STRUCTURE_MASTER.md": {
+      "sha256": "91c466dee26f1860e130f9501d0a2ff3431b51089a0bec2c4df44f7b20ec3844",
+      "size": 13316
+    },
+    "workflows/current/payload/WF04-CHAOS04/analysis/ARC_STATS.json": {
+      "sha256": "e055a827221701e675833ed3566df14fc8fd9cd4a80e757742904755adce3666",
+      "size": 7194
     },
     "workflows/current/payload/WF04-CHAOS04/analysis/REFERENCE_ANALYSIS.json": {
       "sha256": "0d087f0d35c0663d28017ab80aaef77652c8be79aa9bf1fbd14b15e58bc83ff8",
@@ -4446,6 +4546,18 @@
     "workflows/current/payload/WF04-CHAOS04/assets/leak_red_left.png": {
       "sha256": "75b5987bb0e13ec5fd6ed13009c5e0ae7244299cd8ca4de1614e32fc5fb7644e",
       "size": 88778
+    },
+    "workflows/current/payload/WF04-CHAOS04/gpu/CHAOS_GPU_COLAB.ipynb": {
+      "sha256": "5ed501e33ca85803c88d0e7db1b9eea52f4093a67b22a330192a476060f3b545",
+      "size": 14926
+    },
+    "workflows/current/payload/WF04-CHAOS04/gpu/CHAOS_JOBS.example.json": {
+      "sha256": "ae39a8145806d09f1a2ca6a45f850c3685b6f74d110a55af88294ee38046b964",
+      "size": 1300
+    },
+    "workflows/current/payload/WF04-CHAOS04/gpu/README_GPU.md": {
+      "sha256": "bd8ddd133a22aeb393dce8d115a7b9f11f9edecd287afdeda609f1ed4f597e64",
+      "size": 3125
     },
     "workflows/current/payload/WF04-CHAOS04/make_assets.py": {
       "sha256": "2f13c538e3fd0161fcc6551b69a653e4f5ff9245d51112d6def60659311f2bd7",
