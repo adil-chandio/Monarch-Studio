@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `WF04-REF-INTAKE-2`
 - **Status:** `waiting_external`
 - **Title:** WF-04 · CHAOSGO reference inspection (no production) — awaiting user decision
-- **Next action:** Get user decision on Route A/B/C, performance video/turntable, wardrobe texture choice, film number and length, then write SHOTLIST_3D.json.
+- **Next action:** Await user choice: Track A/B/C, GPU availability, character input, film number+length, masked-vs-open face. Then write SHOTLIST_3D.json (G1) only.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
