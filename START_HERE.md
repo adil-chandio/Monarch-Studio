@@ -3,9 +3,9 @@
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
 - **Task:** `WF04-CHAOS04`
-- **Status:** `active`
+- **Status:** `completed`
 - **Title:** WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage
-- **Next action:** Build CHAOS 04 grade/HUD/emblem assets and render the master.
+- **Next action:** Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

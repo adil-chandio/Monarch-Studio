@@ -1,10 +1,10 @@
 # Resume capsule — WF04-CHAOS04
 
-**Status:** `active`  
+**Status:** `completed`  
 **Title:** WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage  
 **Style:** `monarch-face-chaos`  
-**Checkpoint sequence:** 0  
-**Last checkpoint:** none
+**Checkpoint sequence:** 1  
+**Last checkpoint:** 2026-10-26T20:12:43Z
 
 ## Goal
 
@@ -18,7 +18,7 @@ Produce CHAOS 04: grade, light leaks, HUD, beat-synced cut rhythm, crown emblem 
 
 ## Exact next action
 
-Build CHAOS 04 grade/HUD/emblem assets and render the master.
+Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.
 
 ## Running processes
 
@@ -36,6 +36,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `none`
+- Latest checkpoint package: `operations/continuity/checkpoints/WF04-CHAOS04/0001-20261026T201243Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

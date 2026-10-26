@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0001-20261026T201243Z",
+  "created_at": "2026-10-26T20:12:43Z",
+  "summary": "CHAOS 04 delivered and verified: master 44,741,521 B md5 bf4a8925e3cb399bfcaaeaef1a4dfad5 local==Drive (id 1pvWrjJ1Gk1_I_KQNayNW6Mir1MnCtgi4), 23/23 gates measured, -16.0 LUFS, look sheet + gate report uploaded. Raw + master kept out of Git via task .gitignore; commit 8e4af29 pushed.",
+  "next_action": "Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF04-CHAOS04",
+    "status": "completed",
+    "title": "WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage",
+    "style_id": "monarch-face-chaos",
+    "goal": "Produce CHAOS 04: grade, light leaks, HUD, beat-synced cut rhythm, crown emblem ending and mastered audio from the supplied 44.4s raw reference, matching the delivered CHAOS 03 gate standard (1080x1920, 30fps, 48k stereo, -16 LUFS, TP<=-1.5).",
+    "acceptance_criteria": [
+      "1080x1920 30fps H.264 master with 48kHz stereo mastered audio",
+      "Real measured gate report (no invented passes)",
+      "Verified checksum and Drive upload with independent read-back"
+    ],
+    "started_at": "2026-10-26T19:51:30Z",
+    "updated_at": "2026-10-26T20:12:43Z",
+    "checkpoint_sequence": 1,
+    "event_sequence": 4,
+    "journal_head": "6cf1530aba816b7bacb30b7a406fb7b308ce2fba2284518c4e04a00637bb0b17",
+    "last_checkpoint": "2026-10-26T20:12:43Z",
+    "last_checkpoint_path": null,
+    "next_action": "Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF04-CHAOS04",
+    "seq": 4,
+    "timestamp": "2026-10-26T20:12:43Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "CHAOS 04 delivered and verified: master 44,741,521 B md5 bf4a8925e3cb399bfcaaeaef1a4dfad5 local==Drive (id 1pvWrjJ1Gk1_I_KQNayNW6Mir1MnCtgi4), 23/23 gates measured, -16.0 LUFS, look sheet + gate report uploaded. Raw + master kept out of Git via task .gitignore; commit 8e4af29 pushed.",
+    "content_sha256": "94b69fd30c8fcc908613ac7ea677916d16661e7e153d72233a5d40cf6d2126fa",
+    "metadata": {
+      "sequence": 1,
+      "next_action": "Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.",
+      "status": "completed"
+    },
+    "prev_event_sha256": "6bad7e5d1a733a02c2f3f38d121c4212cf6b4fd8f43d8db599447b18653f9fb7",
+    "event_sha256": "6cf1530aba816b7bacb30b7a406fb7b308ce2fba2284518c4e04a00637bb0b17"
+  },
+  "journal_head": "6cf1530aba816b7bacb30b7a406fb7b308ce2fba2284518c4e04a00637bb0b17",
+  "git": {
+    "initialized": true,
+    "head": "8e4af29d85a6dc31633455ca0c6491804692aeaf",
+    "branch": "arena/faa9119c-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/.gitignore",
+      "size": 133,
+      "sha256": "d0d52e7138fde09489f9de94a9b5f40aa6a6c5c00dbeda3c57725005b4484ccb"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/README.md",
+      "size": 2017,
+      "sha256": "8c7e6c9f4f89aa0d0f4e24f93554a14cf29011dfd61cff5744c7c415a539a0d8"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/__pycache__/render_chaos04.cpython-311.pyc",
+      "size": 51776,
+      "sha256": "464349a7827738fece10082b6d681a5da099888f62b8f642d1f111e51809f75c"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/REFERENCE_ANALYSIS.json",
+      "size": 16976,
+      "sha256": "0d087f0d35c0663d28017ab80aaef77652c8be79aa9bf1fbd14b15e58bc83ff8"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_1.png",
+      "size": 1288928,
+      "sha256": "6da4e7e2dd85e69a84e6feb0b02510cf433e31609b100e53d435391d92a14680"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_2.png",
+      "size": 1475049,
+      "sha256": "76e879b5ed9bd010a1d3b9daef2bff08bc8c42895e56b09a151b19822fc96ab9"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_3.png",
+      "size": 1562356,
+      "sha256": "b71c6338eae6bebb84389494b7e975a7f4b524017daab6656c772e9f9601ef7e"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_4.png",
+      "size": 1572252,
+      "sha256": "5e7af420e18d652d90e23811ccf9359f22733f4b2e3f972cdb4e2247c604d986"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_5.png",
+      "size": 1381102,
+      "sha256": "d4bfb61b74a1b18ebb765e49bd378d75bd220988427d3aa79a2fd8f87d7ea6a5"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_6.png",
+      "size": 1595383,
+      "sha256": "b662967def5b15e82e8699e46434dd34faa77e7c707c3c0c1c577ee500d86c80"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_7.png",
+      "size": 1141631,
+      "sha256": "7ab07e8c7a668e009582338e11fdc9fd21dd4feadd643f61be71d21704be5c64"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analysis/sheet_8.png",
+      "size": 344626,
+      "sha256": "f1982cb6585cfa9fd3e067228d08f34c0cfb461d1c3842d56bfd9415b0974812"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/analyze_reference.py",
+      "size": 7432,
+      "sha256": "16f3467e13a0475c401b1a226e52459e6ff751f0f2623194010485549a0ce977"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/emblem.png",
+      "size": 417758,
+      "sha256": "f81d500ac295e42c6f25626f5ca3808c3799c955de40991c8e778f95a248210c"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/flash.png",
+      "size": 12571,
+      "sha256": "6e5bf7b2f1f04dab5a745574f371167356db180cb12a5ee2394c78dbe9712dbb"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/leak_blue_right.png",
+      "size": 75687,
+      "sha256": "42ef58748fd241c19773b7af97c7a5be16e54dfbdba0f9edcac29ff752202f5f"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/leak_cyan_bottom.png",
+      "size": 41127,
+      "sha256": "3fd4c54fe02cd392436b7393d05054df6d9f73dd085d62ce1a5c9e2df4345b03"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/leak_gold_top.png",
+      "size": 52690,
+      "sha256": "076818d9f0dbd443a8204709293e905b3d2491eb26ee7e8848e7604b5e9a1037"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/leak_magenta_left.png",
+      "size": 69193,
+      "sha256": "905fcd0fde7df3c923b7021d4627d2c25cb3f3a005de70a6d3df2eae098135d4"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/assets/leak_red_left.png",
+      "size": 88778,
+      "sha256": "75b5987bb0e13ec5fd6ed13009c5e0ae7244299cd8ca4de1614e32fc5fb7644e"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/make_assets.py",
+      "size": 6513,
+      "sha256": "2f13c538e3fd0161fcc6551b69a653e4f5ff9245d51112d6def60659311f2bd7"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/materials/RAW_ANALYSIS.json",
+      "size": 16976,
+      "sha256": "0d087f0d35c0663d28017ab80aaef77652c8be79aa9bf1fbd14b15e58bc83ff8"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/materials/raw_source.mp4",
+      "size": 26397151,
+      "sha256": "737c1eba945ee89ba359abf5a53bcdd248b18c1c61d7db4c9fcc3a345ff54519"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/output/CHAOS04_LOOK.png",
+      "size": 317640,
+      "sha256": "2146c6a15b7038d48402821f3345cd061a492e0a2630b7370e9977ae6cd4241a"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/output/CHAOS04_MASTER.mp4",
+      "size": 44741521,
+      "sha256": "dcd92d7b1f80803c56abecf11fd059c85060b5d7b7d84a1d2d3ac6488a4b433b"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/output/DELIVERY_GATES_CHAOS04_v1.md",
+      "size": 3911,
+      "sha256": "5847e8cb7f96847dbb084d245f1d9e226d50b6a1846e9e8386e1822c285a45e5"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/output/DELIVERY_RECEIPT.json",
+      "size": 2025,
+      "sha256": "cbdc31fb9d48f046c15c9f2a405ce3aa2924de201993473a0910369b50677f8f"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/output/GATE_REPORT_CHAOS04_v1.json",
+      "size": 5953,
+      "sha256": "cf7bb296bae07fb398a20d36a323fdac976f836c69a1a1f63a61465039469cec"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/refs/DELIVERY_GATES_CHAOS03_v1.md",
+      "size": 2771,
+      "sha256": "1a518ad34cad672f4d45b3a3564c44f0a6c6dd24909dd1e118fb117619b2956e"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/refs/GATE_REPORT_CHAOS03_v1.json",
+      "size": 5157,
+      "sha256": "16486235342fb48f39507f060e28d9618c0fb05b172bf88649fdcd5c68a9ebaf"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/refs/MONARCH_CHAOS_VIDEO_3_LOOK_v1.jpg",
+      "size": 267817,
+      "sha256": "ec3586c2629627b586c9415e04161e2f194017558ac4cd4b6188ce4926e72815"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/refs/MONARCH_CHAOS_VIDEO_3_MOTION_MASTER.mp4",
+      "size": 36492634,
+      "sha256": "169f0d7c7531c9ab165ee850f609af81290868fd39b3c53f2ad5d71be5039fa9"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/refs/chaos03_sheet.png",
+      "size": 1458945,
+      "sha256": "054b861560251a15d9e0670ca9fde81d867c91d2a5fa0f533515feb19fcd658d"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/render_chaos04.py",
+      "size": 27462,
+      "sha256": "6a3b08548c66bdb0862ea0112329e35b827a770edd92c558f984ae7051bc302c"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/verify_chaos04.py",
+      "size": 10949,
+      "sha256": "7524197d3fc2236fd7d16b98d4ddc63285a6cf008ddaa5eb8d78024cee45f303"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/work/ACT_PLAN.json",
+      "size": 26018,
+      "sha256": "635d6128668b35a77097a54f1a417988e36f697efad35bd9ce693638668be7ea"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/work/master_audio.wav",
+      "size": 8550932,
+      "sha256": "f422dd706912613ceb3ce4999f7c55fe7d24d11514a18dc39ee900aa63dd0d8c"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/work/render.log",
+      "size": 731,
+      "sha256": "4bec7604453836131790b5336c76e686d8bfcd23c27fd69f736e1e13930eb8ce"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/work/render2.log",
+      "size": 731,
+      "sha256": "4bec7604453836131790b5336c76e686d8bfcd23c27fd69f736e1e13930eb8ce"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/work/source_audio.wav",
+      "size": 8550966,
+      "sha256": "ad9d730c7a9785602000b37ed1de36288d689a139dd00be8f452c764ddaa8b67"
+    },
+    {
+      "path": "workflows/current/payload/WF04-CHAOS04/write_report.py",
+      "size": 2418,
+      "sha256": "4c7088a66523d0587c1524580ee2c6e5737893a3a20a7fc0114ebd2a99aced71"
+    }
+  ]
+}
