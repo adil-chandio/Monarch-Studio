@@ -1,0 +1,6 @@
+# rendered pixels, audio and assembled masters stay out of Git (Drive is the store)
+render/
+frames/
+card/
+out/
+score/*.wav
