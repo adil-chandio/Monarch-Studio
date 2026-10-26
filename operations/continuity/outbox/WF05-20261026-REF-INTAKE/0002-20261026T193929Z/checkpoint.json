@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0002-20261026T193929Z",
+  "created_at": "2026-10-26T19:39:29Z",
+  "summary": "Engine-check demo delivered and committed: 6.0s 1080x1920 30fps H.264+AAC master with full decode verification and measured motion; reference intake documented with honest bytes-not-staged boundary; studio.py validate 21 pass/0 errors; manifest rewritten (954 files).",
+  "next_action": "Await user choice: attach the MP4 for real reference analysis, or confirm topic-only start (Route B). Do not claim reference content before frames decode.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "WF05-20261026-REF-INTAKE",
+    "status": "waiting_external",
+    "title": "WF-05 · resume supplied reference work in this repository session",
+    "style_id": "premium-motion-editing",
+    "goal": "Continue the WF-05 premium motion editing work shown in the supplied chat transcript: verify the supplied Drive reference, establish local capability, and take the reference through analysis into an edit delivery from this repository.",
+    "acceptance_criteria": [
+      "Reference identity verified from a real connector result",
+      "Local pipeline capability proven in this environment (decode/encode path)",
+      "Reference footage staged locally or an explicit alternative confirmed by the user",
+      "Style analysis grounded in decoded frames, not guessed from metadata"
+    ],
+    "started_at": "2026-10-26T19:26:55Z",
+    "updated_at": "2026-10-26T19:39:29Z",
+    "checkpoint_sequence": 2,
+    "event_sequence": 9,
+    "journal_head": "1f72ce8276d4a21bc9c0b40db4108e7e6835f14d4997ae71d5045e12107ea8d1",
+    "last_checkpoint": "2026-10-26T19:39:29Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0002-20261026T193929Z",
+    "next_action": "Await user choice: attach the MP4 for real reference analysis, or confirm topic-only start (Route B). Do not claim reference content before frames decode.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "WF05-20261026-REF-INTAKE",
+    "seq": 9,
+    "timestamp": "2026-10-26T19:39:29Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Engine-check demo delivered and committed: 6.0s 1080x1920 30fps H.264+AAC master with full decode verification and measured motion; reference intake documented with honest bytes-not-staged boundary; studio.py validate 21 pass/0 errors; manifest rewritten (954 files).",
+    "content_sha256": "a3d4b06413f44e77316402d64e2a334d1442a2504a5c710547d16595cf5efbee",
+    "metadata": {
+      "sequence": 2,
+      "next_action": "Await user choice: attach the MP4 for real reference analysis, or confirm topic-only start (Route B). Do not claim reference content before frames decode.",
+      "status": "waiting_external"
+    },
+    "prev_event_sha256": "608cf7c78ce44429ef8af0e0d22a7e3030c4ccd8824ed77abe21d14168590698",
+    "event_sha256": "1f72ce8276d4a21bc9c0b40db4108e7e6835f14d4997ae71d5045e12107ea8d1"
+  },
+  "journal_head": "1f72ce8276d4a21bc9c0b40db4108e7e6835f14d4997ae71d5045e12107ea8d1",
+  "git": {
+    "initialized": true,
+    "head": "0376f22798edbbc0a4b883b84bee595d3ec66b4a",
+    "branch": "arena/faa9119c-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": [
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/INTAKE.md",
+      "size": 5928,
+      "sha256": "292e517fcbed959e346730ebb476d17e8932a450219664449c37803aefff5e02"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/REFERENCE.json",
+      "size": 1825,
+      "sha256": "c7a71de2c4be9f6bb5c4d9b36516c4deaaefe85a60a7797c9b389c94ce3a74a1"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/USER_MESSAGE.txt",
+      "size": 557,
+      "sha256": "406496f3ee3ba9d00228a6882659a8a517b8c7ea747e0451a6b49e0870b8d386"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/ENGINE_CHECK_RECEIPT.json",
+      "size": 3504,
+      "sha256": "7942ab99971ad01aad65f13ee67a2f8df72d38cd8866d37463826720245b6fc8"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/engine_check_mix.wav",
+      "size": 1152044,
+      "sha256": "5392ad49e6b93fd7d74fd128b76d1d804aa044b11aba840f1b5d50cb57ef1f89"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/master_engine_check.mp4",
+      "size": 6083480,
+      "sha256": "b580fbc741c254374df03c3e37f098d1a5c057c2ec9f4748a3be26caaa4295ad"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_a.mp4",
+      "size": 4033942,
+      "sha256": "ccdd9ca5cc57c1ce167388aaecae241259fa58c648b1099e3c0a0fb1ded9e85e"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_b.mp4",
+      "size": 4226999,
+      "sha256": "18728159d7943e45c7bb96c89fd30890160f301795fc731a40a3240a5e0b5cc2"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/plates/plate_c.mp4",
+      "size": 3791606,
+      "sha256": "653bb0c9ec0b00b2b79da642ec881d1f0478f3e172e0b0bd9656dcc3bf95d393"
+    },
+    {
+      "path": "workflows/current/payload/WF05-20261026-REF-INTAKE/engine-check/render_engine_check.py",
+      "size": 15619,
+      "sha256": "43bc5c1b997993cccd631b40594a13f62ae40a3278ff8870859a248d5dcdf2c7"
+    }
+  ]
+}

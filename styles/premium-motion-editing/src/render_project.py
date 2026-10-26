@@ -23,6 +23,14 @@ class Compositor:
     def __init__(self,project:dict,timeline:dict,base:Path):
         self.project=project;self.data=timeline;self.base=base
         self.mode=subtitle_mode(project)
+        # Editorial type palette. Default is the approved V5 dark-ink/violet look;
+        # a project may declare another reviewed palette (e.g. light ink for
+        # dark-graded footage) via typography.ink / typography.extrusion.
+        typ=project.get('typography') or {}
+        self.ink=tuple(typ.get('ink') or INK)
+        self.extrusion=tuple(typ.get('extrusion') or (112,91,173))
+        if len(self.ink)!=3 or len(self.extrusion)!=3 or not all(isinstance(c,int) and 0<=c<=255 for c in (*self.ink,*self.extrusion)):
+            raise PolicyError('typography.ink/extrusion must be reviewed RGB triples (0-255).')
         self.font_dir=resolve(base,project['font_dir']) if project.get('font_dir') else STYLE_ROOT/'assets/fonts'
         self.fonts={};self.title_cache={};self.caption_cache={}
         self.media=resolve(base,project.get('media_dir','media'))
@@ -64,13 +72,14 @@ class Compositor:
         height=int(kh+sum(heights)+(len(lines)-1)*10*SCALE+(20*SCALE if sublines else 0)+len(sublines)*35*SCALE+30*SCALE)
         im=Image.new('RGBA',(width,height));dr=ImageDraw.Draw(im);y=7*SCALE
         if kick:
-            bb=kicker.getbbox(kick);dr.text(((width-kicker.getlength(kick))/2,y-bb[1]),kick,font=kicker,fill=(*INK,240));y+=kh
+            bb=kicker.getbbox(kick);dr.text(((width-kicker.getlength(kick))/2,y-bb[1]),kick,font=kicker,fill=(*self.ink,240));y+=kh
         for j,line in enumerate(lines):
             bb=ft.getbbox(line);x=(width-ft.getlength(line))/2;ty=y-bb[1]
-            for z in range(13,0,-1):dr.text((x+z*.67,ty+z*.95),line,font=ft,fill=(123-z*2,105-z*2,179-z*2,245))
-            dr.text((x,ty),line,font=ft,fill=(*INK,255));y+=heights[j]+10*SCALE
+            ex=self.extrusion
+            for z in range(13,0,-1):dr.text((x+z*.67,ty+z*.95),line,font=ft,fill=(max(0,ex[0]-z*2),max(0,ex[1]-z*2),max(0,ex[2]-z*2),245))
+            dr.text((x,ty),line,font=ft,fill=(*self.ink,255));y+=heights[j]+10*SCALE
         for line in sublines:
-            bb=body.getbbox(line);y+=3*SCALE;dr.text(((width-body.getlength(line))/2,y-bb[1]),line,font=body,fill=(*INK,245));y+=32*SCALE
+            bb=body.getbbox(line);y+=3*SCALE;dr.text(((width-body.getlength(line))/2,y-bb[1]),line,font=body,fill=(*self.ink,245));y+=32*SCALE
         pos=d.get('position','top')
         ax=float(d.get('anchor_x',500/720 if pos=='right' else .5))
         ay=float(d.get('anchor_y',{'top':145/1280,'bottom':888/1280,'right':766/1280}[pos]))

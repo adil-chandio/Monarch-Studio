@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "WF04-CHAOS04",
+  "workflow": "WF-04",
+  "title": "MONARCH CHAOS VIDEO 4 \u00b7 cinematic motion edit",
+  "produced_at_utc": "2026-10-26T20:12:13Z",
+  "master": {
+    "local_file": "output/CHAOS04_MASTER.mp4",
+    "drive_id": "pending",
+    "drive_id_final": "1pvWrjJ1Gk1_I_KQNayNW6Mir1MnCtgi4",
+    "drive_name": "MONARCH_CHAOS_VIDEO_4_MOTION_MASTER.mp4",
+    "drive_parent_folder": "1uGPfl4pwPoL-D0VIag3hIejmbR__ochC",
+    "drive_url": "https://drive.google.com/file/d/1pvWrjJ1Gk1_I_KQNayNW6Mir1MnCtgi4/view",
+    "local_md5": "bf4a8925e3cb399bfcaaeaef1a4dfad5",
+    "remote_md5": "bf4a8925e3cb399bfcaaeaef1a4dfad5",
+    "local_size": 44741521,
+    "remote_size": 44741521,
+    "independent_get_verified": true,
+    "sha256": "dcd92d7b1f80803c56abecf11fd059c85060b5d7b7d84a1d2d3ac6488a4b433b"
+  },
+  "artifacts": {
+    "look_sheet": {
+      "drive_id": "16rd_VSQcEORDxhsvL-e8JgytSeuhS2M2",
+      "local_md5": "2121ee9fb3be3e3546885d563a544e56"
+    },
+    "gate_report_md": {
+      "drive_id": "1Ax-WNIdCUd_FIcQkZIoU-bmfMdyta-9X",
+      "local_md5": "a3a554225e1cbe46ea0b16d70b40cde7"
+    },
+    "gate_report_json": {
+      "local_md5": "ddd107abb72e094ae511055f9c802438"
+    }
+  },
+  "gates_passed": "23/23",
+  "format": {
+    "resolution": "1080x1920",
+    "fps": 30.0,
+    "frames": 1332,
+    "duration_s": 44.4
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -16.0,
+    "true_peak_dbfs": -5.11,
+    "stereo_correlation": 0.7363,
+    "duration": 44.54
+  },
+  "source": {
+    "raw_local": "materials/raw_source.mp4",
+    "bytes": 26397151,
+    "drive_id": "1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx",
+    "md5": "42e52d770f6b53338639d2d1a01e2e48"
+  },
+  "presented_to_user": true,
+  "delivery_state": "delivered_and_verified",
+  "limitations": [
+    "Raw footage carries a third-party @VKTMDUBZ watermark; not removed, not covered.",
+    "Source is HEVC 720x1280 upscaled to 1080x1920.",
+    "No generation used: 100% of frames come from the supplied video."
+  ]
+}

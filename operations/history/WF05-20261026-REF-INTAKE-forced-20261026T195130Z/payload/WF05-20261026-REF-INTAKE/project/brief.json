@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "workflow_code": "WF-05",
+  "topic": "Style-lock test from supplied reference",
+  "reference_role": "reference_adaptation",
+  "reference_urls": [
+    "https://drive.google.com/file/d/1sYYhXs9fbHeHcQGOmH5IR7CvUSVr9Tmx/view"
+  ],
+  "rights_review": "provided_by_user",
+  "duration_target_seconds": 17.85,
+  "format": "9:16",
+  "caption_policy": "integrated_only; no lower pills",
+  "narration": "none",
+  "delivery_destination": "WF-05 Drive project folder (pending)",
+  "acceptance": []
+}

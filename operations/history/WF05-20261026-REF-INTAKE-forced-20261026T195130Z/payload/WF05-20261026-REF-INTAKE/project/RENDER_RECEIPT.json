@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "project_id": "WF05-WEBS-STYLE-LOCK",
+  "style_id": "premium-motion-editing",
+  "policy_id": "wf05-clean-editorial-20261015",
+  "subtitle_mode": "off",
+  "caption_pills": false,
+  "word_highlighting": false,
+  "frames": 536,
+  "duration": 17.866666666666667,
+  "size": 15728800,
+  "sha256": "457105fda88523d114a5867c120cee7347d4af16944db4b8ab8998a7c4196956",
+  "input_fingerprint": "3c6d2b465937da98e812b485961ce1ec15bfed9ecca75d3b8f8c015c1ee8d762",
+  "source_hashes": {
+    "clips/shot_00.mp4": "a61860d856b8b53e914f118da5b6e87c1f2c5d85831542638f0ba0ed9ca6760e",
+    "clips/shot_01.mp4": "6bd08fc2444a4933b69db322b0750513bdb0ddc558f9cb03b7bb77c9e1b893b5",
+    "clips/shot_02.mp4": "84fd1d7e9e0cdf55ada271dce9cdeca497bf49358d25b641e8b51be925ad42eb",
+    "clips/shot_03.mp4": "3914ec66d201169d96bdc8ee76c58d9a639e287c186b33ac3c965b557b66fcbb",
+    "clips/shot_04.mp4": "2bab85becb9c84e5ff8e45aacc836f10268e9fdb2fea8420621b0a44c48913c6",
+    "clips/shot_05.mp4": "ff12fee635e5b2387cdde2f55265941cc853fbb86a27e5a3db72349edeb2415b",
+    "clips/shot_06.mp4": "da879a9a2efac62cdeaa885de3f745e71e77d39dfd2b1bbe08867d7e4d5e4d5a",
+    "clips/shot_07.mp4": "5e3f675ddfc1634fac7e13992281c8625b64014d5a80542287697fb2115b4a0c",
+    "clips/shot_08.mp4": "e2ffd7d2f24d64756b4dad5269531d0fee4bf7e497a2a4b24769332d5d656fb6",
+    "clips/shot_09.mp4": "da1a49170e74c417f4f1f522507e06539b54a8a95ee548dfa8066e26852b8fc9",
+    "clips/shot_10.mp4": "c1a61cafa4f2c42511a5e299fe9473caa64cdd8978b235ed4bbdf921b848e1c9",
+    "clips/shot_11.mp4": "edf1552950a840dad96bd532ff250846eff05e9f59e5fb598bc9658c87b1397b",
+    "clips/shot_12.mp4": "8cfc9728744fa4083d51bd01940f92968777f11655e3c54b60de34b1faba28f7",
+    "clips/shot_13.mp4": "5c5b89ac49c7b7432ae250fad429174fc4d4b8b4589bf34b8c40819ec2d46a2b",
+    "clips/shot_14.mp4": "74e8334a04321b99b19881263509cee9f2b9d178d4a466fe7041a5f488ccb7ee",
+    "clips/shot_15.mp4": "8e7bf40b05d585ab7a57b41b6c77eb3e1a730465819db4cb0b45e006e6a17a40",
+    "clips/shot_16.mp4": "340cb74cbd05897160384af8c384647afe9c5bec43e820bef49f384147d4b79e",
+    "clips/shot_17.mp4": "e2a4d250940df94f70f1e865cf3bf541e2036ffef2208576f618538b46b54f95",
+    "clips/shot_18.mp4": "dfe0ff3346a46644746e6f317b09b519b4bd5759a2cc4aadffc3769653f8f35e",
+    "clips/shot_19.mp4": "14e0fb4510969494f4e4cdb13a027f654eb723e578217a478d9719bee6fd2d4d"
+  },
+  "layout_boxes": [
+    {
+      "index": 0,
+      "box": [
+        266,
+        217,
+        814,
+        752
+      ],
+      "font_base": 128.0,
+      "position": "top"
+    },
+    {
+      "index": 1,
+      "box": [
+        526,
+        1149,
+        974,
+        1575
+      ],
+      "font_base": 118.0,
+      "position": "right"
+    },
+    {
+      "index": 2,
+      "box": [
+        265,
+        1332,
+        815,
+        1825
+      ],
+      "font_base": 112.0,
+      "position": "bottom"
+    },
+    {
+      "index": 3,
+      "box": [
+        315,
+        217,
+        764,
+        748
+      ],
+      "font_base": 126.0,
+      "position": "top"
+    }
+  ],
+  "elapsed_seconds": 42.28,
+  "output": "/home/user/Monarch-Studio/workflows/current/payload/WF05-20261026-REF-INTAKE/project/delivery/WF05_STYLE_LOCK_v1.mp4",
+  "status": "encoded_only_not_delivered"
+}

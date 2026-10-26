@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task_id": "WF05-20261026-REF-INTAKE",
+  "status": "waiting_external",
+  "title": "WF-05 · resume supplied reference work in this repository session",
+  "style_id": "premium-motion-editing",
+  "goal": "Continue the WF-05 premium motion editing work shown in the supplied chat transcript: verify the supplied Drive reference, establish local capability, and take the reference through analysis into an edit delivery from this repository.",
+  "acceptance_criteria": [
+    "Reference identity verified from a real connector result",
+    "Local pipeline capability proven in this environment (decode/encode path)",
+    "Reference footage staged locally or an explicit alternative confirmed by the user",
+    "Style analysis grounded in decoded frames, not guessed from metadata"
+  ],
+  "started_at": "2026-10-26T19:26:55Z",
+  "updated_at": "2026-10-26T19:39:29Z",
+  "checkpoint_sequence": 2,
+  "event_sequence": 9,
+  "journal_head": "1f72ce8276d4a21bc9c0b40db4108e7e6835f14d4997ae71d5045e12107ea8d1",
+  "last_checkpoint": "2026-10-26T19:39:29Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0002-20261026T193929Z",
+  "next_action": "Await user choice: attach the MP4 for real reference analysis, or confirm topic-only start (Route B). Do not claim reference content before frames decode.",
+  "running_processes": [],
+  "remote_sync": {
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
+}

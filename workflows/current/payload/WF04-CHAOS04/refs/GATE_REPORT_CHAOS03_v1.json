@@ -1,0 +1,179 @@
+{
+  "workflow": "WF-04",
+  "task_id": "EMS-20261014-001",
+  "title": "MONARCH CHAOS VIDEO 3 \u00b7 MOTION EDITION \u00b7 real movement cut",
+  "master_file": "MONARCH_CHAOS_VIDEO_3_MOTION_MASTER.mp4",
+  "master_path_at_gate_time": "/tmp/monarch-v3-out/MONARCH_CHAOS_VIDEO_3_MOTION_MASTER.mp4",
+  "master_md5": "14abf0a5206a5f100972792f8c2bf0f7",
+  "master_size_bytes": 36492634,
+  "look_sheet_md5": "98fd589e6d0f2fc6d44c5017b7a93635",
+  "contact_sheet_md5": "901f2163c3fbe115f1621d9e5409e0e8",
+  "resolution": "1080x1920",
+  "fps": 30.0,
+  "frames": 1333,
+  "duration_s": 44.43,
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -16.15,
+    "true_peak_dbfs": -1.5,
+    "stereo_correlation": 0.9414
+  },
+  "transitions_detected": 217,
+  "motion_per_frame": {
+    "walk_act": 0.95,
+    "point_hop": 4.3,
+    "burst": 10.69
+  },
+  "act_luma": {
+    "A_cold_open": 26.46,
+    "B_throne": 57.33,
+    "C_chaos_projection": 77.02,
+    "D_triad": 68.66,
+    "E_burst": 48.87,
+    "F_stance": 53.75,
+    "G_build": 60.12,
+    "H_finale": 21.38
+  },
+  "gates_passed": "22/23",
+  "gates": [
+    {
+      "id": "G01",
+      "description": "Master MP4 exists and is non-empty",
+      "passed": true,
+      "measured": "36,492,634 B"
+    },
+    {
+      "id": "G02",
+      "description": "Exact Full-HD 9:16 vertical resolution (1080x1920)",
+      "passed": true,
+      "measured": "1080x1920"
+    },
+    {
+      "id": "G03",
+      "description": "Exact frame rate (30.00 fps)",
+      "passed": true,
+      "measured": "30.00 fps"
+    },
+    {
+      "id": "G04",
+      "description": "Reference length: 1336 frames (\u00b14 concat joins) / 44.53s",
+      "passed": true,
+      "measured": "1333 frames (44.43s)"
+    },
+    {
+      "id": "G05",
+      "description": "48 kHz stereo mastered audio stream",
+      "passed": true,
+      "measured": "48000 Hz, 2 ch"
+    },
+    {
+      "id": "G06",
+      "description": "Loudness in cinematic short range (-16.5 to -11.0 LUFS)",
+      "passed": true,
+      "measured": "-16.15 LUFS"
+    },
+    {
+      "id": "G07",
+      "description": "True-peak ceiling safety (<= -1.0 dBFS)",
+      "passed": true,
+      "measured": "-1.50 dBFS"
+    },
+    {
+      "id": "G08",
+      "description": "Stereo spatial width active (L/R decorrelation present)",
+      "passed": true,
+      "measured": "corr=0.9414"
+    },
+    {
+      "id": "G09",
+      "description": "Act A cold open is dark and pulsing (reference dark intro)",
+      "passed": true,
+      "measured": "mean=26.5, max=33.3"
+    },
+    {
+      "id": "G10",
+      "description": "Act B throne awakening brightens and the neural-sync HUD act is present",
+      "passed": true,
+      "measured": "B=57.3 vs A=26.5"
+    },
+    {
+      "id": "G11",
+      "description": "Act C chaos projection montage has real shot variety (15-frame cuts)",
+      "passed": true,
+      "measured": "std=26.1"
+    },
+    {
+      "id": "G12",
+      "description": "Act D triad close-up/profile/pointing shots are readable (not blown out)",
+      "passed": true,
+      "measured": "mean=68.7"
+    },
+    {
+      "id": "G13",
+      "description": "Act E chaos burst fires >= 20 frame-locked transitions in 6.6 s",
+      "passed": true,
+      "measured": "27 transitions"
+    },
+    {
+      "id": "G14",
+      "description": "Act F sovereign stance moves less than the Act E chaos burst (locked wide shots)",
+      "passed": true,
+      "measured": "motion F=1.97 vs E=10.69 per frame"
+    },
+    {
+      "id": "G15",
+      "description": "Act G finale montage accelerates (15->4 frame cuts) with strobes",
+      "passed": true,
+      "measured": "117 transitions, peak=126.3 (base 60.1)"
+    },
+    {
+      "id": "G16",
+      "description": "Face stays readable through the finale build (no permanent white-out)",
+      "passed": true,
+      "measured": "median-band luma=48.6"
+    },
+    {
+      "id": "G17",
+      "description": "Reference-matched gold impact flash lands at 40.25-40.6 s (>= 2.2x the act base)",
+      "passed": false,
+      "measured": "peak=132.4 vs base 79.1"
+    },
+    {
+      "id": "G18",
+      "description": "Crowned MONARCH STUDIO emblem holds: warm gold dominant over blue in act H",
+      "passed": true,
+      "measured": "R=24.1 vs B=17.2"
+    },
+    {
+      "id": "G19",
+      "description": "All 10 canonical hero plates present in styles/monarch-face-chaos/plates",
+      "passed": true,
+      "measured": "10/10 plates"
+    },
+    {
+      "id": "G20",
+      "description": "Look sheet, contact sheet and plan JSON present",
+      "passed": true,
+      "measured": "sheets + plan verified"
+    },
+    {
+      "id": "G21",
+      "description": "Deterministic MD5 checksum recorded",
+      "passed": true,
+      "measured": "14abf0a5206a5f100972792f8c2bf0f7"
+    },
+    {
+      "id": "G22",
+      "description": "REAL MOVEMENT: walk act advances the body (>= 0.8 subject-band diff/frame)",
+      "passed": true,
+      "measured": "0.95 per frame"
+    },
+    {
+      "id": "G23",
+      "description": "REAL MOVEMENT: pointing hop snaps in 8 frames (>= 3.8 subject-band diff/frame)",
+      "passed": true,
+      "measured": "4.30 per frame"
+    }
+  ]
+}

@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `WF05-20261026-REF-INTAKE`
-- **Status:** `waiting_external`
-- **Title:** WF-05 · resume supplied reference work in this repository session
-- **Next action:** Ask user: attach the MP4 (Route A) or confirm topic-only start (Route B); on receipt decode frames with ffmpeg before any content claim.
+- **Task:** `WF04-CHAOS04`
+- **Status:** `active`
+- **Title:** WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage
+- **Next action:** Build CHAOS 04 grade/HUD/emblem assets and render the master.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

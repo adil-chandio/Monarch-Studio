@@ -1,25 +1,24 @@
-# Resume capsule — WF05-20261026-REF-INTAKE
+# Resume capsule — WF04-CHAOS04
 
-**Status:** `waiting_external`  
-**Title:** WF-05 · resume supplied reference work in this repository session  
-**Style:** `premium-motion-editing`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-26T19:27:22Z
+**Status:** `active`  
+**Title:** WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage  
+**Style:** `monarch-face-chaos`  
+**Checkpoint sequence:** 0  
+**Last checkpoint:** none
 
 ## Goal
 
-Continue the WF-05 premium motion editing work shown in the supplied chat transcript: verify the supplied Drive reference, establish local capability, and take the reference through analysis into an edit delivery from this repository.
+Produce CHAOS 04: grade, light leaks, HUD, beat-synced cut rhythm, crown emblem ending and mastered audio from the supplied 44.4s raw reference, matching the delivered CHAOS 03 gate standard (1080x1920, 30fps, 48k stereo, -16 LUFS, TP<=-1.5).
 
 ## Acceptance criteria
 
-- [ ] Reference identity verified from a real connector result
-- [ ] Local pipeline capability proven in this environment (decode/encode path)
-- [ ] Reference footage staged locally or an explicit alternative confirmed by the user
-- [ ] Style analysis grounded in decoded frames, not guessed from metadata
+- [ ] 1080x1920 30fps H.264 master with 48kHz stereo mastered audio
+- [ ] Real measured gate report (no invented passes)
+- [ ] Verified checksum and Drive upload with independent read-back
 
 ## Exact next action
 
-Ask user: attach the MP4 (Route A) or confirm topic-only start (Route B); on receipt decode frames with ffmpeg before any content claim.
+Build CHAOS 04 grade/HUD/emblem assets and render the master.
 
 ## Running processes
 
@@ -37,6 +36,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z`
+- Latest checkpoint package: `none`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

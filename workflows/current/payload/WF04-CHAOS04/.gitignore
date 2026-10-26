@@ -1,0 +1,6 @@
+# Local production media stays outside Git (Drive is the master store)
+materials/*.mp4
+refs/*.mp4
+output/*.mp4
+work/*.mp4
+work/*.wav

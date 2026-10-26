@@ -1,0 +1,226 @@
+{
+  "workflow": "WF-04",
+  "task_id": "WF04-CHAOS04",
+  "title": "MONARCH CHAOS VIDEO 4 \u00b7 cinematic motion edit of supplied raw footage",
+  "master_file": "CHAOS04_MASTER.mp4",
+  "master_md5": "bf4a8925e3cb399bfcaaeaef1a4dfad5",
+  "master_sha256": "dcd92d7b1f80803c56abecf11fd059c85060b5d7b7d84a1d2d3ac6488a4b433b",
+  "master_size_bytes": 44741521,
+  "resolution": "1080x1920",
+  "fps": 30.0,
+  "frames": 1332,
+  "duration_s": 44.4,
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -16.0,
+    "true_peak_dbfs": -5.11,
+    "stereo_correlation": 0.7363,
+    "duration": 44.54
+  },
+  "transitions_detected": 266,
+  "act_stats": {
+    "A": {
+      "mean_luma": 8.9,
+      "std": 7.5,
+      "shots": 2,
+      "mean_shot": 2.1
+    },
+    "B": {
+      "mean_luma": 33.2,
+      "std": 18.2,
+      "shots": 4,
+      "mean_shot": 1.3
+    },
+    "C": {
+      "mean_luma": 35.0,
+      "std": 13.4,
+      "shots": 5,
+      "mean_shot": 1.12
+    },
+    "D": {
+      "mean_luma": 49.0,
+      "std": 18.9,
+      "shots": 4,
+      "mean_shot": 1.15
+    },
+    "E": {
+      "mean_luma": 26.6,
+      "std": 16.3,
+      "shots": 20,
+      "mean_shot": 0.29
+    },
+    "F": {
+      "mean_luma": 29.0,
+      "std": 15.7,
+      "shots": 4,
+      "mean_shot": 1.3
+    },
+    "G": {
+      "mean_luma": 16.6,
+      "std": 16.4,
+      "shots": 9,
+      "mean_shot": 0.67
+    },
+    "H": {
+      "mean_luma": 41.5,
+      "std": 46.1,
+      "shots": 24,
+      "mean_shot": 0.26
+    }
+  },
+  "motion_per_frame": {
+    "walk": 13.1,
+    "burst": 23.71,
+    "stance": 16.71
+  },
+  "gates_passed": "23/23",
+  "gates": [
+    {
+      "id": "G01",
+      "description": "Master MP4 exists and is non-empty",
+      "passed": true,
+      "measured": "44,741,521 B"
+    },
+    {
+      "id": "G02",
+      "description": "Exact Full-HD 9:16 vertical resolution (1080x1920)",
+      "passed": true,
+      "measured": "1080x1920"
+    },
+    {
+      "id": "G03",
+      "description": "Exact frame rate (30.00 fps)",
+      "passed": true,
+      "measured": "30.0 fps"
+    },
+    {
+      "id": "G04",
+      "description": "Reference-length edit: 44.4 s +/- 0.5 s (raw source is 44.4 s)",
+      "passed": true,
+      "measured": "1332 frames (44.4s)"
+    },
+    {
+      "id": "G05",
+      "description": "48 kHz stereo mastered audio stream",
+      "passed": true,
+      "measured": "48000 Hz, 2 ch"
+    },
+    {
+      "id": "G06",
+      "description": "Loudness in cinematic short range (-16.5 to -11.0 LUFS)",
+      "passed": true,
+      "measured": "-16.0 LUFS"
+    },
+    {
+      "id": "G07",
+      "description": "True-peak ceiling safety (<= -1.0 dBFS)",
+      "passed": true,
+      "measured": "-5.11 dBFS"
+    },
+    {
+      "id": "G08",
+      "description": "Stereo width active (L/R correlation < 0.98)",
+      "passed": true,
+      "measured": "corr=0.7363"
+    },
+    {
+      "id": "G09",
+      "description": "Act A cold open stays dark (mean luma <= 45)",
+      "passed": true,
+      "measured": "mean=8.9"
+    },
+    {
+      "id": "G10",
+      "description": "Act C neural-sync HUD act is brighter than the cold open",
+      "passed": true,
+      "measured": "C=35.0 vs A=8.9"
+    },
+    {
+      "id": "G11",
+      "description": "Cut rhythm: every act has real shot variety (>= 2 shots per act)",
+      "passed": true,
+      "measured": "{'A': 2, 'B': 4, 'C': 5, 'D': 4, 'E': 20, 'F': 4, 'G': 9, 'H': 24}"
+    },
+    {
+      "id": "G12",
+      "description": "Act D close-up act is readable, not blown out (35 <= mean luma <= 95)",
+      "passed": true,
+      "measured": "mean=49.0"
+    },
+    {
+      "id": "G13",
+      "description": "Act E chaos burst fires >= 15 frame-locked cuts in 5.8 s",
+      "passed": true,
+      "measured": "54 cuts"
+    },
+    {
+      "id": "G14",
+      "description": "Act F sovereign stance moves less than the burst (locked wide shots)",
+      "passed": true,
+      "measured": "F=16.71 vs E=23.71 per frame"
+    },
+    {
+      "id": "G15",
+      "description": "Act H climax accelerates (>= 20 cuts in 6.2 s)",
+      "passed": true,
+      "measured": "71 cuts"
+    },
+    {
+      "id": "G16",
+      "description": "Climax stays readable (no permanent white-out: peak luma < 235)",
+      "passed": true,
+      "measured": "peak=197.3"
+    },
+    {
+      "id": "G17",
+      "description": "Gold emblem end card holds dark with a warm mark (end luma 4..70)",
+      "passed": true,
+      "measured": "end=16.8"
+    },
+    {
+      "id": "G18",
+      "description": "Total shot count matches the built plan (no silent frame drops)",
+      "passed": true,
+      "measured": "1332 frames, plan shots=72"
+    },
+    {
+      "id": "G19",
+      "description": "End card and look sheet assets exist",
+      "passed": true,
+      "measured": "emblem + look sheet present"
+    },
+    {
+      "id": "G20",
+      "description": "Deterministic MD5 + SHA-256 recorded",
+      "passed": true,
+      "measured": "bf4a8925e3cb399bfcaaeaef1a4dfad5"
+    },
+    {
+      "id": "G21",
+      "description": "REAL MOVEMENT: walk act advances the frame (>= 0.6 band diff/frame)",
+      "passed": true,
+      "measured": "13.1 per frame"
+    },
+    {
+      "id": "G22",
+      "description": "REAL MOVEMENT: chaos burst is faster than the walk (burst > walk)",
+      "passed": true,
+      "measured": "23.71 vs 13.1 per frame"
+    },
+    {
+      "id": "G23",
+      "description": "Every act uses decoded source footage (shots reference real source indexes)",
+      "passed": true,
+      "measured": "47 analysed source shots"
+    }
+  ],
+  "source": {
+    "raw": "materials/raw_source.mp4",
+    "bytes": 26397151,
+    "analysis": "analysis/REFERENCE_ANALYSIS.json",
+    "source_shot_count": 47
+  },
+  "watermark_note": "The raw reference carries a third-party @VKTMDUBZ watermark in every frame; it was NOT removed or covered. This master is a private style/proof cut, not a cleared publication asset.",
+  "delivery_state": "encoded_and_verified_locally"
+}

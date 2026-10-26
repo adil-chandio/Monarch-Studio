@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "style_id": "premium-motion-editing",
+  "project_id": "WF05-WEBS-STYLE-LOCK",
+  "topic": "Style-lock test: WEBS reference (dark cinematic cut)",
+  "mode": "reference_adaptation",
+  "timeline": "timeline.json",
+  "media_dir": "media",
+  "audio_mix": "media/mix.wav",
+  "output": "delivery/WF05_STYLE_LOCK_v1.mp4",
+  "font_dir": null,
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "typography": {
+    "subtitle_mode": "off",
+    "plain_subtitles_requested": false,
+    "caption_pills": false,
+    "word_highlighting": false,
+    "ink": [
+      246,
+      246,
+      250
+    ],
+    "extrusion": [
+      150,
+      26,
+      32
+    ]
+  },
+  "rights_status": "provided_by_user",
+  "script_status": "approved",
+  "motion_review": "approved",
+  "policy_id": "wf05-clean-editorial-20261015",
+  "approval_basis": {
+    "script": "No narration and no factual claims. On-screen words are non-narrative style labels derived from ANALYSIS.json measurements only.",
+    "motion": "Every shot is decoded reference footage with native temporal motion (mean internal luma delta 4.7-30 measured); camera is an additive 2.5D layer, not the motion source.",
+    "typography_palette": "Light ink + blood-red extrusion declared for dark-graded footage; V5 default palette unchanged in the engine."
+  },
+  "reference_notes": {
+    "watermark": "@VKTMDUBZ visible in the source shots at varying positions; NOT removed and not replaced. Master is an internal style test, not for publication.",
+    "no_narration": "Reference audio is music/clipped beat bed; analysis found 0.65 s of voiced content."
+  }
+}
