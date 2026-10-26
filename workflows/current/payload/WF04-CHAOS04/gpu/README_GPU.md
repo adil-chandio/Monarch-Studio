@@ -18,6 +18,20 @@
 | L4 / 4090 24 GB | Wan2.2 TI2V-5B | 720p cinematic clips, asli kaam |
 | A100 40 GB / Pro | Wan2.2-Animate-14B + TI2V-5B | character performance (expression replication) |
 
+## Rasta 3 · sasta kiraya GPU (jab free tier quality ke liye kaafi na ho)
+
+Free T4 se **poori 44 s film** us quality par nahi banegi (16 GB par sirf LTX-2B preview). Asli photoreal ke liye 24 GB+ chahiye. Sab se sasta rasta:
+
+- **RunPod / Vast.ai** par RTX 4090 (24 GB) ya L4 — market rate **approx** $0.3–0.7 per GPU-hour (exact price unki site par khud check karein; main sandbox se unki site nahi khol sakta, is liye yeh **verified number nahi** hai).
+- Ek 44 s film ke liye andaza: ~3–8 GPU-hour → **approx $1–6** total.
+- Is par **koi credential mujhe nahi dena** — aap pod chalayein, notebook wahi chalega, output Drive par aayega.
+
+## Sab se kam GPU hours wala rasta (hybrid, recommended)
+
+1. Main yahin (CPU, bpy — verified) **3D base animation** render karta hoon: hamara character, sahi motion, sahi camera, sahi timing.
+2. Woh base clip GPU par **Wan2.2-Animate-14B** ko *driving video* ban kar jaata hai → motion exactly wohi, skin/detail photoreal.
+3. Isse GPU hours sab se kam lagte hain (motion AI ko invent nahi karna padta), aur character hamara hi rehta hai.
+
 ## Agent (main) ka hissa
 - `CHAOS_JOBS.json` likhna (shot-by-shot prompts + seed + duration) — approval ke baad
 - clips aa jayein to: timing/transitions/grade/HUD/end card/audio/QC/delivery
