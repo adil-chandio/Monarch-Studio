@@ -2,10 +2,10 @@
 
 The repository uses one active workflow slot. Do not guess or restart an existing task.
 
-- **Task:** `WF04-CHAOS04`
-- **Status:** `completed`
-- **Title:** WF-04 · MONARCH CHAOS VIDEO 4 · cinematic motion edit of supplied raw footage
-- **Next action:** Await user review of CHAOS 04 (or notes for a revision); promote the WF-04 chaos method into a permanent style only if the user accepts this cut.
+- **Task:** `WF04-REF-INTAKE-2`
+- **Status:** `waiting_external`
+- **Title:** WF-04 · CHAOSGO reference inspection (no production) — awaiting user decision
+- **Next action:** Wait for user decision; no production without approval.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
