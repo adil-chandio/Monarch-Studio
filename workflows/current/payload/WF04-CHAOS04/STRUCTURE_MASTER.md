@@ -21,7 +21,15 @@
 | Blender CUDA (CUEW) | init fail (expected, GPU nahi) | render log |
 | Blender Cycles **CPU** | **kaam karta hai** ✅ | `bpy 5.0.1` import + render proven |
 
-**Matlab:** main GPU "laa" nahi sakta — cloud GPU ke liye account + billing + credentials chahiye, jo mere paas nahi hain aur main aapse credentials nahi maang sakta. **Lekin** ek rasta hai jisme GPU aap ke haath mein rehta hai aur main baaki sab karta hoon → **Part 3, Track B** (main Colab/Kaggle notebook likhta hoon, aap ek click par chalate hain, output aap ke Drive folder mein aata hai, main wahan se utha kar edit/QC/deliver karta hoon — yeh Drive handoff aaj verify ho chuka hai).
+**Matlab (updated — ab sirf "GPU nahi hai" nahi):** sandbox mein GPU hardware install **nahi** ho sakta (no driver/device, no `apt`, HF blocked), lekin GPU **kaam** ab band nahi hai. Jugar ready hai aur aap ke Drive mein rakha hai:
+
+| Jugar | File (Drive `Chaos video 2`) | Kya karta hai |
+|---|---|---|
+| **Colab / Kaggle notebook** | `CHAOS_GPU_COLAB.ipynb` · ID `1SKscDqK4j9Qx8TwzcKKbYxm2dm5l2vg-` | machine+VRAM check → install → Drive mount → jobs load → **VRAM ke hisaab se engine auto-select** (Wan2.2 TI2V-5B / Wan-Animate-14B / LTX-2B) → resumable render + sha256 MANIFEST → clips Drive ke `chaos_gpu_clips/` mein |
+| Job schema | `CHAOS_JOBS.example.json` · ID `1yOPHdCbvJ8KbDx2IP6k4S-oRfvGMrKmO` | 50-shot plan ke shots seedha GPU jobs mein map |
+| Run instructions | `README_GPU.md` · ID `1F5Qry8jO0QSdzaHStKM_Lfeuwa5Dvx9F` | 2-minute rasta: Colab (free T4 / Pro A100) ya Kaggle (30 GPU-h/week) |
+
+**Honest limit:** sandbox mein GPU nahi hai is liye notebook ka **live GPU run main test nahi kar saka** — sirf syntax/structure verified hai (16 cells, 8 code cells AST-clean). Run aap karte hain (ek click), output Drive mein aata hai, phir **main** wahan se utha kar edit/QC/grade/audio master/delivery karta hoon. Isi Drive handoff ko aaj verify kiya gaya (3 files upload + IDs liye).
 
 ## 1.2 Jo is box par **verified chalta hai** (aaj ke asli tests)
 
@@ -59,7 +67,7 @@ Optimisation ke baad (hair **cards** instead of 220 curves, SSS off, 3 bounces, 
 | Practical-RIFE | 1,030 | MIT | CPU possible | ✅ (slow) |
 | SAM2 (matting/rotoscope) | 20,062 | Apache-2.0 | GPU prefer | ⚠️ |
 
-**Nateeja:** photoreal AI-video ka rasta **GPU ke bagair band hai**. CPU par 5B/13B video models chalana practically mumkin nahi (dinon ka farq).
+**Nateeja:** CPU par 5B/13B video models chalana practically mumkin nahi (dinon ka farq) — **is box par** band hai. **Colab/Kaggle GPU par khula hai**, aur wahan chalane ka notebook isi delivery mein shamil hai (`gpu/CHAOS_GPU_COLAB.ipynb`). Neeche "Is box par?" ka matlab sirf yeh sandbox hai, GPU ka faisla nahi.
 
 ## 1.5 Quality ceiling — seedhi baat
 
@@ -103,12 +111,13 @@ Likeness ke liye: agar aap **rigged avatar/scan** de dein to 90%+; sheet se scul
 - **Time:** parts 1–4 (design/rig/look) ≈ 3–5 turns; render ≈ **6.5–11 h** chunked; total **~7–12 turns**.
 - **Risk:** "CG look" — is liye masked/visor hero design + strong grade (reference jaisa) use karenge.
 
-### **TRACK B · "AI cinematic" — GPU aap ke paas (Colab/Kaggle/RunPod)**
-- Main likhta hoon: character sheet (AI image tool se, in-platform) → **Wan2.2 TI2V-5B** ya **LTX-Video 2B distilled** notebook → clips; **LivePortrait** se face performance; output aap ke Drive folder mein.
+### **TRACK B · "AI cinematic" — GPU aap ke paas (Colab/Kaggle) — *notebook ready hai*** 🔧
+- **Deliverable pehle se ban chuka hai:** `gpu/CHAOS_GPU_COLAB.ipynb` (aap ke Drive `Chaos video 2` mein bhi, ID `1SKscDqK4j9Qx8TwzcKKbYxm2dm5l2vg-`). Aap: right-click → "Open with Colaboratory" → GPU runtime → Run all.
+- Pipeline: character sheet (in-platform AI image tool) → **Wan2.2-TI2V-5B** (24 GB 4090/L4/A100) ya **Wan2.2-Animate-14B** (38 GB+, performance replication) ya **LTX-Video 2B distilled** (T4 16 GB, preview) → clips.
+- Notebook khud: VRAM detect → engine choose → **resume** (maujood clip >20 KB skip) → sha256 `MANIFEST.json` → clips `chaos_gpu_clips/` mein Drive par.
 - Main phir: **editing, timing, transitions, grade, HUD, end card, sound, QC, delivery** — sab yahin.
-- **Aap ko sirf:** notebook run karna (24 GB VRAM ya Colab Pro A100; free T4 par LTX-2B best chance).
-- **Quality:** 85–95% (photoreal cinematic).
-- **Time:** setup 1–2 turns; aap ka compute 1–3 h; mera edit/QC 2–4 turns.
+- **Aap ko sirf:** ek click (Colab free T4 / Kaggle T4×2, 30 GPU-h/week free). Koi billing/credential mujhe nahi dena.
+- **Quality:** 85–95% (photoreal cinematic). **Time:** aap ka compute 1–3 h; mera edit/QC 2–4 turns.
 
 ### **TRACK C · "Hybrid" — sab se behtar result, dono ka mix**
 - 3D base (hamara character, sahi motion, sahi camera) → GPU milne par **AI polish**: upscale (Real-ESRGAN/Topaz-style), face detail transfer (LivePortrait), grain/grade.
@@ -138,8 +147,8 @@ Likeness ke liye: agar aap **rigged avatar/scan** de dein to 90%+; sheet se scul
 
 # PART 5 — AAP SE 5 CHEEZEIN (bas yeh)
 
-1. **Track:** A (GPU nahi, stylized 3D) / B (AI, aap ka GPU) / C (hybrid — recommended).
-2. **GPU access:** kya aap ke paas Colab Pro / Kaggle / 24 GB card hai? (haan → Track B/C; nahi → Track A)
+1. **Track:** A (stylized 3D, aaj shuru) / B (AI, aap ka GPU — notebook ready) / C (hybrid — recommended).
+2. **GPU:** ab poochna yeh hai — **aap notebook chalane ke liye taiyar hain?** (Colab free T4 = 0 rupay, Kaggle = 30 GPU-h/week free). Haan → main shot-by-shot jobs bana kar deta hoon. Nahi → Track A/C CPU-par chalta rahega, GPU baad mein aaye to same frames se polish.
 3. **Character input:** locked face sheet v5 + body v2 kaafi hain (approx), ya aap **turntable/scan/rigged avatar** de sakte hain (exact likeness).
 4. **Film number + length:** Chaos 4? ya Chaos 5? · **44.4 s full** ya **22–30 s tight** (render adha).
 5. **Style choice:** (a) **masked/visor hero** (reference jaisa, 3D easily premium dikhta hai) ya (b) **khula face** (Monarch likeness, GPU/AI ke bagair risk zyada).

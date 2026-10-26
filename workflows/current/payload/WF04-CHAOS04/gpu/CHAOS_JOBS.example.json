@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-face-chaos",
+  "note": "Har job = ek shot. agent approval ke baad asli shots yahan aayenge. Abhi sirf shape dikhane ke liye.",
+  "jobs": [
+    {
+      "id": "A01_cold_open_wide",
+      "mode": "t2v",
+      "prompt": "extreme wide shot, dark industrial hall, wet concrete floor, brick wall, hanging chains, a scarlet portal glowing at the far end, thick volumetric haze, cold blue rim light, cinematic vertical 9:16, shallow grain, no text, no watermark",
+      "seconds": 4, "width": 704, "height": 1280, "steps": 30, "cfg": 5.0, "seed": 11
+    },
+    {
+      "id": "C03_identity_closeup",
+      "mode": "t2v",
+      "prompt": "cinematic close-up of a masked figure in a matte black suit with a thin crimson tie, glowing crescent visor, low angle, scarlet practical light from the left, deep shadows, 85mm lens look, vertical 9:16, no text, no watermark",
+      "seconds": 4, "width": 704, "height": 1280, "steps": 30, "cfg": 5.0, "seed": 23
+    },
+    {
+      "id": "C05_face_performance_demo",
+      "mode": "animate",
+      "image": "images/hero_front.png",
+      "driving": "driving/act_C_performance.mp4",
+      "prompt": "monarch character, matte black blazer, cinematic scarlet key light",
+      "seconds": 6, "steps": 20, "seed": 7
+    }
+  ]
+}

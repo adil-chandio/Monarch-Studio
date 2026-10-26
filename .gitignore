@@ -56,3 +56,9 @@ Thumbs.db
 *_FINAL.mp4
 *_master.mp4
 master_*.mp4
+
+# Third-party reference + everything derived from its pixels/audio never enters Git (public repo)
+google_drive/*.mp4
+workflows/current/payload/WF04-CHAOS04/analysis/*.wav
+workflows/current/payload/WF04-CHAOS04/analysis/ARC_*.png
+workflows/current/payload/WF04-CHAOS04/analysis/frames/
