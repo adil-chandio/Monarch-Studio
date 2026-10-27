@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "style_id": "monarch-ai-agent",
+  "name": "Monarch AI Agent (WF-07)",
+  "workflow_code": "WF-07",
+  "path": "styles/monarch-ai-agent",
+  "lifecycle": "permanent",
+  "active_work_is_allowed_here": false,
+  "workflow_contract": "workflow.json",
+  "knowledge_index": "knowledge/INDEX.md",
+  "class": "studio_operating_layer",
+  "role": "Delivery home + operating rules for everything the studio generates with AI: VIPER-1 engine projects, free Colab renders, paid H3 shots, receipts and masters.",
+  "primary_tool": "tools/videogen.py",
+  "tool_manual": "docs/VIDEOGEN.md",
+  "engine_knowledge": "styles/minimax-h3-video",
+  "finish_authority": "styles/premium-motion-editing",
+  "character_authority": "characters/monarch",
+  "drive_authority": "data/drive.json",
+  "reproducibility": "every delivered clip keeps its project.json + receipts.json (engine, md5, billed seconds); masters stay on Drive",
+  "latest_user_feedback": "2026-10-27: user created Drive folder 'Wf-07 \u2022 Monarch Ai Agent' and asked that everything live inside it; also asked to confirm the work is free."
+}

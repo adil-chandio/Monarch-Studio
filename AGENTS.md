@@ -64,6 +64,19 @@ instead of hand-rolling API calls:
 Rules: no delivery claim without `verify` passing; `budget_usd` is a hard gate; free route is the default when no
 key is present; engine knowledge stays in `styles/minimax-h3-video/`, finish stays in WF-05.
 
+## WF-07 / AGENTGO routing (delivery home)
+
+Everything the studio *generates* lands in the user's Drive folder **`Wf-07 • Monarch Ai Agent`**
+(`1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1`, inside `MONARCH STUDIO`) — ids and conventions in
+`styles/monarch-ai-agent/data/drive.json`.
+
+- Projects → `05 · Projects/<project-id>/` (project.json, plan.json, receipts.json, shots/)
+- Masters → `06 · Masters & Receipts/`; never a master without its md5 in the receipts
+- Engine + manual → `02 · Engine (VIPER-1)`; notebooks → `03 · Colab Notebooks`; knowledge exports → `04 · Knowledge`
+- Git stays the source of truth for code and knowledge; Drive is delivery + sharing.
+- Answer the free/paid question the same way every time: the tool and the free route cost $0; only H3 hero shots
+  (2K / native stereo) are billed, and only after `estimate` + `render --yes`.
+
 ## WF-05 / MOTIONGO routing
 
 When the user requests WF-05, WF5, Premium Motion Editing or MOTIONGO, load `styles/premium-motion-editing/FRESH_CHAT.md` and `data/approved-profile.json` before production. Default: V5 clean integrated typography plus accepted V6 non-caption motion improvements; **no V6 bottom caption pills or active-word lower strip**. Historical case renderers are not the new-project default. Use the registered style, current acceptance policy and source-backed lessons rather than recreating the workflow from memory.

@@ -38,6 +38,7 @@ import time
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 STYLE = ROOT / "styles" / "minimax-h3-video"
 REGISTRY = STYLE / "data" / "tool_registry.json"
+DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
@@ -87,6 +88,30 @@ def write_json(path: pathlib.Path, data: dict) -> None:
 
 def registry() -> dict:
     return load_json(REGISTRY)
+
+
+def drive_config() -> dict:
+    """WF-07 delivery home (Drive root + subfolders). Empty dict when the config is absent."""
+    if not DRIVE_CONFIG.exists():
+        return {}
+    return load_json(DRIVE_CONFIG)
+
+
+def drive_targets(project_id: str) -> dict:
+    """Where a project's files should land inside the WF-07 Drive folder."""
+    cfg = drive_config()
+    subs = cfg.get("subfolders", {})
+    root_url = cfg.get("root", {}).get("url", "")
+    project_url = f"{root_url}"
+    return {
+        "root": cfg.get("root", {}).get("name", "Wf-07 • Monarch Ai Agent"),
+        "root_id": cfg.get("root", {}).get("id"),
+        "projects_id": subs.get("projects", {}).get("id"),
+        "masters_id": subs.get("masters", {}).get("id"),
+        "project_folder": f"05 · Projects/{project_id}/",
+        "master_folder": "06 · Masters & Receipts/",
+        "url": project_url,
+    }
 
 
 def model_rows() -> dict[str, dict]:
@@ -631,6 +656,9 @@ def assemble(project_file: pathlib.Path, out: pathlib.Path | None = None, *, wit
                           "fps": fps, "probe": info, "assembled_at": now()}
     write_json(paths["receipts"], receipts)
     print(f"\nMASTER  {target}  ({target.stat().st_size / 1e6:.1f} MB, md5 {receipts['master']['md5'][:10]})")
+    if drive_targets(project["project_id"]).get("masters_id"):
+        dest = drive_targets(project["project_id"])
+        print(f"drive   : {dest['root']} / {dest['master_folder']}  (folder id {dest['masters_id']})")
     if info.get("available"):
         print(f"        {info.get('width')}x{info.get('height')} @ {info.get('fps')} fps, "
               f"{info.get('duration'):.2f}s, audio={info.get('audio_codec')}")
@@ -657,6 +685,10 @@ def status(project_file: pathlib.Path) -> int:
               f"{entry['total_cost']:>7.2f}")
     master = receipts.get("master")
     print(f"\nmaster: {master['path'] if master else 'not assembled'}")
+    dest = drive_targets(project["project_id"])
+    if dest.get("projects_id"):
+        print(f"drive : {dest['root']} / {dest['project_folder']}"
+              f"  (projects id {dest['projects_id']}, masters id {dest['masters_id']})")
     return 0
 
 
@@ -678,6 +710,12 @@ def doctor() -> int:
     checks.append(("free notebook", (STYLE / "colab/MONARCH_T4_FREE_BRIDGE.ipynb").exists(),
                    "MONARCH_T4_FREE_BRIDGE.ipynb"))
     checks.append(("payload dir", DEFAULT_WORK.exists() or True, str(DEFAULT_WORK.relative_to(ROOT))))
+    try:
+        cfg = drive_config()
+        checks.append(("WF-07 drive home", bool(cfg.get("root", {}).get("id")),
+                       f"{cfg.get('root', {}).get('name')} ({cfg.get('root', {}).get('id')})"))
+    except EngineError as exc:
+        checks.append(("WF-07 drive home", False, str(exc)))
     ok = True
     print(f"VIPER-1 engine {ENGINES_VERSION}\n")
     for name, passed, detail in checks:

@@ -17,6 +17,7 @@ python3 tools/studio.py validate
 `tools/videogen.py` is the studio's first-party AI video generator: one project file, engine chosen per shot
 (paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, media verification and master
 assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md).
+Delivery home (Drive, projects + masters + receipts): [`Wf-07 • Monarch Ai Agent`](https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1) — see `styles/monarch-ai-agent/`.
 
 ```bash
 python3 tools/videogen.py doctor
@@ -34,6 +35,7 @@ python3 tools/videogen.py verify <project>/project.json && python3 tools/videoge
 | **Monarch Noir Film** | `NOIRGO <topic>` | Active with explicit Film-#3 drift; films 1–2 are R1 | [`styles/monarch-noir-film`](styles/monarch-noir-film/) |
 | **WF-05 · Premium Motion Editing** | `MOTIONGO <topic or reference>` | V5 clean direction + accepted V6 motion; lower caption pills rejected | [`styles/premium-motion-editing`](styles/premium-motion-editing/) |
 | **WF-06 · MiniMax-H3 Generative Video** | `H3GO <topic or shot list>` | Pilot: knowledge + validated Colab notebook + offline-tested CLI; no live delivery yet | [`styles/minimax-h3-video`](styles/minimax-h3-video/) |
+| **WF-07 · Monarch AI Agent** | `AGENTGO <job or topic>` | Active: delivery home for all AI-generated video (Drive `Wf-07 • Monarch Ai Agent`) driven by our own engine VIPER-1 | [`styles/monarch-ai-agent`](styles/monarch-ai-agent/) |
 
 Each named style contains its implementation, assets, audio/plates, data, prompts, tools, gates, measured results, decisions, failures/fixes, source provenance and a permanent knowledge index.
 

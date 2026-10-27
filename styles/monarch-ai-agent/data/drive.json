@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-27",
+  "authority": "Google Drive",
+  "root": {
+    "name": "Wf-07 \u2022 Monarch Ai Agent",
+    "id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+    "url": "https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+    "parent": {
+      "name": "MONARCH STUDIO",
+      "id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l"
+    },
+    "owner": "alipvip19@gmail.com"
+  },
+  "subfolders": {
+    "start_here": {
+      "name": "01 \u00b7 START HERE",
+      "id": "1rnVmd4wTIwkTjy1FgYeBWVra3_NUKQ1k"
+    },
+    "engine": {
+      "name": "02 \u00b7 Engine (VIPER-1)",
+      "id": "1BC16OI4EqLCOIL4fJ5w-RaRIgDJVutsB"
+    },
+    "notebooks": {
+      "name": "03 \u00b7 Colab Notebooks",
+      "id": "1ML86TUyQFqS3dn84K_IjBf5T5gfTyg9E"
+    },
+    "knowledge": {
+      "name": "04 \u00b7 Knowledge",
+      "id": "12bfu_URXfA5-DNal1qN1iR13ldn5gNKI"
+    },
+    "projects": {
+      "name": "05 \u00b7 Projects",
+      "id": "1ZTua9_q-SeOvgzmEuQ_KTF3fZh_BnoBl"
+    },
+    "masters": {
+      "name": "06 \u00b7 Masters & Receipts",
+      "id": "1NcNrI8Dzyak6fqo70fbRhmjjU5Cl-PoE"
+    }
+  },
+  "convention": {
+    "projects": "one folder per project id: project.json + plan.json + receipts.json + shots/",
+    "masters": "final masters only, each with its md5 in the project receipts",
+    "knowledge": "exported copies of styles/minimax-h3-video knowledge; Git remains the source of truth",
+    "notebooks": "the exact .ipynb files from styles/minimax-h3-video/colab/"
+  },
+  "uploaded": [
+    {
+      "what": "START HERE guide",
+      "name": "START HERE \u2014 WF-07 Monarch AI Agent (free vs paid + flow)",
+      "id": "15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI",
+      "type": "google-doc",
+      "folder": "start_here",
+      "url": "https://docs.google.com/document/d/15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI/edit"
+    },
+    {
+      "what": "engine source",
+      "name": "videogen.py (VIPER-1 engine, viper-1.0)",
+      "id": "1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV",
+      "type": "python",
+      "folder": "engine",
+      "url": "https://drive.google.com/file/d/1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV/view"
+    },
+    {
+      "what": "engine manual",
+      "name": "VIDEOGEN.md \u2014 VIPER-1 manual",
+      "id": "1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY",
+      "type": "google-doc",
+      "folder": "engine",
+      "url": "https://docs.google.com/document/d/1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY/edit"
+    },
+    {
+      "what": "free route notebook",
+      "name": "MONARCH_T4_FREE_BRIDGE.ipynb (free T4: Wan 1.3B)",
+      "id": "1h1sbfqXlhRdiDXX_jLTxBfNwgLe89P0p",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://drive.google.com/file/d/1h1sbfqXlhRdiDXX_jLTxBfNwgLe89P0p/view"
+    },
+    {
+      "what": "paid route notebook",
+      "name": "MONARCH_H3_COLAB.ipynb (paid H3 API control room)",
+      "id": "19j8VWFzU1fH4dv2wn9BukA_a4iq-AvhE",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://drive.google.com/file/d/19j8VWFzU1fH4dv2wn9BukA_a4iq-AvhE/view"
+    },
+    {
+      "what": "model menu",
+      "name": "tool_registry.json (12 models: licence/VRAM/cost)",
+      "id": "1mdG74sWrwB0Yr2neqmMoLVpZT4E8pEMr",
+      "type": "json",
+      "folder": "knowledge",
+      "url": "https://drive.google.com/file/d/1mdG74sWrwB0Yr2neqmMoLVpZT4E8pEMr/view"
+    },
+    {
+      "what": "free vs paid",
+      "name": "05 \u2014 Free vs paid routes (is H3 free?)",
+      "id": "11bg4a_ZbK_ZDk6dGB7I4WJP4S-_LERBJ_D6woz3qhjM",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/11bg4a_ZbK_ZDk6dGB7I4WJP4S-_LERBJ_D6woz3qhjM/edit"
+    },
+    {
+      "what": "tool menu by GPU",
+      "name": "06 \u2014 Next-level toolbox (which tool on which GPU)",
+      "id": "1Rpt815Vd9rcGD_u-G5bKiVaSicv5YnszwnOPeJHFnww",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1Rpt815Vd9rcGD_u-G5bKiVaSicv5YnszwnOPeJHFnww/edit"
+    },
+    {
+      "what": "prompt grammar",
+      "name": "02 \u2014 Prompting grammar + Monarch templates",
+      "id": "1grIjpqnWTXrYm1fjXL0pR4Q0fQ8eW8T7_9xK6cqMGtg",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1grIjpqnWTXrYm1fjXL0pR4Q0fQ8eW8T7_9xK6cqMGtg/edit"
+    },
+    {
+      "what": "model facts",
+      "name": "00 \u2014 H3 model facts (specs, VRAM, API, pricing, licence)",
+      "id": "1frC4llt-7Lj9ouaIlKjlTTURL_xXgsebU9VvYsi9e-Q",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1frC4llt-7Lj9ouaIlKjlTTURL_xXgsebU9VvYsi9e-Q/edit"
+    },
+    {
+      "what": "colab runbook",
+      "name": "01 \u2014 Colab runbook (how to run it)",
+      "id": "1Nn0isfBfplCIXLGz2GsdKvhB3pqPVSaiz6vOdo2_SIg",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1Nn0isfBfplCIXLGz2GsdKvhB3pqPVSaiz6vOdo2_SIg/edit"
+    },
+    {
+      "what": "example project",
+      "name": "monarch-reel-01.project.json (example project)",
+      "id": "1a4uOeI8GUd70balIUkyNaWKYNZl8-7MU",
+      "type": "json",
+      "folder": "projects",
+      "url": "https://drive.google.com/file/d/1a4uOeI8GUd70balIUkyNaWKYNZl8-7MU/view"
+    },
+    {
+      "what": "free queue format",
+      "name": "free_jobs.example.json (queue format for the T4 notebook)",
+      "id": "1RIk84LPk-9_cWgAvd-wEAYep3BUCo74n",
+      "type": "json",
+      "folder": "projects",
+      "url": "https://drive.google.com/file/d/1RIk84LPk-9_cWgAvd-wEAYep3BUCo74n/view"
+    }
+  ],
+  "uploaded_at": "2026-10-27T14:20:55Z",
+  "uploaded_count": 13
+}

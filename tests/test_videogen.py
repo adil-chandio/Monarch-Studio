@@ -333,5 +333,34 @@ class CliTests(unittest.TestCase):
             self.assertTrue((pathlib.Path(td) / "cli-1" / "project.json").exists())
 
 
+class DriveHomeTests(unittest.TestCase):
+    """WF-07 delivery home must stay wired to the user's Drive folder."""
+
+    def test_config_has_the_user_folder(self):
+        cfg = vg.drive_config()
+        self.assertEqual(cfg["root"]["id"], "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1")
+        self.assertIn("Wf-07", cfg["root"]["name"])
+        self.assertEqual(set(cfg["subfolders"]),
+                         {"start_here", "engine", "notebooks", "knowledge", "projects", "masters"})
+
+    def test_targets_point_at_projects_and_masters(self):
+        dest = vg.drive_targets("monarch-reel-01")
+        self.assertEqual(dest["project_folder"], "05 · Projects/monarch-reel-01/")
+        self.assertEqual(dest["master_folder"], "06 · Masters & Receipts/")
+        self.assertTrue(dest["projects_id"] and dest["masters_id"])
+        self.assertIn("drive.google.com", dest["url"])
+
+    def test_doctor_reports_the_drive_home(self):
+        with mock.patch("builtins.print") as printed:
+            self.assertEqual(vg.doctor(), 0)
+        out = "".join(str(c.args[0]) for c in printed.call_args_list if c.args)
+        self.assertIn("WF-07 drive home", out)
+
+    def test_missing_config_is_not_a_crash(self):
+        with mock.patch.object(vg, "DRIVE_CONFIG", pathlib.Path("/tmp/nope-drive.json")):
+            self.assertEqual(vg.drive_config(), {})
+            self.assertEqual(vg.drive_targets("x")["root"], "Wf-07 • Monarch Ai Agent")
+
+
 if __name__ == "__main__":
     unittest.main()

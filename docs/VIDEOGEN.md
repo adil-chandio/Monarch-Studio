@@ -96,7 +96,8 @@ WARN            s01-hook: lipsync pass has no voice_ref/audio yet
 `delivery_fps`, optionally loops `audio.music` under the cut and fades it, writes `delivery/<id>_MASTER.mp4` and
 adds a master receipt (md5, probe, fps). No `ffmpeg` → clean error, never a fake success.
 
-**`status`** recomputes the plan (a stale `plan.json` cannot mislead) and prints per-shot state.
+**`status`** recomputes the plan (a stale `plan.json` cannot mislead) and prints per-shot state plus the
+WF-07 Drive destination (`05 · Projects/<id>/`, master → `06 · Masters & Receipts/`).
 
 **`doctor`** checks python, ffmpeg/ffprobe, the tool registry, `MINIMAX_API_KEY`, the character authority and the
 free notebook.
@@ -118,7 +119,7 @@ tools/videogen.py         plan → render/queue → verify → assemble      ←
         │
 WF-05 (styles/premium-motion-editing)   typography, transitions, score, 24→30 fps conform
         │
-delivery + receipts + Drive + continuity checkpoint
+delivery + receipts + Drive (WF-07 'Wf-07 • Monarch Ai Agent') + continuity checkpoint
 ```
 
 - **WF-01 / WF-03 stay procedural.** They use VIPER-1 for plates and atmosphere, not for their hero line-art.

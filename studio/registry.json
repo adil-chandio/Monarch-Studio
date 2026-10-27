@@ -125,6 +125,36 @@
         "source_repo": "https://github.com/MiniMax-AI/MiniMax-H3",
         "model_weights": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
       }
+    },
+    {
+      "code": "WF-07",
+      "style_id": "monarch-ai-agent",
+      "slug": "wf07",
+      "name": "Monarch AI Agent",
+      "path": "styles/monarch-ai-agent",
+      "trigger": "AGENTGO <job or topic>",
+      "state": "ACTIVE_WITH_USER",
+      "reconciliation": "user_created_drive_home_20261027",
+      "reproducibility": "every clip keeps project.json + receipts.json (engine, md5, billed seconds); code is tools/videogen.py",
+      "role": "delivery home + operating rules for all AI-generated video",
+      "authorities": {
+        "drive_folder_id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+        "drive_folder_url": "https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+        "drive_subfolders": {
+          "start_here": "1rnVmd4wTIwkTjy1FgYeBWVra3_NUKQ1k",
+          "engine": "1BC16OI4EqLCOIL4fJ5w-RaRIgDJVutsB",
+          "notebooks": "1ML86TUyQFqS3dn84K_IjBf5T5gfTyg9E",
+          "knowledge": "12bfu_URXfA5-DNal1qN1iR13ldn5gNKI",
+          "projects": "1ZTua9_q-SeOvgzmEuQ_KTF3fZh_BnoBl",
+          "masters": "1NcNrI8Dzyak6fqo70fbRhmjjU5Cl-PoE"
+        },
+        "tool": "tools/videogen.py",
+        "tool_manual": "docs/VIDEOGEN.md",
+        "engine_knowledge": "styles/minimax-h3-video",
+        "notion_project_id": null,
+        "linear_resume_issue": null,
+        "google_doc_hub_id": null
+      }
     }
   ],
   "characters": [

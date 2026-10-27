@@ -50,6 +50,19 @@
       "status": "PILOT_READY_NO_DELIVERY",
       "latest_release": null,
       "latest_release_path": null
+    },
+    {
+      "style_id": "monarch-ai-agent",
+      "name": "Monarch AI Agent",
+      "path": "styles/monarch-ai-agent",
+      "trigger": "AGENTGO <job or topic>",
+      "knowledge_index": "styles/monarch-ai-agent/knowledge/INDEX.md",
+      "workflow_code": "WF-07",
+      "contract": "styles/monarch-ai-agent/workflow.json",
+      "status": "ACTIVE_WITH_USER",
+      "latest_release": null,
+      "latest_release_path": null,
+      "drive_folder_id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1"
     }
   ]
 }
