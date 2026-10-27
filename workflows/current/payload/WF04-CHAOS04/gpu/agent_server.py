@@ -273,7 +273,65 @@ def _save_video(frames, dest: Path, fps: int, job: dict) -> None:
     logwrite(job, f"encode ok ({dest.stat().st_size} B)")
 
 
-RECIPES = {"smoke": r_smoke, "ltx": r_ltx, "wan": r_wan, "animate": r_animate}
+def r_shell(job: dict, p: dict) -> str:
+    """Full shell on the Colab box (token-gated). Modes: sync | bg | tail."""
+    cmd = p.get("cmd", "echo hello")
+    mode = (p.get("mode") or "sync").lower()
+    if mode == "bg":
+        logfile = p.get("log") or "job.log"
+        lp = WORK / logfile
+        subprocess.Popen(["bash", "-lc", cmd], stdout=open(lp, "ab"),
+                         stderr=subprocess.STDOUT, start_new_session=True,
+                         cwd=str(WORK))
+        logwrite(job, f"bg started -> {lp}")
+        return f"BG log={lp}"
+    if mode == "tail":
+        lp = WORK / (p.get("log") or "job.log")
+        if not lp.exists():
+            raise RuntimeError(f"no log {lp}")
+        lines = lp.read_text(errors="ignore").splitlines()[-int(p.get("lines", 40)):]
+        for ln in lines:
+            logwrite(job, ln[:400])
+        return "\n".join(lines)[-3000:]
+    t0 = time.time()
+    r = subprocess.run(["bash", "-lc", cmd], capture_output=True, text=True,
+                       timeout=float(p.get("timeout", 900)), cwd=str(WORK))
+    out = (r.stdout + r.stderr)[-3500:]
+    for ln in out.splitlines()[-25:]:
+        logwrite(job, ln[:400])
+    logwrite(job, f"shell rc={r.returncode} in {time.time() - t0:.1f}s")
+    if r.returncode != 0 and not p.get("allow_fail"):
+        raise RuntimeError(f"rc={r.returncode}: {out[-800:]}")
+    return out
+
+
+def r_drive_get(job: dict, p: dict) -> str:
+    """Copy a file that already lives in the mounted Drive into WORK."""
+    src = Path(p.get("path", ""))
+    if not src.exists():
+        alt = WORK / "drive_in" / p.get("name", "")
+        if alt.exists():
+            src = alt
+        else:
+            raise RuntimeError(f"not found: {src}")
+    dest = WORK / "drive_in" / (p.get("name") or src.name)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dest)
+    logwrite(job, f"drive_get {src} -> {dest} ({dest.stat().st_size} B)")
+    return str(dest)
+
+
+def r_files(job: dict, p: dict) -> str:
+    rows = []
+    for f in sorted(OUT.glob("*")):
+        if f.is_file():
+            rows.append(f"{f.name}\t{f.stat().st_size}")
+    return "\n".join(rows) or "(no files)"
+
+
+RECIPES = {"smoke": r_smoke, "ltx": r_ltx, "wan": r_wan,
+           "animate": r_animate, "shell": r_shell, "drive_get": r_drive_get,
+           "files": r_files}
 
 
 # --------------------------------------------------------------- job runner ---
@@ -338,7 +396,7 @@ def recipes():
     if bad:
         return bad
     f = gpu_facts()
-    allow = ["smoke"]
+    allow = ["smoke", "shell", "files"]
     if (f.get("vram_gb") or 0) >= 13:
         allow.append("ltx")
     if (f.get("vram_gb") or 0) >= 20:
