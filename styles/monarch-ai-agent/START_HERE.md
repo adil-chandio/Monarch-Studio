@@ -30,6 +30,18 @@ native dialogue sirf paid H3 se. Ladder: `styles/monarch-ai-agent/knowledge/QUAL
 | `05 · Projects` | per project: `project.json`, `plan.json`, `receipts.json`, `shots/` |
 | `06 · Masters & Receipts` | final masters + md5 receipts |
 
+## 2b. Free compute (koi card nahi)
+
+| Kahan | Quota | Kaam |
+|---|---|---|
+| Colab free T4 | dynamic | daily clips/render |
+| Kaggle T4×2 | **~30 h/week** | weekly workhorse |
+| Lightning free | 15 credits/month | emergency |
+| Aapka laptop | unlimited | voice, mix, upscale(lanczos), verify, assemble |
+
+Track: `python3 tools/videogen.py quota`. Poora plan: `docs/FREE_ONLY_PLAYBOOK.md`.
+**Free-only mode ON hai** — H3 API tab tak lock hai jab tak `MONARCH_ALLOW_PAID=1` na ho.
+
 ## 3. Ek click flow (free)
 
 1. Colab → `03 · Colab Notebooks/MONARCH_T4_FREE_BRIDGE.ipynb` upload karo

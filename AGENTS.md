@@ -74,8 +74,11 @@ Everything the studio *generates* lands in the user's Drive folder **`Wf-07 • 
 - Masters → `06 · Masters & Receipts/`; never a master without its md5 in the receipts
 - Engine + manual → `02 · Engine (VIPER-1)`; notebooks → `03 · Colab Notebooks`; knowledge exports → `04 · Knowledge`
 - Git stays the source of truth for code and knowledge; Drive is delivery + sharing.
-- Answer the free/paid question the same way every time: the tool and the free route cost $0; only H3 hero shots
-  (2K / native stereo) are billed, and only after `estimate` + `render --yes`.
+- Answer the free/paid question the same way every time: the tool and the free route cost $0.
+- **Zero-spend is the default and enforced in code** (`viper-1.3`): paid steps are rewritten to the free chain
+  unless someone deliberately exports `MONARCH_ALLOW_PAID=1`. Never present a paid route as the plan.
+- Free compute: Colab free T4, **Kaggle ~30 GPU h/week**, Lightning free credits, laptop CPU. Log every GPU
+  session with `python3 tools/videogen.py quota --use <provider> <hours>`; see `docs/FREE_ONLY_PLAYBOOK.md`.
 
 ## WF-05 / MOTIONGO routing
 

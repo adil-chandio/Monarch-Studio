@@ -6,6 +6,7 @@ verifies the media, and assembles the master.
 
 ```text
 tools/videogen.py doctor
+tools/videogen.py quota                                    # free GPU hours left this week
 tools/videogen.py new    --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
 tools/videogen.py plan   <project>/project.json
 tools/videogen.py render <project>/project.json            # dry run, spends nothing
@@ -17,6 +18,19 @@ tools/videogen.py verify <project>/project.json
 tools/videogen.py assemble <project>/project.json
 tools/videogen.py status <project>/project.json
 ```
+
+## 0. Free-only mode (default)
+
+`free_only()` is `True` unless `MONARCH_ALLOW_PAID=1` is exported. In that mode `build_plan()` resolves every
+shot through the free chain — a `route: paid` project, an API key, or a paid `resolution` cannot change the
+estimate away from `$0.00`. `render --yes` prints `FREE-ONLY MODE` and never calls the H3 client. The plan
+header shows `FREE-ONLY ($0 guaranteed)` and `blocked_paid` counts the paid steps that were rewritten.
+
+Free compute is tracked, not assumed: `studio/free_compute.json` lists the card-free providers and quotas
+(Colab free T4, **Kaggle ~30 GPU h/week**, Lightning free credits, HF ZeroGPU 5 min/day, local CPU), and
+`studio/free_quota.json` is a weekly ledger written by `quota --use <provider> <hours>` that resets itself
+each ISO week. `doctor` prints the mode and the hours left. Full operating structure:
+[`FREE_ONLY_PLAYBOOK.md`](FREE_ONLY_PLAYBOOK.md).
 
 ## 1. Why this exists
 

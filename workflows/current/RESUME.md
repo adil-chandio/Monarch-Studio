@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
 **Style:** `minimax-h3-video`  
-**Checkpoint sequence:** 7  
-**Last checkpoint:** 2026-10-27T15:02:12Z
+**Checkpoint sequence:** 8  
+**Last checkpoint:** 2026-10-27T16:07:54Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + 
 
 ## Exact next action
 
-First real reel: user supplies Monarch reference crops + a voice line (or lets Kokoro speak it); run plan -> render (free queue) -> audio (Colab) -> upscale (Colab) -> mix -> verify -> assemble, then promote to 05 · Projects/<id>/ and 06 · Masters & Receipts/.
+Build the first real reel entirely free: user gives a voice line/topic (or Kokoro speaks it); run plan -> render (queue) -> Colab/Kaggle clips -> audio -> upscale -> mix -> verify -> assemble, logging GPU hours with quota --use, then promote to Drive 05/06.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

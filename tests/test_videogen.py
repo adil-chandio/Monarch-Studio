@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import os
 import pathlib
 import sys
 import tempfile
@@ -23,6 +24,20 @@ def make_project(tmp: pathlib.Path, *, route: str = "free", aspect: str = "9:16"
         import os
         os.environ["MINIMAX_API_KEY"] = key
     return path
+
+
+class AllowPaidMixin:
+    """Tests that deliberately exercise the paid route must unlock it explicitly."""
+
+    def setUp(self):
+        self._paid_env = os.environ.get("MONARCH_ALLOW_PAID")
+        os.environ["MONARCH_ALLOW_PAID"] = "1"
+
+    def tearDown(self):
+        if self._paid_env is None:
+            os.environ.pop("MONARCH_ALLOW_PAID", None)
+        else:
+            os.environ["MONARCH_ALLOW_PAID"] = self._paid_env
 
 
 class ProjectTests(unittest.TestCase):
@@ -88,7 +103,7 @@ class ProjectTests(unittest.TestCase):
             self.assertTrue(any("plain filename" in p for p in vg.validate_project(data, path)))
 
 
-class PlanTests(unittest.TestCase):
+class PlanTests(AllowPaidMixin, unittest.TestCase):
     def test_free_route_is_zero_cost_and_adds_lipsync_for_hero(self):
         with tempfile.TemporaryDirectory() as td:
             plan = vg.build_plan(json.loads(make_project(pathlib.Path(td), route="free").read_text()),
@@ -167,8 +182,9 @@ class FakeH3:
                 "usage": {"output_seconds": spec["duration"]}}
 
 
-class RenderTests(unittest.TestCase):
+class RenderTests(AllowPaidMixin, unittest.TestCase):
     def setUp(self):
+        super().setUp()
         FakeH3.calls = []
 
     def test_paid_render_needs_yes_before_spending(self):
@@ -333,6 +349,115 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             self.assertEqual(vg.main(["new", "--id", "cli-1", "--title", "CLI one", "--out", td]), 0)
             self.assertTrue((pathlib.Path(td) / "cli-1" / "project.json").exists())
+
+
+class FreeOnlyTests(unittest.TestCase):
+    """Zero-spend mode: the tool must be incapable of billing by accident."""
+
+    def setUp(self):
+        self._env = {k: os.environ.get(k) for k in ("MONARCH_FREE_ONLY", "MONARCH_ALLOW_PAID")}
+        for key in self._env:
+            os.environ.pop(key, None)
+
+    def tearDown(self):
+        for key, value in self._env.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+
+    def test_default_is_free_only(self):
+        self.assertTrue(vg.free_only())
+        os.environ["MONARCH_FREE_ONLY"] = "0"
+        self.assertFalse(vg.free_only())
+        os.environ.pop("MONARCH_FREE_ONLY")
+        os.environ["MONARCH_ALLOW_PAID"] = "1"
+        self.assertFalse(vg.free_only())
+
+    def test_paid_project_is_rewritten_to_the_free_chain(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="paid")
+            data = json.loads(path.read_text())
+            plan = vg.build_plan(data, has_key=True)
+            self.assertTrue(plan["free_only"])
+            self.assertEqual(plan["estimate_usd"], 0.0)
+            self.assertEqual(plan["paid_step_count"], 0)
+            self.assertGreater(plan["blocked_paid"], 0)
+            self.assertTrue(any("free-only mode" in w for w in plan["warnings"]))
+            engines = {s["engine"] for e in plan["shots"] for s in e["steps"]}
+            self.assertNotIn("h3", engines)
+            self.assertIn("wan", engines)
+
+    def test_allow_paid_restores_h3(self):
+        os.environ["MONARCH_ALLOW_PAID"] = "1"
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="paid")
+            plan = vg.build_plan(json.loads(path.read_text()), has_key=True)
+            self.assertFalse(plan["free_only"])
+            self.assertGreater(plan["estimate_usd"], 0)
+
+    def test_render_never_spends_in_free_mode(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="paid")
+            with mock.patch("builtins.print") as printed, \
+                 mock.patch.object(vg, "render_h3") as h3:
+                vg.render(path, confirm=True)
+            self.assertFalse(h3.called)
+            out = " ".join(str(c.args[0]) for c in printed.call_args_list if c.args)
+            self.assertIn("FREE-ONLY MODE", out)
+
+    def test_compute_menu_lists_card_free_providers_only(self):
+        menu = vg.free_compute()
+        self.assertTrue(menu["providers"])
+        self.assertTrue(all(p["card_required"] is False for p in menu["providers"]))
+        excluded = {row["id"] for row in menu["excluded_on_purpose"]}
+        self.assertIn("modal", excluded)
+        self.assertIn("minimax_h3_api", excluded)
+
+    def test_kaggle_limit_is_read_from_the_menu(self):
+        self.assertEqual(vg.quota_limits().get("kaggle"), 30.0)
+        self.assertNotIn("colab_free", vg.quota_limits())
+
+    def test_quota_use_and_report(self):
+        with tempfile.TemporaryDirectory() as td:
+            ledger = pathlib.Path(td) / "free_quota.json"
+            with mock.patch.object(vg, "FREE_QUOTA", ledger):
+                state = vg.quota_use("kaggle", 1.5, "reel-01 batch")
+                self.assertEqual(state["used"]["kaggle"], 1.5)
+                vg.quota_use("kaggle", 2)
+                rows = {r["id"]: r for r in vg.quota_report()}
+                self.assertEqual(rows["kaggle"]["used"], 3.5)
+                self.assertEqual(rows["kaggle"]["left"], 26.5)
+                self.assertIsNone(rows["colab_free"]["limit"])
+                self.assertEqual(state["week"], vg._iso_week())
+
+    def test_quota_rejects_unknown_provider_and_bad_hours(self):
+        with tempfile.TemporaryDirectory() as td:
+            ledger = pathlib.Path(td) / "free_quota.json"
+            with mock.patch.object(vg, "FREE_QUOTA", ledger):
+                with self.assertRaises(vg.EngineError):
+                    vg.quota_use("some_gpu_shop", 1)
+                with self.assertRaises(vg.EngineError):
+                    vg.quota_use("kaggle", 0)
+
+    def test_quota_rolls_over_to_a_new_week(self):
+        with tempfile.TemporaryDirectory() as td:
+            ledger = pathlib.Path(td) / "free_quota.json"
+            ledger.write_text(json.dumps({"week": "1999-W01", "used": {"kaggle": 30.0}, "log": []}))
+            with mock.patch.object(vg, "FREE_QUOTA", ledger):
+                state = vg.quota_state()
+                self.assertEqual(state["week"], vg._iso_week())
+                self.assertEqual(state["used"], {})
+
+    def test_doctor_prints_free_mode_and_quota(self):
+        with tempfile.TemporaryDirectory() as td:
+            ledger = pathlib.Path(td) / "free_quota.json"
+            with mock.patch.object(vg, "FREE_QUOTA", ledger), mock.patch("builtins.print") as printed:
+                self.assertEqual(vg.doctor(), 0)
+            out = "".join(str(c.args[0]) for c in printed.call_args_list if c.args)
+            self.assertIn("free-only mode", out)
+            self.assertIn("free compute menu", out)
+            self.assertIn("kaggle quota", out)
 
 
 class AudioTests(unittest.TestCase):
@@ -505,7 +630,8 @@ class AudioTests(unittest.TestCase):
             path, project = self._project(td)
             project["route"] = "paid"
             project["shots"][0]["vo_text"] = "hello"
-            plan = vg.build_plan(project, has_key=True)
+            with mock.patch.dict(os.environ, {"MONARCH_ALLOW_PAID": "1"}):
+                plan = vg.build_plan(project, has_key=True)
             engines = [s["engine"] for s in plan["shots"][0]["steps"]]
             self.assertEqual(engines, ["h3"])
 

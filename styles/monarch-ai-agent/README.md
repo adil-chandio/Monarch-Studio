@@ -8,6 +8,17 @@ Generate karne wala engine studio ka apna hai — [`tools/videogen.py`](../../to
 > **Drive home:** [Wf-07 • Monarch Ai Agent](https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1)
 > (id `1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1`, inside `MONARCH STUDIO`) — IDs: [`data/drive.json`](data/drive.json)
 
+## 0. FREE-ONLY MODE (default)
+
+`viper-1.3` **kharch nahi kar sakta** jab tak koi jaan-boojh kar `MONARCH_ALLOW_PAID=1` na likhe:
+
+- `plan` header: `FREE-ONLY ($0 guaranteed)`; `route: paid` likha ho to bhi har paid step free chain me rewrite
+- `render --yes` → `FREE-ONLY MODE: no paid step will be submitted` (H3 client call hi nahi hota)
+- free GPU ka hisaab: `python3 tools/videogen.py quota` (Kaggle 30 h/week counter, weekly auto-reset)
+
+Free compute ka poora structure + weekly rhythm + quota-khatam plan:
+[`docs/FREE_ONLY_PLAYBOOK.md`](../../docs/FREE_ONLY_PLAYBOOK.md) · menu: [`studio/free_compute.json`](../../studio/free_compute.json)
+
 ## 1. "Yeh sab free hai?" — seedha jawab
 
 | Cheez | Free? | Detail |
@@ -16,8 +27,9 @@ Generate karne wala engine studio ka apna hai — [`tools/videogen.py`](../../to
 | **Free route** — Colab T4 · Wan 2.1 1.3B · LatentSync lipsync · local ffmpeg | ✅ **$0** | 480×832, silent base (voice aap ki), 10–25 min/clip |
 | **Free upscale** — Real-ESRGAN ×2 (T4) ya Lanczos ×2 (CPU) | ✅ **$0** | 480×832 → **960×1664**, sharper magar naya detail nahi |
 | **Free audio** — Kokoro/Chatterbox voice + MMAudio/ThinkSound foley + MusicGen bed | ✅ **$0** | MMAudio & MusicGen weights **non-commercial**; Kokoro/Chatterbox commercial OK |
+| **Free compute** — Colab free T4 + **Kaggle 30 h/week** + Lightning credits + laptop CPU | ✅ **$0** | koi card nahi; Colab quota dynamic, Kaggle counter visible |
 | **Drive storage** | ✅ free 15 GB | 1080p masters bhaari hote hain; purane runs archive karo |
-| **MiniMax-H3 API** (2K, native stereo, ek pass me dialogue+lipsync) | ❌ **paid** | $0.08/s @768P · $0.13/s @2K. 5 s hero = $0.40–0.65 |
+| **MiniMax-H3 API** (2K, native stereo, ek pass me dialogue+lipsync) | ❌ **paid — LOCKED by default** | $0.08/s @768P · $0.13/s @2K; sirf `MONARCH_ALLOW_PAID=1` ke baad |
 | **H3 local weights** | ✅ weights free | magar 4×H100 class GPU — Colab par nahi |
 
 Toh: **tool free hai, free route $0 hai, sirf hero shots (2K + native audio) ka paisa lagta hai.**
@@ -37,14 +49,14 @@ Aur paisa bhi tab lagta hai jab aap khud `render --yes` chalao — estimate dekh
 
 Git source of truth hai; Drive delivery + sharing ki jagah hai. Dono ke ids `data/drive.json` me.
 
-### Abhi Drive me kya rakha hai (15 files, 6 folders)
+### Abhi Drive me kya rakha hai (17 files, 6 folders)
 
 | Folder | Files |
 |---|---|
 | `01 · START HERE` | START HERE guide (Google Doc) |
-| `02 · Engine (VIPER-1)` | `videogen.py` (v1.2), `VIDEOGEN` manual (Doc) |
+| `02 · Engine (VIPER-1)` | `videogen.py` (v1.3), `VIDEOGEN` manual (Doc) |
 | `03 · Colab Notebooks` | `MONARCH_T4_FREE_BRIDGE.ipynb` (free), `MONARCH_H3_COLAB.ipynb` (paid) |
-| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** (Docs) + `tool_registry.json` |
+| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** · **FREE-ONLY PLAYBOOK** (Docs) + `tool_registry.json` · `free_compute.json` |
 | `05 · Projects` | `monarch-reel-01.project.json`, `free_jobs.example.json` |
 | `06 · Masters & Receipts` | (khaali — pehla master yahan aayega) |
 

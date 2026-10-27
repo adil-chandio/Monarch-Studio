@@ -15,8 +15,9 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 | 8 | [`../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md`](../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md) | is H3 free? trial routes, tunnel risks |
 | 9 | [`../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`](../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md) | model menu by GPU tier + free talking-face chain |
 | 10 | [`../../studio/videogen/examples/monarch-reel-01.project.json`](../../studio/videogen/examples/monarch-reel-01.project.json) | ready example project |
-| 11 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
-| 12 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
+| 11 | [`../../../docs/FREE_ONLY_PLAYBOOK.md`](../../../docs/FREE_ONLY_PLAYBOOK.md) | $0 structure: compute, quotas, weekly rhythm, free ceiling |
+| 12 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
+| 13 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
 
 ## Standing decisions
 
@@ -31,5 +32,7 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 6. **Never sell a free-tier render as an H3 output,** and never promise 2K from a local run.
 7. **Audio is free stems, not magic:** voice + foley + bed + LatentSync costs $0; native synced
    dialogue in one pass needs Ovi (24 GB) or the paid H3 API.
-8. **Licence before delivery:** MMAudio and MusicGen weights are CC-BY-NC — personal/portfolio yes,
+8. **Zero spend:** `free_only()` guards every plan/render; free compute = Colab T4 + Kaggle 30 h/wk +
+   Lightning credits + laptop CPU, logged in `studio/free_quota.json`.
+9. **Licence before delivery:** MMAudio and MusicGen weights are CC-BY-NC — personal/portfolio yes,
    paid client work needs ThinkSound + licensed music.

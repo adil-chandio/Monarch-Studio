@@ -25,6 +25,7 @@ Design rules
 from __future__ import annotations
 
 import argparse
+import datetime
 import hashlib
 import json
 import os
@@ -42,7 +43,7 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-1.2"
+ENGINES_VERSION = "viper-1.3"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
@@ -317,9 +318,12 @@ def h3_cost(seconds: float, resolution: str) -> float:
     return round(seconds * rates[resolution], 2)
 
 
-def plan_shot(shot: dict, project: dict, *, has_key: bool) -> dict:
+def plan_shot(shot: dict, project: dict, *, has_key: bool, force_free: bool = False) -> dict:
     """Resolve one shot into ordered steps (engine + action + cost)."""
     route = project.get("route", "auto")
+    if force_free:
+        has_key = False
+        route = "free"
     kind = shot["kind"]
     seconds = float(shot["seconds"])
     steps: list[dict] = []
@@ -375,9 +379,11 @@ def _plan_delivery(project: dict) -> dict:
 
 
 def build_plan(project: dict, *, has_key: bool | None = None) -> dict:
+    guard = free_only()
     if has_key is None:
         has_key = bool(os.environ.get("MINIMAX_API_KEY"))
-    entries = [plan_shot(shot, project, has_key=has_key) for shot in project["shots"]]
+    entries = [plan_shot(shot, project, has_key=has_key, force_free=guard)
+               for shot in project["shots"]]
     total = round(sum(e["total_cost"] for e in entries), 2)
     budget = float(project.get("budget_usd", 0))
     paid_steps = sum(1 for e in entries for s in e["steps"] if s["cost"] > 0)
@@ -393,6 +399,10 @@ def build_plan(project: dict, *, has_key: bool | None = None) -> dict:
         "budget_usd": budget,
         "within_budget": round(total * RETRY_BUFFER, 2) <= budget,
         "has_api_key": has_key,
+        "free_only": guard,
+        "blocked_paid": (sum(1 for shot in project["shots"]
+                             if plan_shot(shot, project, has_key=has_key)["total_cost"] > 0)
+                         if guard else 0),
         "delivery": _plan_delivery(project),
         "planned_at": now(),
         "engine": ENGINES_VERSION,
@@ -419,6 +429,10 @@ def plan_warnings(project: dict, entries: list[dict]) -> list[str]:
                 f"— scale, not detail; for true {target}p use route=paid (h3 768P/2K)")
         if up["engine"] == "off" and target:
             warnings.append(f"{shot['id']}: upscale is off and target_height={target}p is set")
+    if free_only() and (project.get("route") == "paid" or any(
+            plan_shot(shot, project, has_key=True)["total_cost"] for shot in project["shots"])):
+        warnings.append("free-only mode: every paid step is rewritten to the free chain "
+                        "(set MONARCH_ALLOW_PAID=1 only if you have decided to spend)")
     try:
         warnings.extend(audio_licence_warnings(project))
     except EngineError:
@@ -429,7 +443,8 @@ def plan_warnings(project: dict, entries: list[dict]) -> list[str]:
 
 
 def print_plan(plan: dict) -> None:
-    print(f"PROJECT   : {plan['project_id']}  (route={plan['route']}, {plan['shot_count']} shots)")
+    mode = "FREE-ONLY ($0 guaranteed)" if plan.get("free_only") else "PAID ALLOWED"
+    print(f"PROJECT   : {plan['project_id']}  (route={plan['route']}, {plan['shot_count']} shots, {mode})")
     print(f"{'shot':<22}{'engine':<16}{'steps':<34}{'cost':>8}")
     for entry in plan["shots"]:
         steps = " -> ".join(f"{s['engine']}:{s['action']}" for s in entry["steps"])
@@ -578,6 +593,8 @@ def render(project_file: pathlib.Path, *, confirm: bool, only: list[str] | None 
     project = require_project(project_file)
     paths = project_paths(project_file)
     plan = build_plan(project)
+    if confirm and plan["free_only"]:
+        print("FREE-ONLY MODE: no paid step will be submitted; queued work goes to the free GPU chain.")
     if confirm and not plan["within_budget"] and not allow_over_budget:
         raise EngineError(
             f"estimate ${plan['estimate_with_retries_usd']:.2f} (with retries) exceeds budget "
@@ -1498,14 +1515,106 @@ def assemble(project_file: pathlib.Path, out: pathlib.Path | None = None, *, wit
     return 0
 
 
+# --------------------------------------------------------------------------- free-only mode
+FREE_COMPUTE = ROOT / "studio" / "free_compute.json"
+FREE_QUOTA = ROOT / "studio" / "free_quota.json"
+
+
+def free_only() -> bool:
+    """Zero-spend guard. ON unless someone deliberately sets MONARCH_ALLOW_PAID=1."""
+    if os.environ.get("MONARCH_ALLOW_PAID") == "1":
+        return False
+    return os.environ.get("MONARCH_FREE_ONLY", "1") != "0"
+
+
+def free_compute() -> dict:
+    """Free GPU/CPU menu with quotas. Empty dict when the file is missing."""
+    if not FREE_COMPUTE.exists():
+        return {}
+    return load_json(FREE_COMPUTE)
+
+
+def _iso_week() -> str:
+    year, week, _ = datetime.datetime.now().isocalendar()
+    return f"{year}-W{week:02d}"
+
+
+def quota_state() -> dict:
+    """Rolling weekly free-GPU ledger (resets automatically every ISO week)."""
+    state = load_json(FREE_QUOTA) if FREE_QUOTA.exists() else {}
+    week = _iso_week()
+    if state.get("week") != week:
+        state = {"week": week, "used": {}, "log": []}
+    state.setdefault("used", {})
+    state.setdefault("log", [])
+    return state
+
+
+def quota_limits() -> dict[str, float]:
+    """Hard weekly/monthly hour limits, where the provider publishes them."""
+    limits = {}
+    for provider in free_compute().get("providers", []):
+        quota = str(provider.get("quota", ""))
+        hours = re.search(r"(\d+(?:\.\d+)?)\s*(?:GPU\s*)?hours?\s*per\s*week", quota)
+        if hours:
+            limits[provider["id"]] = float(hours.group(1))
+    return limits
+
+
+def quota_use(provider: str, hours: float, note: str = "") -> dict:
+    """Record GPU hours burned on a free provider."""
+    ids = {p["id"] for p in free_compute().get("providers", [])}
+    if ids and provider not in ids:
+        raise EngineError(f"unknown provider {provider}; use one of {', '.join(sorted(ids))}")
+    if hours <= 0:
+        raise EngineError("hours must be positive")
+    state = quota_state()
+    state["used"][provider] = round(float(state["used"].get(provider, 0)) + float(hours), 2)
+    state["log"].append({"provider": provider, "hours": float(hours), "note": note,
+                         "at": now()})
+    write_json(FREE_QUOTA, state)
+    return state
+
+
+def quota_report(state: dict | None = None) -> list[dict]:
+    """Per-provider usage against the published limit."""
+    state = state or quota_state()
+    limits = quota_limits()
+    rows = []
+    for provider in free_compute().get("providers", []):
+        pid = provider["id"]
+        used = float(state["used"].get(pid, 0.0))
+        limit = limits.get(pid)
+        rows.append({"id": pid, "name": provider["name"], "used": used, "limit": limit,
+                     "left": round(limit - used, 2) if limit else None,
+                     "role": provider.get("role", "")})
+    return rows
+
+
+def print_quota() -> None:
+    rows = quota_report()
+    if not rows:
+        print("free compute menu missing — restore studio/free_compute.json")
+        return
+    print(f"FREE COMPUTE · week {quota_state()['week']} · mode "
+          f"{'FREE-ONLY' if free_only() else 'PAID ALLOWED (MONARCH_ALLOW_PAID=1)'}")
+    for row in rows:
+        if row["limit"]:
+            bar = f"{row['used']:.1f}/{row['limit']:.0f} h  ({row['left']:.1f} h left)"
+        else:
+            bar = f"{row['used']:.1f} h  (soft quota)"
+        print(f"  {row['id']:<12} {bar:<26} {row['role']}")
+
+
 # --------------------------------------------------------------------------- status
 def status(project_file: pathlib.Path) -> int:
     project = require_project(project_file)
     paths = project_paths(project_file)
     receipts = load_json(paths["receipts"]) if paths["receipts"].exists() else {"shots": {}}
     plan = build_plan(project)           # recompute: plan.json may be from an older route
-    print(f"PROJECT {project['project_id']} · route={plan['route']} · est ${plan['estimate_usd']:.2f} "
-          f"· budget ${plan['budget_usd']:.2f}")
+    mode = "free-only" if plan["free_only"] else "paid-allowed"
+    print(f"PROJECT {project['project_id']} · route={plan['route']} · {mode} "
+          f"· est ${plan['estimate_usd']:.2f} · budget ${plan['budget_usd']:.2f}")
     print(f"{'shot':<22}{'engine':<16}{'state':<16}{'file':<8}{'cost':>7}")
     shots_by_id = {shot["id"]: shot for shot in project["shots"]}
     for entry in plan["shots"]:
@@ -1558,6 +1667,21 @@ def doctor() -> int:
                    "MONARCH_T4_FREE_BRIDGE.ipynb"))
     checks.append(("payload dir", DEFAULT_WORK.exists() or True, str(DEFAULT_WORK.relative_to(ROOT))))
     try:
+        menu = free_compute()
+        providers = menu.get("providers", [])
+        checks.append(("free-only mode", free_only(),
+                       "ON — $0 guaranteed (MONARCH_ALLOW_PAID=1 to unlock spending)" if free_only()
+                       else "OFF — paid route unlocked"))
+        checks.append(("free compute menu", bool(providers),
+                       f"{len(providers)} providers · " + ", ".join(p["id"] for p in providers)))
+        state = quota_state()
+        kaggle_left = next((r["left"] for r in quota_report(state) if r["id"] == "kaggle"), None)
+        if kaggle_left is not None:
+            checks.append(("kaggle quota", kaggle_left > 0,
+                           f"{kaggle_left:.1f} h left this week ({state['week']})"))
+    except EngineError as exc:
+        checks.append(("free compute", False, str(exc)))
+    try:
         cfg = drive_config()
         checks.append(("WF-07 drive home", bool(cfg.get("root", {}).get("id")),
                        f"{cfg.get('root', {}).get('name')} ({cfg.get('root', {}).get('id')})"))
@@ -1608,6 +1732,12 @@ def main(argv: list[str] | None = None) -> int:
     p_asm.add_argument("--out")
     p_asm.add_argument("--no-music", action="store_true")
 
+    p_quota = sub.add_parser("quota", help="free GPU hours ledger (weekly reset)")
+    p_quota.add_argument("--use", nargs=2, metavar=("PROVIDER", "HOURS"),
+                         help="record hours burned, e.g. --use kaggle 1.5")
+    p_quota.add_argument("--note", default="")
+    p_quota.add_argument("--json", action="store_true")
+
     p_audio = sub.add_parser("audio", help="write the free voice+foley+music Colab notebook")
     p_audio.add_argument("project")
 
@@ -1628,6 +1758,16 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.cmd == "doctor":
             return doctor()
+        if args.cmd == "quota":
+            if args.use:
+                provider, hours = args.use
+                state = quota_use(provider, float(hours), args.note)
+                print(f"logged {hours} h on {provider} ({state['week']})")
+            if args.json:
+                print(json.dumps({"week": quota_state()["week"], "rows": quota_report()}, indent=2))
+            else:
+                print_quota()
+            return 0
         if args.cmd == "new":
             path = new_project(args.id, args.title, args.aspect, pathlib.Path(args.out),
                                template=args.template, character=args.character)
