@@ -11,6 +11,10 @@ Current styles:
 | `minimax-h3-video` | MiniMax-H3 Generative Video (WF-06) | `H3GO <topic or shot list>` | [`minimax-h3-video/`](minimax-h3-video/) |
 | `premium-motion-editing` | Premium Motion Editing (WF-05) | `MOTIONGO <topic or reference>` | [`premium-motion-editing/`](premium-motion-editing/) |
 
+**Generation engine:** all AI video generation for these styles runs through the studio's own
+`tools/videogen.py` (VIPER-1) — see [`../docs/VIDEOGEN.md`](../docs/VIDEOGEN.md). Engine knowledge lives in
+`minimax-h3-video/`; finish/typography stays in `premium-motion-editing/`.
+
 ## Hard boundary
 
 - `styles/` contains permanent knowledge and completed/released work.

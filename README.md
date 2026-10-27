@@ -12,6 +12,20 @@ python3 tools/studio.py validate
 
 [`START_HERE.md`](START_HERE.md) and [`workflows/current/RESUME.md`](workflows/current/RESUME.md) are the authoritative recovery entry points. Never restart from the beginning while they identify an unfinished task.
 
+## Our own video engine — VIPER-1
+
+`tools/videogen.py` is the studio's first-party AI video generator: one project file, engine chosen per shot
+(paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, media verification and master
+assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md).
+
+```bash
+python3 tools/videogen.py doctor
+python3 tools/videogen.py new --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
+python3 tools/videogen.py plan   <project>/project.json          # price + engine per shot
+python3 tools/videogen.py render <project>/project.json          # dry run
+python3 tools/videogen.py verify <project>/project.json && python3 tools/videogen.py assemble <project>/project.json
+```
+
 ## Permanent style library
 
 | Style | Trigger | State | Permanent implementation |

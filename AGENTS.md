@@ -49,6 +49,21 @@ When the user asks for MiniMax-H3, H3 video, or `H3GO <topic or shot list>`, loa
 - H3 supplies talking shots and plates; WF-01's procedural rig, WF-03's line-art hero DNA and WF-05's
   editing/typography authority are not replaced. Hand off to WF-05 with video + separated audio + receipts.
 
+## VIPER-1 (our video engine) — use it for any generated video
+
+`tools/videogen.py` is the studio's own generator. For any request that means "generate video", work through it
+instead of hand-rolling API calls:
+
+1. `python3 tools/videogen.py doctor` — confirm this machine's reality (ffmpeg, key, registry).
+2. `new` (or reuse the payload project) → edit prompts, references and `budget_usd`.
+3. `plan` — read the engine-per-shot table and the retry-buffered estimate before anything else.
+4. `render` (dry run) → only then `render --yes`. Paid shots need `MINIMAX_API_KEY`; free shots are emitted as
+   queue files for the Colab notebook and are **not** done until the mp4 comes back.
+5. `verify` (exit 3 = not delivered) → `assemble` → receipts → continuity checkpoint.
+
+Rules: no delivery claim without `verify` passing; `budget_usd` is a hard gate; free route is the default when no
+key is present; engine knowledge stays in `styles/minimax-h3-video/`, finish stays in WF-05.
+
 ## WF-05 / MOTIONGO routing
 
 When the user requests WF-05, WF5, Premium Motion Editing or MOTIONGO, load `styles/premium-motion-editing/FRESH_CHAT.md` and `data/approved-profile.json` before production. Default: V5 clean integrated typography plus accepted V6 non-caption motion improvements; **no V6 bottom caption pills or active-word lower strip**. Historical case renderers are not the new-project default. Use the registered style, current acceptance policy and source-backed lessons rather than recreating the workflow from memory.

@@ -151,5 +151,24 @@
       "commit": "756290289742535eb0ac3817548f152e9759cc70",
       "role": "pinned_research_index"
     }
+  ],
+  "tools": [
+    {
+      "id": "viper-1",
+      "name": "VIPER-1 video engine",
+      "path": "tools/videogen.py",
+      "manual": "docs/VIDEOGEN.md",
+      "version": "viper-1.0",
+      "role": "studio-wide AI video generation orchestrator (engine per shot, cost gate, verify, assemble)",
+      "engines": [
+        "h3 (paid API)",
+        "wan (free Colab T4 queue)",
+        "latentsync (free lipsync script)"
+      ],
+      "knowledge": "styles/minimax-h3-video/",
+      "finish_handoff": "styles/premium-motion-editing (WF-05)",
+      "example": "studio/videogen/examples/monarch-reel-01.project.json",
+      "tests": "tests/test_videogen.py"
+    }
   ]
 }

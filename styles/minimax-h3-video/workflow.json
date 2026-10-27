@@ -54,7 +54,31 @@
       "limits": "8-25 min per 5 s clip; session ends on idle/12 h; Colab free TOS forbids server-style use, so the tunnel cell is off by default",
       "job_queue": "Drive jobs.json -> status.json + mp4 + receipts.json (ToS-safe ping alternative)"
     },
-    "route_planner": "src/route_planner.py plan --need <need> [--free] [--duration N] (reads data/tool_registry.json)"
+    "route_planner": "src/route_planner.py plan --need <need> [--free] [--duration N] (reads data/tool_registry.json)",
+    "studio_engine": {
+      "tool": "tools/videogen.py",
+      "version": "viper-1.0",
+      "manual": "docs/VIDEOGEN.md",
+      "commands": [
+        "doctor",
+        "new",
+        "plan",
+        "render",
+        "verify",
+        "assemble",
+        "status"
+      ],
+      "engines": {
+        "h3": "paid API",
+        "wan": "free Colab T4 queue",
+        "latentsync": "free lipsync script"
+      },
+      "gates": [
+        "dry run by default",
+        "budget_usd hard gate (1.5x retry buffer)",
+        "verify exit 3 until media is proven"
+      ]
+    }
   },
   "required_paths": [
     "README.md",
@@ -75,7 +99,9 @@
     "data/free_jobs.example.json",
     "knowledge/06_NEXT_LEVEL_TOOLBOX.md",
     "src/route_planner.py",
-    "data/tool_registry.json"
+    "data/tool_registry.json",
+    "../../docs/VIDEOGEN.md",
+    "../../studio/videogen/examples/monarch-reel-01.project.json"
   ],
   "authorities": {
     "source_repo": "https://github.com/MiniMax-AI/MiniMax-H3",

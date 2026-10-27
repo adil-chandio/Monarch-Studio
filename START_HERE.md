@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Run the free chain end to end: Wan clip in the T4 notebook, record a 5 s Urdu/English VO, then LatentSync 1.5 with the sm_75 fp16 patch on the clip
+- **Next action:** Run the first real project end to end: copy the example into workflows/current/payload/, add Monarch reference crops + one voice line, then videogen plan -> render -> verify -> assemble
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
