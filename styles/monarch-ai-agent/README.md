@@ -13,7 +13,8 @@ Generate karne wala engine studio ka apna hai — [`tools/videogen.py`](../../to
 | Cheez | Free? | Detail |
 |---|---|---|
 | **VIPER-1 tool** (`tools/videogen.py`, docs) | ✅ **free** | studio ka apna code, repo me, koi subscription nahi |
-| **Free route** — Colab T4 · Wan 2.1 1.3B · LatentSync lipsync · local ffmpeg | ✅ **$0** | 480p, silent base (voice aap ki), 10–25 min/clip, Colab ke session limits |
+| **Free route** — Colab T4 · Wan 2.1 1.3B · LatentSync lipsync · local ffmpeg | ✅ **$0** | 480×832, silent base (voice aap ki), 10–25 min/clip |
+| **Free upscale** — Real-ESRGAN ×2 (T4) ya Lanczos ×2 (CPU) | ✅ **$0** | 480×832 → **960×1664**, sharper magar naya detail nahi |
 | **Drive storage** | ✅ free 15 GB | 1080p masters bhaari hote hain; purane runs archive karo |
 | **MiniMax-H3 API** (2K, native stereo, ek pass me dialogue+lipsync) | ❌ **paid** | $0.08/s @768P · $0.13/s @2K. 5 s hero = $0.40–0.65 |
 | **H3 local weights** | ✅ weights free | magar 4×H100 class GPU — Colab par nahi |
@@ -35,18 +36,32 @@ Aur paisa bhi tab lagta hai jab aap khud `render --yes` chalao — estimate dekh
 
 Git source of truth hai; Drive delivery + sharing ki jagah hai. Dono ke ids `data/drive.json` me.
 
-### Abhi Drive me kya rakha hai (13 files, 6 folders)
+### Abhi Drive me kya rakha hai (14 files, 6 folders)
 
 | Folder | Files |
 |---|---|
 | `01 · START HERE` | START HERE guide (Google Doc) |
-| `02 · Engine (VIPER-1)` | `videogen.py`, `VIDEOGEN.md` manual (Doc) |
+| `02 · Engine (VIPER-1)` | `videogen.py` (v1.1), `VIDEOGEN` manual (Doc) |
 | `03 · Colab Notebooks` | `MONARCH_T4_FREE_BRIDGE.ipynb` (free), `MONARCH_H3_COLAB.ipynb` (paid) |
-| `04 · Knowledge` | 00 model facts · 01 Colab runbook · 02 prompting · 05 free routes · 06 toolbox (Docs) + `tool_registry.json` |
+| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** (Docs) + `tool_registry.json` |
 | `05 · Projects` | `monarch-reel-01.project.json`, `free_jobs.example.json` |
 | `06 · Masters & Receipts` | (khaali — pehla master yahan aayega) |
 
 Har file ka Drive id: [`data/drive.json`](data/drive.json) → `uploaded`.
+
+## 2b. "480p kam nahi?" — short answer
+
+480×832 free route ka asli output hai. `upscale` stage usko **960×1664** kar deta hai ($0):
+Real-ESRGAN T4 par texture saaf karta hai, Lanczos sirf edges — **dono me naya detail nahi aata**.
+Asli 1080p/2K + native dialogue chahiye to H3 API (paid). Poora ladder: [`knowledge/QUALITY.md`](knowledge/QUALITY.md).
+
+```bash
+python3 tools/videogen.py upscale <project>.json                  # T4 notebook (realesrgan x2)
+python3 tools/videogen.py upscale <project>.json --engine lanczos # CPU-only, ffmpeg
+# project.json: "delivery": {"upscale": "realesrgan", "factor": 2, "target_height": 1664}
+```
+
+`verify` height bhi enforce karta hai: target se neeche = **exit 3**.
 
 ## 3. Ek project ka poora cycle
 

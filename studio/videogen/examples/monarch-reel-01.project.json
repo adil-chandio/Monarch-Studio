@@ -3,7 +3,7 @@
   "project_id": "monarch-reel-01",
   "title": "Monarch reel 01 \u2014 example",
   "style_id": "minimax-h3-video",
-  "engine": "viper-1.0",
+  "engine": "viper-1.1",
   "character": "monarch",
   "character_authority": "characters/monarch",
   "aspect": "9:16",
@@ -49,5 +49,10 @@
       "seed": 11,
       "prompt": "integrated_multimodal_description: [Shot 1] 3D CG render, macro shot of a matte black object rotating on a reflective obsidian plinth, a single hard key light sweeping its machined edge, dust motes in the beam, a teal gradient blooming behind it. The camera arcs around the object with small amplitude at slow speed. The lower third of the frame stays empty dark space.\n\noverall_soundscape: A deep sub-bass swell, a metallic click as the object locks into place.\n\nnon_diegetic_music: Minimal electronic pulse at 90 BPM, one filtered saw chord opening at the cut."
     }
-  ]
+  ],
+  "delivery": {
+    "upscale": "realesrgan",
+    "factor": 2,
+    "target_height": 0
+  }
 }

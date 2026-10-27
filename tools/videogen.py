@@ -42,13 +42,24 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-1.0"
+ENGINES_VERSION = "viper-1.1"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
 FREE_T4_HW = {"width": 832, "height": 480}          # Wan 1.3B landscape default
 FREE_T4_PORTRAIT = {"width": 480, "height": 832}    # vertical cut of the same budget
 RETRY_BUFFER = 1.5
+
+# What the free T4 route actually renders, as (width, height) — must match render_free_queue().
+FREE_FRAMES = {"9:16": (480, 832), "16:9": (832, 480), "1:1": (480, 480), "4:5": (480, 608)}
+
+# Quality ladder: every rung names its real source, so nobody mistakes a scale for detail.
+UPSCALES = {
+    "off":     {"factor": 1, "gpu": False, "note": "native free size, no post"},
+    "lanczos": {"factor": 2, "gpu": False, "note": "ffmpeg scale+lanczos: crisp edges, no new detail, runs on CPU"},
+    "realesrgan": {"factor": 2, "gpu": True,
+                   "note": "Real-ESRGAN x2 on the free T4: cleaner texture, still not true 1080p detail"},
+}
 
 
 class EngineError(RuntimeError):
@@ -114,6 +125,27 @@ def drive_targets(project_id: str) -> dict:
     }
 
 
+def free_frame_size(aspect: str) -> tuple[int, int]:
+    return FREE_FRAMES.get(aspect, FREE_FRAMES["9:16"])
+
+
+def upscale_target(project: dict, shot: dict | None = None) -> dict:
+    """Resolve the upscale stage for the free route (free clip size -> delivered size)."""
+    delivery = project.get("delivery") or {}
+    mode = (delivery.get("upscale") or "realesrgan").lower()
+    mode = {"true": "realesrgan", "false": "off", "none": "off", "x2": "realesrgan",
+            "realesrgan-x2": "realesrgan", "esrgan": "realesrgan"}.get(mode, mode)
+    spec = UPSCALES.get(mode, UPSCALES["off"])
+    factor = int(delivery.get("factor") or spec["factor"])
+    if mode == "off":
+        factor = 1
+    aspect = (shot or {}).get("ratio") or project.get("aspect", "9:16")
+    width, height = free_frame_size(aspect)
+    return {"engine": mode, "factor": factor, "gpu": spec["gpu"], "note": spec["note"],
+            "in_width": width, "in_height": height,
+            "out_width": width * factor, "out_height": height * factor}
+
+
 def model_rows() -> dict[str, dict]:
     return {m["id"]: m for m in registry()["models"]}
 
@@ -126,6 +158,7 @@ def project_paths(project_file: pathlib.Path) -> dict[str, pathlib.Path]:
         "shots": base / "shots",
         "queue": base / "queue",
         "lipsync": base / "lipsync",
+        "upscale": base / "upscale",
         "receipts": base / "receipts.json",
         "plan": base / "plan.json",
         "delivery": base / "delivery",
@@ -179,12 +212,14 @@ def new_project(project_id: str, title: str, aspect: str, out_dir: pathlib.Path,
         "delivery_fps": 30,
         "route": "auto",                 # auto | free | paid
         "budget_usd": 5.0,
+        "delivery": {"upscale": "realesrgan", "factor": 2,   # off | lanczos | realesrgan
+                     "target_height": 0},                    # 0 = whatever the upscale yields
         "notes": "Edit prompts, drop the Monarch reference pack into shots/, then: plan -> render -> verify.",
         "audio": {"music": None, "dialogue": []},
         "shots": shots,
     }
     write_json(project_dir / "project.json", project)
-    for key in ("shots", "queue", "lipsync", "delivery"):
+    for key in ("shots", "queue", "lipsync", "upscale", "delivery"):
         (project_dir / key).mkdir(parents=True, exist_ok=True)
     return project_dir / "project.json"
 
@@ -203,6 +238,21 @@ def validate_project(project: dict, path: pathlib.Path) -> list[str]:
         problems.append("budget_usd must be a non-negative number")
     if project.get("route", "auto") not in {"auto", "free", "paid"}:
         problems.append("route must be auto | free | paid")
+    delivery = project.get("delivery")
+    if delivery is not None:
+        if not isinstance(delivery, dict):
+            problems.append("delivery must be an object")
+        else:
+            mode = str(delivery.get("upscale", "off")).lower()
+            allowed = set(UPSCALES) | {"true", "false", "none", "x2", "esrgan", "realesrgan-x2"}
+            if mode not in allowed:
+                problems.append("delivery.upscale must be off | lanczos | realesrgan")
+            factor = delivery.get("factor", 2)
+            if factor not in (1, 2, 4):
+                problems.append("delivery.factor must be 1, 2 or 4")
+            target = delivery.get("target_height", 0)
+            if not isinstance(target, int) or target < 0:
+                problems.append("delivery.target_height must be a non-negative integer")
 
     seen: set[str] = set()
     for i, shot in enumerate(project.get("shots") or []):
@@ -270,13 +320,28 @@ def plan_shot(shot: dict, project: dict, *, has_key: bool) -> dict:
                 "total_cost": steps[0]["cost"], "engine_label": f"h3-{resolution}"}
 
     # free chain: a silent clip from the T4 queue; heroes then get a lipsync pass
+    up = upscale_target(project, shot)
     steps.append({"engine": "wan", "action": "queue", "cost": 0.0,
-                  "note": "free Colab T4 job (480p, silent) — run the notebook queue cell"})
+                  "note": f"free Colab T4 job ({up['in_width']}x{up['in_height']}, silent) — "
+                          "run the notebook queue cell"})
     if kind == "hero":
         steps.append({"engine": "latentsync", "action": "lipsync", "cost": 0.0,
                       "note": "free lipsync pass with your own voice track"})
+    if up["engine"] != "off":
+        steps.append({"engine": "upscale", "action": f"{up['engine']}-x{up['factor']}", "cost": 0.0,
+                      "note": f"{up['in_height']}p -> {up['out_height']}p · {up['note']}"})
     return {"shot_id": shot["id"], "kind": kind, "steps": steps,
             "total_cost": 0.0, "engine_label": "free-chain"}
+
+
+def _plan_delivery(project: dict) -> dict:
+    up = upscale_target(project)
+    target = int((project.get("delivery") or {}).get("target_height") or 0)
+    return {"engine": up["engine"], "factor": up["factor"], "gpu": up["gpu"], "note": up["note"],
+            "free_width": up["in_width"], "free_height": up["in_height"],
+            "out_width": up["out_width"], "out_height": up["out_height"],
+            "target_height": target,
+            "meets_target": bool(target and up["out_height"] >= target) or not target}
 
 
 def build_plan(project: dict, *, has_key: bool | None = None) -> dict:
@@ -298,6 +363,7 @@ def build_plan(project: dict, *, has_key: bool | None = None) -> dict:
         "budget_usd": budget,
         "within_budget": round(total * RETRY_BUFFER, 2) <= budget,
         "has_api_key": has_key,
+        "delivery": _plan_delivery(project),
         "planned_at": now(),
         "engine": ENGINES_VERSION,
         "warnings": plan_warnings(project, entries),
@@ -312,6 +378,17 @@ def plan_warnings(project: dict, entries: list[dict]) -> list[str]:
             warnings.append(f"{shot['id']}: lipsync pass has no voice_ref/audio yet")
         if "h3" in engines and not any(shot.get("references") or []):
             warnings.append(f"{shot['id']}: paid hero has no reference images (identity will drift)")
+    target = int((project.get("delivery") or {}).get("target_height") or 0)
+    for shot, entry in zip(project["shots"], entries):
+        if not any(st["engine"] == "wan" for st in entry["steps"]):
+            continue
+        up = upscale_target(project, shot)
+        if target and up["out_height"] < target:
+            warnings.append(
+                f"{shot['id']}: free route tops out at {up['out_height']}p but target_height is {target}p "
+                f"— scale, not detail; for true {target}p use route=paid (h3 768P/2K)")
+        if up["engine"] == "off" and target:
+            warnings.append(f"{shot['id']}: upscale is off and target_height={target}p is set")
     if not any(s["total_cost"] for s in entries) and project.get("route") == "paid":
         warnings.append("route=paid but no paid steps resolved — add an API key?")
     return warnings
@@ -323,6 +400,12 @@ def print_plan(plan: dict) -> None:
     for entry in plan["shots"]:
         steps = " -> ".join(f"{s['engine']}:{s['action']}" for s in entry["steps"])
         print(f"{entry['shot_id']:<22}{entry['engine_label']:<16}{steps:<34}{entry['total_cost']:>8.2f}")
+    if plan.get("delivery"):
+        d = plan["delivery"]
+        print(f"\nDELIVERY        {d['free_width']}x{d['free_height']} free -> "
+              f"{d['out_width']}x{d['out_height']} after {d['engine']}-x{d['factor']}"
+              + (f"  (target {d['target_height']}p)" if d.get("target_height") else ""))
+        print(f"                {d['note']}")
     print(f"\nESTIMATE        ${plan['estimate_usd']:.2f}")
     print(f"+ retry buffer  ${plan['estimate_with_retries_usd']:.2f}  (x{RETRY_BUFFER})")
     print(f"BUDGET          ${plan['budget_usd']:.2f}  -> {'OK' if plan['within_budget'] else 'OVER BUDGET'}")
@@ -377,8 +460,8 @@ def render_h3(shot: dict, project: dict, paths: dict, *, confirm: bool) -> dict:
 
 def render_free_queue(shots: list[dict], paths: dict, project: dict) -> dict:
     """Emit a Colab job file for the free T4 notebook (Wan 1.3B)."""
-    portrait = project["aspect"] in {"9:16", "4:5"}
-    size = FREE_T4_PORTRAIT if portrait else FREE_T4_HW
+    width, height = free_frame_size(project["aspect"])
+    size = {"width": width, "height": height}
     jobs = []
     for shot in shots:
         frames = int(round(float(shot["seconds"]) * 16))          # 16 fps, 4k+1 grid
@@ -529,14 +612,242 @@ def render(project_file: pathlib.Path, *, confirm: bool, only: list[str] | None 
     return 0
 
 
+# --------------------------------------------------------------------------- upscale
+def _nb(cells: list[dict]) -> dict:
+    return {"cells": cells,
+            "metadata": {"kernelspec": {"display_name": "Python 3", "name": "python3"},
+                         "language_info": {"name": "python"},
+                         "accelerator": "GPU"},
+            "nbformat": 4, "nbformat_minor": 5}
+
+
+def _md(text: str) -> dict:
+    return {"cell_type": "markdown", "metadata": {}, "source": text.splitlines(keepends=True)}
+
+
+def _code(text: str) -> dict:
+    return {"cell_type": "code", "execution_count": None, "metadata": {}, "outputs": [],
+            "source": text.splitlines(keepends=True)}
+
+
+_UPSCALE_INTRO = """# Upscale · __PROJECT__ (__ENGINE__ x__FACTOR__)
+
+Free route ne `__IN_W__x__IN_H__` render kiya. Yeh notebook usko **`__OUT_W__x__OUT_H__`** banata hai —
+**sharper, magar naya detail nahi**. Asli 1080p+ chahiye to `route: paid` (H3 768P / 2K) hi raasta hai;
+480p ko scale karke "4K" kehna dhoka hai.
+
+**Kaise chalayein:** Runtime → Change runtime type → **T4 GPU** (realesrgan) ya **CPU** (lanczos) →
+Run all → clips `shots/` me `<name>-__FACTOR__x.mp4` banti hain, audio/lipsync intact.
+"""
+
+_UPSCALE_CONFIG = """import hashlib, json, pathlib, shutil, subprocess
+
+# 1) Drive path — apna project folder yahan daalo
+PROJECT_DIR = "/content/drive/MyDrive/MONARCH STUDIO/Wf-07 • Monarch Ai Agent/05 · Projects/__PROJECT__"
+SHOT_IDS = [__IDS__]          # [] = sab mp4
+FACTOR = __FACTOR__
+FORCE = False                  # True = already upscaled files dobara banao
+
+from google.colab import drive
+drive.mount("/content/drive")
+SHOTS = pathlib.Path(PROJECT_DIR) / "shots"
+print("shots dir:", SHOTS, "| exists:", SHOTS.exists())
+assert SHOTS.exists(), "path galat hai — Drive me '05 · Projects/__PROJECT__' check karo"
+"""
+
+_UPSCALE_HELPERS = """def audio_args(src):
+    has_audio = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index",
+         "-of", "csv=p=0", str(src)], capture_output=True, text=True).stdout.strip()
+    return ["-map", "0:v:0", "-map", "0:a:0", "-c:a", "aac", "-b:a", "192k"] if has_audio else []
+
+
+def size_of(src):
+    return subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+         "stream=width,height", "-of", "csv=p=0", str(src)],
+        capture_output=True, text=True).stdout.strip()
+
+
+def fps_of(src):
+    return subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+         "stream=r_frame_rate", "-of", "csv=p=0", str(src)],
+        capture_output=True, text=True).stdout.strip() or "24/1"
+"""
+
+_UPSCALE_LANCZOS = """# 2) Lanczos x__FACTOR__ — pure ffmpeg, GPU ki zarurat nahi (CPU runtime bhi chalega)
+jobs = SHOT_IDS or [p.stem for p in SHOTS.glob("*.mp4")]
+done = []
+for sid in jobs:
+    for src in sorted(SHOTS.glob(f"{sid}*.mp4")):
+        if src.name.endswith(f"-{FACTOR}x.mp4"):
+            continue
+        dst = src.with_name(f"{src.stem}-{FACTOR}x.mp4")
+        if dst.exists() and not FORCE:
+            print("skip (exists)", dst.name)
+            continue
+        cmd = ["ffmpeg", "-y", "-i", str(src),
+               "-vf", f"scale=iw*{FACTOR}:ih*{FACTOR}:flags=lanczos,unsharp=5:5:0.6",
+               "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p"] + audio_args(src) + [str(dst)]
+        subprocess.run(cmd, check=True, capture_output=True)
+        print("ok  ", dst.name, size_of(dst))
+        done.append(dst.name)
+print("\\nupscaled:", len(done))
+"""
+
+_UPSCALE_ESRGAN = """# 2) Real-ESRGAN x__FACTOR__ on the free T4 (pip install ~1 min)
+import cv2, numpy as np, torch
+!pip -q install basicsr realesrgan facexlib gfpgan
+from basicsr.archs.rrdbnet_arch import RRDBNet
+from realesrgan import RealESRGANer
+
+print("GPU:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "none")
+assert torch.cuda.is_available(), "GPU nahi mila — Runtime > Change runtime type > T4 GPU"
+
+net = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+enhancer = RealESRGANer(
+    scale=4, half=True, tile=0, tile_pad=10, pre_pad=0, model=net,
+    model_path="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/RealESRGAN_x4plus.pth")
+
+
+def upscale_video(src, dst, factor=FACTOR):
+    frames_in = pathlib.Path("/content/_frames_in")
+    frames_out = pathlib.Path("/content/_frames_out")
+    for folder in (frames_in, frames_out):
+        shutil.rmtree(folder, ignore_errors=True)
+        folder.mkdir(parents=True)
+    subprocess.run(["ffmpeg", "-y", "-i", str(src), str(frames_in / "%06d.png")],
+                   check=True, capture_output=True)
+    for frame in sorted(frames_in.glob("*.png")):
+        img = cv2.imread(str(frame), cv2.IMREAD_COLOR)
+        out, _ = enhancer.enhance(img, outscale=factor)
+        cv2.imwrite(str(frames_out / frame.name), out)
+    silent = pathlib.Path("/content/_up_silent.mp4")
+    subprocess.run(["ffmpeg", "-y", "-framerate", fps_of(src), "-i", str(frames_out / "%06d.png"),
+                    "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", str(silent)],
+                   check=True, capture_output=True)
+    cmd = ["ffmpeg", "-y", "-i", str(silent), "-i", str(src), "-map", "0:v:0"] \
+        + (["-map", "1:a:0", "-c:a", "aac", "-b:a", "192k"] if audio_args(src) else []) \
+        + ["-c:v", "copy", "-shortest", str(dst)]
+    subprocess.run(cmd, check=True, capture_output=True)
+    return dst
+
+
+jobs = SHOT_IDS or [p.stem for p in SHOTS.glob("*.mp4")]
+done = []
+for sid in jobs:
+    for src in sorted(SHOTS.glob(f"{sid}*.mp4")):
+        if src.name.endswith(f"-{FACTOR}x.mp4"):
+            continue
+        dst = src.with_name(f"{src.stem}-{FACTOR}x.mp4")
+        if dst.exists() and not FORCE:
+            print("skip (exists)", dst.name)
+            continue
+        print("upscaling", src.name, size_of(src))
+        upscale_video(src, dst)
+        print("ok  ", dst.name, size_of(dst))
+        done.append(dst.name)
+print("\\nupscaled:", len(done))
+"""
+
+_UPSCALE_RECEIPT = """# 3) Receipt — kya bana, kitna bada, kaunsa md5
+rows = []
+for sid in (SHOT_IDS or [p.stem for p in SHOTS.glob("*.mp4")]):
+    for f in sorted(SHOTS.glob(f"{sid}*{FACTOR}x.mp4")):
+        rows.append({"shot": sid, "file": f.name, "bytes": f.stat().st_size,
+                     "size": size_of(f), "md5": hashlib.md5(f.read_bytes()).hexdigest()})
+receipt = pathlib.Path(PROJECT_DIR) / "upscale_receipt.json"
+receipt.write_text(json.dumps({"project": "__PROJECT__", "engine": "__ENGINE__",
+                               "factor": FACTOR, "files": rows}, indent=2))
+print(json.dumps(rows, indent=2))
+print("\\nreceipt:", receipt)
+print("Ab repo me: python3 tools/videogen.py verify <project.json>")
+"""
+
+
+def build_upscale_notebook(project: dict, engine: str, factor: int, shot_ids: list[str]) -> dict:
+    """A standalone Colab notebook that lifts the free 480p clips to 2x/4x.
+
+    Honest framing: Real-ESRGAN rebuilds texture; it does not invent the detail a native
+    1080p render would have. The measured size is printed for every shot.
+    """
+    up = upscale_target(project, None)
+    factor = int(factor or up["factor"])
+    engine = (engine or up["engine"]).lower()
+    tokens = {
+        "__PROJECT__": str(project["project_id"]),
+        "__ENGINE__": engine,
+        "__FACTOR__": str(factor),
+        "__ID_LITERAL__": ", ".join(f'"{i}"' for i in shot_ids),
+        "__IDS__": ", ".join(f'"{i}"' for i in shot_ids),
+        "__IN_W__": str(up["in_width"]), "__IN_H__": str(up["in_height"]),
+        "__OUT_W__": str(up["in_width"] * factor), "__OUT_H__": str(up["in_height"] * factor),
+    }
+
+    def fill(text: str) -> str:
+        for key, value in tokens.items():
+            text = text.replace(key, value)
+        return text
+
+    work = _UPSCALE_LANCZOS if engine == "lanczos" else _UPSCALE_ESRGAN
+    return _nb([_md(fill(_UPSCALE_INTRO)), _code(fill(_UPSCALE_CONFIG)),
+                _code(_UPSCALE_HELPERS), _code(fill(work)), _code(fill(_UPSCALE_RECEIPT))])
+
+
+def upscale(project_file: pathlib.Path, *, engine: str | None = None, factor: int | None = None,
+            only: list[str] | None = None) -> int:
+    """Write the upscale notebook for a project's free-route clips."""
+    project = require_project(project_file)
+    paths = project_paths(project_file)
+    paths["upscale"].mkdir(parents=True, exist_ok=True)
+    up = upscale_target(project, None)
+    engine = (engine or up["engine"] or "realesrgan").lower()
+    engine = {"esrgan": "realesrgan", "x2": "realesrgan"}.get(engine, engine)
+    if engine not in UPSCALES or engine == "off":
+        raise EngineError("engine must be one of " +
+                          ", ".join(k for k in UPSCALES if k != "off"))
+    factor = int(factor or up["factor"])
+    if factor not in (2, 4):
+        raise EngineError("factor must be 2 or 4")
+    shot_ids = list(only or [s["id"] for s in project["shots"]])
+    unknown = [i for i in shot_ids if i not in {s["id"] for s in project["shots"]}]
+    if unknown:
+        raise EngineError("unknown shot id(s): " + ", ".join(unknown))
+
+    notebook = build_upscale_notebook(project, engine, factor, shot_ids)
+    target = paths["upscale"] / f"UPSCALE_{project['project_id']}_{engine}_x{factor}.ipynb"
+    write_json(target, notebook)
+
+    width, height = up["in_width"], up["in_height"]
+    print(f"UPSCALE {project['project_id']}  {engine} x{factor}")
+    print(f"  {width}x{height} -> {width * factor}x{height * factor}  ({len(shot_ids)} shot(s))")
+    print(f"  {UPSCALES[engine]['note']}")
+    print(f"  notebook : {target}")
+    print(f"  {(chr(39) + 'T4 GPU' + chr(39)) if engine == 'realesrgan' else 'CPU runtime ok'} "
+          f"-> Run all -> <shot>-{factor}x.mp4 in shots/")
+    print(f"  then     : python3 tools/videogen.py verify {project_file}")
+
+    receipts = load_json(paths["receipts"]) if paths["receipts"].exists() else {"shots": {}}
+    receipts.setdefault("shots", {})
+    receipts["upscale"] = {"engine": engine, "factor": factor, "notebook": str(target),
+                           "created_at": now(), "in": [width, height],
+                           "out": [width * factor, height * factor], "shots": shot_ids}
+    write_json(paths["receipts"], receipts)
+    return 0
+
+
 # --------------------------------------------------------------------------- verify
 def shot_media(shot: dict, paths: dict) -> pathlib.Path | None:
     """Return the finished media for a shot, if any.
 
-    The free chain writes a lipsynced version next to the silent clip (``<id>-talk.mp4``),
-    so the talk version wins when both exist.
+    The free chain writes a lipsynced version next to the silent clip (``<id>-talk.mp4``) and the
+    upscale stage writes ``<id>-2x.mp4`` / ``<id>-talk-2x.mp4``, so the sharpest finished file wins.
     """
-    candidates = [paths["shots"] / f"{shot['id']}-talk.mp4", paths["shots"] / f"{shot['id']}.mp4"]
+    sid = shot["id"]
+    candidates = [paths["shots"] / f"{sid}-talk-2x.mp4", paths["shots"] / f"{sid}-2x.mp4",
+                  paths["shots"] / f"{sid}-talk-4x.mp4", paths["shots"] / f"{sid}-4x.mp4",
+                  paths["shots"] / f"{sid}-talk.mp4", paths["shots"] / f"{sid}.mp4"]
     for candidate in candidates:
         if candidate.exists():
             return candidate
@@ -594,6 +905,10 @@ def verify(project_file: pathlib.Path, *, tolerance: float = 0.6) -> int:
                 problems.append(f"fps {info['fps']} vs {project.get('fps', 24)}")
             if not info.get("audio_codec") and shot["kind"] == "hero" and project.get("route") == "paid":
                 problems.append("paid hero shot has no audio stream")
+            target_h = int((project.get("delivery") or {}).get("target_height") or 0)
+            if target_h and info.get("height") and info["height"] < target_h * 0.95:
+                problems.append(f"height {info['height']}p below delivery.target_height {target_h}p "
+                                f"— run `upscale` and keep the -2x file")
         else:
             record["probe"] = {"available": False, "note": "ffprobe missing: existence/md5 checked only"}
         receipts["shots"].setdefault(sid, {}).update(record)
@@ -602,7 +917,10 @@ def verify(project_file: pathlib.Path, *, tolerance: float = 0.6) -> int:
             print(f"  WARN  {sid:<20} " + "; ".join(problems))
         else:
             checked += 1
-            print(f"  PASS  {sid:<20} {record['bytes'] / 1e6:6.1f} MB  md5 {record['md5'][:10]}")
+            res = ""
+            if info.get("available") and info.get("height"):
+                res = f"{info.get('width')}x{info.get('height')}  "
+            print(f"  PASS  {sid:<20} {record['bytes'] / 1e6:6.1f} MB  {res}md5 {record['md5'][:10]}")
 
     receipts["verified_at"] = now()
     write_json(paths["receipts"], receipts)
@@ -633,8 +951,14 @@ def assemble(project_file: pathlib.Path, out: pathlib.Path | None = None, *, wit
     listing.write_text("".join(f"file '{c}'\n" for c in clips))
 
     fps = int(project.get("delivery_fps") or project.get("fps") or 24)
-    cmd = [ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing), "-r", str(fps),
-           "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p"]
+    cmd = [ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing), "-r", str(fps)]
+    target_h = int((project.get("delivery") or {}).get("target_height") or 0)
+    first = probe(clips[0])
+    if target_h and first.get("available") and first.get("height") and first["height"] < target_h:
+        cmd += ["-vf", f"scale=-2:{target_h}:flags=lanczos"]
+        print(f"scale      : {first['width']}x{first['height']} -> {target_h}p (lanczos) — "
+              f"sharpening, not new detail; run `upscale` first for real texture")
+    cmd += ["-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p"]
     music = project.get("audio", {}).get("music")
     if with_music and music and (paths["base"] / music).exists():
         # loop the bed under the cut and fade it out at the end
@@ -683,8 +1007,12 @@ def status(project_file: pathlib.Path) -> int:
         state = record.get("status") or ("present" if file else "pending")
         print(f"{sid:<22}{entry['engine_label']:<16}{state:<16}{'yes' if file else '-':<8}"
               f"{entry['total_cost']:>7.2f}")
+    up = _plan_delivery(project)
+    print(f"\ndelivery: {up['free_width']}x{up['free_height']} free -> "
+          f"{up['out_width']}x{up['out_height']} ({up['engine']} x{up['factor']})"
+          + (f" · target {up['target_height']}p" if up.get("target_height") else ""))
     master = receipts.get("master")
-    print(f"\nmaster: {master['path'] if master else 'not assembled'}")
+    print(f"master: {master['path'] if master else 'not assembled'}")
     dest = drive_targets(project["project_id"])
     if dest.get("projects_id"):
         print(f"drive : {dest['root']} / {dest['project_folder']}"
@@ -761,6 +1089,12 @@ def main(argv: list[str] | None = None) -> int:
     p_asm.add_argument("--out")
     p_asm.add_argument("--no-music", action="store_true")
 
+    p_up = sub.add_parser("upscale", help="write the Colab notebook that lifts free 480p clips")
+    p_up.add_argument("project")
+    p_up.add_argument("--engine", choices=["realesrgan", "lanczos"], default=None)
+    p_up.add_argument("--factor", type=int, choices=[2, 4], default=None)
+    p_up.add_argument("--only", nargs="*", help="subset of shot ids")
+
     p_status = sub.add_parser("status", help="per-shot state")
     p_status.add_argument("project")
 
@@ -794,6 +1128,8 @@ def main(argv: list[str] | None = None) -> int:
                             with_music=not args.no_music)
         if args.cmd == "status":
             return status(project_file)
+        if args.cmd == "upscale":
+            return upscale(project_file, engine=args.engine, factor=args.factor, only=args.only)
         raise EngineError(f"unknown command {args.cmd}")
     except EngineError as exc:
         print(f"error: {exc}", file=sys.stderr)

@@ -95,9 +95,11 @@ class PlanTests(unittest.TestCase):
                                  has_key=False)
             self.assertEqual(plan["estimate_usd"], 0.0)
             hero = next(e for e in plan["shots"] if e["kind"] == "hero")
-            self.assertEqual([s["engine"] for s in hero["steps"]], ["wan", "latentsync"])
+            self.assertEqual([s["engine"] for s in hero["steps"]],
+                             ["wan", "latentsync", "upscale"])
             plate = next(e for e in plan["shots"] if e["kind"] == "plate")
-            self.assertEqual([s["engine"] for s in plate["steps"]], ["wan"])
+            self.assertEqual([s["engine"] for s in plate["steps"]], ["wan", "upscale"])
+            self.assertEqual(plan["delivery"]["out_height"], 1664)
 
     def test_paid_route_prices_h3_per_shot_kind(self):
         with tempfile.TemporaryDirectory() as td:
@@ -331,6 +333,119 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             self.assertEqual(vg.main(["new", "--id", "cli-1", "--title", "CLI one", "--out", td]), 0)
             self.assertTrue((pathlib.Path(td) / "cli-1" / "project.json").exists())
+
+
+class QualityTests(unittest.TestCase):
+    """The free route renders 480p — the quality ladder must be explicit, not wishful."""
+
+    def test_free_frames_match_the_queue(self):
+        for aspect, (width, height) in vg.FREE_FRAMES.items():
+            self.assertEqual((width, height), (width // 16 * 16, height // 16 * 16))
+        self.assertEqual(vg.free_frame_size("9:16"), (480, 832))
+        self.assertEqual(vg.free_frame_size("made-up"), (480, 832))
+
+    def test_upscale_target_maths(self):
+        project = {"aspect": "9:16", "delivery": {"upscale": "realesrgan", "factor": 2}}
+        up = vg.upscale_target(project)
+        self.assertEqual((up["in_width"], up["in_height"]), (480, 832))
+        self.assertEqual((up["out_width"], up["out_height"]), (960, 1664))
+        self.assertTrue(up["gpu"])
+        off = vg.upscale_target({"aspect": "9:16", "delivery": {"upscale": "off"}})
+        self.assertEqual(off["factor"], 1)
+        self.assertEqual(off["out_height"], 832)
+        lanczos = vg.upscale_target({"aspect": "16:9", "delivery": {"upscale": "lanczos"}})
+        self.assertFalse(lanczos["gpu"])
+        self.assertEqual(lanczos["engine"], "lanczos")
+
+    def test_plan_warns_when_target_height_beats_the_free_route(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            data = json.loads(path.read_text())
+            data["delivery"] = {"upscale": "lanczos", "factor": 2, "target_height": 1920}
+            path.write_text(json.dumps(data, indent=2))
+            plan = vg.build_plan(json.loads(path.read_text()), has_key=False)
+            self.assertFalse(plan["delivery"]["meets_target"])
+            self.assertTrue(any("target_height is 1920p" in w for w in plan["warnings"]))
+            self.assertTrue(any("scale, not detail" in w for w in plan["warnings"]))
+
+    def test_plan_is_honest_when_target_is_reachable(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            data = json.loads(path.read_text())
+            data["delivery"] = {"upscale": "realesrgan", "factor": 2, "target_height": 1664}
+            path.write_text(json.dumps(data, indent=2))
+            plan = vg.build_plan(json.loads(path.read_text()), has_key=False)
+            self.assertTrue(plan["delivery"]["meets_target"])
+            self.assertFalse(any("target_height is" in w for w in plan["warnings"]))
+
+    def test_upscale_writes_a_runnable_notebook(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                self.assertEqual(vg.upscale(path), 0)
+            notebooks = list((path.parent / "upscale").glob("UPSCALE_*.ipynb"))
+            self.assertEqual(len(notebooks), 1)
+            nb = json.loads(notebooks[0].read_text())
+            self.assertEqual(nb["nbformat"], 4)
+            text = "\n".join("".join(cell["source"]) for cell in nb["cells"])
+            self.assertIn("RealESRGANer", text)
+            self.assertIn("05 · Projects/p1", text)
+            self.assertIn("sharper, magar naya detail nahi", text)
+            receipts = json.loads((path.parent / "receipts.json").read_text())
+            self.assertEqual(receipts["upscale"]["factor"], 2)
+            self.assertEqual(receipts["upscale"]["out"], [960, 1664])
+
+    def test_upscale_lanczos_needs_no_gpu(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                self.assertEqual(vg.upscale(path, engine="lanczos", factor=2, only=["s02-plate"]), 0)
+            nb_file = next((path.parent / "upscale").glob("*lanczos*.ipynb"))
+            text = "\n".join("".join(c["source"]) for c in json.loads(nb_file.read_text())["cells"])
+            self.assertIn("flags=lanczos", text)
+            self.assertNotIn("RealESRGANer", text)
+            self.assertIn('["s02-plate"]', text)
+
+    def test_upscale_rejects_unknown_shots_and_off(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with self.assertRaises(vg.EngineError):
+                vg.upscale(path, only=["nope"])
+            with self.assertRaises(vg.EngineError):
+                vg.upscale(path, engine="off")
+
+    def test_shot_media_prefers_the_upscaled_file(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free", template="hero-test")
+            shots = path.parent / "shots"
+            (shots / "s01-hero.mp4").write_bytes(b"silent")
+            (shots / "s01-hero-talk.mp4").write_bytes(b"talk")
+            (shots / "s01-hero-talk-2x.mp4").write_bytes(b"talk-2x")
+            self.assertEqual(vg.shot_media({"id": "s01-hero"}, vg.project_paths(path)).name,
+                             "s01-hero-talk-2x.mp4")
+
+    def test_verify_enforces_target_height(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free", template="hero-test")
+            data = json.loads(path.read_text())
+            data["delivery"] = {"upscale": "realesrgan", "factor": 2, "target_height": 1920}
+            path.write_text(json.dumps(data, indent=2))
+            (path.parent / "shots" / "s01-hero.mp4").write_bytes(b"media")
+            with mock.patch.object(vg, "which", lambda binary: "/usr/bin/" + binary), \
+                 mock.patch.object(vg, "probe", lambda p: {"available": True, "width": 960, "height": 1664,
+                                                           "fps": 24.0, "duration": 5.0,
+                                                           "video_codec": "h264", "audio_codec": "aac"}):
+                self.assertEqual(vg.verify(path), 3)
+
+    def test_validate_rejects_nonsense_delivery(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            data = json.loads(path.read_text())
+            data["delivery"] = {"upscale": "magic", "factor": 3, "target_height": -5}
+            problems = vg.validate_project(data, path)
+            self.assertTrue(any("delivery.upscale" in p for p in problems))
+            self.assertTrue(any("delivery.factor" in p for p in problems))
+            self.assertTrue(any("delivery.target_height" in p for p in problems))
 
 
 class DriveHomeTests(unittest.TestCase):

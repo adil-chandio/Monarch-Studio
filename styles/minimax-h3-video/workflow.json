@@ -57,7 +57,7 @@
     "route_planner": "src/route_planner.py plan --need <need> [--free] [--duration N] (reads data/tool_registry.json)",
     "studio_engine": {
       "tool": "tools/videogen.py",
-      "version": "viper-1.0",
+      "version": "viper-1.1",
       "manual": "docs/VIDEOGEN.md",
       "commands": [
         "doctor",

@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Answer free-vs-paid honestly; then start the first real project (needs Monarch reference crops + one voice line) and promote its project/receipt files to 05 · Projects/<id>/ and the master to 06 · Masters & Receipts/.
+- **Next action:** First real project: user provides Monarch reference crops + one voice line; run plan -> render (free queue) -> upscale -> verify -> assemble, then promote to 05 · Projects/<id>/ and 06 · Masters & Receipts/.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

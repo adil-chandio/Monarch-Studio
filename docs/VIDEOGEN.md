@@ -10,6 +10,7 @@ tools/videogen.py new    --id monarch-reel-01 --title "Monarch reel 01" --aspect
 tools/videogen.py plan   <project>/project.json
 tools/videogen.py render <project>/project.json            # dry run, spends nothing
 tools/videogen.py render <project>/project.json --yes      # submits paid shots
+tools/videogen.py upscale <project>/project.json           # free 480p -> 960x1664 (Colab notebook)
 tools/videogen.py verify <project>/project.json
 tools/videogen.py assemble <project>/project.json
 tools/videogen.py status <project>/project.json
@@ -25,6 +26,7 @@ should not re-learn that per project. VIPER-1 keeps **one job format** and swaps
 | `h3` | MiniMax-H3 hosted API (`POST /v2/video_generation`) | $0.08/s @768P · $0.13/s @2K | anywhere, needs `MINIMAX_API_KEY` |
 | `wan` | Wan 2.1 T2V 1.3B on free Colab T4 | $0 | **queued** for `styles/minimax-h3-video/colab/MONARCH_T4_FREE_BRIDGE.ipynb` |
 | `latentsync` | ByteDance LatentSync lipsync pass | $0 | GPU machine script (T4 needs the sm_75 fp16 patch) |
+| `upscale` | Real-ESRGAN ×2 (GPU) or ffmpeg Lanczos ×2 (CPU) | $0 | Colab notebook written by `upscale` |
 
 The model menu, licences and VRAM floors live in `styles/minimax-h3-video/data/tool_registry.json`; the
 prose version is `styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`. Add a row to the registry and a
@@ -45,6 +47,7 @@ Created by `new`, edited by hand. Lives in the active payload (`workflows/curren
   "delivery_fps": 30,
   "route": "auto",
   "budget_usd": 5.0,
+  "delivery": { "upscale": "realesrgan", "factor": 2, "target_height": 1664 },
   "audio": { "music": "assets/music/bed.mp3", "dialogue": [] },
   "shots": [
     { "id": "s01-hook", "kind": "hero", "seconds": 5, "ratio": "9:16",
@@ -63,6 +66,8 @@ Rules the tool enforces before it touches money:
 - shot ids are plain filenames (no `../`), unique, and become `<id>.mp4` in `shots/`.
 - `route`: `auto` (paid hero if a key exists, free everywhere else) · `free` (never spend) · `paid` (all H3).
 - `budget_usd` is a **hard** gate: the retry-buffered estimate must fit, or `render --yes` refuses.
+- `delivery.upscale`: `off` | `lanczos` (CPU, ffmpeg) | `realesrgan` (T4). `factor` 2 or 4.
+  `target_height` (0 = skip) is enforced by `verify`: below target → exit 3.
 
 ## 3. What each command actually does
 
@@ -70,8 +75,11 @@ Rules the tool enforces before it touches money:
 
 ```text
 shot                  engine          steps                                 cost
-s01-hook              free-chain      wan:queue -> latentsync:lipsync       0.00
-s02-plate             free-chain      wan:queue                             0.00
+s01-hook              free-chain      wan:queue -> latentsync:lipsync -> upscale:realesrgan-x2   0.00
+s02-plate             free-chain      wan:queue -> upscale:realesrgan-x2    0.00
+
+DELIVERY        480x832 free -> 960x1664 after realesrgan-x2
+                Real-ESRGAN x2 on the free T4: cleaner texture, still not true 1080p detail
 
 ESTIMATE        $0.00
 + retry buffer  $0.00  (x1.5)
@@ -101,6 +109,23 @@ WF-07 Drive destination (`05 · Projects/<id>/`, master → `06 · Masters & Rec
 
 **`doctor`** checks python, ffmpeg/ffprobe, the tool registry, `MINIMAX_API_KEY`, the character authority and the
 free notebook.
+
+### Quality: what the free route can and cannot be
+
+The free chain renders **480×832** (9:16). `upscale` writes
+`upscale/UPSCALE_<project>_<engine>_x<factor>.ipynb`, a self-contained Colab notebook that lifts every shot to
+960×1664 in one Run:
+
+| Engine | Hardware | Reality |
+|---|---|---|
+| `lanczos` | CPU is enough | ffmpeg scale + unsharp: crisp edges, zero new detail |
+| `realesrgan` | free T4 | Real-ESRGAN x2 rebuilds texture — better faces, still not native 1080p |
+
+The notebook re-attaches the original audio, skips files that already exist (`FORCE=True` to redo), and writes
+`upscale_receipt.json` (bytes, measured size, md5) next to the project. `plan` warns when
+`delivery.target_height` is above what the upscale can reach and says plainly "scale, not detail"; `assemble`
+applies the target scale with a printed note rather than pretending. Full ladder:
+`styles/monarch-ai-agent/knowledge/QUALITY.md`.
 
 ## 4. Exit codes
 

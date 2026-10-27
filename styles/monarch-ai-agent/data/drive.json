@@ -47,27 +47,27 @@
   "uploaded": [
     {
       "what": "START HERE guide",
-      "name": "START HERE \u2014 WF-07 Monarch AI Agent (free vs paid + flow)",
-      "id": "15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI",
+      "name": "START HERE \u2014 WF-07 Monarch AI Agent (free vs paid + 480p answer)",
+      "id": "1tRxHnODAm_rSuOM58nXJYVqUqZhfPpE7cqpASzcG_dY",
       "type": "google-doc",
       "folder": "start_here",
-      "url": "https://docs.google.com/document/d/15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI/edit"
+      "url": "https://docs.google.com/document/d/1tRxHnODAm_rSuOM58nXJYVqUqZhfPpE7cqpASzcG_dY/edit"
     },
     {
       "what": "engine source",
-      "name": "videogen.py (VIPER-1 engine, viper-1.0)",
-      "id": "1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV",
+      "name": "videogen.py (VIPER-1 v1.1 \u2014 with free upscale stage)",
+      "id": "1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l",
       "type": "python",
       "folder": "engine",
-      "url": "https://drive.google.com/file/d/1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV/view"
+      "url": "https://drive.google.com/file/d/1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l/view"
     },
     {
       "what": "engine manual",
-      "name": "VIDEOGEN.md \u2014 VIPER-1 manual",
-      "id": "1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY",
+      "name": "VIDEOGEN \u2014 VIPER-1 manual (v1.1, upscale stage)",
+      "id": "15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk",
       "type": "google-doc",
       "folder": "engine",
-      "url": "https://docs.google.com/document/d/1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY/edit"
+      "url": "https://docs.google.com/document/d/15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk/edit"
     },
     {
       "what": "free route notebook",
@@ -148,8 +148,31 @@
       "type": "json",
       "folder": "projects",
       "url": "https://drive.google.com/file/d/1RIk84LPk-9_cWgAvd-wEAYep3BUCo74n/view"
+    },
+    {
+      "what": "quality ladder",
+      "name": "QUALITY \u2014 480p se 1080p tak (kya sach hai)",
+      "id": "1ZFpqb4xyY71UuTzcAFCxejSEdwT2EmmFYFvfpaoTcFY",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1ZFpqb4xyY71UuTzcAFCxejSEdwT2EmmFYFvfpaoTcFY/edit"
     }
   ],
   "uploaded_at": "2026-10-27T14:20:55Z",
-  "uploaded_count": 13
+  "uploaded_count": 14,
+  "engine_version": "viper-1.1",
+  "trashed": [
+    {
+      "why": "superseded by v1.1",
+      "id": "1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV"
+    },
+    {
+      "why": "superseded by v1.1 manual",
+      "id": "1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY"
+    },
+    {
+      "why": "superseded (480p answer added)",
+      "id": "15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI"
+    }
+  ]
 }

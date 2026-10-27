@@ -8,9 +8,13 @@ Yeh folder studio ka saara **AI-generated video** kaam rakhta hai. Generate karn
 | Cheez | Free? | Note |
 |---|---|---|
 | VIPER-1 tool | ✅ free | repo me, koi subscription nahi |
-| Free route: Colab T4 + Wan 2.1 1.3B + LatentSync + ffmpeg | ✅ **$0** | 480p silent base, 10–25 min/clip |
+| Free route: Colab T4 + Wan 2.1 1.3B + LatentSync + ffmpeg | ✅ **$0** | 480×832 silent base, 10–25 min/clip |
+| Free upscale: Real-ESRGAN ×2 (T4) ya Lanczos ×2 (CPU) | ✅ **$0** | 480p → 960×1664 — sharper, naya detail nahi |
 | MiniMax-H3 API (2K, native stereo, dialogue one pass) | ❌ paid | $0.08/s @768P · $0.13/s @2K |
 | Drive (yeh folder) | ✅ free 15 GB | masters bhaari hote hain — purane runs archive karo |
+
+**480p ka jawab:** free route 480×832 deta hai; `upscale` usko 960×1664 karta hai (free). Asli 1080p/2K +
+native dialogue sirf paid H3 se. Ladder: `styles/monarch-ai-agent/knowledge/QUALITY.md`.
 
 **Matlab:** tool free, draft/plates free, sirf hero shots ka paisa — aur woh bhi sirf jab aap khud
 `render --yes` chalao, estimate dekhne ke baad. API key na ho to har shot free chain par chalta hai.
@@ -41,6 +45,7 @@ python3 tools/videogen.py new --id <project-id> --title "<title>" --aspect 9:16
 python3 tools/videogen.py plan   <project>/project.json
 python3 tools/videogen.py render <project>/project.json          # dry run — $0
 python3 tools/videogen.py render <project>/project.json --yes    # paid only
+python3 tools/videogen.py upscale <project>/project.json          # 480p -> 960p notebook
 python3 tools/videogen.py verify <project>/project.json          # exit 3 = deliver nahi hua
 python3 tools/videogen.py assemble <project>/project.json
 ```

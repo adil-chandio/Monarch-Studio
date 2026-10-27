@@ -188,7 +188,7 @@
       "name": "VIPER-1 video engine",
       "path": "tools/videogen.py",
       "manual": "docs/VIDEOGEN.md",
-      "version": "viper-1.0",
+      "version": "viper-1.1",
       "role": "studio-wide AI video generation orchestrator (engine per shot, cost gate, verify, assemble)",
       "engines": [
         "h3 (paid API)",
@@ -198,7 +198,24 @@
       "knowledge": "styles/minimax-h3-video/",
       "finish_handoff": "styles/premium-motion-editing (WF-05)",
       "example": "studio/videogen/examples/monarch-reel-01.project.json",
-      "tests": "tests/test_videogen.py"
+      "tests": "tests/test_videogen.py",
+      "capabilities": [
+        "doctor",
+        "new",
+        "plan",
+        "render",
+        "verify",
+        "assemble",
+        "upscale",
+        "status"
+      ],
+      "quality_ladder": {
+        "free_route": "480x832 (9:16) silent, Wan 2.1 T2V 1.3B on a free T4",
+        "lanczos_x2": "960x1664 via ffmpeg, no GPU, sharpened edges only",
+        "realesrgan_x2": "960x1664 on the free T4, rebuilt texture, still not native 1080p",
+        "paid_h3": "768P or 2K with native stereo + lipsync \u2014 the only true high-res route",
+        "never": "call a scaled 480p clip a 1080p/4K render"
+      }
     }
   ]
 }

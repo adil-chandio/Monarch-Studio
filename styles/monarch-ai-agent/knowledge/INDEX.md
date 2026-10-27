@@ -15,6 +15,7 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 | 8 | [`../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md`](../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md) | is H3 free? trial routes, tunnel risks |
 | 9 | [`../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`](../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md) | model menu by GPU tier + free talking-face chain |
 | 10 | [`../../studio/videogen/examples/monarch-reel-01.project.json`](../../studio/videogen/examples/monarch-reel-01.project.json) | ready example project |
+| 11 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
 
 ## Standing decisions
 
@@ -23,6 +24,7 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 3. **Only `verify` may call a shot done.** Exit 3 = not delivered, no matter what the render log said.
 4. **Drive is the delivery home, Git is the truth.** Project files, receipts and masters to Drive;
    knowledge and code stay in the repository.
-5. **Free route renders 480p silent** — fine for drafts, reels-as-animatics and plates. 1080p/2K hero shots and
-   native stereo dialogue need the paid H3 route (or WF-05 finishing on top of free plates).
+5. **Free route renders 480p silent** — fine for drafts, reels-as-animatics and plates. `upscale` (realesrgan or
+   lanczos x2) takes it to 960×1664; that is sharper, **not** true 1080p detail. Real 1080p/2K and native stereo
+   dialogue need the paid H3 route (or WF-05 finishing on top of free plates).
 6. **Never sell a free-tier render as an H3 output,** and never promise 2K from a local run.

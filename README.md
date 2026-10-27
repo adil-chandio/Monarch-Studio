@@ -15,7 +15,7 @@ python3 tools/studio.py validate
 ## Our own video engine — VIPER-1
 
 `tools/videogen.py` is the studio's first-party AI video generator: one project file, engine chosen per shot
-(paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, media verification and master
+(paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, free 480p→960p upscale stage, media verification and master
 assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md).
 Delivery home (Drive, projects + masters + receipts): [`Wf-07 • Monarch Ai Agent`](https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1) — see `styles/monarch-ai-agent/`.
 
@@ -24,6 +24,7 @@ python3 tools/videogen.py doctor
 python3 tools/videogen.py new --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
 python3 tools/videogen.py plan   <project>/project.json          # price + engine per shot
 python3 tools/videogen.py render <project>/project.json          # dry run
+python3 tools/videogen.py upscale <project>/project.json           # free 480p -> 960x1664 notebook
 python3 tools/videogen.py verify <project>/project.json && python3 tools/videogen.py assemble <project>/project.json
 ```
 
