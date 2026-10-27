@@ -11,7 +11,7 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-08/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-09/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
   "state": "clip_ready",
@@ -214,6 +214,6 @@
     }
   },
   "notes": [
-    "2026-10-28: run-07 master fail root-caused (concat spaces + loudnorm NaN on silence); fixed in viper-2.1, rerun pending"
+    "2026-10-28: viper-2.1 retry is finish-only (~1 min); master receipt expected at project root"
   ]
 }
