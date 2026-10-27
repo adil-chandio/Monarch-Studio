@@ -73,8 +73,9 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   is missing, so the whole finish line runs here.
 - **Drive is optional in the notebook.** `drive.mount()` may fail with `credential propagation was unsuccessful`;
   the config cell falls back to `/content/m_out/<project>` and cell 7 always builds `<project>_outputs.zip`
-  (+ `files.download()`). If the owner sends that ZIP in chat, unpack it into the project folder and continue
-  with `check` → `finish` — do not ask him to re-run for a Drive problem.
+  (+ `files.download()`). If the owner sends that ZIP in chat, run
+  `python3 tools/mobile_ops.py ingest <job> --zip <path>` (it unpacks into the project, refuses escapes, and
+  re-checks) then `finish` — do not ask him to re-run for a Drive problem.
 - **Drive name must end `.ipynb`** (`<project>_phone_run_all.ipynb`, mimeType `application/x-ipynb+json`) or
   Colab answers "This file type is unsupported" — rename with `update_file` before sending any link.
 - Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with

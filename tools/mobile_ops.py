@@ -76,7 +76,8 @@ ALLOWED = {
     "verified": {"assembled", "blocked", "verified"},
     "assembled": {"delivered", "blocked", "assembled"},
     "delivered": {"delivered"},
-    "blocked": {"partial", "clip_ready", "mixed", "verified", "assembled", "handed_off", "planned", "blocked"},
+    "blocked": {"partial", "clip_ready", "mixed", "verified", "assembled", "handed_off", "planned",
+                "blocked"},
 }
 
 
@@ -345,6 +346,38 @@ def handoff(job_id: str, *, colab: str | None = None, note: str = "") -> dict:
     return job
 
 
+def ingest(job_id: str, zip_path: str | pathlib.Path, *, run_check: bool = True) -> dict:
+    """Unpack the notebook's `_outputs.zip` into the project folder, then re-check.
+
+    Phone reality: Drive mount fails, the notebook hands back a ZIP, and the owner attaches it.
+    This is the only supported way those bytes enter the project.
+    """
+    job = load_job(job_id)
+    src = Path(zip_path)
+    if not src.exists():
+        raise OpsError(f"zip nahi mila: {zip_path}")
+    import zipfile
+    base = project_dir(job)
+    with zipfile.ZipFile(src) as bundle:
+        names = [n for n in bundle.namelist() if not n.endswith("/")]
+        media = [n for n in names if n.lower().endswith((".mp4", ".wav"))]
+        if not media:
+            raise OpsError("zip me koi .mp4/.wav nahi mila — galat file?")
+        for name in names:
+            target = (base / name).resolve()
+            if base.resolve() not in target.parents and target != base.resolve():
+                raise OpsError(f"zip entry project folder se bahar ja raha hai: {name}")
+        bundle.extractall(base)
+    job.setdefault("history", []).append(
+        {"at": now_iso(), "from": job["state"], "to": job["state"], "by": "agent",
+         "note": f"ingest {src.name}: {len(media)} media file(s)"})
+    job["ingest"] = {"zip": src.name, "files": len(media), "at": now_iso(),
+                     "bytes": src.stat().st_size}
+    gate(job, "ingest", True, f"{len(media)} files from {src.name}")
+    save_job(job)
+    return check(job_id) if run_check else job
+
+
 def check(job_id: str) -> dict:
     job = load_job(job_id)
     media = media_plan(job)
@@ -584,6 +617,10 @@ def main(argv: list[str] | None = None) -> int:
     p_check = sub.add_parser("check", help="did the notebook actually produce files?")
     p_check.add_argument("job")
 
+    p_ingest = sub.add_parser("ingest", help="unpack the notebook's _outputs.zip into the project")
+    p_ingest.add_argument("job")
+    p_ingest.add_argument("--zip", required=True, dest="zip_path")
+
     p_finish = sub.add_parser("finish", help="mix -> verify -> assemble, stop at the first refusal")
     p_finish.add_argument("job")
     p_finish.add_argument("--no-loudnorm", action="store_true")
@@ -631,6 +668,10 @@ def main(argv: list[str] | None = None) -> int:
             print("next: notebook Drive me upload karke -> handoff --colab <link>")
         elif args.cmd == "handoff":
             job = handoff(args.job, colab=args.colab, note=args.note)
+            print(card(job))
+        elif args.cmd == "ingest":
+            job = ingest(args.job, args.zip_path)
+            print(f"ingest: {job.get('ingest')}")
             print(card(job))
         elif args.cmd == "check":
             job = check(args.job)

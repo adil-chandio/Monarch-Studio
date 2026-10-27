@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T17:42:13+00:00",
+  "generated_at": "2026-10-27T17:48:28+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "fa5f59706c6ce5fcc1fc6c0893280d8a13d195a45f5514ef3e2d566a2fc102ae",
-      "size": 10117
+      "sha256": "e3389c944b67de805a93ad7b16789797797e11b8176ebc6b203be6f8c5bbcf1b",
+      "size": 10182
     },
     "CHANGELOG.md": {
       "sha256": "699842d33d9e4481061c192d6d5db0d4f1cd3ba22aad1613568a689e5fd38ad1",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "b0ed227ec0d1c4818f15e0c4283fc8ed22d8ea99677b31db8debc2516d3199d4",
-      "size": 11559
+      "sha256": "7e988a24d18189182b1eb90ffa64b11be7e0294fbd63214a13a2f33eca4b6fd5",
+      "size": 11750
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -1724,8 +1724,8 @@
       "size": 0
     },
     "studio/mobile/jobs/mob-test-01.json": {
-      "sha256": "01087d962c6098ff5ddfd31e9791867541b7f9e027fb511ed87a3819c6c0aa02",
-      "size": 4127
+      "sha256": "c1911183e8866628c3c64fa538dc70e9e5353a042fabac2cbe403a6e2098f2df",
+      "size": 4702
     },
     "studio/new_workflow_legacy.py": {
       "sha256": "3564fb7f855683259ef3439db94e4fa98695f3c87854eaf35fa10b44a772bf69",
@@ -4152,8 +4152,8 @@
       "size": 4439
     },
     "tests/test_mobile_ops.py": {
-      "sha256": "b1e8dff9d166d151081aa75183f80f06068ab94a189ff36a14c3e012a54ddf89",
-      "size": 12677
+      "sha256": "70826be1af8487dbeec201715aedb48835b40518d2223c60453be69c0f3849ec",
+      "size": 14494
     },
     "tests/test_studio.py": {
       "sha256": "378683d7a66bdc9ee6b3f5447ac6a466d4487e68b84ad716249e15a9f83ce5b4",
@@ -4188,8 +4188,8 @@
       "size": 2806
     },
     "tools/mobile_ops.py": {
-      "sha256": "f8bd4103a6d4985a51823f825a855896a1864daaf5a8e4fed7bd57f843f9b65b",
-      "size": 27927
+      "sha256": "d07eb702e0e9edb84bd5511b59b7327b0a80ea035089fffcf68a9eea14724aeb",
+      "size": 29845
     },
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",

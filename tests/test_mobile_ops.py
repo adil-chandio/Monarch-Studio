@@ -195,6 +195,52 @@ class CheckTests(OpsCase):
         self.assertEqual(mo.check(job["job_id"])["state"], "clip_ready")
 
 
+class IngestTests(OpsCase):
+    """Phone reality: Drive mount fails, the notebook hands back a ZIP."""
+
+    def _zip(self, files: dict[str, int]) -> pathlib.Path:
+        import zipfile
+        target = self.base / "out.zip"
+        with zipfile.ZipFile(target, "w") as bundle:
+            for name, size in files.items():
+                src = self.base / "payload" / name
+                src.parent.mkdir(parents=True, exist_ok=True)
+                src.write_bytes(b"x" * size)
+                bundle.write(src, name)
+        return target
+
+    def test_zip_unpacks_and_unblocks_the_job(self):
+        job = self.handed()
+        checked = mo.check(job["job_id"])
+        self.assertEqual(checked["state"], "blocked")
+        bundle = self._zip({"shots/s01-hook.mp4": 4096, "shots/s02-plate.mp4": 4096})
+        after = mo.ingest(job["job_id"], bundle)
+        self.assertEqual(after["state"], "clip_ready")
+        self.assertEqual(after["ingest"]["files"], 2)
+        self.assertTrue(after["gates"]["ingest"]["ok"])
+
+    def test_zip_without_media_is_refused(self):
+        job = self.handed()
+        bundle = self._zip({"notes.txt": 10})
+        with self.assertRaises(mo.OpsError):
+            mo.ingest(job["job_id"], bundle)
+
+    def test_zip_path_escape_is_refused(self):
+        import zipfile
+        job = self.handed()
+        target = self.base / "evil.zip"
+        with zipfile.ZipFile(target, "w") as bundle:
+            bundle.writestr("../../escape.mp4", b"x" * 100)
+        with self.assertRaises(mo.OpsError):
+            mo.ingest(job["job_id"], target)
+        self.assertFalse((self.base / "escape.mp4").exists())
+
+    def test_missing_zip_is_named(self):
+        job = self.handed()
+        with self.assertRaises(mo.OpsError):
+            mo.ingest(job["job_id"], self.base / "nope.zip")
+
+
 class FinishTests(OpsCase):
     def _runner(self, calls, fail_on=None, exit_code=3):
         def runner(args):

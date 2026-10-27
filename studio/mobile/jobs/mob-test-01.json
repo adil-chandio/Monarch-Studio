@@ -3,7 +3,7 @@
   "tool": "mobileops-1.0",
   "job_id": "mob-test-01",
   "created_at": "2026-10-27T17:29:13+00:00",
-  "updated_at": "2026-10-27T17:29:34+00:00",
+  "updated_at": "2026-10-27T17:48:08+00:00",
   "title": "Test shot 01 (12-min trust test)",
   "project": "studio/videogen/examples/m-test-01/project.json",
   "project_id": "m-test-01",
@@ -14,7 +14,7 @@
   "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-02/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
-  "state": "handed_off",
+  "state": "blocked",
   "gates": {
     "plan_estimate": {
       "ok": true,
@@ -30,11 +30,16 @@
       "ok": true,
       "detail": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
       "at": "2026-10-27T17:29:34+00:00"
+    },
+    "clips": {
+      "ok": false,
+      "detail": "0/1",
+      "at": "2026-10-27T17:48:08+00:00"
     }
   },
   "next": {
-    "user": "Colab kholo -> Runtime \u25b8 Change runtime type \u25b8 T4 GPU -> Runtime \u25b8 Run all",
-    "agent": "intezaar; owner ke DONE ka wait"
+    "user": "Colab me dobara Runtime \u25b8 Run all dabao (T4 GPU selected ho)",
+    "agent": "owner ke re-run ke baad phir check"
   },
   "history": [
     {
@@ -78,10 +83,20 @@
       "to": "handed_off",
       "by": "agent",
       "note": "colab-test-02: mount fallback + ZIP handoff link"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "handed_off",
+      "to": "blocked",
+      "by": "agent",
+      "note": "koi clip nahi aaya"
     }
   ],
   "master": null,
-  "blocker": null,
+  "blocker": {
+    "stage": "clips",
+    "detail": "Notebook ne kuch nahi likha. Run all dobara chalao; agar ADHURA aaya to aakhri cell ka text bhejo."
+  },
   "plan": {
     "total_usd": 0.0,
     "total_with_retries_usd": 0.0,
@@ -122,5 +137,19 @@
     "minutes": "8-15"
   },
   "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
-  "engine_note": "viper-1.5 notebook: Drive mount optional, ZIP fallback"
+  "engine_note": "viper-1.5 notebook: Drive mount optional, ZIP fallback",
+  "media": {
+    "shots": [
+      "t01-plate"
+    ],
+    "clips": [],
+    "missing": [
+      "t01-plate"
+    ],
+    "vo": [],
+    "foley": [],
+    "clip_files": {
+      "t01-plate": []
+    }
+  }
 }

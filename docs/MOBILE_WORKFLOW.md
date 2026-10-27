@@ -76,6 +76,7 @@ python3 tools/mobile_ops.py start --project <id|path>     # job banao (intake)
 python3 tools/mobile_ops.py plan  <job>                   # $0 estimate + notebook
 python3 tools/mobile_ops.py handoff <job> --colab <link>   # owner ke 3 tap arm karo
 #   ---- owner: T4 GPU → Run all → "DONE" ----
+python3 tools/mobile_ops.py ingest <job> --zip <zip>       # notebook ka _outputs.zip kholo (Drive fail ho to yeh)
 python3 tools/mobile_ops.py check  <job>                  # clips aaye? partial/blocked?
 python3 tools/mobile_ops.py finish <job>                  # mix --loudnorm → verify → assemble
 python3 tools/mobile_ops.py deliver <job> --master-id <drive id> --url <link>
@@ -145,7 +146,8 @@ third-party cookies / multiple Google accounts). Notebook ab **is par rukta nahi
 1. mount try karta hai → fail ho to `BASE = /content/m_out/<project>` par chalta hai
 2. aakhir me `<project>_outputs.zip` banata hai (`shots/`, `audio/vo/`, `audio/foley/`)
 3. Drive mounted ho to ZIP Drive folder me bhi rakhta hai, warna `files.download()` se phone ke Downloads me
-4. owner ZIP **chat me attach** kar deta hai → agent use project folder me khol kar `check` → `finish` chala deta hai
+4. owner ZIP **chat me attach** kar deta hai → agent `mobile_ops.py ingest <job> --zip <file>` chala kar
+   project folder me kholta hai (path-escape guard ke saath) → phir `check` → `finish`
 
 Yani Drive optional hai, delivery nahi — bas ZIP ka raasta.
 
