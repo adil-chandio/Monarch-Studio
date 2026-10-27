@@ -50,6 +50,7 @@ def main(argv):
     ap.add_argument("--height", type=int, default=0)
     ap.add_argument("--skip-existing", type=int, default=1)
     ap.add_argument("--prefix", default="")
+    ap.add_argument("--only", default="", help="comma separated frame numbers to render")
     args = ap.parse_args(argv)
 
     scene = bpy.context.scene
@@ -74,7 +75,11 @@ def main(argv):
     scene.render.image_settings.file_format = "PNG"
     scene.render.image_settings.compression = 30
 
-    frames = list(range(args.start, min(args.end, scene.frame_end) + 1, max(1, args.step)))
+    if args.only:
+        frames = [int(x) for x in args.only.split(",") if x.strip()]
+    else:
+        frames = list(range(args.start, min(args.end, scene.frame_end) + 1,
+                            max(1, args.step)))
     log_path = out.parent / "progress.jsonl"
     done = 0
     t_all = time.time()
