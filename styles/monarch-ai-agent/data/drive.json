@@ -183,7 +183,7 @@
     },
     {
       "what": "mobile notebook (example)",
-      "name": "MOBILE \u2014 one Run-all notebook (phone) \u00b7 example monarch-reel-01",
+      "name": "MOBILE_monarch-reel-01.ipynb",
       "id": "1NyLL81GBLFRYy16ZhxT-e2KBPwfjYdkA",
       "type": "notebook",
       "folder": "notebooks",
@@ -212,10 +212,18 @@
       "type": "python",
       "folder": "engine",
       "url": "https://drive.google.com/file/d/1zIL5xFgz_BRxrVoO2IWlJ6y2D0qk0-lS/view"
+    },
+    {
+      "what": "test 01 notebook",
+      "name": "TEST_01_phone_run_all.ipynb",
+      "id": "1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf"
     }
   ],
   "uploaded_at": "2026-10-27T14:20:55Z",
-  "uploaded_count": 21,
+  "uploaded_count": 22,
   "engine_version": "viper-1.4",
   "trashed": [
     {
@@ -254,5 +262,6 @@
     "path": "tools/mobile_ops.py",
     "sop_doc_id": "1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8",
     "state_dir": "studio/mobile/jobs"
-  }
+  },
+  "naming_rule": "Drive notebooks must end .ipynb (mimeType application/x-ipynb+json)"
 }

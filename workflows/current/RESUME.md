@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
 **Style:** `minimax-h3-video`  
-**Checkpoint sequence:** 11  
-**Last checkpoint:** 2026-10-27T17:29:43Z
+**Checkpoint sequence:** 12  
+**Last checkpoint:** 2026-10-27T17:33:36Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + 
 
 ## Exact next action
 
-When owner says DONE: python3 tools/mobile_ops.py check mob-test-01, then finish + deliver; if blocked, read the blocker and hand him exactly one re-run instruction.
+Owner re-opens the same Colab link and taps Runtime > T4 GPU > Run all; on DONE run mobile_ops check mob-test-01 then finish.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

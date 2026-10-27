@@ -114,6 +114,16 @@ isse pin karta hai (koi `python3`, `pip`, `ffmpeg`, `--flag`, `.json` owner ko n
 
 ---
 
+## 5b. Notebook upload rule (isse ek dafa jal chuke hain)
+
+Colab link `https://colab.research.google.com/drive/<file_id>` sirf tab khulta hai jab Drive file ka
+**naam `*.ipynb` par khatam** ho aur mimeType `application/x-ipynb+json` ho. Naam me `.ipynb` na ho to Drive
+"**This file type is unsupported**" dikhata hai (mobile par bhi).
+
+- Upload karte waqt naam **`PROJECT_phone_run_all.ipynb`** rakho (spaces ki jagah `_`, extension zaroori).
+- Upload ke baad `get_file` se `mimeType` confirm karo.
+- Purani ghalat-naam file: `update_file --name ...ipynb` se rename, ya delete + dobara upload; **naya link** do.
+
 ## 6. Jab kuch atak jaye (failure matrix)
 
 | Nazar aa raha hai | Asli matlab | Kaun fix karta hai | Fix |
@@ -125,6 +135,7 @@ isse pin karta hai (koi `python3`, `pip`, `ffmpeg`, `--flag`, `.json` owner ko n
 | `check` 0 clips | notebook chala hi nahi ya mount fail | owner | T4 select confirm, dobara Run all |
 | `verify` exit 3 | height/audio/md5 fail | agent | `finish` dobara, ya upscale stage chalao |
 | `REFUSED: illegal transition` | state machine ne roka | agent | `status` dekho, sahi command chalao |
+| "This file type is unsupported" | Drive file ke naam me `.ipynb` nahi | agent | rename to `*.ipynb` (mimeType `application/x-ipynb+json`), phir wahi file id ka Colab link |
 | Link kholte hi "not found" | notebook Drive me nahi / sharing off | agent | dobara upload + fresh link |
 
 ---

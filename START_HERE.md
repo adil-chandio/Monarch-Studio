@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** When owner says DONE: python3 tools/mobile_ops.py check mob-test-01, then finish + deliver; if blocked, read the blocker and hand him exactly one re-run instruction.
+- **Next action:** Owner re-opens the same Colab link and taps Runtime > T4 GPU > Run all; on DONE run mobile_ops check mob-test-01 then finish.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

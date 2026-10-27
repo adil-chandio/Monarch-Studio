@@ -71,6 +71,8 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
 - Run every command here (`plan`, `render` queue, `audio`, `upscale`, `mix`, `verify`, `assemble`, `quota`).
   This sandbox has a static ffmpeg (imageio-ffmpeg) and `probe()` falls back to `ffmpeg -i` when ffprobe
   is missing, so the whole finish line runs here.
+- **Drive name must end `.ipynb`** (`<project>_phone_run_all.ipynb`, mimeType `application/x-ipynb+json`) or
+  Colab answers "This file type is unsupported" — rename with `update_file` before sending any link.
 - Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with
   prompts baked in. He taps `Runtime ▸ T4 GPU ▸ Run all`; the last cell prints `DONE ✅`.
 - One action per message. No multi-step terminal instructions, no JSON editing, no file renaming.
