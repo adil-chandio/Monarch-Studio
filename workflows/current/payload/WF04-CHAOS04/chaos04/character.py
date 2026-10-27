@@ -253,12 +253,12 @@ def build_hair(mat_hair, mat_sheen):
             # cap that follows the skull and dips at the hairline
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            base_z = bl.lerp(1.7020, 1.7380, front) + bl.lerp(-0.028, 0.0, back)
+            base_z = bl.lerp(1.7460, 1.7500, front) + bl.lerp(-0.036, 0.0, back)
             phi = (math.pi * 0.5) * t
             r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
-            z = base_z + (1.8080 - base_z) * math.sin(phi) ** 0.88
-            rx = 0.0770 * r_scale * math.cos(phi * 0.80)
-            ry = 0.0796 * r_scale * math.cos(phi * 0.80)
+            z = base_z + (1.8060 - base_z) * math.sin(phi) ** 0.72
+            rx = 0.0792 * r_scale * math.cos(phi * 0.62)
+            ry = 0.0812 * r_scale * math.cos(phi * 0.62)
             # mass at the back of the head, tighter at the temples
             swell = 1.0 + 0.26 * max(0.0, math.sin(a)) * (1 - t * 0.35)
             x = math.cos(a) * rx * swell
@@ -283,11 +283,11 @@ def build_hair(mat_hair, mat_sheen):
             u = k / 8
             t = bl.lerp(start, end, u)
             phi = (math.pi * 0.5) * t
-            base_z = bl.lerp(1.7020, 1.7380, front) + bl.lerp(-0.028, 0.0, max(0.0, math.sin(a)))
-            z = base_z + (1.8080 - base_z) * math.sin(phi) ** 0.88
+            base_z = bl.lerp(1.7460, 1.7500, front) + bl.lerp(-0.036, 0.0, max(0.0, math.sin(a)))
+            z = base_z + (1.8060 - base_z) * math.sin(phi) ** 0.72
             rr = 1.056 + rnd.uniform(-0.004, 0.006)
-            rx = 0.0770 * rr * math.cos(phi * 0.80)
-            ry = 0.0796 * rr * math.cos(phi * 0.80)
+            rx = 0.0792 * rr * math.cos(phi * 0.62)
+            ry = 0.0812 * rr * math.cos(phi * 0.62)
             # sweep the strand tips backwards
             sweep = 0.010 * u * u
             x = math.cos(a) * rx + sweep * 0.35
@@ -296,25 +296,7 @@ def build_hair(mat_hair, mat_sheen):
         lines.append(line)
     strands = bl.strands("Hair · groom", lines, 0.00042, mat_sheen, sides=3)
 
-    # fringe curtains over the forehead, asymmetry as in v5
-    fringe = []
-    for sgn in (1, -1):
-        for _ in range(64):
-            off = rnd.uniform(-0.011, 0.011)
-            depth = rnd.uniform(-0.004, 0.006)
-            p0 = Vector((0.010 * sgn + off, -0.056 + depth, 1.7360))
-            p1 = Vector((0.050 * sgn + off * 0.8, -0.074 + depth, 1.7290))
-            p2 = Vector((0.064 * sgn + off * 0.5, -0.062 + depth, 1.7080))
-            p3 = Vector((0.074 * sgn + off * 0.3, -0.058 + depth,
-                         1.7060 + rnd.uniform(-0.010, 0.012)))
-            line = []
-            for k in range(11):
-                u = k / 10
-                p = ((1 - u) ** 3) * p0 + 3 * ((1 - u) ** 2) * u * p1 \
-                    + 3 * (1 - u) * u * u * p2 + (u ** 3) * p3
-                line.append(tuple(p))
-            fringe.append(line)
-    fringe_obj = bl.strands("Hair · swept fringe", fringe, 0.0006, mat_sheen, sides=3)
+    fringe_obj = None
 
     # sideburns
     sides = []
@@ -328,8 +310,8 @@ def build_hair(mat_hair, mat_sheen):
                              -0.030 + 0.020 * u,
                              z0 - 0.030 * u))
             sides.append(line)
-    side_obj = bl.strands("Sideburns", sides, 0.0006, mat_sheen, sides=3)
-    return cap, strands, fringe_obj, side_obj
+    side_obj = bl.strands("Sideburns", sides, 0.0005, mat_sheen, sides=3)
+    return [o for o in (cap, strands, fringe_obj, side_obj) if o is not None]
 
 
 def build_beard(mat_hair):
@@ -391,46 +373,28 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     ], mat_shirt, subsurf=2)
     parts.append(shirt)
 
-    # the blazer front: two panels that leave a V open, so the shirt reads
+    # the open blazer front, as a patch that sits just proud of the chest:
+    # a V of shirt with a lapel edge either side. No wrapping maths, no flaps.
+    patch = [
+        (-0.086, -0.100, 1.446), (0.086, -0.100, 1.446),      # across the shoulders
+        (0.060, -0.106, 1.386), (-0.060, -0.106, 1.386),
+        (0.030, -0.110, 1.334), (-0.030, -0.110, 1.334),
+        (0.000, -0.113, 1.286),                                # the V point
+    ]
+    v = patch
+    f = [(0, 1, 2, 3), (3, 2, 4, 5), (5, 4, 6)]
+    vpatch = bl.mesh_object("Shirt V", v, f, mat_shirt, smooth=True)
+    sol = vpatch.modifiers.new("Solidify", "SOLIDIFY")
+    sol.thickness = 0.004
+    parts.append(vpatch)
     for sgn in (1, -1):
-        v, f = [], []
-        cols = 7
-        rows = 9
-        for r in range(rows):
-            t = r / (rows - 1)
-            z = bl.lerp(0.860, 1.474, t)
-            # the V opens from the sternum up
-            inner = bl.lerp(0.004, 0.072, t ** 1.6)
-            outer = bl.lerp(0.150, 0.128, t)
-            for cidx in range(cols):
-                u = cidx / (cols - 1)
-                x = bl.lerp(inner, outer, u) * sgn
-                # follow the torso surface, slightly proud at the lapel edge
-                y = -(bl.lerp(0.104, 0.086, t)) * math.sqrt(max(0.0, 1 - (abs(x) / max(1e-4, outer + 0.004)) ** 2))
-                y -= 0.004 * (1 - u) * t
-                v.append((x, y + 0.002, z))
-        for r in range(rows - 1):
-            for cidx in range(cols - 1):
-                a = r * cols + cidx
-                f.append((a, a + 1, a + cols + 1, a + cols))
-        panel = bl.mesh_object(f"Blazer front.{sgn}", v, f, mat_blazer, smooth=True)
-        sol = panel.modifiers.new("Solidify", "SOLIDIFY")
-        sol.thickness = 0.010
-        sol.offset = -1
-        parts.append(panel)
-        # lapel edge, a thin strip of the same cloth with a satin sheen
-        lap_v = []
-        for r in range(rows):
-            t = r / (rows - 1)
-            z = bl.lerp(0.905, 1.474, t)
-            x_in = bl.lerp(0.004, 0.070, t ** 1.6)
-            x_out = bl.lerp(0.030, 0.104, t ** 1.1)
-            y = -(bl.lerp(0.108, 0.090, t))
-            lap_v += [(x_in * sgn, y - 0.003, z), (x_out * sgn, y - 0.001, z)]
-        lap_f = [(i * 2, i * 2 + 1, i * 2 + 3, i * 2 + 2) for i in range(rows - 1)]
+        lap_v = [(0.086 * sgn, -0.100, 1.446), (0.104 * sgn, -0.096, 1.436),
+                 (0.070 * sgn, -0.104, 1.384), (0.048 * sgn, -0.108, 1.340),
+                 (0.014 * sgn, -0.112, 1.292)]
+        lap_f = [(0, 1, 2, 3), (3, 2, 4)]
         lap = bl.mesh_object(f"Lapel.{sgn}", lap_v, lap_f, mat_lapel, smooth=True)
         sol2 = lap.modifiers.new("Solidify", "SOLIDIFY")
-        sol2.thickness = 0.006
+        sol2.thickness = 0.005
         parts.append(lap)
 
     # no separate collar tube: the blazer's own top rings read as the neckline
@@ -523,7 +487,7 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     for ob in (torso, shirt):
         bl.bind(ob, rig, bl.ramp_weights(torso_stops, axis=2, softness=1.4))
     for ob in parts:
-        if ob.name.startswith(("Lapel", "Blazer front")):
+        if ob.name.startswith(("Lapel", "Shirt V")):
             bl.bind(ob, rig, bl.ramp_weights(
                 [(0.90, "spine"), (1.06, "spine"), (1.24, "chest"), (1.47, "chest")],
                 axis=2, softness=1.3))
