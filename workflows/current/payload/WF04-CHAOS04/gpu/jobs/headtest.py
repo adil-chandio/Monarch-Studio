@@ -64,7 +64,10 @@ def main(argv):
 
     if args.blend:
         bpy.ops.wm.open_mainfile(filepath=str(Path(args.blend).resolve()))
-    print("SHADERS " + json.dumps(report_material()), flush=True)
+    diag = report_material()
+    print("SHADERS " + json.dumps(diag)[:1200], flush=True)
+    Path(args.out).mkdir(parents=True, exist_ok=True)
+    (Path(args.out) / "report.json").write_text(json.dumps(diag, indent=1))
 
     scene = bpy.context.scene
     scene.frame_set(args.frame)      # his root/bones are baked per frame, incl. the hide

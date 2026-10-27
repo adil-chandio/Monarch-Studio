@@ -215,7 +215,7 @@ def build_head(mat_skin, mat_face):
         cx = sum(me.vertices[i].co.x for i in poly.vertices) / len(poly.vertices)
         cy = sum(me.vertices[i].co.y for i in poly.vertices) / len(poly.vertices)
         cz = sum(me.vertices[i].co.z for i in poly.vertices) / len(poly.vertices)
-        front = cy < -0.010 and abs(cx) < 0.070 and 1.5520 < cz < 1.7300
+        front = cy < 0.004 and abs(cx) < 0.076 and 1.5480 < cz < 1.7400
         poly.material_index = 1 if front else 0
 
     sub = ob.modifiers.new("Subdivision", "SUBSURF")
@@ -255,9 +255,9 @@ def build_hair(mat_hair, mat_sheen):
             base_z = bl.lerp(1.6900, 1.7300, front) + bl.lerp(0.002, 0.0, back)
             phi = (math.pi * 0.5) * t
             r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
-            z = base_z + (1.7905 - base_z) * math.sin(phi) ** 0.92
-            rx = 0.0712 * r_scale * math.cos(phi * 0.86)
-            ry = 0.0724 * r_scale * math.cos(phi * 0.86)
+            z = base_z + (1.7810 - base_z) * math.sin(phi) ** 0.96
+            rx = 0.0704 * r_scale * math.cos(phi * 0.80)
+            ry = 0.0716 * r_scale * math.cos(phi * 0.80)
             # mass at the back of the head, tighter at the temples
             swell = 1.0 + 0.16 * max(0.0, math.sin(a)) * (1 - t * 0.5)
             x = math.cos(a) * rx * swell
@@ -283,10 +283,10 @@ def build_hair(mat_hair, mat_sheen):
             t = bl.lerp(start, end, u)
             phi = (math.pi * 0.5) * t
             base_z = bl.lerp(1.6720, 1.7300, front) + bl.lerp(0.006, 0.0, max(0.0, math.sin(a)))
-            z = base_z + (1.7905 - base_z) * math.sin(phi) ** 0.92
+            z = base_z + (1.7810 - base_z) * math.sin(phi) ** 0.96
             rr = 1.056 + rnd.uniform(-0.004, 0.006)
-            rx = 0.0712 * rr * math.cos(phi * 0.86)
-            ry = 0.0724 * rr * math.cos(phi * 0.86)
+            rx = 0.0704 * rr * math.cos(phi * 0.80)
+            ry = 0.0716 * rr * math.cos(phi * 0.80)
             # sweep the strand tips backwards
             sweep = 0.010 * u * u
             x = math.cos(a) * rx + sweep * 0.35
@@ -421,17 +421,17 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         parts.append(upper)
         fore = bl.loft(f"Sleeve fore.{s}", [
             ((0.225 * sx, 0.012, 1.155), 0.053, 0.052),
-            ((0.233 * sx, 0.016, 1.050), 0.048, 0.047),
-            ((0.239 * sx, 0.019, 0.960), 0.043, 0.042),
-            ((0.240 * sx, 0.020, 0.915), 0.041, 0.040),
+            ((0.231 * sx, 0.016, 1.075), 0.048, 0.047),
+            ((0.236 * sx, 0.019, 1.010), 0.044, 0.043),
+            ((0.238 * sx, 0.020, 0.988), 0.042, 0.041),
         ], mat_blazer, subsurf=2, close_start=False, close_end=False)
         parts.append(fore)
         cuff = bl.loft(f"Cuff.{s}", [
-            ((0.240 * sx, 0.020, 0.922), 0.043, 0.042),
-            ((0.241 * sx, 0.020, 0.902), 0.042, 0.041),
+            ((0.238 * sx, 0.020, 0.994), 0.043, 0.042),
+            ((0.239 * sx, 0.020, 0.978), 0.042, 0.041),
         ], mat_edge, subsurf=1, close_start=False, close_end=False)
         parts.append(cuff)
-        parts += build_hand(f"hand.{s}", 0.243 * sx, 0.020, 0.900, sx, mat_skin)
+        parts += build_hand(f"hand.{s}", 0.240 * sx, 0.020, 0.976, sx, mat_skin)
         parts.append(bl.loft(f"Elbow.{s}", [
             ((0.225 * sx, 0.010, 1.170), 0.050, 0.049),
             ((0.226 * sx, 0.012, 1.150), 0.054, 0.053),
@@ -505,7 +505,7 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         elif ob.name.startswith("Sleeve fore"):
             side = ob.name[-1]
             bl.bind(ob, rig, bl.ramp_weights(
-                [(0.86, f"hand.{side}"), (0.95, f"forearm.{side}")], axis=2))
+                [(0.94, f"hand.{side}"), (1.02, f"forearm.{side}")], axis=2))
         elif ob.name.startswith("Cuff"):
             bl.bind(ob, rig, {f"forearm.{ob.name[-1]}": 1.0})
         elif ob.name.startswith(("Hand", "Fingers", "Thumb")):
@@ -569,8 +569,9 @@ def build_character():
     m_face = bl.material("MONARCH skin · v5 projected", base=SKIN, rough=0.52,
                          spec=0.30, sss=0.05, sss_radius=(0.9, 0.32, 0.2),
                          sss_scale=0.0035)
-    bl.facing_mix(m_face, ASSETS / "face_tex.png", SKIN, front=0.58, fade=0.22)
-    bl.bump_material(m_face, scale=2600, strength=0.08)
+    tex = bl.image_texture(m_face, ASSETS / "face_tex.png")
+    tex.extension = "EXTEND"
+    bl.bump_material(m_face, scale=2600, strength=0.09)
 
     m_skin = bl.material("MONARCH skin", base=SKIN, rough=0.46, spec=0.40,
                          sss=0.05, sss_scale=0.003)
