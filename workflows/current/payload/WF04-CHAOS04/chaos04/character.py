@@ -258,7 +258,7 @@ def build_hair(mat_hair, mat_sheen):
                 return bl.lerp(rx0, rx1, u), bl.lerp(ry0, ry1, u), bl.lerp(dy0, dy1, u)
         return rings[-1][1], rings[-1][2], rings[-1][3]
 
-    Z_CROWN = 1.8005
+    Z_CROWN = 1.7955
     seg, rows = 72, 26
 
     def hairline_z(a):
@@ -285,13 +285,18 @@ def build_hair(mat_hair, mat_sheen):
             a = i * seg + j
             b = i * seg + (j + 1) % seg
             faces.append((a, b, b + seg, a + seg))
+    # a real apex, so the crown rounds off instead of pinching into a knot
+    apex = len(verts)
+    verts.append((0.0, 0.004, Z_CROWN + 0.004))
+    for j in range(seg):
+        faces.append((apex, (j + 1) % seg, j))
     cap = bl.mesh_object("Hair · shell", verts, faces, mat_hair, subsurf=2)
 
     # groom: strands combed from the crown back and down over the same shell
     lines = []
     for _ in range(1200):
         a = rnd.uniform(0, TAU)
-        t0 = rnd.uniform(0.10, 0.55)
+        t0 = rnd.uniform(0.22, 0.62)
         line = []
         for k in range(9):
             u = k / 8
