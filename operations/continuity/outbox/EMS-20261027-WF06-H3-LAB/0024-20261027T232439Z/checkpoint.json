@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0024-20261027T232439Z",
+  "created_at": "2026-10-27T23:24:39Z",
+  "summary": "premium render v1.1 delivered: halation + film curve + shake + tracked typography + stereo sound; 1080x1920 17.3s 11.6MB md5 7b34bd1c; 221 tests OK",
+  "next_action": "cloud Wan 2.1 smoke on CPU runner (disk/RAM guarded) for AI-original shots; iterate reel on owner feedback",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T23:24:39Z",
+    "checkpoint_sequence": 24,
+    "event_sequence": 66,
+    "journal_head": "70ef3733dc2f65ff4904f1f0c25dbfd0b94f99002a10e4838389818b8dfcae8b",
+    "last_checkpoint": "2026-10-27T23:24:39Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z",
+    "next_action": "cloud Wan 2.1 smoke on CPU runner (disk/RAM guarded) for AI-original shots; iterate reel on owner feedback",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 66,
+    "timestamp": "2026-10-27T23:24:39Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "premium render v1.1 delivered: halation + film curve + shake + tracked typography + stereo sound; 1080x1920 17.3s 11.6MB md5 7b34bd1c; 221 tests OK",
+    "content_sha256": "317f0311a1b099941e95ff5ca1bba0c3f76e8e789d36c10bc6f9563858a12b6c",
+    "metadata": {
+      "sequence": 24,
+      "next_action": "cloud Wan 2.1 smoke on CPU runner (disk/RAM guarded) for AI-original shots; iterate reel on owner feedback",
+      "status": "active"
+    },
+    "prev_event_sha256": "07b5dd32e0000803d224c1671a720d32272aeff417e06e36792bbb2a59f9bc3e",
+    "event_sha256": "70ef3733dc2f65ff4904f1f0c25dbfd0b94f99002a10e4838389818b8dfcae8b"
+  },
+  "journal_head": "70ef3733dc2f65ff4904f1f0c25dbfd0b94f99002a10e4838389818b8dfcae8b",
+  "git": {
+    "initialized": true,
+    "head": "037047659e07d53e04ceac0ed03a67feeb956c3e",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0024-20261027T232439Z",
+  "task_id": "EMS-20261027-WF06-H3-LAB",
+  "created_at": "2026-10-27T23:24:39Z",
+  "targets": {
+    "github": {
+      "status": "pending",
+      "target": {
+        "required": true,
+        "transport": "git",
+        "remote": "origin",
+        "repo_url": "https://github.com/adil-chandio/Monarch-Studio.git",
+        "html_url": "https://github.com/adil-chandio/Monarch-Studio",
+        "confirmed_by_user_at": "2026-10-11T02:50:00+05:00",
+        "branch": "main",
+        "remote_head": "297231d8e17e5f6c1b0cbbad300a6459a99efd31",
+        "continuity_v1_tag_object": "2a4dc67c316ecbad8c72422a3c09eaca834871e8",
+        "continuity_v1_tag_commit": "c5226d972c4c27982edf17777aba5aead62f4820",
+        "ci_run_id": 38090716084,
+        "ci_run_url": "https://github.com/adil-chandio/Monarch-Studio/actions/runs/38090716084",
+        "ci_status": "success",
+        "status": "completion_fix_pending_clean_ci",
+        "note": "Completion was archived and the active slot reset. Post-completion run 38090848950 exposed a sparse-manifest move edge case; the permanent skip-worktree-only correction and regression test are documented in the task history. v0.2.1 is reserved for the corrected clean-CI release.",
+        "completion_commit": "297231d8e17e5f6c1b0cbbad300a6459a99efd31",
+        "completion_tag": "v0.2.0",
+        "latest_ci_failure": {
+          "run_id": 38090848950,
+          "url": "https://github.com/adil-chandio/Monarch-Studio/actions/runs/38090848950",
+          "cause": "manifest retained pre-staging moved paths as if they were sparse-omitted",
+          "resolution": "preserve only git skip-worktree paths; regression test added"
+        }
+      },
+      "remote_id": null,
+      "synced_at": null,
+      "note": null
+    },
+    "google_docs": {
+      "status": "pending",
+      "target": {
+        "required": true,
+        "document_id": "16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU",
+        "url": "https://docs.google.com/document/d/16gLeZBQV_wWVo5OnzQvpXirXTyNUz8hjwt6x0qMOzZU/edit",
+        "role": "portable human recovery and proof hub",
+        "completion_status": "pending_corrected_release_receipt"
+      },
+      "remote_id": null,
+      "synced_at": null,
+      "note": null
+    },
+    "google_drive": {
+      "status": "pending",
+      "target": {
+        "required": true,
+        "folder_id": "1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+        "url": "https://drive.google.com/drive/folders/1Yc8zy8BZPcpib5tlesDx8rAWpRa74mNE",
+        "parent_folder_id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l",
+        "git_bundle_id": "1DBVVqRsJs2Mbg6rWDbEYpR65C0ABsXXj",
+        "snapshot_id": "1y2sL-8U1PdzTlqzyryVvHjknCGZRNO9d",
+        "active_capsule_id": "1vrGTt7W9DV-qiE2opP7t7k7NuA7WyDE9",
+        "checkpoint_0003_delta_id": "1-LjaejSFOCyaKyO4dkjwzrctGUw0cU43",
+        "role": "repository bundles, checkpoints, recovery exports and large artifacts",
+        "final_completion_status": "pending_corrected_release_bundle"
+      },
+      "remote_id": null,
+      "synced_at": null,
+      "note": null
+    },
+    "linear": {
+      "status": "pending",
+      "target": {
+        "required": true,
+        "project_id": "70db3731-c59d-4188-8f9b-8755d15261d9",
+        "issue_id": "7d51bdef-6435-4e3e-93d9-74a41da0b155",
+        "issue_identifier": "MON-63",
+        "issue_url": "https://linear.app/monarchmation/issue/MON-63/ems-20261011-001-bootstrap-crash-proof-continuity-permanent-style",
+        "team_id": "7d25e78c-c0f2-46b3-9c73-10bcf9c5a108",
+        "role": "active task, blockers, acceptance criteria and checkpoint status",
+        "completion_status": "pending_corrected_release_receipt"
+      },
+      "remote_id": null,
+      "synced_at": null,
+      "note": null
+    },
+    "notion": {
+      "status": "pending",
+      "target": {
+        "required": true,
+        "page_id": "3f5807e1-e916-819f-91a9-d0786304b6da",
+        "url": "https://app.notion.com/p/Editing-Monarch-Studio-Continuity-Style-Library-v1-3f5807e1e916819f91a9d0786304b6da",
+        "parent_page_id": "3f4807e1-e916-813a-9000-e7e94ac0ac53",
+        "role": "browsable continuity, style architecture, decisions and recovery state",
+        "completion_status": "pending_corrected_release_receipt"
+      },
+      "remote_id": null,
+      "synced_at": null,
+      "note": null
+    }
+  }
+}
