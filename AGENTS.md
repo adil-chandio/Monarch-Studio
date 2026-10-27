@@ -34,6 +34,11 @@ When the user asks for MiniMax-H3, H3 video, or `H3GO <topic or shot list>`, loa
   (`POST /v2/video_generation`) from a CPU Colab runtime with `MINIMAX_API_KEY` in Colab Secrets.
 - **Price before spending.** `python3 styles/minimax-h3-video/src/h3_client.py estimate <shotlist>` first; the
   notebook's `DRY_RUN`/`CONFIRM_SPEND` gate stays locked unless the user explicitly approves the estimate.
+- **Pick the tool with the planner, not from memory.** `python3 styles/minimax-h3-video/src/route_planner.py
+  plan --need <talking_hero|broll_plate|reel_loop|film_scene|lipsync_only|animate_still> [--free] [--duration N]`
+  reads `data/tool_registry.json` and returns model + hardware + cost + steps + licensing. Free T4 = Wan 1.3B/LTX +
+  LatentSync 1.5; 24 GB = Wan 2.2 5B / HunyuanVideo 1.5 / LatentSync 1.6; rented = Wan A14B / LTX-2.5 / H3 local;
+  API = H3 2K. A talking Monarch face does **not** require H3: silent clip + own VO + LatentSync is the free chain.
 - **2K only via API.** Local/pruned-weight runs are 768P; never promise 2K from a local deployment.
 - **Free route = different model.** A free Colab T4 cannot run H3; use `colab/MONARCH_T4_FREE_BRIDGE.ipynb`
   (Wan 2.1 T2V 1.3B, 480p, silent, $0) for drafts/plates and keep H3 (paid) for dialogue/2K hero shots.

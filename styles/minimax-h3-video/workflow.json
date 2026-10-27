@@ -53,7 +53,8 @@
       "cost": "0 USD",
       "limits": "8-25 min per 5 s clip; session ends on idle/12 h; Colab free TOS forbids server-style use, so the tunnel cell is off by default",
       "job_queue": "Drive jobs.json -> status.json + mp4 + receipts.json (ToS-safe ping alternative)"
-    }
+    },
+    "route_planner": "src/route_planner.py plan --need <need> [--free] [--duration N] (reads data/tool_registry.json)"
   },
   "required_paths": [
     "README.md",
@@ -71,7 +72,10 @@
     "records/PROVENANCE.json",
     "knowledge/05_FREE_ROUTES.md",
     "colab/MONARCH_T4_FREE_BRIDGE.ipynb",
-    "data/free_jobs.example.json"
+    "data/free_jobs.example.json",
+    "knowledge/06_NEXT_LEVEL_TOOLBOX.md",
+    "src/route_planner.py",
+    "data/tool_registry.json"
   ],
   "authorities": {
     "source_repo": "https://github.com/MiniMax-AI/MiniMax-H3",
@@ -112,5 +116,27 @@
     "regeneration_768P_to_2K": 0.05,
     "extra_reference_image_beyond_5": 0.04,
     "reference_audio_input": 0.0
+  },
+  "tool_menu_summary": {
+    "free_t4": [
+      "wan21-t2v-1.3b",
+      "ltx-video-distilled",
+      "latentsync-15",
+      "musetalk",
+      "liveportrait"
+    ],
+    "gb24": [
+      "wan22-ti2v-5b",
+      "hunyuanvideo-15",
+      "latentsync-16"
+    ],
+    "rented": [
+      "wan22-a14b",
+      "ltx-25",
+      "minimax-h3-local"
+    ],
+    "api": [
+      "minimax-h3-api"
+    ]
   }
 }

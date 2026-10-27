@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** User uploads colab/MONARCH_T4_FREE_BRIDGE.ipynb to Colab with T4 runtime and runs cells 1-7; then pick hero shots for the paid H3 route
+- **Next action:** Run the free chain end to end: Wan clip in the T4 notebook, record a 5 s Urdu/English VO, then LatentSync 1.5 with the sm_75 fp16 patch on the clip
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

@@ -10,6 +10,7 @@ Permanent, source-backed knowledge for MiniMax-H3 inside Monarch Studio. Read in
 | 03 | [`03_ROUTES_AND_COST.md`](03_ROUTES_AND_COST.md) | before committing money or scope | route decision table, cost model + worked examples, batch strategy, production pipeline, what H3 changes and does not, legal notes |
 | 04 | [`04_WF04_MONARCH_FACE_INTEGRATION.md`](04_WF04_MONARCH_FACE_INTEGRATION.md) | for Monarch-face work | reference pack spec, copy-paste Ref2VA shot skeleton, L1–L4 levels, QC gates, WF-05 handoff contract, when NOT to use H3 |
 | 05 | [`05_FREE_ROUTES.md`](05_FREE_ROUTES.md) | when the answer must be "free" | is H3 free (no: API paid, weights free but 4xH100 class), trial/promo routes and their limits, what actually runs on a free Colab T4, the ping/tunnel pattern's ToS+security reality, Drive job-queue alternative, cost-minimising draft/free + hero/paid mix |
+| 06 | [`06_NEXT_LEVEL_TOOLBOX.md`](06_NEXT_LEVEL_TOOLBOX.md) | when choosing a tool | tier map (T4 / 24 GB / rented / API), verified model menu with licences + VRAM + speed, the **free talking-Monarch chain (silent clip + own VO + LatentSync)**, decision tree, cost table, and what not to attempt |
 
 ## Executable knowledge
 
@@ -18,6 +19,8 @@ Permanent, source-backed knowledge for MiniMax-H3 inside Monarch Studio. Read in
 | [`../colab/MONARCH_H3_COLAB.ipynb`](../colab/MONARCH_H3_COLAB.ipynb) | Colab control room: env → key → templates → helpers → shot list → cost gate → run → receipts → ffmpeg assemble |
 | [`../colab/MONARCH_T4_FREE_BRIDGE.ipynb`](../colab/MONARCH_T4_FREE_BRIDGE.ipynb) | **free route**: Wan 2.1 T2V 1.3B on a free T4 — job list, Drive output + receipts, optional Drive job queue, gated tunnel cell |
 | [`../data/free_jobs.example.json`](../data/free_jobs.example.json) | free-route job list (jobs.json format for the queue cell) |
+| [`../src/route_planner.py`](../src/route_planner.py) | `plan --need <talking_hero|broll_plate|reel_loop|film_scene|lipsync_only|animate_still> [--free] [--duration N]` — picks models, hardware, cost and steps |
+| [`../data/tool_registry.json`](../data/tool_registry.json) | machine-readable model menu (licence, VRAM, audio, speed, cost, confidence) |
 | [`../src/h3_client.py`](../src/h3_client.py) | stdlib CLI (`estimate` / `run` / `query`), payload validation, cost math, receipts |
 | [`../data/shotlist.example.json`](../data/shotlist.example.json) | 3-shot example: Monarch Ref2VA hero line, noir T2VA plate, Lite reel insert |
 | [`../../tests/test_wf06_h3.py`](../../tests/test_wf06_h3.py) | offline tests: mutual-exclusion rule, ratio rules, duration/resolution guards, cost math, receipts flow, CLI dry run |
@@ -35,3 +38,5 @@ Permanent, source-backed knowledge for MiniMax-H3 inside Monarch Studio. Read in
 8. **No credentials in Git.** Key via `MINIMAX_API_KEY` (Colab Secrets or env).
 9. **Free route exists but is not H3.** Free T4 runs Wan 2.1 1.3B (480p, silent). H3 stays the paid hero route —
    free plates for drafts, paid H3 for the shots that carry dialogue and 2K.
+10. **Talking face does not require H3.** Silent clip + own VO + LatentSync 1.5 (8 GB, T4-patchable) = dialogue at $0.
+    H3's premium is native audio + 2K + one-pass quality, not lipsync itself.

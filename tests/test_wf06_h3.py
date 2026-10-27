@@ -211,5 +211,101 @@ class FreeDocsTests(unittest.TestCase):
                 self.assertIn(needle, text)
 
 
+sys.path.insert(0, str(STYLE / "src"))
+import route_planner as rp  # noqa: E402
+
+
+class ToolRegistryTests(unittest.TestCase):
+    def setUp(self):
+        self.reg = rp.load_registry()
+        self.models = rp.models_by_id(self.reg)
+
+    def test_every_model_is_complete_and_reachable(self):
+        for m in self.reg["models"]:
+            with self.subTest(model=m["id"]):
+                self.assertIn(m["tier"], self.reg["tiers"])
+                for key in ("name", "maker", "licence", "tasks", "native_audio", "vram_gb",
+                            "speed_5s", "confidence", "best_for"):
+                    self.assertIn(key, m)
+                self.assertIsInstance(m["native_audio"], bool)
+
+    def test_no_model_claims_audio_it_does_not_have(self):
+        # only H3 (api/local) and LTX-2.5 ship native audio in this menu
+        audio_models = {m["id"] for m in self.reg["models"] if m["native_audio"]}
+        self.assertEqual(audio_models, {"minimax-h3-api", "minimax-h3-local", "ltx-25"})
+
+    def test_t4_models_are_not_paid_and_fit_16gb(self):
+        for m in self.reg["models"]:
+            if m["tier"] == "t4_free":
+                with self.subTest(model=m["id"]):
+                    self.assertEqual(m["cost_usd_per_second"], 0)
+                    self.assertLessEqual(m["vram_gb"], 16)
+
+    def test_h3_api_rates_match_docs(self):
+        h3 = self.models["minimax-h3-api"]
+        self.assertEqual(h3["cost_usd_per_second"], {"768P": 0.08, "2K": 0.13})
+
+    def test_local_h3_cannot_do_2k(self):
+        self.assertEqual(self.models["minimax-h3-local"]["max_resolution"], "768P")
+
+
+class RoutePlannerTests(unittest.TestCase):
+    def test_every_need_has_a_plan(self):
+        for need in rp.NEEDS:
+            with self.subTest(need=need):
+                plan = rp.build_plan(need, free=True, duration=15)
+                self.assertEqual(plan["need"], need)
+                self.assertTrue(plan["steps"])
+                self.assertTrue(plan["models"])
+                for mid in plan["models"]:
+                    self.assertIn(mid, rp.models_by_id(rp.load_registry()))
+
+    def test_free_plans_cost_nothing(self):
+        for need in rp.NEEDS:
+            with self.subTest(need=need):
+                self.assertEqual(rp.build_plan(need, free=True, duration=30)["cost_usd"], 0.0)
+
+    def test_paid_talking_hero_prices_both_resolutions(self):
+        plan = rp.build_plan("talking_hero", free=False, duration=30)
+        self.assertEqual(plan["cost_usd"], {"768P": 2.4, "2K": 3.9})
+
+    def test_paid_cost_scales_with_duration(self):
+        self.assertAlmostEqual(rp.paid_cost(rp.models_by_id(rp.load_registry())["minimax-h3-api"],
+                                            "2K", 15), 1.95)
+
+    def test_free_talking_plan_uses_the_lipsync_chain(self):
+        plan = rp.build_plan("talking_hero", free=True, duration=10)
+        self.assertIn("latentsync-15", plan["models"])
+        self.assertIn("wan21-t2v-1.3b", plan["models"])
+        self.assertTrue(any("LatentSync" in s for s in plan["steps"]))
+
+    def test_shots_needed_rounds_up(self):
+        self.assertEqual(rp.shots_needed(5), 1)
+        self.assertEqual(rp.shots_needed(6), 2)
+        self.assertEqual(rp.shots_needed(30), 6)
+
+    def test_unknown_need_is_rejected(self):
+        with self.assertRaises(ValueError):
+            rp.build_plan("make_me_famous", free=True, duration=5)
+
+    def test_licences_are_attached_to_each_plan(self):
+        plan = rp.build_plan("broll_plate", free=True, duration=5)
+        self.assertEqual(set(plan["licence_notes"]), set(plan["models"]))
+
+    def test_cli_list_and_plan_exit_zero(self):
+        self.assertEqual(rp.main(["list"]), 0)
+        self.assertEqual(rp.main(["plan", "--need", "talking_hero", "--free", "--duration", "30"]), 0)
+        self.assertEqual(rp.main(["plan", "--need", "lipsync_only", "--json"]), 0)
+
+
+class NextLevelDocTests(unittest.TestCase):
+    def test_doc_covers_free_talking_chain_and_tiers(self):
+        text = (STYLE / "knowledge/06_NEXT_LEVEL_TOOLBOX.md").read_text()
+        for needle in ["LatentSync 1.5", "Wan 2.1 T2V 1.3B", "HunyuanVideo 1.5", "LTX-2.5",
+                       "free talking Monarch", "sm_75", "2K"]:
+            with self.subTest(needle=needle):
+                self.assertIn(needle, text)
+
+
 if __name__ == "__main__":
     unittest.main()

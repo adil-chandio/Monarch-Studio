@@ -116,6 +116,9 @@ aur ek hi prompt skeleton se 16:9 + 9:16 dono versions.
 | `colab/MONARCH_H3_COLAB.ipynb` | runnable Colab notebook (API route, cost gate, receipts, assemble) |
 | `colab/MONARCH_T4_FREE_BRIDGE.ipynb` | free T4 notebook (Wan 1.3B, jobs, Drive receipts, optional Drive queue, gated tunnel) |
 | `knowledge/05_FREE_ROUTES.md` | free vs paid matrix, T4 reality, trial/promo limits, tunnel risks, hybrid cost plan |
+| `knowledge/06_NEXT_LEVEL_TOOLBOX.md` | **tool menu**: T4 / 24 GB / rented / API tiers, verified model table, free talking-Monarch chain (LatentSync), decision tree |
+| `src/route_planner.py` | `plan --need ... [--free] [--duration N]` → model + hardware + cost + steps |
+| `data/tool_registry.json` | machine-readable model menu |
 | `data/free_jobs.example.json` | free-route job list (`jobs.json` for the queue cell) |
 | `src/h3_client.py` | stdlib CLI: `estimate` / `run` / `query` |
 | `data/shotlist.example.json` | 3-shot example (Monarch Ref2VA + noir plate + reel insert) |

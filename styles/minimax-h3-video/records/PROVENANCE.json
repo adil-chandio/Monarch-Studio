@@ -85,6 +85,29 @@
         "Wan 2.2 TI2V-5B peaks ~22 GB fp16, needs fp8/offload for 16 GB"
       ],
       "note": "T4 = Turing sm_75: no bf16, no fp8/NVFP4 -> fp16 + cpu offload + vae tiling"
+    },
+    {
+      "id": "next-level-tools",
+      "urls": [
+        "https://github.com/bytedance/LatentSync",
+        "https://sync.so/blog/what-is-latentsync",
+        "https://www.thundercompute.com/blog/best-open-source-ai-video-generation-models",
+        "https://github.com/DubeyDivyansh/video_production_engine",
+        "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+        "https://insiderllm.com/guides/local-ai-video-generation/",
+        "https://quantacloud.net/guides/open-source-video-generation-models"
+      ],
+      "verified": [
+        "LatentSync 1.5 inference minimum 8 GB VRAM; 1.6 minimum 18 GB (upstream README)",
+        "LatentSync code Apache-2.0, weights OpenRAIL++ \u2014 commercial use with restrictions",
+        "T4 runs LatentSync in fp32 because upstream checks compute capability > 7 (Turing is 7.5); community patch >= 7 enables fp16 ~12.2 GB",
+        "Wan 2.2 TI2V-5B: Apache-2.0, 720p 24 fps, ~8 GB fp8/offload to ~22-24 GB fp16",
+        "HunyuanVideo 1.5: 8.3B, Tencent community licence, ~14 GB with offload / ~24 GB fp16, ~75 s distilled on RTX 4090, 720p",
+        "LTX-2.5: 22B + 12B text encoder, native audio, up to 4K 50 fps, ~32 GB fp8 / 16 GB NVFP4 (Blackwell), LTX-2 Community licence free under 10M USD ARR",
+        "Wan 2.2 A14B MoE: 16 GB GGUF+offload, 80 GB official fp16, no native audio",
+        "MuseTalk fits 16 GB-class for lipsync; LivePortrait is a light portrait animator"
+      ],
+      "note": "VRAM/speed figures are vendor + community ranges captured Oct 2026; none were re-measured in this sandbox (no GPU)"
     }
   ],
   "not_verified": [

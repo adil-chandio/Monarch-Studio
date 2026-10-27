@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0003-20261027T140529Z",
+  "created_at": "2026-10-27T14:05:29Z",
+  "summary": "WF-06 next-level toolbox: tiered model menu with verified specs and licences, route planner CLI (tested), free talking-face chain via LatentSync, notebook menu cell, provenance extended",
+  "next_action": "Run the free chain end to end: Wan clip in the T4 notebook, record a 5 s Urdu/English VO, then LatentSync 1.5 with the sm_75 fp16 patch on the clip",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T14:05:29Z",
+    "checkpoint_sequence": 3,
+    "event_sequence": 13,
+    "journal_head": "4c8bff256412111ad9700127705668495dad572fc9f9d03f141c23d5ef306adc",
+    "last_checkpoint": "2026-10-27T14:05:29Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z",
+    "next_action": "Run the free chain end to end: Wan clip in the T4 notebook, record a 5 s Urdu/English VO, then LatentSync 1.5 with the sm_75 fp16 patch on the clip",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 13,
+    "timestamp": "2026-10-27T14:05:29Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "WF-06 next-level toolbox: tiered model menu with verified specs and licences, route planner CLI (tested), free talking-face chain via LatentSync, notebook menu cell, provenance extended",
+    "content_sha256": "ca39919086a0e1f36da4da8fb85d9318a93325d296fc2c0b452baac4cd0aec5f",
+    "metadata": {
+      "sequence": 3,
+      "next_action": "Run the free chain end to end: Wan clip in the T4 notebook, record a 5 s Urdu/English VO, then LatentSync 1.5 with the sm_75 fp16 patch on the clip",
+      "status": "active"
+    },
+    "prev_event_sha256": "60cc28281eaf0382ddeefa09325d326eb9931e6bd55948561cc19289d5d61764",
+    "event_sha256": "4c8bff256412111ad9700127705668495dad572fc9f9d03f141c23d5ef306adc"
+  },
+  "journal_head": "4c8bff256412111ad9700127705668495dad572fc9f9d03f141c23d5ef306adc",
+  "git": {
+    "initialized": true,
+    "head": "b4efb86e265183a81b1aa47cca475a330e042342",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M AGENTS.md",
+      " M styles/minimax-h3-video/README.md",
+      " M styles/minimax-h3-video/colab/MONARCH_T4_FREE_BRIDGE.ipynb",
+      " M styles/minimax-h3-video/knowledge/INDEX.md",
+      " M styles/minimax-h3-video/records/PROVENANCE.json",
+      " M styles/minimax-h3-video/workflow.json",
+      " M tests/test_wf06_h3.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      "?? styles/minimax-h3-video/data/tool_registry.json",
+      "?? styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md",
+      "?? styles/minimax-h3-video/src/route_planner.py"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}
