@@ -333,7 +333,19 @@ def ramp_weights(stops, axis=2, softness=1.0):
 
         return w
 
-    return {stops[i][1]: make(i) for i in range(len(stops))}
+    # several stops can name the same bone (a limb's shoulder and elbow overlap);
+    # their weights add up so every vertex still sums to ~1
+    groups = {}
+    for i, (_coord, bone) in enumerate(stops):
+        groups.setdefault(bone, []).append(make(i))
+
+    def merged(fns):
+        def w(co):
+            return sum(f(co) for f in fns)
+        return w
+
+    return {bone: merged(fns) for bone, fns in groups.items()}
+
 
 
 # ---------------------------------------------------------------- animation
