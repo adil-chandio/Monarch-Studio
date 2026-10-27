@@ -78,6 +78,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   re-checks) then `finish` — do not ask him to re-run for a Drive problem.
 - **Drive name must end `.ipynb`** (`<project>_phone_run_all.ipynb`, mimeType `application/x-ipynb+json`) or
   Colab answers "This file type is unsupported" — rename with `update_file` before sending any link.
+- **Measured on the owner's free T4 (2026-10-27):** 33 frames @ 480×832, 30 steps = **49 s** render after a
+  ~3 min first-time download; host RAM 8.1–9.1 GB free with the 4-bit encoder. Quote these numbers, not guesses.
+- `basicsr` / Real-ESRGAN fails to build on Colab ("Getting requirements to build wheel"): install with
+  `--no-build-isolation` and patch the `torchvision.transforms.functional_tensor` import. The notebook does
+  both and still falls back to ffmpeg lanczos, so an upscale problem never kills the run.
 - **Free Colab = 12.7 GB host RAM.** Wan's UMT5 encoder must stay 4-bit NF4 (`load_in_4bit`, `nf4`,
   `device_map={"": 0}`), DiT fp16, VAE tiled+sliced, `HF_HUB_DISABLE_XET=1`, glibc `malloc_trim`, and the
   pipeline `del`-ed after clips. A "session crashed after using all available RAM" is never a user error —

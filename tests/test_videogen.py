@@ -409,6 +409,7 @@ class MobileTests(unittest.TestCase):
             upscale = "".join(self._notebook(path)["cells"][-2]["source"])
             self.assertIn("flags=lanczos", upscale)
             self.assertIn("enhancer is None", upscale)
+            self.assertIn("--no-build-isolation", upscale)
 
     def test_max_frames_caps_every_shot(self):
         with tempfile.TemporaryDirectory() as td:

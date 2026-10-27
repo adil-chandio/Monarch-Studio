@@ -38,8 +38,8 @@
     }
   },
   "next": {
-    "user": "Colab me dobara Runtime \u25b8 Run all dabao (T4 GPU selected ho)",
-    "agent": "owner ke re-run ke baad phir check"
+    "user": "ZIP (m-test-01_outputs.zip) chat me attach karo",
+    "agent": "ingest -> check -> finish -> deliver"
   },
   "history": [
     {
@@ -104,12 +104,19 @@
       "to": "blocked",
       "by": "agent",
       "note": "colab-test-04: host-RAM crash fixed (4-bit text encoder); frames 77->33"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "notebook",
+      "note": "run succeeded: 2 clips, ZIP in Drive; blocked only on media transfer to the sandbox"
     }
   ],
   "master": null,
   "blocker": {
-    "stage": "clips",
-    "detail": "Notebook ne kuch nahi likha. Run all dobara chalao; agar ADHURA aaya to aakhri cell ka text bhejo."
+    "stage": "media-transfer",
+    "detail": "Clips Drive me hain lekin sandbox Google hosts tak nahi pahunch sakta; ZIP (0.2 MB) chat me attach hona chahiye taake finish (mix/verify/assemble) chale."
   },
   "plan": {
     "total_usd": 0.0,
@@ -164,5 +171,19 @@
     "clip_files": {
       "t01-plate": []
     }
+  },
+  "evidence": {
+    "reported_at": "2026-10-27T19:15:00-00:00",
+    "source": "owner screenshot of the single cell (DONE \u2705)",
+    "clips": [
+      "t01-plate.mp4 (0.4 MB, md5 112efff90\u2026)",
+      "t01-plate-2x.mp4 (0.2 MB, md5 39964be08e\u2026)"
+    ],
+    "render_seconds": 49,
+    "frames": 33,
+    "steps": 30,
+    "host_ram_free": "8.1-9.1 GB",
+    "upscale": "ffmpeg lanczos x2 (basicsr build failed)",
+    "zip": "05 \u00b7 Projects/m-test-01/m-test-01_outputs.zip"
   }
 }

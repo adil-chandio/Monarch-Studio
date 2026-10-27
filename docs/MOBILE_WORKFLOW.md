@@ -166,16 +166,19 @@ Notebook (`viper-1.7`) me is liye:
 | scheduler | UniPC `flow_shift=3.0` | 480p ke liye official; 5.0 sirf 720p |
 | pipeline | clips ke baad `del pipe` | upscale ke liye RAM khaali |
 
-Speed (T4, 480×832, 18 UniPC steps, guidance 5.0 — measured formula, not a promise):
+**Measured on the owner's own free T4** (27 Oct 2026, 480×832, 33 frames, 30 steps, guidance 5.0,
+4-bit text encoder): model load ≈ 3 min (first run downloads the weights once), **render 49 s**, ffmpeg ×2
+upscale seconds, ZIP written to Drive. Host RAM stayed at 8.1–9.1 GB free throughout — the 4-bit encoder is
+what bought that room.
 
-| Frames | Duration | Render |
+| Frames | Duration | Render (measured / extrapolated) |
 |---|---|---|
-| 33 | ~2 s | **~6 min** |
-| 49 | ~3 s | ~12 min |
-| 77 | ~5 s | ~23 min |
+| 33 | ~2 s | **49 s (measured)** |
+| 49 | ~3 s | ~1.5–2 min |
+| 77 | ~5 s | ~2–3 min |
 
-Isi liye `mobile --max-frames 33` test ke liye aur `49` poore reel ke liye default hai.
-
+A 3-shot reel with voice + foley + upscale therefore lands at **~20–30 min**, not the 45–70 min first
+estimated. `mobile --max-frames 33` stays the test default, `49` for real reels.
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke

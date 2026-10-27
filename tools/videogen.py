@@ -1942,7 +1942,26 @@ if RUN_UPSCALE:
     enhancer = None
     cv2 = None
     try:
-        !pip -q install basicsr realesrgan facexlib
+        # Colab par basicsr ka wheel-build fail hota hai ("Getting requirements to build wheel"):
+        # torch pehle se hai, is liye build isolation hata kar seedha legacy wheel install karo,
+        # phir torchvision ke naye API ke liye functional_tensor import patch kar do.
+        !pip -q install --no-build-isolation "basicsr==1.4.2" realesrgan facexlib 2>/dev/null || !pip -q install --no-build-isolation basicsr realesrgan
+        import pathlib as _pl, re as _re_patch
+        _bs = None
+        try:
+            import basicsr, _pl as _p
+            _bs = _p.Path(basicsr.__file__).parent
+        except Exception:
+            _bs = None
+        if _bs is not None:
+            for _f in _bs.rglob("*.py"):
+                _txt = _f.read_text(errors="ignore")
+                if "functional_tensor" in _txt:
+                    _f.write_text(_txt.replace(
+                        "from torchvision.transforms.functional_tensor import rgb_to_grayscale",
+                        "from torchvision.transforms.functional import rgb_to_grayscale").replace(
+                        "from torchvision.transforms.functional_tensor import", 
+                        "from torchvision.transforms.functional import"))
         import cv2
         from basicsr.archs.rrdbnet_arch import RRDBNet
         from realesrgan import RealESRGANer
