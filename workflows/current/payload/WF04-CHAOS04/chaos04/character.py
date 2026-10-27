@@ -241,77 +241,90 @@ def build_head(mat_skin, mat_face):
 
 
 def build_hair(mat_hair, mat_sheen):
-    """Sculpted scalp volume + swept fringe + groom strands. Reads as our hair:
-    black, swept back off the forehead, short on the sides, full at the crown."""
+    """Hair as a shell grown off the skull's own rings, so it can never stand off
+    the head like a cap: +7 mm of thickness, more mass at the crown and nape, a
+    small swept quiff at the front, and strands laid on the same surface."""
     rnd = random.Random(7)
+
+    def skull(z):
+        """Interpolate the head profile at height z (rx, ry, y-offset)."""
+        rings = HEAD_RINGS
+        if z <= rings[0][0]:
+            return rings[0][1], rings[0][2], rings[0][3]
+        if z >= rings[-1][0]:
+            return rings[-1][1], rings[-1][2], rings[-1][3]
+        for (z0, rx0, ry0, dy0), (z1, rx1, ry1, dy1) in zip(rings, rings[1:]):
+            if z0 <= z <= z1:
+                u = (z - z0) / max(1e-6, z1 - z0)
+                return bl.lerp(rx0, rx1, u), bl.lerp(ry0, ry1, u), bl.lerp(dy0, dy1, u)
+        return rings[-1][1], rings[-1][2], rings[-1][3]
+
+    Z0 = 1.7440          # hairline at the temples
+    Z1 = 1.8060          # crown
+    seg, rings_n = 72, 22
     verts, faces = [], []
-    seg, rings = 72, 26
-    for i in range(rings + 1):
-        t = i / rings                        # 0 = hairline/back bottom, 1 = crown
+    for i in range(rings_n + 1):
+        t = i / rings_n
         for j in range(seg):
             a = TAU * j / seg
-            # cap that follows the skull and dips at the hairline
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            base_z = bl.lerp(1.7460, 1.7500, front) + bl.lerp(-0.036, 0.0, back)
-            phi = (math.pi * 0.5) * t
-            r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
-            z = base_z + (1.8060 - base_z) * math.sin(phi) ** 0.72
-            rx = 0.0792 * r_scale * math.cos(phi * 0.62)
-            ry = 0.0812 * r_scale * math.cos(phi * 0.62)
-            # mass at the back of the head, tighter at the temples
-            swell = 1.0 + 0.26 * max(0.0, math.sin(a)) * (1 - t * 0.35)
-            x = math.cos(a) * rx * swell
-            y = math.sin(a) * ry * swell + 0.002
-            verts.append((x, y, z))
-    for i in range(rings):
+            # the hairline dips at the nape and rises over the brow
+            z = bl.lerp(Z0 + 0.008 * front - 0.040 * back, Z1, t ** 0.85)
+            rx, ry, dy = skull(z)
+            grow = 0.0075 + 0.0045 * back + 0.0020 * math.sin(a * 3 + 0.6)
+            # slight sweep back: the mass sits a little further back than the skull
+            quiff = 0.004 * front * (1 - t)
+            x = math.cos(a) * (rx + grow)
+            y = math.sin(a) * (ry + grow) + dy + quiff
+            if z > Z1 - 0.004:            # close the crown
+                x *= 0.55
+                y *= 0.55
+            verts.append((x, y, z + 0.004 * (1 - t) * back))
+    for i in range(rings_n):
         for j in range(seg):
             a = i * seg + j
             b = i * seg + (j + 1) % seg
             faces.append((a, b, b + seg, a + seg))
-    cap = bl.mesh_object("Hair · sculpted mass", verts, faces, mat_hair, subsurf=1)
+    cap = bl.mesh_object("Hair · shell", verts, faces, mat_hair, subsurf=2)
 
-    # groom: strands following the swept-back direction
+    # groom strands, laid on the same shell and swept back
     lines = []
-    for _ in range(1100):
+    for _ in range(1200):
         a = rnd.uniform(0, TAU)
-        front = max(0.0, -math.sin(a))
-        start = rnd.uniform(0.02, 0.42)
-        end = rnd.uniform(0.72, 1.0)
+        t0 = rnd.uniform(0.05, 0.45)
         line = []
         for k in range(9):
             u = k / 8
-            t = bl.lerp(start, end, u)
-            phi = (math.pi * 0.5) * t
-            base_z = bl.lerp(1.7460, 1.7500, front) + bl.lerp(-0.036, 0.0, max(0.0, math.sin(a)))
-            z = base_z + (1.8060 - base_z) * math.sin(phi) ** 0.72
-            rr = 1.056 + rnd.uniform(-0.004, 0.006)
-            rx = 0.0792 * rr * math.cos(phi * 0.62)
-            ry = 0.0812 * rr * math.cos(phi * 0.62)
-            # sweep the strand tips backwards
+            t = bl.lerp(t0, 1.0, u)
+            front = max(0.0, -math.sin(a))
+            back = max(0.0, math.sin(a))
+            z = bl.lerp(Z0 + 0.008 * front - 0.040 * back, Z1, t ** 0.85)
+            rx, ry, dy = skull(z)
+            grow = 0.0092 + 0.0045 * back + rnd.uniform(-0.0012, 0.0012)
             sweep = 0.010 * u * u
-            x = math.cos(a) * rx + sweep * 0.35
-            y = math.sin(a) * ry + 0.002 + sweep
-            line.append((x, y, z + 0.0015 * math.sin(u * math.pi)))
+            x = math.cos(a) * (rx + grow) + sweep * 0.3
+            y = math.sin(a) * (ry + grow) + dy + sweep
+            line.append((x, y, z + 0.0018 * math.sin(u * math.pi)))
         lines.append(line)
     strands = bl.strands("Hair · groom", lines, 0.00042, mat_sheen, sides=3)
 
-    fringe_obj = None
-
-    # sideburns
+    # sideburns, kept thin
     sides = []
     for sgn in (1, -1):
-        for _ in range(90):
-            z0 = rnd.uniform(1.6600, 1.6900)
+        for _ in range(80):
+            z0 = rnd.uniform(1.7000, 1.7350)
             line = []
-            for k in range(7):
-                u = k / 6
-                line.append((0.0685 * sgn + rnd.uniform(-0.002, 0.002),
-                             -0.030 + 0.020 * u,
-                             z0 - 0.030 * u))
+            for k in range(6):
+                u = k / 5
+                z = z0 - 0.036 * u
+                rx, ry, dy = skull(z)
+                line.append((math.cos(math.radians(88)) * (rx + 0.004) * sgn,
+                             -0.030 + 0.016 * u,
+                             z))
             sides.append(line)
     side_obj = bl.strands("Sideburns", sides, 0.0005, mat_sheen, sides=3)
-    return [o for o in (cap, strands, fringe_obj, side_obj) if o is not None]
+    return [cap, strands, side_obj]
 
 
 def build_beard(mat_hair):
@@ -352,12 +365,12 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         ((0, 0.004, 1.120), 0.156, 0.104),
         ((0, 0.002, 1.200), 0.163, 0.107),
         ((0, 0.000, 1.280), 0.176, 0.113),
-        ((0, -0.002, 1.340), 0.180, 0.114),
-        ((0, -0.002, 1.382), 0.179, 0.113),
-        ((0, -0.002, 1.410), 0.166, 0.107),
-        ((0, 0.000, 1.432), 0.130, 0.093),
-        ((0, 0.002, 1.452), 0.086, 0.075),
-        ((0, 0.004, 1.468), 0.058, 0.056),
+        ((0, -0.002, 1.330), 0.174, 0.111),
+        ((0, -0.002, 1.368), 0.172, 0.110),
+        ((0, -0.001, 1.396), 0.158, 0.104),
+        ((0, 0.001, 1.420), 0.122, 0.090),
+        ((0, 0.003, 1.444), 0.080, 0.072),
+        ((0, 0.005, 1.462), 0.056, 0.055),
     ], mat_blazer, subsurf=2, close_start=True, close_end=False)
     bl.bump_material(mat_blazer, scale=1400, strength=0.12)
     parts.append(torso)
@@ -403,18 +416,18 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     # sleeves + hands
     for s, sx in (("L", 1.0), ("R", -1.0)):
         upper = bl.loft(f"Sleeve upper.{s}", [
-            ((0.150 * sx, -0.002, 1.436), 0.072, 0.070),
-            ((0.180 * sx, -0.001, 1.412), 0.068, 0.066),
-            ((0.212 * sx, 0.006, 1.300), 0.060, 0.058),
-            ((0.222 * sx, 0.010, 1.180), 0.055, 0.054),
+            ((0.142 * sx, -0.002, 1.424), 0.066, 0.064),
+            ((0.172 * sx, -0.001, 1.404), 0.062, 0.060),
+            ((0.208 * sx, 0.006, 1.300), 0.055, 0.053),
+            ((0.219 * sx, 0.010, 1.180), 0.050, 0.049),
             ((0.225 * sx, 0.012, 1.150), 0.053, 0.052),
         ], mat_blazer, subsurf=2, close_start=True, close_end=False)
         parts.append(upper)
         fore = bl.loft(f"Sleeve fore.{s}", [
-            ((0.225 * sx, 0.012, 1.155), 0.053, 0.052),
-            ((0.231 * sx, 0.016, 1.075), 0.048, 0.047),
-            ((0.236 * sx, 0.019, 1.010), 0.044, 0.043),
-            ((0.238 * sx, 0.020, 0.988), 0.042, 0.041),
+            ((0.222 * sx, 0.012, 1.155), 0.049, 0.048),
+            ((0.229 * sx, 0.016, 1.075), 0.045, 0.044),
+            ((0.234 * sx, 0.019, 1.010), 0.042, 0.041),
+            ((0.236 * sx, 0.020, 0.988), 0.040, 0.039),
         ], mat_blazer, subsurf=2, close_start=False, close_end=False)
         parts.append(fore)
         cuff = bl.loft(f"Cuff.{s}", [
