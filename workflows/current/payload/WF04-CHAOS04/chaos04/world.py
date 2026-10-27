@@ -160,19 +160,19 @@ def corridor(origin=CORRIDOR):
     m_neon2 = bl.emission_material("Corridor neon amber", RIM_AMBER, 7.0)
     m_steel = bl.material("Corridor steel", base="#26292B", rough=0.38, metal=0.9)
     parts = []
-    parts.append(bl.plane("Corridor floor", (o.x, o.y - 5.0, 0), (2.6, 14.0), m_floor))
-    parts.append(bl.box("Corridor ceiling", (o.x, o.y - 5.0, 2.85), (2.8, 14.0, 0.12), m_wall))
+    parts.append(bl.plane("Corridor floor", (o.x, o.y - 7.5, 0), (2.6, 24.0), m_floor))
+    parts.append(bl.box("Corridor ceiling", (o.x, o.y - 7.5, 2.85), (2.8, 24.0, 0.12), m_wall))
     for sx in (-1, 1):
-        parts.append(bl.box(f"Corridor wall {sx}", (o.x + 1.35 * sx, o.y - 5.0, 1.42),
-                            (0.12, 14.0, 2.85), m_wall))
-        for i in range(6):
+        parts.append(bl.box(f"Corridor wall {sx}", (o.x + 1.35 * sx, o.y - 7.5, 1.42),
+                            (0.12, 24.0, 2.85), m_wall))
+        for i in range(9):
             y = o.y - 1.0 - 2.2 * i
             parts.append(bl.box(f"Corridor strip {sx}{i}", (o.x + 1.28 * sx, y, 1.55),
                                 (0.03, 0.06, 2.2), m_neon if sx < 0 else m_neon2))
-    for i in range(7):
+    for i in range(12):
         y = o.y - 0.6 - 1.9 * i
         parts.append(bl.box(f"Corridor rib {i}", (o.x, y, 1.42), (2.7, 0.10, 2.85), m_steel))
-    parts.append(bl.box("Corridor end", (o.x, o.y - 12.2, 1.4), (2.7, 0.2, 2.9),
+    parts.append(bl.box("Corridor end", (o.x, o.y - 19.6, 1.4), (2.7, 0.2, 2.9),
                         bl.emission_material("Corridor end glow", "#DCF2EF", 12.0)))
     lights = {}
     for i in range(5):
@@ -181,7 +181,7 @@ def corridor(origin=CORRIDOR):
                                     color=RIM_TEAL if i % 2 else "#DFF3F0",
                                     size=1.2, size_y=0.8,
                                     rot=(math.radians(180), 0, 0))
-    _haze_box("Corridor haze", (o.x, o.y - 5.0, 1.4), (2.6, 13.6, 2.7), 0.024)
+    _haze_box("Corridor haze", (o.x, o.y - 7.5, 1.4), (2.6, 23.6, 2.7), 0.024)
     return parts, lights
 
 
@@ -189,9 +189,11 @@ def white_void(origin=VOID):
     o = origin
     m_white = bl.emission_material("Void white", "#F4F8F7", 3.0)
     parts = [
-        bl.plane("Void backdrop", (o.x, o.y + 3.4, 1.6), (9.0, 6.0), m_white,
+        bl.plane("Void backdrop", (o.x, o.y + 4.2, 1.6), (26.0, 20.0), m_white,
                  rot=(math.radians(90), 0, 0)),
-        bl.plane("Void floor", (o.x, o.y, 0), (9.0, 9.0), m_white),
+        bl.plane("Void floor", (o.x, o.y, 0), (26.0, 26.0), m_white),
+        bl.plane("Void side", (o.x - 6.0, o.y + 1.0, 1.6), (20.0, 20.0), m_white,
+                 rot=(0, math.radians(90), 0)),
     ]
     lights = {
         "void_key": _light("Void key", "AREA", (o.x, o.y - 2.4, 2.2), 90,
