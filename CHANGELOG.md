@@ -12,6 +12,8 @@
     voice/foley, and resamples to 48 kHz when it does run.
   - the master is staged inside `_segments/`, sanity-checked, then copied to `delivery/`; the receipt is only
     written after the copy, so a receipt always means a real file.
+- Re-running a project whose clips already sit on Drive now skips the Wan download/load entirely (and skips
+  voice/foley when their text is empty): a retry after a broken finish costs ~1 minute, not 20.
 
 ## 0.3.1 — 2026-10-27
 

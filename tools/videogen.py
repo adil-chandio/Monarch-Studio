@@ -1742,6 +1742,17 @@ print("project :", BASE, "| exists:", BASE.exists())
 print("shots   :", len(JOBS), "| voice:", len([v for v in VO_TEXT.values() if v.strip()]),
       "| foley:", len([v for v in FOLEY_PROMPT.values() if v.strip()]))
 
+# Resume ka sasta raasta: clips + 2x pehle se Drive par hain to model dobara load na karo
+# (3-5 min bachta hai). Sirf jo missing hai wohi stage chalta hai.
+_pending = [job["id"] for job in JOBS
+            if not ((SHOTS / f"{job['id']}.mp4").exists()
+                    and (SHOTS / f"{job['id']}-{FACTOR}x.mp4").exists())]
+if not _pending:
+    RUN_CLIPS = RUN_UPSCALE = False
+    print("clips   : pehle se Drive par ✔ — model load skip, seedha MASTER banta hai (~1 min)")
+RUN_VOICE = RUN_VOICE and any(v.strip() for v in VO_TEXT.values())
+RUN_FOLEY = RUN_FOLEY and any(v.strip() for v in FOLEY_PROMPT.values())
+
 
 def md5(path):
     h = hashlib.md5()

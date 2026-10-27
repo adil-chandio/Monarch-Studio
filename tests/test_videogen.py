@@ -468,6 +468,19 @@ class MobileTests(unittest.TestCase):
         exec(compile(code, "<finish>", "exec"), harness)
         return json.loads((base / "colab_master_receipt.json").read_text())
 
+    def test_setup_skips_model_load_when_clips_already_exist(self):
+        """Re-running after a failed finish must not re-download 22 GB: clips present -> finish only."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            setup = "".join(self._notebook(path)["cells"][1]["source"])
+            self.assertIn("_pending = [job[\"id\"] for job in JOBS", setup)
+            self.assertIn("RUN_CLIPS = RUN_UPSCALE = False", setup)
+            # empty VO_TEXT/FOLEY_PROMPT must not install Kokoro/MMAudio at all
+            self.assertIn('RUN_VOICE = RUN_VOICE and any(v.strip()', setup)
+            self.assertIn('RUN_FOLEY = RUN_FOLEY and any(v.strip()', setup)
+
     def test_concat_never_passes_a_spaced_path_to_the_demuxer(self):
         """Drive folder is 'Wf-07 • Monarch Ai Agent': the demuxer splits 'file <path>' on spaces."""
         with tempfile.TemporaryDirectory() as td:
