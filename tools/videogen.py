@@ -42,7 +42,7 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-1.1"
+ENGINES_VERSION = "viper-1.2"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
@@ -131,6 +131,14 @@ def free_frame_size(aspect: str) -> tuple[int, int]:
 
 def upscale_target(project: dict, shot: dict | None = None) -> dict:
     """Resolve the upscale stage for the free route (free clip size -> delivered size)."""
+    audio_cfg = project.get("audio")
+    if audio_cfg is not None:
+        if not isinstance(audio_cfg, dict):
+            problems.append("audio must be an object")
+        else:
+            for slot in ("vo_engine", "foley_engine", "bed_engine"):
+                if slot in audio_cfg and audio_cfg[slot] not in AUDIO_ENGINES:
+                    problems.append(f"audio.{slot} must be one of {', '.join(AUDIO_ENGINES)}")
     delivery = project.get("delivery") or {}
     mode = (delivery.get("upscale") or "realesrgan").lower()
     mode = {"true": "realesrgan", "false": "off", "none": "off", "x2": "realesrgan",
@@ -159,6 +167,9 @@ def project_paths(project_file: pathlib.Path) -> dict[str, pathlib.Path]:
         "queue": base / "queue",
         "lipsync": base / "lipsync",
         "upscale": base / "upscale",
+        "audio": base / "audio",
+        "vo": base / "audio" / "vo",
+        "foley": base / "audio" / "foley",
         "receipts": base / "receipts.json",
         "plan": base / "plan.json",
         "delivery": base / "delivery",
@@ -215,11 +226,12 @@ def new_project(project_id: str, title: str, aspect: str, out_dir: pathlib.Path,
         "delivery": {"upscale": "realesrgan", "factor": 2,   # off | lanczos | realesrgan
                      "target_height": 0},                    # 0 = whatever the upscale yields
         "notes": "Edit prompts, drop the Monarch reference pack into shots/, then: plan -> render -> verify.",
-        "audio": {"music": None, "dialogue": []},
+        "audio": {"music": None, "dialogue": [], "vo_engine": "kokoro",
+                  "foley_engine": "mmaudio", "bed_engine": "musicgen", "mix": True},
         "shots": shots,
     }
     write_json(project_dir / "project.json", project)
-    for key in ("shots", "queue", "lipsync", "upscale", "delivery"):
+    for key in ("shots", "queue", "lipsync", "upscale", "delivery", "audio"):
         (project_dir / key).mkdir(parents=True, exist_ok=True)
     return project_dir / "project.json"
 
@@ -238,6 +250,14 @@ def validate_project(project: dict, path: pathlib.Path) -> list[str]:
         problems.append("budget_usd must be a non-negative number")
     if project.get("route", "auto") not in {"auto", "free", "paid"}:
         problems.append("route must be auto | free | paid")
+    audio_cfg = project.get("audio")
+    if audio_cfg is not None:
+        if not isinstance(audio_cfg, dict):
+            problems.append("audio must be an object")
+        else:
+            for slot in ("vo_engine", "foley_engine", "bed_engine"):
+                if slot in audio_cfg and audio_cfg[slot] not in AUDIO_ENGINES:
+                    problems.append(f"audio.{slot} must be one of {', '.join(AUDIO_ENGINES)}")
     delivery = project.get("delivery")
     if delivery is not None:
         if not isinstance(delivery, dict):
@@ -315,7 +335,7 @@ def plan_shot(shot: dict, project: dict, *, has_key: bool) -> dict:
         resolution = shot.get("resolution") or ("2K" if kind == "hero" else "768P")
         steps.append({"engine": "h3", "action": "generate", "cost": h3_cost(seconds, resolution),
                       "resolution": resolution,
-                      "note": "hosted API: native stereo audio + lipsync in one pass"})
+                      "note": "hosted API: native stereo audio + lipsync in one pass (no vo/foley needed)"})
         return {"shot_id": shot["id"], "kind": kind, "steps": steps,
                 "total_cost": steps[0]["cost"], "engine_label": f"h3-{resolution}"}
 
@@ -327,6 +347,16 @@ def plan_shot(shot: dict, project: dict, *, has_key: bool) -> dict:
     if kind == "hero":
         steps.append({"engine": "latentsync", "action": "lipsync", "cost": 0.0,
                       "note": "free lipsync pass with your own voice track"})
+    try:
+        stems = audio_stems(project, shot)
+    except EngineError:
+        stems = {}
+    for slot, label in (("vo", ""), ("foley", "")):
+        if slot in stems:
+            stems[slot]["cost"] = 0.0
+            steps.append({"engine": stems[slot]["engine"],
+                          "action": "vo" if slot == "vo" else "foley", "cost": 0.0,
+                          "note": AUDIO_ENGINES[stems[slot]["engine"]]["note"]})
     if up["engine"] != "off":
         steps.append({"engine": "upscale", "action": f"{up['engine']}-x{up['factor']}", "cost": 0.0,
                       "note": f"{up['in_height']}p -> {up['out_height']}p · {up['note']}"})
@@ -389,6 +419,10 @@ def plan_warnings(project: dict, entries: list[dict]) -> list[str]:
                 f"— scale, not detail; for true {target}p use route=paid (h3 768P/2K)")
         if up["engine"] == "off" and target:
             warnings.append(f"{shot['id']}: upscale is off and target_height={target}p is set")
+    try:
+        warnings.extend(audio_licence_warnings(project))
+    except EngineError:
+        pass
     if not any(s["total_cost"] for s in entries) and project.get("route") == "paid":
         warnings.append("route=paid but no paid steps resolved — add an API key?")
     return warnings
@@ -609,6 +643,471 @@ def render(project_file: pathlib.Path, *, confirm: bool, only: list[str] | None 
     elif rendered:
         print(f"{rendered} paid shot(s) rendered.")
     print("next: drop queued mp4s into shots/, then run `verify`.")
+    return 0
+
+
+# --------------------------------------------------------------------------- audio
+# Free audio stack: voice (Kokoro / Chatterbox), foley (MMAudio / ThinkSound), music bed (MusicGen).
+# Every row below is verified in knowledge/AUDIO.md — licences included, because "free" is not "free to sell".
+AUDIO_ENGINES = {
+    "kokoro": {"kind": "voice", "params": "82M", "vram_gb": 0, "gpu": False,
+               "licence": "Apache-2.0 (code + weights, commercial OK)",
+               "note": "54 preset voices, no cloning, runs on CPU faster than real time"},
+    "chatterbox": {"kind": "voice", "params": "0.5B", "vram_gb": 5, "gpu": True,
+                   "licence": "MIT (commercial OK)",
+                   "note": "zero-shot cloning from ~10 s — Monarch ki apni awaaz, GPU chahiye (~5 GB)"},
+    "own": {"kind": "voice", "params": "—", "vram_gb": 0, "gpu": False,
+            "licence": "yours", "note": "record it yourself; best quality per rupee, always $0"},
+    "mmaudio": {"kind": "foley", "params": "157M–1.03B", "vram_gb": 6, "gpu": True,
+                "licence": "code MIT / weights CC-BY-NC 4.0 — NON-COMMERCIAL",
+                "note": "video→audio SOTA at this size, 44.1 kHz, ~1 s per 8 s clip"},
+    "thinksound": {"kind": "foley", "params": "533M–1.3B", "vram_gb": 8, "gpu": True,
+                   "licence": "Apache-2.0 code; README asks permission for commercial use",
+                   "note": "CoT-guided video→audio, best semantic match, slower than MMAudio"},
+    "musicgen": {"kind": "bed", "params": "300M–1.5B", "vram_gb": 4, "gpu": True,
+                 "licence": "code MIT / weights CC-BY-NC 4.0 — NON-COMMERCIAL",
+                 "note": "text→music bed, 30 s chunks, small model fits a T4 easily"},
+    "off": {"kind": "off", "params": "—", "vram_gb": 0, "gpu": False, "licence": "—", "note": "silent"},
+}
+
+
+def audio_config(project: dict) -> dict:
+    """Resolve the free audio stack for a project (all default $0)."""
+    cfg = project.get("audio") or {}
+    vo = str(cfg.get("vo_engine") or "kokoro").lower()
+    foley = str(cfg.get("foley_engine") or "mmaudio").lower()
+    bed = str(cfg.get("bed_engine") or "musicgen").lower()
+    for name, value in (("vo_engine", vo), ("foley_engine", foley), ("bed_engine", bed)):
+        if value not in AUDIO_ENGINES:
+            raise EngineError(f"audio.{name} must be one of {', '.join(AUDIO_ENGINES)}")
+    return {"vo_engine": vo, "foley_engine": foley, "bed_engine": bed,
+            "mix": bool(cfg.get("mix", True)),
+            "music": cfg.get("music"),
+            "bed_prompt": cfg.get("bed_prompt"),
+            "gain_db": float(cfg.get("bed_gain_db", -6.0))}
+
+
+def shot_vo_text(project: dict, shot: dict) -> str:
+    """Dialogue text for a shot: shot.vo_text wins, then audio.dialogue entries."""
+    if shot.get("vo_text"):
+        return str(shot["vo_text"]).strip()
+    for entry in (project.get("audio") or {}).get("dialogue") or []:
+        if isinstance(entry, dict) and entry.get("shot") == shot["id"]:
+            return str(entry.get("text") or "").strip()
+        if isinstance(entry, str):
+            return entry.strip()
+    return ""
+
+
+def audio_stems(project: dict, shot: dict) -> dict:
+    """Which audio stems a shot needs, where they land, and which engine makes each."""
+    cfg = audio_config(project)
+    stems = {}
+    text = shot_vo_text(project, shot)
+    if text and cfg["vo_engine"] != "off":
+        stems["vo"] = {"engine": cfg["vo_engine"], "text": text,
+                       "file": f"audio/vo/{shot['id']}.wav", "cost": 0.0}
+    if cfg["foley_engine"] != "off":
+        stems["foley"] = {"engine": cfg["foley_engine"],
+                          "prompt": shot.get("foley_prompt") or "",
+                          "file": f"audio/foley/{shot['id']}.wav", "cost": 0.0}
+    return stems
+
+
+def audio_licence_warnings(project: dict) -> list[str]:
+    cfg = audio_config(project)
+    out = []
+    for slot in ("vo_engine", "foley_engine", "bed_engine"):
+        engine = cfg[slot]
+        if engine == "off":
+            continue
+        licence = AUDIO_ENGINES[engine]["licence"]
+        if "NON-COMMERCIAL" in licence:
+            out.append(f"audio.{slot}={engine}: {licence} — personal/portfolio use theek, "
+                       f"paid client work ke liye ThinkSound (Apache) ya paid licence chahiye")
+    return out
+
+
+def _audio_tokens(project: dict) -> dict:
+    cfg = audio_config(project)
+    vo = {s["id"]: shot_vo_text(project, s) for s in project["shots"]}
+    foley = {s["id"]: (s.get("foley_prompt") or "") for s in project["shots"]}
+    return {
+        "__PROJECT__": str(project["project_id"]),
+        "__VO_ENGINE__": cfg["vo_engine"],
+        "__FOLEY_ENGINE__": cfg["foley_engine"],
+        "__BED_ENGINE__": cfg["bed_engine"],
+        "__VO_DICT__": json.dumps(vo, indent=2, ensure_ascii=False),
+        "__FOLEY_DICT__": json.dumps(foley, indent=2, ensure_ascii=False),
+        "__BED_PROMPT__": cfg["bed_prompt"] or "cinematic tension bed, low strings, subtle pulse",
+        "__BED_GAIN__": str(cfg["gain_db"]),
+        "__SHOTS__": json.dumps([s["id"] for s in project["shots"]]),
+    }
+
+
+_AUDIO_INTRO = """# Audio · __PROJECT__ (free stack)
+
+Yeh notebook silent clips par teen layers banata hai — sab **$0**:
+
+| Layer | Engine | Licence | Hardware |
+|---|---|---|---|
+| Voice / VO | `__VO_ENGINE__` | Kokoro = Apache-2.0 (commercial OK) · Chatterbox = MIT | CPU ya ~5 GB GPU (clone) |
+| Foley / SFX | `__FOLEY_ENGINE__` | MMAudio weights **CC-BY-NC 4.0** (non-commercial) · ThinkSound Apache | ~6–8 GB GPU |
+| Music bed | `__BED_ENGINE__` | MusicGen weights CC-BY-NC 4.0 | ~4 GB GPU |
+
+**Rules:** (1) paid client kaam me non-commercial weights use na karo — `thinksound` chuno ya paid
+licence lo; (2) native synced audio (dialogue lipsync ek hi pass me) sirf Ovi / H3 API dete hain, aur
+wo 24 GB+ GPU ya paisa maangta hai — isliye hum stems + LatentSync route chalate hain.
+
+**Run:** Runtime → T4 GPU (foley/bed ke liye) → Run all. Files Drive me `audio/vo`, `audio/foley`,
+`audio/bed.wav` me jayengi. Phir repo me: `python3 tools/videogen.py mix <project>.json`.
+"""
+
+_AUDIO_CONFIG = """import json, pathlib, subprocess
+
+PROJECT_DIR = "/content/drive/MyDrive/MONARCH STUDIO/Wf-07 • Monarch Ai Agent/05 · Projects/__PROJECT__"
+SHOTS = __SHOTS__
+VO_TEXT = __VO_DICT__          # shot id -> line (khaali = skip)
+FOLEY_PROMPT = __FOLEY_DICT__  # shot id -> sound description
+BED_PROMPT = "__BED_PROMPT__"
+BED_GAIN_DB = __BED_GAIN__
+VO_VOICE = "af_heart"          # Kokoro voice id (54 options: af_*, am_*, bf_*, bm_*)
+SPEED = 1.0
+FORCE = False
+
+from google.colab import drive
+drive.mount("/content/drive")
+BASE = pathlib.Path(PROJECT_DIR)
+VO_DIR, FOLEY_DIR = BASE / "audio" / "vo", BASE / "audio" / "foley"
+for d in (VO_DIR, FOLEY_DIR):
+    d.mkdir(parents=True, exist_ok=True)
+print("base:", BASE, "| exists:", BASE.exists())
+"""
+
+_AUDIO_KOKORO = """# 1) VOICE — Kokoro-82M (Apache-2.0, CPU bhi kaafi hai, ~0.3 GB)
+!pip -q install kokoro soundfile
+import numpy as np, soundfile as sf
+from kokoro import KPipeline
+
+pipeline = KPipeline(lang_code="a")   # 'a' = American English; 'b' = British
+
+made = []
+for sid in SHOTS:
+    text = (VO_TEXT.get(sid) or "").strip()
+    if not text:
+        print("skip (no text)", sid); continue
+    out = VO_DIR / f"{sid}.wav"
+    if out.exists() and not FORCE:
+        print("skip (exists)", out.name); continue
+    chunks = [audio for _, _, audio in pipeline(text, voice=VO_VOICE, speed=SPEED)]
+    audio = np.concatenate([c if isinstance(c, np.ndarray) else c.numpy() for c in chunks])
+    sf.write(out, audio, 24000)
+    print("vo ", out.name, f"{len(audio)/24000:.2f}s")
+    made.append(out.name)
+print("\\nVO files:", len(made))
+"""
+
+_AUDIO_CHATTERBOX = """# 1b) VOICE CLONE (optional) — Chatterbox, MIT, ~5 GB, 10 s reference se cloning
+# Apni awaaz ka 10-20 s clean wav yahan rakho, phir yeh cell chalao.
+import torch, torchaudio
+!pip -q install chatterbox-tts
+from chatterbox.tts import ChatterboxTTS
+
+REF_WAV = str(BASE / "audio" / "voice_ref.wav")   # <- apni awaaz
+assert pathlib.Path(REF_WAV).exists(), "pehle audio/voice_ref.wav upload karo"
+
+model = ChatterboxTTS.from_pretrained(device="cuda" if torch.cuda.is_available() else "cpu")
+for sid in SHOTS:
+    text = (VO_TEXT.get(sid) or "").strip()
+    if not text:
+        continue
+    out = VO_DIR / f"{sid}.wav"
+    if out.exists() and not FORCE:
+        print("skip (exists)", out.name); continue
+    wav = model.generate(text, audio_prompt_path=REF_WAV)
+    torchaudio.save(str(out), wav.cpu(), model.sr)
+    print("vo-clone", out.name)
+"""
+
+_AUDIO_FOLEY = """# 2) FOLEY — __FOLEY_ENGINE__ (video + text -> sound)
+# MMAudio: code MIT, weights CC-BY-NC 4.0 (non-commercial). ThinkSound: Apache-2.0.
+FOLEY_ENGINE = "__FOLEY_ENGINE__"
+made = []
+
+if FOLEY_ENGINE == "mmaudio":
+    !git -q clone https://github.com/hkchengrex/MMAudio.git /content/MMAudio
+    !pip -q install -e /content/MMAudio
+    !pip -q install torch torchvision torchaudio --upgrade
+    import torch, torchaudio
+    from mmaudio.eval_utils import all_model_cfg, generate, load_video
+    from mmaudio.model.flow_matching import FlowMatching
+    from mmaudio.model.networks import MMAudio, get_my_mmaudio
+    from mmaudio.model.utils.features_utils import FeaturesUtils
+
+    cfg_name = "mmaudio_small_44k" if torch.cuda.get_device_properties(0).total_memory < 12e9 else "mmaudio_large_44k_v2"
+    model_cfg = all_model_cfg[cfg_name]
+    net = get_my_mmaudio(model_cfg.model).eval().to("cuda")
+    net.load_weights(torch.load(f"~/.cache/mmaudio/{cfg_name}.pth", map_location="cpu", weights_only=True))
+    feats = FeaturesUtils(**model_cfg.features).eval().to("cuda")
+    fm = FlowMatching(min_sigma=0, inference_mode="euler", num_steps=25)
+
+    for sid in SHOTS:
+        src = BASE / "shots" / f"{sid}.mp4"
+        if not src.exists():
+            print("skip (no clip)", sid); continue
+        out = FOLEY_DIR / f"{sid}.wav"
+        if out.exists() and not FORCE:
+            print("skip (exists)", out.name); continue
+        video_info, video = load_video(str(src), 16, model_cfg.sampling_rate)
+        with torch.no_grad():
+            audio = generate(video, feats, net, fm,
+                             num_steps=25, duration=float(video_info.duration),
+                             cfg_strength=4.5,
+                             seed=42)
+        torchaudio.save(str(out), audio.cpu(), model_cfg.sampling_rate)
+        print("foley", out.name)
+        made.append(out.name)
+
+elif FOLEY_ENGINE == "thinksound":
+    import subprocess
+    subprocess.run(["bash", "-c", "pip -q install thinksound"], check=False)
+    # ThinkSound CLI (Apache-2.0). Video + prompt -> wav
+    for sid in SHOTS:
+        src = BASE / "shots" / f"{sid}.mp4"
+        if not src.exists():
+            print("skip (no clip)", sid); continue
+        out = FOLEY_DIR / f"{sid}.wav"
+        if out.exists() and not FORCE:
+            print("skip (exists)", out.name); continue
+        prompt = FOLEY_PROMPT.get(sid) or "natural ambience matching the scene"
+        subprocess.run(["python", "-m", "thinksound.infer",
+                        "--video", str(src), "--prompt", prompt, "--out", str(out)], check=False)
+        print("foley", out.name)
+        made.append(out.name)
+else:
+    print("foley engine off")
+
+print("\\nfoley files:", len(made))
+"""
+
+_AUDIO_BED = """# 3) MUSIC BED — MusicGen (weights CC-BY-NC 4.0 — non-commercial)
+import torch, torchaudio
+!pip -q install audiocraft
+from audiocraft.models import MusicGen
+
+model = MusicGen.get_pretrained("facebook/musicgen-small")
+model.set_generation_params(duration=30)
+wav = model.generate([BED_PROMPT])
+out = BASE / "audio" / "bed.wav"
+torchaudio.save(str(out), wav[0].cpu(), model.sample_rate)
+print("bed:", out, "| prompt:", BED_PROMPT, "| gain", BED_GAIN_DB, "dB")
+"""
+
+_AUDIO_RECEIPT = """# 4) Receipt — kaunsi stem bani, kaunsa md5
+import hashlib, json
+rows = []
+for folder in (VO_DIR, FOLEY_DIR, BASE / "audio"):
+    for f in sorted(folder.glob("*.wav")):
+        rows.append({"stem": f.relative_to(BASE).as_posix(), "bytes": f.stat().st_size,
+                     "md5": hashlib.md5(f.read_bytes()).hexdigest()})
+receipt = BASE / "audio_receipt.json"
+receipt.write_text(json.dumps({"project": "__PROJECT__",
+                               "engines": {"vo": "__VO_ENGINE__", "foley": "__FOLEY_ENGINE__",
+                                           "bed": "__BED_ENGINE__"},
+                               "files": rows}, indent=2))
+print(json.dumps(rows, indent=2))
+print("\\nreceipt:", receipt)
+print("Ab repo me: python3 tools/videogen.py mix <project>.json")
+"""
+
+
+def build_audio_notebook(project: dict) -> dict:
+    tokens = _audio_tokens(project)
+    cfg = audio_config(project)
+
+    def fill(text: str) -> str:
+        for key, value in tokens.items():
+            text = text.replace(key, value)
+        return text
+
+    cells = [_md(fill(_AUDIO_INTRO)), _code(fill(_AUDIO_CONFIG))]
+    if cfg["vo_engine"] == "kokoro":
+        cells.append(_code(fill(_AUDIO_KOKORO)))
+    elif cfg["vo_engine"] == "chatterbox":
+        cells.append(_code(fill(_AUDIO_CHATTERBOX)))
+    if cfg["foley_engine"] != "off":
+        cells.append(_code(fill(_AUDIO_FOLEY)))
+    if cfg["bed_engine"] != "off":
+        cells.append(_code(fill(_AUDIO_BED)))
+    cells.append(_code(fill(_AUDIO_RECEIPT)))
+    return _nb(cells)
+
+
+def audio(project_file: pathlib.Path) -> int:
+    """Write the free-audio Colab notebook (voice + foley + music) for a project."""
+    project = require_project(project_file)
+    paths = project_paths(project_file)
+    for key in ("audio", "vo", "foley"):
+        paths[key].mkdir(parents=True, exist_ok=True)
+    cfg = audio_config(project)
+
+    notebook = build_audio_notebook(project)
+    target = paths["audio"] / f"AUDIO_{project['project_id']}.ipynb"
+    write_json(target, notebook)
+
+    print(f"AUDIO {project['project_id']}  vo={cfg['vo_engine']} · foley={cfg['foley_engine']} "
+          f"· bed={cfg['bed_engine']}  (all $0)")
+    for shot in project["shots"]:
+        stems = audio_stems(project, shot)
+        if stems:
+            print(f"  {shot['id']:<20} " + " + ".join(
+                f"{k}:{v['engine']}" for k, v in stems.items()))
+        else:
+            print(f"  {shot['id']:<20} (no stems)")
+    print(f"  notebook : {target}")
+    print("  T4 GPU -> Run all -> audio/vo + audio/foley + audio/bed.wav in Drive")
+    for warn in audio_licence_warnings(project):
+        print(f"  WARN     {warn}")
+    print(f"  next     : python3 tools/videogen.py mix {project_file}")
+
+    receipts = load_json(paths["receipts"]) if paths["receipts"].exists() else {"shots": {}}
+    receipts.setdefault("shots", {})
+    receipts["audio"] = {"engines": {k: cfg[k] for k in ("vo_engine", "foley_engine", "bed_engine")},
+                         "notebook": str(target), "created_at": now()}
+    write_json(paths["receipts"], receipts)
+    return 0
+
+
+def mix_graph(has_vo: bool, has_foley: bool, has_bed: bool, *, bed_gain_db: float = -6.0,
+              vo_gain_db: float = 0.0, foley_gain_db: float = -3.0) -> tuple[list[str], str, str]:
+    """Build (extra inputs, filter_complex, audio map) for one shot.
+
+    Dialogue and foley are summed, then the music bed is ducked under them with
+    sidechaincompress — the standard 30-second fix for "voice lost in the bed".
+    """
+    inputs: list[str] = []
+    index = 1
+    dialogue_parts: list[str] = []
+    filters: list[str] = []
+    dia = ""
+
+    if has_vo:
+        inputs += ["-i", "__VO__"]
+        filters.append(f"[{index}:a]aresample=48000,volume={vo_gain_db}dB[vo]")
+        dialogue_parts.append("[vo]")
+        index += 1
+    if has_foley:
+        inputs += ["-i", "__FOLEY__"]
+        filters.append(f"[{index}:a]aresample=48000,volume={foley_gain_db}dB[fo]")
+        dialogue_parts.append("[fo]")
+        index += 1
+
+    if len(dialogue_parts) == 2:
+        filters.append("[vo][fo]amix=inputs=2:normalize=0[dia]")
+        dia = "[dia]"
+    elif dialogue_parts:
+        dia = dialogue_parts[0]
+
+    if has_bed:
+        inputs += ["-i", "__BED__"]
+        filters.append(f"[{index}:a]aresample=48000,volume={bed_gain_db}dB[bed]")
+        if dia:
+            filters.append(f"[bed][dia]sidechaincompress=threshold=0.03:ratio=8:attack=15:"
+                           f"release=350[bedduck]")
+            filters.append(f"{dia}[bedduck]amix=inputs=2:normalize=0[aout]")
+        else:
+            filters.append("[bed]anull[aout]")
+        amap = "[aout]"
+    elif dia:
+        filters.append(f"{dia}anull[aout]")
+        amap = "[aout]"
+    else:
+        return [], "", ""
+
+    return inputs, ";".join(filters), amap
+
+
+def mix_variant(path: pathlib.Path) -> pathlib.Path:
+    return path.with_name(path.stem + "-mix.mp4")
+
+
+def mix(project_file: pathlib.Path, *, loudnorm: bool = False) -> int:
+    """Mux voice + foley + music under each shot's best video (needs ffmpeg)."""
+    project = require_project(project_file)
+    paths = project_paths(project_file)
+    ffmpeg = which("ffmpeg")
+    if not ffmpeg:
+        raise EngineError("ffmpeg not found — run mix on a machine that has it (apt-get install -y ffmpeg)")
+
+    cfg = audio_config(project)
+    made, skipped, missing = 0, 0, []
+    receipts = load_json(paths["receipts"]) if paths["receipts"].exists() else {"shots": {}}
+    receipts.setdefault("shots", {})
+    receipts.setdefault("mix", {})
+
+    for shot in project["shots"]:
+        sid = shot["id"]
+        video = shot_media(shot, paths)
+        if video is None or video.stem.endswith("-mix"):
+            if video is None:
+                missing.append(sid)
+            skipped += 1
+            continue
+        stems = audio_stems(project, shot)
+        vo = paths["base"] / stems["vo"]["file"] if "vo" in stems else None
+        foley = paths["base"] / stems["foley"]["file"] if "foley" in stems else None
+        bed = paths["base"] / "audio" / "bed.wav"
+        vo = vo if vo and vo.exists() else None
+        foley = foley if foley and foley.exists() else None
+        bed = bed if bed.exists() else None
+        if not any((vo, foley, bed)):
+            skipped += 1
+            continue
+
+        extra, graph, amap = mix_graph(bool(vo), bool(foley), bool(bed),
+                                       bed_gain_db=cfg["gain_db"])
+        resolved = []
+        for item in extra:
+            if item == "__VO__":
+                resolved.append(str(vo))
+            elif item == "__FOLEY__":
+                resolved.append(str(foley))
+            elif item == "__BED__":
+                resolved.append(str(bed))
+            else:
+                resolved.append(item)
+
+        out = mix_variant(video)
+        cmd = [ffmpeg, "-y", "-i", str(video)] + resolved + [
+            "-filter_complex", graph, "-map", "0:v:0", "-map", amap,
+            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest"]
+        if loudnorm:
+            graph = graph.replace("[aout]", "[aoutraw]")
+            graph += "; [aoutraw]loudnorm=I=-16:TP=-1.5:LRA=11[aout]"
+            cmd = [cmd[0], cmd[1], cmd[2]] + cmd[3:-5] + ["-filter_complex", graph] + cmd[-5:]
+        cmd.append(str(out))
+        proc = subprocess.run(cmd, capture_output=True, text=True)
+        if proc.returncode != 0:
+            print(f"FAIL  {sid}: {(proc.stderr or '')[-300:]}")
+            receipts["mix"][sid] = {"status": "failed", "error": (proc.stderr or "")[-300:]}
+            continue
+        receipts["mix"][sid] = {"status": "mixed", "path": str(out), "md5": md5(out),
+                                "stems": {"vo": bool(vo), "foley": bool(foley), "bed": bool(bed)},
+                                "mixed_at": now()}
+        print(f"OK    {sid:<20} -> {out.name}  (vo={bool(vo)} foley={bool(foley)} bed={bool(bed)})")
+        made += 1
+
+    receipts["mix"]["updated_at"] = now()
+    write_json(paths["receipts"], receipts)
+    print(f"\nmixed {made} · skipped {skipped} · missing media {len(missing)}")
+    if missing:
+        print("  missing: " + ", ".join(missing) + "  (run the free queue / verify first)")
+        return 3
+    if not made:
+        raise EngineError("nothing to mix — no voice/foley/bed stems found "
+                          "(run `audio` in Colab, then drop the wavs into audio/)")
+    print(f"next: python3 tools/videogen.py verify {project_file} && "
+          f"python3 tools/videogen.py assemble {project_file}")
     return 0
 
 
@@ -845,9 +1344,10 @@ def shot_media(shot: dict, paths: dict) -> pathlib.Path | None:
     upscale stage writes ``<id>-2x.mp4`` / ``<id>-talk-2x.mp4``, so the sharpest finished file wins.
     """
     sid = shot["id"]
-    candidates = [paths["shots"] / f"{sid}-talk-2x.mp4", paths["shots"] / f"{sid}-2x.mp4",
-                  paths["shots"] / f"{sid}-talk-4x.mp4", paths["shots"] / f"{sid}-4x.mp4",
-                  paths["shots"] / f"{sid}-talk.mp4", paths["shots"] / f"{sid}.mp4"]
+    stems = [f"{sid}-talk-2x", f"{sid}-2x", f"{sid}-talk-4x", f"{sid}-4x",
+             f"{sid}-talk", f"{sid}"]
+    candidates = [paths["shots"] / f"{stem}-mix.mp4" for stem in stems]
+    candidates += [paths["shots"] / f"{stem}.mp4" for stem in stems]
     for candidate in candidates:
         if candidate.exists():
             return candidate
@@ -905,6 +1405,15 @@ def verify(project_file: pathlib.Path, *, tolerance: float = 0.6) -> int:
                 problems.append(f"fps {info['fps']} vs {project.get('fps', 24)}")
             if not info.get("audio_codec") and shot["kind"] == "hero" and project.get("route") == "paid":
                 problems.append("paid hero shot has no audio stream")
+            try:
+                want_audio = audio_config(project)["mix"] and any(
+                    (paths["base"] / p).exists()
+                    for p in [f"audio/vo/{sid}.wav", f"audio/foley/{sid}.wav"])
+            except EngineError:
+                want_audio = False
+            if want_audio and not info.get("audio_codec"):
+                problems.append("audio stems exist but this file has no audio — run `mix` "
+                                "and keep the -mix.mp4")
             target_h = int((project.get("delivery") or {}).get("target_height") or 0)
             if target_h and info.get("height") and info["height"] < target_h * 0.95:
                 problems.append(f"height {info['height']}p below delivery.target_height {target_h}p "
@@ -1007,6 +1516,16 @@ def status(project_file: pathlib.Path) -> int:
         state = record.get("status") or ("present" if file else "pending")
         print(f"{sid:<22}{entry['engine_label']:<16}{state:<16}{'yes' if file else '-':<8}"
               f"{entry['total_cost']:>7.2f}")
+    try:
+        cfg = audio_config(project)
+        stems = sum(1 for sh in project["shots"] for slot in ("vo", "foley")
+                    if slot in audio_stems(project, sh))
+        mixed = sum(1 for v in receipts.get("mix", {}).values()
+                    if isinstance(v, dict) and v.get("status") == "mixed")
+        print(f"\naudio  : vo={cfg['vo_engine']} · foley={cfg['foley_engine']} "
+              f"· bed={cfg['bed_engine']} · {stems} stem(s) planned · {mixed} shot(s) mixed")
+    except EngineError as exc:
+        print(f"\naudio  : {exc}")
     up = _plan_delivery(project)
     print(f"\ndelivery: {up['free_width']}x{up['free_height']} free -> "
           f"{up['out_width']}x{up['out_height']} ({up['engine']} x{up['factor']})"
@@ -1089,6 +1608,13 @@ def main(argv: list[str] | None = None) -> int:
     p_asm.add_argument("--out")
     p_asm.add_argument("--no-music", action="store_true")
 
+    p_audio = sub.add_parser("audio", help="write the free voice+foley+music Colab notebook")
+    p_audio.add_argument("project")
+
+    p_mix = sub.add_parser("mix", help="mux voice + foley + music under each shot (ffmpeg)")
+    p_mix.add_argument("project")
+    p_mix.add_argument("--loudnorm", action="store_true", help="normalise to -16 LUFS for social")
+
     p_up = sub.add_parser("upscale", help="write the Colab notebook that lifts free 480p clips")
     p_up.add_argument("project")
     p_up.add_argument("--engine", choices=["realesrgan", "lanczos"], default=None)
@@ -1128,6 +1654,10 @@ def main(argv: list[str] | None = None) -> int:
                             with_music=not args.no_music)
         if args.cmd == "status":
             return status(project_file)
+        if args.cmd == "audio":
+            return audio(project_file)
+        if args.cmd == "mix":
+            return mix(project_file, loudnorm=args.loudnorm)
         if args.cmd == "upscale":
             return upscale(project_file, engine=args.engine, factor=args.factor, only=args.only)
         raise EngineError(f"unknown command {args.cmd}")

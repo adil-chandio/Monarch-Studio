@@ -10,6 +10,8 @@ tools/videogen.py new    --id monarch-reel-01 --title "Monarch reel 01" --aspect
 tools/videogen.py plan   <project>/project.json
 tools/videogen.py render <project>/project.json            # dry run, spends nothing
 tools/videogen.py render <project>/project.json --yes      # submits paid shots
+tools/videogen.py audio  <project>/project.json           # free voice + foley + music notebook
+tools/videogen.py mix    <project>/project.json           # mux stems under each shot (ffmpeg)
 tools/videogen.py upscale <project>/project.json           # free 480p -> 960x1664 (Colab notebook)
 tools/videogen.py verify <project>/project.json
 tools/videogen.py assemble <project>/project.json
@@ -27,6 +29,9 @@ should not re-learn that per project. VIPER-1 keeps **one job format** and swaps
 | `wan` | Wan 2.1 T2V 1.3B on free Colab T4 | $0 | **queued** for `styles/minimax-h3-video/colab/MONARCH_T4_FREE_BRIDGE.ipynb` |
 | `latentsync` | ByteDance LatentSync lipsync pass | $0 | GPU machine script (T4 needs the sm_75 fp16 patch) |
 | `upscale` | Real-ESRGAN ×2 (GPU) or ffmpeg Lanczos ×2 (CPU) | $0 | Colab notebook written by `upscale` |
+| `kokoro` / `chatterbox` | free TTS (voice, optional cloning) | $0 | CPU (kokoro) or ~5 GB GPU (chatterbox) |
+| `mmaudio` / `thinksound` | free video→audio foley | $0 | ~6–8 GB GPU; MMAudio weights are **non-commercial** |
+| `musicgen` | free music bed | $0 | ~4 GB GPU; weights **non-commercial** |
 
 The model menu, licences and VRAM floors live in `styles/minimax-h3-video/data/tool_registry.json`; the
 prose version is `styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`. Add a row to the registry and a
@@ -48,11 +53,14 @@ Created by `new`, edited by hand. Lives in the active payload (`workflows/curren
   "route": "auto",
   "budget_usd": 5.0,
   "delivery": { "upscale": "realesrgan", "factor": 2, "target_height": 1664 },
-  "audio": { "music": "assets/music/bed.mp3", "dialogue": [] },
+  "audio": { "music": "assets/music/bed.mp3", "dialogue": [],
+             "vo_engine": "kokoro", "foley_engine": "mmaudio", "bed_engine": "musicgen",
+             "bed_prompt": "dark cinematic pulse, low strings", "bed_gain_db": -6, "mix": true },
   "shots": [
     { "id": "s01-hook", "kind": "hero", "seconds": 5, "ratio": "9:16",
       "prompt": "…Ref2VA / T2VA prompt…", "references": ["assets/refs/MONARCH_REAL_FRONT.png"],
-      "voice_ref": "assets/vo/line1.wav", "seed": 42 },
+      "voice_ref": "assets/vo/line1.wav", "seed": 42,
+      "vo_text": "the line spoken in this shot", "foley_prompt": "cloth rustle, room tone" },
     { "id": "s02-plate", "kind": "plate", "seconds": 5, "prompt": "…", "seed": 7 },
     { "id": "s03-sync", "kind": "lipsync", "seconds": 5, "source": "s02-plate", "audio": "assets/vo/line2.wav" }
   ]
@@ -109,6 +117,24 @@ WF-07 Drive destination (`05 · Projects/<id>/`, master → `06 · Masters & Rec
 
 **`doctor`** checks python, ffmpeg/ffprobe, the tool registry, `MINIMAX_API_KEY`, the character authority and the
 free notebook.
+
+### Audio: free stems, then one honest mix
+
+`audio` writes `audio/AUDIO_<project>.ipynb` — one Colab notebook that produces every stem at $0:
+voice (`kokoro`, Apache-2.0, CPU) or cloning (`chatterbox`, MIT, ~5 GB), foley from the clip
+(`mmaudio` ~6 GB, or `thinksound` Apache), and a music bed (`musicgen` ~4 GB). Files land in
+`audio/vo/`, `audio/foley/`, `audio/bed.wav`; `audio_receipt.json` carries the md5 of each stem.
+
+`mix` then builds, per shot: `vo + foley → amix` → bed at `bed_gain_db` →
+`sidechaincompress` ducking → `amix(dialogue, bed)` → AAC 192k, video stream copied (no re-encode).
+`--loudnorm` adds `-16 LUFS / TP -1.5` for social. Output is `<best-video-stem>-mix.mp4`, and
+`shot_media()` prefers mixed over unmixed at the same resolution, so `verify`/`assemble` pick it up
+automatically.
+
+Licences are enforced in prose, not vibes: `plan` prints a warning whenever a non-commercial
+weight set (MMAudio foley, MusicGen bed) is in use, and `knowledge/AUDIO.md` says what to swap for
+paid client work. Native synced audio in a single pass needs **Ovi** (24 GB fp8) or **Kandinsky 6
+Lite** (~22 GiB) — not a free T4 — or the paid H3 API.
 
 ### Quality: what the free route can and cannot be
 

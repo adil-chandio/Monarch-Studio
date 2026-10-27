@@ -96,9 +96,9 @@ class PlanTests(unittest.TestCase):
             self.assertEqual(plan["estimate_usd"], 0.0)
             hero = next(e for e in plan["shots"] if e["kind"] == "hero")
             self.assertEqual([s["engine"] for s in hero["steps"]],
-                             ["wan", "latentsync", "upscale"])
+                             ["wan", "latentsync", "mmaudio", "upscale"])
             plate = next(e for e in plan["shots"] if e["kind"] == "plate")
-            self.assertEqual([s["engine"] for s in plate["steps"]], ["wan", "upscale"])
+            self.assertEqual([s["engine"] for s in plate["steps"]], ["wan", "mmaudio", "upscale"])
             self.assertEqual(plan["delivery"]["out_height"], 1664)
 
     def test_paid_route_prices_h3_per_shot_kind(self):
@@ -333,6 +333,181 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             self.assertEqual(vg.main(["new", "--id", "cli-1", "--title", "CLI one", "--out", td]), 0)
             self.assertTrue((pathlib.Path(td) / "cli-1" / "project.json").exists())
+
+
+class AudioTests(unittest.TestCase):
+    """Free audio stack: voice + foley + bed, and the honest licence lines."""
+
+    def _project(self, td, **audio):
+        path = make_project(pathlib.Path(td), route="free")
+        data = json.loads(path.read_text())
+        data["audio"] = {**(data.get("audio") or {}), **audio}
+        path.write_text(json.dumps(data, indent=2))
+        return path, json.loads(path.read_text())
+
+    def test_defaults_are_the_free_stack(self):
+        with tempfile.TemporaryDirectory() as td:
+            _, project = self._project(td)
+            cfg = vg.audio_config(project)
+            self.assertEqual((cfg["vo_engine"], cfg["foley_engine"], cfg["bed_engine"]),
+                             ("kokoro", "mmaudio", "musicgen"))
+            self.assertTrue(cfg["mix"])
+
+    def test_bad_engine_is_a_user_error(self):
+        with tempfile.TemporaryDirectory() as td:
+            _, project = self._project(td, vo_engine="elevenlabs")
+            with self.assertRaises(vg.EngineError):
+                vg.audio_config(project)
+
+    def test_stems_follow_text_and_engines(self):
+        with tempfile.TemporaryDirectory() as td:
+            _, project = self._project(td, foley_engine="off")
+            shot = project["shots"][0]
+            shot["vo_text"] = "line one"
+            stems = vg.audio_stems(project, shot)
+            self.assertEqual(list(stems), ["vo"])
+            self.assertEqual(stems["vo"]["file"], "audio/vo/s01-hook.wav")
+            self.assertEqual(stems["vo"]["engine"], "kokoro")
+
+    def test_dialogue_list_supplies_text(self):
+        with tempfile.TemporaryDirectory() as td:
+            _, project = self._project(td, dialogue=[{"shot": "s02-plate", "text": "plate line"}])
+            self.assertEqual(vg.shot_vo_text(project, project["shots"][1]), "plate line")
+            self.assertEqual(vg.shot_vo_text(project, project["shots"][0]), "")
+
+    def test_non_commercial_weights_are_flagged(self):
+        with tempfile.TemporaryDirectory() as td:
+            _, project = self._project(td)
+            warns = " ".join(vg.audio_licence_warnings(project))
+            self.assertIn("NON-COMMERCIAL", warns)
+            self.assertIn("mmaudio", warns)
+            with tempfile.TemporaryDirectory() as td2:
+                _, apache = self._project(td2, foley_engine="thinksound", bed_engine="off")
+                self.assertFalse(any("foley" in w for w in vg.audio_licence_warnings(apache)))
+
+    def test_audio_notebook_has_voice_foley_and_bed(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, _ = self._project(td)
+            with mock.patch("builtins.print"):
+                self.assertEqual(vg.audio(path), 0)
+            nb_file = path.parent / "audio" / "AUDIO_p1.ipynb"
+            nb = json.loads(nb_file.read_text())
+            text = "\n".join("".join(c["source"]) for c in nb["cells"])
+            self.assertIn("KPipeline", text)
+            self.assertIn("MMAudio", text)
+            self.assertIn("musicgen", text)
+            self.assertIn("05 · Projects/p1", text)
+            self.assertIn("CC-BY-NC", text)
+            receipts = json.loads((path.parent / "receipts.json").read_text())
+            self.assertEqual(receipts["audio"]["engines"]["vo_engine"], "kokoro")
+
+    def test_chatterbox_clone_variant_replaces_kokoro_cell(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, _ = self._project(td, vo_engine="chatterbox")
+            with mock.patch("builtins.print"):
+                vg.audio(path)
+            text = "\n".join("".join(c["source"]) for c in
+                             json.loads((path.parent / "audio" / "AUDIO_p1.ipynb").read_text())["cells"])
+            self.assertIn("ChatterboxTTS", text)
+            self.assertIn("voice_ref.wav", text)
+            self.assertNotIn("KPipeline", text)
+
+    def test_mix_graph_ducks_the_bed_under_dialogue(self):
+        inputs, graph, amap = vg.mix_graph(True, True, True, bed_gain_db=-6.0)
+        self.assertEqual(amap, "[aout]")
+        self.assertIn("sidechaincompress", graph)
+        self.assertIn("[vo][fo]amix=inputs=2:normalize=0[dia]", graph)
+        self.assertIn("volume=-6.0dB", graph)
+        self.assertEqual(inputs.count("-i"), 3)
+
+    def test_mix_graph_without_bed_has_no_ducking(self):
+        _, graph, amap = vg.mix_graph(False, True, False)
+        self.assertNotIn("sidechaincompress", graph)
+        self.assertEqual(amap, "[aout]")
+
+    def test_mix_graph_with_nothing_returns_empty(self):
+        self.assertEqual(vg.mix_graph(False, False, False), ([], "", ""))
+
+    def test_mix_writes_a_mixed_variant(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, project = self._project(td)
+            project["shots"][0]["vo_text"] = "line one"
+            path.write_text(json.dumps(project, indent=2))
+            shots = path.parent / "shots"
+            (shots / "s01-hook.mp4").write_bytes(b"video")
+            (path.parent / "audio" / "vo").mkdir(parents=True, exist_ok=True)
+            (path.parent / "audio" / "vo" / "s01-hook.wav").write_bytes(b"vo")
+            (path.parent / "audio" / "bed.wav").write_bytes(b"bed")
+
+            seen = {}
+
+            def fake_run(cmd, **kwargs):
+                seen["cmd"] = cmd
+                pathlib.Path(cmd[-1]).write_bytes(b"mixed")
+                return mock.Mock(returncode=0, stderr="", stdout="")
+
+            with mock.patch.object(vg, "which", lambda b: "/usr/bin/" + b), \
+                 mock.patch.object(vg, "subprocess") as sp:
+                sp.run.side_effect = fake_run
+                code = vg.mix(path)
+            self.assertEqual(code, 3)          # shots 2 and 3 still have no media
+            self.assertTrue((shots / "s01-hook-mix.mp4").exists())
+            self.assertIn("sidechaincompress", " ".join(seen["cmd"]))
+            receipts = json.loads((path.parent / "receipts.json").read_text())
+            self.assertEqual(receipts["mix"]["s01-hook"]["status"], "mixed")
+
+    def test_mix_without_stems_is_an_honest_error(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, project = self._project(td)
+            for shot in project["shots"]:
+                (path.parent / "shots" / f"{shot['id']}.mp4").write_bytes(b"video")
+            with mock.patch.object(vg, "which", lambda b: "/usr/bin/" + b):
+                with self.assertRaises(vg.EngineError):
+                    vg.mix(path)
+
+    def test_shot_media_prefers_the_mixed_variant(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, _ = self._project(td)
+            shots = path.parent / "shots"
+            (shots / "s01-hook.mp4").write_bytes(b"plain")
+            (shots / "s01-hook-2x.mp4").write_bytes(b"up")
+            (shots / "s01-hook-2x-mix.mp4").write_bytes(b"upmixed")
+            self.assertEqual(vg.shot_media({"id": "s01-hook"}, vg.project_paths(path)).name,
+                             "s01-hook-2x-mix.mp4")
+
+    def test_verify_flags_a_file_with_stems_but_no_audio(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, _ = self._project(td)
+            (path.parent / "shots" / "s01-hook.mp4").write_bytes(b"m")
+            (path.parent / "shots" / "s02-plate.mp4").write_bytes(b"m")
+            (path.parent / "shots" / "s03-payoff.mp4").write_bytes(b"m")
+            (path.parent / "audio" / "vo").mkdir(parents=True)
+            (path.parent / "audio" / "vo" / "s01-hook.wav").write_bytes(b"vo")
+            with mock.patch.object(vg, "which", lambda b: "/usr/bin/" + b), \
+                 mock.patch.object(vg, "probe", lambda p: {"available": True, "width": 480, "height": 832,
+                                                           "fps": 24.0, "duration": 5.0,
+                                                           "video_codec": "h264", "audio_codec": None}):
+                self.assertEqual(vg.verify(path), 3)
+
+    def test_plan_carries_voice_and_foley_for_free_shots(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, project = self._project(td)
+            project["shots"][0]["vo_text"] = "hello"
+            plan = vg.build_plan(project, has_key=False)
+            engines = [s["engine"] for s in plan["shots"][0]["steps"]]
+            self.assertIn("kokoro", engines)
+            self.assertIn("mmaudio", engines)
+            self.assertEqual(plan["estimate_usd"], 0.0)
+            self.assertTrue(any("NON-COMMERCIAL" in w for w in plan["warnings"]))
+
+    def test_paid_shots_do_not_queue_free_voice(self):
+        with tempfile.TemporaryDirectory() as td:
+            path, project = self._project(td)
+            project["route"] = "paid"
+            project["shots"][0]["vo_text"] = "hello"
+            plan = vg.build_plan(project, has_key=True)
+            engines = [s["engine"] for s in plan["shots"][0]["steps"]]
+            self.assertEqual(engines, ["h3"])
 
 
 class QualityTests(unittest.TestCase):

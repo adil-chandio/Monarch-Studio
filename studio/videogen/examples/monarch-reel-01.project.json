@@ -3,7 +3,7 @@
   "project_id": "monarch-reel-01",
   "title": "Monarch reel 01 \u2014 example",
   "style_id": "minimax-h3-video",
-  "engine": "viper-1.1",
+  "engine": "viper-1.2",
   "character": "monarch",
   "character_authority": "characters/monarch",
   "aspect": "9:16",
@@ -13,10 +13,14 @@
   "budget_usd": 5.0,
   "notes": "Copy into workflows/current/payload/, put the Monarch reference crops in assets/refs/, record the line in assets/vo/line1.wav, then plan -> render -> verify -> assemble.",
   "audio": {
-    "music": "assets/music/bed.mp3",
-    "dialogue": [
-      "assets/vo/line1.wav"
-    ]
+    "music": null,
+    "dialogue": [],
+    "vo_engine": "kokoro",
+    "foley_engine": "mmaudio",
+    "bed_engine": "musicgen",
+    "bed_prompt": "dark cinematic pulse, low strings, no drums",
+    "bed_gain_db": -6,
+    "mix": true
   },
   "shots": [
     {
@@ -31,7 +35,9 @@
         "assets/refs/MONARCH_REAL_PROFILE.png"
       ],
       "voice_ref": "assets/vo/monarch_voice_ref.mp3",
-      "seed": 42
+      "seed": 42,
+      "vo_text": "TODO: hook line \u2014 Monarch, direct address, 6-8 words.",
+      "foley_prompt": "quiet room tone, fabric move as the figure turns"
     },
     {
       "id": "s02-plate",
@@ -39,7 +45,8 @@
       "seconds": 5,
       "ratio": "9:16",
       "seed": 7,
-      "prompt": "integrated_multimodal_description: [Shot 1] Cinematic live-action, a slow vertical push through a rain-wet alley at night, one flickering amber neon sign, steam rising from a storm drain, a lone figure in a charcoal coat walking away, their shadow stretching along the wet stones. The camera tracks the figure with small amplitude at slow speed. Cold teal shadows, warm amber highlights, heavy film grain, the lower third of the frame stays empty dark space.\n\noverall_soundscape: Steady rain on metal awnings, a distant tram bell, footsteps in shallow water.\n\nnon_diegetic_music: Solo muted trumpet over a sustained low string drone, slow tempo."
+      "prompt": "integrated_multimodal_description: [Shot 1] Cinematic live-action, a slow vertical push through a rain-wet alley at night, one flickering amber neon sign, steam rising from a storm drain, a lone figure in a charcoal coat walking away, their shadow stretching along the wet stones. The camera tracks the figure with small amplitude at slow speed. Cold teal shadows, warm amber highlights, heavy film grain, the lower third of the frame stays empty dark space.\n\noverall_soundscape: Steady rain on metal awnings, a distant tram bell, footsteps in shallow water.\n\nnon_diegetic_music: Solo muted trumpet over a sustained low string drone, slow tempo.",
+      "foley_prompt": "low wind over concrete, distant city hum"
     },
     {
       "id": "s03-payoff",
@@ -47,7 +54,8 @@
       "seconds": 5,
       "ratio": "9:16",
       "seed": 11,
-      "prompt": "integrated_multimodal_description: [Shot 1] 3D CG render, macro shot of a matte black object rotating on a reflective obsidian plinth, a single hard key light sweeping its machined edge, dust motes in the beam, a teal gradient blooming behind it. The camera arcs around the object with small amplitude at slow speed. The lower third of the frame stays empty dark space.\n\noverall_soundscape: A deep sub-bass swell, a metallic click as the object locks into place.\n\nnon_diegetic_music: Minimal electronic pulse at 90 BPM, one filtered saw chord opening at the cut."
+      "prompt": "integrated_multimodal_description: [Shot 1] 3D CG render, macro shot of a matte black object rotating on a reflective obsidian plinth, a single hard key light sweeping its machined edge, dust motes in the beam, a teal gradient blooming behind it. The camera arcs around the object with small amplitude at slow speed. The lower third of the frame stays empty dark space.\n\noverall_soundscape: A deep sub-bass swell, a metallic click as the object locks into place.\n\nnon_diegetic_music: Minimal electronic pulse at 90 BPM, one filtered saw chord opening at the cut.",
+      "foley_prompt": "single heavy door close, tail reverb"
     }
   ],
   "delivery": {

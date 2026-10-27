@@ -15,6 +15,7 @@ Generate karne wala engine studio ka apna hai — [`tools/videogen.py`](../../to
 | **VIPER-1 tool** (`tools/videogen.py`, docs) | ✅ **free** | studio ka apna code, repo me, koi subscription nahi |
 | **Free route** — Colab T4 · Wan 2.1 1.3B · LatentSync lipsync · local ffmpeg | ✅ **$0** | 480×832, silent base (voice aap ki), 10–25 min/clip |
 | **Free upscale** — Real-ESRGAN ×2 (T4) ya Lanczos ×2 (CPU) | ✅ **$0** | 480×832 → **960×1664**, sharper magar naya detail nahi |
+| **Free audio** — Kokoro/Chatterbox voice + MMAudio/ThinkSound foley + MusicGen bed | ✅ **$0** | MMAudio & MusicGen weights **non-commercial**; Kokoro/Chatterbox commercial OK |
 | **Drive storage** | ✅ free 15 GB | 1080p masters bhaari hote hain; purane runs archive karo |
 | **MiniMax-H3 API** (2K, native stereo, ek pass me dialogue+lipsync) | ❌ **paid** | $0.08/s @768P · $0.13/s @2K. 5 s hero = $0.40–0.65 |
 | **H3 local weights** | ✅ weights free | magar 4×H100 class GPU — Colab par nahi |
@@ -36,14 +37,14 @@ Aur paisa bhi tab lagta hai jab aap khud `render --yes` chalao — estimate dekh
 
 Git source of truth hai; Drive delivery + sharing ki jagah hai. Dono ke ids `data/drive.json` me.
 
-### Abhi Drive me kya rakha hai (14 files, 6 folders)
+### Abhi Drive me kya rakha hai (15 files, 6 folders)
 
 | Folder | Files |
 |---|---|
 | `01 · START HERE` | START HERE guide (Google Doc) |
-| `02 · Engine (VIPER-1)` | `videogen.py` (v1.1), `VIDEOGEN` manual (Doc) |
+| `02 · Engine (VIPER-1)` | `videogen.py` (v1.2), `VIDEOGEN` manual (Doc) |
 | `03 · Colab Notebooks` | `MONARCH_T4_FREE_BRIDGE.ipynb` (free), `MONARCH_H3_COLAB.ipynb` (paid) |
-| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** (Docs) + `tool_registry.json` |
+| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** (Docs) + `tool_registry.json` |
 | `05 · Projects` | `monarch-reel-01.project.json`, `free_jobs.example.json` |
 | `06 · Masters & Receipts` | (khaali — pehla master yahan aayega) |
 
@@ -62,6 +63,24 @@ python3 tools/videogen.py upscale <project>.json --engine lanczos # CPU-only, ff
 ```
 
 `verify` height bhi enforce karta hai: target se neeche = **exit 3**.
+
+## 2c. Audio — free me kaise
+
+| Layer | Free engine | Licence | Hardware |
+|---|---|---|---|
+| Voice | **Kokoro-82M** / **Chatterbox** (clone) | Apache-2.0 / MIT | CPU / ~5 GB GPU |
+| Foley + ambience | **MMAudio** / **ThinkSound** | MIT+CC-BY-NC / Apache | ~6–8 GB GPU |
+| Music bed | **MusicGen-small** | MIT + CC-BY-NC | ~4 GB GPU |
+| Lip-sync | **LatentSync 1.5** | Apache + OpenRAIL++ | 8 GB GPU |
+
+```bash
+python3 tools/videogen.py audio <project>.json   # Colab notebook: vo + foley + bed
+python3 tools/videogen.py mix   <project>.json   # vo+foley amix, bed ducked (sidechaincompress)
+python3 tools/videogen.py mix   <project>.json --loudnorm   # -16 LUFS for social
+```
+
+Ek hi pass me synced dialogue (Veo-3 jaisa) free T4 par **nahi** aata — uske liye **Ovi** (24 GB fp8)
+ya paid H3. Poora research + licences: [`knowledge/AUDIO.md`](knowledge/AUDIO.md).
 
 ## 3. Ek project ka poora cycle
 

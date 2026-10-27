@@ -15,7 +15,8 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 | 8 | [`../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md`](../../styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md) | is H3 free? trial routes, tunnel risks |
 | 9 | [`../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`](../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md) | model menu by GPU tier + free talking-face chain |
 | 10 | [`../../studio/videogen/examples/monarch-reel-01.project.json`](../../studio/videogen/examples/monarch-reel-01.project.json) | ready example project |
-| 11 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
+| 11 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
+| 12 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
 
 ## Standing decisions
 
@@ -28,3 +29,7 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
    lanczos x2) takes it to 960×1664; that is sharper, **not** true 1080p detail. Real 1080p/2K and native stereo
    dialogue need the paid H3 route (or WF-05 finishing on top of free plates).
 6. **Never sell a free-tier render as an H3 output,** and never promise 2K from a local run.
+7. **Audio is free stems, not magic:** voice + foley + bed + LatentSync costs $0; native synced
+   dialogue in one pass needs Ovi (24 GB) or the paid H3 API.
+8. **Licence before delivery:** MMAudio and MusicGen weights are CC-BY-NC — personal/portfolio yes,
+   paid client work needs ThinkSound + licensed music.

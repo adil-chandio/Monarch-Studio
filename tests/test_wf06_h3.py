@@ -230,9 +230,10 @@ class ToolRegistryTests(unittest.TestCase):
                 self.assertIsInstance(m["native_audio"], bool)
 
     def test_no_model_claims_audio_it_does_not_have(self):
-        # only H3 (api/local) and LTX-2.5 ship native audio in this menu
+        # native (in-pass) audio: H3 api/local, LTX-2.5, plus the new open A/V models Ovi + Kandinsky 6
         audio_models = {m["id"] for m in self.reg["models"] if m["native_audio"]}
-        self.assertEqual(audio_models, {"minimax-h3-api", "minimax-h3-local", "ltx-25"})
+        self.assertEqual(audio_models, {"minimax-h3-api", "minimax-h3-local", "ltx-25",
+                                        "ovi", "kandinsky-6-lite"})
 
     def test_t4_models_are_not_paid_and_fit_16gb(self):
         for m in self.reg["models"]:

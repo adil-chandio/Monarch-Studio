@@ -55,19 +55,19 @@
     },
     {
       "what": "engine source",
-      "name": "videogen.py (VIPER-1 v1.1 \u2014 with free upscale stage)",
-      "id": "1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l",
+      "name": "videogen.py (VIPER-1 v1.2 \u2014 audio + mix + upscale)",
+      "id": "1pr2C21S7oHVZxt6EtvCGAK71dRgHLUC0",
       "type": "python",
       "folder": "engine",
-      "url": "https://drive.google.com/file/d/1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l/view"
+      "url": "https://drive.google.com/file/d/1pr2C21S7oHVZxt6EtvCGAK71dRgHLUC0/view"
     },
     {
       "what": "engine manual",
-      "name": "VIDEOGEN \u2014 VIPER-1 manual (v1.1, upscale stage)",
-      "id": "15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk",
+      "name": "VIDEOGEN \u2014 VIPER-1 manual (v1.2, audio + quality)",
+      "id": "12o18EbZFJME6k1kbv4vLKpyalB2Y1WC2Y9AhbwaDGmY",
       "type": "google-doc",
       "folder": "engine",
-      "url": "https://docs.google.com/document/d/15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk/edit"
+      "url": "https://docs.google.com/document/d/12o18EbZFJME6k1kbv4vLKpyalB2Y1WC2Y9AhbwaDGmY/edit"
     },
     {
       "what": "free route notebook",
@@ -156,11 +156,19 @@
       "type": "google-doc",
       "folder": "knowledge",
       "url": "https://docs.google.com/document/d/1ZFpqb4xyY71UuTzcAFCxejSEdwT2EmmFYFvfpaoTcFY/edit"
+    },
+    {
+      "what": "audio research",
+      "name": "AUDIO \u2014 free voice + foley + music (research + licences)",
+      "id": "1fE_rkIV5LEh4NgIi4wyRFb0aa6MElNc16tcaIsUEYQw",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1fE_rkIV5LEh4NgIi4wyRFb0aa6MElNc16tcaIsUEYQw/edit"
     }
   ],
   "uploaded_at": "2026-10-27T14:20:55Z",
-  "uploaded_count": 14,
-  "engine_version": "viper-1.1",
+  "uploaded_count": 15,
+  "engine_version": "viper-1.2",
   "trashed": [
     {
       "why": "superseded by v1.1",
@@ -173,6 +181,14 @@
     {
       "why": "superseded (480p answer added)",
       "id": "15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI"
+    },
+    {
+      "why": "superseded by v1.2",
+      "id": "1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l"
+    },
+    {
+      "why": "superseded by v1.2 manual",
+      "id": "15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk"
     }
   ]
 }

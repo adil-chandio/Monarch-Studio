@@ -20,6 +20,18 @@
           "note": "free lipsync pass with your own voice track"
         },
         {
+          "engine": "kokoro",
+          "action": "vo",
+          "cost": 0.0,
+          "note": "54 preset voices, no cloning, runs on CPU faster than real time"
+        },
+        {
+          "engine": "mmaudio",
+          "action": "foley",
+          "cost": 0.0,
+          "note": "video\u2192audio SOTA at this size, 44.1 kHz, ~1 s per 8 s clip"
+        },
+        {
           "engine": "upscale",
           "action": "realesrgan-x2",
           "cost": 0.0,
@@ -40,6 +52,12 @@
           "note": "free Colab T4 job (480x832, silent) \u2014 run the notebook queue cell"
         },
         {
+          "engine": "mmaudio",
+          "action": "foley",
+          "cost": 0.0,
+          "note": "video\u2192audio SOTA at this size, 44.1 kHz, ~1 s per 8 s clip"
+        },
+        {
           "engine": "upscale",
           "action": "realesrgan-x2",
           "cost": 0.0,
@@ -58,6 +76,12 @@
           "action": "queue",
           "cost": 0.0,
           "note": "free Colab T4 job (480x832, silent) \u2014 run the notebook queue cell"
+        },
+        {
+          "engine": "mmaudio",
+          "action": "foley",
+          "cost": 0.0,
+          "note": "video\u2192audio SOTA at this size, 44.1 kHz, ~1 s per 8 s clip"
         },
         {
           "engine": "upscale",
@@ -89,7 +113,10 @@
     "target_height": 0,
     "meets_target": true
   },
-  "planned_at": 1793111415,
-  "engine": "viper-1.1",
-  "warnings": []
+  "planned_at": 1793113245,
+  "engine": "viper-1.2",
+  "warnings": [
+    "audio.foley_engine=mmaudio: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye",
+    "audio.bed_engine=musicgen: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye"
+  ]
 }

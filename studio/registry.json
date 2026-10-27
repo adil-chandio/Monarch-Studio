@@ -188,7 +188,7 @@
       "name": "VIPER-1 video engine",
       "path": "tools/videogen.py",
       "manual": "docs/VIDEOGEN.md",
-      "version": "viper-1.1",
+      "version": "viper-1.2",
       "role": "studio-wide AI video generation orchestrator (engine per shot, cost gate, verify, assemble)",
       "engines": [
         "h3 (paid API)",
@@ -206,6 +206,8 @@
         "render",
         "verify",
         "assemble",
+        "audio",
+        "mix",
         "upscale",
         "status"
       ],
@@ -215,6 +217,24 @@
         "realesrgan_x2": "960x1664 on the free T4, rebuilt texture, still not native 1080p",
         "paid_h3": "768P or 2K with native stereo + lipsync \u2014 the only true high-res route",
         "never": "call a scaled 480p clip a 1080p/4K render"
+      },
+      "audio_stack": {
+        "voice": {
+          "kokoro": "Apache-2.0, CPU, 54 voices",
+          "chatterbox": "MIT, ~5 GB, cloning"
+        },
+        "foley": {
+          "mmaudio": "~6 GB, weights CC-BY-NC (non-commercial)",
+          "thinksound": "Apache code, ~8 GB"
+        },
+        "bed": {
+          "musicgen": "~4 GB, weights CC-BY-NC (non-commercial)"
+        },
+        "lipsync": {
+          "latentsync": "8 GB, T4 fp16 patch"
+        },
+        "mix": "ffmpeg: vo+foley amix, bed ducked via sidechaincompress, optional -16 LUFS",
+        "not_free_on_gpu": "Ovi (11B, 24 GB fp8) and Kandinsky 6 Lite (21.7 GiB) \u2014 synced audio in one pass"
       }
     }
   ]
