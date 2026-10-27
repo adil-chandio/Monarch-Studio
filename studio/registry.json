@@ -236,6 +236,31 @@
         "mix": "ffmpeg: vo+foley amix, bed ducked via sidechaincompress, optional -16 LUFS",
         "not_free_on_gpu": "Ovi (11B, 24 GB fp8) and Kandinsky 6 Lite (21.7 GiB) \u2014 synced audio in one pass"
       }
+    },
+    {
+      "id": "mobileops-1",
+      "name": "MOBILEOPS phone state machine",
+      "path": "tools/mobile_ops.py",
+      "manual": "docs/MOBILE_WORKFLOW.md",
+      "version": "mobileops-1.0",
+      "role": "durable job state machine for phone-only operation: gates, owner cards, resume",
+      "capabilities": [
+        "doctor",
+        "start",
+        "plan",
+        "handoff",
+        "check",
+        "finish",
+        "deliver",
+        "status",
+        "next",
+        "card",
+        "list"
+      ],
+      "state_source": "studio/mobile/jobs/<job_id>.json",
+      "owner_interface": "one Colab link + one tap; no CLI/JSON/pip ever",
+      "tests": "tests/test_mobile_ops.py",
+      "engine": "tools/videogen.py (viper-1.4)"
     }
   ]
 }

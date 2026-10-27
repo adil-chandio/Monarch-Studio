@@ -175,7 +175,9 @@ foley + upscale) with the prompts **baked in** and per-stage toggles (`RUN_CLIPS
 `RUN_UPSCALE`). It mounts Drive at the project folder, skips files that already exist (safe to re-run after a
 disconnect), writes `colab_clips_receipt.json` / `colab_receipt.json`, and ends with `DONE ✅` or `ADHURA ⚠️`.
 Jobs use the same free frame list (`480x832` for 9:16, `4k+1` frames) and the agent then runs `mix`, `verify`
-and `assemble` locally — see [`MOBILE.md`](MOBILE.md).
+and `assemble` locally. The whole phone flow is driven by the state machine in
+[`mobile_ops.py`](../tools/mobile_ops.py) (`start → plan → handoff → check → finish → deliver`) — see
+[`MOBILE_WORKFLOW.md`](MOBILE_WORKFLOW.md) for the gates and [`MOBILE.md`](MOBILE.md) for the owner card.
 
 ## 4. Exit codes
 

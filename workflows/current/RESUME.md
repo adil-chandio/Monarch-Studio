@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
 **Style:** `minimax-h3-video`  
-**Checkpoint sequence:** 9  
-**Last checkpoint:** 2026-10-27T16:24:48Z
+**Checkpoint sequence:** 10  
+**Last checkpoint:** 2026-10-27T16:55:59Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + 
 
 ## Exact next action
 
-When the owner says 'reel banao <topic>': new project with real prompts, mobile notebook, upload to Drive, give the Colab link, then after DONE run mix --loudnorm + verify + assemble and report the master.
+When the owner names a topic: mobile_ops start -> plan -> upload notebook -> handoff --colab -> wait for DONE -> check -> finish -> deliver; never hand him a command.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

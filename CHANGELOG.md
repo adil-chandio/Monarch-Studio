@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-10-27
+
+- Added `tools/mobile_ops.py` (`mobileops-1.0`): durable per-project job state machine for phone-only
+  operation (`intake → planned → handed_off → partial/clip_ready → mixed → verified → assembled → delivered`,
+  plus `blocked`), with evidence gates, owner-facing cards and resume across turns.
+- Added `docs/MOBILE_WORKFLOW.md`: the phone SOP (contract, gates, failure matrix, turn-end checklist,
+  definition of done) and pinned it in `AGENTS.md`, WF-07 `workflow.json` and the registry tool table.
+- `viper-1.4`: `mobile` notebook command, static-ffmpeg fallback + `ffmpeg -i` probe, fixed mix filtergraph,
+  `verify` now rejects 0-byte files.
+
 ## 0.2.0 — 2026-10-11
 
 - Separated permanent named editing styles from the single running workflow slot.

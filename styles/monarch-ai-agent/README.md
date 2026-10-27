@@ -49,14 +49,14 @@ Aur paisa bhi tab lagta hai jab aap khud `render --yes` chalao — estimate dekh
 
 Git source of truth hai; Drive delivery + sharing ki jagah hai. Dono ke ids `data/drive.json` me.
 
-### Abhi Drive me kya rakha hai (19 files, 6 folders)
+### Abhi Drive me kya rakha hai (21 files, 6 folders)
 
 | Folder | Files |
 |---|---|
 | `01 · START HERE` | START HERE guide (Google Doc) |
 | `02 · Engine (VIPER-1)` | `videogen.py` (v1.4), `VIDEOGEN` manual (Doc) |
 | `03 · Colab Notebooks` | `MONARCH_T4_FREE_BRIDGE.ipynb` (free), `MONARCH_H3_COLAB.ipynb` (paid) |
-| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** · **FREE-ONLY PLAYBOOK** · **MOBILE MODE** (Docs) + `tool_registry.json` · `free_compute.json` |
+| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** · **FREE-ONLY PLAYBOOK** · **MOBILE MODE** · **MOBILE WORKFLOW** (Docs) + `tool_registry.json` · `free_compute.json` |
 | `05 · Projects` | `monarch-reel-01.project.json`, `free_jobs.example.json` |
 | `06 · Masters & Receipts` | (khaali — pehla master yahan aayega) |
 
@@ -98,11 +98,27 @@ ya paid H3. Poora research + licences: [`knowledge/AUDIO.md`](knowledge/AUDIO.md
 
 Aap sirf 3 tap karte ho, baaki main karta hoon:
 
-1. `python3 tools/videogen.py mobile <project>.json` → **ek notebook** (prompts andar bake hue)
-2. Phone par Colab link → **Runtime ▸ T4 GPU ▸ Run all** → aakhri cell me `DONE ✅`
-3. Chat me `DONE` → main `mix --loudnorm` + `verify` + `assemble` chala kar master Drive me daal deta hoon
+Poora kaam ek **state machine** se chalta hai — `tools/mobile_ops.py` (`mobileops-1.0`), taake chat refresh
+hone par bhi kaam dohraya na jaye aur koi step promise par "done" na ho:
 
-Poora protocol: [`docs/MOBILE.md`](../../docs/MOBILE.md)
+```bash
+python3 tools/mobile_ops.py doctor                        # phone ops yahan chalta hai?
+python3 tools/mobile_ops.py start --project <id|path>      # job banao (intake)
+python3 tools/mobile_ops.py plan  <job>                    # $0 estimate + notebook
+python3 tools/mobile_ops.py handoff <job> --colab <link>    # owner ke 3 tap arm karo
+#   ---- aap: T4 GPU ▸ Run all ▸ aakhri cell DONE ✅ -> chat me "DONE" ----
+python3 tools/mobile_ops.py check  <job>                   # clips sach me aaye? partial/blocked
+python3 tools/mobile_ops.py finish <job>                   # mix --loudnorm -> verify -> assemble
+python3 tools/mobile_ops.py deliver <job> --master-id <id>  # master Drive me + receipt
+```
+
+1. `plan` ek **notebook** banata hai (prompts andar bake hue) → Drive `03 · Colab Notebooks`
+2. Aap phone par: **Runtime ▸ T4 GPU ▸ Run all** → aakhri cell `DONE ✅`
+3. Chat me `DONE` → main `check` → `finish` → `deliver`; aap ko sirf master link + md5 milta hai
+
+`mobile_ops.py card <job>` hi woh ek message banata hai jo aap ko jata hai (ek link, ek tap, koi command nahi).
+SOP + gates + failure matrix: [`docs/MOBILE_WORKFLOW.md`](../../docs/MOBILE_WORKFLOW.md) ·
+aap ka card: [`docs/MOBILE.md`](../../docs/MOBILE.md)
 
 ## 3. Ek project ka poora cycle
 

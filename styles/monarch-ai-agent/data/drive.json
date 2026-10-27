@@ -196,10 +196,26 @@
       "type": "google-doc",
       "folder": "knowledge",
       "url": "https://docs.google.com/document/d/1DbPD0gCCz-zfyRn-1TkE0_5qrq9IddXvWzYq_OoZDFQ/edit"
+    },
+    {
+      "what": "mobile workflow SOP",
+      "name": "MOBILE WORKFLOW \u2014 phone SOP (state machine + gates)",
+      "id": "1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8/edit"
+    },
+    {
+      "what": "mobile ops tool",
+      "name": "mobile_ops.py (MOBILEOPS-1 \u2014 phone job state machine)",
+      "id": "1zIL5xFgz_BRxrVoO2IWlJ6y2D0qk0-lS",
+      "type": "python",
+      "folder": "engine",
+      "url": "https://drive.google.com/file/d/1zIL5xFgz_BRxrVoO2IWlJ6y2D0qk0-lS/view"
     }
   ],
   "uploaded_at": "2026-10-27T14:20:55Z",
-  "uploaded_count": 19,
+  "uploaded_count": 21,
   "engine_version": "viper-1.4",
   "trashed": [
     {
@@ -232,5 +248,11 @@
     }
   ],
   "policy": "zero_spend \u2014 paid routes locked unless MONARCH_ALLOW_PAID=1",
-  "owner_device": "mobile (Arena agent does all CLI work)"
+  "owner_device": "mobile (Arena agent does all CLI work)",
+  "mobile_tool": {
+    "id": "mobileops-1.0",
+    "path": "tools/mobile_ops.py",
+    "sop_doc_id": "1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8",
+    "state_dir": "studio/mobile/jobs"
+  }
 }

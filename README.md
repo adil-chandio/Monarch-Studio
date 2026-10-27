@@ -16,7 +16,7 @@ python3 tools/studio.py validate
 
 `tools/videogen.py` is the studio's first-party AI video generator: one project file, engine chosen per shot
 (paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, free 480p→960p upscale stage, media verification and master
-assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md). **Free-only by default** — it cannot bill unless
+assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md). Phone-only operation: [`docs/MOBILE_WORKFLOW.md`](docs/MOBILE_WORKFLOW.md) (`tools/mobile_ops.py`). **Free-only by default** — it cannot bill unless
 `MONARCH_ALLOW_PAID=1` is exported; free-compute structure in [`docs/FREE_ONLY_PLAYBOOK.md`](docs/FREE_ONLY_PLAYBOOK.md).
 Delivery home (Drive, projects + masters + receipts): [`Wf-07 • Monarch Ai Agent`](https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1) — see `styles/monarch-ai-agent/`.
 

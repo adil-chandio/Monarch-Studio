@@ -8,7 +8,13 @@
   "trigger": {
     "token": "AGENTGO",
     "grammar": "AGENTGO <job or topic>",
-    "aliases": ["WF-07", "WF7", "AI Agent", "Monarch AI Agent", "VIPER"],
+    "aliases": [
+      "WF-07",
+      "WF7",
+      "AI Agent",
+      "Monarch AI Agent",
+      "VIPER"
+    ],
     "mode": "plan_first: doctor -> project -> plan -> render (dry) -> render --yes -> verify -> assemble -> Drive"
   },
   "state": "ACTIVE_WITH_USER",
@@ -36,7 +42,10 @@
     "knowledge/INDEX.md",
     "data/drive.json",
     "../../tools/videogen.py",
-    "../../docs/VIDEOGEN.md"
+    "../../docs/VIDEOGEN.md",
+    "../../tools/mobile_ops.py",
+    "../../docs/MOBILE_WORKFLOW.md",
+    "../../docs/MOBILE.md"
   ],
   "cost_policy": {
     "free_route": "Colab T4 (Wan 2.1 1.3B) + LatentSync 1.5 + local ffmpeg = 0 USD",

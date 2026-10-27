@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** When the owner says 'reel banao <topic>': new project with real prompts, mobile notebook, upload to Drive, give the Colab link, then after DONE run mix --loudnorm + verify + assemble and report the master.
+- **Next action:** When the owner names a topic: mobile_ops start -> plan -> upload notebook -> handoff --colab -> wait for DONE -> check -> finish -> deliver; never hand him a command.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

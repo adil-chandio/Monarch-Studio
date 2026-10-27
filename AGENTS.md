@@ -74,8 +74,16 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
 - Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with
   prompts baked in. He taps `Runtime ▸ T4 GPU ▸ Run all`; the last cell prints `DONE ✅`.
 - One action per message. No multi-step terminal instructions, no JSON editing, no file renaming.
-- After he says `DONE`: pull the clips from Drive, `mix --loudnorm`, `verify`, `assemble`, then report the
-  master link + md5.
+- **Drive every mobile project through `tools/mobile_ops.py` (MOBILEOPS-1), never ad-hoc.** One job file per
+  project under `studio/mobile/jobs/`; the state machine (`intake → planned → handed_off → partial/clip_ready →
+  mixed → verified → assembled → delivered`, plus `blocked`) decides who does what next:
+  `doctor` → `start` → `plan` → `handoff --colab <link>` → (owner taps) → `check` → `finish` → `deliver`.
+  Read `mobile_ops.py next <job>` before acting; a `REFUSED:` line means a gate said no — fix it, do not jump.
+- Owner-facing text comes from `mobile_ops.py card <job>`: one link, one tap, zero commands (a test enforces
+  that no `python3`/`pip`/`ffmpeg`/flag/`.json` ever reaches him).
+- After he says `DONE`: `check` first (real bytes, not promises), then `finish` = `mix --loudnorm` → `verify` →
+  `assemble`, then `deliver` with the real Drive id + md5.
+- SOP: `docs/MOBILE_WORKFLOW.md` (gates, failure matrix, turn-end checklist, definition of done).
 
 ## WF-07 / AGENTGO routing (delivery home)
 

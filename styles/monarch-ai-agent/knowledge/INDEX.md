@@ -18,7 +18,9 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 | 11 | [`../../../docs/FREE_ONLY_PLAYBOOK.md`](../../../docs/FREE_ONLY_PLAYBOOK.md) | $0 structure: compute, quotas, weekly rhythm, free ceiling |
 | 12 | [`../../../docs/MOBILE.md`](../../../docs/MOBILE.md) | phone-only flow: 3 taps, who does what, stuck? |
 | 13 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
-| 14 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
+| 14 | [`../../../docs/MOBILE_WORKFLOW.md`](../../../docs/MOBILE_WORKFLOW.md) | phone ops SOP: state machine, gates, failure matrix, turn-end checklist, definition of done |
+| 15 | [`../../../tools/mobile_ops.py`](../../../tools/mobile_ops.py) | `mobileops-1.0`: job state machine + owner cards |
+| 16 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
 
 ## Standing decisions
 
