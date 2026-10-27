@@ -508,6 +508,64 @@ class MobileTests(unittest.TestCase):
             self.assertTrue(any("loudnorm skip" in line for line in receipt["log"]))
             self.assertTrue((base / "delivery" / "p1_MASTER.mp4").exists())
 
+    def test_finish_keeps_the_clip_native_fps(self):
+        """Wan renders 16 fps. Forcing 24 duplicated frames is what made the owner's clip look frozen."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            finish = "".join(self._notebook(path)["cells"][-2]["source"])
+            self.assertIn("fps=None", finish)
+            self.assertIn("rate = fps or info[\"fps\"] or 16.0", finish)
+            self.assertNotIn("fps=24", finish)
+
+    def test_fps_none_really_preserves_16fps_in_the_master(self):
+        ffmpeg = vg.which("ffmpeg")
+        if not ffmpeg:
+            self.skipTest("ffmpeg not installed")
+        import re, subprocess
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td)
+            shots = base / "shots"
+            shots.mkdir()
+            (base / "audio" / "vo").mkdir(parents=True)
+            subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "testsrc2=size=960x1664:rate=16:duration=2",
+                            "-c:v", "libx264", "-pix_fmt", "yuv420p", str(shots / "s01-hook-2x.mp4")],
+                           capture_output=True, check=True)
+            subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "sine=frequency=300:duration=2",
+                            "-ar", "48000", "-ac", "2", str(base / "audio/vo/s01-hook.wav")],
+                           capture_output=True, check=True)
+            path = make_project(base, route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+                cell = "".join(self._notebook(path)["cells"][7]["source"])
+            code = (cell[cell.index("# ── 8 · Finish"):].replace("__UP_W__", "960")
+                    .replace("__UP_H__", "1664").replace('ffmpeg="ffmpeg"', f'ffmpeg="{ffmpeg}"'))
+            import json as _json, zipfile
+            exec(compile(code, "<finish>", "exec"), {
+                "SHOTS": shots, "VO_DIR": base / "audio/vo", "FOLEY_DIR": base / "audio/foley",
+                "DELIVERY": base / "delivery", "PROJECT": "p1", "FACTOR": 2, "RUN_FINISH": True,
+                "JOBS": [{"id": "s01-hook"}], "BASE": base, "DRIVE_OK": True, "md5": vg.md5,
+                "pathlib": pathlib, "re": re, "subprocess": subprocess, "json": _json,
+                "zipfile": zipfile})
+            probe = subprocess.run([ffmpeg, "-hide_banner", "-i", str(base / "delivery" / "p1_MASTER.mp4")],
+                                   capture_output=True, text=True).stderr
+            self.assertRegex(probe, r"\b16 fps")
+
+    def test_foley_engine_bed_needs_no_download_and_never_kills_the_run(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            project = json.loads(path.read_text())
+            project["audio"]["foley_engine"] = "bed"
+            project["shots"][0]["foley_prompt"] = "heavy rain on a rooftop"
+            path.write_text(json.dumps(project, indent=2))
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            foley = "".join(self._notebook(path)["cells"][5]["source"])
+            self.assertIn('FOLEY_ENGINE in ("bed", "mmaudio")', foley)
+            self.assertIn("anoisesrc", foley)
+            self.assertIn("foley(bed) fail", foley)           # a broken ffmpeg must not stop the master
+
     def test_finish_master_applies_loudnorm_and_keeps_48k(self):
         ffmpeg = vg.which("ffmpeg")
         if not ffmpeg:

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "project_id": "m-reel-01",
+  "title": "Monarch Reel 01 — motion test",
+  "style_id": "minimax-h3-video",
+  "created_at": 1793138787,
+  "engine": "viper-2.2",
+  "character": "monarch",
+  "character_authority": "characters/monarch",
+  "aspect": "9:16",
+  "fps": 16,
+  "delivery_fps": 16,
+  "route": "free",
+  "budget_usd": 0.0,
+  "delivery": {
+    "upscale": "realesrgan",
+    "factor": 2,
+    "target_height": 0
+  },
+  "notes": "3 shots x 77 frames (4.8 s each, Wan ka native 16 fps) + Kokoro voice + ambience bed. Motion-first prompts: rain, smoke, wind. Ab 24 fps par duplicate nahi hota.",
+  "audio": {
+    "music": null,
+    "dialogue": [
+      {
+        "shot": "s01-hook",
+        "text": "Every frame here was generated on a free graphics card."
+      },
+      {
+        "shot": "s02-plate",
+        "text": "No studio. No crew. Only a phone, and one tap."
+      },
+      {
+        "shot": "s03-payoff",
+        "text": "This is Monarch Studio. Your next reel starts here."
+      }
+    ],
+    "vo_engine": "kokoro",
+    "foley_engine": "bed",
+    "bed_engine": "off",
+    "mix": true
+  },
+  "shots": [
+    {
+      "id": "s01-hook",
+      "kind": "hero",
+      "seconds": 5,
+      "ratio": "9:16",
+      "seed": 7,
+      "prompt": "cinematic low angle tracking shot of heavy rain hammering a neon lit city street at night, water splashing off wet asphalt, a lone figure in a long black coat walking toward camera under a flickering sign, reflections rippling in puddles, camera tracking backward, strong motion, film grain, shallow depth of field, no text",
+      "references": [],
+      "voice_ref": null,
+      "foley_prompt": "heavy rain on wet asphalt, distant traffic, neon city night ambience"
+    },
+    {
+      "id": "s02-plate",
+      "kind": "plate",
+      "seconds": 5,
+      "ratio": "9:16",
+      "seed": 11,
+      "prompt": "extreme close up of thick golden smoke curling and drifting across a dark room, a single bulb swinging and casting moving shadows, dust motes and embers rising through the beam, handheld camera drift, constant swirling motion, high contrast, cinematic, no text",
+      "references": [],
+      "voice_ref": null,
+      "foley_prompt": "wind through an empty room, low electrical hum, embers crackling"
+    },
+    {
+      "id": "s03-payoff",
+      "kind": "plate",
+      "seconds": 5,
+      "ratio": "9:16",
+      "seed": 23,
+      "prompt": "a caped figure standing on a rooftop as violent wind whips the fabric, lightning flickering inside storm clouds behind, rain streaks crossing the frame, camera pushing in fast toward the silhouette, dramatic teal and amber grade, constant motion, cinematic, no text",
+      "references": [],
+      "voice_ref": null,
+      "foley_prompt": "storm wind and rain on a rooftop, low thunder rumble"
+    }
+  ]
+}

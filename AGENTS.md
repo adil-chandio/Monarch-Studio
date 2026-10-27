@@ -76,6 +76,10 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
   escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
   against real ffmpeg, so these three mistakes cannot come back silently.
+- **Wan 16 fps native hai — 24 par force mat karo.** Frames duplicate hote hain aur clip "stuck image" lagti
+  hai. `finish_master(fps=None)` har clip ka apna fps probe karta hai. Motion prompt se aata hai
+  ("rain hammering", "smoke curling", "wind whipping"), "slow push in" se nahi. Free T4 par 77 frames
+  (4.8 s) per shot khush-asal hai; 3 shots ≈ 6-7 min render.
 - **Finish stage ke do qatil, ab tests me pinned:** concat demuxer `file <path>` ko **space par tod deta hai**
   (Drive folder `Wf-07 • Monarch Ai Agent`) → `list.txt` me sirf bare `segNN.mp4` naam + `cwd=<segments>`.
   Aur `loudnorm` **silent audio par `NaN`** deta hai (`Qavg: nan`, `frames left in the queue`) → pehle

@@ -44,7 +44,7 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-2.1"
+ENGINES_VERSION = "viper-2.2"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
@@ -706,6 +706,9 @@ AUDIO_ENGINES = {
     "musicgen": {"kind": "bed", "params": "300M–1.5B", "vram_gb": 4, "gpu": True,
                  "licence": "code MIT / weights CC-BY-NC 4.0 — NON-COMMERCIAL",
                  "note": "text→music bed, 30 s chunks, small model fits a T4 easily"},
+    "bed": {"kind": "foley", "params": "0 (ffmpeg)", "vram_gb": 0, "gpu": False,
+            "licence": "ffmpeg LGPL — generated noise, no model weights",
+            "note": "prompt se halka ambience bed (rain / city / room tone): koi download nahi, har run me chalta hai"},
     "off": {"kind": "off", "params": "—", "vram_gb": 0, "gpu": False, "licence": "—", "note": "silent"},
 }
 
@@ -1918,47 +1921,86 @@ if RUN_VOICE:
     print("voice lines:", made)
 """
 
-_MOBILE_FOLEY = """# ── 5 · Foley / ambience — MMAudio (~6 GB, CC-BY-NC weights) ─────────────────
-FOLEY_ENGINE = "__FOLEY_ENGINE__"     # mmaudio | thinksound | off
-if RUN_FOLEY and FOLEY_ENGINE == "mmaudio":
-    import subprocess as _sp4, sys as _sys4
-    _sp4.run([_sys4.executable, "-m", "pip", "install", "-q", "-e",
-              "git+https://github.com/hkchengrex/MMAudio.git#egg=mmaudio"], check=False)
-    import torch, torchaudio
-    from mmaudio.eval_utils import all_model_cfg, generate, load_video
-    from mmaudio.model.flow_matching import FlowMatching
-    from mmaudio.model.networks import get_my_mmaudio
-    from mmaudio.model.utils.features_utils import FeaturesUtils
-
-    vram = torch.cuda.get_device_properties(0).total_memory / 2**30
-    cfg_name = "mmaudio_small_44k" if vram < 20 else "mmaudio_large_44k_v2"
-    model_cfg = all_model_cfg[cfg_name]
-    net = get_my_mmaudio(model_cfg.model).eval().to("cuda")
-    feats = FeaturesUtils(**model_cfg.features).eval().to("cuda")
-    fm = FlowMatching(min_sigma=0, inference_mode="euler", num_steps=25)
-    try:
-        net.load_weights(torch.load(f"/root/.cache/mmaudio/{cfg_name}.pth", map_location="cpu",
-                                    weights_only=True))
-    except FileNotFoundError:
-        print("weights missing — MMAudio pehli baar khud download karega (demo.py), "
-              "ya is cell ko skip karo aur mujhe bolo")
-        net = None
+_MOBILE_FOLEY = '''# ── 5 · Foley / ambience — ambience bed (free, koi model download nahi) ─────
+FOLEY_ENGINE = "__FOLEY_ENGINE__"     # bed | mmaudio | off
+if RUN_FOLEY and FOLEY_ENGINE in ("bed", "mmaudio"):
+    import re as _re5
     made = 0
-    if net is not None:
-        for shot_id in JOBS:
-            src = SHOTS / f"{shot_id['id']}.mp4"
-            out = FOLEY_DIR / f"{shot_id['id']}.wav"
+
+    def shot_seconds(path):
+        text = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path)],
+                              capture_output=True, text=True).stderr
+        found = _re5.search(r"Duration:\\s*(\\d+):(\\d+):(\\d+(?:\\.\\d+)?)", text)
+        if not found:
+            return 5.0
+        return int(found.group(1)) * 3600 + int(found.group(2)) * 60 + float(found.group(3))
+
+    def bed_for(prompt):
+        # prompt ke lafz se halka andaaza: barsaat/wind bright, sheher/crowd mid, warna room tone
+        low = (prompt or "").lower()
+        if any(word in low for word in ("rain", "wind", "storm", "water", "sea", "wave")):
+            return "lowpass=f=5200,highpass=f=300"
+        if any(word in low for word in ("crowd", "city", "traffic", "market", "street")):
+            return "bandpass=f=900:width_type=q:w=0.7"
+        return "lowpass=f=900,highpass=f=60"
+
+    if FOLEY_ENGINE == "mmaudio":
+        try:
+            import subprocess as _sp4, sys as _sys4
+            import torch, torchaudio
+            from mmaudio.eval_utils import all_model_cfg, generate, load_video
+            from mmaudio.model.flow_matching import FlowMatching
+            from mmaudio.model.networks import get_my_mmaudio
+            from mmaudio.model.utils.features_utils import FeaturesUtils
+
+            vram = torch.cuda.get_device_properties(0).total_memory / 2**30
+            cfg_name = "mmaudio_small_44k" if vram < 20 else "mmaudio_large_44k_v2"
+            model_cfg = all_model_cfg[cfg_name]
+            net = get_my_mmaudio(model_cfg.model).eval().to("cuda")
+            feats = FeaturesUtils(**model_cfg.features).eval().to("cuda")
+            fm = FlowMatching(min_sigma=0, inference_mode="euler", num_steps=25)
+            net.load_weights(torch.load(f"/root/.cache/mmaudio/{cfg_name}.pth", map_location="cpu",
+                                        weights_only=True))
+            for job in JOBS:
+                src = SHOTS / f"{job['id']}.mp4"
+                out = FOLEY_DIR / f"{job['id']}.wav"
+                if not src.exists() or out.exists():
+                    continue
+                info, video = load_video(str(src), 16, model_cfg.sampling_rate)
+                with torch.no_grad():
+                    audio = generate(video, feats, net, fm, num_steps=25,
+                                     duration=float(info.duration), cfg_strength=4.5, seed=42)
+                torchaudio.save(str(out), audio.cpu(), model_cfg.sampling_rate)
+                print("foley(mmaudio)", out.name)
+                made += 1
+        except Exception as exc:
+            print("MMAudio nahi chala (", type(exc).__name__, ") — ambience bed se aage badhta hoon")
+            FOLEY_ENGINE = "bed"
+
+    if FOLEY_ENGINE == "bed":
+        for job in JOBS:
+            src = SHOTS / f"{job['id']}.mp4"
+            out = FOLEY_DIR / f"{job['id']}.wav"
             if not src.exists() or out.exists():
                 continue
-            info, video = load_video(str(src), 16, model_cfg.sampling_rate)
-            with torch.no_grad():
-                audio = generate(video, feats, net, fm, num_steps=25,
-                                 duration=float(info.duration), cfg_strength=4.5, seed=42)
-            torchaudio.save(str(out), audio.cpu(), model_cfg.sampling_rate)
-            print("foley", out.name)
-            made += 1
+            try:
+                dur = shot_seconds(src)
+                fade_out = max(dur - 0.7, 0.0)
+                chain = bed_for(FOLEY_PROMPT.get(job["id"], ""))
+                subprocess.run(["ffmpeg", "-y", "-f", "lavfi",
+                                "-i", f"anoisesrc=color=pink:duration={dur:.2f}:amplitude=0.2",
+                                "-af", f"{chain},tremolo=f=0.3:d=0.25,afade=t=in:st=0:d=0.5,"
+                                       f"afade=t=out:st={fade_out:.2f}:d=0.7",
+                                "-ar", "48000", "-ac", "1", str(out)],
+                               check=True, capture_output=True)
+                print("foley(bed)", out.name, f"{dur:.2f}s")
+                made += 1
+            except Exception as exc:
+                # koi bhi audio fail ho to bhi aage badho: master bina bed ke bhi ban jaye
+                print("foley(bed) fail:", type(exc).__name__, str(exc)[:120])
+
     print("foley stems:", made)
-"""
+'''
 
 _MOBILE_UPSCALE = """# ── 6 · Upscale 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__, ffmpeg fallback) ──
 if RUN_UPSCALE:
@@ -2082,7 +2124,7 @@ if RUN_FINISH:
 
 
     def finish_master(shots, vo_dir, foley_dir, delivery, project, width, height,
-                      fps=24, crf=18, loudnorm=True, ffmpeg="ffmpeg") -> dict:
+                      fps=None, crf=18, loudnorm=True, ffmpeg="ffmpeg") -> dict:
         # Build one master from per-shot clips (+ optional voice/foley).
         # Per-shot pass, then concat, then loudness: each step is its own ffmpeg call so a
         # failure names the exact shot instead of dying inside one giant filtergraph.
@@ -2110,8 +2152,12 @@ if RUN_FINISH:
             cmd = [ffmpeg, "-y", "-i", str(clip)]
             for track in audio:
                 cmd += ["-i", str(track)]
+            # Wan native 16 fps deta hai; usay 24 par kheenchne se frames duplicate hote hain
+            # aur video "stuck image" lagti hai. Is liye clip ka apna fps rakho.
+            rate = fps or info["fps"] or 16.0
             vf = (f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
-                  f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={fps},format=yuv420p")
+                  f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={rate:g},"
+                  f"format=yuv420p")
             if audio:
                 if len(audio) > 1:
                     graph = "".join(f"[{i}:a]" for i in range(1, len(audio) + 1))

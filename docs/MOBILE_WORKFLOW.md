@@ -228,6 +228,18 @@ Do aur sabak jo isi run me mile:
 - Template ke andar `\"\"\"` ya `\n` jaisa escape mat likho: template string toot jati hai. Isi liye concat list
   `chr(10)` se banti hai.
 
+### 5c-sexies. "Yeh to 2 second ki photo hai" — motion kaise aata hai
+
+2026-10-28 par owner ne deliver kiya hua master dekha aur kaha: video nahi, stuck image hai. Teen asli wajah:
+
+1. **fps:** Wan 2.1 native **16 fps** deta hai. Finish pass `fps=24` force karta tha → har frame duplicate,
+   motion mar jata hai. Ab `fps=None` = har clip ka probed fps (test: `16 fps` master par pinned).
+2. **Content + length:** "slow push in" wala static lamp 33 frames (2 s) = kuch hilta hi nahi. Motion prompt
+   se aata hai — barsaat, dhuan, hawa, bheed. Free T4 par **77 frames (4.8 s)** per shot theek rehta hai.
+3. **Audio:** khaali audio par loudnorm NaN deta tha (dekho 5c-quinquies). Ab `foley_engine="bed"`: ffmpeg
+   `anoisesrc` se prompt ke mutabiq ambience (rain/city/room tone), koi download nahi, har run me chalta hai;
+   MMAudio optional hai aur try/except me hai taake fail ho to bhi master bane.
+
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke

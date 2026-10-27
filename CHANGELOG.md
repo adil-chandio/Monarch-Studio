@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.3 — 2026-10-28
+
+- `viper-2.2`: the delivery stopped looking like a still image. Three causes, all fixed:
+  - **fps**: Wan renders natively at 16 fps; the finish pass forced 24 by duplicating frames. The master now
+    keeps each clip's probed frame rate (`fps=None`), so motion is real frames, not copies.
+  - **length/motion**: the phone notebook now defaults to `--max-frames 77` (4.8 s per shot at 16 fps) and the
+    new `m-reel-01` example uses motion-first prompts (rain, smoke, wind) instead of a static slow push-in.
+  - **audio**: a new `bed` foley engine builds a deterministic ambience bed with ffmpeg only (`anoisesrc` +
+    prompt-driven filtering: rain / city / room tone). No download, no model, works on every run; MMAudio stays
+    available but is wrapped so a failure can never kill the run.
+- Second example project `studio/videogen/examples/m-reel-01/`: 3 shots x 77 frames, 3 Kokoro voice lines,
+  ambience bed, 960x1664 delivered. Locally proven end to end: 14.53 s master, 16 fps, 48 kHz aac,
+  loudnorm applied.
+
 ## 0.3.2 — 2026-10-28
 
 - `viper-2.1`: the master now actually finishes inside Colab. Two real failures the owner's run exposed:
