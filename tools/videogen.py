@@ -1688,8 +1688,10 @@ Yeh notebook teeno kaam khud karta hai (jo stage chahiye, neeche toggle se ON/OF
 | 2 · Voice | __N_VO__ line(s), Kokoro-82M (Apache-2.0) | ✅ $0 |
 | 3 · Foley + Upscale | ambience/SFX + 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__) | ✅ $0 |
 
-Sab kuch seedha aap ke Drive folder me jayega:
+Output aap ke Drive folder me jayega:
 `Wf-07 • Monarch Ai Agent / 05 · Projects/__PROJECT__/`
+Agar Drive mount fail ho jaye (Colab ka auth masla) to notebook **local disk par** kaam karega aur aakhir me
+ek **ZIP download** dega — kuch bhi rukta nahi.
 
 > Mix, verify aur master main yahan se karunga — aap ko ffmpeg ya terminal ki zarurat **nahi**.
 """
@@ -1700,14 +1702,29 @@ RUN_VOICE = True       # Kokoro voice lines
 RUN_FOLEY = True       # MMAudio ambience/SFX
 RUN_UPSCALE = True     # 480p -> 2x
 
-import hashlib, json, pathlib, subprocess, time
+import hashlib, json, pathlib, subprocess, time, zipfile
 
 PROJECT = "__PROJECT__"
-BASE = pathlib.Path(f"/content/drive/MyDrive/MONARCH STUDIO/Wf-07 • Monarch Ai Agent/05 · Projects/{PROJECT}")
+DRIVE_BASE = pathlib.Path(f"/content/drive/MyDrive/MONARCH STUDIO/Wf-07 • Monarch Ai Agent/05 · Projects/{PROJECT}")
+LOCAL_BASE = pathlib.Path(f"/content/m_out/{PROJECT}")
+DRIVE_OK = False
 
-from google.colab import drive
-drive.mount("/content/drive")
+# Drive optional hai. Mount fail ho (credential propagation / 3rd-party cookies) to
+# notebook local disk par kaam karta hai aur aakhir me ZIP download deta hai — kuch rukta nahi.
+try:
+    from google.colab import drive
+    drive.mount("/content/drive", force_remount=True)
+    DRIVE_BASE.mkdir(parents=True, exist_ok=True)
+    probe = DRIVE_BASE / ".write_test"
+    probe.write_text("ok")
+    probe.unlink()
+    DRIVE_OK = True
+    print("Drive  : mounted ✔")
+except Exception as exc:
+    print("Drive  : mount nahi hua —", type(exc).__name__, str(exc)[:110])
+    print("         koi baat nahi: sab local disk par banega, aakhir me ZIP download milega")
 
+BASE = DRIVE_BASE if DRIVE_OK else LOCAL_BASE
 SHOTS = BASE / "shots"
 VO_DIR = BASE / "audio" / "vo"
 FOLEY_DIR = BASE / "audio" / "foley"
@@ -1916,9 +1933,31 @@ print("foley :", len(foley))
 for row in rows:
     print(f"  {row['file']:<28} {row['mb']:6.1f} MB  {row['md5'][:10]}")
 
+zip_path = pathlib.Path("/content") / f"{PROJECT}_outputs.zip"
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as bundle:
+    for file in clips + voice + foley:
+        bundle.write(file, file.relative_to(BASE))
+print()
+print("ZIP    :", zip_path.name, f"{zip_path.stat().st_size/1e6:.1f} MB")
+if DRIVE_OK:
+    (BASE / zip_path.name).write_bytes(zip_path.read_bytes())
+    print("Drive  :", BASE)
+    print("         ZIP bhi Drive me:", zip_path.name)
+else:
+    try:
+        from google.colab import files as colab_files
+        colab_files.download(str(zip_path))
+        print("Download start hua — phone ke Downloads me ZIP ayega, woh mujhe chat me bhej do")
+    except Exception as exc:
+        print("download trigger nahi hua:", type(exc).__name__, exc)
+        print("Left sidebar ke Files panel me ZIP maujood hai — wahan se bhi mil jayega")
+
 ok = len([c for c in clips if not c.stem.endswith(("-2x", "-4x"))]) >= __N_SHOTS__ and len(clips) >= __N_SHOTS__
-print("\\n" + ("DONE ✅  — mujhe chat me 'DONE' likh do, main mix + verify + master bana dunga"
-              if ok else "ADHURA ⚠️  — jo missing hai mujhe bolo (main job chhota kar dunga)"))
+print()
+if ok:
+    print("DONE ✅  — mujhe chat me 'DONE' likh do, main mix + verify + master bana dunga")
+else:
+    print("ADHURA ⚠️  — jo missing hai mujhe bolo (main job chhota kar dunga)")
 """
 
 

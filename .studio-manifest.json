@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T17:36:52+00:00",
+  "generated_at": "2026-10-27T17:42:01+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "f55dcf0660ff28d07f2cfc5a307280f3252478dc7dd182d81a6aea3a734f2c34",
-      "size": 9707
+      "sha256": "fa5f59706c6ce5fcc1fc6c0893280d8a13d195a45f5514ef3e2d566a2fc102ae",
+      "size": 10117
     },
     "CHANGELOG.md": {
       "sha256": "699842d33d9e4481061c192d6d5db0d4f1cd3ba22aad1613568a689e5fd38ad1",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "658eb1ce3ecd564d88936390a05b54d92763a19cbfca914ea3bfc7836cb24ddd",
-      "size": 10624
+      "sha256": "b0ed227ec0d1c4818f15e0c4283fc8ed22d8ea99677b31db8debc2516d3199d4",
+      "size": 11559
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -1716,8 +1716,8 @@
       "size": 10425
     },
     "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb": {
-      "sha256": "4d62620bd07d767dd62fa48a544177fe22866a01a24cf4278d88616d6a35abf8",
-      "size": 17051
+      "sha256": "da88c4817f966bdc491d6639a25ea41559d3d1c5fc6961ae12dd6687846f195f",
+      "size": 19382
     },
     "studio/videogen/examples/m-test-01/plan.json": {
       "sha256": "07e64652afad621bde5f176ad0ae753d098063dfb1f75c31e899b58af834ffe1",
@@ -1728,12 +1728,12 @@
       "size": 1047
     },
     "studio/videogen/examples/m-test-01/receipts.json": {
-      "sha256": "3fc1c133fb9456d8b7331df368915cf9e58e2f4f865c2b417a86e97a9cf5be1f",
-      "size": 221
+      "sha256": "868fb255d78958b54fd4086aae22f467d4527e21096eaf36c3debb52a6564df3",
+      "size": 195
     },
     "studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb": {
-      "sha256": "22b539cd8fd7c48f8c6a822a0244915ba0ef4c5a56f8b3f00e5621e9e2c310ea",
-      "size": 20637
+      "sha256": "1c5f27adb36ed01852c7cb3192cba9676aea9ba5ff81df8888d02dc93899bedc",
+      "size": 22941
     },
     "studio/videogen/examples/monarch-reel-01.project.json": {
       "sha256": "109cf86418bb9a9fb4a2bfb78860dadf2d0e705c7c542779dc81b2046bf199ac",
@@ -1744,7 +1744,7 @@
       "size": 2980
     },
     "studio/videogen/examples/receipts.json": {
-      "sha256": "4cd7432c13a6e2c5b9b629821c046ca3bcb5a154a719b0926693b6ecef516e6c",
+      "sha256": "ac761cc14296100dc2676848a1fbb78d2185355d3ea9c94da03b2400314def54",
       "size": 191
     },
     "styles/README.md": {
@@ -4140,8 +4140,8 @@
       "size": 7200
     },
     "tests/test_videogen.py": {
-      "sha256": "057e9d44e8a1aa09a099b453d7780517729b3e04fc713d94e109252022fe3747",
-      "size": 47247
+      "sha256": "1d90b288cd4f7cced118b479a05351de6825c0e183245c1e67397060d45a0c35",
+      "size": 48080
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
@@ -4184,8 +4184,8 @@
       "size": 32882
     },
     "tools/videogen.py": {
-      "sha256": "7dac7ef249794dbbf8dc51b3bc18ebfdd86e95415cf8d1a05e6ecdeadb4602d5",
-      "size": 102831
+      "sha256": "0be8de4f2b1895fc64fc9cf73860c3e1c7d1c239dc5d0a97138a3e90ed5ff3e3",
+      "size": 104580
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",

@@ -137,6 +137,18 @@ normal hai (file kharab nahi hoti). Is liye do link hote hain:
 GitHub link ke liye notebook repo me hona chahiye + repo public + tag (slash-free, kyunki `blob/<ref>/` me
 branch ke slash URL tod dete hain). Isi liye: `git tag colab-<job> && git push origin refs/tags/colab-<job>`.
 
+### 5d. Drive mount fail ho jaye to? (ZIP handoff)
+
+`drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke
+third-party cookies / multiple Google accounts). Notebook ab **is par rukta nahi**:
+
+1. mount try karta hai → fail ho to `BASE = /content/m_out/<project>` par chalta hai
+2. aakhir me `<project>_outputs.zip` banata hai (`shots/`, `audio/vo/`, `audio/foley/`)
+3. Drive mounted ho to ZIP Drive folder me bhi rakhta hai, warna `files.download()` se phone ke Downloads me
+4. owner ZIP **chat me attach** kar deta hai → agent use project folder me khol kar `check` → `finish` chala deta hai
+
+Yani Drive optional hai, delivery nahi — bas ZIP ka raasta.
+
 ## 6. Jab kuch atak jaye (failure matrix)
 
 | Nazar aa raha hai | Asli matlab | Kaun fix karta hai | Fix |
@@ -145,7 +157,8 @@ branch ke slash URL tod dete hain). Isi liye: `git tag colab-<job> && git push o
 | Colab disconnect | runtime gaya, Drive par jo likha tha bacha | owner + agent | wahi notebook dobara Run all (skip-if-exists), phir `check` |
 | CUDA out of memory | model + offload ka masla | agent | notebook me `mmaudio_small_44k` / smaller frames; owner dobara Run all |
 | `Runtime ▸ Run all` bahut slow | free T4 throttled / quota | agent | Kaggle ~30 h/week par shift (`quota --use kaggle <h>`) |
-| `check` 0 clips | notebook chala hi nahi ya mount fail | owner | T4 select confirm, dobara Run all |
+| `check` 0 clips | notebook chala hi nahi, ya mount fail | owner | T4 select confirm, dobara Run all (ab mount fail hone par bhi chalta hai) |
+| `drive.mount … credential propagation` | phone ke Chrome me third-party cookies band / 2 account login | nobody | ignore karo — notebook local disk par chalta hai, aakhir me ZIP |
 | `verify` exit 3 | height/audio/md5 fail | agent | `finish` dobara, ya upscale stage chalao |
 | `REFUSED: illegal transition` | state machine ne roka | agent | `status` dekho, sahi command chalao |
 | "This file type is unsupported" | Drive file ke naam me `.ipynb` nahi | agent | rename to `*.ipynb` (mimeType `application/x-ipynb+json`), phir wahi file id ka Colab link |

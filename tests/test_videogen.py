@@ -377,6 +377,22 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(nb["nbformat"], 4)
             self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 7)
 
+    def test_notebook_survives_a_failed_drive_mount(self):
+        """Drive auth fails on phones routinely: the notebook must fall back, not crash."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            nb = self._notebook(path)
+            config = "".join(nb["cells"][1]["source"])
+            self.assertIn("LOCAL_BASE", config)
+            self.assertIn("except Exception", config)
+            self.assertIn("BASE = DRIVE_BASE if DRIVE_OK else LOCAL_BASE", config)
+            summary = "".join(nb["cells"][-1]["source"])
+            self.assertIn("_outputs.zip", summary)
+            self.assertIn("colab_files.download", summary)
+            self.assertIn("DONE", summary)
+
     def test_notebook_code_cells_compile(self):
         with tempfile.TemporaryDirectory() as td:
             path = make_project(pathlib.Path(td), route="free")
