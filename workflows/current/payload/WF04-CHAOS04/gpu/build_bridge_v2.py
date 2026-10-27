@@ -22,9 +22,10 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 SERVER = (HERE / "agent_server.py").read_bytes()
 BRIDGE = (HERE / "drive_bridge.py").read_bytes()
-OUT = HERE / "colab_gpu_bridge_v2.ipynb"
+OUT = HERE / "colab_gpu_bridge_v3.ipynb"
 
 TOPIC = "monarch-chaos-gpu-742683"
+TOKEN_VALUE = "monarch-chaos-742683"
 
 INTRO = f"""# 🎬 GPU BRIDGE v2 — ek Run, phir so jao
 
@@ -62,7 +63,7 @@ except PermissionError:                      # local test / limited sandbox
     CONTENT = pathlib.Path(os.environ.get("TMPDIR", "/tmp")) / "chaos_content"
     CONTENT.mkdir(parents=True, exist_ok=True)
 WORK = CONTENT / "chaos_work"; WORK.mkdir(exist_ok=True)
-TOKEN = secrets.token_urlsafe(16)
+TOKEN = "__TOKEN__"          # fixed on purpose: the agent already knows it
 os.environ["CHAOS_TOKEN"] = TOKEN
 os.environ["CHAOS_WORK"] = str(WORK)
 os.environ["PORT"] = str(PORT)
@@ -209,13 +210,22 @@ def publish(url):
             say("  ntfy ping ok")
         except Exception as e:
             say("  ntfy ping failed:", type(e).__name__)
+    payload = {"url": url, "token": TOKEN, "port": PORT, "vram_gb": VRAM,
+               "created": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+               "ntfy": f"https://ntfy.sh/{TOPIC}/json?poll=1",
+               "how": "GET <url>/status?token=<token>  |  or write CHAOS_GPU_CMD.json"}
+    targets = []
     if folder:
-        payload = {"url": url, "token": TOKEN, "port": PORT, "vram_gb": VRAM,
-                   "created": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-                   "ntfy": f"https://ntfy.sh/{TOPIC}/json?poll=1",
-                   "how": "GET <url>/status?token=<token>  |  or write CHAOS_GPU_CMD.json"}
-        (folder / "CHAOS_GPU_ENDPOINT.json").write_text(json.dumps(payload, indent=1))
-        say("  Drive endpoint written")
+        targets.append(folder)
+    targets.append(pathlib.Path("/content/drive/MyDrive"))
+    targets.append(CONTENT)
+    for t in targets:
+        try:
+            t.mkdir(parents=True, exist_ok=True)
+            (t / "CHAOS_GPU_ENDPOINT.json").write_text(json.dumps(payload, indent=1))
+            say("  endpoint written:", t)
+        except Exception as e:
+            say("  endpoint write skipped:", t, type(e).__name__)
 
 url = open_tunnel()
 publish(url)
@@ -233,7 +243,10 @@ else:
 say("")
 say("═" * 66)
 say(" READY — kuch copy karne ki zaroorat nahi. Tab khula chhod dein.")
-say(" endpoint:", url or "none", " | token:", TOKEN[:4] + "…")
+say(" endpoint:", url or "none")
+say(" token:", TOKEN)
+if not HAS_CUDA:
+    say(" ⚠⚠ GPU OFF: Runtime → Change runtime type → T4 GPU → phir yeh cell dobara Run")
 say("═" * 66)
 
 # ── 7 · supervisor (yahi cell chalta rehta hai) ──────────────────────────
@@ -267,6 +280,7 @@ while True:
 
 def main() -> int:
     cell = (CELL.replace("__TOPIC__", TOPIC)
+                .replace("__TOKEN__", TOKEN_VALUE)
                 .replace("__SERVER_B64__", base64.b64encode(SERVER).decode())
                 .replace("__BRIDGE_B64__", base64.b64encode(BRIDGE).decode()))
     nb = {
@@ -287,6 +301,7 @@ def main() -> int:
     assert base64.b64decode(base64.b64encode(BRIDGE)) == BRIDGE
     print(f"wrote {OUT} ({OUT.stat().st_size} B)  cells=2  server={len(SERVER)}B bridge={len(BRIDGE)}B")
     print(f"ntfy topic: {TOPIC}")
+    print(f"token: {TOKEN_VALUE}")
     return 0
 
 
