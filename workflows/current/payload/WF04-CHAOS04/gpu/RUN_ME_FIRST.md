@@ -100,3 +100,46 @@ Drive: https://drive.google.com/file/d/1RHnS63rFhtDrjro-A0T1OPSvkoJfadNg/view
 
 `https://ntfy.sh/monarch-chaos-gpu-742683/json?poll=1` → URL
 phir `GET <url>/status?token=monarch-chaos-742683`
+
+---
+
+# v4 — AB YEH (v3 bhi band, runtime gir gaya)
+
+## Kya hua (measured, 27 Oct 02:18–02:29 UTC)
+
+| cheez | result |
+|---|---|
+| GPU | **Tesla T4 · 15360 MiB** · driver 580.82.07 · CUDA 13.0 · VRAM 14.6 GB |
+| torch | 2.11.0+cu130, `cuda_available: true` |
+| disk | 87 GB free (start) |
+| smoke render | 643,557 B clip — chala, Drive `_gpu_bridge/` mein copy hua |
+| shell | sync + bg + tail teenon chalay |
+| internet (Colab se) | huggingface 200, github 200 |
+| LTX-Video | pehle import fail — `torchao` too old (`FqnToConfig`); `pip install -U torchao` (0.18.0) se **import ok**, weights download shuru |
+| **02:29 UTC** | tunnel band, heartbeat freeze, endpoint stale → **runtime gir gaya** |
+
+Yani GPU kaam karta hai — bas free Colab ne ~10 min baad runtime gira diya.
+
+## v4 mein kya badla (v3 ke do asli defects)
+
+1. **Drive-first control** — command Drive file se jata hai, jawab Drive file mein aata hai.
+   Tunnel ki zaroorat nahi, is liye tunnel marna kaam nahi rokta.
+2. **Bridge alag process** mein (`drive_bridge.py` subprocess) — server crash ho to bhi zinda rehta hai, supervisor use restart karta hai.
+3. **Tunnel rotation** — cloudflared → pinggy → localhost.run; public URL `/health` se
+   check hota hai, 2 baar fail ho to naya tunnel + naya URL publish.
+4. **torchao boot par upgrade** — LTX import ka woh bug dobara nahi aayega.
+5. Endpoint file har 60 s refresh (stale = foran pata chalta hai).
+
+## Steps
+
+1. `Runtime → Change runtime type → T4 GPU → Save`
+2. **MONARCH_GPU_BRIDGE_v4.ipynb** kholein, **▶ Run**
+3. Tab khula chhod dein — mujhe kuch bhejna nahi
+
+Drive: https://drive.google.com/file/d/1YGxclEpFc3N7PcOWW6gi_2M3FiTpqg3Q/view
+
+## Free Colab ki asli limit
+
+12.7 GB RAM / 15 GB VRAM / ~12 h session, aur **idle par disconnect**.
+Is liye: tab khula, laptop plugged-in, aur agar "Runtime disconnected" aaye to
+dobara Run — state Drive par hai, kaam wahin se aage barhta hai.
