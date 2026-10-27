@@ -37,13 +37,29 @@ for name in ("Monarch emblem", "Monarch wordmark", "Endcard backdrop"):
                         rot=tuple(round(v, 3) for v in ob.rotation_euler),
                         mats=mats, links=links)
 
-for f in (1220, 1240, 1300, 1332):
+for f in (1200, 1220, 1240, 1275, 1300, 1332):
     scene.frame_set(f)
-    vis = {n: (bpy.data.objects[n].hide_render if bpy.data.objects.get(n) else None)
-           for n in ("Monarch emblem", "Monarch wordmark")}
+    cam = scene.camera
+    dg = bpy.context.evaluated_depsgraph_get()
+    vis = {}
+    for n in ("Monarch emblem", "Monarch wordmark", "Endcard backdrop"):
+        ob = bpy.data.objects.get(n)
+        if not ob:
+            vis[n] = None
+            continue
+        ev = ob.evaluated_get(dg)
+        vis[n] = dict(hide_render=bool(ev.hide_render),
+                      hide_viewport=bool(ev.hide_viewport),
+                      loc=[round(v, 3) for v in ev.matrix_world.translation])
+    report[f"frame {f}"] = dict(
+        camera=cam.name if cam else None,
+        cam_loc=[round(v, 3) for v in cam.matrix_world.translation] if cam else None,
+        cam_lens=cam.data.lens if cam else None,
+        view_layer=scene.view_layers[0].name,
+        objects=vis,
+    )
     scene.render.filepath = str(out / f"f{f:04d}.png")
     bpy.ops.render.render(write_still=True)
-    report[f"frame {f}"] = vis
 
 (out / "report.json").write_text(json.dumps(report, indent=1))
 print("ENDCARD " + json.dumps(report)[:1500])
