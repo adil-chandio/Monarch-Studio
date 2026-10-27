@@ -44,7 +44,7 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-1.4"
+ENGINES_VERSION = "viper-2.1"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
@@ -2042,6 +2042,7 @@ if RUN_FINISH:
     import json
     import pathlib
     import re
+    import shutil
     import subprocess
 
 
@@ -2126,30 +2127,54 @@ if RUN_FINISH:
 
         if not segments:
             raise RuntimeError("no usable clips: " + "; ".join(log))
+        print(f"segments OK: {len(segments)}")
 
+        # Concat demuxer ke andar path ko space par tod deta hai ("Wf-07 • Monarch Ai Agent"),
+        # isliye list me sirf bare filename aur cwd = segments folder.
         listing = work / "list.txt"
-        listing.write_text("".join("file " + seg.as_posix() + chr(10) for seg in segments))
+        listing.write_text("".join("file " + seg.name + chr(10) for seg in segments))
         joined = work / "joined.mp4"
-        proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing),
-                               "-c", "copy", str(joined)], capture_output=True, text=True)
+        proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", listing.name,
+                               "-c", "copy", joined.name],
+                              capture_output=True, text=True, cwd=str(work))
         if proc.returncode != 0:
-            proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing),
+            proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", listing.name,
                                    "-c:v", "libx264", "-crf", str(crf), "-c:a", "aac",
-                                   "-b:a", "192k", str(joined)], capture_output=True, text=True)
+                                   "-b:a", "192k", joined.name],
+                                  capture_output=True, text=True, cwd=str(work))
             if proc.returncode != 0:
                 raise RuntimeError("concat failed: " + " | ".join(proc.stderr.strip().splitlines()[-2:]))
 
+        print(f"concat OK: {joined.name} {joined.stat().st_size/1e6:.2f} MB")
+
+        def silent(path, ffmpeg="ffmpeg") -> bool:
+            # loudnorm digital silence par NaN deta hai -> AAC encoder "Qavg: nan" par marta hai.
+            text = subprocess.run([ffmpeg, "-hide_banner", "-i", path.name,
+                                   "-af", "volumedetect", "-f", "null", "-"],
+                                  capture_output=True, text=True, cwd=str(path.parent)).stderr
+            found = re.search(r"mean_volume:\s*(-?[\d.]+) dB", text)
+            return (not found) or float(found.group(1)) <= -70.0
+
         master = delivery / f"{project}_MASTER.mp4"
+        staged = work / f"{project}_MASTER.mp4"
+        quiet = silent(joined, ffmpeg)
+        if quiet:
+            log.append("audio khaali hai - loudnorm skip (NaN se bachne ke liye)")
+            loudnorm = False
         if loudnorm:
-            cmd = [ffmpeg, "-y", "-i", str(joined), "-c:v", "copy",
-                   "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k",
-                   "-movflags", "+faststart", str(master)]
-            proc = subprocess.run(cmd, capture_output=True, text=True)
-            if proc.returncode != 0:
-                log.append("loudnorm failed, copying instead")
-                master.write_bytes(joined.read_bytes())
+            cmd = [ffmpeg, "-y", "-i", joined.name, "-c:v", "copy",
+                   "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "48000",
+                   "-c:a", "aac", "-b:a", "192k",
+                   "-movflags", "+faststart", staged.name]
+            proc = subprocess.run(cmd, capture_output=True, text=True, cwd=str(work))
+            if proc.returncode != 0 or not staged.exists() or staged.stat().st_size < joined.stat().st_size // 2:
+                log.append("loudnorm nahi chala - master bina loudness pass ke")
+                loudnorm = False
+                shutil.copyfile(joined, staged)
         else:
-            master.write_bytes(joined.read_bytes())
+            shutil.copyfile(joined, staged)
+        shutil.copyfile(staged, master)
+        print(f"master ok: {master.name} {master.stat().st_size/1e6:.2f} MB")
 
         info = probe(master, ffmpeg)
         receipt = {"project": project, "master": master.name, "shots": [s.name for s in segments],

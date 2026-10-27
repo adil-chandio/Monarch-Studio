@@ -207,6 +207,17 @@ hua. Ab finish **per shot** chalta hai, taake error ho to pata chale kaunsa shot
 3. aakhri pass: `loudnorm I=-16:TP=-1.5:LRA=11` + `aac 192k` + `+faststart`
 4. probe + `colab_master_receipt.json` (md5, bytes, w×h, fps, duration, audio)
 
+Asli run me master kahan atka tha (2026-10-28, `viper-2.1`) — dono cheezein ab tests me pinned hain:
+
+- **Concat demuxer path ko space par tod deta hai.** Drive folder `Wf-07 • Monarch Ai Agent` / `05 · Projects`
+  ki wajah se `file /content/drive/.../seg01.mp4` → `Impossible to open '/content/drive/MyDrive/Wf-07'`.
+  Ab `list.txt` me sirf `seg01.mp4` jaisa bare naam, aur ffmpeg `cwd=<segments folder>` ke saath chalta hai.
+- **`loudnorm` silent audio par `NaN` deta hai** → AAC encoder `Qavg: nan` + `frames left in the queue` par
+  marta hai, adhoora 25 KB master reh jata hai. Ab pehle `volumedetect` se `mean_volume` naapte hain:
+  `<= -70 dB` ya koi audio hi nahi → loudnorm **skip**, receipt me `"loudnorm": null` (jhoot nahi).
+- Master pehle `_segments/` me banta hai, size sanity-check hoti hai, phir `delivery/` me copy; receipt copy ke
+  **baad** likhti hai — receipt ka matlab hamesha asli file.
+
 Do aur sabak jo isi run me mile:
 
 - **`!pip` kabhi `if`/`try` block ke andar nahi.** Colab usay bash ko bhej deta hai →

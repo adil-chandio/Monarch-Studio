@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.2 — 2026-10-28
+
+- `viper-2.1`: the master now actually finishes inside Colab. Two real failures the owner's run exposed:
+  - the concat demuxer splits `file <path>` on spaces, so Drive's `Wf-07 • Monarch Ai Agent / 05 · Projects`
+    always died with "Impossible to open '/content/drive/MyDrive/Wf-07'". `list.txt` now holds bare
+    segment names and ffmpeg runs with `cwd` = the segments folder.
+  - `loudnorm` returns NaN on digital silence (`Qavg: nan`, "frames left in the queue") and kills the AAC
+    encoder mid-write — that is why a 25 KB truncated master with no receipt appeared. The finish pass now
+    measures `volumedetect` first and skips loudnorm honestly (`receipt.loudnorm = null`) when there is no
+    voice/foley, and resamples to 48 kHz when it does run.
+  - the master is staged inside `_segments/`, sanity-checked, then copied to `delivery/`; the receipt is only
+    written after the copy, so a receipt always means a real file.
+
 ## 0.3.1 — 2026-10-27
 
 - `viper-1.7`: the phone notebook now runs inside free Colab's 12.7 GB host RAM — UMT5 text encoder in

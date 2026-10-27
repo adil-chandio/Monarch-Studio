@@ -76,6 +76,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
   escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
   against real ffmpeg, so these three mistakes cannot come back silently.
+- **Finish stage ke do qatil, ab tests me pinned:** concat demuxer `file <path>` ko **space par tod deta hai**
+  (Drive folder `Wf-07 • Monarch Ai Agent`) → `list.txt` me sirf bare `segNN.mp4` naam + `cwd=<segments>`.
+  Aur `loudnorm` **silent audio par `NaN`** deta hai (`Qavg: nan`, `frames left in the queue`) → pehle
+  `volumedetect`; `mean_volume <= -70 dB` ya audio nahi → loudnorm skip + receipt me `"loudnorm": null`.
+  Master `_segments/` me stage hota hai, phir `delivery/` me copy; receipt sirf copy ke baad.
 - **This sandbox cannot reach Google hosts.** Never plan on downloading a clip or master here. The notebook's
   `RUN_FINISH` stage builds `delivery/<project>_MASTER.mp4` inside Colab and writes
   `colab_master_receipt.json`; read that receipt with the Drive connector and run

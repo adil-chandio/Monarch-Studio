@@ -439,6 +439,74 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(len(info["md5"]), 32)
             self.assertTrue((tmp / "delivery" / "p1_MASTER.mp4").exists())
 
+    def _run_finish_cell(self, base: pathlib.Path, ffmpeg: str, *, project="p1",
+                         shot_id="s01-hook", voice=True, silent=False):
+        """Execute the notebook's own finish cell against real ffmpeg in `base`."""
+        import re, subprocess, zipfile
+        with mock.patch("builtins.print"):
+            path = make_project(base, route="free")
+            vg.mobile(path)
+            cell = "".join(self._notebook(path)["cells"][7]["source"])
+        start = cell.index("# ── 8 · Finish")
+        code = (cell[start:].replace("__UP_W__", "960").replace("__UP_H__", "1664")
+                .replace('ffmpeg="ffmpeg"', f'ffmpeg="{ffmpeg}"'))
+        shots = base / "shots"
+        shots.mkdir(parents=True, exist_ok=True)
+        (base / "audio" / "vo").mkdir(parents=True, exist_ok=True)
+        subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "testsrc2=size=960x1664:rate=24:duration=1",
+                        "-c:v", "libx264", "-pix_fmt", "yuv420p", str(shots / f"{shot_id}-2x.mp4")],
+                       capture_output=True, check=True)
+        if voice and not silent:
+            subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "sine=frequency=300:duration=1",
+                            "-ar", "48000", "-ac", "2", str(base / "audio" / "vo" / f"{shot_id}.wav")],
+                           capture_output=True, check=True)
+        harness = {"SHOTS": shots, "VO_DIR": base / "audio/vo", "FOLEY_DIR": base / "audio/foley",
+                   "DELIVERY": base / "delivery", "PROJECT": project, "FACTOR": 2, "RUN_FINISH": True,
+                   "JOBS": [{"id": shot_id}], "BASE": base, "DRIVE_OK": True, "md5": vg.md5,
+                   "pathlib": pathlib, "re": re, "subprocess": subprocess, "json": json,
+                   "zipfile": zipfile}
+        exec(compile(code, "<finish>", "exec"), harness)
+        return json.loads((base / "colab_master_receipt.json").read_text())
+
+    def test_concat_never_passes_a_spaced_path_to_the_demuxer(self):
+        """Drive folder is 'Wf-07 • Monarch Ai Agent': the demuxer splits 'file <path>' on spaces."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            finish = "".join(self._notebook(path)["cells"][-2]["source"])
+            self.assertIn("file \" + seg.name", finish)       # bare name in list.txt
+            self.assertIn("cwd=str(work)", finish)              # ... relative to the segments dir
+
+    def test_finish_master_builds_inside_a_drive_path_with_spaces_and_silent_audio(self):
+        """loudnorm dies with 'Qavg: nan' on digital silence, and concat dies on paths with spaces."""
+        ffmpeg = vg.which("ffmpeg")
+        if not ffmpeg:
+            self.skipTest("ffmpeg not installed")
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td) / "Wf-07 • Monarch Ai Agent" / "05 · Projects" / "p1"
+            base.mkdir(parents=True)
+            receipt = self._run_finish_cell(base, ffmpeg, silent=True)
+            info = receipt["info"]
+            self.assertEqual(info["height"], 1664)
+            self.assertEqual(info["audio_codec"], "aac")
+            self.assertGreater(info["bytes"], 10_000)
+            self.assertIsNone(receipt["loudnorm"])          # skipped, not faked
+            self.assertTrue(any("loudnorm skip" in line for line in receipt["log"]))
+            self.assertTrue((base / "delivery" / "p1_MASTER.mp4").exists())
+
+    def test_finish_master_applies_loudnorm_and_keeps_48k(self):
+        ffmpeg = vg.which("ffmpeg")
+        if not ffmpeg:
+            self.skipTest("ffmpeg not installed")
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td) / "Wf-07 • Monarch Ai Agent" / "p1"
+            base.mkdir(parents=True)
+            receipt = self._run_finish_cell(base, ffmpeg)
+            self.assertEqual(receipt["loudnorm"], "I=-16 TP=-1.5 LRA=11")
+            self.assertGreater(receipt["info"]["bytes"], 10_000)
+            self.assertEqual(receipt["info"]["audio_codec"], "aac")
+
     def test_notebook_quantises_the_text_encoder(self):
         """22.7 GB UMT5 crashes Colab's 12.7 GB RAM: it must be loaded 4-bit."""
         with tempfile.TemporaryDirectory() as td:

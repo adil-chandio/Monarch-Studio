@@ -11,7 +11,7 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-07/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-08/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
   "state": "clip_ready",
@@ -168,7 +168,7 @@
     "minutes": "10-20"
   },
   "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
-  "engine_note": "viper-2.0: finish per shot + concat demuxer + loudnorm; no bang-pip; verified against real ffmpeg in tests",
+  "engine_note": "viper-2.1",
   "media": {
     "shots": [
       "t01-plate"
@@ -212,5 +212,8 @@
         "bytes": 198939
       }
     }
-  }
+  },
+  "notes": [
+    "2026-10-28: run-07 master fail root-caused (concat spaces + loudnorm NaN on silence); fixed in viper-2.1, rerun pending"
+  ]
 }
