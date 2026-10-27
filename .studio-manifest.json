@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T23:24:39+00:00",
+  "generated_at": "2026-10-27T23:43:00+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -1950,6 +1950,10 @@
     "studio/mobile/jobs/.gitkeep": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
+    },
+    "studio/mobile/jobs/mob-reel-01-premium.json": {
+      "sha256": "cc9a802ff6df6b884f13e5865712718e115f8b3403a60469e5c0c4748578fd59",
+      "size": 3393
     },
     "studio/mobile/jobs/mob-reel-01.json": {
       "sha256": "8529742bbadb861b20306da1106507e7938e973130f2edaa767f2cf5c0a9e8e2",
