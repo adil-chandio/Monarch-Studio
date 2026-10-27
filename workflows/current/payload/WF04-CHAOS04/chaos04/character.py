@@ -241,14 +241,13 @@ def build_head(mat_skin, mat_face):
 
 
 def build_hair(mat_hair, mat_sheen):
-    """Hair as a shell grown off the skull's own rings, so it can never stand off
-    the head like a cap: +7 mm of thickness, more mass at the crown and nape, a
-    small swept quiff at the front, and strands laid on the same surface."""
+    """A hair shell grown off the skull's own profile: crown → hairline, with
+    thickness that tapers to nothing at the apex (no top-knot), extra mass at the
+    nape, and a slightly higher hairline over the brow."""
     rnd = random.Random(7)
+    rings = HEAD_RINGS
 
     def skull(z):
-        """Interpolate the head profile at height z (rx, ry, y-offset)."""
-        rings = HEAD_RINGS
         if z <= rings[0][0]:
             return rings[0][1], rings[0][2], rings[0][3]
         if z >= rings[-1][0]:
@@ -259,69 +258,67 @@ def build_hair(mat_hair, mat_sheen):
                 return bl.lerp(rx0, rx1, u), bl.lerp(ry0, ry1, u), bl.lerp(dy0, dy1, u)
         return rings[-1][1], rings[-1][2], rings[-1][3]
 
-    Z0 = 1.7440          # hairline at the temples
-    Z1 = 1.8060          # crown
-    seg, rings_n = 72, 22
+    Z_CROWN = 1.8005
+    seg, rows = 72, 26
+
+    def hairline_z(a):
+        front = max(0.0, -math.sin(a))
+        back = max(0.0, math.sin(a))
+        return 1.7480 + 0.006 * front - 0.052 * back
+
     verts, faces = [], []
-    for i in range(rings_n + 1):
-        t = i / rings_n
+    for i in range(rows + 1):
+        t = i / rows                      # 0 = apex, 1 = hairline
         for j in range(seg):
             a = TAU * j / seg
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            # the hairline dips at the nape and rises over the brow
-            z = bl.lerp(Z0 + 0.008 * front - 0.040 * back, Z1, t ** 0.85)
+            z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
-            grow = 0.0075 + 0.0045 * back + 0.0020 * math.sin(a * 3 + 0.6)
-            # slight sweep back: the mass sits a little further back than the skull
-            quiff = 0.004 * front * (1 - t)
-            x = math.cos(a) * (rx + grow)
-            y = math.sin(a) * (ry + grow) + dy + quiff
-            if z > Z1 - 0.004:            # close the crown
-                x *= 0.55
-                y *= 0.55
-            verts.append((x, y, z + 0.004 * (1 - t) * back))
-    for i in range(rings_n):
+            # thickness: zero at the apex, full over the skull, a touch more at the nape
+            thick = (0.0085 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            x = math.cos(a) * (rx + thick)
+            y = math.sin(a) * (ry + thick) + dy
+            verts.append((x, y, z + 0.002))
+    for i in range(rows):
         for j in range(seg):
             a = i * seg + j
             b = i * seg + (j + 1) % seg
             faces.append((a, b, b + seg, a + seg))
     cap = bl.mesh_object("Hair · shell", verts, faces, mat_hair, subsurf=2)
 
-    # groom strands, laid on the same shell and swept back
+    # groom: strands combed from the crown back and down over the same shell
     lines = []
     for _ in range(1200):
         a = rnd.uniform(0, TAU)
-        t0 = rnd.uniform(0.05, 0.45)
+        t0 = rnd.uniform(0.10, 0.55)
         line = []
         for k in range(9):
             u = k / 8
             t = bl.lerp(t0, 1.0, u)
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            z = bl.lerp(Z0 + 0.008 * front - 0.040 * back, Z1, t ** 0.85)
+            z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
-            grow = 0.0092 + 0.0045 * back + rnd.uniform(-0.0012, 0.0012)
-            sweep = 0.010 * u * u
-            x = math.cos(a) * (rx + grow) + sweep * 0.3
-            y = math.sin(a) * (ry + grow) + dy + sweep
-            line.append((x, y, z + 0.0018 * math.sin(u * math.pi)))
+            thick = (0.0098 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            sweep = 0.006 * u * u * back
+            x = math.cos(a) * (rx + thick) + sweep * 0.25
+            y = math.sin(a) * (ry + thick) + dy + sweep
+            line.append((x, y, z + 0.0016 * math.sin(u * math.pi)))
         lines.append(line)
-    strands = bl.strands("Hair · groom", lines, 0.00042, mat_sheen, sides=3)
+    strands = bl.strands("Hair · groom", lines, 0.00040, mat_sheen, sides=3)
 
-    # sideburns, kept thin
+    # thin sideburns in front of the ears
     sides = []
     for sgn in (1, -1):
-        for _ in range(80):
-            z0 = rnd.uniform(1.7000, 1.7350)
+        for _ in range(90):
+            z0 = rnd.uniform(1.7060, 1.7400)
             line = []
             for k in range(6):
                 u = k / 5
-                z = z0 - 0.036 * u
+                z = z0 - 0.034 * u
                 rx, ry, dy = skull(z)
-                line.append((math.cos(math.radians(88)) * (rx + 0.004) * sgn,
-                             -0.030 + 0.016 * u,
-                             z))
+                line.append(((rx + 0.003) * sgn * 0.98, -0.026 + 0.014 * u, z))
             sides.append(line)
     side_obj = bl.strands("Sideburns", sides, 0.0005, mat_sheen, sides=3)
     return [cap, strands, side_obj]
@@ -416,8 +413,8 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     # sleeves + hands
     for s, sx in (("L", 1.0), ("R", -1.0)):
         upper = bl.loft(f"Sleeve upper.{s}", [
-            ((0.142 * sx, -0.002, 1.424), 0.066, 0.064),
-            ((0.172 * sx, -0.001, 1.404), 0.062, 0.060),
+            ((0.120 * sx, -0.002, 1.408), 0.062, 0.060),
+            ((0.158 * sx, -0.001, 1.398), 0.060, 0.058),
             ((0.208 * sx, 0.006, 1.300), 0.055, 0.053),
             ((0.219 * sx, 0.010, 1.180), 0.050, 0.049),
             ((0.225 * sx, 0.012, 1.150), 0.053, 0.052),
