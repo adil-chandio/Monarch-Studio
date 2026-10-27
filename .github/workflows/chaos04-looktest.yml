@@ -52,7 +52,7 @@ jobs:
       - name: Stills across the film
         working-directory: workflows/current/payload/WF04-CHAOS04
         env:
-          SHOTS: "20,120,240,300,420,470,500,530,560,620,700,780,800,900,1000,1060,1100,1150,1200,1250,1300"
+          SHOTS: "20,120,240,300,420,470,500,530,560,620,700,780,800,900,1000,1060,1100,1150,1200,1230,1250,1300"
         run: |
           python chaos04/render.py -- --blend build/chaos04.blend --out render/look \
             --samples 8 --skip-existing 0 --only "$SHOTS"

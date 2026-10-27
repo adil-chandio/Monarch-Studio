@@ -207,17 +207,26 @@ def build_head(mat_skin, mat_face):
         poly.use_smooth = True
     ob = bpy.data.objects.new("HEAD · Monarch v5", me)
     bpy.context.collection.objects.link(ob)
-    me.materials.append(mat_face)
+    me.materials.append(mat_skin)      # slot 0: our modelled skin
+    me.materials.append(mat_face)      # slot 1: the locked v5 capture, front only
+
+    # keep the capture on the face front; temples, jaw line and skull stay modelled
+    for poly in me.polygons:
+        cx = sum(me.vertices[i].co.x for i in poly.vertices) / len(poly.vertices)
+        cy = sum(me.vertices[i].co.y for i in poly.vertices) / len(poly.vertices)
+        cz = sum(me.vertices[i].co.z for i in poly.vertices) / len(poly.vertices)
+        front = cy < -0.020 and abs(cx) < 0.062 and 1.5560 < cz < 1.7240
+        poly.material_index = 1 if front else 0
 
     sub = ob.modifiers.new("Subdivision", "SUBSURF")
     sub.levels = 1
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.004, 1.420), 0.058, 0.052),
-        ((0, 0.004, 1.470), 0.052, 0.048),
-        ((0, 0.002, 1.530), 0.049, 0.046),
-        ((0, 0.000, 1.560), 0.050, 0.048),
+        ((0, 0.004, 1.420), 0.052, 0.047),
+        ((0, 0.004, 1.470), 0.047, 0.043),
+        ((0, 0.002, 1.520), 0.044, 0.041),
+        ((0, 0.000, 1.552), 0.045, 0.043),
     ], mat_skin, subsurf=1, close_start=False)
     ears = []
     for s in (1, -1):
@@ -243,12 +252,12 @@ def build_hair(mat_hair, mat_sheen):
             # cap that follows the skull and dips at the hairline
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            base_z = bl.lerp(1.6520, 1.7380, front) + bl.lerp(0.0, 0.010, back)
+            base_z = bl.lerp(1.6720, 1.7300, front) + bl.lerp(0.006, 0.0, back)
             phi = (math.pi * 0.5) * t
-            r_scale = 1.052 + 0.020 * math.sin(a * 3 + 0.7) * (1 - t)
-            z = base_z + (1.8000 - base_z) * math.sin(phi) ** 0.92
-            rx = 0.0700 * r_scale * math.cos(phi * 0.86)
-            ry = 0.0715 * r_scale * math.cos(phi * 0.86)
+            r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
+            z = base_z + (1.7905 - base_z) * math.sin(phi) ** 0.92
+            rx = 0.0712 * r_scale * math.cos(phi * 0.86)
+            ry = 0.0724 * r_scale * math.cos(phi * 0.86)
             # mass at the back of the head, tighter at the temples
             swell = 1.0 + 0.16 * max(0.0, math.sin(a)) * (1 - t * 0.5)
             x = math.cos(a) * rx * swell
@@ -273,11 +282,11 @@ def build_hair(mat_hair, mat_sheen):
             u = k / 8
             t = bl.lerp(start, end, u)
             phi = (math.pi * 0.5) * t
-            base_z = bl.lerp(1.6520, 1.7380, front) + bl.lerp(0.0, 0.010, max(0.0, math.sin(a)))
-            z = base_z + (1.8000 - base_z) * math.sin(phi) ** 0.92
+            base_z = bl.lerp(1.6720, 1.7300, front) + bl.lerp(0.006, 0.0, max(0.0, math.sin(a)))
+            z = base_z + (1.7905 - base_z) * math.sin(phi) ** 0.92
             rr = 1.056 + rnd.uniform(-0.004, 0.006)
-            rx = 0.0700 * rr * math.cos(phi * 0.86)
-            ry = 0.0715 * rr * math.cos(phi * 0.86)
+            rx = 0.0712 * rr * math.cos(phi * 0.86)
+            ry = 0.0724 * rr * math.cos(phi * 0.86)
             # sweep the strand tips backwards
             sweep = 0.010 * u * u
             x = math.cos(a) * rx + sweep * 0.35
@@ -292,11 +301,11 @@ def build_hair(mat_hair, mat_sheen):
         for _ in range(150):
             off = rnd.uniform(-0.011, 0.011)
             depth = rnd.uniform(-0.004, 0.006)
-            p0 = Vector((0.010 * sgn + off, -0.052 + depth, 1.7420))
-            p1 = Vector((0.044 * sgn + off * 0.8, -0.070 + depth, 1.7350))
+            p0 = Vector((0.010 * sgn + off, -0.050 + depth, 1.7290))
+            p1 = Vector((0.046 * sgn + off * 0.8, -0.068 + depth, 1.7230))
             p2 = Vector((0.064 * sgn + off * 0.5, -0.062 + depth, 1.7080))
-            p3 = Vector((0.068 * sgn + off * 0.3, -0.052 + depth,
-                         1.6780 + rnd.uniform(-0.010, 0.012)))
+            p3 = Vector((0.070 * sgn + off * 0.3, -0.050 + depth,
+                         1.6960 + rnd.uniform(-0.010, 0.012)))
             line = []
             for k in range(11):
                 u = k / 10
@@ -381,9 +390,9 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
 
     # lapels, proud of the blazer, running collar → sternum
     for s in (1, -1):
-        v = [(0.012 * s, -0.116, 1.462), (0.088 * s, -0.104, 1.452),
-             (0.140 * s, -0.086, 1.360), (0.070 * s, -0.116, 1.290),
-             (0.020 * s, -0.120, 1.250)]
+        v = [(0.010 * s, -0.108, 1.458), (0.070 * s, -0.100, 1.448),
+             (0.112 * s, -0.086, 1.372), (0.058 * s, -0.108, 1.300),
+             (0.016 * s, -0.112, 1.262)]
         f = [(0, 1, 2, 3), (0, 3, 4)]
         lap = bl.mesh_object(f"Lapel.{s}", v, f, mat_edge, smooth=False)
         sol = lap.modifiers.new("Solidify", "SOLIDIFY")
@@ -575,10 +584,10 @@ def build_character():
 
     m_skin = bl.material("MONARCH skin", base=SKIN, rough=0.46, spec=0.40,
                          sss=0.05, sss_scale=0.003)
-    m_hair = bl.material("MONARCH hair", base=HAIR, rough=0.34, spec=0.5, sheen=0.25)
-    m_sheen = bl.material("MONARCH hair sheen", base="#1A1A19", rough=0.26, spec=0.7)
-    m_blazer = bl.material("MONARCH blazer", base=BLAZER, rough=0.72, spec=0.35,
-                           sheen=0.30)
+    m_hair = bl.material("MONARCH hair", base="#171717", rough=0.52, spec=0.28, sheen=0.45)
+    m_sheen = bl.material("MONARCH hair sheen", base="#121212", rough=0.42, spec=0.42)
+    m_blazer = bl.material("MONARCH blazer", base="#1E1E1D", rough=0.80, spec=0.24,
+                           sheen=0.18)
     m_edge = bl.material("MONARCH blazer edge", base=BLAZER_EDGE, rough=0.62, spec=0.4,
                          sheen=0.2)
     m_shirt = bl.material("MONARCH shirt", base=SHIRT, rough=0.68, spec=0.3, sheen=0.15)

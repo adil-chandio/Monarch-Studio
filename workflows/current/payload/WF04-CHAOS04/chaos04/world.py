@@ -53,22 +53,22 @@ def room_lights(origin=ROOM):
     o = origin
     lights = {}
     lights["door_glow"] = _light(
-        "Room · doorway backlight", "AREA", (o.x, o.y + 3.0, 1.55), 3400,
+        "Room · doorway backlight", "AREA", (o.x, o.y + 3.0, 1.55), 620,
         color="#BFE6E2", size=2.6, size_y=3.0, rot=(math.radians(-90), 0, 0))
     lights["rim_teal"] = _light(
-        "Room · rim teal", "AREA", (o.x - 2.1, o.y + 1.9, 2.15), 620,
+        "Room · rim teal", "AREA", (o.x - 2.1, o.y + 1.9, 2.15), 150,
         color=RIM_TEAL, size=1.6, rot=(math.radians(70), 0, math.radians(-38)))
     lights["rim_amber"] = _light(
-        "Room · rim amber", "AREA", (o.x + 2.2, o.y + 1.7, 1.95), 520,
+        "Room · rim amber", "AREA", (o.x + 2.2, o.y + 1.7, 1.95), 120,
         color=RIM_AMBER, size=1.4, rot=(math.radians(66), 0, math.radians(40)))
     lights["practical"] = _light(
-        "Room · practical", "POINT", (o.x + 1.30, o.y + 0.85, 2.32), 240,
+        "Room · practical", "POINT", (o.x + 1.30, o.y + 0.85, 2.32), 70,
         color="#FFC27A", size=0.12)
     lights["key"] = _light(
-        "Room · soft key", "AREA", (o.x - 0.9, o.y - 2.2, 2.5), 190,
+        "Room · soft key", "AREA", (o.x - 0.9, o.y - 2.2, 2.5), 46,
         color="#D8E6E4", size=2.4, rot=(math.radians(-64), 0, math.radians(-20)))
     lights["fill"] = _light(
-        "Room · floor bounce", "AREA", (o.x, o.y - 0.4, 0.06), 90,
+        "Room · floor bounce", "AREA", (o.x, o.y - 0.4, 0.06), 22,
         color="#7EA6A4", size=3.0, rot=(math.radians(180), 0, 0))
     return lights
 
@@ -81,8 +81,8 @@ def room(origin=ROOM, haze=True):
     m_wall = bl.material("Room wall · plaster", base="#1B1D1E", rough=0.86)
     bl.bump_material(m_wall, scale=90, strength=0.3, detail=5)
     m_trim = bl.material("Room steel", base="#24282A", rough=0.42, metal=0.85)
-    m_neon = bl.emission_material("Room neon", RIM_TEAL, 22.0)
-    m_door = bl.emission_material("Room doorway", "#CFEDEA", 40.0)
+    m_neon = bl.emission_material("Room neon", RIM_TEAL, 9.0)
+    m_door = bl.emission_material("Room doorway", "#CFEDEA", 16.0)
 
     parts = []
     parts.append(bl.plane("Floor", (o.x, o.y + 0.4, 0), (7.0, 6.4), m_floor))
@@ -141,7 +141,7 @@ def room(origin=ROOM, haze=True):
     ], m_shade, subsurf=1, close_start=False, close_end=False))
     bulb = bl.loft("Lamp bulb", [
         ((o.x + 1.30, o.y + 0.85, 2.31), 0.055, 0.055),
-    ], bl.emission_material("Lamp bulb", "#FFC27A", 90.0), subsurf=1)
+    ], bl.emission_material("Lamp bulb", "#FFC27A", 22.0), subsurf=1)
     parts.append(bulb)
     parts.append(bl.tube_path("Lamp cable",
                              [(o.x + 1.30, o.y + 0.85, 3.34), (o.x + 1.30, o.y + 0.85, 2.42)],
@@ -156,8 +156,8 @@ def corridor(origin=CORRIDOR):
     o = origin
     m_floor = bl.material("Corridor floor", base="#101314", rough=0.13, spec=0.7, metal=0.1)
     m_wall = bl.material("Corridor wall", base="#191B1C", rough=0.7, metal=0.15)
-    m_neon = bl.emission_material("Corridor neon", RIM_TEAL, 26.0)
-    m_neon2 = bl.emission_material("Corridor neon amber", RIM_AMBER, 18.0)
+    m_neon = bl.emission_material("Corridor neon", RIM_TEAL, 10.0)
+    m_neon2 = bl.emission_material("Corridor neon amber", RIM_AMBER, 7.0)
     m_steel = bl.material("Corridor steel", base="#26292B", rough=0.38, metal=0.9)
     parts = []
     parts.append(bl.plane("Corridor floor", (o.x, o.y - 5.0, 0), (2.6, 14.0), m_floor))
@@ -173,11 +173,11 @@ def corridor(origin=CORRIDOR):
         y = o.y - 0.6 - 1.9 * i
         parts.append(bl.box(f"Corridor rib {i}", (o.x, y, 1.42), (2.7, 0.10, 2.85), m_steel))
     parts.append(bl.box("Corridor end", (o.x, o.y - 12.2, 1.4), (2.7, 0.2, 2.9),
-                        bl.emission_material("Corridor end glow", "#DCF2EF", 30.0)))
+                        bl.emission_material("Corridor end glow", "#DCF2EF", 12.0)))
     lights = {}
     for i in range(5):
         y = o.y - 1.4 - 2.6 * i
-        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 210,
+        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 70,
                                     color=RIM_TEAL if i % 2 else "#DFF3F0",
                                     size=1.2, size_y=0.8,
                                     rot=(math.radians(180), 0, 0))
@@ -187,14 +187,14 @@ def corridor(origin=CORRIDOR):
 
 def white_void(origin=VOID):
     o = origin
-    m_white = bl.emission_material("Void white", "#F4F8F7", 12.0)
+    m_white = bl.emission_material("Void white", "#F4F8F7", 3.0)
     parts = [
         bl.plane("Void backdrop", (o.x, o.y + 3.4, 1.6), (9.0, 6.0), m_white,
                  rot=(math.radians(90), 0, 0)),
         bl.plane("Void floor", (o.x, o.y, 0), (9.0, 9.0), m_white),
     ]
     lights = {
-        "void_key": _light("Void key", "AREA", (o.x, o.y - 2.4, 2.2), 400,
+        "void_key": _light("Void key", "AREA", (o.x, o.y - 2.4, 2.2), 90,
                            color="#F2FBFA", size=3.0, rot=(math.radians(-60), 0, 0)),
     }
     return parts, lights
@@ -205,7 +205,7 @@ def endcard_set(origin=ENDCARD):
     m_black = bl.material("Endcard black", base="#050606", rough=0.9)
     parts = [bl.plane("Endcard backdrop", (o.x, o.y + 2.2, 1.25), (6.0, 6.0), m_black,
                       rot=(math.radians(90), 0, 0))]
-    lights = {"endcard_fill": _light("Endcard fill", "AREA", (o.x, o.y - 1.0, 2.0), 40,
+    lights = {"endcard_fill": _light("Endcard fill", "AREA", (o.x, o.y - 1.0, 2.0), 18,
                                      color="#9FC7C4", size=2.0,
                                      rot=(math.radians(-70), 0, 0))}
     return parts, lights

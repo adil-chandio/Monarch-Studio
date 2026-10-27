@@ -84,9 +84,9 @@ def compositor(scene):
     glare = nt.nodes.new("CompositorNodeGlare")
     glare.glare_type = "FOG_GLOW"
     glare.quality = "HIGH"
-    glare.threshold = 1.35
-    glare.size = 8
-    glare.mix = -0.72
+    glare.threshold = 3.2
+    glare.size = 7
+    glare.mix = -0.86
     out = nt.nodes.new("CompositorNodeComposite")
     links.new(rl.outputs["Image"], glare.inputs["Image"])
     last = glare
