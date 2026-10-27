@@ -2,7 +2,9 @@ name: CHAOS 04 3D look test
 
 # Runs on GitHub's Ubuntu runners: root access means the Blender system libs can
 # be installed, so the Monarch scene can actually render without the Colab box.
-# CPU only — this is a look/motion gate at 360x640, not the 1080x1920 delivery.
+# CPU only — a look/motion gate at 360x640, not the 1080x1920 delivery.
+# Results are committed back to the branch (this repo is public and the runner
+# has no other channel out).
 
 on:
   push:
@@ -13,10 +15,13 @@ on:
       - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/**"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   looktest:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
 
@@ -34,39 +39,67 @@ jobs:
       - name: Python deps (bpy wheel + encoder)
         run: |
           python -m pip install --upgrade pip
-          pip install "bpy==4.2.0" numpy imageio-ffmpeg
+          pip install "bpy==4.2.0" numpy imageio-ffmpeg pillow
           python -c "import bpy, sys; print('bpy', bpy.app.version_string); sys.exit(0)"
 
       - name: Build scene (360x640 preview settings)
         working-directory: workflows/current/payload/WF04-CHAOS04
         run: |
-          python chaos04/build.py -- --out build/chaos04.blend \
-            --width 360 --height 640 --samples 8
+          /usr/bin/time -f "BUILD %e s" python chaos04/build.py -- \
+            --out build/chaos04.blend --width 360 --height 640 --samples 8
           ls -l build
 
-      - name: Render look-test frames
+      - name: Stills across the film
         working-directory: workflows/current/payload/WF04-CHAOS04
         env:
-          SHOTS: "223,240,262,279,399,420,444,470,489,505,519,530,541,552,600,610,789,815,987,1010"
+          SHOTS: "20,120,240,300,420,470,500,530,560,620,700,780,800,900,1000,1060,1100,1150,1200,1250,1300"
         run: |
-          python chaos04/render.py -- --out render/look --samples 8 --start 1 --end 1332 \
+          python chaos04/render.py -- --out render/look --samples 8 \
             --skip-existing 0 --only "$SHOTS"
-          ls render/look | head
+          cp render/progress.jsonl build/progress_stills.jsonl || true
 
-      - name: Score + contact sheet + clip
+      - name: Contiguous motion run (shots 05-06, 114 frames = 3.8 s)
         working-directory: workflows/current/payload/WF04-CHAOS04
         run: |
-          pip install --quiet pillow
+          /usr/bin/time -f "MOTION %e s" python chaos04/render.py -- \
+            --out render/motion --samples 8 --start 223 --end 336
+          cp render/progress.jsonl build/progress_motion.jsonl || true
+
+      - name: Score, contact sheet, clip
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
           python chaos04/score.py --out build/score_48k.wav
           python gpu/jobs/looktest_post.py
           ls -l build
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: chaos04-looktest
-          path: |
-            workflows/current/payload/WF04-CHAOS04/build/looktest_sheet.jpg
-            workflows/current/payload/WF04-CHAOS04/build/looktest_clip.mp4
-            workflows/current/payload/WF04-CHAOS04/build/chaos04.manifest.json
-            workflows/current/payload/WF04-CHAOS04/render/look/*.png
-          if-no-files-found: warn
+      - name: Publish results into the branch
+        if: always()
+        run: |
+          set -e
+          WF=workflows/current/payload/WF04-CHAOS04
+          OUT=$WF/output/looktest
+          mkdir -p "$OUT"
+          cp -v "$WF"/build/looktest_sheet.jpg "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/build/looktest_clip.mp4 "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/build/progress_*.jsonl "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/build/chaos04.manifest.json "$OUT"/ 2>/dev/null || true
+          mkdir -p "$OUT/frames"
+          cp -v "$WF"/render/look/*.png "$OUT/frames"/ 2>/dev/null || true
+          cat > "$OUT/README.md" <<EOF
+          # CHAOS 04 look test (run $GITHUB_RUN_ID)
+
+          Rendered on GitHub's Ubuntu runner with the Blender 4.2 \`bpy\` wheel —
+          CPU only, 360 × 640, 8 samples, denoised. Not the delivery master; this
+          exists so the character, sets and motion can be reviewed without the GPU box.
+
+          - \`looktest_sheet.jpg\` — stills across the film
+          - \`looktest_clip.mp4\` — shots 05–06 contiguous, with the real score
+          - \`progress_*.jsonl\` — per-frame seconds, so the full render's ETA is measured
+          - \`frames/\` — the still PNGs
+          - \`chaos04.manifest.json\` — segment map that produced this
+          EOF
+          git config user.name "chaos04-looktest"
+          git config user.email "looktest@monarch.studio"
+          git add -f "$OUT"
+          git commit -m "look test: frames, clip and timings from run $GITHUB_RUN_ID" || true
+          git push origin HEAD:${GITHUB_REF_NAME}
