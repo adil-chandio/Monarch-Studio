@@ -63,17 +63,17 @@ def main() -> int:
         glow = Image.new("RGB", (W, H), (0, 0, 0))
         gd = ImageDraw.Draw(glow)
         pulse = 0.86 + 0.14 * math.sin(t * 5.4)
-        gd.ellipse([W / 2 - 300, 700, W / 2 + 300, 1180],
-                   fill=(int(150 * pulse), int(16 * pulse), int(8 * pulse)))
+        gd.ellipse([W / 2 - 420, 620, W / 2 + 420, 1260],
+                   fill=(int(200 * pulse), int(24 * pulse), int(12 * pulse)))
         glow = glow.filter(ImageFilter.GaussianBlur(120))
-        base = Image.blend(base, glow, 0.55 * fade)
+        base = Image.blend(base, glow, 0.80 * fade)
 
         mask = crescent_mask(W, H, 210, 26, bow=0.26)
         crest = Image.new("RGB", (W, H), (0, 0, 0))
         crest.paste((255, 96, 52), (0, 0), mask)
         crest = crest.filter(ImageFilter.GaussianBlur(1.2))
         hot = crest.filter(ImageFilter.GaussianBlur(26))
-        base = Image.blend(base, hot, 0.55 * fade)
+        base = Image.blend(base, hot, 0.75 * fade)
         base = Image.blend(base, crest, 0.92 * fade)
 
         d = ImageDraw.Draw(base)

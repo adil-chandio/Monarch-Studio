@@ -304,7 +304,7 @@ def build():
         visor_hot=mat_basic("mat_visor_hot", (0.05, 0.005, 0.004), 0.1, 0.0,
                             emission=(1.0, 0.72, 0.52), strength=6.0),
         portal=mat_basic("mat_portal", (0.02, 0.0, 0.0), 0.5, 0.0,
-                         emission=(1.0, 0.055, 0.03), strength=5.0),
+                         emission=(1.0, 0.045, 0.022), strength=3.2),
         lamp=mat_basic("mat_lamp", (0.02, 0.02, 0.02), 0.4, 0.0,
                        emission=(1.0, 0.55, 0.26), strength=12.0),
         blade=mat_basic("mat_blade", (0.32, 0.32, 0.34), 0.12, 1.0),
@@ -375,7 +375,7 @@ def build():
     HERO_AIM = (0.0, 5.6, 1.45)
     FACE_AIM = (0.0, 5.6, 1.72)
     L = S["L"] = {}
-    L["portal"] = area("lt_portal", (0, 13.9, 2.0), (0, 11.6, 0.4), 2.2, 240, (1.0, 0.10, 0.055))
+    L["portal"] = area("lt_portal", (0, 13.9, 2.0), (0, 11.6, 0.4), 2.2, 95, (1.0, 0.075, 0.040))
     L["floorpool"] = area("lt_floorpool", (0, 12.2, 0.28), (0, 10.0, 0.0), 2.6, 120, (1.0, 0.13, 0.08))
     L["key"] = area("lt_key", (-2.9, 7.2, 5.2), HERO_AIM, 2.0, 200, (0.50, 0.64, 1.0))
     L["rim"] = area("lt_rim", (2.7, 10.6, 4.3), HERO_AIM, 1.4, 175, (1.0, 0.20, 0.11))
@@ -384,7 +384,9 @@ def build():
     L["overhead"] = area("lt_overhead", (0.0, 3.2, 8.4), (0.0, 5.6, 0.4), 2.6, 90, (1.0, 0.62, 0.34))
     L["fill"] = area("lt_fill", (0, -2.4, 3.4), HERO_AIM, 6.0, 42, (0.26, 0.40, 0.78))
     # front 'mask' key: cool, sculpts the visor side of the face
-    L["face_key"] = area("lt_face_key", (-1.7, 3.05, 2.45), FACE_AIM, 1.2, 48, (0.68, 0.80, 1.0))
+    L["face_key"] = area("lt_face_key", (-1.7, 3.05, 2.45), FACE_AIM, 1.2, 60, (0.68, 0.80, 1.0))
+    L["body_key"] = area("lt_body_key", (-2.30, 1.10, 2.60), (0.0, 5.6, 1.10), 1.8, 75,
+                         (0.60, 0.74, 1.0))
     L["face_kick"] = area("lt_face_kick", (1.5, 3.45, 1.95), FACE_AIM, 1.0, 38, (1.0, 0.34, 0.20))
 
     # ---- character: OUR masked Monarch (heroic 1.85 m proportions)
@@ -542,15 +544,15 @@ BASE = {
     # Design rule: the figure is shown as a lit silhouette inside a big dark hall.
     # Detail inserts are environmental (portal ring, chains, blade) — never a
     # low-detail close-up of the character.
-    "hall_wide_a": ((0.0, -11.5, 2.05), (0.0, 15.0, 1.95), 26),
-    "hall_wide_b": ((-4.2, -8.0, 1.50), (0.6, 14.8, 1.85), 22),
-    "doorway_wide": ((0.0, 2.6, 1.30), (0.0, 14.2, 1.80), 34),
-    "doorway_hold": ((0.0, 3.4, 1.02), (0.0, 14.6, 1.55), 30),
+    "hall_wide_a": ((0.0, -4.20, 1.62), (0.0, 12.0, 2.35), 32),
+    "hall_wide_b": ((-3.30, -2.60, 1.30), (1.10, 12.5, 2.20), 26),
+    "doorway_wide": ((0.0, 2.10, 1.24), (0.0, 13.5, 2.05), 34),
+    "doorway_hold": ((0.0, 2.85, 0.98), (0.0, 14.2, 1.85), 32),
     "masked_cu_low": ((1.05, 1.15, 0.72), (0.0, 5.60, 1.48), 45),
     "masked_cu_high": ((-1.25, 3.35, 3.70), (0.0, 5.60, 1.30), 40),
     "masked_profile": ((3.75, 5.05, 1.52), (0.0, 5.60, 1.44), 45),
     "tie_detail": ((1.25, 9.20, 4.70), (-2.10, 8.40, 3.90), 62),
-    "visor_insert": ((5.60, 9.40, 2.70), (0.0, 14.60, 1.90), 50),
+    "visor_insert": ((7.20, 3.10, 3.40), (0.0, 14.30, 1.85), 42),
     "climax_blade": ((1.55, 4.05, 0.98), (0.30, 5.60, 1.02), 58),
     "climax_overhead": ((0.50, 4.20, 3.95), (0.0, 5.60, 1.18), 30),
     "climax_strobe": ((1.35, 1.95, 0.48), (0.20, 5.60, 1.58), 50),
@@ -567,6 +569,18 @@ def make_cameras(shots):
         pos, tgt, lens = BASE[setup]
         sdx = (s["seed"] % 1000) / 1000.0 - 0.5
         sdy = ((s["seed"] // 1000) % 1000) / 1000.0 - 0.5
+        # per-shot azimuth around the hero: genuinely different angles on the same set
+        if s["act"] == "A5":
+            az = ((s["seed"] % 9) - 4) * math.radians(15)
+        elif s["act"] == "A3":
+            az = ((s["seed"] % 7) - 3) * math.radians(13)
+        else:
+            az = 0.0
+        if az:
+            dx, dy = pos[0] - HERO_POS[0], pos[1] - HERO_POS[1]
+            pos = (HERO_POS[0] + dx * math.cos(az) - dy * math.sin(az),
+                   HERO_POS[1] + dx * math.sin(az) + dy * math.cos(az),
+                   pos[2])
         # small per-shot framing variation so consecutive shots never look identical
         jitter = 0.16 if setup.startswith(("masked", "climax", "tie", "visor")) else 0.05
         pos = (pos[0] + sdx * jitter, pos[1] + sdy * jitter * 0.6, pos[2] + sdy * 0.09)
@@ -633,7 +647,7 @@ def make_cameras(shots):
 def apply_act_looks(shots):
     """Exposure + strobe behaviour per act, keyed on the global timeline."""
     sc = bpy.context.scene
-    expo = {"A1": -1.20, "A2": -0.70, "A3": -1.05, "A4": -0.85, "A5": -0.85, "A6": -1.9}
+    expo = {"A1": -1.15, "A2": -0.55, "A3": -0.90, "A4": -0.70, "A5": -0.15, "A6": -1.9}
     tight = ("visor_insert", "climax_blade", "climax_strobe")
     for s in shots:
         e = expo[s["act"]] - (0.35 if s["setup"].startswith(tight) else 0.0)
@@ -644,17 +658,17 @@ def apply_act_looks(shots):
     d = bpy.data.lights.new("lt_strobe", type="POINT")
     d.energy = 0.0
     d.color = (1.0, 0.08, 0.05)
-    d.shadow_soft_size = 0.6
+    d.shadow_soft_size = 1.4
     ob = bpy.data.objects.new("lt_strobe", d)
-    ob.location = (0.0, 5.0, 2.3)
+    ob.location = (0.0, 3.6, 3.9)
     sc.collection.objects.link(ob)
     a5 = [s for s in shots if s["act"] == "A5"]
     for i, s in enumerate(a5):
         if i % 3 == 0:
-            base = 900 if i % 2 else 620
+            base = 1300 if i % 2 else 820
             d.energy = base
             d.keyframe_insert("energy", frame=s["f0"])
-            d.energy = 60
+            d.energy = 90
             d.keyframe_insert("energy", frame=min(s["f0"] + 2, s["f1"] - 1))
     d.energy = 0.0
     d.keyframe_insert("energy", frame=1331)

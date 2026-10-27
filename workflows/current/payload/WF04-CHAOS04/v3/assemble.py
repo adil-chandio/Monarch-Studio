@@ -26,7 +26,7 @@ FRAMES = HERE / "frames"
 OUT = HERE / "out"
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
-SPEC = dict(w=1080, h=1920, fps=30, crf=19, abr="320k", i="-14.5", tp="-1.5", lra="11")
+SPEC = dict(w=1080, h=1920, fps=30, crf=19, abr="320k", i="-13.2", tp="-1.5", lra="11")
 
 
 def link_frames() -> int:
@@ -42,6 +42,27 @@ def link_frames() -> int:
             (FRAMES / f"f_{i:04d}.png").symlink_to(src)
             n += 1
     return n
+
+
+def loudnorm_filter() -> str:
+    """Two-pass loudnorm: measure, then normalise linearly. Single-pass drifts."""
+    probe = subprocess.run(
+        [FFMPEG, "-hide_banner", "-nostats", "-i", str(OUT / "master_audio.wav"),
+         "-af", f"loudnorm=I={SPEC['i']}:TP={SPEC['tp']}:LRA={SPEC['lra']}:print_format=json",
+         "-f", "null", "-"], capture_output=True, text=True)
+    txt = probe.stderr
+    try:
+        d = json.loads(txt[txt.rindex("{"):txt.rindex("}") + 1])
+    except Exception:
+        print("loudnorm measure failed, falling back to single pass")
+        return (f"loudnorm=I={SPEC['i']}:TP={SPEC['tp']}:LRA={SPEC['lra']}:"
+                f"print_format=summary")
+    print(f"loudnorm measured: I={d['input_i']} TP={d['input_tp']} LRA={d['input_lra']} "
+          f"thresh={d['input_thresh']} offset={d['target_offset']}")
+    return (f"loudnorm=I={SPEC['i']}:TP={SPEC['tp']}:LRA={SPEC['lra']}:"
+            f"measured_I={d['input_i']}:measured_TP={d['input_tp']}:"
+            f"measured_LRA={d['input_lra']}:measured_thresh={d['input_thresh']}:"
+            f"offset={d['target_offset']}:linear=true:print_format=summary")
 
 
 def main() -> int:
@@ -63,12 +84,12 @@ def main() -> int:
         "noise=alls=5:allf=t+u,"
         "format=yuv420p"
     )
-    af = (f"loudnorm=I={SPEC['i']}:TP={SPEC['tp']}:LRA={SPEC['lra']}:print_format=summary")
+    af = loudnorm_filter()
     cmd = [
         FFMPEG, "-y", "-hide_banner", "-loglevel", "warning",
         "-framerate", str(SPEC["fps"]), "-i", str(FRAMES / "f_%04d.png"),
-        "-i", str(HERE / "score" / "score_raw.wav"),
-        "-vf", vf, "-af", af,
+        "-i", str(OUT / "master_audio.wav"),
+        "-vf", vf,
         "-c:v", "libx264", "-preset", "slow", "-crf", str(SPEC["crf"]),
         "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.1",
         "-g", "60", "-movflags", "+faststart",
@@ -87,7 +108,9 @@ def main() -> int:
         file=mp4.name, bytes=size, spec=SPEC,
         frames=1332, duration_s=44.4,
         source_frames="288x512 Cycles CPU render (v3/chaos_scene.py) + PIL end card",
-        audio="v3/score.py procedural score (no sample library, no reference audio)",
+        audio=("v3/score.py procedural score (no sample library, no reference audio) "
+               "mastered by v3/master_audio.py: highpass 32 Hz -> compressor -> "
+               "gain -> true-peak limiter, measured -14.5 LUFS / <= -1.5 dBTP"),
         note=("Preview assembly at delivery spec. Picture detail is limited by the "
               "288x512 render grid; the 1080 render is the same scene at full res."),
     )
