@@ -48,7 +48,9 @@
         "regeneration 768P->2K $0.05/s",
         "reference audio free, first 5 images free then $0.04, reference video billed at output rate"
       ],
-      "secondary": ["https://platform.minimax.io/docs/pricing/overview adds Highspeed $0.06 and Lite $0.04 per second"]
+      "secondary": [
+        "https://platform.minimax.io/docs/pricing/overview adds Highspeed $0.06 and Lite $0.04 per second"
+      ]
     },
     {
       "id": "hardware",
@@ -64,13 +66,31 @@
         "full BF16 checkpoint ~124-144 GB"
       ],
       "note": "community-reported; treat as ranges, not guarantees"
+    },
+    {
+      "id": "free-routes",
+      "urls": [
+        "https://minimax-ai.chat/guide/is-hailuo-ai-free/",
+        "https://myclaw.ai/blog/minimax-h3-free-online",
+        "https://hailuoai.video/tools/minimax-h3",
+        "https://localaimaster.com/blog/local-text-to-video-low-vram",
+        "https://computingforgeeks.com/run-wan-video-generation-locally/",
+        "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+      ],
+      "verified": [
+        "H3 API has no free clip allowance: the 'free tier' is a rate limit (2 concurrent tasks on V2, 5 req/min legacy)",
+        "Hailuo free plan is a one-time trial (welcome credits, ~150-200, expire in 3 days, watermark, no commercial use); promo: 3 free H3 trials + 3000 credits for installing MiniMax Design",
+        "fal offers 5 free H3-Max generations/day as a promotion",
+        "Wan 2.1 T2V 1.3B-Diffusers is Apache-2.0, ~8.19 GB VRAM, 480p, 81 frames @16 fps; diffusers WanPipeline call signature (height/width/num_frames/guidance_scale) and export_to_video",
+        "Wan 2.2 TI2V-5B peaks ~22 GB fp16, needs fp8/offload for 16 GB"
+      ],
+      "note": "T4 = Turing sm_75: no bf16, no fp8/NVFP4 -> fp16 + cpu offload + vae tiling"
     }
   ],
   "not_verified": [
-    "hosted H3-Context-IR and regeneration endpoint paths/payloads (docs index not fetched; linked from the H3 README instead)",
-    "current free-credit policy on the MiniMax platform",
-    "exact data-retention terms of the hosted API",
-    "whether data-URL base64 references are accepted by /v2/video_generation for every media type"
+    "exact free-tier video quota on the MiniMax platform for a brand-new account today",
+    "measured render time of Wan 1.3B on a free Colab T4 in this session (no GPU here); 8-25 min/clip is a documented range",
+    "whether Colab T4 frees enough RAM for 81 frames at 832x480 on every run (OOM workaround documented instead)"
   ],
   "assumptions": [
     "list prices in workflow.json will be re-checked before quoting a client",

@@ -53,6 +53,23 @@ IDENTITY (WF-04: REAL face v5 + body v2)  →  PERFORMANCE (H3 Ref2VA: dialogue 
 
 Poora plan + reference pack + QC gates: `knowledge/04_WF04_MONARCH_FACE_INTEGRATION.md`.
 
+## 2b. "Free nahi hai?" — free route bhi ready hai
+
+H3 khud **paid** hai (768P $0.08/s · 2K $0.13/s; open weights free hain magar 4×H100 class GPU chahiye).
+Is liye free kaam ke liye alag notebook hai: **`colab/MONARCH_T4_FREE_BRIDGE.ipynb`** — free Colab **T4**
+par **Wan 2.1 T2V 1.3B** (Apache-2.0) = **$0, bina API key**, 480p, 5 s, **silent**.
+
+| | H3 (API) | Free T4 notebook |
+|---|---|---|
+| Paisa | $0.08–0.13 / s | **$0** |
+| Quality | best, 2K | theek, 480p |
+| Audio | native stereo | silent (WF-05 me voice/music) |
+| 5 s clip ka waqt | 30 s – 4 min | 8–25 min |
+| 2K | ✅ | ❌ |
+
+Recommended mix: **draft/plates free → hero shots H3 paid → finish WF-05.** Detail + trial/promo routes +
+ping/tunnel pattern ka ToS sach: `knowledge/05_FREE_ROUTES.md`.
+
 ## 3. Kya badalta hai, kya nahi
 
 **Nahi badalta:** WF-01 stickman ka procedural rig authority; WF-03 noir ka hand-built plate + line-hero DNA;
@@ -97,6 +114,9 @@ aur ek hi prompt skeleton se 16:9 + 9:16 dono versions.
 | `knowledge/03_ROUTES_AND_COST.md` | route decision table, cost model, batch strategy |
 | `knowledge/04_WF04_MONARCH_FACE_INTEGRATION.md` | face → performance → film pipeline, levels, QC gates |
 | `colab/MONARCH_H3_COLAB.ipynb` | runnable Colab notebook (API route, cost gate, receipts, assemble) |
+| `colab/MONARCH_T4_FREE_BRIDGE.ipynb` | free T4 notebook (Wan 1.3B, jobs, Drive receipts, optional Drive queue, gated tunnel) |
+| `knowledge/05_FREE_ROUTES.md` | free vs paid matrix, T4 reality, trial/promo limits, tunnel risks, hybrid cost plan |
+| `data/free_jobs.example.json` | free-route job list (`jobs.json` for the queue cell) |
 | `src/h3_client.py` | stdlib CLI: `estimate` / `run` / `query` |
 | `data/shotlist.example.json` | 3-shot example (Monarch Ref2VA + noir plate + reel insert) |
 | `records/PROVENANCE.json` | source URLs + access date + what was verified |

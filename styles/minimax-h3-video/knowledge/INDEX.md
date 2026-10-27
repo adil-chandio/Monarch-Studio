@@ -9,12 +9,15 @@ Permanent, source-backed knowledge for MiniMax-H3 inside Monarch Studio. Read in
 | 02 | [`02_PROMPTING.md`](02_PROMPTING.md) | before writing a prompt | T2VA/I2VA/FL2VA/Ref2VA shapes, shot/camera/dialogue grammar, Monarch locks, language limits (no stable Urdu/Hindi), ready templates, shot-list rules |
 | 03 | [`03_ROUTES_AND_COST.md`](03_ROUTES_AND_COST.md) | before committing money or scope | route decision table, cost model + worked examples, batch strategy, production pipeline, what H3 changes and does not, legal notes |
 | 04 | [`04_WF04_MONARCH_FACE_INTEGRATION.md`](04_WF04_MONARCH_FACE_INTEGRATION.md) | for Monarch-face work | reference pack spec, copy-paste Ref2VA shot skeleton, L1–L4 levels, QC gates, WF-05 handoff contract, when NOT to use H3 |
+| 05 | [`05_FREE_ROUTES.md`](05_FREE_ROUTES.md) | when the answer must be "free" | is H3 free (no: API paid, weights free but 4xH100 class), trial/promo routes and their limits, what actually runs on a free Colab T4, the ping/tunnel pattern's ToS+security reality, Drive job-queue alternative, cost-minimising draft/free + hero/paid mix |
 
 ## Executable knowledge
 
 | Path | Purpose |
 |---|---|
 | [`../colab/MONARCH_H3_COLAB.ipynb`](../colab/MONARCH_H3_COLAB.ipynb) | Colab control room: env → key → templates → helpers → shot list → cost gate → run → receipts → ffmpeg assemble |
+| [`../colab/MONARCH_T4_FREE_BRIDGE.ipynb`](../colab/MONARCH_T4_FREE_BRIDGE.ipynb) | **free route**: Wan 2.1 T2V 1.3B on a free T4 — job list, Drive output + receipts, optional Drive job queue, gated tunnel cell |
+| [`../data/free_jobs.example.json`](../data/free_jobs.example.json) | free-route job list (jobs.json format for the queue cell) |
 | [`../src/h3_client.py`](../src/h3_client.py) | stdlib CLI (`estimate` / `run` / `query`), payload validation, cost math, receipts |
 | [`../data/shotlist.example.json`](../data/shotlist.example.json) | 3-shot example: Monarch Ref2VA hero line, noir T2VA plate, Lite reel insert |
 | [`../../tests/test_wf06_h3.py`](../../tests/test_wf06_h3.py) | offline tests: mutual-exclusion rule, ratio rules, duration/resolution guards, cost math, receipts flow, CLI dry run |
@@ -30,3 +33,5 @@ Permanent, source-backed knowledge for MiniMax-H3 inside Monarch Studio. Read in
 6. **Language risk is explicit.** Urdu/Hindi are not in H3's stable set; test one line first.
 7. **WF-01/WF-03 engines are not replaced.** H3 supplies plates/talking shots only.
 8. **No credentials in Git.** Key via `MINIMAX_API_KEY` (Colab Secrets or env).
+9. **Free route exists but is not H3.** Free T4 runs Wan 2.1 1.3B (480p, silent). H3 stays the paid hero route —
+   free plates for drafts, paid H3 for the shots that carry dialogue and 2K.

@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Run the L1 identity test: add Monarch reference crops + voice ref to styles/minimax-h3-video/assets/refs/, then estimate and run one 5 s 768P Ref2VA shot with MINIMAX_API_KEY
+- **Next action:** User uploads colab/MONARCH_T4_FREE_BRIDGE.ipynb to Colab with T4 runtime and runs cells 1-7; then pick hero shots for the paid H3 route
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

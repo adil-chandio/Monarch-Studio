@@ -159,5 +159,57 @@ class FlowTests(unittest.TestCase):
         self.assertEqual(rc, 2)
 
 
+class FreeRouteTests(unittest.TestCase):
+    """The free T4 notebook must stay runnable and honest about its limits."""
+
+    NOTEBOOK = STYLE / "colab/MONARCH_T4_FREE_BRIDGE.ipynb"
+
+    def _nb(self):
+        return json.loads(self.NOTEBOOK.read_text())
+
+    def test_notebook_json_and_cells_compile(self):
+        nb = self._nb()
+        self.assertEqual(nb["metadata"]["accelerator"], "GPU")
+        code_cells = [c for c in nb["cells"] if c["cell_type"] == "code"]
+        self.assertGreaterEqual(len(code_cells), 8)
+        for i, cell in enumerate(code_cells):
+            src = "\n".join(line for line in "".join(cell["source"]).splitlines()
+                             if not line.strip().startswith("!"))
+            compile(src, f"free-cell-{i}", "exec")   # raises on a syntax error
+
+    def test_spend_and_tunnel_defaults_are_off(self):
+        joined = self.NOTEBOOK.read_text()
+        self.assertIn("TUNNEL_ENABLED = False", joined)
+        self.assertIn("QUEUE_ENABLED = False", joined)
+        self.assertNotIn("背景", joined)
+
+    def test_free_notebook_uses_a_free_model_not_h3(self):
+        joined = self.NOTEBOOK.read_text()
+        self.assertIn("Wan-AI/Wan2.1-T2V-1.3B-Diffusers", joined)
+        self.assertNotIn("api.minimax.io", joined)
+
+    def test_free_jobs_example_is_valid(self):
+        data = json.loads((STYLE / "data/free_jobs.example.json").read_text())
+        jobs = data["jobs"]
+        self.assertGreaterEqual(len(jobs), 3)
+        ids = [j["id"] for j in jobs]
+        self.assertEqual(len(ids), len(set(ids)))
+        for job in jobs:
+            with self.subTest(job=job["id"]):
+                self.assertGreater(len(job["prompt"]), 40)
+                self.assertEqual((int(job["frames"]) - 1) % 4, 0, "Wan needs num_frames = 4k+1")
+                self.assertIn(int(job["width"]) % 16, (0,), "Wan wants width/height divisible by 16")
+                self.assertIn(int(job["height"]) % 16, (0,))
+
+
+class FreeDocsTests(unittest.TestCase):
+    def test_free_routes_doc_states_h3_is_paid(self):
+        text = (STYLE / "knowledge/05_FREE_ROUTES.md").read_text()
+        self.assertIn("MiniMax-H3 free nahi hai", text)
+        for needle in ["0.08", "0.13", "Colab ToS", "Wan 2.1 T2V 1.3B", "Drive-based job queue"]:
+            with self.subTest(needle=needle):
+                self.assertIn(needle, text)
+
+
 if __name__ == "__main__":
     unittest.main()

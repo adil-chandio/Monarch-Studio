@@ -35,6 +35,10 @@ When the user asks for MiniMax-H3, H3 video, or `H3GO <topic or shot list>`, loa
 - **Price before spending.** `python3 styles/minimax-h3-video/src/h3_client.py estimate <shotlist>` first; the
   notebook's `DRY_RUN`/`CONFIRM_SPEND` gate stays locked unless the user explicitly approves the estimate.
 - **2K only via API.** Local/pruned-weight runs are 768P; never promise 2K from a local deployment.
+- **Free route = different model.** A free Colab T4 cannot run H3; use `colab/MONARCH_T4_FREE_BRIDGE.ipynb`
+  (Wan 2.1 T2V 1.3B, 480p, silent, $0) for drafts/plates and keep H3 (paid) for dialogue/2K hero shots.
+  Never present a free-route Wan clip as an H3 output. Tunnel/server cells stay off unless the user accepts the
+  Colab ToS risk and rents GPU hosting instead.
 - **Monarch identity comes from the locked reference pack** (`characters/monarch`), passed as Ref2VA
   `reference_image` items — the same 3-4 images for every shot in a scene, never prompt wording alone.
 - H3 supplies talking shots and plates; WF-01's procedural rig, WF-03's line-art hero DNA and WF-05's

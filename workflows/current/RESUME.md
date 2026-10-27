@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
 **Style:** `minimax-h3-video`  
-**Checkpoint sequence:** 1  
-**Last checkpoint:** 2026-10-27T13:50:33Z
+**Checkpoint sequence:** 2  
+**Last checkpoint:** 2026-10-27T13:57:12Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + 
 
 ## Exact next action
 
-Run the L1 identity test: add Monarch reference crops + voice ref to styles/minimax-h3-video/assets/refs/, then estimate and run one 5 s 768P Ref2VA shot with MINIMAX_API_KEY
+User uploads colab/MONARCH_T4_FREE_BRIDGE.ipynb to Colab with T4 runtime and runs cells 1-7; then pick hero shots for the paid H3 route
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
