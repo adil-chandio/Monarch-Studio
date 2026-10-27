@@ -51,7 +51,14 @@ def main(argv):
     ap.add_argument("--skip-existing", type=int, default=1)
     ap.add_argument("--prefix", default="")
     ap.add_argument("--only", default="", help="comma separated frame numbers to render")
+    ap.add_argument("--blend", default="", help="scene to open (required for the bpy wheel)")
     args = ap.parse_args(argv)
+
+    # With a blender binary you pass the .blend on the command line; with the bpy
+    # wheel we start from the factory startup scene, so open it here.
+    if args.blend:
+        bpy.ops.wm.open_mainfile(filepath=str(Path(args.blend).resolve()))
+        print("OPENED", args.blend, flush=True)
 
     scene = bpy.context.scene
     out = Path(args.out)
