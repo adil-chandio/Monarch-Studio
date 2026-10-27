@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Owner opens the colab-test-06 link, taps play (clips skip, master builds in ~2 min), sends the MASTER OK screenshot; then read colab_master_receipt.json via the connector, adopt, deliver.
+- **Next action:** Owner runs colab-test-07: clips skip, finish builds delivery/m-test-01_MASTER.mp4 + colab_master_receipt.json in ~2 min; then read the receipt with the Drive connector, adopt, deliver.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
