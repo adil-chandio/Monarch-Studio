@@ -150,6 +150,19 @@ transitions.** 1332 frames = 14 × 97-frame clips; at 480×832 or 512×896, then
 single ×2.1 upscale to 1080×1920 with grain on top — the reference is that dark,
 so upscale artefacts disappear into the shadows.
 
+### 3b · Probe status at the time of writing (honest)
+
+Measured on the live T4 box on 27 Oct:
+
+* `LTXPipeline` import — **fixed** (`pip install -U torchao` → 0.18.0; stock torchao
+  breaks diffusers 0.41 with `cannot import name 'FqnToConfig'`).
+* `Lightricks/LTX-Video` weights — **downloaded**, 27 GB in the HF cache,
+  `Loading weights: 100% | 219/219 [01:17]`. Colab reaches HF (200) and GitHub (200).
+* Generation timing — **not yet measured.** The run stalled at
+  `Loading checkpoint shards 0%` and the notebook's runtime was recycled before it
+  produced a clip. So `sec/frame` on this T4 is still an open number, and I will not
+  quote one until `probe_ltx.py` prints it.
+
 ---
 
 ## 4 · Gates before a single frame is rendered
