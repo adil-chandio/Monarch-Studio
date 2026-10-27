@@ -79,6 +79,43 @@ def image_texture(material_obj, path: Path, alpha_socket=False):
     return tex
 
 
+def facing_mix(material_obj, image_path, skin_hex, front=0.62, fade=0.16):
+    """Photo capture on the front of a head, modelled skin at grazing angles.
+
+    Layer Weight "Facing" is 1 straight on and 0 at the silhouette, so the seam
+    never lands on a hard edge: it dissolves over the temples and jaw.
+    """
+    m = material_obj
+    n = m.node_tree.nodes
+    l = m.node_tree.links
+    p = n.get("Principled BSDF")
+    tex = n.new("ShaderNodeTexImage")
+    tex.image = bpy.data.images.load(str(image_path))
+    tex.image.pack()
+    tex.extension = "EXTEND"
+    tex.interpolation = "Linear"
+    tex.location = (-900, 260)
+
+    mix = n.new("ShaderNodeMixRGB")
+    mix.blend_type = "MIX"
+    mix.inputs[1].default_value = srgb(skin_hex)
+    mix.label = "skin ↔ capture"
+    mix.location = (-560, 300)
+    l.new(tex.outputs["Color"], mix.inputs[2])
+
+    lw = n.new("ShaderNodeLayerWeight")
+    lw.inputs["Blend"].default_value = 0.45
+    lw.location = (-900, -60)
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.location = (-700, -60)
+    ramp.color_ramp.elements[0].position = max(0.0, front - fade)
+    ramp.color_ramp.elements[1].position = min(1.0, front + fade)
+    l.new(lw.outputs["Facing"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], mix.inputs[0])
+    l.new(mix.outputs[0], p.inputs["Base Color"])
+    return tex
+
+
 def bump_material(material_obj, scale=900.0, strength=0.35, detail=2.0):
     n = material_obj.node_tree.nodes
     l = material_obj.node_tree.links

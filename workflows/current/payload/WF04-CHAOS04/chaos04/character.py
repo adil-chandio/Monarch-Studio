@@ -215,7 +215,7 @@ def build_head(mat_skin, mat_face):
         cx = sum(me.vertices[i].co.x for i in poly.vertices) / len(poly.vertices)
         cy = sum(me.vertices[i].co.y for i in poly.vertices) / len(poly.vertices)
         cz = sum(me.vertices[i].co.z for i in poly.vertices) / len(poly.vertices)
-        front = cy < -0.020 and abs(cx) < 0.062 and 1.5560 < cz < 1.7240
+        front = cy < -0.010 and abs(cx) < 0.070 and 1.5520 < cz < 1.7300
         poly.material_index = 1 if front else 0
 
     sub = ob.modifiers.new("Subdivision", "SUBSURF")
@@ -252,7 +252,7 @@ def build_hair(mat_hair, mat_sheen):
             # cap that follows the skull and dips at the hairline
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            base_z = bl.lerp(1.6720, 1.7300, front) + bl.lerp(0.006, 0.0, back)
+            base_z = bl.lerp(1.6900, 1.7300, front) + bl.lerp(0.002, 0.0, back)
             phi = (math.pi * 0.5) * t
             r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
             z = base_z + (1.7905 - base_z) * math.sin(phi) ** 0.92
@@ -298,7 +298,7 @@ def build_hair(mat_hair, mat_sheen):
     # fringe curtains over the forehead, asymmetry as in v5
     fringe = []
     for sgn in (1, -1):
-        for _ in range(150):
+        for _ in range(64):
             off = rnd.uniform(-0.011, 0.011)
             depth = rnd.uniform(-0.004, 0.006)
             p0 = Vector((0.010 * sgn + off, -0.050 + depth, 1.7290))
@@ -313,7 +313,7 @@ def build_hair(mat_hair, mat_sheen):
                     + 3 * (1 - u) * u * u * p2 + (u ** 3) * p3
                 line.append(tuple(p))
             fringe.append(line)
-    fringe_obj = bl.strands("Hair · swept fringe", fringe, 0.0011, mat_sheen, sides=3)
+    fringe_obj = bl.strands("Hair · swept fringe", fringe, 0.0006, mat_sheen, sides=3)
 
     # sideburns
     sides = []
@@ -369,10 +369,10 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         ((0, 0.004, 1.120), 0.157, 0.105),
         ((0, 0.002, 1.200), 0.168, 0.110),
         ((0, 0.000, 1.280), 0.184, 0.117),
-        ((0, -0.002, 1.350), 0.196, 0.122),
-        ((0, -0.004, 1.408), 0.199, 0.121),
-        ((0, -0.002, 1.440), 0.180, 0.114),
-        ((0, 0.002, 1.462), 0.100, 0.083),
+        ((0, -0.002, 1.350), 0.188, 0.118),
+        ((0, -0.004, 1.402), 0.190, 0.117),
+        ((0, -0.002, 1.432), 0.168, 0.108),
+        ((0, 0.002, 1.452), 0.092, 0.078),
     ], mat_blazer, subsurf=2, close_start=True, close_end=False)
     bl.bump_material(mat_blazer, scale=1400, strength=0.12)
     parts.append(torso)
@@ -401,9 +401,9 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
 
     # collar band
     collar = bl.loft("Collar", [
-        ((0, 0.004, 1.452), 0.098, 0.086),
-        ((0, 0.002, 1.480), 0.092, 0.082),
-        ((0, 0.000, 1.498), 0.086, 0.078),
+        ((0, 0.004, 1.438), 0.090, 0.080),
+        ((0, 0.002, 1.462), 0.084, 0.075),
+        ((0, 0.000, 1.476), 0.078, 0.071),
     ], mat_edge, subsurf=2, close_start=False, close_end=False)
     parts.append(collar)
 
@@ -429,8 +429,7 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
             ((0.241 * sx, 0.020, 0.902), 0.042, 0.041),
         ], mat_edge, subsurf=1, close_start=False, close_end=False)
         parts.append(cuff)
-        hand, fingers = build_hand(f"hand.{s}", 0.243 * sx, 0.020, 0.900, sx, mat_skin)
-        parts += [hand, fingers]
+        parts += build_hand(f"hand.{s}", 0.243 * sx, 0.020, 0.900, sx, mat_skin)
         parts.append(bl.loft(f"Elbow.{s}", [
             ((0.225 * sx, 0.010, 1.170), 0.050, 0.049),
             ((0.226 * sx, 0.012, 1.150), 0.054, 0.053),
@@ -501,7 +500,9 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         elif ob.name.startswith(("Hand", "Fingers", "Thumb")):
             side = ob.name.split(".")[-1]
             if ob.name.startswith("Fingers"):
-                bl.bind(ob, rig, {f"fingers.{side}": 0.82, f"hand.{side}": 0.18})
+                bl.bind(ob, rig, {f"fingers.{side}": 0.72, f"hand.{side}": 0.28})
+            elif ob.name.startswith("Thumb"):
+                bl.bind(ob, rig, {f"hand.{side}": 0.75, f"fingers.{side}": 0.25})
             else:
                 bl.bind(ob, rig, {f"hand.{side}": 1.0})
         elif ob.name.startswith("Trouser thigh"):
@@ -522,65 +523,40 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
 
 
 def build_hand(bone_side, x, y, z, sx, mat):
-    """Palm + four fingers + thumb, bound as a group so a curl reads as a gesture."""
+    """Palm + a curled-four-finger mass + a thumb. At these frame sizes a mitten
+    reads as a hand; separate cylinders read as forks."""
     tag = bone_side.split(".")[-1]
     palm = bl.loft(f"Hand palm.{tag}", [
-        ((x, y, z + 0.004), 0.036, 0.017),
-        ((x + 0.002 * sx, y, z - 0.030), 0.040, 0.016),
-        ((x + 0.003 * sx, y, z - 0.062), 0.038, 0.014),
-        ((x + 0.004 * sx, y, z - 0.078), 0.032, 0.012),
+        ((x, y, z + 0.004), 0.032, 0.015),
+        ((x + 0.002 * sx, y, z - 0.028), 0.037, 0.016),
+        ((x + 0.004 * sx, y, z - 0.058), 0.036, 0.015),
+        ((x + 0.006 * sx, y - 0.002, z - 0.080), 0.030, 0.013),
     ], mat, subsurf=2, close_start=False, close_end=True)
-    verts, faces = [], []
-    for i, off in enumerate((-0.026, -0.009, 0.009, 0.026)):
-        length = 0.070 - abs(off) * 0.55
-        base = Vector((x + 0.004 * sx, y + off, z - 0.078))
-        for k in range(4):
-            u = k / 3
-            r = 0.0085 - 0.0022 * u
-            cx = base.x + 0.0015 * u * sx
-            cz = base.z - length * u
-            cy = base.y + off * 0.10 * u
-            start = len(verts)
-            for j in range(6):
-                a = TAU * j / 6
-                verts.append((cx + math.cos(a) * r, cy + math.sin(a) * r * 0.9, cz))
-            if k:
-                for j in range(6):
-                    a0 = start - 6 + j
-                    b0 = start - 6 + (j + 1) % 6
-                    faces.append((a0, b0, start + (j + 1) % 6, start + j))
-        tip = len(verts)
-        verts.append((base.x + 0.002 * sx, base.y + off * 0.1, base.z - length - 0.006))
-        for j in range(6):
-            faces.append((tip, start + j, start + (j + 1) % 6))
-    # thumb
-    tb = Vector((x + 0.030 * sx, y - 0.006, z - 0.030))
-    for k in range(4):
-        u = k / 3
-        r = 0.011 - 0.003 * u
-        cx = tb.x + 0.004 * u * sx
-        cz = tb.z - 0.045 * u
-        cy = tb.y - 0.012 * u
-        start = len(verts)
-        for j in range(6):
-            a = TAU * j / 6
-            verts.append((cx + math.cos(a) * r, cy + math.sin(a) * r, cz))
-        if k:
-            for j in range(6):
-                faces.append((start - 6 + j, start - 6 + (j + 1) % 6,
-                              start + (j + 1) % 6, start + j))
-    fingers = bl.mesh_object(f"Fingers.{tag}", verts, faces, mat, smooth=True, subsurf=1)
-    return palm, fingers
+    # finger mass: a rounded block that tapers, with two shallow grooves suggested
+    # by the profile rather than modelled as separate digits
+    fingers = bl.loft(f"Fingers.{tag}", [
+        ((x + 0.006 * sx, y - 0.002, z - 0.078), 0.029, 0.0125),
+        ((x + 0.007 * sx, y - 0.004, z - 0.098), 0.028, 0.0120),
+        ((x + 0.008 * sx, y - 0.006, z - 0.118), 0.025, 0.0105),
+        ((x + 0.008 * sx, y - 0.007, z - 0.132), 0.019, 0.0085),
+        ((x + 0.008 * sx, y - 0.007, z - 0.138), 0.010, 0.0050),
+    ], mat, subsurf=2, close_start=False, close_end=True)
+    thumb = bl.loft(f"Thumb.{tag}", [
+        ((x + 0.026 * sx, y - 0.008, z - 0.026), 0.011, 0.010),
+        ((x + 0.031 * sx, y - 0.014, z - 0.048), 0.010, 0.009),
+        ((x + 0.033 * sx, y - 0.019, z - 0.066), 0.008, 0.007),
+        ((x + 0.033 * sx, y - 0.021, z - 0.074), 0.004, 0.004),
+    ], mat, subsurf=2, close_start=True, close_end=True)
+    return palm, fingers, thumb
 
 
 # ------------------------------------------------------------------ assemble
 def build_character():
-    m_face = bl.material("MONARCH skin · v5 projected", base=SKIN, rough=0.44,
-                         spec=0.42, sss=0.06, sss_radius=(0.9, 0.32, 0.2),
+    m_face = bl.material("MONARCH skin · v5 projected", base=SKIN, rough=0.52,
+                         spec=0.30, sss=0.05, sss_radius=(0.9, 0.32, 0.2),
                          sss_scale=0.0035)
-    tex = bl.image_texture(m_face, ASSETS / "face_tex.png")
-    tex.extension = "EXTEND"
-    bl.bump_material(m_face, scale=2600, strength=0.10)
+    bl.facing_mix(m_face, ASSETS / "face_tex.png", SKIN, front=0.58, fade=0.22)
+    bl.bump_material(m_face, scale=2600, strength=0.08)
 
     m_skin = bl.material("MONARCH skin", base=SKIN, rough=0.46, spec=0.40,
                          sss=0.05, sss_scale=0.003)
