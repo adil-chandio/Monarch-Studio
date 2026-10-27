@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import bpy
 from mathutils import Euler, Vector
 
-HEAD = Vector((0.0, 2.44, 1.655))     # where Monarch's head is in shot 05/06
+HEAD = Vector((0.0, 2.47, 1.640))     # measured: shot 05 places him at y≈2.48
 VIEWS = [
     ("front_wide", 1.15, 0.0, 0.0, 58),
     ("front_mid", 0.72, 0.0, 0.0, 72),
@@ -58,6 +58,8 @@ def main(argv):
     ap.add_argument("--width", type=int, default=360)
     ap.add_argument("--height", type=int, default=640)
     ap.add_argument("--samples", type=int, default=16)
+    ap.add_argument("--frame", type=int, default=250,
+                    help="Monarch only exists inside his segments; 250 = shot 05")
     args = ap.parse_args(argv)
 
     if args.blend:
@@ -65,6 +67,7 @@ def main(argv):
     print("SHADERS " + json.dumps(report_material()), flush=True)
 
     scene = bpy.context.scene
+    scene.frame_set(args.frame)      # his root/bones are baked per frame, incl. the hide
     scene.cycles.samples = args.samples
     scene.render.resolution_x = args.width
     scene.render.resolution_y = args.height
