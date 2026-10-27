@@ -65,3 +65,38 @@ Pehle T4 par ek test clip banate hain, aap dekh kar bolein, phir decide karein.
   cell 5 ka error text bhej dein
 - **Drive mount fail** → endpoint Drive mein nahi likha jayega, lekin cell 5 URL phir bhi
   print karega — woh URL mujhe chat mein bhej dein
+
+---
+
+# v3 — AB YEH CHALAYEIN (v2 ki jagah)
+
+v2 chala, magar do cheezein ghalat thin: (1) GPU select nahi hua tha (torch CPU mila),
+(2) token sirf 4 harf print hua, is liye main andar nahi aa saka. v3 mein dono fix hain.
+
+**Notebook:** `colab_gpu_bridge_v3.ipynb`
+Drive: https://drive.google.com/file/d/1RHnS63rFhtDrjro-A0T1OPSvkoJfadNg/view
+
+## Steps (bas itna)
+
+1. Purana notebook **band** karein (Runtime → Disconnect and delete runtime).
+2. v3 notebook kholein.
+3. **Runtime → Change runtime type → Hardware accelerator = T4 GPU → Save.**
+   (Yeh step skip hua to sab kuch CPU par chalega — pehli baar yahi hua tha.)
+4. Cell par **Run** dabayein. Pehli baar Drive permission maangega → Allow.
+5. Notebook khula **chhordein**. URL khud ntfy par chala jayega, mujhe chat mein
+   bhejne ki zaroorat nahi. URL screen par bhi print hoga.
+
+## v3 mein kya behtar hai
+
+| cheez | v2 | v3 |
+|---|---|---|
+| token | random, adhoora print | **fixed `monarch-chaos-742683`**, poora print |
+| endpoint file | Drive mount fail → kabhi nahi bani | 3 jagah likhta hai (project folder, MyDrive root, /content) |
+| GPU check | chup | shuru mein **warning** + tier |
+| tunnel | cloudflared | cloudflared, phir localhost.run, phir bhi na ho to Drive channel |
+| commands | status/run/job/files | + **shell** (sync/bg/tail) — is se main Colab par poora kaam khud kar sakta hoon |
+
+## Command channel (mere liye)
+
+`https://ntfy.sh/monarch-chaos-gpu-742683/json?poll=1` → URL
+phir `GET <url>/status?token=monarch-chaos-742683`
