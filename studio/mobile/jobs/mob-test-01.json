@@ -11,7 +11,7 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-03/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-04/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
   "state": "blocked",
@@ -97,6 +97,13 @@
       "to": "blocked",
       "by": "agent",
       "note": "colab-test-03: one-cell notebook (previous link never executed - all cells empty)"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "agent",
+      "note": "colab-test-04: host-RAM crash fixed (4-bit text encoder); frames 77->33"
     }
   ],
   "master": null,
@@ -139,12 +146,11 @@
       "t01-plate"
     ],
     "upscaled": "t01-plate-2x.mp4",
-    "voice": 0,
-    "foley": 0,
-    "minutes": "8-15"
+    "frames": 33,
+    "minutes": "10-20"
   },
   "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
-  "engine_note": "viper-1.6 one-cell notebook: single play button, Drive optional, ZIP fallback",
+  "engine_note": "viper-1.7: 4-bit UMT5 (22.7GB -> 2.4GB VRAM), fp16 DiT, tiled VAE, heap trim, UniPC 3.0, 33 frames",
   "media": {
     "shots": [
       "t01-plate"
