@@ -97,23 +97,65 @@ def escape_text(text: str) -> str:
 
 
 # --------------------------------------------------------------------------- titles
+def _tracked(draw, text: str, font, tracking: int) -> tuple[int, int]:
+    """Letter-spacing ke saath text ki width/height naapo (designed typography)."""
+    width = 0
+    for index, char in enumerate(text):
+        width += draw.textlength(char, font=font) + (tracking if index < len(text) - 1 else 0)
+    box = draw.textbbox((0, 0), "Hg", font=font)
+    return int(round(width)), box[3] - box[1]
+
+
+def _draw_tracked(draw, text, font, x, y, tracking, fill, shadow=None):
+    """Text ko letter-spacing ke saath likho; `shadow` offsets ki list hai."""
+    for dx, dy in (shadow or []):
+        pen = x
+        for char in text:
+            draw.text((pen + dx, y + dy), char, font=font, fill=(0, 0, 0, 190))
+            pen += draw.textlength(char, font=font) + tracking
+    pen = x
+    for char in text:
+        draw.text((pen, y), char, font=font, fill=fill)
+        pen += draw.textlength(char, font=font) + tracking
+
+
 def make_caption_png(text: str, spec: dict, out: pathlib.Path) -> pathlib.Path:
-    """Caption ko PIL se PNG banao — har ffmpeg build me drawtext nahi hota."""
+    """Caption + kicker ko PIL se PNG banao (har ffmpeg build me drawtext nahi hota)."""
     from PIL import Image, ImageDraw, ImageFont
-    width, height = spec["size"]
+    ss = int(spec.get("supersample", 1))
+    width, height = spec["size"][0] * ss, spec["size"][1] * ss
     image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image)
-    size = int(spec.get("caption_size", 54))
-    font = ImageFont.truetype(font_path(spec.get("font")), size)
     label = text.upper() if spec.get("uppercase", True) else text
-    box = draw.textbbox((0, 0), label, font=font)
-    text_w = box[2] - box[0]
+    path = font_path(spec.get("font"))
+    limit = int(width * float(spec.get("caption_max_width", 0.86)))
+    tracking = int(spec.get("caption_tracking", 3) * ss)
+
+    size = int(spec.get("caption_size", 54)) * ss
+    font = ImageFont.truetype(path, size)
+    while size > 26 * ss:
+        text_w, _ = _tracked(draw, label, font, tracking)
+        if text_w <= limit:
+            break
+        size -= 2 * ss
+        font = ImageFont.truetype(path, size)
+
+    text_w, text_h = _tracked(draw, label, font, tracking)
     x = (width - text_w) // 2
     y = int(height * float(spec.get("caption_y", 0.79)))
-    shadow = (0, 0, 0, 200)
-    for dx, dy in ((0, 3), (2, 3), (-2, 3)):
-        draw.text((x + dx, y + dy), label, font=font, fill=shadow)
-    draw.text((x, y), label, font=font, fill=(255, 255, 255, 245))
+    _draw_tracked(draw, label, font, x, y, tracking, (255, 255, 255, 246),
+                  shadow=((0, 3 * ss), (2 * ss, 3 * ss)))
+
+    kicker = (spec.get("kicker") or "").strip()
+    if kicker:
+        k_size = int(spec.get("kicker_size", 20)) * ss
+        k_font = ImageFont.truetype(path, k_size)
+        k_tracking = int(spec.get("kicker_tracking", 8) * ss)
+        k_label = kicker.upper()
+        k_w, _ = _tracked(draw, k_label, k_font, k_tracking)
+        k_y = y - int(spec.get("kicker_gap", 54) * ss)
+        _draw_tracked(draw, k_label, k_font, (width - k_w) // 2, k_y, k_tracking,
+                      (214, 214, 214, 165))
     image.save(out)
     return out
 
@@ -136,44 +178,74 @@ def _zoom_expr(move: str, frames: int) -> tuple[str, str, str]:
 
 
 def shot_filter(shot: dict, spec: dict, index: int, caption_png: pathlib.Path | None) -> str:
-    """Ek shot ka filtergraph: blurred bed + plate ka camera move + caption overlay."""
+    """Ek shot ka filtergraph: blurred bed + camera move + film grade/halation + caption."""
     width, height = spec["size"]
+    ss = int(spec.get("supersample", 1))          # 2 = 4K supersample (kaafi RAM chahiye)
     fps = int(spec.get("fps", 24))
     band = int(spec.get("plate_height", 608))
     seconds = float(shot["seconds"])
     frames = max(int(round(seconds * fps)), 2)
     move = shot.get("move", "push")
     if move not in MOVES:
-        raise RenderError(f"shot {index}: move '{move}' '{move}' samajh nahi aaya ({', '.join(MOVES)})")
+        raise RenderError(f"shot {index}: move '{move}' samajh nahi aaya ({', '.join(MOVES)})")
     zoom, xpos, ypos = _zoom_expr(move, frames)
-    big_w = int(width * 2.6) // 2 * 2
-    big_h = int(band * 2.6) // 2 * 2
-    grain = int(spec.get("grain", 9))
-    y0 = (height - band) // 2
+    work_w, work_h = width * ss, height * ss
+    band_h = band * ss
+    big_w = int(work_w * 2.6) // 2 * 2
+    big_h = int(band_h * 2.6) // 2 * 2
+    grain = int(spec.get("grain", 7))
+    y0 = (work_h - band_h) // 2
     fade = float(spec.get("fade", 0.35))
+    premium = bool(spec.get("premium", True))
 
     parts = [
         "[0:v]split=2[bgs][fgs]",
-        (f"[bgs]scale={width}:{height}:force_original_aspect_ratio=increase,"
-         f"crop={width}:{height},gblur=sigma=45,"
-         f"eq=brightness={float(spec.get('bg_brightness', -0.04)):.2f}:saturation=0.7,noise=alls=6:allf=t,fps={fps},setsar=1[bg]"),
+        (f"[bgs]scale={work_w}:{work_h}:force_original_aspect_ratio=increase,"
+         f"crop={work_w}:{work_h},gblur=sigma={28 * ss},"
+         f"eq=brightness={float(spec.get('bg_brightness', -0.02)):.2f}:saturation=0.7,"
+         f"noise=alls=6:allf=t,fps={fps},setsar=1[bg]"),
         (f"[fgs]scale={big_w}:{big_h}:flags=lanczos,"
          f"zoompan=z='{zoom}':d={frames}:x='{xpos}':y='{ypos}':"
-         f"s={width}x{band}:fps={fps},setsar=1,"
-         f"noise=alls={grain}:allf=t+u,vignette=PI/5,"
+         f"s={work_w}x{band_h}:fps={fps},setsar=1,"
          f"eq=contrast=1.08:saturation=0.82[fg]"),
         f"[bg][fg]overlay=x=0:y={y0}:shortest=1[layered]",
     ]
-    tail = "[layered]"
+
+    if premium:
+        # halation: roshni ko halka phaila kar film jaisa glow
+        parts.append("[layered]split=2[base][hot]")
+        parts.append(f"[hot]eq=brightness=0.08:saturation=1.05,gblur=sigma={12 * ss}[glow]")
+        parts.append("[base][glow]blend=all_mode=screen:all_opacity=0.14[lit]")
+        # film curve: sirf halka S + bohat subtle split tone (rang neutral rahe)
+        parts.append("[lit]eq=contrast=1.05:gamma=0.99:saturation=1.02,"
+                     "colorbalance=rs=-0.02:bs=0.015:rh=0.015:bh=-0.012,"
+                     "curves=r=0/0.01 0.5/0.51 1/0.995:g=0/0.008 0.5/0.5 1/0.99:"
+                     "b=0/0.012 0.5/0.5 1/0.985[graded]")
+        parts.append(f"[graded]noise=alls={grain}:allf=t+u,vignette=PI/4.6[filmic]")
+        base_label = "[filmic]"
+    else:
+        base_label = "[layered]"
+
+    tail = base_label
     if caption_png is not None:
+        drift = 4 * ss if premium else 0
         parts.append(f"[1:v]format=rgba,"
                      f"fade=t=in:st=0:d={fade:.2f}:alpha=1,"
                      f"fade=t=out:st={max(seconds - fade, 0):.2f}:d={fade:.2f}:alpha=1[cap]")
-        parts.append("[layered][cap]overlay=x=0:y=0:shortest=1[captioned]")
+        parts.append(f"{base_label}[cap]overlay=x=0:y='-{drift}*t':shortest=1[captioned]")
         tail = "[captioned]"
+
+    if premium and spec.get("shake", True):
+        # halka handheld shake — frame kabhi bhi bilkul static na lage
+        parts.append(f"{tail}crop=w=iw-{8 * ss}:h=ih-{8 * ss}:"
+                     f"x='{4 * ss}+{3 * ss}*sin(t*7.3)+{2 * ss}*sin(t*13.1)':"
+                     f"y='{4 * ss}+{3 * ss}*cos(t*5.7)',"
+                     f"scale={work_w}:{work_h}:flags=lanczos[shaken]")
+        tail = "[shaken]"
+
     parts.append(f"{tail}fade=t=in:st=0:d={fade:.2f},"
                  f"fade=t=out:st={max(seconds - fade, 0):.2f}:d={fade:.2f},"
-                 f"format=yuv420p[v]")
+                 f"scale={width}:{height}:flags=lanczos,setsar=1,format=yuv420p[v]")
     return ";".join(parts)
 
 
@@ -191,7 +263,8 @@ def render_shot(shot: dict, spec: dict, index: int, out: pathlib.Path,
         cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}",
                 "-i", str(caption_png)]
     cmd += ["-filter_complex", graph, "-map", "[v]",
-            "-c:v", "libx264", "-crf", str(spec.get("crf", 18)), "-preset", "veryfast",
+            "-c:v", "libx264", "-crf", str(spec.get("crf", 16)),
+            "-preset", str(spec.get("preset", "slow")), "-tune", "film",
             "-pix_fmt", "yuv420p", "-r", str(fps), str(out)]
     proc = subprocess.run(cmd, capture_output=True, text=True)
     if proc.returncode != 0:
@@ -231,65 +304,94 @@ def concat_shots(parts: list[pathlib.Path], spec: dict, out: pathlib.Path,
 
 # --------------------------------------------------------------------------- audio
 def audio_graph(spec: dict, duration: float, cut_times: list[float]) -> str:
-    """Designed bed: drone + rain + cut impacts + closing riser. Har layer ffmpeg se."""
-    cfg = spec.get("audio") or {}
-    fps = int(spec.get("fps", 24))
-    rate = 48000
-    layers, mixin = [], []
-    slot = 0
+    """Premium bed: stereo rain + drone + pulse + siren + hiss + impacts + riser.
 
+    Har layer ffmpeg lavfi se banti hai — koi sample, koi download, koi licence nahi.
+    Mono layers ko `pan` se stereo banaya jata hai taake amix channels na toote.
+    """
+    cfg = spec.get("audio") or {}
+    rate = 48000
+    layers: list[str] = []
+    mixin: list[str] = []
+
+    def mono(label: str, source: str, chain: str = "") -> None:
+        tail = f",{chain}" if chain else ""
+        layers.append(f"{source},pan=stereo|c0=c0|c1=c0{tail}[{label}]")
+        mixin.append(f"[{label}]")
+
+    # 1) drone — 55 + 82.5 Hz, halka tremolo (film ka "room tone")
     if cfg.get("drone", 0.5):
         gain = float(cfg.get("drone", 0.5))
         layers.append(f"sine=frequency=55:duration={duration:.3f}:sample_rate={rate}[d1]")
         layers.append(f"sine=frequency=82.5:duration={duration:.3f}:sample_rate={rate}[d2]")
         layers.append("[d1][d2]amix=inputs=2:normalize=0,tremolo=f=0.16:d=0.35,"
-                      f"volume={gain:.2f}[drone]")
+                      f"pan=stereo|c0=c0|c1=c0,volume={gain:.3f}[drone]")
         mixin.append("[drone]")
-        slot += 1
 
+    # 2) rain — do alag noise sources L/R (asli stereo width)
     if cfg.get("rain", 0.5):
         gain = float(cfg.get("rain", 0.5))
         layers.append(f"anoisesrc=color=pink:duration={duration:.3f}:sample_rate={rate}:"
-                      f"amplitude=0.16[rn]")
-        layers.append(f"[rn]highpass=f=320,lowpass=f=6200,volume={gain:.2f}[rain]")
+                      f"amplitude=0.18,highpass=f=320,lowpass=f=6400,volume={gain:.3f}[rl]")
+        layers.append(f"anoisesrc=color=pink:duration={duration:.3f}:sample_rate={rate}:"
+                      f"amplitude=0.18,highpass=f=280,lowpass=f=5600,volume={gain * 0.85:.3f}[rr]")
+        layers.append("[rl][rr]join=inputs=2:channel_layout=stereo[rain]")
         mixin.append("[rain]")
-        slot += 1
 
+    # 3) hiss — 10 kHz top, sirf "tape" ka ehsaas
+    if cfg.get("hiss", 0.12):
+        gain = float(cfg.get("hiss", 0.12))
+        mono("hiss", f"anoisesrc=color=white:duration={duration:.3f}:sample_rate={rate}:"
+                     f"amplitude=0.05", f"highpass=f=7000,volume={gain:.3f}")
+
+    # 4) sub pulse — har 1.2 s par dhadkan
+    if cfg.get("pulse", 0.5):
+        gain = float(cfg.get("pulse", 0.5))
+        mono("pulse", f"aevalsrc='0.55*sin(2*PI*44*t)*exp(-6*mod(t\\,1.2))'"
+                      f":s={rate}:d={duration:.3f}", f"volume={gain:.3f}")
+
+    # 5) siren — door ki awaaz, 4 s par aati hai (shehar ka ehsaas)
+    if cfg.get("siren", 0.16) and duration > 6:
+        gain = float(cfg.get("siren", 0.16))
+        at = min(4.0, duration - 3.0)
+        mono("siren", f"sine=frequency=520:duration=3.2:sample_rate={rate}",
+             f"vibrato=f=4.5:d=0.6,tremolo=f=0.4:d=0.7,volume={gain:.3f},"
+             f"afade=t=in:st=0:d=0.9,afade=t=out:st=2.3:d=0.9,"
+             f"adelay={int(at * 1000)}|{int(at * 1000)}")
+
+    # 6) impacts — har cut par 58 Hz boom + reverb tail
     if cfg.get("impacts", True) and cut_times:
         for number, at in enumerate(cut_times[:6], 1):
-            layers.append(f"sine=frequency=58:duration=0.55:sample_rate={rate}[i{number}]")
-            layers.append(f"[i{number}]afade=t=out:st=0.05:d=0.5,volume=0.9,"
+            layers.append(f"sine=frequency=58:duration=0.9:sample_rate={rate}[i{number}]")
+            layers.append(f"[i{number}]afade=t=out:st=0.04:d=0.85,volume=0.95,"
+                          f"aecho=0.8:0.55:60|120:0.35|0.22,"
+                          f"pan=stereo|c0=c0|c1=c0,"
                           f"adelay={int(at * 1000)}|{int(at * 1000)}[imp{number}]")
             mixin.append(f"[imp{number}]")
 
-    if cfg.get("pulse", 0.5):
-        gain = float(cfg.get("pulse", 0.5))
-        layers.append(f"aevalsrc='0.55*sin(2*PI*44*t)*exp(-6*mod(t\,1.2))'"
-                      f":s={rate}:d={duration:.3f}[pl]")
-        layers.append(f"[pl]volume={gain:.2f}[pulse]")
-        mixin.append("[pulse]")
-
+    # 7) riser — aakhri cut se pehle noise swell
     if cfg.get("riser", True):
-        start = max(duration - 2.2, 0.0)
-        layers.append(f"anoisesrc=color=white:duration=2.2:sample_rate={rate}:amplitude=0.1[rs]")
-        layers.append(f"[rs]highpass=f=600,lowpass=f=5200,"
-                      f"afade=t=in:st=0:d=1.9,volume=0.55,adelay={int(start * 1000)}|"
-                      f"{int(start * 1000)}[riser]")
+        start_at = max(duration - 2.2, 0.0)
+        layers.append(f"anoisesrc=color=white:duration=2.2:sample_rate={rate}:amplitude=0.12[rs]")
+        layers.append(f"[rs]highpass=f=600,lowpass=f=5200,afade=t=in:st=0:d=1.9,"
+                      f"pan=stereo|c0=c0|c1=c0,volume=0.6,"
+                      f"adelay={int(start_at * 1000)}|{int(start_at * 1000)}[riser]")
         mixin.append("[riser]")
 
     voice = cfg.get("voice")
     if voice and pathlib.Path(voice).exists():
-        layers.append("[0:a]volume=1.0,aresample=48000[vo]")
+        layers.append("[0:a]volume=1.0,pan=stereo|c0=c0|c1=c0,aresample=48000[vo]")
         mixin.append("[vo]")
 
     if not mixin:
-        layers.append(f"anullsrc=channel_layout=stereo:sample_rate={rate}:duration={duration:.3f}[sil]")
+        layers.append(f"anullsrc=channel_layout=stereo:sample_rate={rate}:"
+                      f"duration={duration:.3f}[sil]")
         mixin.append("[sil]")
 
     layers.append("".join(mixin) + f"amix=inputs={len(mixin)}:normalize=0,"
                                    f"loudnorm=I=-16:TP=-1.5:LRA=11,"
                                    f"atrim=0:{duration:.3f},asetpts=N/SR/TB[aout]")
-    return ";".join(layers), fps
+    return ";".join(layers), 0
 
 
 def build_audio(spec: dict, duration: float, cut_times: list[float], out: pathlib.Path,

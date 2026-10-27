@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0 — 2026-10-28
+
+- **Premium render path** (`reel_render` v1.1): halation/bloom pass, film curve with a subtle split tone
+  (neutral, no purple cast), film grain, vignette, handheld micro-shake so no frame is ever dead-still, and
+  `setsar=1` after the shake crop (a 1080x1920 file that reports 9:16, not 2144:2151).
+- **Designed typography**: letter-spaced captions that auto-shrink until they fit the frame (with a limit at 86%
+  width) plus a tracking-spaced kicker line. Captions are drawn in PIL at the render size, so they stay sharp and
+  never depend on ffmpeg's `drawtext`.
+- **Sound design v2**: stereo rain from two independent noise sources (real width), sub pulse, city siren with
+  vibrato, tape hiss, cut impacts with `aecho` tail, riser, then `loudnorm I=-16`.
+- Delivered `reel-local-01` re-rendered: 1080x1920, 17.3 s, 11.6 MB, md5 `7b34bd1ce9f1c381cc23f2c2c17a7419`,
+  mean audio -15.2 dB / peak -1.4 dB. 218 tests OK (2 skipped), three of them pin the premium chain.
+
 ## 0.5.0 — 2026-10-28
 
 - Added the **cloud bridge**: `tools/cloud_reel.py` + `.github/workflows/cloud-reel.yml`. The agent queues a job,

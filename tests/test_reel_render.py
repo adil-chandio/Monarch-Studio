@@ -119,6 +119,41 @@ class GraphTests(unittest.TestCase):
         self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11", graph)
 
 
+class PremiumTests(unittest.TestCase):
+    def test_premium_chain_has_halation_film_curve_and_shake(self):
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td)
+            spec = rr.load_spec(write_spec(base, premium=True, supersample=1))
+            graph = rr.shot_filter(spec["shots"][0], spec, 1, None)
+            self.assertIn("blend=all_mode=screen", graph)     # halation
+            self.assertIn("curves=r=", graph)                  # film curve
+            self.assertIn("sin(t*7.3)", graph)                 # handheld shake
+            self.assertIn("setsar=1", graph)                   # square pixels rehne chahiye
+
+    def test_caption_never_leaves_the_frame(self):
+        from PIL import Image
+        import numpy as np
+        with tempfile.TemporaryDirectory() as td:
+            base = pathlib.Path(td)
+            spec = rr.load_spec(write_spec(base, caption_size=120,
+                                           kicker="Monarch Studio · Reel 01"))
+            long_text = "sab wapas nahi aate, aur kuch log wapas nahi aate kabhi bhi"
+            png = rr.make_caption_png(long_text, spec, base / "cap.png")
+            alpha = np.asarray(Image.open(png))[:, :, 3]
+            cols = np.where(alpha.max(axis=0) > 0)[0]
+            self.assertGreater(len(cols), 10)
+            self.assertGreaterEqual(int(cols.min()), 0)
+            self.assertLess(int(cols.max()), alpha.shape[1])   # dayein kinare se andar
+
+    def test_stereo_bed_joins_two_noise_sources(self):
+        graph, _ = rr.audio_graph({"audio": {"rain": 0.5, "siren": 0.14, "hiss": 0.1,
+                                             "pulse": 0.4, "impacts": True}}, 12.0, [4, 8])
+        self.assertIn("join=inputs=2:channel_layout=stereo", graph)
+        self.assertIn("vibrato", graph)                        # siren
+        self.assertIn("aecho", graph)                          # impact tail
+        self.assertIn("loudnorm=I=-16", graph)
+
+
 class RenderTests(unittest.TestCase):
     def test_renders_a_real_master_with_motion_and_audio(self):
         ffmpeg = rr.which("ffmpeg")

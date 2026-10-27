@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T22:51:51+00:00",
+  "generated_at": "2026-10-27T23:24:34+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -44,8 +44,8 @@
       "size": 14126
     },
     "CHANGELOG.md": {
-      "sha256": "d081c89acf26a1c3824fc6900409fa31a539083b5eea9413f45831f07bb27527",
-      "size": 6605
+      "sha256": "45762c3f660a07a88f79dd27fcdbd16f21a2693d8f0847e65f3933112e39fed1",
+      "size": 7601
     },
     "CONTRIBUTING.md": {
       "sha256": "e814f35754093119bee2342be79d50b7a389e6b902e1b37c1fa6f5f3446975ad",
@@ -1996,12 +1996,12 @@
       "size": 191
     },
     "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER.mp4": {
-      "sha256": "a2eb795614a3f60257c77c717fbec0c268a8ea0b110b0891ebc9f5cee1b1b820",
-      "size": 5695339
+      "sha256": "6a1aa76c4f1f1ea8ce035896b6bf9aec50b1d8faf3733cd48b056d24c7839e8d",
+      "size": 11626148
     },
     "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER_receipt.json": {
-      "sha256": "023a5459a6a225489664be3b6899c1ba14a8964af865922e43d1bce0c4fcafbe",
-      "size": 835
+      "sha256": "5a890be48896b078cff57f9c9b4c82640b80015754c011ebbd6f02ea1426e098",
+      "size": 837
     },
     "studio/videogen/examples/reel-local-01/delivery_cloud/cloud_receipt.json": {
       "sha256": "b84c87f15d6f8541fda60d2d7b623d967d86a2fc0f9e7f25c8e57ae9098748df",
@@ -2012,8 +2012,8 @@
       "size": 5671468
     },
     "studio/videogen/examples/reel-local-01/reel.json": {
-      "sha256": "896eda71882758e4100aa701d4d4b9ec0f17d8b002ae8317639625ea18695277",
-      "size": 1455
+      "sha256": "53b34ee9e39d51b8f433cc7133f4c21cd16ca4515c634641aa4461f96281e334",
+      "size": 1700
     },
     "styles/README.md": {
       "sha256": "99a94199764c4e82312dbfe0fea3f56bff2bc56fc6eabe59e8cebf905fd8f861",
@@ -4408,8 +4408,8 @@
       "size": 16829
     },
     "tests/test_reel_render.py": {
-      "sha256": "ff72b217a3dd8605002316700df7ce8158feeb451b9260569cef6cf5f8c680c0",
-      "size": 8067
+      "sha256": "1bec63c8b4a77f198523b6d9ce996b6b44a87324db65342f6ed1515af0ecc9d2",
+      "size": 10030
     },
     "tests/test_studio.py": {
       "sha256": "378683d7a66bdc9ee6b3f5447ac6a466d4487e68b84ad716249e15a9f83ce5b4",
@@ -4460,8 +4460,8 @@
       "size": 1875
     },
     "tools/reel_render.py": {
-      "sha256": "5a713aad4eda64672a8d7a6b4d28ae70829fcb766b70d0ed89f1076012e98d04",
-      "size": 18137
+      "sha256": "c3491b3d811acd303b2a73de838e46b0db335695bc7afbb418435725bd1447c7",
+      "size": 23241
     },
     "tools/render_v2_parallel.sh": {
       "sha256": "0905473946f518f79f1aa091d107c08270224d45a82229cc750cd10cc3146e89",

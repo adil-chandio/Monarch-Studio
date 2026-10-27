@@ -10,15 +10,17 @@
   "grain": 7,
   "fade": 0.35,
   "xfade": 0.45,
-  "caption_size": 56,
-  "caption_y": 0.825,
+  "caption_size": 52,
+  "caption_y": 0.822,
   "audio": {
     "drone": 0.55,
-    "rain": 0.45,
+    "rain": 0.5,
     "impacts": true,
     "riser": true,
     "voice": null,
-    "pulse": 0.5
+    "pulse": 0.45,
+    "siren": 0.14,
+    "hiss": 0.1
   },
   "shots": [
     {
@@ -59,5 +61,14 @@
     }
   ],
   "bg_brightness": -0.02,
-  "crf": 22
+  "crf": 20,
+  "premium": true,
+  "supersample": 1,
+  "shake": true,
+  "preset": "medium",
+  "kicker": "Monarch Studio · Reel 01",
+  "kicker_size": 18,
+  "kicker_tracking": 9,
+  "kicker_gap": 52,
+  "caption_tracking": 3
 }
