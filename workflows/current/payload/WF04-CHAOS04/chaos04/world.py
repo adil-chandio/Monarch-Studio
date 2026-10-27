@@ -203,14 +203,15 @@ def white_void(origin=VOID):
 def endcard_set(origin=ENDCARD):
     o = origin
     m_black = bl.material("Endcard black", base="#050606", rough=0.9)
-    parts = [bl.plane("Endcard backdrop", (o.x, o.y + 2.2, 1.2), (6.0, 6.0), m_black)]
+    parts = [bl.plane("Endcard backdrop", (o.x, o.y + 2.2, 1.25), (6.0, 6.0), m_black,
+                      rot=(math.radians(90), 0, 0))]
     lights = {"endcard_fill": _light("Endcard fill", "AREA", (o.x, o.y - 1.0, 2.0), 40,
                                      color="#9FC7C4", size=2.0,
                                      rot=(math.radians(-70), 0, 0))}
     return parts, lights
 
 
-def emblem_plane(origin=ENDCARD, size=1.15, z=1.42):
+def emblem_plane(origin=ENDCARD, size=0.66, z=1.68):
     m = bl.material("Emblem", base="#000000", rough=0.4, alpha=0.0, emit="#EAF6F4",
                     emit_strength=7.0)
     tex = bl.image_texture(m, ASSETS / "emblem.png")
@@ -223,7 +224,7 @@ def emblem_plane(origin=ENDCARD, size=1.15, z=1.42):
     return ob
 
 
-def wordmark_plane(origin=ENDCARD, width=1.5, z=1.30):
+def wordmark_plane(origin=ENDCARD, width=0.80, z=1.14):
     m = bl.material("Wordmark", base="#000000", rough=0.4, alpha=0.0, emit="#F2FAF8",
                     emit_strength=6.0)
     tex = bl.image_texture(m, ASSETS / "wordmark.png")

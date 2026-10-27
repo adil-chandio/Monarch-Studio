@@ -84,49 +84,40 @@ def character_sheet_still(crop_box, out_name, size=(1080, 1920), blur=0.0):
 
 
 def emblem(size=2048) -> None:
-    """Monarch mark: thin ring, a three-peak crown folded into an M, single base bar."""
+    """Monarch mark: a thin ring around an M whose top edge is a three-point crown."""
     s = size
     img = Image.new("L", (s, s), 0)
     d = ImageDraw.Draw(img)
     cx = cy = s / 2
-    ring_r = s * 0.455
+    ring_r = s * 0.462
     d.ellipse([cx - ring_r, cy - ring_r, cx + ring_r, cy + ring_r],
-              outline=255, width=round(s * 0.012))
+              outline=255, width=round(s * 0.0135))
 
-    # crown/M monogram built from strokes with pointed terminals
-    top = cy - s * 0.215
-    base = cy + s * 0.150
-    half = s * 0.245
-    stroke = s * 0.052
+    # everything below is in units of the mark box (-0.5 .. 0.5)
+    def p(x, y):
+        return (cx + x * s, cy + y * s)
 
-    def bar(p, q, w):
-        d.line([p, q], fill=255, width=int(w))
-        for pt in (p, q):
-            d.ellipse([pt[0] - w / 2, pt[1] - w / 2, pt[0] + w / 2, pt[1] + w / 2], fill=255)
+    # M silhouette with a crown fused into its top edge
+    poly = [
+        (-0.240, 0.158), (-0.240, -0.132),      # left leg, outer edge
+        (-0.112, -0.042),                        # crown valley
+        (0.000, -0.152),                         # crown peak
+        (0.112, -0.042),                         # crown valley
+        (0.240, -0.132),                         # right leg, outer edge
+        (0.240, 0.158),                          # right leg, bottom
+        (0.166, 0.158),                          # inner right
+        (0.166, -0.004),
+        (0.000, 0.092),                          # the M's centre point
+        (-0.166, -0.004),
+        (-0.166, 0.158),                         # inner left
+    ]
+    d.polygon([p(x, y) for x, y in poly], fill=255)
+    # base bar, the way a studio mark is grounded
+    d.rectangle([p(-0.268, 0.198)[0], p(-0.268, 0.198)[1],
+                  p(0.268, 0.198)[0], p(0.268, 0.226)[1]], fill=255)
 
-    # M: outer legs up, inner V down to centre
-    bar((cx - half, base), (cx - half, top), stroke)
-    bar((cx + half, base), (cx + half, top), stroke)
-    bar((cx - half, top), (cx, base - s * 0.075), stroke * 0.92)
-    bar((cx + half, top), (cx, base - s * 0.075), stroke * 0.92)
-    # crown: three points riding the M
-    for dx, top_y, w in ((-half, -s * 0.045, stroke * 0.80), (0, -s * 0.088, stroke * 0.9),
-                         (half, -s * 0.045, stroke * 0.80)):
-        x = cx + dx
-        d.polygon([(x - w * 0.62, cy + top_y + s * 0.062),
-                   (x, cy + top_y - s * 0.020),
-                   (x + w * 0.62, cy + top_y + s * 0.062)], fill=255)
-        bar((x, cy + top_y + s * 0.050), (x, base - s * 0.028), w * 0.55)
-    # base bar
-    d.rectangle([cx - half - s * 0.020, base + s * 0.052,
-                 cx + half + s * 0.020, base + s * 0.052 + s * 0.030], fill=255)
-
-    img = img.filter(ImageFilter.GaussianBlur(radius=s * 0.0016))
-    rgba = Image.new("RGBA", (s, s), (255, 255, 255, 0))
-    rgba.putalpha(img)
-    # white RGB, alpha shape
-    white = Image.new("RGB", (s, s), (255, 255, 255))
-    rgba = white.convert("RGBA")
+    img = img.filter(ImageFilter.GaussianBlur(radius=s * 0.0012))
+    rgba = Image.new("RGB", (s, s), (255, 255, 255)).convert("RGBA")
     rgba.putalpha(img)
     rgba.save(OUT / "emblem.png")
 
@@ -134,11 +125,11 @@ def emblem(size=2048) -> None:
 def wordmark() -> None:
     anton = REPO / "styles/premium-motion-editing/assets/fonts/Anton-Regular.ttf"
     barlow = REPO / "styles/premium-motion-editing/assets/fonts/BarlowCondensed-Medium.ttf"
-    w, h = 1600, 700
+    w, h = 1600, 780
     img = Image.new("L", (w, h), 0)
     d = ImageDraw.Draw(img)
-    big = ImageFont.truetype(str(anton), 300)
-    small = ImageFont.truetype(str(barlow), 112)
+    big = ImageFont.truetype(str(anton), 290)
+    small = ImageFont.truetype(str(barlow), 104)
     t1, t2 = "MONARCH", "STUDIO"
     track = 26
     widths = []
@@ -147,16 +138,15 @@ def wordmark() -> None:
     total = sum(widths) + track * (len(t1) - 1)
     x = (w - total) / 2
     for ch, cw in zip(t1, widths):
-        d.text((x, 150), ch, font=big, fill=255)
+        d.text((x, 130), ch, font=big, fill=255)
         x += cw + track
-    sw = d.textlength(t2, font=small)
     # spaced small type under the wordmark
     letters = [(c, d.textlength(c, font=small)) for c in t2]
-    st = 34
+    st = 40
     tw = sum(l[1] for l in letters) + st * (len(letters) - 1)
     sx = (w - tw) / 2
     for c, cw in letters:
-        d.text((sx, 470), c, font=small, fill=235)
+        d.text((sx, 560), c, font=small, fill=235)
         sx += cw + st
     rgba = Image.new("RGB", (w, h), (255, 255, 255)).convert("RGBA")
     rgba.putalpha(img)

@@ -201,6 +201,7 @@ def build_head(mat_skin, mat_face):
     for poly in me.polygons:
         for vi in poly.vertices:          # UVs live on loops, not vertices
             flat.extend(uv[vi])
+    assert len(flat) == len(layer.data) * 2, (len(flat), len(layer.data) * 2)
     layer.data.foreach_set("uv", flat)
     for poly in me.polygons:
         poly.use_smooth = True
