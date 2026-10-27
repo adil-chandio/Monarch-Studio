@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Owner runs colab-test-02 notebook; when it finishes (DONE or ZIP), run mobile_ops check mob-test-01 -> finish -> deliver.
+- **Next action:** Owner opens the colab-test-03 link, taps the single play button, and sends the last cell or the ZIP; then mobile_ops ingest -> check -> finish.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

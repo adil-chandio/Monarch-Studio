@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T18:03:27+00:00",
+  "generated_at": "2026-10-27T18:03:43+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "4631369441c78dd946c42e0f3ccee79b8c67124a9978752d43d5358bf29c84d8",
-      "size": 678
+      "sha256": "473f2d3f37b615027536221e85753ecf732c2cd6c9fd2a7a24a2dd6a4576214a",
+      "size": 700
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -602,6 +602,14 @@
     "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/checkpoint.json": {
       "sha256": "034d2b7d48c79e6be102681e0a52573a66870de5dea136eace456ccbccd0a080",
       "size": 4128
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/HANDOFF.md": {
+      "sha256": "3e3171334358ebfc93543f5a2989d3058af5f2eb60f6d63cb178c76b099708bf",
+      "size": 1454
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/checkpoint.json": {
+      "sha256": "a8144577e9b28b4cf9e570d2cc3d3a96b3eb3c08df1bb681d8deca5cf4b4b675",
+      "size": 4098
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -1154,6 +1162,18 @@
     "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/checkpoint.json": {
       "sha256": "c86bf68b2f47533feea7ddcb2bde3c6c28ee15203f6a7afcb453a8ba13a82768",
       "size": 4128
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/STATUS.md": {
+      "sha256": "3ce4e888dc827e47b4b4dc5c938ddac46b1fcdeb82cf2d1e2f7fbdaf665d5dab",
+      "size": 1155
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/SYNC.json": {
+      "sha256": "7dbac747227c0a59a0f391f3c8eff8d7cab9675c5d90d11989e75a4b1b890fa9",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/checkpoint.json": {
+      "sha256": "8c4355198bb1b5b52699ba59bbd254d21c1a6c65fd1a9756864750458e210baa",
+      "size": 4098
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -1724,8 +1744,8 @@
       "size": 0
     },
     "studio/mobile/jobs/mob-test-01.json": {
-      "sha256": "c1911183e8866628c3c64fa538dc70e9e5353a042fabac2cbe403a6e2098f2df",
-      "size": 4702
+      "sha256": "ae00ad05b8f177d75f9e3e39c2856c9b13746ead33e270a668fe134b59e84f9f",
+      "size": 4946
     },
     "studio/new_workflow_legacy.py": {
       "sha256": "3564fb7f855683259ef3439db94e4fa98695f3c87854eaf35fa10b44a772bf69",
@@ -4212,20 +4232,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "925c5d5c5f69d2e5a422ec23e969862a357101cfe1f8d6259de4f15475d6bc6b",
-      "size": 1300
+      "sha256": "65d3dd335998d50f0fabbad6f524664c9857024fafb7e7dc25b22a68f8a26bd8",
+      "size": 1322
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
       "sha256": "09eb8c3d6aadf2e2bc21126e53174eeb813afc97704406db414804560a02db18",
       "size": 3373
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "cadf9dc50a0e15479938aadeaf2f49ff49db5bf697fa5f7a99fe743d3cedce47",
-      "size": 40347
+      "sha256": "3333c4cd653f062b5f1b87f3ad8f063563e6950a18ae3caa13648b0ca3d9cc5d",
+      "size": 42208
     },
     "workflows/current/RESUME.md": {
-      "sha256": "92518d2446ad759d7f75e193a934fda90df43a734710ec9a9b3ea5b3f40854aa",
-      "size": 1432
+      "sha256": "3e3171334358ebfc93543f5a2989d3058af5f2eb60f6d63cb178c76b099708bf",
+      "size": 1454
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

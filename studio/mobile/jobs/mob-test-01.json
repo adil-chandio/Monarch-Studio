@@ -11,7 +11,7 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-02/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-03/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
   "state": "blocked",
@@ -90,6 +90,13 @@
       "to": "blocked",
       "by": "agent",
       "note": "koi clip nahi aaya"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "agent",
+      "note": "colab-test-03: one-cell notebook (previous link never executed - all cells empty)"
     }
   ],
   "master": null,
@@ -137,7 +144,7 @@
     "minutes": "8-15"
   },
   "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
-  "engine_note": "viper-1.5 notebook: Drive mount optional, ZIP fallback",
+  "engine_note": "viper-1.6 one-cell notebook: single play button, Drive optional, ZIP fallback",
   "media": {
     "shots": [
       "t01-plate"
