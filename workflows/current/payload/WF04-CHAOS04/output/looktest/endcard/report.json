@@ -1,0 +1,97 @@
+{
+ "Monarch emblem": {
+  "loc": [
+   -60.0,
+   2.0,
+   1.68
+  ],
+  "rot": [
+   1.571,
+   0.0,
+   0.0
+  ],
+  "mats": [
+   "Emblem"
+  ],
+  "links": {
+   "Principled BSDF.BSDF": "Material Output.Surface",
+   "Image Texture.Color": "Principled BSDF.Emission Color",
+   "Image Texture.Alpha": "Principled BSDF.Alpha",
+   "emission_strength": 7.0,
+   "emission_color": [
+    0.8227857351303101,
+    0.9215818643569946,
+    0.9046611785888672
+   ],
+   "base_alpha": 0.0
+  }
+ },
+ "Monarch wordmark": {
+  "loc": [
+   -60.0,
+   2.0,
+   1.14
+  ],
+  "rot": [
+   1.571,
+   0.0,
+   0.0
+  ],
+  "mats": [
+   "Wordmark"
+  ],
+  "links": {
+   "Principled BSDF.BSDF": "Material Output.Surface",
+   "Image Texture.Color": "Principled BSDF.Emission Color",
+   "Image Texture.Alpha": "Principled BSDF.Alpha",
+   "emission_strength": 6.0,
+   "emission_color": [
+    0.8879231214523315,
+    0.9559733271598816,
+    0.9386857151985168
+   ],
+   "base_alpha": 0.0
+  }
+ },
+ "Endcard backdrop": {
+  "loc": [
+   -60.0,
+   2.2,
+   1.25
+  ],
+  "rot": [
+   1.571,
+   0.0,
+   0.0
+  ],
+  "mats": [
+   "Endcard black"
+  ],
+  "links": {
+   "Principled BSDF.BSDF": "Material Output.Surface",
+   "emission_strength": 0.0,
+   "emission_color": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "base_alpha": 1.0
+  }
+ },
+ "frame 1220": {
+  "Monarch emblem": true,
+  "Monarch wordmark": true
+ },
+ "frame 1240": {
+  "Monarch emblem": false,
+  "Monarch wordmark": true
+ },
+ "frame 1300": {
+  "Monarch emblem": true,
+  "Monarch wordmark": false
+ },
+ "frame 1332": {
+  "Monarch emblem": true,
+  "Monarch wordmark": false
+ }
+}
