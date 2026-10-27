@@ -1,0 +1,191 @@
+{
+ "blend": "build/chaos04.blend",
+ "frames": 1332,
+ "fps": 30,
+ "width": 360,
+ "height": 640,
+ "samples": 8,
+ "device": "CPU",
+ "segments": [
+  {
+   "id": "01",
+   "start": 1,
+   "end": 57,
+   "name": "Room, push in"
+  },
+  {
+   "id": "02",
+   "start": 57,
+   "end": 112,
+   "name": "Practical / floor"
+  },
+  {
+   "id": "03",
+   "start": 112,
+   "end": 168,
+   "name": "Doorway glow"
+  },
+  {
+   "id": "04",
+   "start": 168,
+   "end": 223,
+   "name": "Rack / steel macro"
+  },
+  {
+   "id": "05",
+   "start": 223,
+   "end": 280,
+   "name": "First silhouette"
+  },
+  {
+   "id": "06",
+   "start": 280,
+   "end": 337,
+   "name": "Hand to lapel"
+  },
+  {
+   "id": "07",
+   "start": 337,
+   "end": 399,
+   "name": "Back of the head"
+  },
+  {
+   "id": "08",
+   "start": 399,
+   "end": 489,
+   "name": "Halo hero"
+  },
+  {
+   "id": "09",
+   "start": 489,
+   "end": 519,
+   "name": "Eyes open"
+  },
+  {
+   "id": "10",
+   "start": 519,
+   "end": 541,
+   "name": "Six arms"
+  },
+  {
+   "id": "11",
+   "start": 541,
+   "end": 560,
+   "name": "Brood face"
+  },
+  {
+   "id": "12",
+   "start": 560,
+   "end": 582,
+   "name": "Doorway, floor pool"
+  },
+  {
+   "id": "13",
+   "start": 582,
+   "end": 616,
+   "name": "Neon doorway pull"
+  },
+  {
+   "id": "14",
+   "start": 616,
+   "end": 732,
+   "name": "Corridor walk"
+  },
+  {
+   "id": "15",
+   "start": 732,
+   "end": 766,
+   "name": "Spark whip"
+  },
+  {
+   "id": "16",
+   "start": 766,
+   "end": 789,
+   "name": "Halo blur"
+  },
+  {
+   "id": "17",
+   "start": 789,
+   "end": 830,
+   "name": "In frame"
+  },
+  {
+   "id": "18",
+   "start": 830,
+   "end": 867,
+   "name": "Tendril macro"
+  },
+  {
+   "id": "19",
+   "start": 867,
+   "end": 987,
+   "name": "Framed wide"
+  },
+  {
+   "id": "20a",
+   "start": 987,
+   "end": 1025,
+   "name": "Amber close"
+  },
+  {
+   "id": "20b",
+   "start": 1025,
+   "end": 1047,
+   "name": "Hand to lens"
+  },
+  {
+   "id": "20c",
+   "start": 1047,
+   "end": 1074,
+   "name": "White void"
+  },
+  {
+   "id": "20d",
+   "start": 1074,
+   "end": 1096,
+   "name": "Wide, small figure"
+  },
+  {
+   "id": "20e",
+   "start": 1096,
+   "end": 1186,
+   "name": "Strobe close"
+  },
+  {
+   "id": "21",
+   "start": 1186,
+   "end": 1211,
+   "name": "Flash out"
+  },
+  {
+   "id": "22",
+   "start": 1211,
+   "end": 1229,
+   "name": "Silence, black"
+  },
+  {
+   "id": "23",
+   "start": 1229,
+   "end": 1264,
+   "name": "Emblem on"
+  },
+  {
+   "id": "24",
+   "start": 1264,
+   "end": 1333,
+   "name": "Our endcard"
+  }
+ ],
+ "character": {
+  "source": "characters/monarch/character.json",
+  "state": "LOCKED",
+  "face": "v5 projected",
+  "rig_bones": 22
+ },
+ "assets": [
+  "emblem.png",
+  "face_rect.json",
+  "face_tex.png",
+  "wordmark.png"
+ ]
+}
