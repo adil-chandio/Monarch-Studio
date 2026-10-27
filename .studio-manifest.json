@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T22:09:29+00:00",
+  "generated_at": "2026-10-27T22:34:07+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,12 +32,12 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "8372a42b0df734d9d9867a33bb4cb5cb0e9e15b0d4c2c1b240bc80f1bfc5937c",
-      "size": 13132
+      "sha256": "fa4b4a4a4674db72534835a70f351338f01de99e3d45fff1ead5664bf5b8e4b8",
+      "size": 13643
     },
     "CHANGELOG.md": {
-      "sha256": "ee27b1dea91b1e82c277435a9221e763523e9e8cef127f737a93bad06a4bd216",
-      "size": 4666
+      "sha256": "7e19e96fa0d19efef8af28c8d7f29e99394f9a4fb0a76e2f90b78e01f02bdd49",
+      "size": 5574
     },
     "CONTRIBUTING.md": {
       "sha256": "e814f35754093119bee2342be79d50b7a389e6b902e1b37c1fa6f5f3446975ad",
@@ -48,8 +48,8 @@
       "size": 759
     },
     "Makefile": {
-      "sha256": "8410bc6cdf577b20b89db5e572630c00a7d1a9211bcd41eddb39fb9864bed391",
-      "size": 1319
+      "sha256": "d620055797c44b22573174d6d371f59c0d4cf51a742c38285c7ed19dce9ec3e1",
+      "size": 1493
     },
     "README.md": {
       "sha256": "073c57179cc46d0172480ebf589194a7b072b10b16f4aa432103d1ce2c6bd4f1",
@@ -146,6 +146,10 @@
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
       "size": 1725
+    },
+    "docs/AGENT_REEL.md": {
+      "sha256": "f6c79552965c9b0f47ad11c99249963621824b6d3447fd72dc3c88ebe89197a6",
+      "size": 2953
     },
     "docs/ARCHITECTURE.md": {
       "sha256": "852e73a779d1bfca7f0bcb7c7092ec512dc73fe2b3380fc3e8b83feadf6ea886",
@@ -1950,6 +1954,18 @@
     "studio/videogen/examples/receipts.json": {
       "sha256": "3cefba5e547d76cfb21808987bf7f9ad6033dd63dda0aca6743168b20819d1ac",
       "size": 191
+    },
+    "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER.mp4": {
+      "sha256": "a2eb795614a3f60257c77c717fbec0c268a8ea0b110b0891ebc9f5cee1b1b820",
+      "size": 5695339
+    },
+    "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER_receipt.json": {
+      "sha256": "023a5459a6a225489664be3b6899c1ba14a8964af865922e43d1bce0c4fcafbe",
+      "size": 835
+    },
+    "studio/videogen/examples/reel-local-01/reel.json": {
+      "sha256": "896eda71882758e4100aa701d4d4b9ec0f17d8b002ae8317639625ea18695277",
+      "size": 1455
     },
     "styles/README.md": {
       "sha256": "99a94199764c4e82312dbfe0fea3f56bff2bc56fc6eabe59e8cebf905fd8f861",
@@ -4339,6 +4355,10 @@
       "sha256": "5d28bb860f1c3283dc684fa0347e178c2eec6c379e8edf59e11d81c2c38f3ca3",
       "size": 16829
     },
+    "tests/test_reel_render.py": {
+      "sha256": "ff72b217a3dd8605002316700df7ce8158feeb451b9260569cef6cf5f8c680c0",
+      "size": 8067
+    },
     "tests/test_studio.py": {
       "sha256": "378683d7a66bdc9ee6b3f5447ac6a466d4487e68b84ad716249e15a9f83ce5b4",
       "size": 7200
@@ -4378,6 +4398,10 @@
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
       "size": 1875
+    },
+    "tools/reel_render.py": {
+      "sha256": "5a713aad4eda64672a8d7a6b4d28ae70829fcb766b70d0ed89f1076012e98d04",
+      "size": 18137
     },
     "tools/render_v2_parallel.sh": {
       "sha256": "0905473946f518f79f1aa091d107c08270224d45a82229cc750cd10cc3146e89",

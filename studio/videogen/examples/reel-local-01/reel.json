@@ -1,0 +1,63 @@
+{
+  "id": "reel-local-01",
+  "title": "MONARCH — REEL 01",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "plate_height": 720,
+  "grain": 7,
+  "fade": 0.35,
+  "xfade": 0.45,
+  "caption_size": 56,
+  "caption_y": 0.825,
+  "audio": {
+    "drone": 0.55,
+    "rain": 0.45,
+    "impacts": true,
+    "riser": true,
+    "voice": null,
+    "pulse": 0.5
+  },
+  "shots": [
+    {
+      "image": "styles/monarch-noir-film/plates/raw_street_dawn.png",
+      "seconds": 3.2,
+      "move": "push",
+      "caption": "Shehar so nahi raha"
+    },
+    {
+      "image": "styles/monarch-noir-film/plates/raw_facade_hero.png",
+      "seconds": 3.2,
+      "move": "pan_right",
+      "caption": "Woh roz wahan khara hota hai"
+    },
+    {
+      "image": "styles/monarch-noir-film/plates/raw_desk_window.png",
+      "seconds": 3.2,
+      "move": "pull",
+      "caption": "Ek kamra. Ek raat. Ek faisla."
+    },
+    {
+      "image": "styles/monarch-noir-film/plates/raw_bedroom_amber.png",
+      "seconds": 3.2,
+      "move": "push",
+      "caption": "Jo dekhte nahi, wohi faisla karte hain"
+    },
+    {
+      "image": "styles/monarch-noir-film/plates/raw_window_inside.png",
+      "seconds": 3.2,
+      "move": "pan_left",
+      "caption": "Sab wapas nahi aate"
+    },
+    {
+      "image": "styles/monarch-noir-film/plates/raw_facade_night.png",
+      "seconds": 3.6,
+      "move": "push",
+      "caption": "Monarch Studio"
+    }
+  ],
+  "bg_brightness": -0.02,
+  "crf": 22
+}

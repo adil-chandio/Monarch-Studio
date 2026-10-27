@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0 — 2026-10-28
+
+- Added `tools/reel_render.py` (`reelrender-1.0`): a CPU-only reel renderer. No GPU, no network, no Colab, no owner
+  tap. Per-shot camera move (`zoompan` push/pull/pan) over existing art plates, blurred vertical bed, film grain,
+  vignette and grade, PIL caption overlays with alpha fades (works even when ffmpeg is built without `drawtext`),
+  `xfade` dissolves, and a designed audio bed (drone + rain + pulse + cut impacts + riser) mastered with
+  `loudnorm I=-16`. Writes `<name>_receipt.json` for the file it actually produced.
+- Added `studio/videogen/examples/reel-local-01/` (spec + delivered master: 1080x1920, 17.3 s, 5.7 MB, 12
+  captions/shots) and `docs/AGENT_REEL.md` + `make reel`.
+- Rule pinned in `AGENTS.md`: the agent renders video itself and shows it with `present_file`; a Colab link is
+  only ever for *new AI footage*, never for editing, mixing or mastering.
+
 ## 0.3.3 — 2026-10-28
 
 - `viper-2.2`: the delivery stopped looking like a still image. Three causes, all fixed:

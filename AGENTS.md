@@ -76,6 +76,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
   escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
   against real ffmpeg, so these three mistakes cannot come back silently.
+- **Video main khud banata hoon — owner se click/link nahi maangna.** `tools/reel_render.py` (CPU, no GPU, no
+  network) asli art plates par camera moves + grain + captions + designed sound + loudnorm se 1080x1920 reel
+  banata hai; 2 cores par ~1 minute. Spec: `studio/videogen/examples/reel-local-01/reel.json`
+  (`docs/AGENT_REEL.md`). Sirf tab Colab maango jab owner *naya AI footage* chahe — edit/mix/master ke liye kabhi
+  nahi. Delivery ke waqt `present_file` se video un ke saamne kholo, link nahi.
 - **Wan 16 fps native hai — 24 par force mat karo.** Frames duplicate hote hain aur clip "stuck image" lagti
   hai. `finish_master(fps=None)` har clip ka apna fps probe karta hai. Motion prompt se aata hai
   ("rain hammering", "smoke curling", "wind whipping"), "slow push in" se nahi. Free T4 par 77 frames
