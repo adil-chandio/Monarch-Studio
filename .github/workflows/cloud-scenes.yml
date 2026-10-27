@@ -1,0 +1,108 @@
+name: Cloud scene pack (agent-triggered)
+
+# AI scenes + depth maps + voice, sab cloud me. Owner ka koi tap nahi.
+# Trigger: cloud/scene_jobs/<id>.json push.
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        required: false
+        default: ""
+  push:
+    paths:
+      - "cloud/scene_jobs/*.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cloud-scene-pack
+  cancel-in-progress: false
+
+jobs:
+  scenes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install torch (CPU) + models
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg espeak-ng
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install --quiet diffusers transformers accelerate safetensors pillow
+          python3 -m pip install --quiet kokoro soundfile numpy
+          python3 -c "import torch, diffusers; print('torch', torch.__version__, 'diffusers', diffusers.__version__)"
+
+      - name: Pick the job
+        id: pick
+        run: |
+          set -euo pipefail
+          JOB="${{ github.event.inputs.job_id }}"
+          if [ -z "$JOB" ]; then
+            JOB=$(ls -t cloud/scene_jobs/*.json 2>/dev/null | head -1 | xargs -r basename | sed 's/\.json$//')
+          fi
+          [ -n "$JOB" ] || { echo "koi scene job nahi"; exit 1; }
+          echo "job=$JOB" >> "$GITHUB_OUTPUT"
+          python3 -c "import json;d=json.load(open('cloud/scene_jobs/$JOB.json'));print('scenes',len(d['scenes']),'size',d['size'])"
+
+      - name: Generate images + depth + voice
+        env:
+          HF_HUB_DISABLE_XET: "1"
+          OMP_NUM_THREADS: "4"
+          MALLOC_ARENA_MAX: "2"
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          python3 tools/cloud_scene_pack.py "cloud/scene_jobs/$JOB.json" --out "scene_out/$JOB"
+
+      - name: Receipt
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          OUT="scene_out/$JOB"
+          python3 - "$JOB" "$OUT" <<'PY'
+          import json, pathlib, sys, hashlib
+          job_id, out = sys.argv[1], pathlib.Path(sys.argv[2])
+          rows = []
+          for file in sorted(out.glob("*")):
+              if file.suffix.lower() in (".png", ".wav"):
+                  rows.append({"file": file.name, "bytes": file.stat().st_size,
+                               "md5": hashlib.md5(file.read_bytes()).hexdigest()})
+          (out / "files.json").write_text(json.dumps({"job": job_id, "files": rows}, indent=2))
+          print(len(rows), "files")
+          PY
+
+      - name: Publish to cloud-scenes branch
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          OUT="scene_out/$JOB"
+          git config user.name "Monarch Cloud"
+          git config user.email "cloud@monarch.local"
+          rm -rf /tmp/scenes && mkdir -p /tmp/scenes
+          cp -r "$OUT"/. /tmp/scenes/
+          git checkout --orphan scenes-tmp
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
+          cp -r /tmp/scenes/. .
+          git add -A
+          git commit -q -m "cloud scenes: $JOB (${{ github.sha }})"
+          git push --force origin HEAD:cloud-scenes
+          echo published
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cloud-scenes
+          path: scene_out/**/*
+          retention-days: 7
