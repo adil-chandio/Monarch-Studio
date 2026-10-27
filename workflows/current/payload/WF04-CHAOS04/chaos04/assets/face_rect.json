@@ -1,0 +1,30 @@
+{
+ "source": "characters/monarch/previews/CUSTOM_HERO_REAL_SHEET_v5_preview.jpg",
+ "source_size": [
+  1520,
+  1260
+ ],
+ "crop": [
+  168,
+  396,
+  432,
+  752
+ ],
+ "skin_tone_rgb": [
+  132,
+  91,
+  66
+ ],
+ "out_size": [
+  1275,
+  1720
+ ],
+ "face_aspect": 0.7412109375,
+ "inner_rect": [
+  0.20238095238095238,
+  0.20238095238095238,
+  0.7976190476190477,
+  0.7976190476190477
+ ],
+ "proj": "planar -Y; uv = inner_rect mapped from face rect; extension=EXTEND"
+}

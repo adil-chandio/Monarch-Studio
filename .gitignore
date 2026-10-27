@@ -57,8 +57,14 @@ Thumbs.db
 *_master.mp4
 master_*.mp4
 
-# Third-party reference + everything derived from its pixels/audio never enters Git (public repo)
-google_drive/*.mp4
-workflows/current/payload/WF04-CHAOS04/analysis/*.wav
-workflows/current/payload/WF04-CHAOS04/analysis/ARC_*.png
-workflows/current/payload/WF04-CHAOS04/analysis/frames/
+# CHAOS 04 — large intermediates stay out of git (Drive is the store)
+workflows/current/payload/WF04-CHAOS04/build/
+workflows/current/payload/WF04-CHAOS04/render/
+google_drive/*.blend
+google_drive/*.zip
+
+# CHAOS 04 — render intermediates (frames, blends, previews) stay on Drive
+workflows/current/payload/WF04-CHAOS04/build/
+workflows/current/payload/WF04-CHAOS04/render/
+google_drive/*.blend
+google_drive/*.zip
