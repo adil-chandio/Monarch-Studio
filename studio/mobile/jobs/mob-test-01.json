@@ -11,10 +11,10 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-04/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-06/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
-  "state": "blocked",
+  "state": "clip_ready",
   "gates": {
     "plan_estimate": {
       "ok": true,
@@ -38,8 +38,8 @@
     }
   },
   "next": {
-    "user": "ZIP (m-test-01_outputs.zip) chat me attach karo",
-    "agent": "ingest -> check -> finish -> deliver"
+    "user": "naya link -> ek \u25b6 -> MASTER OK ka screenshot",
+    "agent": "receipt padho -> adopt -> deliver"
   },
   "history": [
     {
@@ -111,13 +111,17 @@
       "to": "blocked",
       "by": "notebook",
       "note": "run succeeded: 2 clips, ZIP in Drive; blocked only on media transfer to the sandbox"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "clip_ready",
+      "by": "agent",
+      "note": "clips confirmed from Drive (md5 match, 174892 B / 25133 B); master ab Colab me banega (viper-1.9 RUN_FINISH)"
     }
   ],
   "master": null,
-  "blocker": {
-    "stage": "media-transfer",
-    "detail": "Clips Drive me hain lekin sandbox Google hosts tak nahi pahunch sakta; ZIP (0.2 MB) chat me attach hona chahiye taake finish (mix/verify/assemble) chale."
-  },
+  "blocker": null,
   "plan": {
     "total_usd": 0.0,
     "total_with_retries_usd": 0.0,
@@ -184,6 +188,22 @@
     "steps": 30,
     "host_ram_free": "8.1-9.1 GB",
     "upscale": "ffmpeg lanczos x2 (basicsr build failed)",
-    "zip": "05 \u00b7 Projects/m-test-01/m-test-01_outputs.zip"
+    "zip": "05 \u00b7 Projects/m-test-01/m-test-01_outputs.zip",
+    "drive_files": {
+      "t01-plate-2x.mp4": {
+        "id": "1XZVewZnSTKq8LOgHlulUf-2p6lPjqCpW",
+        "bytes": 174892,
+        "md5": "39964be08e7bc3390636b6e0d01f873d"
+      },
+      "t01-plate.mp4": {
+        "id": "1m_QoPtLahLRK8_roEUF_85Xa-njudFUT",
+        "bytes": 25133,
+        "md5": "112effff90ab28b1bdcb8b91803d8ab3"
+      },
+      "zip": {
+        "id": "115dZLCd1X7GpKb79C3yub4Mr5RjEPKp2",
+        "bytes": 198939
+      }
+    }
   }
 }
