@@ -81,6 +81,47 @@ ours.
 
 ---
 
+## 1b · Measured cut grid (this is the rhythm — cut on this, not on vibes)
+
+Soft cuts detected at 8 fps analysis, local motion maxima, 0.6 s minimum spacing:
+
+```
+16.25  17.25  18.00  18.62  19.38  20.50 | 24.38  25.50  26.25  27.62  28.88
+| 32.88  34.12  34.88  35.75  36.50 | 39.50
+```
+
+Read as a pattern, this is not a steady cut rate — it is **burst → hold → burst**:
+
+| block | span | shots | rate | what happens |
+|---|---|---|---|---|
+| long take | 0.00–16.25 | 1 held take (camera moves only) | 0 /s | the room, the silhouette, the ring reveal |
+| burst 1 | 16.25–20.50 | 6 shots | **1.4 /s** | creature, arms, face, doorway |
+| hold | 20.50–24.38 | 1 shot | — | doorway + neon, walking |
+| burst 2 | 24.38–28.88 | 5 shots | 1.1 /s | sparks, whip, frame, tendril |
+| hold | 28.88–32.88 | 1 shot | — | framed wide |
+| burst 3 | 32.88–36.50 | 4 shots | 1.1 /s | red close, hand, white void approach |
+| tail | 36.50–39.50 | 1 shot | — | white void |
+| endcard | 39.50 | — | — | logo |
+
+**Strobe / flash grid** — 40 hits, and they are metronomic:
+
+```
+9.12 9.62 13.12 | 16.25 16.75 17.25 17.75 18.50 19.25 20.50 21.00 21.50 22.12
+22.62 23.12 23.75 24.25 25.12 25.62 26.25 26.75 27.25 28.00 28.50 29.12
+31.12 32.12 32.88 33.50 34.12 34.62 35.12 35.75 36.25 36.75 37.38 37.88
+38.38 39.38 39.88
+```
+
+Spacing from 16.25 s onward is almost always **0.50 s** (120 BPM at 4/4 half-beats),
+sometimes 0.62 s. So the film is cut and flashed on a ~120 BPM grid, and the
+"holds" are exactly the places where the music breathes. Our edit must land on
+the same grid — that is 90 % of why the reference feels the way it does.
+
+Rule for us: **build the audio bed at 120 BPM first, then place every cut and
+every flash on that grid.** Not the other way round.
+
+---
+
 ## 2 · What we copy, what we do not
 
 **Copy (structure, not pixels):** act lengths, shot order, shot durations, camera
