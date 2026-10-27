@@ -1,0 +1,90 @@
+name: CHAOS 04 full preview (approval gate)
+
+# The whole film, every frame, at 360x640 / 4 samples on CPU, encoded to 540x960
+# with the real score and the measured strobe grid. This is the clip the user
+# approves before any 1080x1920 production run.
+
+on:
+  push:
+    paths:
+      - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/preview.flag"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Blender runtime libs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxrender1 libxi6 libxxf86vm1 libxfixes3 \
+            libgl1 libegl1 libsm6 libice6 libxkbcommon0 libxrandr2 libxinerama1 \
+            libgomp1 libosmesa6 ffmpeg
+
+      - name: Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install "bpy==4.2.0" numpy imageio-ffmpeg pillow
+
+      - name: Build scene
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          /usr/bin/time -f "BUILD %e s" python chaos04/build.py -- \
+            --out build/chaos04.blend --width 360 --height 640 --samples 4
+
+      - name: Render the whole film (1332 frames)
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          /usr/bin/time -f "RENDER %e s" python chaos04/render.py -- \
+            --blend build/chaos04.blend --out render/full --samples 4
+          ls render/full | wc -l
+
+      - name: Score + encode 540x960 with the measured strobes
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          python chaos04/score.py --out build/score_48k.wav
+          python chaos04/encode.py --frames render/full --audio build/score_48k.wav \
+            --out build/CHAOS04_PREVIEW_540x960.mp4 --preview --crf 21
+          ls -l build/CHAOS04_PREVIEW_540x960.mp4 build/*.report.json || true
+
+      - name: Publish into the branch
+        if: always()
+        run: |
+          set -e
+          WF=workflows/current/payload/WF04-CHAOS04
+          OUT=$WF/output/preview
+          mkdir -p "$OUT"
+          cp -v "$WF"/build/CHAOS04_PREVIEW_540x960.mp4 "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/build/CHAOS04_PREVIEW_540x960.report.json "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/build/score_48k.wav "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/render/progress.jsonl "$OUT"/ 2>/dev/null || true
+          # a 12-up contact sheet from the final frames, for a quick eyeball
+          python - <<'PY' || true
+          import glob
+          from PIL import Image
+          fs = sorted(glob.glob('workflows/current/payload/WF04-CHAOS04/render/full/*.png'))
+          picks = [fs[i] for i in range(0, len(fs), max(1, len(fs) // 12))][:12]
+          ims = [Image.open(p).convert('RGB') for p in picks]
+          w, h = ims[0].size
+          sheet = Image.new('RGB', (w * 4, h * 3))
+          for i, im in enumerate(ims):
+              sheet.paste(im, ((i % 4) * w, (i // 4) * h))
+          sheet.save('workflows/current/payload/WF04-CHAOS04/output/preview/contact.jpg', quality=90)
+          print('contact', sheet.size, len(picks))
+          PY
+          du -sh "$OUT"
+          git config user.name "chaos04-preview"
+          git config user.email "preview@monarch.studio"
+          git add -f "$OUT"
+          git commit -m "preview: full film, 540x960, run $GITHUB_RUN_ID" || true
+          git push origin HEAD:${GITHUB_REF_NAME}
