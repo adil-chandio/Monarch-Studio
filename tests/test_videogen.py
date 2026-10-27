@@ -298,6 +298,15 @@ class VerifyAssembleTests(unittest.TestCase):
                                                            "video_codec": "h264", "audio_codec": None}):
                 self.assertEqual(vg.verify(path), 3)
 
+    def test_verify_rejects_empty_files(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            data = json.loads(path.read_text())
+            for shot in data["shots"]:
+                (path.parent / "shots" / f"{shot['id']}.mp4").write_bytes(b"")
+            with mock.patch.object(vg, "which", lambda binary: None):
+                self.assertEqual(vg.verify(path), 3)
+
     def test_assemble_without_ffmpeg_is_an_honest_error(self):
         with tempfile.TemporaryDirectory() as td:
             path = make_project(pathlib.Path(td), route="free", template="hero-test")
@@ -349,6 +358,120 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             self.assertEqual(vg.main(["new", "--id", "cli-1", "--title", "CLI one", "--out", td]), 0)
             self.assertTrue((pathlib.Path(td) / "cli-1" / "project.json").exists())
+
+
+class MobileTests(unittest.TestCase):
+    """The owner is on a phone: one notebook, one Run all, prompts baked in."""
+
+    def _notebook(self, path):
+        return json.loads((path.parent / "mobile" / "MOBILE_p1.ipynb").read_text())
+
+    def test_mobile_writes_one_notebook(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                self.assertEqual(vg.mobile(path), 0)
+            notebooks = list((path.parent / "mobile").glob("*.ipynb"))
+            self.assertEqual(len(notebooks), 1)
+            nb = self._notebook(path)
+            self.assertEqual(nb["nbformat"], 4)
+            self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 7)
+
+    def test_notebook_code_cells_compile(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            for index, cell in enumerate(self._notebook(path)["cells"]):
+                if cell["cell_type"] != "code":
+                    continue
+                lines = []
+                for line in "".join(cell["source"]).splitlines():
+                    if line.lstrip().startswith(("!", "%")):
+                        indent = line[:len(line) - len(line.lstrip())]
+                        lines.append(f"{indent}pass  # {line.strip()[1:]}")
+                    else:
+                        lines.append(line)
+                compile("\n".join(lines), f"<cell{index}>", "exec")   # raises on syntax error
+
+    def test_jobs_and_text_are_baked_in(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            data = json.loads(path.read_text())
+            data["shots"][0]["vo_text"] = "hook line"
+            data["shots"][1]["foley_prompt"] = "wind over concrete"
+            path.write_text(json.dumps(data, indent=2))
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            text = "\n".join("".join(c["source"]) for c in self._notebook(path)["cells"])
+            self.assertIn('"s01-hook"', text)
+            self.assertIn("hook line", text)
+            self.assertIn("wind over concrete", text)
+            self.assertIn("05 · Projects/{PROJECT}", text)
+            self.assertIn("DONE ✅", text)
+            self.assertIn("RUN_CLIPS", text)
+            self.assertNotIn("TODO: put your job list", text)
+
+    def test_jobs_use_the_free_frame_size_and_4k_plus_1(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            cfg = "".join(self._notebook(path)["cells"][1]["source"])
+            start = cfg.index("JOBS = [")
+            jobs = json.loads(cfg[start + len("JOBS = "):cfg.index("\n]", start) + 2])
+            self.assertEqual(len(jobs), 3)
+            for job in jobs:
+                self.assertEqual((job["width"], job["height"]), (480, 832))
+                self.assertEqual((job["frames"] - 1) % 4, 0)
+                self.assertGreaterEqual(job["frames"], 17)
+
+    def test_receipts_record_the_mobile_run(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            receipts = json.loads((path.parent / "receipts.json").read_text())
+            self.assertEqual(receipts["mobile"]["mode"], "phone_run_all")
+            self.assertEqual(receipts["mobile"]["shots"], 3)
+
+    def test_mobile_cli_exit_zero(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                self.assertEqual(vg.main(["mobile", str(path)]), 0)
+
+
+class ProbeFallbackTests(unittest.TestCase):
+    """No ffprobe on this box: probe() must parse `ffmpeg -i` instead of giving up."""
+
+    def test_which_finds_static_ffmpeg_or_none(self):
+        resolved = vg.which("ffmpeg")
+        self.assertTrue(resolved is None or pathlib.Path(resolved).exists())
+
+    def test_probe_parses_ffmpeg_output(self):
+        stderr = (
+            "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'clip.mp4':\n"
+            "  Duration: 00:00:05.00, start: 0.000000, bitrate: 128 kb/s\n"
+            "  Stream #0:0[0x1](und): Video: h264 (High), yuv420p, 480x832 [SAR 1:1 DAR 15:26], "
+            "24 fps, 24 tbr, 12288 tbn\n"
+            "  Stream #0:1[0x2](und): Audio: aac (LC), 44100 Hz, stereo, fltp\n"
+        )
+        with mock.patch.object(vg, "which", lambda b: None if b == "ffprobe" else "/usr/bin/ffmpeg"), \
+             mock.patch.object(vg.subprocess, "run",
+                               lambda *a, **k: mock.Mock(returncode=1, stdout="", stderr=stderr)):
+            info = vg.probe(pathlib.Path("/tmp/clip.mp4"))
+        self.assertTrue(info["available"])
+        self.assertEqual((info["width"], info["height"]), (480, 832))
+        self.assertEqual(info["fps"], 24.0)
+        self.assertEqual(info["duration"], 5.0)
+        self.assertEqual(info["video_codec"], "h264")
+        self.assertEqual(info["audio_codec"], "aac")
+        self.assertEqual(info["probe"], "ffmpeg -i")
+
+    def test_probe_reports_no_binary_at_all(self):
+        with mock.patch.object(vg, "which", lambda b: None):
+            self.assertEqual(vg.probe(pathlib.Path("/tmp/x.mp4")), {"available": False})
 
 
 class FreeOnlyTests(unittest.TestCase):
@@ -541,9 +664,24 @@ class AudioTests(unittest.TestCase):
         inputs, graph, amap = vg.mix_graph(True, True, True, bed_gain_db=-6.0)
         self.assertEqual(amap, "[aout]")
         self.assertIn("sidechaincompress", graph)
-        self.assertIn("[vo][fo]amix=inputs=2:normalize=0[dia]", graph)
+        self.assertIn("[vo][fo]amix=inputs=2:normalize=0[dia0]", graph)
         self.assertIn("volume=-6.0dB", graph)
         self.assertEqual(inputs.count("-i"), 3)
+
+    def test_mix_graph_splits_dialogue_before_the_ducker(self):
+        """An ffmpeg filter output may only be consumed once — hence asplit."""
+        _, graph, _ = vg.mix_graph(True, False, True)
+        self.assertIn("asplit=2[dia][diaside]", graph)
+        self.assertIn("[bed][diaside]sidechaincompress", graph)
+        self.assertIn("[dia][bedduck]amix", graph)
+
+    def test_mix_graph_loudnorm_lands_inside_the_graph(self):
+        _, graph, amap = vg.mix_graph(True, False, True, loudnorm=True)
+        self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11[aout]", graph)
+        self.assertEqual(amap, "[aout]")
+        self.assertEqual(graph.count("[aout]"), 1)
+        _, plain, _ = vg.mix_graph(True, False, True)
+        self.assertNotIn("loudnorm", plain)
 
     def test_mix_graph_without_bed_has_no_ducking(self):
         _, graph, amap = vg.mix_graph(False, True, False)

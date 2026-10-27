@@ -13,6 +13,7 @@ queues what it cannot, verifies the media and assembles the master.
     python3 tools/videogen.py verify workflows/current/payload/monarch-reel-01/project.json
     python3 tools/videogen.py assemble workflows/current/payload/monarch-reel-01/project.json
     python3 tools/videogen.py status workflows/current/payload/monarch-reel-01/project.json
+    python3 tools/videogen.py mobile workflows/current/payload/monarch-reel-01/project.json  # phone: one Run-all notebook
 
 Design rules
 ------------
@@ -43,7 +44,7 @@ DRIVE_CONFIG = ROOT / "styles" / "monarch-ai-agent" / "data" / "drive.json"
 DEFAULT_WORK = ROOT / "workflows" / "current" / "payload"
 
 SCHEMA_VERSION = 1
-ENGINES_VERSION = "viper-1.3"
+ENGINES_VERSION = "viper-1.4"
 
 ASPECTS = {"9:16": (1080, 1920), "16:9": (1920, 1080), "1:1": (1080, 1080), "4:5": (1080, 1350)}
 H3_RATIOS = {"9:16", "16:9", "1:1", "21:9", "4:3", "3:4"}
@@ -81,7 +82,28 @@ def now() -> int:
 
 
 def which(binary: str) -> str | None:
-    return shutil.which(binary)
+    """Locate a binary, falling back to the static ffmpeg shipped by imageio-ffmpeg.
+
+    The sandbox (and most phones-as-terminals) has no system ffmpeg; ``pip install imageio-ffmpeg``
+    gives us a static ffmpeg we can use for concat, mixing and probing without root.
+    """
+    found = shutil.which(binary)
+    if found:
+        return found
+    if binary == "ffmpeg":
+        try:
+            import imageio_ffmpeg  # optional dependency, never required
+        except ImportError:
+            return None
+        try:
+            exe = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:                      # noqa: BLE001 - download/verify failures are "not available"
+            return None
+        return exe if pathlib.Path(exe).exists() else None
+    if binary == "ffprobe":
+        # imageio-ffmpeg ships ffmpeg only; probe() parses `ffmpeg -i` instead.
+        return None
+    return None
 
 
 def load_json(path: pathlib.Path) -> dict:
@@ -996,52 +1018,63 @@ def audio(project_file: pathlib.Path) -> int:
 
 
 def mix_graph(has_vo: bool, has_foley: bool, has_bed: bool, *, bed_gain_db: float = -6.0,
-              vo_gain_db: float = 0.0, foley_gain_db: float = -3.0) -> tuple[list[str], str, str]:
+              vo_gain_db: float = 0.0, foley_gain_db: float = -3.0,
+              loudnorm: bool = False) -> tuple[list[str], str, str]:
     """Build (extra inputs, filter_complex, audio map) for one shot.
 
     Dialogue and foley are summed, then the music bed is ducked under them with
-    sidechaincompress — the standard 30-second fix for "voice lost in the bed".
+    ``sidechaincompress`` — the standard fix for "voice lost in the bed". The dialogue bus is
+    ``asplit`` so it can feed both the ducker and the final mix (an ffmpeg output may only be
+    consumed once).
     """
     inputs: list[str] = []
     index = 1
     dialogue_parts: list[str] = []
     filters: list[str] = []
-    dia = ""
+
+    def gain(value: float) -> str:
+        return f",volume={value}dB" if value else ""
 
     if has_vo:
         inputs += ["-i", "__VO__"]
-        filters.append(f"[{index}:a]aresample=48000,volume={vo_gain_db}dB[vo]")
+        filters.append(f"[{index}:a]aresample=48000{gain(vo_gain_db)}[vo]")
         dialogue_parts.append("[vo]")
         index += 1
     if has_foley:
         inputs += ["-i", "__FOLEY__"]
-        filters.append(f"[{index}:a]aresample=48000,volume={foley_gain_db}dB[fo]")
+        filters.append(f"[{index}:a]aresample=48000{gain(foley_gain_db)}[fo]")
         dialogue_parts.append("[fo]")
         index += 1
 
+    dia = ""
     if len(dialogue_parts) == 2:
-        filters.append("[vo][fo]amix=inputs=2:normalize=0[dia]")
-        dia = "[dia]"
+        filters.append("[vo][fo]amix=inputs=2:normalize=0[dia0]")
+        dia = "[dia0]"
     elif dialogue_parts:
         dia = dialogue_parts[0]
 
     if has_bed:
         inputs += ["-i", "__BED__"]
-        filters.append(f"[{index}:a]aresample=48000,volume={bed_gain_db}dB[bed]")
+        filters.append(f"[{index}:a]aresample=48000{gain(bed_gain_db)}[bed]")
         if dia:
-            filters.append(f"[bed][dia]sidechaincompress=threshold=0.03:ratio=8:attack=15:"
-                           f"release=350[bedduck]")
-            filters.append(f"{dia}[bedduck]amix=inputs=2:normalize=0[aout]")
+            filters.append(f"{dia}asplit=2[dia][diaside]")
+            filters.append("[bed][diaside]sidechaincompress=threshold=0.03:ratio=8:attack=15:"
+                           "release=350[bedduck]")
+            filters.append("[dia][bedduck]amix=inputs=2:normalize=0[aout0]")
         else:
-            filters.append("[bed]anull[aout]")
-        amap = "[aout]"
+            filters.append("[bed]anull[aout0]")
+        tail = "[aout0]"
     elif dia:
-        filters.append(f"{dia}anull[aout]")
-        amap = "[aout]"
+        filters.append(f"{dia}anull[aout0]")
+        tail = "[aout0]"
     else:
         return [], "", ""
 
-    return inputs, ";".join(filters), amap
+    if loudnorm:
+        filters.append(f"{tail}loudnorm=I=-16:TP=-1.5:LRA=11[aout]")
+    else:
+        filters.append(f"{tail}anull[aout]")
+    return inputs, ";".join(filters), "[aout]"
 
 
 def mix_variant(path: pathlib.Path) -> pathlib.Path:
@@ -1082,7 +1115,7 @@ def mix(project_file: pathlib.Path, *, loudnorm: bool = False) -> int:
             continue
 
         extra, graph, amap = mix_graph(bool(vo), bool(foley), bool(bed),
-                                       bed_gain_db=cfg["gain_db"])
+                                       bed_gain_db=cfg["gain_db"], loudnorm=loudnorm)
         resolved = []
         for item in extra:
             if item == "__VO__":
@@ -1097,12 +1130,7 @@ def mix(project_file: pathlib.Path, *, loudnorm: bool = False) -> int:
         out = mix_variant(video)
         cmd = [ffmpeg, "-y", "-i", str(video)] + resolved + [
             "-filter_complex", graph, "-map", "0:v:0", "-map", amap,
-            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest"]
-        if loudnorm:
-            graph = graph.replace("[aout]", "[aoutraw]")
-            graph += "; [aoutraw]loudnorm=I=-16:TP=-1.5:LRA=11[aout]"
-            cmd = [cmd[0], cmd[1], cmd[2]] + cmd[3:-5] + ["-filter_complex", graph] + cmd[-5:]
-        cmd.append(str(out))
+            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", str(out)]
         proc = subprocess.run(cmd, capture_output=True, text=True)
         if proc.returncode != 0:
             print(f"FAIL  {sid}: {(proc.stderr or '')[-300:]}")
@@ -1371,10 +1399,40 @@ def shot_media(shot: dict, paths: dict) -> pathlib.Path | None:
     return None
 
 
+def _probe_with_ffmpeg(path: pathlib.Path, ffmpeg: str) -> dict:
+    """Parse `ffmpeg -i` stderr when ffprobe is not installed (static ffmpeg builds)."""
+    proc = subprocess.run([ffmpeg, "-hide_banner", "-i", str(path)],
+                          capture_output=True, text=True)
+    text = (proc.stderr or "") + (proc.stdout or "")
+    if "Stream #" not in text:
+        return {"available": True, "error": text.strip().splitlines()[-1][:300] if text.strip() else "no streams"}
+    duration = 0.0
+    match = re.search(r"Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)", text)
+    if match:
+        hours, minutes, seconds = match.groups()
+        duration = int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+    video_line = next((line for line in text.splitlines() if "Video:" in line), "")
+    audio_line = next((line for line in text.splitlines() if "Audio:" in line), "")
+    width = height = 0
+    size = re.search(r"[,\s](\d{2,5})x(\d{2,5})(?=[\s,\[])", video_line)
+    if size:
+        width, height = int(size.group(1)), int(size.group(2))
+    fps = 0.0
+    fps_match = re.search(r"(\d+(?:\.\d+)?)\s*fps", video_line)
+    if fps_match:
+        fps = round(float(fps_match.group(1)), 3)
+    codec = re.search(r"Video:\s*([a-z0-9_]+)", video_line)
+    acodec = re.search(r"Audio:\s*([a-z0-9_]+)", audio_line)
+    return {"available": True, "width": width, "height": height, "fps": fps,
+            "duration": duration, "video_codec": codec.group(1) if codec else None,
+            "audio_codec": acodec.group(1) if acodec else None, "probe": "ffmpeg -i"}
+
+
 def probe(path: pathlib.Path) -> dict:
     ffprobe = which("ffprobe")
     if not ffprobe:
-        return {"available": False}
+        ffmpeg = which("ffmpeg")
+        return _probe_with_ffmpeg(path, ffmpeg) if ffmpeg else {"available": False}
     proc = subprocess.run(
         [ffprobe, "-v", "error", "-print_format", "json", "-show_format", "-show_streams", str(path)],
         capture_output=True, text=True)
@@ -1408,6 +1466,10 @@ def verify(project_file: pathlib.Path, *, tolerance: float = 0.6) -> int:
             hint = " (run the queued lipsync script)" if shot["kind"] == "lipsync" else ""
             failures.append(f"{sid}: no media for {sid}{hint}")
             print(f"  MISS  {sid:<20} no media{hint}")
+            continue
+        if file.stat().st_size == 0:
+            failures.append(f"{sid}: {file.name} is 0 bytes — a failed render/mix, not a shot")
+            print(f"  WARN  {sid:<20} 0 bytes — failed render/mix")
             continue
         info = probe(file)
         record = {"engine": receipts["shots"].get(sid, {}).get("engine"),
@@ -1606,6 +1668,333 @@ def print_quota() -> None:
         print(f"  {row['id']:<12} {bar:<26} {row['role']}")
 
 
+# --------------------------------------------------------------------------- mobile
+# One notebook, one Run, three stages. Everything the phone owner has to do is tap "Run all".
+# The assistant runs plan / mix / verify / assemble here; the phone only provides GPU time.
+
+_MOBILE_INTRO = """# 📱 MONARCH STUDIO · phone-only notebook — __PROJECT__
+
+**Aap ko sirf 3 tap karne hain:**
+
+1. Upar menu → **Runtime** → **Change runtime type** → **T4 GPU** → Save
+2. Upar menu → **Runtime** → **Run all**
+3. 20–40 min baad neeche aakhri cell me `DONE` dikhega → mujhe chat me `DONE` likh do
+
+Yeh notebook teeno kaam khud karta hai (jo stage chahiye, neeche toggle se ON/OFF):
+
+| Stage | Kya banega | Free? |
+|---|---|---|
+| 1 · Clips | __N_SHOTS__ silent clips, __W__x__H__, Wan 2.1 1.3B | ✅ $0 |
+| 2 · Voice | __N_VO__ line(s), Kokoro-82M (Apache-2.0) | ✅ $0 |
+| 3 · Foley + Upscale | ambience/SFX + 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__) | ✅ $0 |
+
+Sab kuch seedha aap ke Drive folder me jayega:
+`Wf-07 • Monarch Ai Agent / 05 · Projects/__PROJECT__/`
+
+> Mix, verify aur master main yahan se karunga — aap ko ffmpeg ya terminal ki zarurat **nahi**.
+"""
+
+_MOBILE_CONFIG = """# ── 1 · Setup (koi edit nahi) ────────────────────────────────────────────────
+RUN_CLIPS = True       # silent clips (sabse lamba step)
+RUN_VOICE = True       # Kokoro voice lines
+RUN_FOLEY = True       # MMAudio ambience/SFX
+RUN_UPSCALE = True     # 480p -> 2x
+
+import hashlib, json, pathlib, subprocess, time
+
+PROJECT = "__PROJECT__"
+BASE = pathlib.Path(f"/content/drive/MyDrive/MONARCH STUDIO/Wf-07 • Monarch Ai Agent/05 · Projects/{PROJECT}")
+
+from google.colab import drive
+drive.mount("/content/drive")
+
+SHOTS = BASE / "shots"
+VO_DIR = BASE / "audio" / "vo"
+FOLEY_DIR = BASE / "audio" / "foley"
+for folder in (SHOTS, VO_DIR, FOLEY_DIR):
+    folder.mkdir(parents=True, exist_ok=True)
+
+JOBS = __JOBS__
+VO_TEXT = __VO_TEXT__
+FOLEY_PROMPT = __FOLEY_PROMPT__
+FACTOR = __FACTOR__
+
+print("project :", BASE, "| exists:", BASE.exists())
+print("shots   :", len(JOBS), "| voice:", len([v for v in VO_TEXT.values() if v.strip()]),
+      "| foley:", len([v for v in FOLEY_PROMPT.values() if v.strip()]))
+
+
+def md5(path):
+    h = hashlib.md5()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+"""
+
+_MOBILE_PIPELINE = """# ── 2 · Wan 2.1 T2V 1.3B load (fp16 + offload; T4 ke liye) ───────────────────
+if RUN_CLIPS:
+    !pip -q install "diffusers>=0.35" "transformers>=4.49" accelerate imageio imageio-ffmpeg ftfy sentencepiece
+
+    import torch
+    from diffusers import AutoencoderKLWan, WanPipeline
+
+    MODEL_ID = "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    vae = AutoencoderKLWan.from_pretrained(MODEL_ID, subfolder="vae", torch_dtype=torch.float32)
+    pipe = WanPipeline.from_pretrained(MODEL_ID, vae=vae, torch_dtype=torch.float16)
+    pipe.enable_model_cpu_offload()
+    pipe.enable_vae_tiling()
+    try:
+        pipe.enable_attention_slicing()
+    except Exception:
+        pass
+    print("pipeline ready ·", torch.cuda.get_device_name(0))
+"""
+
+_MOBILE_CLIPS = """# ── 3 · Clips (silent, 480x832) ─────────────────────────────────────────────
+if RUN_CLIPS:
+    from diffusers.utils import export_to_video
+
+    NEGATIVE = ("blurry, low quality, distorted, deformed hands, extra limbs, text overlay, "
+                "watermark, jpeg artifacts, static frame, flicker")
+    receipts = []
+    started = time.time()
+    for index, job in enumerate(JOBS, 1):
+        out = SHOTS / f"{job['id']}.mp4"
+        if out.exists() and out.stat().st_size > 10_000:
+            print(f"[{index}/{len(JOBS)}] skip (already on Drive) {out.name}")
+            continue
+        print(f"\\n[{index}/{len(JOBS)}] {job['id']}  {job['width']}x{job['height']} · {job['frames']} frames")
+        t0 = time.time()
+        try:
+            frames = pipe(
+                prompt=job["prompt"], negative_prompt=NEGATIVE,
+                width=job["width"], height=job["height"], num_frames=job["frames"],
+                num_inference_steps=job.get("steps", 30), guidance_scale=5.0,
+                generator=torch.Generator("cpu").manual_seed(int(job.get("seed", 42))),
+            ).frames[0]
+            export_to_video(frames, str(out), fps=16)
+            print(f"  ✔ {out.name}  {out.stat().st_size/1e6:.1f} MB · {md5(out)[:10]} · {time.time()-t0:.0f}s")
+            receipts.append({"id": job["id"], "file": out.name, "md5": md5(out),
+                             "seconds": round(time.time() - t0, 1)})
+        except torch.cuda.OutOfMemoryError:
+            torch.cuda.empty_cache()
+            print("  ✖ OOM — mujhe bolo, main is shot ka size/frames kam kar dunga")
+            receipts.append({"id": job["id"], "error": "cuda OOM"})
+        except Exception as exc:
+            print("  ✖", type(exc).__name__, exc)
+            receipts.append({"id": job["id"], "error": f"{type(exc).__name__}: {exc}"})
+        (BASE / "colab_clips_receipt.json").write_text(json.dumps(receipts, indent=2))
+"""
+
+_MOBILE_VOICE = """# ── 4 · Voice — Kokoro-82M (Apache-2.0, GPU bhi nahi chahiye) ────────────────
+if RUN_VOICE:
+    !pip -q install kokoro soundfile
+    import numpy as np, soundfile as sf
+    from kokoro import KPipeline
+
+    pipeline = KPipeline(lang_code="a")      # 'a' American, 'b' British
+    VOICE = "af_heart"                       # 54 options; badalna ho to mujhe bolo
+    made = 0
+    for shot_id, text in VO_TEXT.items():
+        text = (text or "").strip()
+        if not text:
+            continue
+        out = VO_DIR / f"{shot_id}.wav"
+        if out.exists():
+            print("skip (already on Drive)", out.name)
+            continue
+        chunks = [audio for _, _, audio in pipeline(text, voice=VOICE, speed=1.0)]
+        audio = np.concatenate([c if isinstance(c, np.ndarray) else c.numpy() for c in chunks])
+        sf.write(out, audio, 24000)
+        print("vo", out.name, f"{len(audio)/24000:.2f}s")
+        made += 1
+    print("voice lines:", made)
+"""
+
+_MOBILE_FOLEY = """# ── 5 · Foley / ambience — MMAudio (~6 GB, CC-BY-NC weights) ─────────────────
+FOLEY_ENGINE = "__FOLEY_ENGINE__"     # mmaudio | thinksound | off
+if RUN_FOLEY and FOLEY_ENGINE == "mmaudio":
+    !pip -q install -e git+https://github.com/hkchengrex/MMAudio.git#egg=mmaudio
+    !pip -q install torch torchvision torchaudio --upgrade
+    import torch, torchaudio
+    from mmaudio.eval_utils import all_model_cfg, generate, load_video
+    from mmaudio.model.flow_matching import FlowMatching
+    from mmaudio.model.networks import get_my_mmaudio
+    from mmaudio.model.utils.features_utils import FeaturesUtils
+
+    vram = torch.cuda.get_device_properties(0).total_memory / 2**30
+    cfg_name = "mmaudio_small_44k" if vram < 20 else "mmaudio_large_44k_v2"
+    model_cfg = all_model_cfg[cfg_name]
+    net = get_my_mmaudio(model_cfg.model).eval().to("cuda")
+    feats = FeaturesUtils(**model_cfg.features).eval().to("cuda")
+    fm = FlowMatching(min_sigma=0, inference_mode="euler", num_steps=25)
+    try:
+        net.load_weights(torch.load(f"/root/.cache/mmaudio/{cfg_name}.pth", map_location="cpu",
+                                    weights_only=True))
+    except FileNotFoundError:
+        print("weights missing — MMAudio pehli baar khud download karega (demo.py), "
+              "ya is cell ko skip karo aur mujhe bolo")
+        net = None
+    made = 0
+    if net is not None:
+        for shot_id in JOBS:
+            src = SHOTS / f"{shot_id['id']}.mp4"
+            out = FOLEY_DIR / f"{shot_id['id']}.wav"
+            if not src.exists() or out.exists():
+                continue
+            info, video = load_video(str(src), 16, model_cfg.sampling_rate)
+            with torch.no_grad():
+                audio = generate(video, feats, net, fm, num_steps=25,
+                                 duration=float(info.duration), cfg_strength=4.5, seed=42)
+            torchaudio.save(str(out), audio.cpu(), model_cfg.sampling_rate)
+            print("foley", out.name)
+            made += 1
+    print("foley stems:", made)
+"""
+
+_MOBILE_UPSCALE = """# ── 6 · Upscale 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__) ──────────
+if RUN_UPSCALE:
+    !pip -q install basicsr realesrgan facexlib
+    import cv2, shutil, torch
+    from basicsr.archs.rrdbnet_arch import RRDBNet
+    from realesrgan import RealESRGANer
+
+    net = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+    enhancer = RealESRGANer(
+        scale=4, half=True, tile=0, tile_pad=10, pre_pad=0, model=net,
+        model_path="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/RealESRGAN_x4plus.pth")
+
+    def fps_of(src):
+        return subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                               "stream=r_frame_rate", "-of", "csv=p=0", str(src)],
+                              capture_output=True, text=True).stdout.strip() or "16/1"
+
+    def upscale_clip(src, dst, factor=FACTOR):
+        frames_in, frames_out = pathlib.Path("/content/_in"), pathlib.Path("/content/_out")
+        for folder in (frames_in, frames_out):
+            shutil.rmtree(folder, ignore_errors=True)
+            folder.mkdir(parents=True)
+        subprocess.run(["ffmpeg", "-y", "-i", str(src), str(frames_in / "%06d.png")],
+                       check=True, capture_output=True)
+        for frame in sorted(frames_in.glob("*.png")):
+            img = cv2.imread(str(frame), cv2.IMREAD_COLOR)
+            big, _ = enhancer.enhance(img, outscale=factor)
+            cv2.imwrite(str(frames_out / frame.name), big)
+        subprocess.run(["ffmpeg", "-y", "-framerate", fps_of(src),
+                        "-i", str(frames_out / "%06d.png"), "-c:v", "libx264", "-crf", "17",
+                        "-pix_fmt", "yuv420p", str(dst)], check=True, capture_output=True)
+        return dst
+
+    made = 0
+    for job in JOBS:
+        src = SHOTS / f"{job['id']}.mp4"
+        dst = SHOTS / f"{job['id']}-{FACTOR}x.mp4"
+        if not src.exists() or dst.exists():
+            continue
+        print("upscaling", src.name)
+        upscale_clip(src, dst)
+        print("  ✔", dst.name, f"{dst.stat().st_size/1e6:.1f} MB")
+        made += 1
+    print("upscaled:", made)
+"""
+
+_MOBILE_SUMMARY = """# ── 7 · Summary + receipt (yeh cell hi "DONE" batata hai) ────────────────────
+clips = sorted(SHOTS.glob("*.mp4"))
+voice = sorted(VO_DIR.glob("*.wav"))
+foley = sorted(FOLEY_DIR.glob("*.wav"))
+rows = [{"file": f.name, "mb": round(f.stat().st_size / 1e6, 1), "md5": md5(f)}
+        for f in clips + voice + foley]
+(BASE / "colab_receipt.json").write_text(json.dumps(
+    {"project": PROJECT, "clips": [c.name for c in clips],
+     "voice": [v.name for v in voice], "foley": [f.name for f in foley],
+     "files": rows}, indent=2))
+
+print("clips :", len(clips))
+print("voice :", len(voice))
+print("foley :", len(foley))
+for row in rows:
+    print(f"  {row['file']:<28} {row['mb']:6.1f} MB  {row['md5'][:10]}")
+
+ok = len([c for c in clips if not c.stem.endswith(("-2x", "-4x"))]) >= __N_SHOTS__ and len(clips) >= __N_SHOTS__
+print("\\n" + ("DONE ✅  — mujhe chat me 'DONE' likh do, main mix + verify + master bana dunga"
+              if ok else "ADHURA ⚠️  — jo missing hai mujhe bolo (main job chhota kar dunga)"))
+"""
+
+
+def build_mobile_notebook(project: dict) -> dict:
+    """A single Run-all notebook for a phone: clips + voice + foley + upscale."""
+    up = upscale_target(project, None)
+    factor = max(2, int(up["factor"]))
+    jobs = []
+    for shot in project["shots"]:
+        seconds = float(shot["seconds"])
+        frames = max(17, ((int(round(seconds * 16)) - 1) // 4) * 4 + 1)
+        width, height = free_frame_size(shot.get("ratio") or project["aspect"])
+        jobs.append({"id": shot["id"], "seed": int(shot.get("seed", 42)), "frames": frames,
+                     "steps": int(shot.get("steps") or 30),
+                     "width": width, "height": height, "prompt": shot["prompt"]})
+    vo = {s["id"]: shot_vo_text(project, s) for s in project["shots"]}
+    foley = {s["id"]: (s.get("foley_prompt") or "") for s in project["shots"]}
+    cfg = audio_config(project)
+    tokens = {
+        "__PROJECT__": str(project["project_id"]),
+        "__JOBS__": json.dumps(jobs, indent=2, ensure_ascii=False),
+        "__VO_TEXT__": json.dumps(vo, indent=2, ensure_ascii=False),
+        "__FOLEY_PROMPT__": json.dumps(foley, indent=2, ensure_ascii=False),
+        "__FOLEY_ENGINE__": cfg["foley_engine"],
+        "__FACTOR__": str(factor),
+        "__W__": str(jobs[0]["width"] if jobs else 480),
+        "__H__": str(jobs[0]["height"] if jobs else 832),
+        "__UP_W__": str((jobs[0]["width"] if jobs else 480) * factor),
+        "__UP_H__": str((jobs[0]["height"] if jobs else 832) * factor),
+        "__N_SHOTS__": str(len(jobs)),
+        "__N_VO__": str(len([v for v in vo.values() if v.strip()])),
+    }
+
+    def fill(text: str) -> str:
+        for key, value in tokens.items():
+            text = text.replace(key, value)
+        return text
+
+    return _nb([_md(fill(_MOBILE_INTRO)), _code(fill(_MOBILE_CONFIG)),
+                _code(fill(_MOBILE_PIPELINE)), _code(fill(_MOBILE_CLIPS)),
+                _code(fill(_MOBILE_VOICE)), _code(fill(_MOBILE_FOLEY)),
+                _code(fill(_MOBILE_UPSCALE)), _code(fill(_MOBILE_SUMMARY))])
+
+
+def mobile(project_file: pathlib.Path) -> int:
+    """Write the phone-first all-in-one notebook for a project."""
+    project = require_project(project_file)
+    paths = project_paths(project_file)
+    (paths["base"] / "mobile").mkdir(parents=True, exist_ok=True)
+    notebook = build_mobile_notebook(project)
+    target = paths["base"] / "mobile" / f"MOBILE_{project['project_id']}.ipynb"
+    write_json(target, notebook)
+
+    up = upscale_target(project, None)
+    factor = max(2, int(up["factor"]))
+    vo = [s for s in project["shots"] if shot_vo_text(project, s)]
+    print(f"MOBILE {project['project_id']} · {len(project['shots'])} shot(s) · "
+          f"{len(vo)} voice line(s) · {up['in_width']}x{up['in_height']} -> "
+          f"{up['in_width'] * factor}x{up['in_height'] * factor}")
+    print(f"  notebook: {target}")
+    print("  phone flow: upload to Drive 03 · Colab Notebooks -> open in Colab ->")
+    print("              Runtime: T4 GPU -> Run all -> wait -> say DONE")
+    missing = [s["id"] for s in project["shots"] if not (s.get("prompt") or "").strip()]
+    if missing:
+        print(f"  WARN     prompts missing for: {', '.join(missing)} (clips will be generic)")
+    if vi := [s["id"] for s in project["shots"] if s["id"] and shot_vo_text(project, s).startswith("TODO")]:
+        print(f"  WARN     voice text still TODO for: {', '.join(vi)}")
+
+    receipts = load_json(paths["receipts"]) if paths["receipts"].exists() else {"shots": {}}
+    receipts.setdefault("shots", {})
+    receipts["mobile"] = {"notebook": str(target), "created_at": now(),
+                          "shots": len(project["shots"]), "mode": "phone_run_all"}
+    write_json(paths["receipts"], receipts)
+    return 0
+
+
 # --------------------------------------------------------------------------- status
 def status(project_file: pathlib.Path) -> int:
     project = require_project(project_file)
@@ -1732,6 +2121,9 @@ def main(argv: list[str] | None = None) -> int:
     p_asm.add_argument("--out")
     p_asm.add_argument("--no-music", action="store_true")
 
+    p_mobile = sub.add_parser("mobile", help="write the phone-first all-in-one Colab notebook")
+    p_mobile.add_argument("project")
+
     p_quota = sub.add_parser("quota", help="free GPU hours ledger (weekly reset)")
     p_quota.add_argument("--use", nargs=2, metavar=("PROVIDER", "HOURS"),
                          help="record hours burned, e.g. --use kaggle 1.5")
@@ -1794,6 +2186,8 @@ def main(argv: list[str] | None = None) -> int:
                             with_music=not args.no_music)
         if args.cmd == "status":
             return status(project_file)
+        if args.cmd == "mobile":
+            return mobile(project_file)
         if args.cmd == "audio":
             return audio(project_file)
         if args.cmd == "mix":

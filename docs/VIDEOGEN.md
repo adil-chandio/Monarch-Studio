@@ -7,6 +7,7 @@ verifies the media, and assembles the master.
 ```text
 tools/videogen.py doctor
 tools/videogen.py quota                                    # free GPU hours left this week
+tools/videogen.py mobile <project>/project.json            # phone-first all-in-one Colab notebook
 tools/videogen.py new    --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
 tools/videogen.py plan   <project>/project.json
 tools/videogen.py render <project>/project.json            # dry run, spends nothing
@@ -166,6 +167,15 @@ The notebook re-attaches the original audio, skips files that already exist (`FO
 `delivery.target_height` is above what the upscale can reach and says plainly "scale, not detail"; `assemble`
 applies the target scale with a printed note rather than pretending. Full ladder:
 `styles/monarch-ai-agent/knowledge/QUALITY.md`.
+
+### Mobile mode (the owner is on a phone)
+
+`mobile` writes `mobile/MOBILE_<project>.ipynb`: one notebook, one `Run all`, three stages (clips → voice →
+foley + upscale) with the prompts **baked in** and per-stage toggles (`RUN_CLIPS`, `RUN_VOICE`, `RUN_FOLEY`,
+`RUN_UPSCALE`). It mounts Drive at the project folder, skips files that already exist (safe to re-run after a
+disconnect), writes `colab_clips_receipt.json` / `colab_receipt.json`, and ends with `DONE ✅` or `ADHURA ⚠️`.
+Jobs use the same free frame list (`480x832` for 9:16, `4k+1` frames) and the agent then runs `mix`, `verify`
+and `assemble` locally — see [`MOBILE.md`](MOBILE.md).
 
 ## 4. Exit codes
 

@@ -16,8 +16,9 @@ kahan save hota hai, aur kis cheez ka paisa lagta hai.
 | 9 | [`../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md`](../../styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md) | model menu by GPU tier + free talking-face chain |
 | 10 | [`../../studio/videogen/examples/monarch-reel-01.project.json`](../../studio/videogen/examples/monarch-reel-01.project.json) | ready example project |
 | 11 | [`../../../docs/FREE_ONLY_PLAYBOOK.md`](../../../docs/FREE_ONLY_PLAYBOOK.md) | $0 structure: compute, quotas, weekly rhythm, free ceiling |
-| 12 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
-| 13 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
+| 12 | [`../../../docs/MOBILE.md`](../../../docs/MOBILE.md) | phone-only flow: 3 taps, who does what, stuck? |
+| 13 | [`AUDIO.md`](AUDIO.md) | free audio stack: Kokoro/Chatterbox, MMAudio/ThinkSound, MusicGen, Ovi, licences |
+| 14 | [`QUALITY.md`](QUALITY.md) | quality ladder: 480p kyun, upscale kya karta hai, 1080p kab, paid kab |
 
 ## Standing decisions
 

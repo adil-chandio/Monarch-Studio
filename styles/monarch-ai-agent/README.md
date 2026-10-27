@@ -42,21 +42,21 @@ Aur paisa bhi tab lagta hai jab aap khud `render --yes` chalao — estimate dekh
 |---|---|
 | `01 · START HERE` | yeh guide + engine manual (Google Doc copy) |
 | `02 · Engine (VIPER-1)` | `videogen.py` + `VIDEOGEN.md` |
-| `03 · Colab Notebooks` | free T4 notebook + H3 API notebook |
+| `03 · Colab Notebooks` | free T4 notebook · H3 API notebook · **MOBILE one-Run-all notebook** |
 | `04 · Knowledge` | model facts, prompting, free routes, toolbox, tool registry |
 | `05 · Projects` | per project: `project.json`, `plan.json`, `receipts.json`, `shots/` |
 | `06 · Masters & Receipts` | final masters (md5 receipts ke saath) |
 
 Git source of truth hai; Drive delivery + sharing ki jagah hai. Dono ke ids `data/drive.json` me.
 
-### Abhi Drive me kya rakha hai (17 files, 6 folders)
+### Abhi Drive me kya rakha hai (19 files, 6 folders)
 
 | Folder | Files |
 |---|---|
 | `01 · START HERE` | START HERE guide (Google Doc) |
-| `02 · Engine (VIPER-1)` | `videogen.py` (v1.3), `VIDEOGEN` manual (Doc) |
+| `02 · Engine (VIPER-1)` | `videogen.py` (v1.4), `VIDEOGEN` manual (Doc) |
 | `03 · Colab Notebooks` | `MONARCH_T4_FREE_BRIDGE.ipynb` (free), `MONARCH_H3_COLAB.ipynb` (paid) |
-| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** · **FREE-ONLY PLAYBOOK** (Docs) + `tool_registry.json` · `free_compute.json` |
+| `04 · Knowledge` | 00 facts · 01 runbook · 02 prompting · 05 free routes · 06 toolbox · **QUALITY ladder** · **AUDIO research** · **FREE-ONLY PLAYBOOK** · **MOBILE MODE** (Docs) + `tool_registry.json` · `free_compute.json` |
 | `05 · Projects` | `monarch-reel-01.project.json`, `free_jobs.example.json` |
 | `06 · Masters & Receipts` | (khaali — pehla master yahan aayega) |
 
@@ -93,6 +93,16 @@ python3 tools/videogen.py mix   <project>.json --loudnorm   # -16 LUFS for socia
 
 Ek hi pass me synced dialogue (Veo-3 jaisa) free T4 par **nahi** aata — uske liye **Ovi** (24 GB fp8)
 ya paid H3. Poora research + licences: [`knowledge/AUDIO.md`](knowledge/AUDIO.md).
+
+## 2d. Phone-only flow (owner mobile par hai)
+
+Aap sirf 3 tap karte ho, baaki main karta hoon:
+
+1. `python3 tools/videogen.py mobile <project>.json` → **ek notebook** (prompts andar bake hue)
+2. Phone par Colab link → **Runtime ▸ T4 GPU ▸ Run all** → aakhri cell me `DONE ✅`
+3. Chat me `DONE` → main `mix --loudnorm` + `verify` + `assemble` chala kar master Drive me daal deta hoon
+
+Poora protocol: [`docs/MOBILE.md`](../../docs/MOBILE.md)
 
 ## 3. Ek project ka poora cycle
 

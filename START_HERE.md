@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** Build the first real reel entirely free: user gives a voice line/topic (or Kokoro speaks it); run plan -> render (queue) -> Colab/Kaggle clips -> audio -> upscale -> mix -> verify -> assemble, logging GPU hours with quota --use, then promote to Drive 05/06.
+- **Next action:** When the owner says 'reel banao <topic>': new project with real prompts, mobile notebook, upload to Drive, give the Colab link, then after DONE run mix --loudnorm + verify + assemble and report the master.
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:

@@ -64,6 +64,19 @@ instead of hand-rolling API calls:
 Rules: no delivery claim without `verify` passing; `budget_usd` is a hard gate; free route is the default when no
 key is present; engine knowledge stays in `styles/minimax-h3-video/`, finish stays in WF-05.
 
+## Mobile owner protocol (standing)
+
+The owner works from a **phone**, through this agent. Never hand him CLI work.
+
+- Run every command here (`plan`, `render` queue, `audio`, `upscale`, `mix`, `verify`, `assemble`, `quota`).
+  This sandbox has a static ffmpeg (imageio-ffmpeg) and `probe()` falls back to `ffmpeg -i` when ffprobe
+  is missing, so the whole finish line runs here.
+- Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with
+  prompts baked in. He taps `Runtime ▸ T4 GPU ▸ Run all`; the last cell prints `DONE ✅`.
+- One action per message. No multi-step terminal instructions, no JSON editing, no file renaming.
+- After he says `DONE`: pull the clips from Drive, `mix --loudnorm`, `verify`, `assemble`, then report the
+  master link + md5.
+
 ## WF-07 / AGENTGO routing (delivery home)
 
 Everything the studio *generates* lands in the user's Drive folder **`Wf-07 • Monarch Ai Agent`**

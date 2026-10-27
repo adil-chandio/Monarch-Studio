@@ -23,6 +23,7 @@ Delivery home (Drive, projects + masters + receipts): [`Wf-07 • Monarch Ai Age
 ```bash
 python3 tools/videogen.py doctor
 python3 tools/videogen.py quota            # free GPU hours left (Kaggle 30 h/week)
+python3 tools/videogen.py mobile <project>.json   # one phone-friendly Run-all notebook
 python3 tools/videogen.py new --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
 python3 tools/videogen.py plan   <project>/project.json          # price + engine per shot
 python3 tools/videogen.py render <project>/project.json          # dry run
