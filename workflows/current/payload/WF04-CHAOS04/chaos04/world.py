@@ -213,7 +213,7 @@ def endcard_set(origin=ENDCARD):
     return parts, lights
 
 
-def emblem_plane(origin=ENDCARD, size=0.66, z=1.68):
+def emblem_plane(origin=ENDCARD, size=0.42, z=1.66):
     m = bl.material("Emblem", base="#000000", rough=0.4, alpha=0.0, emit="#EAF6F4",
                     emit_strength=7.0)
     tex = bl.image_texture(m, ASSETS / "emblem.png")
@@ -226,7 +226,7 @@ def emblem_plane(origin=ENDCARD, size=0.66, z=1.68):
     return ob
 
 
-def wordmark_plane(origin=ENDCARD, width=0.80, z=1.14):
+def wordmark_plane(origin=ENDCARD, width=0.56, z=1.20):
     m = bl.material("Wordmark", base="#000000", rough=0.4, alpha=0.0, emit="#F2FAF8",
                     emit_strength=6.0)
     tex = bl.image_texture(m, ASSETS / "wordmark.png")
