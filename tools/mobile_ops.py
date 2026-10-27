@@ -135,7 +135,13 @@ def resolve_project(selector: str) -> Path:
     raw = Path(selector)
     candidates = [raw, ROOT / raw]
     if not raw.suffix:
-        candidates += [ROOT / "studio" / "videogen" / "examples" / f"{selector}.project.json"]
+        candidates += [
+            ROOT / "studio" / "videogen" / "examples" / f"{selector}.project.json",
+            ROOT / "studio" / "videogen" / "examples" / selector / "project.json",
+            ROOT / "workflows" / "current" / "payload" / selector / "project.json",
+            ROOT / selector / "project.json",
+            ROOT / "workflows" / "current" / "payload" / f"{selector}.project.json",
+        ]
     for cand in candidates:
         if cand.is_file():
             return cand.resolve()

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "tool": "mobileops-1.0",
+  "job_id": "mob-test-01",
+  "created_at": "2026-10-27T17:29:13+00:00",
+  "updated_at": "2026-10-27T17:29:34+00:00",
+  "title": "Test shot 01 (12-min trust test)",
+  "project": "studio/videogen/examples/m-test-01/project.json",
+  "project_id": "m-test-01",
+  "shots": [
+    "t01-plate"
+  ],
+  "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+  "voice_text": "",
+  "foley_prompt": "ambient room tone, cinematic, subtle",
+  "state": "handed_off",
+  "gates": {
+    "plan_estimate": {
+      "ok": true,
+      "detail": "WARN            audio.bed_engine=musicgen: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye",
+      "at": "2026-10-27T17:29:13+00:00"
+    },
+    "notebook": {
+      "ok": true,
+      "detail": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+      "at": "2026-10-27T17:29:13+00:00"
+    },
+    "handoff": {
+      "ok": true,
+      "detail": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+      "at": "2026-10-27T17:29:34+00:00"
+    }
+  },
+  "next": {
+    "user": "Colab kholo -> Runtime \u25b8 Change runtime type \u25b8 T4 GPU -> Runtime \u25b8 Run all",
+    "agent": "intezaar; owner ke DONE ka wait"
+  },
+  "history": [
+    {
+      "at": "2026-10-27T17:29:13+00:00",
+      "from": null,
+      "to": "intake",
+      "by": "agent",
+      "note": "job created for m-test-01"
+    },
+    {
+      "at": "2026-10-27T17:29:13+00:00",
+      "from": "intake",
+      "to": "planned",
+      "by": "agent",
+      "note": "estimate + phone notebook ready"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "planned",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "link owner ko bheja"
+    }
+  ],
+  "master": null,
+  "blocker": null,
+  "plan": {
+    "total_usd": 0.0,
+    "total_with_retries_usd": 0.0,
+    "paid_steps": 0,
+    "free_only": true,
+    "engines": [
+      "latentsync",
+      "mmaudio",
+      "upscale",
+      "wan"
+    ],
+    "delivery": {
+      "free_width": 480,
+      "free_height": 832,
+      "out_width": 960,
+      "out_height": 1664
+    },
+    "warnings": [
+      "t01-plate: lipsync pass has no voice_ref/audio yet",
+      "audio.foley_engine=mmaudio: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye",
+      "audio.bed_engine=musicgen: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye"
+    ]
+  },
+  "handed_off_at": "2026-10-27T17:29:34+00:00",
+  "notebook_drive": {
+    "name": "TEST 01 \u2014 12-min trust test (1 clip + x2 upscale)",
+    "id": "1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+    "folder": "03 \u00b7 Colab Notebooks"
+  },
+  "expect": {
+    "clips": [
+      "t01-plate"
+    ],
+    "upscaled": "t01-plate-2x.mp4",
+    "voice": 0,
+    "foley": 0,
+    "minutes": "8-15"
+  }
+}
