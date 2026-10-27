@@ -375,7 +375,7 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(len(notebooks), 1)
             nb = self._notebook(path)
             self.assertEqual(nb["nbformat"], 4)
-            self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 7)
+            self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 8)
 
     def test_notebook_quantises_the_text_encoder(self):
         """22.7 GB UMT5 crashes Colab's 12.7 GB RAM: it must be loaded 4-bit."""
@@ -406,7 +406,7 @@ class MobileTests(unittest.TestCase):
             path = make_project(pathlib.Path(td), route="free")
             with mock.patch("builtins.print"):
                 vg.mobile(path)
-            upscale = "".join(self._notebook(path)["cells"][-2]["source"])
+            upscale = "".join(self._notebook(path)["cells"][-3]["source"])   # upscale sits before finish
             self.assertIn("flags=lanczos", upscale)
             self.assertIn("enhancer is None", upscale)
             self.assertIn("--no-build-isolation", upscale)

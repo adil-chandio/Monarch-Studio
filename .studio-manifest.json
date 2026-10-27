@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T19:49:08+00:00",
+  "generated_at": "2026-10-27T19:49:27+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "77c96d1d3d73b769e7983b99a0b12a7d3443ea2fbd569870f7903879c85e5d3e",
-      "size": 11321
+      "sha256": "1298acfaf0b1e35f59b6bfb433fc62425a6e788c31e81b7e3e253f06c1b22fc8",
+      "size": 11746
     },
     "CHANGELOG.md": {
       "sha256": "2d0007b9458054d2c4c6be8e9159d539879635bbe9d5728467ab7dc811759e84",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "a49809b862b6c4a0821e9e443d10254e0a4acc0cde2037dd7e9a6c76f0e9322b",
-      "size": 13856
+      "sha256": "8966c3a2e9b2d79c00791d3dab19a10eb428614d9ba021fe19067aec671a378d",
+      "size": 15004
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -4240,8 +4240,8 @@
       "size": 7200
     },
     "tests/test_videogen.py": {
-      "sha256": "8b158a909f0722fb4946f5424cf37100226f82034ef76b9134b6cd24b8fa6c3b",
-      "size": 51766
+      "sha256": "d1ebca92b40a70efb06a4d5209719ae6b675b322206fd1a575f087e4dac7d366",
+      "size": 51797
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",

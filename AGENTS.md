@@ -71,6 +71,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
 - Run every command here (`plan`, `render` queue, `audio`, `upscale`, `mix`, `verify`, `assemble`, `quota`).
   This sandbox has a static ffmpeg (imageio-ffmpeg) and `probe()` falls back to `ffmpeg -i` when ffprobe
   is missing, so the whole finish line runs here.
+- **This sandbox cannot reach Google hosts.** Never plan on downloading a clip or master here. The notebook's
+  `RUN_FINISH` stage builds `delivery/<project>_MASTER.mp4` inside Colab and writes
+  `colab_master_receipt.json`; read that receipt with the Drive connector and run
+  `mobile_ops.py adopt <job> --receipt <json>` → `deliver --master-id <drive id>`. Only the small receipt
+  crosses the boundary, never the video.
 - **Drive is optional in the notebook.** `drive.mount()` may fail with `credential propagation was unsuccessful`;
   the config cell falls back to `/content/m_out/<project>` and cell 7 always builds `<project>_outputs.zip`
   (+ `files.download()`). If the owner sends that ZIP in chat, run

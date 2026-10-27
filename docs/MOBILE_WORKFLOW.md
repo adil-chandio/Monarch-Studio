@@ -78,7 +78,8 @@ python3 tools/mobile_ops.py handoff <job> --colab <link>   # owner ke 3 tap arm 
 #   ---- owner: T4 GPU → Run all → "DONE" ----
 python3 tools/mobile_ops.py ingest <job> --zip <zip>       # notebook ka _outputs.zip kholo (Drive fail ho to yeh)
 python3 tools/mobile_ops.py check  <job>                  # clips aaye? partial/blocked?
-python3 tools/mobile_ops.py finish <job>                  # mix --loudnorm → verify → assemble
+python3 tools/mobile_ops.py finish <job>                  # mix --loudnorm → verify → assemble (jab bytes yahan hon)
+python3 tools/mobile_ops.py adopt  <job> --receipt <json>  # master Colab me bana (Drive se bytes laane ki zarurat nahi)
 python3 tools/mobile_ops.py deliver <job> --master-id <drive id> --url <link>
 python3 tools/mobile_ops.py status                        # sab jobs + agla kadam
 python3 tools/mobile_ops.py next   <job>                  # ek hi agla action + owner card
@@ -179,6 +180,22 @@ what bought that room.
 
 A 3-shot reel with voice + foley + upscale therefore lands at **~20–30 min**, not the 45–70 min first
 estimated. `mobile --max-frames 33` stays the test default, `49` for real reels.
+### 5c-quater. Master bhi Colab me banta hai (`RUN_FINISH`)
+
+Sandbox Google hosts tak nahi pahunch sakta (`drive.google.com`, `googleapis.com` — dono blocked). Is liye
+notebook ka **aakhri stage** khud master banata hai:
+
+1. har shot ka best file uthata hai (`<id>-2x.mp4`, warna `<id>.mp4`)
+2. voice/foley stems ko us shot ke saath `amix` karta hai (na hon to `anullsrc` se silence)
+3. `scale`+`pad` se sab ko ek hi size/fps par laata hai, phir `concat`
+4. `loudnorm I=-16 TP=-1.5 LRA=11`, `libx264 crf 18`, audio `aac 192k`, `+faststart`
+5. `delivery/<project>_MASTER.mp4` Drive me likhta hai **aur** `colab_master_receipt.json`
+   (md5, bytes, w×h, fps, duration, audio codec) — woh file sirf kuch KB ki hai
+
+Agent woh receipt **connector se padh kar** `mobile_ops.py adopt <job> --receipt <json>` chalata hai:
+gates `mix`, `verify`, `master` record hoti hain, job `assembled` ho jata hai, phir Drive id ke saath
+`deliver`. Yani bara media kabhi sandbox me aata hi nahi — sirf saboot aata hai.
+
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke
