@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T22:03:33+00:00",
+  "generated_at": "2026-10-27T22:09:28+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,12 +32,12 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "29d866cf2903bef138957bfe91ae466cdce0070d742b50d2d69390b217da745b",
-      "size": 12759
+      "sha256": "8372a42b0df734d9d9867a33bb4cb5cb0e9e15b0d4c2c1b240bc80f1bfc5937c",
+      "size": 13132
     },
     "CHANGELOG.md": {
-      "sha256": "25f6c1ece12b59f873b159e8f79da870da4e622f114e28e1376e733d0b21a386",
-      "size": 3619
+      "sha256": "ee27b1dea91b1e82c277435a9221e763523e9e8cef127f737a93bad06a4bd216",
+      "size": 4666
     },
     "CONTRIBUTING.md": {
       "sha256": "e814f35754093119bee2342be79d50b7a389e6b902e1b37c1fa6f5f3446975ad",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "5f170df4eea59229a61b5e56edbad91e14258ace81bc32a965072a1555d36334",
-      "size": 17097
+      "sha256": "6cdee2d7637c62244192737d21e11e885a14a81eefc9a0b34894c93cdd8455ee",
+      "size": 18005
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -1867,6 +1867,10 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
     },
+    "studio/mobile/jobs/mob-reel-01.json": {
+      "sha256": "8529742bbadb861b20306da1106507e7938e973130f2edaa767f2cf5c0a9e8e2",
+      "size": 2567
+    },
     "studio/mobile/jobs/mob-test-01.json": {
       "sha256": "04cf3eed4747ded0f5a5c45f89e1c9bb3101be0d2419bf5f10eb284966ca0473",
       "size": 9221
@@ -1879,9 +1883,25 @@
       "sha256": "df47ffd2c16a5d795f0e4bdd12a8562e121f0e4edb39d9bc5134c4b6fcffc70b",
       "size": 10425
     },
+    "studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb": {
+      "sha256": "11c217b5dcc138cdb6ead6acba3c26c898e28850974e4297cfba0d03d015a888",
+      "size": 43474
+    },
+    "studio/videogen/examples/m-reel-01/plan.json": {
+      "sha256": "67dc3d74d0a53a2b6f89b19425cf311202dcc25e058ab3a6d4d5fc5432f8650b",
+      "size": 3836
+    },
+    "studio/videogen/examples/m-reel-01/project.json": {
+      "sha256": "7367fd849de4b19e87d54a1d8eb49e0e25248f8f7cb1366c4d4f4ace38283c0c",
+      "size": 2820
+    },
+    "studio/videogen/examples/m-reel-01/receipts.json": {
+      "sha256": "3ec12b8eb3dec405a0b503fe2dfd8e7138d8da51775e1f8c117de258e4b3c987",
+      "size": 221
+    },
     "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb": {
-      "sha256": "f490c020cc0ca3caf2303c48243a9c3a83a2edbd520c02458f04556812ce5412",
-      "size": 38040
+      "sha256": "1b4d8ce02639ff2532a505ce6cd0dde729e6800b1693f9a7cfa42d3271f00fae",
+      "size": 40916
     },
     "studio/videogen/examples/m-test-01/plan.json": {
       "sha256": "07e64652afad621bde5f176ad0ae753d098063dfb1f75c31e899b58af834ffe1",
@@ -1892,7 +1912,7 @@
       "size": 1047
     },
     "studio/videogen/examples/m-test-01/receipts.json": {
-      "sha256": "9a012488a0ff4fb8c2020a1ac6ece62a09cf28cac1377d6293a748b3bc5ce0b2",
+      "sha256": "d36674dfc937e954902bf9bd947d1ce5c547b0199e21fb11e1d9d5c9d9966d95",
       "size": 195
     },
     "studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb": {
@@ -4304,8 +4324,8 @@
       "size": 7200
     },
     "tests/test_videogen.py": {
-      "sha256": "4b6ea4f237ebf6199e71701fe35c71aab72cf84197f774e37d680539ddb14365",
-      "size": 60518
+      "sha256": "879e1309bd161e2ab7e9141449764c2c51da2ce3fc20b40fc595cc3d24c3e282",
+      "size": 63979
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
@@ -4348,8 +4368,8 @@
       "size": 32882
     },
     "tools/videogen.py": {
-      "sha256": "8d96d1c469725cc5f90b7f794542066df28a4b2a333c4c9fa336ddd75d039891",
-      "size": 121017
+      "sha256": "288b07243e7505d6b10c05455306cecd39a1944390059e3268b38f2511643e5e",
+      "size": 123568
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",
