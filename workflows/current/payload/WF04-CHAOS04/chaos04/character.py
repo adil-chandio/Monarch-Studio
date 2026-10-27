@@ -359,20 +359,22 @@ def build_beard(mat_hair):
 
 # ------------------------------------------------------------------ body
 def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
-               mat_shoe, mat_sole):
+               mat_shoe, mat_sole, mat_lapel):
     parts = []
     torso = bl.loft("Blazer · torso", [
-        ((0, 0, 0.855), 0.176, 0.113),
-        ((0, 0, 0.905), 0.172, 0.111),
-        ((0, 0.002, 0.980), 0.168, 0.110),
-        ((0, 0.004, 1.060), 0.162, 0.107),
-        ((0, 0.004, 1.120), 0.157, 0.105),
-        ((0, 0.002, 1.200), 0.168, 0.110),
-        ((0, 0.000, 1.280), 0.184, 0.117),
-        ((0, -0.002, 1.350), 0.188, 0.118),
-        ((0, -0.004, 1.402), 0.190, 0.117),
-        ((0, -0.002, 1.432), 0.168, 0.108),
-        ((0, 0.002, 1.452), 0.092, 0.078),
+        ((0, 0, 0.858), 0.174, 0.112),
+        ((0, 0, 0.905), 0.170, 0.110),
+        ((0, 0.002, 0.980), 0.166, 0.109),
+        ((0, 0.004, 1.060), 0.160, 0.106),
+        ((0, 0.004, 1.120), 0.156, 0.104),
+        ((0, 0.002, 1.200), 0.167, 0.109),
+        ((0, 0.000, 1.280), 0.182, 0.116),
+        ((0, -0.002, 1.345), 0.186, 0.117),
+        ((0, -0.004, 1.390), 0.186, 0.116),
+        ((0, -0.003, 1.418), 0.172, 0.110),
+        ((0, -0.001, 1.440), 0.138, 0.097),
+        ((0, 0.001, 1.458), 0.098, 0.082),
+        ((0, 0.003, 1.472), 0.066, 0.062),
     ], mat_blazer, subsurf=2, close_start=True, close_end=False)
     bl.bump_material(mat_blazer, scale=1400, strength=0.12)
     parts.append(torso)
@@ -390,20 +392,20 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
 
     # lapels, proud of the blazer, running collar → sternum
     for s in (1, -1):
-        v = [(0.010 * s, -0.108, 1.458), (0.070 * s, -0.100, 1.448),
-             (0.112 * s, -0.086, 1.372), (0.058 * s, -0.108, 1.300),
-             (0.016 * s, -0.112, 1.262)]
+        v = [(0.014 * s, -0.104, 1.450), (0.048 * s, -0.101, 1.432),
+             (0.074 * s, -0.092, 1.372), (0.040 * s, -0.104, 1.318),
+             (0.012 * s, -0.108, 1.292)]
         f = [(0, 1, 2, 3), (0, 3, 4)]
-        lap = bl.mesh_object(f"Lapel.{s}", v, f, mat_edge, smooth=False)
+        lap = bl.mesh_object(f"Lapel.{s}", v, f, mat_lapel, smooth=True)
         sol = lap.modifiers.new("Solidify", "SOLIDIFY")
-        sol.thickness = 0.008
+        sol.thickness = 0.005
         parts.append(lap)
 
     # collar band
     collar = bl.loft("Collar", [
-        ((0, 0.004, 1.438), 0.090, 0.080),
-        ((0, 0.002, 1.462), 0.084, 0.075),
-        ((0, 0.000, 1.476), 0.078, 0.071),
+        ((0, 0.004, 1.452), 0.072, 0.066),
+        ((0, 0.002, 1.468), 0.067, 0.062),
+        ((0, 0.000, 1.478), 0.062, 0.058),
     ], mat_edge, subsurf=2, close_start=False, close_end=False)
     parts.append(collar)
 
@@ -435,6 +437,15 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
             ((0.226 * sx, 0.012, 1.150), 0.054, 0.053),
             ((0.227 * sx, 0.014, 1.130), 0.051, 0.050),
         ], mat_blazer, subsurf=2))
+
+    # pelvis, so the trousers read as one garment instead of two tubes
+    parts.append(bl.loft("Trouser pelvis", [
+        ((0, 0, 1.010), 0.168, 0.106),
+        ((0, 0, 0.965), 0.170, 0.108),
+        ((0, 0.001, 0.920), 0.166, 0.107),
+        ((0, 0.002, 0.880), 0.158, 0.104),
+        ((0, 0.002, 0.850), 0.150, 0.100),
+    ], mat_trouser, subsurf=2, close_start=True, close_end=False))
 
     # legs
     for s, sx in (("L", 1.0), ("R", -1.0)):
@@ -505,6 +516,9 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
                 bl.bind(ob, rig, {f"hand.{side}": 0.75, f"fingers.{side}": 0.25})
             else:
                 bl.bind(ob, rig, {f"hand.{side}": 1.0})
+        elif ob.name.startswith("Trouser pelvis"):
+            bl.bind(ob, rig, bl.ramp_weights(
+                [(0.80, "hips"), (1.02, "spine")], axis=2, softness=1.2))
         elif ob.name.startswith("Trouser thigh"):
             side = ob.name[-1]
             bl.bind(ob, rig, bl.ramp_weights(
@@ -570,12 +584,15 @@ def build_character():
     m_trouser = bl.material("MONARCH trousers", base=TROUSERS, rough=0.76, spec=0.28)
     m_shoe = bl.material("MONARCH sneakers", base=SNEAKER, rough=0.36, spec=0.5, coat=0.2)
     m_sole = bl.material("MONARCH soles", base=SOLE, rough=0.62, spec=0.3)
+    m_lapel = bl.material("MONARCH lapel", base="#232322", rough=0.78, spec=0.22,
+                          sheen=0.15)
 
     rig = build_rig()
     head, neck, ears = build_head(m_skin, m_face)
     hair = build_hair(m_hair, m_sheen)
     beard = build_beard(m_hair)
-    body = build_body(rig, m_blazer, m_edge, m_shirt, m_trouser, m_skin, m_shoe, m_sole)
+    body = build_body(rig, m_blazer, m_edge, m_shirt, m_trouser, m_skin, m_shoe,
+                      m_sole, m_lapel)
 
     for ob in (head, neck, beard):
         bl.bind(ob, rig, {"head": 1.0})

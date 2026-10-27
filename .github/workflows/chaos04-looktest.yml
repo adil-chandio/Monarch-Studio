@@ -49,6 +49,13 @@ jobs:
             --out build/chaos04.blend --width 360 --height 640 --samples 8
           ls -l build
 
+      - name: Head study (is the v5 capture on the face?)
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          python gpu/jobs/headtest.py -- --blend build/chaos04.blend --out render/head \
+            --samples 16
+          ls -l render/head
+
       - name: Stills across the film
         working-directory: workflows/current/payload/WF04-CHAOS04
         env:
@@ -84,8 +91,9 @@ jobs:
           cp -v "$WF"/build/looktest_clip.mp4 "$OUT"/ 2>/dev/null || true
           cp -v "$WF"/build/progress_*.jsonl "$OUT"/ 2>/dev/null || true
           cp -v "$WF"/build/chaos04.manifest.json "$OUT"/ 2>/dev/null || true
-          mkdir -p "$OUT/frames"
+          mkdir -p "$OUT/frames" "$OUT/head"
           cp -v "$WF"/render/look/*.png "$OUT/frames"/ 2>/dev/null || true
+          cp -v "$WF"/render/head/*.png "$OUT/head"/ 2>/dev/null || true
           du -sh "$OUT"
           cat > "$OUT/README.md" <<EOF
           # CHAOS 04 look test (run $GITHUB_RUN_ID)
