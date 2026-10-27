@@ -299,6 +299,57 @@ class FinishTests(OpsCase):
         self.assertEqual(mo.load_job(job["job_id"])["state"], "blocked")
 
 
+class AdoptTests(OpsCase):
+    """Colab makes the master; the sandbox only reads the receipt (no Drive access)."""
+
+    def _receipt(self, *, md5_ok=True, bytes_=1024, height=1664, audio="aac") -> pathlib.Path:
+        path = self.base / "colab_master_receipt.json"
+        path.write_text(json.dumps({
+            "project": "p-demo", "master": "p-demo_MASTER.mp4", "shots": ["s01-hook.mp4"],
+            "info": {"name": "p-demo_MASTER.mp4", "width": 960, "height": height, "duration": 2.0,
+                     "fps": 24.0, "audio_codec": audio, "bytes": bytes_,
+                     "md5": "a" * 32 if md5_ok else ""},
+            "made_on": "colab-t4"}))
+        return path
+
+    def test_adopt_records_the_master_it_did_not_make(self):
+        job = self.with_clips()
+        mo.check(job["job_id"])
+        adopted = mo.adopt(job["job_id"], self._receipt())
+        self.assertEqual(adopted["state"], "assembled")
+        self.assertEqual(adopted["master"]["md5"], "a" * 32)
+        self.assertEqual(adopted["master"]["probe"]["height"], 1664)
+        self.assertTrue(adopted["gates"]["master"]["ok"])
+        self.assertEqual(adopted["master"]["evidence"], "colab_master_receipt.json")
+
+    def test_adopt_refuses_a_receipt_without_md5(self):
+        job = self.with_clips()
+        with self.assertRaises(mo.OpsError):
+            mo.adopt(job["job_id"], self._receipt(md5_ok=False))
+
+    def test_adopt_refuses_zero_byte_master(self):
+        job = self.with_clips()
+        with self.assertRaises(mo.OpsError):
+            mo.adopt(job["job_id"], self._receipt(bytes_=0))
+
+    def test_adopt_refuses_missing_height(self):
+        job = self.with_clips()
+        with self.assertRaises(mo.OpsError):
+            mo.adopt(job["job_id"], self._receipt(height=0))
+
+    def test_adopted_master_can_be_delivered_and_carded(self):
+        job = self.with_clips()
+        mo.check(job["job_id"])
+        mo.adopt(job["job_id"], self._receipt())
+        delivered = mo.deliver(job["job_id"], master_id="drive-master-1",
+                               url="https://drive.google.com/file/d/drive-master-1/view")
+        self.assertEqual(delivered["state"], "delivered")
+        card = mo.card(delivered)
+        self.assertIn("960×1664", card)
+        self.assertIn("audio: aac", card)
+        self.assertIn("drive-master-1", card)
+
+
 class DeliveryTests(OpsCase):
     def _assembled(self) -> dict:
         job = self.with_clips()

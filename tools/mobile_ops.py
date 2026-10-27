@@ -456,6 +456,45 @@ def _probe(path: Path) -> dict:
     return {k: info.get(k) for k in keys}
 
 
+def adopt(job_id: str, receipt_path: str | pathlib.Path) -> dict:
+    """Take the notebook's `colab_master_receipt.json` as master evidence.
+
+    The sandbox cannot reach Drive, and the master never needs to travel: the machine that
+    has the bytes (Colab) writes md5 + probe, we record it and let Drive hold the file.
+    """
+    job = load_job(job_id)
+    path = Path(receipt_path)
+    if not path.exists():
+        raise OpsError(f"receipt nahi mila: {receipt_path}")
+    data = json.loads(path.read_text())
+    info = data.get("info") or {}
+    if not info.get("md5") or not info.get("bytes"):
+        raise OpsError("receipt me master ka md5/bytes nahi hai — notebook ka finish stage chalao")
+    if int(info["bytes"]) <= 0:
+        raise OpsError("master 0 byte ka hai — asli file nahi")
+    if not info.get("height"):
+        raise OpsError("receipt me height nahi — probe fail hua")
+    job["master"] = {
+        "path": f"delivery/{data.get('master')}",
+        "md5": info["md5"], "bytes": info["bytes"],
+        "probe": {"width": info.get("width"), "height": info.get("height"), "fps": info.get("fps"),
+                  "duration": info.get("duration"), "audio_codec": info.get("audio_codec")},
+        "drive_id": None, "url": None, "evidence": "colab_master_receipt.json",
+    }
+    gate(job, "master", True, f"{info['md5']} (colab receipt)")
+    gate(job, "mix", bool(info.get("audio_codec")), f"audio={info.get('audio_codec')}")
+    gate(job, "verify", int(info.get("height") or 0) >= 480, f"{info.get('width')}x{info.get('height')}")
+    if job["state"] not in {"assembled", "delivered"}:
+        if job["state"] in {"blocked", "clip_ready", "mixed", "verified", "handed_off", "partial"}:
+            job["state"] = "verified"
+            transition(job, "assembled", "master receipt adopted from Colab", by="notebook")
+        else:
+            raise OpsError(f"adopt is state me nahi chalta: {job['state']}")
+    job.pop("blocker", None)
+    save_job(job)
+    return job
+
+
 def deliver(job_id: str, *, master_id: str, url: str | None = None, note: str = "") -> dict:
     job = load_job(job_id)
     if job["state"] not in {"assembled", "delivered"}:
@@ -625,6 +664,10 @@ def main(argv: list[str] | None = None) -> int:
     p_finish.add_argument("job")
     p_finish.add_argument("--no-loudnorm", action="store_true")
 
+    p_adopt = sub.add_parser("adopt", help="record the master made inside Colab (receipt evidence)")
+    p_adopt.add_argument("job")
+    p_adopt.add_argument("--receipt", required=True)
+
     p_deliver = sub.add_parser("deliver", help="record the Drive master id and close the job")
     p_deliver.add_argument("job")
     p_deliver.add_argument("--master-id", required=True)
@@ -682,6 +725,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"MASTER {master.get('path')} · {round((master.get('bytes') or 0)/1048576, 2)} MB "
                   f"· md5 {master.get('md5')}")
             print("next: upload to 06 · Masters & Receipts -> deliver --master-id <id>")
+        elif args.cmd == "adopt":
+            job = adopt(args.job, args.receipt)
+            master = job.get("master") or {}
+            probe = master.get("probe") or {}
+            print(f"MASTER adopted · {master.get('path')} · {round((master.get('bytes') or 0)/1048576, 2)} MB "
+                  f"· {probe.get('width')}x{probe.get('height')} · {probe.get('duration')}s · "
+                  f"audio {probe.get('audio_codec')} · md5 {master.get('md5')}")
+            print("next: master ka Drive id -> deliver")
         elif args.cmd == "deliver":
             job = deliver(args.job, master_id=args.master_id, url=args.url, note=args.note)
             print(card(job))

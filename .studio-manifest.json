@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T19:17:46+00:00",
+  "generated_at": "2026-10-27T19:49:08+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -1816,8 +1816,8 @@
       "size": 10425
     },
     "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb": {
-      "sha256": "698620b4d3ec464a9edff75d8d3a0305a090db28ce5fee24f6003e004b651761",
-      "size": 25136
+      "sha256": "5fa505d491b8a56f99f6c058da10a874ae90e53854ea9067fe0282b654c993db",
+      "size": 30617
     },
     "studio/videogen/examples/m-test-01/plan.json": {
       "sha256": "07e64652afad621bde5f176ad0ae753d098063dfb1f75c31e899b58af834ffe1",
@@ -1828,7 +1828,7 @@
       "size": 1047
     },
     "studio/videogen/examples/m-test-01/receipts.json": {
-      "sha256": "17dfec360302fa7b383d3cb144c4e098abfe01d1a2071aeec5437b30ecc5cd5c",
+      "sha256": "fa33f2a89296455a28754593cfff3d4c3c8101c35863301ab521918282068139",
       "size": 195
     },
     "studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb": {
@@ -4232,8 +4232,8 @@
       "size": 4439
     },
     "tests/test_mobile_ops.py": {
-      "sha256": "70826be1af8487dbeec201715aedb48835b40518d2223c60453be69c0f3849ec",
-      "size": 14494
+      "sha256": "5d28bb860f1c3283dc684fa0347e178c2eec6c379e8edf59e11d81c2c38f3ca3",
+      "size": 16829
     },
     "tests/test_studio.py": {
       "sha256": "378683d7a66bdc9ee6b3f5447ac6a466d4487e68b84ad716249e15a9f83ce5b4",
@@ -4268,8 +4268,8 @@
       "size": 2806
     },
     "tools/mobile_ops.py": {
-      "sha256": "d07eb702e0e9edb84bd5511b59b7327b0a80ea035089fffcf68a9eea14724aeb",
-      "size": 29845
+      "sha256": "2408cc915f350ec23c234c677ae5d9aaf297689396bbbd3f92d56e28275ba1b1",
+      "size": 32558
     },
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
@@ -4284,8 +4284,8 @@
       "size": 32882
     },
     "tools/videogen.py": {
-      "sha256": "b0b8fcc4aeff137c68f4975a4f711de396b88e844781eb9bb07ae1a474989f6f",
-      "size": 110958
+      "sha256": "4d6c8dd35decf9a4869186f0b8e6ee497626e84375a90b3c57b9fea76c01ab86",
+      "size": 115956
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",

@@ -1701,6 +1701,7 @@ RUN_CLIPS = True       # silent clips (sabse lamba step)
 RUN_VOICE = True       # Kokoro voice lines
 RUN_FOLEY = True       # MMAudio ambience/SFX
 RUN_UPSCALE = True     # 480p -> 2x
+RUN_FINISH = True      # mix + MASTER (ffmpeg Colab me hi chalta hai)
 
 import hashlib, json, pathlib, subprocess, time, zipfile
 
@@ -1851,7 +1852,12 @@ if RUN_CLIPS and pipe is not None:
                 num_inference_steps=job.get("steps", 18), guidance_scale=5.0,
                 generator=torch.Generator("cpu").manual_seed(int(job.get("seed", 42))),
             ).frames[0]
-            export_to_video(frames, str(out), fps=16)
+            raw = pathlib.Path("/content/_raw_clip.mp4")
+            export_to_video(frames, str(raw), fps=16)
+            subprocess.run(["ffmpeg", "-y", "-i", str(raw), "-c:v", "libx264",
+                            "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+                            "-movflags", "+faststart", str(out)],
+                           check=True, capture_output=True)
             del frames
             print(f"  ✔ {out.name}  {out.stat().st_size/1e6:.1f} MB · {md5(out)[:10]} · {time.time()-t0:.0f}s")
             receipts.append({"id": job["id"], "file": out.name, "md5": md5(out),
@@ -2021,6 +2027,94 @@ if RUN_UPSCALE:
     print("upscaled:", made)
 """
 
+_MOBILE_FINISH = """# ── 8 · Finish — mix + MASTER (ffmpeg yahin chalta hai, laptop ki zarurat nahi) ──
+if RUN_FINISH:
+    import re as _re2, subprocess
+
+    DELIVERY = BASE / "delivery"
+    DELIVERY.mkdir(parents=True, exist_ok=True)
+    MASTER = DELIVERY / f"{PROJECT}_MASTER.mp4"
+
+    def probe_media(path):
+        text = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path)],
+                              capture_output=True, text=True).stderr
+        size = _re2.search(r"[,\\s](\\d{2,5})x(\\d{2,5})(?=[\\s,\\[])", text)
+        dur = _re2.search(r"Duration:\\s*(\\d+):(\\d+):(\\d+(?:\\.\\d+)?)", text)
+        fps = _re2.search(r"(\\d+(?:\\.\\d+)?)\\s*fps", text)
+        acodec = _re2.search(r"Audio:\\s*([a-z0-9_]+)", text)
+        return {
+            "name": path.name,
+            "width": int(size.group(1)) if size else 0,
+            "height": int(size.group(2)) if size else 0,
+            "duration": round(int(dur.group(1)) * 3600 + int(dur.group(2)) * 60 + float(dur.group(3)), 2) if dur else 0.0,
+            "fps": float(fps.group(1)) if fps else 0.0,
+            "audio_codec": acodec.group(1) if acodec else None,
+            "bytes": path.stat().st_size,
+            "md5": md5(path),
+        }
+
+    picked = []
+    for job in JOBS:
+        for cand in (SHOTS / f"{job['id']}-{FACTOR}x.mp4", SHOTS / f"{job['id']}.mp4"):
+            if cand.exists() and cand.stat().st_size > 1000:
+                picked.append(cand)
+                break
+
+    if not picked:
+        print("FINISH: koi clip nahi mila — pehle clip stage chalao")
+    else:
+        cmd = ["ffmpeg", "-y"]
+        graph = []
+        pairs = []
+        input_index = 0
+        for index, clip in enumerate(picked):
+            shot_id = clip.stem.replace(f"-{FACTOR}x", "")
+            cmd += ["-i", str(clip)]
+            video_index = input_index
+            input_index += 1
+            audio_inputs = []
+            for folder in (VO_DIR, FOLEY_DIR):
+                stem = folder / f"{shot_id}.wav"
+                if stem.exists() and stem.stat().st_size > 1000:
+                    cmd += ["-i", str(stem)]
+                    audio_inputs.append(input_index)
+                    input_index += 1
+            if audio_inputs:
+                if len(audio_inputs) == 1:
+                    graph.append(f"[{audio_inputs[0]}:a]aresample=48000,"
+                                 f"aformat=channel_layouts=stereo[audio{index}]")
+                else:
+                    mix_in = "".join(f"[{i}:a]" for i in audio_inputs)
+                    graph.append(f"{mix_in}amix=inputs={len(audio_inputs)}:normalize=0,"
+                                 f"aresample=48000,aformat=channel_layouts=stereo[audio{index}]")
+            else:
+                dur = probe_media(clip)["duration"] or 2.0
+                graph.append(f"anullsrc=channel_layout=stereo:sample_rate=48000,"
+                             f"atrim=0:{dur:.2f}[audio{index}]")
+            graph.append(f"[{video_index}:v]scale=__UP_W__:__UP_H__:force_original_aspect_ratio=decrease,"
+                         f"pad=__UP_W__:__UP_H__:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,"
+                         f"format=yuv420p[v{index}]")
+            pairs.append(f"[v{index}][audio{index}]")
+        graph.append("".join(pairs) + f"concat=n={len(picked)}:v=1:a=1[vout][aout0]")
+        graph.append("[aout0]loudnorm=I=-16:TP=-1.5:LRA=11[aout]")
+        cmd += ["-filter_complex", ";".join(graph), "-map", "[vout]", "-map", "[aout]",
+                "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(MASTER)]
+        print("finish:", len(picked), "shot(s) ->", MASTER.name)
+        proc = subprocess.run(cmd, capture_output=True, text=True)
+        if proc.returncode != 0:
+            print("MASTER FAIL:", " | ".join(proc.stderr.strip().splitlines()[-3:]))
+        else:
+            info = probe_media(MASTER)
+            receipt = {"project": PROJECT, "master": MASTER.name,
+                       "shots": [c.name for c in picked], "info": info,
+                       "made_on": "colab-t4", "loudnorm": "I=-16 TP=-1.5 LRA=11"}
+            (BASE / "colab_master_receipt.json").write_text(json.dumps(receipt, indent=2))
+            print(f"MASTER OK  {MASTER.name}  {info['bytes']/1e6:.2f} MB  {info['width']}x{info['height']}  "
+                  f"{info['duration']}s  audio={info['audio_codec']}  md5={info['md5']}")
+            print("master Drive me:", MASTER)
+"""
+
 _MOBILE_SUMMARY = """# ── 7 · Summary + receipt (yeh cell hi "DONE" batata hai) ────────────────────
 clips = sorted(SHOTS.glob("*.mp4"))
 voice = sorted(VO_DIR.glob("*.wav"))
@@ -2106,7 +2200,8 @@ def build_mobile_notebook(project: dict, max_frames: int | None = None) -> dict:
     return _nb([_md(fill(_MOBILE_INTRO)), _code(fill(_MOBILE_CONFIG)),
                 _code(fill(_MOBILE_PIPELINE)), _code(fill(_MOBILE_CLIPS)),
                 _code(fill(_MOBILE_VOICE)), _code(fill(_MOBILE_FOLEY)),
-                _code(fill(_MOBILE_UPSCALE)), _code(fill(_MOBILE_SUMMARY))])
+                _code(fill(_MOBILE_UPSCALE)), _code(fill(_MOBILE_FINISH)),
+                _code(fill(_MOBILE_SUMMARY))])
 
 
 def merge_code_cells(notebook: dict) -> dict:
