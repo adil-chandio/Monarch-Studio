@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T22:34:15+00:00",
+  "generated_at": "2026-10-27T22:51:51+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -19,6 +19,14 @@
       "sha256": "a2d707664a09806051f23a1b63dd00a4e5cd73ddf54639d77d730137328b27c7",
       "size": 252
     },
+    ".github/workflows/cloud-ai-clip.yml": {
+      "sha256": "33420c874e6e0cdded7c08c39a22125a9409abd45061a67b51dadab2f4709def",
+      "size": 4210
+    },
+    ".github/workflows/cloud-reel.yml": {
+      "sha256": "5c0246ee6155d7715bebdcee7d7e2d28a94cec7fe10037b70a58805c1a5c5989",
+      "size": 4266
+    },
     ".github/workflows/continuity-audit.yml": {
       "sha256": "6b7bdaacf91681eda3c99b980dadd65aa617072f0236dc17b7883f44bb408f7e",
       "size": 867
@@ -32,12 +40,12 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "fa4b4a4a4674db72534835a70f351338f01de99e3d45fff1ead5664bf5b8e4b8",
-      "size": 13643
+      "sha256": "30cfa8ab6616a9fdbc8870a67de71a55c411cabe3c136afc40ec5d11163bad82",
+      "size": 14126
     },
     "CHANGELOG.md": {
-      "sha256": "7e19e96fa0d19efef8af28c8d7f29e99394f9a4fb0a76e2f90b78e01f02bdd49",
-      "size": 5574
+      "sha256": "d081c89acf26a1c3824fc6900409fa31a539083b5eea9413f45831f07bb27527",
+      "size": 6605
     },
     "CONTRIBUTING.md": {
       "sha256": "e814f35754093119bee2342be79d50b7a389e6b902e1b37c1fa6f5f3446975ad",
@@ -48,8 +56,8 @@
       "size": 759
     },
     "Makefile": {
-      "sha256": "d620055797c44b22573174d6d371f59c0d4cf51a742c38285c7ed19dce9ec3e1",
-      "size": 1493
+      "sha256": "c7fc4e36e176a5fb3272b8a4a82589a9106d324172b383984302162f3cf06ce5",
+      "size": 1704
     },
     "README.md": {
       "sha256": "073c57179cc46d0172480ebf589194a7b072b10b16f4aa432103d1ce2c6bd4f1",
@@ -143,6 +151,14 @@
       "sha256": "366addd6d1f53ae156187f1a9172d845b679da71b9c6fcfb5eaff47ce8b4077a",
       "size": 4246
     },
+    "cloud/ai_jobs/ai-clip-01.json": {
+      "sha256": "3cbe8531483f4e1e1f892cd4d1461ed6da43256f8ce2126381907ece2e4574d7",
+      "size": 392
+    },
+    "cloud/jobs/reel-local-01.json": {
+      "sha256": "6435d18aa92f97c7d936163d38046ac631ae6e9bc0bc655162bd698b09416e62",
+      "size": 146
+    },
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
       "size": 1725
@@ -154,6 +170,10 @@
     "docs/ARCHITECTURE.md": {
       "sha256": "852e73a779d1bfca7f0bcb7c7092ec512dc73fe2b3380fc3e8b83feadf6ea886",
       "size": 5413
+    },
+    "docs/CLOUD_PIPELINE.md": {
+      "sha256": "eeb0cea36af1c5ef6a417fd8942f058776dd144acfa3a765fb8cf127ea90072b",
+      "size": 3535
     },
     "docs/CONTINUITY_AND_RECOVERY.md": {
       "sha256": "8f08dd66d408f3ca82840d4efa2ac9df9f77139147e8bffcd1593ace6838a2fb",
@@ -1982,6 +2002,14 @@
     "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER_receipt.json": {
       "sha256": "023a5459a6a225489664be3b6899c1ba14a8964af865922e43d1bce0c4fcafbe",
       "size": 835
+    },
+    "studio/videogen/examples/reel-local-01/delivery_cloud/cloud_receipt.json": {
+      "sha256": "b84c87f15d6f8541fda60d2d7b623d967d86a2fc0f9e7f25c8e57ae9098748df",
+      "size": 547
+    },
+    "studio/videogen/examples/reel-local-01/delivery_cloud/reel-local-01_MASTER.mp4": {
+      "sha256": "ad79b759c2bd64c9b7a161a36c8c5740121daa012d94447c5d4beccfa27c8c27",
+      "size": 5671468
     },
     "studio/videogen/examples/reel-local-01/reel.json": {
       "sha256": "896eda71882758e4100aa701d4d4b9ec0f17d8b002ae8317639625ea18695277",
@@ -4367,6 +4395,10 @@
       "sha256": "584614f6362e6c5710f90c727236343acee6499cedea6d80423faf5555d05854",
       "size": 2764
     },
+    "tests/test_cloud.py": {
+      "sha256": "2b686f8eb365e675774b43c3ea0c3712615a855d582992eac29d59a03425dace",
+      "size": 5263
+    },
     "tests/test_continuity.py": {
       "sha256": "dc73ed61772a334e75264fa1e435d8b798ac412b96b84628014b954ee285820a",
       "size": 4439
@@ -4402,6 +4434,14 @@
     "tools/_audio_block.txt": {
       "sha256": "adc6dc731bec8dda410f43b7c6d28ca5dfb634972182bbbd502e7031d051ba1b",
       "size": 20441
+    },
+    "tools/cloud_ai_clip.py": {
+      "sha256": "396b52553e64357a19134315de634dbc6421de7e33ef7903dc6bfaf046375705",
+      "size": 4141
+    },
+    "tools/cloud_reel.py": {
+      "sha256": "4a32abe55369a09c2f03af8b14b36d9993cc4b781753be6c6296affa9c6b37ec",
+      "size": 7037
     },
     "tools/continuity.py": {
       "sha256": "5e33af5c93f2443b84a8292e3163de134c8f276064ad33fd37cf682f4044f0e2",

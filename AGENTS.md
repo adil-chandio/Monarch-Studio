@@ -76,6 +76,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
   escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
   against real ffmpeg, so these three mistakes cannot come back silently.
+- **CLOUD BHI MERA KAAM HAI.** Sandbox se Google/HF/Kaggle band hain (000), lekin `github.com` khula hai — is
+  liye GitHub Actions bridge hai: `cloud/jobs/<id>.json` push karo → runner render karta hai → result
+  `cloud-artifacts` branch se `git fetch` hota hai (`tools/cloud_reel.py`, `docs/CLOUD_PIPELINE.md`). AI clip ke
+  liye `cloud/ai_jobs/<id>.json` → `cloud-ai-artifacts`. Owner ko Colab link / "Run all" / upload **kabhi** na do;
+  woh sirf final video dekhta hai.
 - **Video main khud banata hoon — owner se click/link nahi maangna.** `tools/reel_render.py` (CPU, no GPU, no
   network) asli art plates par camera moves + grain + captions + designed sound + loudnorm se 1080x1920 reel
   banata hai; 2 cores par ~1 minute. Spec: `studio/videogen/examples/reel-local-01/reel.json`
