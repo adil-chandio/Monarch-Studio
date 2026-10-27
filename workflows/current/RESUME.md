@@ -3,8 +3,8 @@
 **Status:** `active`  
 **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
 **Style:** `minimax-h3-video`  
-**Checkpoint sequence:** 17  
-**Last checkpoint:** 2026-10-27T18:30:31Z
+**Checkpoint sequence:** 18  
+**Last checkpoint:** 2026-10-27T19:17:46Z
 
 ## Goal
 
@@ -16,7 +16,7 @@ Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + 
 
 ## Exact next action
 
-Owner opens colab-test-04 link, one play button, waits 10-20 min; then sends DONE screenshot or the ZIP; agent runs mobile_ops ingest/check -> finish.
+Owner attaches m-test-01_outputs.zip; then mobile_ops ingest mob-test-01 --zip <path> -> check -> finish -> deliver with the Drive id.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
