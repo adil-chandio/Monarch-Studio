@@ -213,10 +213,9 @@ def build_head(mat_skin, mat_face):
 
     # keep the capture on the face front; temples, jaw line and skull stay modelled
     for poly in me.polygons:
-        cx = sum(me.vertices[i].co.x for i in poly.vertices) / len(poly.vertices)
-        cy = sum(me.vertices[i].co.y for i in poly.vertices) / len(poly.vertices)
         cz = sum(me.vertices[i].co.z for i in poly.vertices) / len(poly.vertices)
-        front = cy < 0.004 and abs(cx) < 0.076 and 1.5480 < cz < 1.7400
+        ny = poly.normal.y            # -1 = facing the lens, +1 = back of the skull
+        front = ny < 0.10 and 1.5480 < cz < 1.7420
         poly.material_index = 1 if front else 0
 
     sub = ob.modifiers.new("Subdivision", "SUBSURF")
@@ -224,10 +223,11 @@ def build_head(mat_skin, mat_face):
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.004, 1.418), 0.050, 0.046),
-        ((0, 0.004, 1.462), 0.045, 0.042),
-        ((0, 0.002, 1.505), 0.042, 0.040),
-        ((0, 0.000, 1.540), 0.044, 0.042),
+        ((0, 0.006, 1.404), 0.072, 0.062),
+        ((0, 0.006, 1.432), 0.060, 0.052),
+        ((0, 0.004, 1.462), 0.050, 0.045),
+        ((0, 0.002, 1.500), 0.044, 0.041),
+        ((0, 0.000, 1.536), 0.046, 0.044),
     ], mat_skin, subsurf=1, close_start=False)
     ears = []
     for s in (1, -1):
@@ -360,7 +360,7 @@ def build_beard(mat_hair):
 
 # ------------------------------------------------------------------ body
 def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
-               mat_shoe, mat_sole, mat_lapel):
+               mat_shoe, mat_sole, mat_lapel, mat_face_skin):
     parts = []
     torso = bl.loft("Blazer · torso", [
         ((0, 0, 0.858), 0.174, 0.112),
@@ -427,7 +427,7 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
             ((0.239 * sx, 0.020, 0.978), 0.042, 0.041),
         ], mat_edge, subsurf=1, close_start=False, close_end=False)
         parts.append(cuff)
-        parts += build_hand(f"hand.{s}", 0.240 * sx, 0.020, 0.976, sx, mat_skin)
+        parts += build_hand(f"hand.{s}", 0.240 * sx, 0.020, 0.976, sx, mat_face_skin)
         parts.append(bl.loft(f"Elbow.{s}", [
             ((0.225 * sx, 0.010, 1.170), 0.050, 0.049),
             ((0.226 * sx, 0.012, 1.150), 0.054, 0.053),
@@ -592,7 +592,7 @@ def build_character():
     hair = build_hair(m_hair, m_sheen)
     beard = build_beard(m_hair)
     body = build_body(rig, m_blazer, m_edge, m_shirt, m_trouser, m_skin, m_shoe,
-                      m_sole, m_lapel)
+                      m_sole, m_lapel, m_face_skin)
 
     for ob in (head, neck, beard):
         bl.bind(ob, rig, {"head": 1.0})
