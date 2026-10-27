@@ -22,7 +22,8 @@ from .bl import TAU, srgb
 
 ASSETS = Path(__file__).resolve().parent / "assets"
 
-SKIN = "#958C7E"
+SKIN = "#958C7E"            # palette swatch (hands, ears)
+SKIN_CAPTURE = "#8A5F46"     # measured off the v5 capture (core mean 133,95,72)
 HAIR = "#2B2B2A"
 BLAZER = "#2B2B2A"
 BLAZER_EDGE = "#3A3A38"
@@ -37,7 +38,7 @@ RIM_AMBER = "#9E6E46"
 HEIGHT = 1.785
 CHIN_Z = 1.545
 HAIRLINE_Z = 1.730
-FACE_HALF_W = 0.0686
+FACE_HALF_W = 0.0765
 NECK_TOP = 1.56
 SHOULDER_Z = 1.435
 SHOULDER_X = 0.195
@@ -223,17 +224,17 @@ def build_head(mat_skin, mat_face):
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.004, 1.420), 0.052, 0.047),
-        ((0, 0.004, 1.470), 0.047, 0.043),
-        ((0, 0.002, 1.520), 0.044, 0.041),
-        ((0, 0.000, 1.552), 0.045, 0.043),
+        ((0, 0.004, 1.418), 0.050, 0.046),
+        ((0, 0.004, 1.462), 0.045, 0.042),
+        ((0, 0.002, 1.505), 0.042, 0.040),
+        ((0, 0.000, 1.540), 0.044, 0.042),
     ], mat_skin, subsurf=1, close_start=False)
     ears = []
     for s in (1, -1):
         e = bl.loft(f"Ear.{s}", [
-            ((0.0665 * s, 0.012, 1.6480), 0.006, 0.016),
-            ((0.0730 * s, 0.014, 1.6520), 0.004, 0.019),
-            ((0.0700 * s, 0.012, 1.6640), 0.003, 0.010),
+            ((0.0740 * s, 0.012, 1.6520), 0.006, 0.017),
+            ((0.0812 * s, 0.014, 1.6560), 0.004, 0.020),
+            ((0.0778 * s, 0.012, 1.6680), 0.003, 0.011),
         ], mat_skin, subsurf=1)
         ears.append(e)
     return ob, neck, ears
@@ -252,12 +253,12 @@ def build_hair(mat_hair, mat_sheen):
             # cap that follows the skull and dips at the hairline
             front = max(0.0, -math.sin(a))
             back = max(0.0, math.sin(a))
-            base_z = bl.lerp(1.6900, 1.7300, front) + bl.lerp(0.002, 0.0, back)
+            base_z = bl.lerp(1.6980, 1.7370, front) + bl.lerp(0.002, 0.0, back)
             phi = (math.pi * 0.5) * t
             r_scale = 1.010 + 0.014 * math.sin(a * 3 + 0.7) * (1 - t)
-            z = base_z + (1.7810 - base_z) * math.sin(phi) ** 0.96
-            rx = 0.0704 * r_scale * math.cos(phi * 0.80)
-            ry = 0.0716 * r_scale * math.cos(phi * 0.80)
+            z = base_z + (1.7930 - base_z) * math.sin(phi) ** 0.96
+            rx = 0.0770 * r_scale * math.cos(phi * 0.80)
+            ry = 0.0796 * r_scale * math.cos(phi * 0.80)
             # mass at the back of the head, tighter at the temples
             swell = 1.0 + 0.16 * max(0.0, math.sin(a)) * (1 - t * 0.5)
             x = math.cos(a) * rx * swell
@@ -283,10 +284,10 @@ def build_hair(mat_hair, mat_sheen):
             t = bl.lerp(start, end, u)
             phi = (math.pi * 0.5) * t
             base_z = bl.lerp(1.6720, 1.7300, front) + bl.lerp(0.006, 0.0, max(0.0, math.sin(a)))
-            z = base_z + (1.7810 - base_z) * math.sin(phi) ** 0.96
+            z = base_z + (1.7930 - base_z) * math.sin(phi) ** 0.96
             rr = 1.056 + rnd.uniform(-0.004, 0.006)
-            rx = 0.0704 * rr * math.cos(phi * 0.80)
-            ry = 0.0716 * rr * math.cos(phi * 0.80)
+            rx = 0.0770 * rr * math.cos(phi * 0.80)
+            ry = 0.0796 * rr * math.cos(phi * 0.80)
             # sweep the strand tips backwards
             sweep = 0.010 * u * u
             x = math.cos(a) * rx + sweep * 0.35
@@ -301,11 +302,11 @@ def build_hair(mat_hair, mat_sheen):
         for _ in range(64):
             off = rnd.uniform(-0.011, 0.011)
             depth = rnd.uniform(-0.004, 0.006)
-            p0 = Vector((0.010 * sgn + off, -0.050 + depth, 1.7290))
-            p1 = Vector((0.046 * sgn + off * 0.8, -0.068 + depth, 1.7230))
+            p0 = Vector((0.010 * sgn + off, -0.056 + depth, 1.7360))
+            p1 = Vector((0.050 * sgn + off * 0.8, -0.074 + depth, 1.7290))
             p2 = Vector((0.064 * sgn + off * 0.5, -0.062 + depth, 1.7080))
-            p3 = Vector((0.070 * sgn + off * 0.3, -0.050 + depth,
-                         1.6960 + rnd.uniform(-0.010, 0.012)))
+            p3 = Vector((0.074 * sgn + off * 0.3, -0.058 + depth,
+                         1.7060 + rnd.uniform(-0.010, 0.012)))
             line = []
             for k in range(11):
                 u = k / 10
@@ -337,15 +338,15 @@ def build_beard(mat_hair):
     skin = srgb(SKIN)
     lines = []
     for _ in range(3400):
-        z = rnd.uniform(1.5450, 1.6120)
+        z = rnd.uniform(1.5410, 1.6160)
         # beard band: jaw and chin, thin up the cheeks, thicker at the chin
-        half_w = 0.062 * min(1.0, (z - 1.530) / 0.070) ** 0.6
+        half_w = 0.070 * min(1.0, (z - 1.526) / 0.076) ** 0.6
         if z > 1.598 and rnd.random() < 0.55:
             continue
         x = rnd.uniform(-half_w, half_w)
         if abs(x) < 0.026 and z > 1.588 and z < 1.604:
             continue                     # keep the lips clear
-        ry = 0.0700
+        ry = 0.0780
         y = -math.sqrt(max(0.0, 1 - (x / max(1e-4, half_w)) ** 2)) * ry * 0.98 - 0.004
         y -= _face_relief(x, z) * 0.9
         base = Vector((x, y, z))
@@ -367,14 +368,14 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         ((0, 0.002, 0.980), 0.166, 0.109),
         ((0, 0.004, 1.060), 0.160, 0.106),
         ((0, 0.004, 1.120), 0.156, 0.104),
-        ((0, 0.002, 1.200), 0.167, 0.109),
-        ((0, 0.000, 1.280), 0.182, 0.116),
-        ((0, -0.002, 1.345), 0.186, 0.117),
-        ((0, -0.004, 1.390), 0.186, 0.116),
-        ((0, -0.003, 1.418), 0.172, 0.110),
-        ((0, -0.001, 1.440), 0.138, 0.097),
-        ((0, 0.001, 1.458), 0.098, 0.082),
-        ((0, 0.003, 1.472), 0.066, 0.062),
+        ((0, 0.002, 1.200), 0.163, 0.107),
+        ((0, 0.000, 1.280), 0.176, 0.113),
+        ((0, -0.002, 1.340), 0.180, 0.114),
+        ((0, -0.002, 1.382), 0.179, 0.113),
+        ((0, -0.002, 1.410), 0.166, 0.107),
+        ((0, 0.000, 1.432), 0.130, 0.093),
+        ((0, 0.002, 1.452), 0.086, 0.075),
+        ((0, 0.004, 1.468), 0.058, 0.056),
     ], mat_blazer, subsurf=2, close_start=True, close_end=False)
     bl.bump_material(mat_blazer, scale=1400, strength=0.12)
     parts.append(torso)
@@ -401,19 +402,14 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         sol.thickness = 0.005
         parts.append(lap)
 
-    # collar band
-    collar = bl.loft("Collar", [
-        ((0, 0.004, 1.452), 0.072, 0.066),
-        ((0, 0.002, 1.468), 0.067, 0.062),
-        ((0, 0.000, 1.478), 0.062, 0.058),
-    ], mat_edge, subsurf=2, close_start=False, close_end=False)
-    parts.append(collar)
+    # no separate collar tube: the blazer's own top rings read as the neckline
+    collar = None
 
     # sleeves + hands
     for s, sx in (("L", 1.0), ("R", -1.0)):
         upper = bl.loft(f"Sleeve upper.{s}", [
-            ((0.186 * sx, -0.002, 1.452), 0.064, 0.062),
-            ((0.198 * sx, 0.000, 1.400), 0.066, 0.064),
+            ((0.150 * sx, -0.002, 1.436), 0.072, 0.070),
+            ((0.180 * sx, -0.001, 1.412), 0.068, 0.066),
             ((0.212 * sx, 0.006, 1.300), 0.060, 0.058),
             ((0.222 * sx, 0.010, 1.180), 0.055, 0.054),
             ((0.225 * sx, 0.012, 1.150), 0.053, 0.052),
@@ -438,20 +434,21 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
             ((0.227 * sx, 0.014, 1.130), 0.051, 0.050),
         ], mat_blazer, subsurf=2))
 
-    # pelvis, so the trousers read as one garment instead of two tubes
+    # pelvis: a single tapered block the thighs grow out of, no visible slab edge
     parts.append(bl.loft("Trouser pelvis", [
-        ((0, 0, 1.010), 0.168, 0.106),
-        ((0, 0, 0.965), 0.170, 0.108),
-        ((0, 0.001, 0.920), 0.166, 0.107),
-        ((0, 0.002, 0.880), 0.158, 0.104),
-        ((0, 0.002, 0.850), 0.150, 0.100),
+        ((0, 0, 1.020), 0.162, 0.104),
+        ((0, 0, 0.985), 0.168, 0.107),
+        ((0, 0.001, 0.940), 0.172, 0.108),
+        ((0, 0.002, 0.900), 0.170, 0.106),
+        ((0, 0.002, 0.868), 0.163, 0.102),
+        ((0, 0.002, 0.840), 0.152, 0.097),
     ], mat_trouser, subsurf=2, close_start=True, close_end=False))
 
     # legs
     for s, sx in (("L", 1.0), ("R", -1.0)):
         thigh = bl.loft(f"Trouser thigh.{s}", [
-            ((0.098 * sx, 0, 0.995), 0.086, 0.084),
-            ((0.099 * sx, 0, 0.900), 0.080, 0.079),
+            ((0.090 * sx, 0, 0.960), 0.090, 0.088),
+            ((0.096 * sx, 0, 0.880), 0.084, 0.082),
             ((0.100 * sx, 0.002, 0.740), 0.070, 0.069),
             ((0.100 * sx, 0.002, 0.560), 0.062, 0.061),
             ((0.100 * sx, 0.002, 0.500), 0.060, 0.059),
@@ -492,7 +489,7 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     # ---- skinning
     torso_stops = [(0.86, "hips"), (1.02, "spine"), (1.20, "spine"),
                    (1.30, "chest"), (1.47, "chest")]
-    for ob in (torso, shirt, collar):
+    for ob in (torso, shirt):
         bl.bind(ob, rig, bl.ramp_weights(torso_stops, axis=2, softness=1.4))
     for ob in parts:
         if ob.name.startswith(("Lapel",)):
@@ -566,7 +563,7 @@ def build_hand(bone_side, x, y, z, sx, mat):
 
 # ------------------------------------------------------------------ assemble
 def build_character():
-    m_face = bl.material("MONARCH skin · v5 projected", base=SKIN, rough=0.52,
+    m_face = bl.material("MONARCH skin · v5 projected", base=SKIN_CAPTURE, rough=0.52,
                          spec=0.30, sss=0.05, sss_radius=(0.9, 0.32, 0.2),
                          sss_scale=0.0035)
     tex = bl.image_texture(m_face, ASSETS / "face_tex.png")
@@ -575,6 +572,8 @@ def build_character():
 
     m_skin = bl.material("MONARCH skin", base=SKIN, rough=0.46, spec=0.40,
                          sss=0.05, sss_scale=0.003)
+    m_face_skin = bl.material("MONARCH skin · capture tone", base=SKIN_CAPTURE,
+                              rough=0.50, spec=0.32, sss=0.05, sss_scale=0.003)
     m_hair = bl.material("MONARCH hair", base="#171717", rough=0.52, spec=0.28, sheen=0.45)
     m_sheen = bl.material("MONARCH hair sheen", base="#121212", rough=0.42, spec=0.42)
     m_blazer = bl.material("MONARCH blazer", base="#1E1E1D", rough=0.80, spec=0.24,
@@ -589,7 +588,7 @@ def build_character():
                           sheen=0.15)
 
     rig = build_rig()
-    head, neck, ears = build_head(m_skin, m_face)
+    head, neck, ears = build_head(m_face_skin, m_face)
     hair = build_hair(m_hair, m_sheen)
     beard = build_beard(m_hair)
     body = build_body(rig, m_blazer, m_edge, m_shirt, m_trouser, m_skin, m_shoe,
