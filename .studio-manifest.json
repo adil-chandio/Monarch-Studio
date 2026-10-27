@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-26T21:12:05+00:00",
+  "generated_at": "2026-10-27T01:19:54+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "068476233a2a93b5ce9efd0b947d0bdebd91b47bcdf3006f0e117566a551b890",
-      "size": 892
+      "sha256": "e95a35187789b4e174909ae4bfa40080dccf42e06b35501cc0821dfae7212b12",
+      "size": 991
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -527,6 +527,14 @@
       "sha256": "8042529ff7b3ec91938f381c8426437480e2008e146029a109d7b993e836cc81",
       "size": 13122
     },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0004-20261027T011950Z/HANDOFF.md": {
+      "sha256": "6768b9e48e2843244d47a978d392e8ce2c99b343335aadea3b073cacd9f3f972",
+      "size": 1655
+    },
+    "operations/continuity/checkpoints/WF04-REF-INTAKE-2/0004-20261027T011950Z/checkpoint.json": {
+      "sha256": "bd198517998b39daf21794a64f242ecccbe491b744e9dd5f036bc6f12d603de7",
+      "size": 560551
+    },
     "operations/continuity/checkpoints/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/HANDOFF.md": {
       "sha256": "41cb34cce645ee9f5514de3681f9c0c8efe18d171b500baf09593d7cb1657a9d",
       "size": 1654
@@ -974,6 +982,18 @@
     "operations/continuity/outbox/WF04-REF-INTAKE-2/0003-20261026T211204Z/checkpoint.json": {
       "sha256": "5498adf46ca13d15c3325e396898d70d2fb30f012a845b2598e4b5b1c45305bb",
       "size": 13122
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0004-20261027T011950Z/STATUS.md": {
+      "sha256": "a2cccbe1eb59507299b6201110069e5cbaf244210fa562c7c698fdf5ed49ce61",
+      "size": 1478
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0004-20261027T011950Z/SYNC.json": {
+      "sha256": "1d4997a5963a4801c786c97ceec0a8b718ba8223d148d5b42a2c6c9a08d07582",
+      "size": 4361
+    },
+    "operations/continuity/outbox/WF04-REF-INTAKE-2/0004-20261027T011950Z/checkpoint.json": {
+      "sha256": "81e087a23f463979cfaf6a410d5d6991a3aba152ff66653e51f000b12465b2c3",
+      "size": 560551
     },
     "operations/continuity/outbox/WF05-20261026-REF-INTAKE/0001-20261026T192722Z/STATUS.md": {
       "sha256": "32bca1a5a8bcadbfbfce99d26a8a0b3aa9a4c86512e8ec6ac6d03df4bd5f8b5a",
@@ -4440,20 +4460,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "9ee9698b2b59fd493f2f3ce143a404b019ee5df8aba4828a5d27ae2e1a8e2130",
-      "size": 1424
+      "sha256": "189acedda2c76f1294b3394ad04a8ae7dabba68e3fca26e26309c02f731c6d21",
+      "size": 1524
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "size": 0
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "349f9d2fb79fa5ca96cb09c6349e5e1f7fc7a0833c061b0993f3ab15887ba301",
-      "size": 24581
+      "sha256": "4820fadb33fb39db2a666dfcc7433738ff57cc4c04a94149eec79c692ed411e1",
+      "size": 31455
     },
     "workflows/current/RESUME.md": {
-      "sha256": "8502597e5489a3d8b930f0acd9ede86669487b7894e9e9ba9847d7905c5a6944",
-      "size": 1556
+      "sha256": "6768b9e48e2843244d47a978d392e8ce2c99b343335aadea3b073cacd9f3f972",
+      "size": 1655
     },
     "workflows/current/payload/WF04-CHAOS04/.gitignore": {
       "sha256": "d0d52e7138fde09489f9de94a9b5f40aa6a6c5c00dbeda3c57725005b4484ccb",
@@ -4474,6 +4494,10 @@
     "workflows/current/payload/WF04-CHAOS04/STRUCTURE_MASTER.md": {
       "sha256": "91c466dee26f1860e130f9501d0a2ff3431b51089a0bec2c4df44f7b20ec3844",
       "size": 13316
+    },
+    "workflows/current/payload/WF04-CHAOS04/V3_BUILD.md": {
+      "sha256": "0b64b2ccfe1061921437378478975b58eec08f8800ac923619e8c11a5561b62c",
+      "size": 4953
     },
     "workflows/current/payload/WF04-CHAOS04/analysis/ARC_STATS.json": {
       "sha256": "e055a827221701e675833ed3566df14fc8fd9cd4a80e757742904755adce3666",
@@ -4602,6 +4626,50 @@
     "workflows/current/payload/WF04-CHAOS04/render_chaos04.py": {
       "sha256": "6a3b08548c66bdb0862ea0112329e35b827a770edd92c558f984ae7051bc302c",
       "size": 27462
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/.gitignore": {
+      "sha256": "12070732d257cb78174df2cbc274902afb254b04c5a527395c4ee69c2ac58371",
+      "size": 123
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/SHOTLIST_3D.json": {
+      "sha256": "d1062edbf7a43e89dcaf5564465900313ed78b31060c3499619ae6d61f915f54",
+      "size": 29574
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/assemble.py": {
+      "sha256": "e539ca31420175da12df0a4efaf7f60a620b812bde38babb60795f22bf2ecac3",
+      "size": 4727
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/build_shotlist.py": {
+      "sha256": "762dfed1fcb93c0b170c655bd3ccefc536a655d1cb5ec487b93c3e72e1d3565c",
+      "size": 6054
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/chaos_scene.py": {
+      "sha256": "68133f50f2305e52fe3a1e4b38ad503e04d208d1b182984dcf3f89814287e78b",
+      "size": 33237
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/endcard.py": {
+      "sha256": "c4f53c052ff87cb6327402f8241eba4ab257ea9aaf11b0fc200bf6124a42badc",
+      "size": 4057
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/grade_match.py": {
+      "sha256": "7971db6aa0ae80e8b15e0344eb4491b387feb8129f6e699fc0cbbc2665aa5a08",
+      "size": 3270
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/master_audio.py": {
+      "sha256": "4207efdb377594997743e8eff87eacdf2932ce5388b248cb3c560b3e111b4375",
+      "size": 3697
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/report.py": {
+      "sha256": "7222d319053b4a49629c39261d9595f21724efe15e2c9b6a2da36a08127feeb7",
+      "size": 7403
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/score.py": {
+      "sha256": "a5078dfd091e904ba0cca21647dfdb291ad98232919dabba43172fa5043813e6",
+      "size": 7677
+    },
+    "workflows/current/payload/WF04-CHAOS04/v3/verify.py": {
+      "sha256": "e4b3fcb909b58f87bc3079c45685a157c60e0be2326b82d656fd2e39af589dfa",
+      "size": 8095
     },
     "workflows/current/payload/WF04-CHAOS04/verify_chaos04.py": {
       "sha256": "7524197d3fc2236fd7d16b98d4ddc63285a6cf008ddaa5eb8d78024cee45f303",

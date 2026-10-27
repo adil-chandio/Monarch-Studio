@@ -3,8 +3,8 @@
 **Status:** `waiting_external`  
 **Title:** WF-04 · CHAOSGO reference inspection (no production) — awaiting user decision  
 **Style:** `monarch-face-chaos`  
-**Checkpoint sequence:** 3  
-**Last checkpoint:** 2026-10-26T21:12:04Z
+**Checkpoint sequence:** 4  
+**Last checkpoint:** 2026-10-27T01:19:50Z
 
 ## Goal
 
@@ -17,7 +17,7 @@ Inspect the supplied Chaos 2 reference exactly like the earlier chat did, with n
 
 ## Exact next action
 
-User decides: (a) run notebook on Colab/Kaggle free GPU now, or (b) approve Track C hybrid starting with CPU 3D base, or (c) ask for history-rewrite/make-private to purge third-party master from public git history. Also still pending: film number/length, character input, masked-vs-open face, and G1 shotlist approval.
+Get user's creative verdict on the preview. Then either (a) push quality: 1080p full-res render of the same scene (21.9 h measured on this box) or GPU polish via Wan2.2-Animate using this animatic as the driving video, (b) add the 22-blendshape face rig / open face if they want it unmasked, (c) fix the 2 remaining weak setups, (d) delete or keep the unapproved CHAOS 04 Drive files and decide the git-history purge.
 
 ## Running processes
 
@@ -35,6 +35,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `operations/continuity/checkpoints/WF04-REF-INTAKE-2/0003-20261026T211204Z`
+- Latest checkpoint package: `operations/continuity/checkpoints/WF04-REF-INTAKE-2/0004-20261027T011950Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.
