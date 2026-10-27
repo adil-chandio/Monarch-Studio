@@ -5,7 +5,7 @@ The repository uses one active workflow slot. Do not guess or restart an existin
 - **Task:** `EMS-20261027-WF06-H3-LAB`
 - **Status:** `active`
 - **Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan
-- **Next action:** hand the owner the 3-shot reel link (voice + foley ON) as one tap
+- **Next action:** owner taps colab-test-10 reel link; then adopt receipt + deliver master
 - **Resume capsule:** [`workflows/current/RESUME.md`](workflows/current/RESUME.md)
 
 Run:
