@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "style_id": "minimax-h3-video",
+  "captured_at": "2026-10-27",
+  "captured_by": "arena/3d8cfad7-monarch-studio",
+  "sources": [
+    {
+      "id": "repo",
+      "url": "https://github.com/MiniMax-AI/MiniMax-H3",
+      "method": "shallow git clone, README.md + requirements.txt + FL2VA/Ref2VA trees + skills/h3-prompt-writing read locally",
+      "verified": [
+        "two checkpoints FL2VA and Ref2VA, both self-contained diffusers-style repos",
+        "H3-Context-IR and H3-Regenerate-2K are not open-sourced (README)",
+        "33B dense single-stream Omni-Transformer, ~13B in AdaLN branches; Qwen3-VL-32B encoder layer 50; f16t4d24 visual VAE; 40 Hz audio VAE",
+        "output 4-15 s, 24 fps, 32 kHz stereo, shorter side 768 by default",
+        "recommended frameworks: SGLang, vLLM, diffusers (minimax-h3 branch), ComfyUI",
+        "SGLang serve flags incl. --num-gpus 4 --ulysses-degree 4 --model-variant fl2va|ref2va",
+        "prompt structure: integrated_multimodal_description / overall_soundscape / non_diegetic_music; Ref2VA six-section format; <d> dialogue tag; shot + camera grammar"
+      ]
+    },
+    {
+      "id": "api-create",
+      "url": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create",
+      "verified": [
+        "POST /v2/video_generation, Bearer auth",
+        "models MiniMax-H3 / Highspeed / Lite / Max with per-model resolutions and durations",
+        "content[] types text, image_url, video_url, audio_url with roles first_frame/last_frame/reference_image/reference_video/reference_audio",
+        "image-to-video and reference-to-video are mutually exclusive",
+        "t2va ratio required and not adaptive; i2va ratio forced adaptive",
+        "media limits: body <=64 MB, image <=30 MB side 256-5760, <=9 reference images, <=3 videos <=50 MB 2-15 s each total <=15 s, <=3 audio <=15 MB 2-15 s each total <=15 s",
+        "error codes 1004/1008/1026/1002/1000 and HTTP 400/401/402/422/429/500"
+      ]
+    },
+    {
+      "id": "api-query",
+      "url": "https://platform.minimax.io/docs/api-reference/video-generation-v2-query",
+      "verified": [
+        "GET /v2/query/video_generation/{task_id}",
+        "task.status values incl. succeeded/failed/cancelled",
+        "task.content.url holds the mp4; usage carries output_seconds/input_image_count/input_audio_seconds"
+      ]
+    },
+    {
+      "id": "pricing",
+      "url": "https://platform.minimax.io/docs/guides/pricing-video",
+      "verified": [
+        "MiniMax-H3 768P $0.08/s, 2K $0.13/s",
+        "regeneration 768P->2K $0.05/s",
+        "reference audio free, first 5 images free then $0.04, reference video billed at output rate"
+      ],
+      "secondary": ["https://platform.minimax.io/docs/pricing/overview adds Highspeed $0.06 and Lite $0.04 per second"]
+    },
+    {
+      "id": "hardware",
+      "urls": [
+        "https://minimax-h3.wiki/local/minimax-h3-hardware-requirements/",
+        "https://nuvalab.ai/blog/run-minimax-h3-locally-gpu-vram-requirements/",
+        "https://www.spheron.network/blog/deploy-minimax-h3-gpu-cloud/"
+      ],
+      "verified": [
+        "4xH100 BF16 SGLang: 50-66 GB per GPU, ~13 s for a 5 s 1344x768 clip",
+        "2xRTX 5090 TP2 + layerwise offload: 26.3 GB per GPU, ~560 s",
+        "pruned INT8 / NVFP4 community repacks ~31-42 GB, runnable on 16-24 GB cards",
+        "full BF16 checkpoint ~124-144 GB"
+      ],
+      "note": "community-reported; treat as ranges, not guarantees"
+    }
+  ],
+  "not_verified": [
+    "hosted H3-Context-IR and regeneration endpoint paths/payloads (docs index not fetched; linked from the H3 README instead)",
+    "current free-credit policy on the MiniMax platform",
+    "exact data-retention terms of the hosted API",
+    "whether data-URL base64 references are accepted by /v2/video_generation for every media type"
+  ],
+  "assumptions": [
+    "list prices in workflow.json will be re-checked before quoting a client",
+    "Colab free tier is used for the control-room route only; no local weight loading assumed"
+  ]
+}

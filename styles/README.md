@@ -8,6 +8,8 @@ Current styles:
 |---|---|---|---|
 | `monarch-stickman-animation` | Monarch Stickman Animation | `SHADEGO <topic>` | [`monarch-stickman-animation/`](monarch-stickman-animation/) |
 | `monarch-noir-film` | Monarch Noir Film | `NOIRGO <topic>` | [`monarch-noir-film/`](monarch-noir-film/) |
+| `minimax-h3-video` | MiniMax-H3 Generative Video (WF-06) | `H3GO <topic or shot list>` | [`minimax-h3-video/`](minimax-h3-video/) |
+| `premium-motion-editing` | Premium Motion Editing (WF-05) | `MOTIONGO <topic or reference>` | [`premium-motion-editing/`](premium-motion-editing/) |
 
 ## Hard boundary
 

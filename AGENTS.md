@@ -25,6 +25,21 @@ If a response/process stops, query the recorded process and execute the exact ne
 - For media tasks, persist a delivery receipt with the actual master/source IDs, hashes and URLs. If a delivered task receives only another “continue,” return/recover its verified deliverable rather than regenerating its images, voice or edit.
 - Platform/service interruptions cannot be guaranteed away. The reliable promise is durable artifacts, exact resumption and truthful completion state—not unattended connector work between turns.
 
+## WF-06 / H3GO routing (MiniMax-H3 video)
+
+When the user asks for MiniMax-H3, H3 video, or `H3GO <topic or shot list>`, load
+`styles/minimax-h3-video/README.md` and `knowledge/01_COLAB_RUNBOOK.md` before answering or running anything.
+
+- **Colab is a controller, not a GPU.** H3-Base needs ~100-128 GB resident; the default route is the hosted API
+  (`POST /v2/video_generation`) from a CPU Colab runtime with `MINIMAX_API_KEY` in Colab Secrets.
+- **Price before spending.** `python3 styles/minimax-h3-video/src/h3_client.py estimate <shotlist>` first; the
+  notebook's `DRY_RUN`/`CONFIRM_SPEND` gate stays locked unless the user explicitly approves the estimate.
+- **2K only via API.** Local/pruned-weight runs are 768P; never promise 2K from a local deployment.
+- **Monarch identity comes from the locked reference pack** (`characters/monarch`), passed as Ref2VA
+  `reference_image` items — the same 3-4 images for every shot in a scene, never prompt wording alone.
+- H3 supplies talking shots and plates; WF-01's procedural rig, WF-03's line-art hero DNA and WF-05's
+  editing/typography authority are not replaced. Hand off to WF-05 with video + separated audio + receipts.
+
 ## WF-05 / MOTIONGO routing
 
 When the user requests WF-05, WF5, Premium Motion Editing or MOTIONGO, load `styles/premium-motion-editing/FRESH_CHAT.md` and `data/approved-profile.json` before production. Default: V5 clean integrated typography plus accepted V6 non-caption motion improvements; **no V6 bottom caption pills or active-word lower strip**. Historical case renderers are not the new-project default. Use the registered style, current acceptance policy and source-backed lessons rather than recreating the workflow from memory.

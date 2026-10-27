@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T21:54:46+00:00",
+  "generated_at": "2026-10-27T13:50:33+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "dd9d22655c6a7d251c43feb72a2c0dd93402c26935ec83cc25f6a41bde8de7f5",
-      "size": 3483
+      "sha256": "25dc180ed7033bfdc0c72ba5d24bf044dba85a46ce97b531d89690be0b0cfc73",
+      "size": 4665
     },
     "CHANGELOG.md": {
       "sha256": "b7953c9d96dc3c12cacaec116956b7bbe6b33b11deee678c2950630e95bd0e84",
@@ -52,16 +52,16 @@
       "size": 1007
     },
     "README.md": {
-      "sha256": "eb06409b55a6f33315ece333899ec8e42b2f5a0a6e5d2cc402bae3ad24e992eb",
-      "size": 6259
+      "sha256": "820962483496df0b118124d36e6f7635ab744d9e0126680248229123e1dff5d0",
+      "size": 6479
     },
     "SECURITY.md": {
       "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "31b929b2eec812a8c55cb4b3f290f53ff2fec031e1a905afd56e002764765112",
+      "size": 731
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -475,6 +475,14 @@
       "sha256": "860e42f431c3034bd44e00f247a75a66e4becac084c55748dfc22bbaeb4b20ce",
       "size": 6651
     },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/HANDOFF.md": {
+      "sha256": "087c55f440e54edae16d350141d3da8aeb64044647f3249beff395f62729beea",
+      "size": 1484
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/checkpoint.json": {
+      "sha256": "5949bce1e82807549d76f034ead665c25f8cb4863b9008df2ebbbac8523ac3c0",
+      "size": 4936
+    },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
       "size": 957
@@ -858,6 +866,18 @@
     "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "460e5a0bfa1aa184d9b550a90f293025c80647fb96b31b959b3ac75324666862",
       "size": 6651
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/STATUS.md": {
+      "sha256": "971b8b7c71aafe393ce38490691ae6bf5aebf75e483e30ebfac7094b9a34a5a1",
+      "size": 1042
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/SYNC.json": {
+      "sha256": "7f10167544b6530fc4afc518a470cfb58a50654a2287bd5703927dfb9568c533",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/checkpoint.json": {
+      "sha256": "1412b4057fd1ea06539ba6fac1c15790d352e7f60a82d69112a02c0f266620b4",
+      "size": 5014
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -1420,12 +1440,68 @@
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "a9b826e8617170be3cbce5449ce40fc703278decac29f395f3af63efc9e7bb68",
-      "size": 5478
+      "sha256": "1b1b53a5ac192e50dade3ffd9a20ed466670ae005dae76b6961b59cbec4744e8",
+      "size": 6349
     },
     "styles/README.md": {
-      "sha256": "7843e958188ebe50bb7c0ae351ef620c012d4fdd76307377ddee6778a188f59c",
-      "size": 1807
+      "sha256": "ed9fdf594f78145567fdeeca169bcdecee5875e89db9c1cb4a7531dd837ae038",
+      "size": 2092
+    },
+    "styles/minimax-h3-video/README.md": {
+      "sha256": "a661b2d68389fc903208263b6aee4bed204c575e2c1fdbd3c173d8ecd35e0a43",
+      "size": 5898
+    },
+    "styles/minimax-h3-video/assets/refs/README.md": {
+      "sha256": "7e7dcec7057f346717a44cff47b10c27d13ecf4c4a8249d74fdd920fe0e4202c",
+      "size": 973
+    },
+    "styles/minimax-h3-video/colab/MONARCH_H3_COLAB.ipynb": {
+      "sha256": "3816e221fcfb538d14971ac14edb4290448e1856500b151140b959dee2b9eef8",
+      "size": 29296
+    },
+    "styles/minimax-h3-video/data/shotlist.example.json": {
+      "sha256": "f27c372ba931c7f3a92ba7b453bb04d3aac5ca5c622a194e307c441bf86ebeef",
+      "size": 4805
+    },
+    "styles/minimax-h3-video/knowledge/00_MODEL_FACTS.md": {
+      "sha256": "7d7407efd18897e86ccba3335bd4758a29dc14c74ca1d3b629df1cb38afcebd2",
+      "size": 7604
+    },
+    "styles/minimax-h3-video/knowledge/01_COLAB_RUNBOOK.md": {
+      "sha256": "917cc76f9a5e354b5626910515ad4a69e71a61060c7dc77d88c1872e04b83dc0",
+      "size": 5873
+    },
+    "styles/minimax-h3-video/knowledge/02_PROMPTING.md": {
+      "sha256": "024db8e1a505e77ee52242726852c57ec0023edade0d1b678ee96b5964409881",
+      "size": 9171
+    },
+    "styles/minimax-h3-video/knowledge/03_ROUTES_AND_COST.md": {
+      "sha256": "94164a6cbf0484f93f9dc0ae9c3cb8392f5a7f2082e69ce866a05578d646fe9b",
+      "size": 4862
+    },
+    "styles/minimax-h3-video/knowledge/04_WF04_MONARCH_FACE_INTEGRATION.md": {
+      "sha256": "fdc305e90b45c19dc59f9a3448c305e178e5731b9c58ee3476253448b36c9167",
+      "size": 6335
+    },
+    "styles/minimax-h3-video/knowledge/INDEX.md": {
+      "sha256": "f96cb91b312efe7c6499eea23c054175b8e97556eaa4b3d4b54960e1323b63f4",
+      "size": 2935
+    },
+    "styles/minimax-h3-video/records/PROVENANCE.json": {
+      "sha256": "06732725bb29a34681acd1c9eb0aeda1274d6e090c4bfaf2dcb20b176c30a3d3",
+      "size": 4055
+    },
+    "styles/minimax-h3-video/src/h3_client.py": {
+      "sha256": "225673f2246e25c4b05e5860d4e9a741118058aa6256f4e6aa071451d2b36ccb",
+      "size": 13255
+    },
+    "styles/minimax-h3-video/style.json": {
+      "sha256": "a56dd25167918caec0f9a1927c7dd52b5d46b9d77130847e07097bc29a6327a8",
+      "size": 1598
+    },
+    "styles/minimax-h3-video/workflow.json": {
+      "sha256": "39810dce6165451ce756f45737eebbcee6986eb7e356a6548a2015bf6453139a",
+      "size": 3336
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -3688,20 +3764,24 @@
       "size": 2585
     },
     "styles/registry.json": {
-      "sha256": "ade8ba0e311225300df6b5b7ee95d3be859302e8dccc5e9e31e4290fd08f2a78",
-      "size": 1807
+      "sha256": "cdae5830985ff16d1fd62886cf03cfcdab3f3d5e893cc223d2abce1a0843356c",
+      "size": 2271
     },
     "tests/test_continuity.py": {
       "sha256": "dc73ed61772a334e75264fa1e435d8b798ac412b96b84628014b954ee285820a",
       "size": 4439
     },
     "tests/test_studio.py": {
-      "sha256": "c1c6be8843795561669710f3d34926950220ca0469e2f01da703e4b6e32c0851",
-      "size": 6760
+      "sha256": "2cab403fb216e0ecc3e58a2f0952ed4f5d5a7212edba208a77e429d86667be09",
+      "size": 6939
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
       "size": 7671
+    },
+    "tests/test_wf06_h3.py": {
+      "sha256": "17a356d5053cf41eda3fd21a933f9ea892da4d4b9c3eb5a65065d903242806f7",
+      "size": 7552
     },
     "tools/README.md": {
       "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
@@ -3732,20 +3812,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "d89ac16bc8297bc0e5300e0e4af87cf2330e7f58a582d83ff42bda1001bfeeb1",
-      "size": 745
+      "sha256": "42595c68a96f93eec85ead66aa0b7f7f7f2e465330a96982b54e6b034e6efab6",
+      "size": 1351
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "4dee309349ef1bfe927c2f31abceaf724b1d7be33b9808b4cefa0fdb1d71a11a",
+      "size": 636
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "483b6dbfa3b3cbbc8bf96d8a8161bc6e7a68ed2987b12a21f327bf898a3bac8f",
+      "size": 4261
     },
     "workflows/current/RESUME.md": {
-      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
-      "size": 874
+      "sha256": "087c55f440e54edae16d350141d3da8aeb64044647f3249beff395f62729beea",
+      "size": 1484
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "task_id": "NONE",
-  "status": "idle",
-  "title": "No active task",
-  "style_id": null,
-  "goal": "",
-  "acceptance_criteria": [],
-  "started_at": null,
-  "updated_at": "2026-10-14T21:54:45Z",
-  "checkpoint_sequence": 0,
-  "event_sequence": 0,
-  "journal_head": null,
-  "last_checkpoint": null,
-  "last_checkpoint_path": null,
-  "next_action": "Start the next task with continuity.py init.",
+  "task_id": "EMS-20261027-WF06-H3-LAB",
+  "status": "active",
+  "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+  "style_id": "minimax-h3-video",
+  "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+  "acceptance_criteria": [
+    "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+  ],
+  "started_at": "2026-10-27T13:49:42Z",
+  "updated_at": "2026-10-27T13:50:33Z",
+  "checkpoint_sequence": 1,
+  "event_sequence": 6,
+  "journal_head": "7bbfad26972acb871c6cc583f158152fb38a2669763cfcd0448de76424d06f18",
+  "last_checkpoint": "2026-10-27T13:50:33Z",
+  "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z",
+  "next_action": "Run the L1 identity test: add Monarch reference crops + voice ref to styles/minimax-h3-video/assets/refs/, then estimate and run one 5 s 768P Ref2VA shot with MINIMAX_API_KEY",
   "running_processes": [],
   "remote_sync": {
-    "github": "not_configured",
-    "google_docs": "not_configured",
-    "google_drive": "not_configured",
-    "linear": "not_configured",
-    "notion": "not_configured"
-  },
-  "completed_task": "EMS-20261015-WF05-FOUNDATION",
-  "completion_checkpoint": "0006-20261014T215445Z"
+    "github": "pending",
+    "google_docs": "pending",
+    "google_drive": "pending",
+    "linear": "pending",
+    "notion": "pending"
+  }
 }
