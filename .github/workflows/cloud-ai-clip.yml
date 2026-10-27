@@ -1,0 +1,113 @@
+name: Cloud AI clip (agent-triggered, CPU)
+
+# Agent cloud me *AI* clip banata hai — bina kisi GPU account, bina owner ke koi tap.
+# GitHub runner ke paas poora internet hai (HF download chal jata hai) aur 4 core CPU.
+# Model chhota rakha gaya hai (SD1.5 + AnimateDiff) taake CPU par 6 ghante me aa jaye.
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: "cloud/ai_jobs/<id>.json"
+        required: false
+        default: ""
+  push:
+    paths:
+      - "cloud/ai_jobs/*.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cloud-ai-clip
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Torch (CPU) + diffusers
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install --quiet diffusers transformers accelerate safetensors imageio imageio-ffmpeg pillow
+          python3 -c "import torch, diffusers; print('torch', torch.__version__, 'diffusers', diffusers.__version__)"
+
+      - name: Pick the job
+        id: pick
+        run: |
+          set -euo pipefail
+          JOB="${{ github.event.inputs.job_id }}"
+          if [ -z "$JOB" ]; then
+            JOB=$(ls -t cloud/ai_jobs/*.json 2>/dev/null | head -1 | xargs -r basename | sed 's/\.json$//')
+          fi
+          [ -n "$JOB" ] || { echo "koi ai job nahi"; exit 1; }
+          echo "job=$JOB" >> "$GITHUB_OUTPUT"
+          cat "cloud/ai_jobs/$JOB.json"
+
+      - name: Generate on CPU
+        env:
+          HF_HUB_DISABLE_XET: "1"
+          OMP_NUM_THREADS: "4"
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          python3 tools/cloud_ai_clip.py "cloud/ai_jobs/$JOB.json" --out "cloud_out/$JOB"
+
+      - name: Receipt
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          OUTDIR="cloud_out/$JOB"
+          python3 - "$JOB" "$OUTDIR" <<'PY'
+          import json, pathlib, sys, hashlib, subprocess, glob
+          job_id, outdir = sys.argv[1], pathlib.Path(sys.argv[2])
+          rows = []
+          for clip in sorted(outdir.glob("*.mp4")):
+              probe = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(clip)],
+                                     capture_output=True, text=True).stderr
+              rows.append({"file": clip.name, "bytes": clip.stat().st_size,
+                           "md5": hashlib.md5(clip.read_bytes()).hexdigest(),
+                           "probe": probe.strip().splitlines()[-8:]})
+          payload = {"job": job_id, "runner": "github-actions-cpu", "kind": "ai_clip",
+                     "clips": rows,
+                     "made_at": subprocess.run(["date", "-u", "+%Y-%m-%dT%H:%M:%SZ"],
+                                               capture_output=True, text=True).stdout.strip()}
+          (outdir / "cloud_ai_receipt.json").write_text(json.dumps(payload, indent=2))
+          print(json.dumps(payload, indent=2)[:1500])
+          PY
+
+      - name: Publish to cloud-ai-artifacts
+        run: |
+          set -euo pipefail
+          JOB="${{ steps.pick.outputs.job }}"
+          OUTDIR="cloud_out/$JOB"
+          git config user.name "Monarch Cloud"
+          git config user.email "cloud@monarch.local"
+          rm -rf /tmp/ai && mkdir -p /tmp/ai
+          cp "$OUTDIR"/*.mp4 "$OUTDIR"/*.json /tmp/ai/ 2>/dev/null || true
+          git checkout --orphan cloud-ai-tmp
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          rm -rf ./* 2>/dev/null || true
+          cp -r /tmp/ai/* .
+          git add -A
+          git commit -q -m "cloud ai clip: $JOB (${{ github.sha }})"
+          git push --force origin HEAD:cloud-ai-artifacts
+          echo "published"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cloud-ai-clips
+          path: cloud_out/**/*
+          retention-days: 7
