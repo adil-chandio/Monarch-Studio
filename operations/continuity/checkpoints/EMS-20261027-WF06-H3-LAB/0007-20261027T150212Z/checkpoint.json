@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0007-20261027T150212Z",
+  "created_at": "2026-10-27T15:02:12Z",
+  "summary": "viper-1.2 delivers the free audio + quality answer: new audio command writes audio/AUDIO_<project>.ipynb (Kokoro or Chatterbox voice, MMAudio/ThinkSound foley, MusicGen bed, receipt), new mix command builds per-shot ffmpeg graphs (vo+foley amix, sidechain-ducked bed, optional loudnorm -16 LUFS, video copied), shot_media prefers -mix stems, verify fails when stems exist but the file has no audio stream, plan prints non-commercial licence warnings, knowledge/AUDIO.md documents the researched stack (with licence reality) and the Ovi/Kandinsky 24GB wall, tool_registry.json extended with 7 audio models in the existing schema, docs/VIDEOGEN.md + WF-07 README + INDEX updated, 120 tests OK, validate 25/1/0, manifest 1000 files, Drive synced to 15 files.",
+  "next_action": "First real reel: user supplies Monarch reference crops + a voice line (or lets Kokoro speak it); run plan -> render (free queue) -> audio (Colab) -> upscale (Colab) -> mix -> verify -> assemble, then promote to 05 · Projects/<id>/ and 06 · Masters & Receipts/.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T15:02:12Z",
+    "checkpoint_sequence": 7,
+    "event_sequence": 29,
+    "journal_head": "7a6fe77c2a394d6d1669b9fccd19d9a9839f7977048a5cf5083738da96b1bb6c",
+    "last_checkpoint": "2026-10-27T15:02:12Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z",
+    "next_action": "First real reel: user supplies Monarch reference crops + a voice line (or lets Kokoro speak it); run plan -> render (free queue) -> audio (Colab) -> upscale (Colab) -> mix -> verify -> assemble, then promote to 05 · Projects/<id>/ and 06 · Masters & Receipts/.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 29,
+    "timestamp": "2026-10-27T15:02:12Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "viper-1.2 delivers the free audio + quality answer: new audio command writes audio/AUDIO_<project>.ipynb (Kokoro or Chatterbox voice, MMAudio/ThinkSound foley, MusicGen bed, receipt), new mix command builds per-shot ffmpeg graphs (vo+foley amix, sidechain-ducked bed, optional loudnorm -16 LUFS, video copied), shot_media prefers -mix stems, verify fails when stems exist but the file has no audio stream, plan prints non-commercial licence warnings, knowledge/AUDIO.md documents the researched stack (with licence reality) and the Ovi/Kandinsky 24GB wall, tool_registry.json extended with 7 audio models in the existing schema, docs/VIDEOGEN.md + WF-07 README + INDEX updated, 120 tests OK, validate 25/1/0, manifest 1000 files, Drive synced to 15 files.",
+    "content_sha256": "3be2dbe18f07174f2e0e179968cea4b021300cefb5f96364939f4e78036ef9ab",
+    "metadata": {
+      "sequence": 7,
+      "next_action": "First real reel: user supplies Monarch reference crops + a voice line (or lets Kokoro speak it); run plan -> render (free queue) -> audio (Colab) -> upscale (Colab) -> mix -> verify -> assemble, then promote to 05 · Projects/<id>/ and 06 · Masters & Receipts/.",
+      "status": "active"
+    },
+    "prev_event_sha256": "5f4ef714a5ce43b44a99369551449b1d87ac0f7a87a8b4ca2fdeb94357d01741",
+    "event_sha256": "7a6fe77c2a394d6d1669b9fccd19d9a9839f7977048a5cf5083738da96b1bb6c"
+  },
+  "journal_head": "7a6fe77c2a394d6d1669b9fccd19d9a9839f7977048a5cf5083738da96b1bb6c",
+  "git": {
+    "initialized": true,
+    "head": "6fcc73926270e12d6524d51a6259df87a557537d",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M docs/VIDEOGEN.md",
+      " M studio/registry.json",
+      " M studio/videogen/examples/monarch-reel-01.project.json",
+      " M studio/videogen/examples/plan.json",
+      " M styles/minimax-h3-video/data/tool_registry.json",
+      " M styles/minimax-h3-video/workflow.json",
+      " M styles/monarch-ai-agent/README.md",
+      " M styles/monarch-ai-agent/data/drive.json",
+      " M styles/monarch-ai-agent/knowledge/INDEX.md",
+      " M tests/test_videogen.py",
+      " M tests/test_wf06_h3.py",
+      " M tools/videogen.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl",
+      "?? styles/monarch-ai-agent/knowledge/AUDIO.md",
+      "?? tools/_audio_block.txt"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

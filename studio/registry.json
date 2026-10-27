@@ -18,7 +18,7 @@
       "reconciliation": "aligned",
       "reproducibility": "R1",
       "current_delivery": {
-        "title": "TUMHARI RESERVED SEAT · WF-01",
+        "title": "TUMHARI RESERVED SEAT \u00b7 WF-01",
         "task_id": "EMS-20261011-002",
         "drive_id": "1h9DRRnwNDAC9PXb8rqIf5_oLFdSaTYuW",
         "source_drive_id": "1b_BpVLkTBOlPkUvgvIWPbcQzmV01FZTh",
@@ -53,7 +53,7 @@
       "reconciliation": "required_before_next_numbered_film",
       "reproducibility": "mixed_R1_R2_R3",
       "current_fully_sourced_delivery": {
-        "title": "TUMHARI RESERVED SEAT · WF-03",
+        "title": "TUMHARI RESERVED SEAT \u00b7 WF-03",
         "film_number": null,
         "numbering": "intentionally unassigned",
         "task_id": "EMS-20261011-002",
@@ -105,6 +105,56 @@
         "source_package_drive_id": "1ue4xkG697LP4yH66GCJYPtMr0D17pPkd",
         "release_receipt_drive_id": "1IP1ykbtg6Hvk3SqiZGkF_uRsj8v9vRje"
       }
+    },
+    {
+      "code": "WF-06",
+      "style_id": "minimax-h3-video",
+      "slug": "wf06",
+      "name": "MiniMax-H3 Generative Video",
+      "path": "styles/minimax-h3-video",
+      "trigger": "H3GO <topic or shot list>",
+      "state": "PILOT_READY_NO_DELIVERY",
+      "reconciliation": "new_style_20261027_no_delivery",
+      "reproducibility": "rate card + request shapes captured 2026-10-27 from platform docs; offline CLI/notebook tested without spend",
+      "default_route": "hosted API control room (Colab CPU); local weights = 768P only",
+      "authorities": {
+        "drive_folder_id": null,
+        "notion_project_id": null,
+        "linear_resume_issue": null,
+        "google_doc_hub_id": null,
+        "source_repo": "https://github.com/MiniMax-AI/MiniMax-H3",
+        "model_weights": "https://huggingface.co/MiniMaxAI/MiniMax-H3"
+      }
+    },
+    {
+      "code": "WF-07",
+      "style_id": "monarch-ai-agent",
+      "slug": "wf07",
+      "name": "Monarch AI Agent",
+      "path": "styles/monarch-ai-agent",
+      "trigger": "AGENTGO <job or topic>",
+      "state": "ACTIVE_WITH_USER",
+      "reconciliation": "user_created_drive_home_20261027",
+      "reproducibility": "every clip keeps project.json + receipts.json (engine, md5, billed seconds); code is tools/videogen.py",
+      "role": "delivery home + operating rules for all AI-generated video",
+      "authorities": {
+        "drive_folder_id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+        "drive_folder_url": "https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+        "drive_subfolders": {
+          "start_here": "1rnVmd4wTIwkTjy1FgYeBWVra3_NUKQ1k",
+          "engine": "1BC16OI4EqLCOIL4fJ5w-RaRIgDJVutsB",
+          "notebooks": "1ML86TUyQFqS3dn84K_IjBf5T5gfTyg9E",
+          "knowledge": "12bfu_URXfA5-DNal1qN1iR13ldn5gNKI",
+          "projects": "1ZTua9_q-SeOvgzmEuQ_KTF3fZh_BnoBl",
+          "masters": "1NcNrI8Dzyak6fqo70fbRhmjjU5Cl-PoE"
+        },
+        "tool": "tools/videogen.py",
+        "tool_manual": "docs/VIDEOGEN.md",
+        "engine_knowledge": "styles/minimax-h3-video",
+        "notion_project_id": null,
+        "linear_resume_issue": null,
+        "google_doc_hub_id": null
+      }
     }
   ],
   "characters": [
@@ -130,6 +180,87 @@
       "url": "https://github.com/yihui-dev/awesome-opus5-5-videos.git",
       "commit": "756290289742535eb0ac3817548f152e9759cc70",
       "role": "pinned_research_index"
+    }
+  ],
+  "tools": [
+    {
+      "id": "viper-1",
+      "name": "VIPER-1 video engine",
+      "path": "tools/videogen.py",
+      "manual": "docs/VIDEOGEN.md",
+      "version": "viper-1.2",
+      "role": "studio-wide AI video generation orchestrator (engine per shot, cost gate, verify, assemble)",
+      "engines": [
+        "h3 (paid API)",
+        "wan (free Colab T4 queue)",
+        "latentsync (free lipsync script)"
+      ],
+      "knowledge": "styles/minimax-h3-video/",
+      "finish_handoff": "styles/premium-motion-editing (WF-05)",
+      "example": "studio/videogen/examples/monarch-reel-01.project.json",
+      "tests": "tests/test_videogen.py",
+      "capabilities": [
+        "doctor",
+        "new",
+        "plan",
+        "render",
+        "verify",
+        "assemble",
+        "audio",
+        "mix",
+        "upscale",
+        "status"
+      ],
+      "quality_ladder": {
+        "free_route": "480x832 (9:16) silent, Wan 2.1 T2V 1.3B on a free T4",
+        "lanczos_x2": "960x1664 via ffmpeg, no GPU, sharpened edges only",
+        "realesrgan_x2": "960x1664 on the free T4, rebuilt texture, still not native 1080p",
+        "paid_h3": "768P or 2K with native stereo + lipsync \u2014 the only true high-res route",
+        "never": "call a scaled 480p clip a 1080p/4K render"
+      },
+      "audio_stack": {
+        "voice": {
+          "kokoro": "Apache-2.0, CPU, 54 voices",
+          "chatterbox": "MIT, ~5 GB, cloning"
+        },
+        "foley": {
+          "mmaudio": "~6 GB, weights CC-BY-NC (non-commercial)",
+          "thinksound": "Apache code, ~8 GB"
+        },
+        "bed": {
+          "musicgen": "~4 GB, weights CC-BY-NC (non-commercial)"
+        },
+        "lipsync": {
+          "latentsync": "8 GB, T4 fp16 patch"
+        },
+        "mix": "ffmpeg: vo+foley amix, bed ducked via sidechaincompress, optional -16 LUFS",
+        "not_free_on_gpu": "Ovi (11B, 24 GB fp8) and Kandinsky 6 Lite (21.7 GiB) \u2014 synced audio in one pass"
+      }
+    },
+    {
+      "id": "mobileops-1",
+      "name": "MOBILEOPS phone state machine",
+      "path": "tools/mobile_ops.py",
+      "manual": "docs/MOBILE_WORKFLOW.md",
+      "version": "mobileops-1.0",
+      "role": "durable job state machine for phone-only operation: gates, owner cards, resume",
+      "capabilities": [
+        "doctor",
+        "start",
+        "plan",
+        "handoff",
+        "check",
+        "finish",
+        "deliver",
+        "status",
+        "next",
+        "card",
+        "list"
+      ],
+      "state_source": "studio/mobile/jobs/<job_id>.json",
+      "owner_interface": "one Colab link + one tap; no CLI/JSON/pip ever",
+      "tests": "tests/test_mobile_ops.py",
+      "engine": "tools/videogen.py (viper-1.4)"
     }
   ]
 }

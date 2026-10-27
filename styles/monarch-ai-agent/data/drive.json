@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-27",
+  "authority": "Google Drive",
+  "root": {
+    "name": "Wf-07 \u2022 Monarch Ai Agent",
+    "id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+    "url": "https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1",
+    "parent": {
+      "name": "MONARCH STUDIO",
+      "id": "1-wAt4bgYVn7q15uq22ZnRY8z5iIQaI-l"
+    },
+    "owner": "alipvip19@gmail.com"
+  },
+  "subfolders": {
+    "start_here": {
+      "name": "01 \u00b7 START HERE",
+      "id": "1rnVmd4wTIwkTjy1FgYeBWVra3_NUKQ1k"
+    },
+    "engine": {
+      "name": "02 \u00b7 Engine (VIPER-1)",
+      "id": "1BC16OI4EqLCOIL4fJ5w-RaRIgDJVutsB"
+    },
+    "notebooks": {
+      "name": "03 \u00b7 Colab Notebooks",
+      "id": "1ML86TUyQFqS3dn84K_IjBf5T5gfTyg9E"
+    },
+    "knowledge": {
+      "name": "04 \u00b7 Knowledge",
+      "id": "12bfu_URXfA5-DNal1qN1iR13ldn5gNKI"
+    },
+    "projects": {
+      "name": "05 \u00b7 Projects",
+      "id": "1ZTua9_q-SeOvgzmEuQ_KTF3fZh_BnoBl"
+    },
+    "masters": {
+      "name": "06 \u00b7 Masters & Receipts",
+      "id": "1NcNrI8Dzyak6fqo70fbRhmjjU5Cl-PoE"
+    }
+  },
+  "convention": {
+    "projects": "one folder per project id: project.json + plan.json + receipts.json + shots/",
+    "masters": "final masters only, each with its md5 in the project receipts",
+    "knowledge": "exported copies of styles/minimax-h3-video knowledge; Git remains the source of truth",
+    "notebooks": "the exact .ipynb files from styles/minimax-h3-video/colab/"
+  },
+  "uploaded": [
+    {
+      "what": "START HERE guide",
+      "name": "START HERE \u2014 WF-07 Monarch AI Agent (free vs paid + 480p answer)",
+      "id": "1tRxHnODAm_rSuOM58nXJYVqUqZhfPpE7cqpASzcG_dY",
+      "type": "google-doc",
+      "folder": "start_here",
+      "url": "https://docs.google.com/document/d/1tRxHnODAm_rSuOM58nXJYVqUqZhfPpE7cqpASzcG_dY/edit"
+    },
+    {
+      "what": "engine source",
+      "name": "videogen.py (VIPER-1 v1.4 \u2014 mobile + static ffmpeg)",
+      "id": "1F16iWM6DdfFJovsWE2XoMpVev-YyO8j3",
+      "type": "python",
+      "folder": "engine",
+      "url": "https://drive.google.com/file/d/1F16iWM6DdfFJovsWE2XoMpVev-YyO8j3/view"
+    },
+    {
+      "what": "engine manual",
+      "name": "VIDEOGEN \u2014 VIPER-1 manual (v1.3, free-only + audio + quality)",
+      "id": "1e19WP8bgHCGzz5qgaiVgfX_rYLTEAseRxySj0Uh1YOI",
+      "type": "google-doc",
+      "folder": "engine",
+      "url": "https://docs.google.com/document/d/1e19WP8bgHCGzz5qgaiVgfX_rYLTEAseRxySj0Uh1YOI/edit"
+    },
+    {
+      "what": "free route notebook",
+      "name": "MONARCH_T4_FREE_BRIDGE.ipynb (free T4: Wan 1.3B)",
+      "id": "1h1sbfqXlhRdiDXX_jLTxBfNwgLe89P0p",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://drive.google.com/file/d/1h1sbfqXlhRdiDXX_jLTxBfNwgLe89P0p/view"
+    },
+    {
+      "what": "paid route notebook",
+      "name": "MONARCH_H3_COLAB.ipynb (paid H3 API control room)",
+      "id": "19j8VWFzU1fH4dv2wn9BukA_a4iq-AvhE",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://drive.google.com/file/d/19j8VWFzU1fH4dv2wn9BukA_a4iq-AvhE/view"
+    },
+    {
+      "what": "model menu",
+      "name": "tool_registry.json (12 models: licence/VRAM/cost)",
+      "id": "1mdG74sWrwB0Yr2neqmMoLVpZT4E8pEMr",
+      "type": "json",
+      "folder": "knowledge",
+      "url": "https://drive.google.com/file/d/1mdG74sWrwB0Yr2neqmMoLVpZT4E8pEMr/view"
+    },
+    {
+      "what": "free vs paid",
+      "name": "05 \u2014 Free vs paid routes (is H3 free?)",
+      "id": "11bg4a_ZbK_ZDk6dGB7I4WJP4S-_LERBJ_D6woz3qhjM",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/11bg4a_ZbK_ZDk6dGB7I4WJP4S-_LERBJ_D6woz3qhjM/edit"
+    },
+    {
+      "what": "tool menu by GPU",
+      "name": "06 \u2014 Next-level toolbox (which tool on which GPU)",
+      "id": "1Rpt815Vd9rcGD_u-G5bKiVaSicv5YnszwnOPeJHFnww",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1Rpt815Vd9rcGD_u-G5bKiVaSicv5YnszwnOPeJHFnww/edit"
+    },
+    {
+      "what": "prompt grammar",
+      "name": "02 \u2014 Prompting grammar + Monarch templates",
+      "id": "1grIjpqnWTXrYm1fjXL0pR4Q0fQ8eW8T7_9xK6cqMGtg",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1grIjpqnWTXrYm1fjXL0pR4Q0fQ8eW8T7_9xK6cqMGtg/edit"
+    },
+    {
+      "what": "model facts",
+      "name": "00 \u2014 H3 model facts (specs, VRAM, API, pricing, licence)",
+      "id": "1frC4llt-7Lj9ouaIlKjlTTURL_xXgsebU9VvYsi9e-Q",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1frC4llt-7Lj9ouaIlKjlTTURL_xXgsebU9VvYsi9e-Q/edit"
+    },
+    {
+      "what": "colab runbook",
+      "name": "01 \u2014 Colab runbook (how to run it)",
+      "id": "1Nn0isfBfplCIXLGz2GsdKvhB3pqPVSaiz6vOdo2_SIg",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1Nn0isfBfplCIXLGz2GsdKvhB3pqPVSaiz6vOdo2_SIg/edit"
+    },
+    {
+      "what": "example project",
+      "name": "monarch-reel-01.project.json (example project)",
+      "id": "1a4uOeI8GUd70balIUkyNaWKYNZl8-7MU",
+      "type": "json",
+      "folder": "projects",
+      "url": "https://drive.google.com/file/d/1a4uOeI8GUd70balIUkyNaWKYNZl8-7MU/view"
+    },
+    {
+      "what": "free queue format",
+      "name": "free_jobs.example.json (queue format for the T4 notebook)",
+      "id": "1RIk84LPk-9_cWgAvd-wEAYep3BUCo74n",
+      "type": "json",
+      "folder": "projects",
+      "url": "https://drive.google.com/file/d/1RIk84LPk-9_cWgAvd-wEAYep3BUCo74n/view"
+    },
+    {
+      "what": "quality ladder",
+      "name": "QUALITY \u2014 480p se 1080p tak (kya sach hai)",
+      "id": "1ZFpqb4xyY71UuTzcAFCxejSEdwT2EmmFYFvfpaoTcFY",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1ZFpqb4xyY71UuTzcAFCxejSEdwT2EmmFYFvfpaoTcFY/edit"
+    },
+    {
+      "what": "audio research",
+      "name": "AUDIO \u2014 free voice + foley + music (research + licences)",
+      "id": "1fE_rkIV5LEh4NgIi4wyRFb0aa6MElNc16tcaIsUEYQw",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1fE_rkIV5LEh4NgIi4wyRFb0aa6MElNc16tcaIsUEYQw/edit"
+    },
+    {
+      "what": "free-only playbook",
+      "name": "FREE-ONLY PLAYBOOK \u2014 $0 me poora system",
+      "id": "1RpxD392bvTqH7Lq79CH7-5_bm6NlklH6Ans0ZPugL4M",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1RpxD392bvTqH7Lq79CH7-5_bm6NlklH6Ans0ZPugL4M/edit"
+    },
+    {
+      "what": "free compute menu",
+      "name": "free_compute.json (card-free GPU menu + quotas)",
+      "id": "1lOnDegCxL5hVuYtivvBsXAFluI9k7Cm3",
+      "type": "json",
+      "folder": "knowledge",
+      "url": "https://drive.google.com/file/d/1lOnDegCxL5hVuYtivvBsXAFluI9k7Cm3/view"
+    },
+    {
+      "what": "mobile notebook (example)",
+      "name": "MOBILE_monarch-reel-01.ipynb",
+      "id": "1NyLL81GBLFRYy16ZhxT-e2KBPwfjYdkA",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://colab.research.google.com/drive/1NyLL81GBLFRYy16ZhxT-e2KBPwfjYdkA"
+    },
+    {
+      "what": "mobile protocol",
+      "name": "MOBILE MODE \u2014 phone se poora studio (3 taps)",
+      "id": "1DbPD0gCCz-zfyRn-1TkE0_5qrq9IddXvWzYq_OoZDFQ",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1DbPD0gCCz-zfyRn-1TkE0_5qrq9IddXvWzYq_OoZDFQ/edit"
+    },
+    {
+      "what": "mobile workflow SOP",
+      "name": "MOBILE WORKFLOW \u2014 phone SOP (state machine + gates)",
+      "id": "1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8",
+      "type": "google-doc",
+      "folder": "knowledge",
+      "url": "https://docs.google.com/document/d/1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8/edit"
+    },
+    {
+      "what": "mobile ops tool",
+      "name": "mobile_ops.py (MOBILEOPS-1 \u2014 phone job state machine)",
+      "id": "1zIL5xFgz_BRxrVoO2IWlJ6y2D0qk0-lS",
+      "type": "python",
+      "folder": "engine",
+      "url": "https://drive.google.com/file/d/1zIL5xFgz_BRxrVoO2IWlJ6y2D0qk0-lS/view"
+    },
+    {
+      "what": "test 01 notebook",
+      "name": "TEST_01_phone_run_all.ipynb",
+      "id": "1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+      "type": "notebook",
+      "folder": "notebooks",
+      "url": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf"
+    }
+  ],
+  "uploaded_at": "2026-10-27T14:20:55Z",
+  "uploaded_count": 22,
+  "engine_version": "viper-1.4",
+  "trashed": [
+    {
+      "why": "superseded by v1.1",
+      "id": "1fiPsvdXbL_E45bwL9uRNfpI9T4WpomfV"
+    },
+    {
+      "why": "superseded by v1.1 manual",
+      "id": "1tAOdb3dh9gS61XaOtumVZlJSKxyIQ5vBpLEImbCsEoY"
+    },
+    {
+      "why": "superseded (480p answer added)",
+      "id": "15VG_djjR_vbZ41vEfsGW1k7C-G-i_bD3BYDeQPeqwvI"
+    },
+    {
+      "why": "superseded by v1.2",
+      "id": "1BlnGAlcWJQX4wcYoq3BhQV_jLotXss6l"
+    },
+    {
+      "why": "superseded by v1.2 manual",
+      "id": "15UG4ZH29Kzj-HwPKqV9PEXTeSCJo0XXIJ94qN7Ou1xk"
+    },
+    {
+      "why": "superseded by v1.3",
+      "id": "1pr2C21S7oHVZxt6EtvCGAK71dRgHLUC0"
+    },
+    {
+      "why": "superseded by v1.4",
+      "id": "1Bnd-uvOus6GsKmuMJXN6DpEGtUxe5CUZ"
+    }
+  ],
+  "policy": "zero_spend \u2014 paid routes locked unless MONARCH_ALLOW_PAID=1",
+  "owner_device": "mobile (Arena agent does all CLI work)",
+  "mobile_tool": {
+    "id": "mobileops-1.0",
+    "path": "tools/mobile_ops.py",
+    "sop_doc_id": "1rRF3hZgQRJrzeKAG59sjPmAbtMeW---hXLoxsQOVVV8",
+    "state_dir": "studio/mobile/jobs"
+  },
+  "naming_rule": "Drive notebooks must end .ipynb (mimeType application/x-ipynb+json)"
+}

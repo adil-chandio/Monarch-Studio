@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0015-20261027T180343Z",
+  "created_at": "2026-10-27T18:03:43Z",
+  "summary": "viper-1.6: mobile --one-cell merges every code cell into one so the phone shows a single play button; the test notebook now has a 2-step intro (tap play, wait for DONE + ZIP) and the Drive mount is optional with a ZIP fallback. Diagnostics this turn: the colab-test-02 notebook was never executed (all cells empty in screenshots), so nothing was broken in the code - the trigger was. Tag colab-test-03 verified via GitHub API (17918 bytes).",
+  "next_action": "Owner opens the colab-test-03 link, taps the single play button, and sends the last cell or the ZIP; then mobile_ops ingest -> check -> finish.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T18:03:43Z",
+    "checkpoint_sequence": 15,
+    "event_sequence": 51,
+    "journal_head": "e47cf3598d7db0c41e6124d2b358279d1b03971e937c820e421914577bc6e5db",
+    "last_checkpoint": "2026-10-27T18:03:43Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z",
+    "next_action": "Owner opens the colab-test-03 link, taps the single play button, and sends the last cell or the ZIP; then mobile_ops ingest -> check -> finish.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 51,
+    "timestamp": "2026-10-27T18:03:43Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "viper-1.6: mobile --one-cell merges every code cell into one so the phone shows a single play button; the test notebook now has a 2-step intro (tap play, wait for DONE + ZIP) and the Drive mount is optional with a ZIP fallback. Diagnostics this turn: the colab-test-02 notebook was never executed (all cells empty in screenshots), so nothing was broken in the code - the trigger was. Tag colab-test-03 verified via GitHub API (17918 bytes).",
+    "content_sha256": "e7aabbd866a000287292edc2867ba5d4f431aa5fb2ff5f3a325b67b7a2811a19",
+    "metadata": {
+      "sequence": 15,
+      "next_action": "Owner opens the colab-test-03 link, taps the single play button, and sends the last cell or the ZIP; then mobile_ops ingest -> check -> finish.",
+      "status": "active"
+    },
+    "prev_event_sha256": "9b3ab270bb5a39023bc0cade4d3d9261be1ef1478f51a95e0157b9baf91541f5",
+    "event_sha256": "e47cf3598d7db0c41e6124d2b358279d1b03971e937c820e421914577bc6e5db"
+  },
+  "journal_head": "e47cf3598d7db0c41e6124d2b358279d1b03971e937c820e421914577bc6e5db",
+  "git": {
+    "initialized": true,
+    "head": "119e90273d4b778bdff5757cd7e28bc549f75655",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M studio/mobile/jobs/mob-test-01.json",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

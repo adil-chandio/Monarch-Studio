@@ -1,22 +1,22 @@
-# Resume capsule — NONE
+# Resume capsule — EMS-20261027-WF06-H3-LAB
 
-**Status:** `idle`  
-**Title:** No active task  
-**Style:** `studio-operation`  
-**Checkpoint sequence:** 0  
-**Last checkpoint:** none
+**Status:** `active`  
+**Title:** WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan  
+**Style:** `minimax-h3-video`  
+**Checkpoint sequence:** 17  
+**Last checkpoint:** 2026-10-27T18:30:31Z
 
 ## Goal
 
-No goal recorded.
+Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline
 
 ## Acceptance criteria
 
-- None recorded.
+- [ ] knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green
 
 ## Exact next action
 
-Start the next task with continuity.py init.
+Owner opens colab-test-04 link, one play button, waits 10-20 min; then sends DONE screenshot or the ZIP; agent runs mobile_ops ingest/check -> finish.
 
 ## Running processes
 
@@ -34,6 +34,6 @@ python3 tools/continuity.py resume
 - Hash-chained action journal: `workflows/current/JOURNAL.jsonl`
 - Visible user/assistant transcript: `workflows/current/CHAT_TRANSCRIPT.jsonl`
 - Active payload only: `workflows/current/payload/`
-- Latest checkpoint package: `none`
+- Latest checkpoint package: `operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z`
 
 Never restart this task from the beginning when these records exist. Verify the journal, inspect the latest checkpoint, then execute **Exact next action**.

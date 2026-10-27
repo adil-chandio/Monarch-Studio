@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0016-20261027T180947Z",
+  "created_at": "2026-10-27T18:09:47Z",
+  "summary": "Live confirmation from Drive: the owner's one-cell run works — Drive mount succeeded and the notebook created 05 · Projects/m-test-01/{shots,audio/vo,audio/foley} at 18:09 UTC. Waiting for the clip render; next check is shots/*.mp4 then mobile_ops ingest/check -> finish. Sandbox cannot reach Google hosts directly, so the media bytes must arrive either as a chat attachment (ZIP) or be described by the notebook receipt.",
+  "next_action": "Poll Drive 05 · Projects/m-test-01/shots for the rendered mp4; when it exists, ingest the ZIP or bytes, then finish -> deliver.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T18:09:47Z",
+    "checkpoint_sequence": 16,
+    "event_sequence": 53,
+    "journal_head": "97d35bd8afe630a9d839ff9b28774adc75ed3b1ded80da3848dcafa9de8316c7",
+    "last_checkpoint": "2026-10-27T18:09:47Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z",
+    "next_action": "Poll Drive 05 · Projects/m-test-01/shots for the rendered mp4; when it exists, ingest the ZIP or bytes, then finish -> deliver.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 53,
+    "timestamp": "2026-10-27T18:09:47Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Live confirmation from Drive: the owner's one-cell run works — Drive mount succeeded and the notebook created 05 · Projects/m-test-01/{shots,audio/vo,audio/foley} at 18:09 UTC. Waiting for the clip render; next check is shots/*.mp4 then mobile_ops ingest/check -> finish. Sandbox cannot reach Google hosts directly, so the media bytes must arrive either as a chat attachment (ZIP) or be described by the notebook receipt.",
+    "content_sha256": "1e9228908ca3969ca439f26e72c74b04de2373c0fb6d205cfc9a754ceab3824a",
+    "metadata": {
+      "sequence": 16,
+      "next_action": "Poll Drive 05 · Projects/m-test-01/shots for the rendered mp4; when it exists, ingest the ZIP or bytes, then finish -> deliver.",
+      "status": "active"
+    },
+    "prev_event_sha256": "b8b462ab91052098eea3eeada5ca52959eac9612bcd2e159778c569b74742300",
+    "event_sha256": "97d35bd8afe630a9d839ff9b28774adc75ed3b1ded80da3848dcafa9de8316c7"
+  },
+  "journal_head": "97d35bd8afe630a9d839ff9b28774adc75ed3b1ded80da3848dcafa9de8316c7",
+  "git": {
+    "initialized": true,
+    "head": "0e34aa356c312a757ce5521e7970c69567b77c2a",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

@@ -1,0 +1,9 @@
+{
+  "shots": {},
+  "mobile": {
+    "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+    "created_at": 1793128612,
+    "shots": 1,
+    "mode": "phone_run_all"
+  }
+}

@@ -2,7 +2,7 @@ PYTHON ?= python3
 STUDIO := $(PYTHON) tools/studio.py
 CONTINUITY := $(PYTHON) tools/continuity.py
 
-.PHONY: start status resume checkpoint audit list doctor validate test manifest hydrate-wf01 hydrate-wf03 clean
+.PHONY: start status resume checkpoint audit list doctor validate test manifest hydrate-wf01 hydrate-wf03 videogen-check videogen-plan videogen-upscale clean
 
 start:
 	$(CONTINUITY) resume
@@ -33,6 +33,15 @@ test:
 
 manifest:
 	$(STUDIO) manifest --write
+
+videogen-check:
+	$(PYTHON) tools/videogen.py doctor
+
+videogen-upscale:   ## PROJECT=<path to project.json>
+	$(PYTHON) tools/videogen.py upscale $(PROJECT)
+
+videogen-plan:
+	@echo 'Use: python3 tools/videogen.py plan workflows/current/payload/<project>/project.json'
 
 hydrate-wf01:
 	$(STUDIO) hydrate wf01 --force
