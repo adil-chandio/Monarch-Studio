@@ -3,7 +3,7 @@
   "tool": "mobileops-1.0",
   "job_id": "mob-test-01",
   "created_at": "2026-10-27T17:29:13+00:00",
-  "updated_at": "2026-10-27T17:48:08+00:00",
+  "updated_at": "2026-10-27T22:03:13+00:00",
   "title": "Test shot 01 (12-min trust test)",
   "project": "studio/videogen/examples/m-test-01/project.json",
   "project_id": "m-test-01",
@@ -14,7 +14,7 @@
   "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-09/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
-  "state": "clip_ready",
+  "state": "delivered",
   "gates": {
     "plan_estimate": {
       "ok": true,
@@ -35,11 +35,31 @@
       "ok": false,
       "detail": "0/1",
       "at": "2026-10-27T17:48:08+00:00"
+    },
+    "master": {
+      "ok": true,
+      "detail": "7ae6ddf5137ef0d106a9c30daaed96f1 (colab receipt)",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "mix": {
+      "ok": true,
+      "detail": "audio=aac",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "verify": {
+      "ok": true,
+      "detail": "960x1664",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "delivery": {
+      "ok": true,
+      "detail": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+      "at": "2026-10-27T22:03:13+00:00"
     }
   },
   "next": {
-    "user": "naya link -> ek \u25b6 -> MASTER OK ka screenshot",
-    "agent": "receipt padho -> adopt -> deliver"
+    "user": "link kholo, kaam khatam \u2705",
+    "agent": "receipt + continuity checkpoint"
   },
   "history": [
     {
@@ -125,10 +145,37 @@
       "to": "clip_ready",
       "by": "agent",
       "note": "colab-test-07: previous finish graph failed (Qavg nan) and !pip inside try broke upscale; both fixed and unit-tested locally"
+    },
+    {
+      "at": "2026-10-27T22:03:09+00:00",
+      "from": "verified",
+      "to": "assembled",
+      "by": "notebook",
+      "note": "master receipt adopted from Colab"
+    },
+    {
+      "at": "2026-10-27T22:03:13+00:00",
+      "from": "assembled",
+      "to": "delivered",
+      "by": "agent",
+      "note": "viper-2.1 finish-only run: 960x1664, 2.08s, aac, silent (no voice/foley in this test), Drive md5 matches receipt"
     }
   ],
-  "master": null,
-  "blocker": null,
+  "master": {
+    "path": "delivery/m-test-01_MASTER.mp4",
+    "md5": "7ae6ddf5137ef0d106a9c30daaed96f1",
+    "bytes": 161215,
+    "probe": {
+      "width": 960,
+      "height": 1664,
+      "fps": 24.0,
+      "duration": 2.08,
+      "audio_codec": "aac"
+    },
+    "drive_id": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+    "url": "https://drive.google.com/file/d/1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E/view",
+    "evidence": "colab_master_receipt.json"
+  },
   "plan": {
     "total_usd": 0.0,
     "total_with_retries_usd": 0.0,
@@ -215,5 +262,39 @@
   },
   "notes": [
     "2026-10-28: viper-2.1 retry is finish-only (~1 min); master receipt expected at project root"
-  ]
+  ],
+  "delivered_at": "2026-10-27T22:03:13+00:00",
+  "receipt": {
+    "job_id": "mob-test-01",
+    "title": "Test shot 01 (12-min trust test)",
+    "project": "studio/videogen/examples/m-test-01/project.json",
+    "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+    "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-09/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+    "master": {
+      "path": "delivery/m-test-01_MASTER.mp4",
+      "md5": "7ae6ddf5137ef0d106a9c30daaed96f1",
+      "bytes": 161215,
+      "probe": {
+        "width": 960,
+        "height": 1664,
+        "fps": 24.0,
+        "duration": 2.08,
+        "audio_codec": "aac"
+      },
+      "drive_id": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+      "url": "https://drive.google.com/file/d/1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E/view"
+    },
+    "cost_usd": 0.0,
+    "gates": {
+      "plan_estimate": true,
+      "notebook": true,
+      "handoff": true,
+      "clips": false,
+      "master": true,
+      "mix": true,
+      "verify": true,
+      "delivery": true
+    },
+    "receipted_at": "2026-10-27T22:03:13+00:00"
+  }
 }
