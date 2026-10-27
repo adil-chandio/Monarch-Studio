@@ -1727,6 +1727,7 @@ except Exception as exc:
 
 BASE = DRIVE_BASE if DRIVE_OK else LOCAL_BASE
 SHOTS = BASE / "shots"
+DELIVERY = BASE / "delivery"
 VO_DIR = BASE / "audio" / "vo"
 FOLEY_DIR = BASE / "audio" / "foley"
 for folder in (SHOTS, VO_DIR, FOLEY_DIR):
@@ -1753,7 +1754,11 @@ def md5(path):
 _MOBILE_PIPELINE = """# ── 2 · Wan 2.1 T2V 1.3B load — Colab 12.7 GB RAM safe (4-bit UMT5) ─────────
 pipe = None
 if RUN_CLIPS:
-    !pip -q install "diffusers>=0.35" "transformers>=4.49" accelerate imageio imageio-ffmpeg ftfy sentencepiece bitsandbytes
+    import subprocess as _sp, sys as _sys
+    if _sys.version:
+        _sp.run([_sys.executable, "-m", "pip", "install", "-q", "diffusers>=0.35",
+                 "transformers>=4.49", "accelerate", "imageio", "imageio-ffmpeg", "ftfy",
+                 "sentencepiece", "bitsandbytes"], check=False)
 
     import os, gc, ctypes, torch
     os.environ["HF_HUB_DISABLE_XET"] = "1"   # Xet downloader ka in-memory buffer hi Colab RAM todta hai
@@ -1878,7 +1883,8 @@ if RUN_CLIPS and pipe is not None:
 
 _MOBILE_VOICE = """# ── 4 · Voice — Kokoro-82M (Apache-2.0, GPU bhi nahi chahiye) ────────────────
 if RUN_VOICE:
-    !pip -q install kokoro soundfile
+    import subprocess as _sp3, sys as _sys3
+    _sp3.run([_sys3.executable, "-m", "pip", "install", "-q", "kokoro", "soundfile"], check=False)
     import numpy as np, soundfile as sf
     from kokoro import KPipeline
 
@@ -1904,8 +1910,9 @@ if RUN_VOICE:
 _MOBILE_FOLEY = """# ── 5 · Foley / ambience — MMAudio (~6 GB, CC-BY-NC weights) ─────────────────
 FOLEY_ENGINE = "__FOLEY_ENGINE__"     # mmaudio | thinksound | off
 if RUN_FOLEY and FOLEY_ENGINE == "mmaudio":
-    !pip -q install -e git+https://github.com/hkchengrex/MMAudio.git#egg=mmaudio
-    !pip -q install torch torchvision torchaudio --upgrade
+    import subprocess as _sp4, sys as _sys4
+    _sp4.run([_sys4.executable, "-m", "pip", "install", "-q", "-e",
+              "git+https://github.com/hkchengrex/MMAudio.git#egg=mmaudio"], check=False)
     import torch, torchaudio
     from mmaudio.eval_utils import all_model_cfg, generate, load_video
     from mmaudio.model.flow_matching import FlowMatching
@@ -1951,7 +1958,9 @@ if RUN_UPSCALE:
         # Colab par basicsr ka wheel-build fail hota hai ("Getting requirements to build wheel"):
         # torch pehle se hai, is liye build isolation hata kar seedha legacy wheel install karo,
         # phir torchvision ke naye API ke liye functional_tensor import patch kar do.
-        !pip -q install --no-build-isolation "basicsr==1.4.2" realesrgan facexlib 2>/dev/null || !pip -q install --no-build-isolation basicsr realesrgan
+        import subprocess as _sp2, sys as _sys2
+        _sp2.run([_sys2.executable, "-m", "pip", "install", "-q", "--no-build-isolation",
+                  "basicsr==1.4.2", "realesrgan", "facexlib"], check=False)
         import pathlib as _pl, re as _re_patch
         _bs = None
         try:
@@ -2027,92 +2036,142 @@ if RUN_UPSCALE:
     print("upscaled:", made)
 """
 
-_MOBILE_FINISH = """# ── 8 · Finish — mix + MASTER (ffmpeg yahin chalta hai, laptop ki zarurat nahi) ──
+_MOBILE_FINISH = """# ── 8 · Finish — per-shot mix + MASTER (ffmpeg Colab me hi chalta hai) ───────
 if RUN_FINISH:
-    import re as _re2, subprocess
+    import hashlib
+    import json
+    import pathlib
+    import re
+    import subprocess
 
-    DELIVERY = BASE / "delivery"
-    DELIVERY.mkdir(parents=True, exist_ok=True)
-    MASTER = DELIVERY / f"{PROJECT}_MASTER.mp4"
 
-    def probe_media(path):
-        text = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path)],
+    def md5(path: pathlib.Path) -> str:
+        h = hashlib.md5()
+        with path.open("rb") as fh:
+            for chunk in iter(lambda: fh.read(1 << 20), b""):
+                h.update(chunk)
+        return h.hexdigest()
+
+
+    def probe(path: pathlib.Path, ffmpeg: str = "ffmpeg") -> dict:
+        text = subprocess.run([ffmpeg, "-hide_banner", "-i", str(path)],
                               capture_output=True, text=True).stderr
-        size = _re2.search(r"[,\\s](\\d{2,5})x(\\d{2,5})(?=[\\s,\\[])", text)
-        dur = _re2.search(r"Duration:\\s*(\\d+):(\\d+):(\\d+(?:\\.\\d+)?)", text)
-        fps = _re2.search(r"(\\d+(?:\\.\\d+)?)\\s*fps", text)
-        acodec = _re2.search(r"Audio:\\s*([a-z0-9_]+)", text)
-        return {
-            "name": path.name,
-            "width": int(size.group(1)) if size else 0,
-            "height": int(size.group(2)) if size else 0,
-            "duration": round(int(dur.group(1)) * 3600 + int(dur.group(2)) * 60 + float(dur.group(3)), 2) if dur else 0.0,
-            "fps": float(fps.group(1)) if fps else 0.0,
-            "audio_codec": acodec.group(1) if acodec else None,
-            "bytes": path.stat().st_size,
-            "md5": md5(path),
-        }
+        size = re.search(r"[,\s](\d{2,5})x(\d{2,5})(?=[\s,\[])", text)
+        dur = re.search(r"Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)", text)
+        fps = re.search(r"(\d+(?:\.\d+)?)\s*fps", text)
+        acodec = re.search(r"Audio:\s*([a-z0-9_]+)", text)
+        return {"name": path.name,
+                "width": int(size.group(1)) if size else 0,
+                "height": int(size.group(2)) if size else 0,
+                "duration": round(int(dur.group(1)) * 3600 + int(dur.group(2)) * 60 + float(dur.group(3)), 2) if dur else 0.0,
+                "fps": float(fps.group(1)) if fps else 0.0,
+                "audio_codec": acodec.group(1) if acodec else None,
+                "bytes": path.stat().st_size, "md5": md5(path)}
 
-    picked = []
-    for job in JOBS:
-        for cand in (SHOTS / f"{job['id']}-{FACTOR}x.mp4", SHOTS / f"{job['id']}.mp4"):
-            if cand.exists() and cand.stat().st_size > 1000:
-                picked.append(cand)
-                break
 
-    if not picked:
-        print("FINISH: koi clip nahi mila — pehle clip stage chalao")
-    else:
-        cmd = ["ffmpeg", "-y"]
-        graph = []
-        pairs = []
-        input_index = 0
-        for index, clip in enumerate(picked):
-            shot_id = clip.stem.replace(f"-{FACTOR}x", "")
-            cmd += ["-i", str(clip)]
-            video_index = input_index
-            input_index += 1
-            audio_inputs = []
-            for folder in (VO_DIR, FOLEY_DIR):
-                stem = folder / f"{shot_id}.wav"
-                if stem.exists() and stem.stat().st_size > 1000:
-                    cmd += ["-i", str(stem)]
-                    audio_inputs.append(input_index)
-                    input_index += 1
-            if audio_inputs:
-                if len(audio_inputs) == 1:
-                    graph.append(f"[{audio_inputs[0]}:a]aresample=48000,"
-                                 f"aformat=channel_layouts=stereo[audio{index}]")
+    def finish_master(shots, vo_dir, foley_dir, delivery, project, width, height,
+                      fps=24, crf=18, loudnorm=True, ffmpeg="ffmpeg") -> dict:
+        # Build one master from per-shot clips (+ optional voice/foley).
+        # Per-shot pass, then concat, then loudness: each step is its own ffmpeg call so a
+        # failure names the exact shot instead of dying inside one giant filtergraph.
+        delivery = pathlib.Path(delivery)
+        delivery.mkdir(parents=True, exist_ok=True)
+        work = delivery / "_segments"
+        work.mkdir(parents=True, exist_ok=True)
+        segments, log = [], []
+
+        for index, clip in enumerate(sorted(pathlib.Path(p) for p in shots), 1):
+            clip = pathlib.Path(clip)
+            if not clip.exists() or clip.stat().st_size < 1000:
+                log.append(f"skip {clip.name} (missing/empty)")
+                continue
+            shot_id = re.sub(r"-(\d+)x$", "", clip.stem)
+            info = probe(clip, ffmpeg)
+            duration = info["duration"] or 2.0
+            audio = []
+            for folder in (vo_dir, foley_dir):
+                candidate = pathlib.Path(folder) / f"{shot_id}.wav"
+                if candidate.exists() and candidate.stat().st_size > 1000:
+                    audio.append(candidate)
+
+            seg = work / f"seg{index:02d}.mp4"
+            cmd = [ffmpeg, "-y", "-i", str(clip)]
+            for track in audio:
+                cmd += ["-i", str(track)]
+            vf = (f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
+                  f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={fps},format=yuv420p")
+            if audio:
+                if len(audio) > 1:
+                    graph = "".join(f"[{i}:a]" for i in range(1, len(audio) + 1))
+                    cmd += ["-filter_complex", f"{vf.split(',')[0] and ''}{graph}"
+                            f"amix=inputs={len(audio)}:normalize=0[aout]"]
+                    cmd += ["-map", "0:v", "-map", "[aout]"]
+                    cmd += ["-vf", vf]
                 else:
-                    mix_in = "".join(f"[{i}:a]" for i in audio_inputs)
-                    graph.append(f"{mix_in}amix=inputs={len(audio_inputs)}:normalize=0,"
-                                 f"aresample=48000,aformat=channel_layouts=stereo[audio{index}]")
+                    cmd += ["-map", "0:v", "-map", "1:a", "-vf", vf]
+                cmd += ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest"]
             else:
-                dur = probe_media(clip)["duration"] or 2.0
-                graph.append(f"anullsrc=channel_layout=stereo:sample_rate=48000,"
-                             f"atrim=0:{dur:.2f}[audio{index}]")
-            graph.append(f"[{video_index}:v]scale=__UP_W__:__UP_H__:force_original_aspect_ratio=decrease,"
-                         f"pad=__UP_W__:__UP_H__:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=24,"
-                         f"format=yuv420p[v{index}]")
-            pairs.append(f"[v{index}][audio{index}]")
-        graph.append("".join(pairs) + f"concat=n={len(picked)}:v=1:a=1[vout][aout0]")
-        graph.append("[aout0]loudnorm=I=-16:TP=-1.5:LRA=11[aout]")
-        cmd += ["-filter_complex", ";".join(graph), "-map", "[vout]", "-map", "[aout]",
-                "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(MASTER)]
-        print("finish:", len(picked), "shot(s) ->", MASTER.name)
-        proc = subprocess.run(cmd, capture_output=True, text=True)
+                cmd += ["-f", "lavfi", "-t", f"{duration:.2f}", "-i",
+                        "anullsrc=channel_layout=stereo:sample_rate=48000"]
+                cmd += ["-map", "0:v", "-map", "1:a", "-vf", vf,
+                        "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-shortest"]
+            cmd += ["-c:v", "libx264", "-crf", str(crf), "-preset", "veryfast",
+                    "-pix_fmt", "yuv420p", str(seg)]
+            proc = subprocess.run(cmd, capture_output=True, text=True)
+            if proc.returncode != 0:
+                log.append(f"FAILED segment {clip.name}: {' | '.join(proc.stderr.strip().splitlines()[-2:])}")
+                continue
+            segments.append(seg)
+            log.append(f"segment {index}: {clip.name} + {len(audio)} audio -> {seg.name}")
+
+        if not segments:
+            raise RuntimeError("no usable clips: " + "; ".join(log))
+
+        listing = work / "list.txt"
+        listing.write_text("".join("file " + seg.as_posix() + chr(10) for seg in segments))
+        joined = work / "joined.mp4"
+        proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing),
+                               "-c", "copy", str(joined)], capture_output=True, text=True)
         if proc.returncode != 0:
-            print("MASTER FAIL:", " | ".join(proc.stderr.strip().splitlines()[-3:]))
+            proc = subprocess.run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(listing),
+                                   "-c:v", "libx264", "-crf", str(crf), "-c:a", "aac",
+                                   "-b:a", "192k", str(joined)], capture_output=True, text=True)
+            if proc.returncode != 0:
+                raise RuntimeError("concat failed: " + " | ".join(proc.stderr.strip().splitlines()[-2:]))
+
+        master = delivery / f"{project}_MASTER.mp4"
+        if loudnorm:
+            cmd = [ffmpeg, "-y", "-i", str(joined), "-c:v", "copy",
+                   "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k",
+                   "-movflags", "+faststart", str(master)]
+            proc = subprocess.run(cmd, capture_output=True, text=True)
+            if proc.returncode != 0:
+                log.append("loudnorm failed, copying instead")
+                master.write_bytes(joined.read_bytes())
         else:
-            info = probe_media(MASTER)
-            receipt = {"project": PROJECT, "master": MASTER.name,
-                       "shots": [c.name for c in picked], "info": info,
-                       "made_on": "colab-t4", "loudnorm": "I=-16 TP=-1.5 LRA=11"}
-            (BASE / "colab_master_receipt.json").write_text(json.dumps(receipt, indent=2))
-            print(f"MASTER OK  {MASTER.name}  {info['bytes']/1e6:.2f} MB  {info['width']}x{info['height']}  "
-                  f"{info['duration']}s  audio={info['audio_codec']}  md5={info['md5']}")
-            print("master Drive me:", MASTER)
+            master.write_bytes(joined.read_bytes())
+
+        info = probe(master, ffmpeg)
+        receipt = {"project": project, "master": master.name, "shots": [s.name for s in segments],
+                   "log": log, "info": info, "made_on": "colab-t4",
+                   "loudnorm": "I=-16 TP=-1.5 LRA=11" if loudnorm else None}
+        (pathlib.Path(delivery).parent / "colab_master_receipt.json").write_text(
+            json.dumps(receipt, indent=2))
+        return receipt
+    try:
+        _receipt = finish_master(
+            [SHOTS / f"{job['id']}-{FACTOR}x.mp4" if (SHOTS / f"{job['id']}-{FACTOR}x.mp4").exists()
+             else SHOTS / f"{job['id']}.mp4" for job in JOBS],
+            VO_DIR, FOLEY_DIR, DELIVERY, PROJECT, __UP_W__, __UP_H__, ffmpeg="ffmpeg")
+        _info = _receipt["info"]
+        print(f"MASTER OK  {_info['name']}  {_info['bytes']/1e6:.2f} MB  "
+              f"{_info['width']}x{_info['height']}  {_info['duration']}s  "
+              f"audio={_info['audio_codec']}  md5={_info['md5']}")
+        print("master Drive me:", DELIVERY / _info["name"])
+        for _line in _receipt["log"]:
+            print("  ·", _line)
+    except Exception as _exc:
+        print("MASTER FAIL:", type(_exc).__name__, str(_exc)[:400])
 """
 
 _MOBILE_SUMMARY = """# ── 7 · Summary + receipt (yeh cell hi "DONE" batata hai) ────────────────────
@@ -2132,16 +2191,15 @@ print("foley :", len(foley))
 for row in rows:
     print(f"  {row['file']:<28} {row['mb']:6.1f} MB  {row['md5'][:10]}")
 
-zip_path = pathlib.Path("/content") / f"{PROJECT}_outputs.zip"
+zip_path = BASE / f"{PROJECT}_outputs.zip"   # Drive par hi likho: path har haal me valid hai
 with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as bundle:
     for file in clips + voice + foley:
         bundle.write(file, file.relative_to(BASE))
 print()
 print("ZIP    :", zip_path.name, f"{zip_path.stat().st_size/1e6:.1f} MB")
 if DRIVE_OK:
-    (BASE / zip_path.name).write_bytes(zip_path.read_bytes())
     print("Drive  :", BASE)
-    print("         ZIP bhi Drive me:", zip_path.name)
+    print("         ZIP:", zip_path.name)
 else:
     try:
         from google.colab import files as colab_files

@@ -377,6 +377,68 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(nb["nbformat"], 4)
             self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 8)
 
+    def test_finish_stage_lives_in_the_notebook_and_is_ordered_after_base(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            nb = self._notebook(path)
+            finish = "".join(nb["cells"][-2]["source"])
+            self.assertIn("def finish_master(", finish)
+            self.assertIn("colab_master_receipt.json", finish)
+            self.assertIn("loudnorm=I=-16:TP=-1.5:LRA=11", finish)
+            merged = "".join(nb["cells"][1]["source"])
+            self.assertLess(merged.index("BASE = DRIVE_BASE"), merged.index("DELIVERY = BASE"))
+            self.assertNotIn("!pip", merged)          # a bang command inside a block becomes a bash error
+
+    def test_no_bang_pip_survives_in_any_code_cell(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path, one_cell=True)
+            code_cells = self._notebook(path)["cells"]
+            source = "".join("".join(c["source"]) if isinstance(c["source"], list) else c["source"]
+                             for c in code_cells if c["cell_type"] == "code")
+            self.assertNotIn("!pip", source)
+
+    def test_finish_master_builds_a_real_master(self):
+        """Extract the notebook's own finish code and run it against ffmpeg (skipped when absent)."""
+        ffmpeg = vg.which("ffmpeg")
+        if not ffmpeg:
+            self.skipTest("ffmpeg not installed")
+        import re, subprocess
+        with tempfile.TemporaryDirectory() as td:
+            tmp = pathlib.Path(td)
+            path = make_project(tmp, route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            cell = "".join(self._notebook(path)["cells"][7]["source"])   # the finish cell
+            start = cell.index("# ── 8 · Finish")
+            code = (cell[start:].replace("__UP_W__", "960").replace("__UP_H__", "1664")
+                    .replace('ffmpeg="ffmpeg"', f'ffmpeg="{ffmpeg}"'))
+            shots = tmp / "shots"
+            shots.mkdir(parents=True, exist_ok=True)
+            (tmp / "audio" / "vo").mkdir(parents=True)
+            subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "testsrc2=size=960x1664:rate=24:duration=1",
+                            "-c:v", "libx264", "-pix_fmt", "yuv420p", str(shots / "s01-hook-2x.mp4")],
+                           capture_output=True, check=True)
+            subprocess.run([ffmpeg, "-y", "-f", "lavfi", "-i", "sine=frequency=300:duration=1",
+                            "-ar", "48000", "-ac", "2", str(tmp / "audio/vo/s01-hook.wav")],
+                           capture_output=True, check=True)
+            harness = {"SHOTS": shots, "VO_DIR": tmp / "audio/vo", "FOLEY_DIR": tmp / "audio/foley",
+                       "DELIVERY": tmp / "delivery", "PROJECT": "p1", "FACTOR": 2, "RUN_FINISH": True,
+                       "JOBS": [{"id": "s01-hook"}], "BASE": tmp, "DRIVE_OK": True, "md5": vg.md5,
+                       "pathlib": pathlib, "re": re, "subprocess": subprocess, "json": json,
+                       "zipfile": __import__("zipfile")}
+            exec(compile(code, "<finish>", "exec"), harness)
+            receipt = json.loads((tmp / "colab_master_receipt.json").read_text())
+            info = receipt["info"]
+            self.assertEqual(info["height"], 1664)
+            self.assertEqual(info["audio_codec"], "aac")
+            self.assertGreater(info["bytes"], 10_000)
+            self.assertEqual(len(info["md5"]), 32)
+            self.assertTrue((tmp / "delivery" / "p1_MASTER.mp4").exists())
+
     def test_notebook_quantises_the_text_encoder(self):
         """22.7 GB UMT5 crashes Colab's 12.7 GB RAM: it must be loaded 4-bit."""
         with tempfile.TemporaryDirectory() as td:

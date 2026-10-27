@@ -196,6 +196,27 @@ Agent woh receipt **connector se padh kar** `mobile_ops.py adopt <job> --receipt
 gates `mix`, `verify`, `master` record hoti hain, job `assembled` ho jata hai, phir Drive id ke saath
 `deliver`. Yani bara media kabhi sandbox me aata hi nahi — sirf saboot aata hai.
 
+### 5c-quinquies. Finish kaise likha gaya hai (aur kyun)
+
+Pehla version ek hi bade ffmpeg `filter_complex` graph banata tha — Colab par `Qavg: nan` ke saath fail
+hua. Ab finish **per shot** chalta hai, taake error ho to pata chale kaunsa shot:
+
+1. har shot: `scale`+`pad` → `<project>_delivery/_segments/segNN.mp4` (video + us shot ka voice/foley mix,
+   na ho to `anullsrc` silence; saath me `-shortest`)
+2. `concat` demuxer se jodna (`list.txt`), fail ho to re-encode fallback
+3. aakhri pass: `loudnorm I=-16:TP=-1.5:LRA=11` + `aac 192k` + `+faststart`
+4. probe + `colab_master_receipt.json` (md5, bytes, w×h, fps, duration, audio)
+
+Do aur sabak jo isi run me mile:
+
+- **`!pip` kabhi `if`/`try` block ke andar nahi.** Colab usay bash ko bhej deta hai →
+  `/bin/bash: line 1: !pip: command not found`. Har install ab
+  `subprocess.run([sys.executable, "-m", "pip", "install", ...])` se hota hai.
+- **`DELIVERY` sirf `BASE` ke baad define ho** — warna cell `NameError: BASE` par marta hai (test isi ko pin
+  karta hai).
+- Template ke andar `\"\"\"` ya `\n` jaisa escape mat likho: template string toot jati hai. Isi liye concat list
+  `chr(10)` se banti hai.
+
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke

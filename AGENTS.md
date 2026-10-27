@@ -71,6 +71,11 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
 - Run every command here (`plan`, `render` queue, `audio`, `upscale`, `mix`, `verify`, `assemble`, `quota`).
   This sandbox has a static ffmpeg (imageio-ffmpeg) and `probe()` falls back to `ffmpeg -i` when ffprobe
   is missing, so the whole finish line runs here.
+- **Never put a `!`-magic inside a `if`/`try` block** in a generated notebook: Colab runs it as
+  `/bin/bash: line 1: !pip: command not found`. Use `subprocess.run([sys.executable, "-m", "pip", ...])`.
+  Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
+  escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
+  against real ffmpeg, so these three mistakes cannot come back silently.
 - **This sandbox cannot reach Google hosts.** Never plan on downloading a clip or master here. The notebook's
   `RUN_FINISH` stage builds `delivery/<project>_MASTER.mp4` inside Colab and writes
   `colab_master_receipt.json`; read that receipt with the Drive connector and run
