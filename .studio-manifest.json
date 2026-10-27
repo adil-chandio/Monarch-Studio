@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T17:48:28+00:00",
+  "generated_at": "2026-10-27T18:03:27+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -32,8 +32,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "e3389c944b67de805a93ad7b16789797797e11b8176ebc6b203be6f8c5bbcf1b",
-      "size": 10182
+      "sha256": "7a6a2f87a4e9400977684478b15cc4fb86600a0579fb668d4286d936467859bc",
+      "size": 10400
     },
     "CHANGELOG.md": {
       "sha256": "699842d33d9e4481061c192d6d5db0d4f1cd3ba22aad1613568a689e5fd38ad1",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "7e988a24d18189182b1eb90ffa64b11be7e0294fbd63214a13a2f33eca4b6fd5",
-      "size": 11750
+      "sha256": "7661753a0790d0c534652f82473b14ff952cb5dff42a873cea058669d366233f",
+      "size": 12179
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -1736,8 +1736,8 @@
       "size": 10425
     },
     "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb": {
-      "sha256": "da88c4817f966bdc491d6639a25ea41559d3d1c5fc6961ae12dd6687846f195f",
-      "size": 19382
+      "sha256": "2602a19cfc6d6e8c6243183757b9bfbed17b2bb22b23ed37fd0a8b8ee77edcb6",
+      "size": 17918
     },
     "studio/videogen/examples/m-test-01/plan.json": {
       "sha256": "07e64652afad621bde5f176ad0ae753d098063dfb1f75c31e899b58af834ffe1",
@@ -1748,7 +1748,7 @@
       "size": 1047
     },
     "studio/videogen/examples/m-test-01/receipts.json": {
-      "sha256": "868fb255d78958b54fd4086aae22f467d4527e21096eaf36c3debb52a6564df3",
+      "sha256": "bab30809c6ec02f3ddea1537b18893e7270a1fbfc091e5c2484a103b73f594a4",
       "size": 195
     },
     "studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb": {
@@ -4160,8 +4160,8 @@
       "size": 7200
     },
     "tests/test_videogen.py": {
-      "sha256": "1d90b288cd4f7cced118b479a05351de6825c0e183245c1e67397060d45a0c35",
-      "size": 48080
+      "sha256": "0d42b23ed3b01b72e7accc10d3d36f072e75db39e133bb2097d43ab925729bca",
+      "size": 49149
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
@@ -4204,8 +4204,8 @@
       "size": 32882
     },
     "tools/videogen.py": {
-      "sha256": "0be8de4f2b1895fc64fc9cf73860c3e1c7d1c239dc5d0a97138a3e90ed5ff3e3",
-      "size": 104580
+      "sha256": "5371cde1396b7e96e2d98b076432ae5f3e328f14a1acf618f5df05592e6da4df",
+      "size": 105444
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",

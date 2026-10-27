@@ -377,6 +377,27 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(nb["nbformat"], 4)
             self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 7)
 
+    def test_one_cell_mode_is_a_single_play_button(self):
+        """A phone shows one play button per cell: collapse everything into one."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path, one_cell=True)
+            nb = self._notebook(path)
+            code = [c for c in nb["cells"] if c["cell_type"] == "code"]
+            self.assertEqual(len(code), 1)
+            source = "".join(code[0]["source"])
+            for stage in ("RUN_CLIPS", "JOBS", "Wan2.1-T2V-1.3B-Diffusers", "_outputs.zip", "DONE"):
+                self.assertIn(stage, source)
+
+    def test_one_cell_keeps_the_markdown_intro(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path, one_cell=True)
+            nb = self._notebook(path)
+            self.assertEqual(nb["cells"][0]["cell_type"], "markdown")
+
     def test_notebook_survives_a_failed_drive_mount(self):
         """Drive auth fails on phones routinely: the notebook must fall back, not crash."""
         with tempfile.TemporaryDirectory() as td:

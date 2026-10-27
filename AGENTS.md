@@ -78,6 +78,8 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   re-checks) then `finish` — do not ask him to re-run for a Drive problem.
 - **Drive name must end `.ipynb`** (`<project>_phone_run_all.ipynb`, mimeType `application/x-ipynb+json`) or
   Colab answers "This file type is unsupported" — rename with `update_file` before sending any link.
+- Default to `mobile --one-cell` for the owner: one cell, one ▶. If a screenshot shows every cell as `[ ]`,
+  nothing ran — never debug the code, just make the trigger smaller (one cell) and ask for the last cell.
 - Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with
   prompts baked in. He taps `Runtime ▸ T4 GPU ▸ Run all`; the last cell prints `DONE ✅`.
 - One action per message. No multi-step terminal instructions, no JSON editing, no file renaming.

@@ -2002,12 +2002,24 @@ def build_mobile_notebook(project: dict) -> dict:
                 _code(fill(_MOBILE_UPSCALE)), _code(fill(_MOBILE_SUMMARY))])
 
 
-def mobile(project_file: pathlib.Path) -> int:
+def merge_code_cells(notebook: dict) -> dict:
+    """Collapse every code cell into ONE cell: phone users get a single visible play button."""
+    intro = [c for c in notebook["cells"] if c["cell_type"] == "markdown"]
+    code = [c for c in notebook["cells"] if c["cell_type"] == "code"]
+    merged = "\n\n".join("".join(c["source"]).rstrip() for c in code) + "\n"
+    return {"cells": intro + [_code(merged)], "metadata": notebook.get("metadata", {}),
+            "nbformat": notebook.get("nbformat", 4),
+            "nbformat_minor": notebook.get("nbformat_minor", 5)}
+
+
+def mobile(project_file: pathlib.Path, *, one_cell: bool = False) -> int:
     """Write the phone-first all-in-one notebook for a project."""
     project = require_project(project_file)
     paths = project_paths(project_file)
     (paths["base"] / "mobile").mkdir(parents=True, exist_ok=True)
     notebook = build_mobile_notebook(project)
+    if one_cell:
+        notebook = merge_code_cells(notebook)
     target = paths["base"] / "mobile" / f"MOBILE_{project['project_id']}.ipynb"
     write_json(target, notebook)
 
@@ -2161,6 +2173,8 @@ def main(argv: list[str] | None = None) -> int:
     p_asm.add_argument("--no-music", action="store_true")
 
     p_mobile = sub.add_parser("mobile", help="write the phone-first all-in-one Colab notebook")
+    p_mobile.add_argument("--one-cell", action="store_true",
+                          help="merge every code cell into one: a single play button on a phone")
     p_mobile.add_argument("project")
 
     p_quota = sub.add_parser("quota", help="free GPU hours ledger (weekly reset)")
@@ -2226,7 +2240,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.cmd == "status":
             return status(project_file)
         if args.cmd == "mobile":
-            return mobile(project_file)
+            return mobile(project_file, one_cell=getattr(args, "one_cell", False))
         if args.cmd == "audio":
             return audio(project_file)
         if args.cmd == "mix":

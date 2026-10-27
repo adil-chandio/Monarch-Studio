@@ -138,6 +138,16 @@ normal hai (file kharab nahi hoti). Is liye do link hote hain:
 GitHub link ke liye notebook repo me hona chahiye + repo public + tag (slash-free, kyunki `blob/<ref>/` me
 branch ke slash URL tod dete hain). Isi liye: `git tag colab-<job> && git push origin refs/tags/colab-<job>`.
 
+### 5c-bis. Ek cell = ek button (`--one-cell`)
+
+Phone par har cell ka apna ▶ hota hai aur "Run all" dhoondhna mushkil — is liye `mobile --one-cell` saare
+code cells ko **ek** cell me jod deta hai. Owner ko sirf ek ▶ dabana hota hai. Screenshot se pata chala tha
+ke sab cells khaali `[ ]` the (kuch chala hi nahi) — ek cell se yeh confusion khatam.
+
+```bash
+python3 tools/videogen.py mobile <project.json> --one-cell
+```
+
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke
