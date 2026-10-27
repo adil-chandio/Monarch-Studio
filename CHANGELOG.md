@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 — 2026-10-27
+
+- `viper-1.7`: the phone notebook now runs inside free Colab's 12.7 GB host RAM — UMT5 text encoder in
+  4-bit NF4, fp16 DiT, tiled/sliced VAE, `HF_HUB_DISABLE_XET`, glibc `malloc_trim`, UniPC `flow_shift=3.0`,
+  and the pipeline is released before upscale. Fixes the real crash the owner hit ("session crashed after
+  using all available RAM").
+- `mobile --max-frames N` caps frames per shot (33 ≈ 2 s, 49 ≈ 3 s) so a free-T4 render fits a phone session.
+- Real-ESRGAN upscale now falls back to ffmpeg lanczos if `basicsr`/`realesrgan` cannot install.
+
 ## 0.3.0 — 2026-10-27
 
 - Added `tools/mobile_ops.py` (`mobileops-1.0`): durable per-project job state machine for phone-only

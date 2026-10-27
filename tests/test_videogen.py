@@ -377,6 +377,56 @@ class MobileTests(unittest.TestCase):
             self.assertEqual(nb["nbformat"], 4)
             self.assertEqual(sum(1 for c in nb["cells"] if c["cell_type"] == "code"), 7)
 
+    def test_notebook_quantises_the_text_encoder(self):
+        """22.7 GB UMT5 crashes Colab's 12.7 GB RAM: it must be loaded 4-bit."""
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            source = "".join(self._notebook(path)["cells"][2]["source"])
+            self.assertIn("load_in_4bit=True", source)
+            self.assertIn("nf4", source)
+            self.assertIn("HF_HUB_DISABLE_XET", source)
+            self.assertIn("malloc_trim", source)
+            self.assertIn("low_cpu_mem_usage=True", source)
+            self.assertIn("UniPCMultistepScheduler", source)
+            self.assertIn("flow_shift=3.0", source)
+
+    def test_clips_release_the_pipeline_before_upscale(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            clips = "".join(self._notebook(path)["cells"][3]["source"])
+            self.assertIn("del pipe", clips)
+            self.assertIn("free_mem", clips)
+
+    def test_upscale_has_an_ffmpeg_fallback(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            with mock.patch("builtins.print"):
+                vg.mobile(path)
+            upscale = "".join(self._notebook(path)["cells"][-2]["source"])
+            self.assertIn("flags=lanczos", upscale)
+            self.assertIn("enhancer is None", upscale)
+
+    def test_max_frames_caps_every_shot(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = make_project(pathlib.Path(td), route="free")
+            for shot in json.loads(path.read_text())["shots"]:
+                shot["seconds"] = 5
+            data = json.loads(path.read_text())
+            for shot in data["shots"]:
+                shot["seconds"] = 5
+            path.write_text(json.dumps(data, indent=2))
+            with mock.patch("builtins.print"):
+                vg.mobile(path, max_frames=33)
+            source = "".join(self._notebook(path)["cells"][1]["source"])   # JOBS live in the config cell
+            frames = [int(line.split(":")[1].strip().rstrip(","))
+                      for line in source.splitlines() if '"frames"' in line]
+            self.assertTrue(frames and all(f <= 33 for f in frames), frames)
+            self.assertTrue(all((f - 1) % 4 == 0 for f in frames), frames)
+
     def test_one_cell_mode_is_a_single_play_button(self):
         """A phone shows one play button per cell: collapse everything into one."""
         with tempfile.TemporaryDirectory() as td:

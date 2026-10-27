@@ -148,6 +148,34 @@ ke sab cells khaali `[ ]` the (kuch chala hi nahi) — ek cell se yeh confusion 
 python3 tools/videogen.py mobile <project.json> --one-cell
 ```
 
+### 5c-ter. RAM (12.7 GB) — Wan ka text encoder 4-bit me hi load hota hai
+
+Free Colab par **host RAM** hi asli deewar hai, VRAM nahi. UMT5-XXL (Wan ka text encoder) fp32 me
+**22.7 GB** hai — `WanPipeline.from_pretrained` seedha usi par crash karta hai
+("_Your session crashed after using all available RAM_").
+
+Notebook (`viper-1.7`) me is liye:
+
+| Cheez | Setting | Kyun |
+|---|---|---|
+| text encoder | **4-bit NF4** (`load_in_4bit`, `device_map={"": 0}`) | 22.7 GB → ~2.4 GB VRAM, host RAM chhua hi nahi |
+| DiT transformer | native fp16 | 2.6 GB, quality poora |
+| VAE | fp32 + `enable_tiling()` + `enable_slicing()` | decode ke waqt VRAM spike khatam |
+| downloader | `HF_HUB_DISABLE_XET=1` | Xet ka in-memory buffer RAM kha jata hai |
+| allocator | `mallopt` + `malloc_trim(0)` | glibc freed pages OS ko wapas deta hai |
+| scheduler | UniPC `flow_shift=3.0` | 480p ke liye official; 5.0 sirf 720p |
+| pipeline | clips ke baad `del pipe` | upscale ke liye RAM khaali |
+
+Speed (T4, 480×832, 18 UniPC steps, guidance 5.0 — measured formula, not a promise):
+
+| Frames | Duration | Render |
+|---|---|---|
+| 33 | ~2 s | **~6 min** |
+| 49 | ~3 s | ~12 min |
+| 77 | ~5 s | ~23 min |
+
+Isi liye `mobile --max-frames 33` test ke liye aur `49` poore reel ke liye default hai.
+
 ### 5d. Drive mount fail ho jaye to? (ZIP handoff)
 
 `drive.mount()` phone par kabhi `Error: credential propagation was unsuccessful` deta hai (Chrome ke

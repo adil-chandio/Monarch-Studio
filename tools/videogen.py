@@ -1749,27 +1749,88 @@ def md5(path):
     return h.hexdigest()
 """
 
-_MOBILE_PIPELINE = """# ── 2 · Wan 2.1 T2V 1.3B load (fp16 + offload; T4 ke liye) ───────────────────
+_MOBILE_PIPELINE = """# ── 2 · Wan 2.1 T2V 1.3B load — Colab 12.7 GB RAM safe (4-bit UMT5) ─────────
+pipe = None
 if RUN_CLIPS:
-    !pip -q install "diffusers>=0.35" "transformers>=4.49" accelerate imageio imageio-ffmpeg ftfy sentencepiece
+    !pip -q install "diffusers>=0.35" "transformers>=4.49" accelerate imageio imageio-ffmpeg ftfy sentencepiece bitsandbytes
 
-    import torch
-    from diffusers import AutoencoderKLWan, WanPipeline
+    import os, gc, ctypes, torch
+    os.environ["HF_HUB_DISABLE_XET"] = "1"   # Xet downloader ka in-memory buffer hi Colab RAM todta hai
+    try:                                     # glibc: freed pages OS ko turant wapas
+        _libc = ctypes.CDLL("libc.so.6")
+        _libc.mallopt(-3, 1 << 20)
+        _libc.mallopt(-1, 64 << 10)
+        _libc.mallopt(-8, 2)
+        HAVE_TRIM = True
+    except Exception:
+        _libc = None
+        HAVE_TRIM = False
+
+    def host_ram():
+        try:
+            with open("/proc/meminfo") as fh:
+                for line in fh:
+                    if line.startswith("MemAvailable"):
+                        return round(int(line.split()[1]) / 1048576, 1)
+        except OSError:
+            pass
+        return None
+
+    def free_mem(tag=""):
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.ipc_collect()
+        if HAVE_TRIM:
+            _libc.malloc_trim(0)
+        if tag:
+            print("   · freed:", tag, "| host free:", host_ram(), "GB")
+
+    from diffusers import AutoencoderKLWan, WanPipeline, WanTransformer3DModel
+    from diffusers.schedulers import UniPCMultistepScheduler
+    from transformers import UMT5EncoderModel, BitsAndBytesConfig as T5QuantConfig
 
     MODEL_ID = "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
-    vae = AutoencoderKLWan.from_pretrained(MODEL_ID, subfolder="vae", torch_dtype=torch.float32)
-    pipe = WanPipeline.from_pretrained(MODEL_ID, vae=vae, torch_dtype=torch.float16)
-    pipe.enable_model_cpu_offload()
-    pipe.enable_vae_tiling()
+    print("host RAM free:", host_ram(), "GB / 12.7")
+
+    def build_pipe():
+        # UMT5-XXL fp32 me 22.7 GB hai — 4-bit NF4 se ~2.4 GB VRAM, host RAM chhua hi nahi
+        vae = AutoencoderKLWan.from_pretrained(MODEL_ID, subfolder="vae", torch_dtype=torch.float32)
+        t5_quant = T5QuantConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
+                                 bnb_4bit_compute_dtype=torch.float16,
+                                 llm_int8_enable_fp32_cpu_offload=True)
+        text_encoder = UMT5EncoderModel.from_pretrained(
+            MODEL_ID, subfolder="text_encoder", quantization_config=t5_quant,
+            torch_dtype=torch.float16, device_map={"": 0})
+        free_mem("text encoder 4-bit")
+        transformer = WanTransformer3DModel.from_pretrained(
+            MODEL_ID, subfolder="transformer", torch_dtype=torch.float16)
+        free_mem("transformer fp16")
+        built = WanPipeline.from_pretrained(MODEL_ID, vae=vae, text_encoder=text_encoder,
+                                            transformer=transformer, torch_dtype=torch.float16,
+                                            low_cpu_mem_usage=True)
+        built.transformer.to("cuda")
+        built.vae.to("cuda")
+        # 480p ke liye flow_shift 3.0 (5.0 sirf 720p) — warna texture muddy
+        built.scheduler = UniPCMultistepScheduler(prediction_type="flow_prediction",
+                                                  use_flow_sigmas=True, num_train_timesteps=1000,
+                                                  flow_shift=3.0)
+        built.vae.enable_tiling()
+        built.vae.enable_slicing()
+        free_mem("pipeline ready")
+        return built
+
     try:
-        pipe.enable_attention_slicing()
-    except Exception:
-        pass
-    print("pipeline ready ·", torch.cuda.get_device_name(0))
+        pipe = build_pipe()
+        print("pipeline ready ·", torch.cuda.get_device_name(0))
+    except Exception as exc:
+        pipe = None
+        print("MODEL LOAD FAILED:", type(exc).__name__, str(exc)[:300])
+        print("   yeh line chat me bhej do — main chhota config bana dunga")
 """
 
 _MOBILE_CLIPS = """# ── 3 · Clips (silent, 480x832) ─────────────────────────────────────────────
-if RUN_CLIPS:
+if RUN_CLIPS and pipe is not None:
     from diffusers.utils import export_to_video
 
     NEGATIVE = ("blurry, low quality, distorted, deformed hands, extra limbs, text overlay, "
@@ -1781,27 +1842,32 @@ if RUN_CLIPS:
         if out.exists() and out.stat().st_size > 10_000:
             print(f"[{index}/{len(JOBS)}] skip (already on Drive) {out.name}")
             continue
-        print(f"\\n[{index}/{len(JOBS)}] {job['id']}  {job['width']}x{job['height']} · {job['frames']} frames")
+        print(f"[{index}/{len(JOBS)}] {job['id']}  {job['width']}x{job['height']} · {job['frames']} frames")
         t0 = time.time()
         try:
             frames = pipe(
                 prompt=job["prompt"], negative_prompt=NEGATIVE,
                 width=job["width"], height=job["height"], num_frames=job["frames"],
-                num_inference_steps=job.get("steps", 30), guidance_scale=5.0,
+                num_inference_steps=job.get("steps", 18), guidance_scale=5.0,
                 generator=torch.Generator("cpu").manual_seed(int(job.get("seed", 42))),
             ).frames[0]
             export_to_video(frames, str(out), fps=16)
+            del frames
             print(f"  ✔ {out.name}  {out.stat().st_size/1e6:.1f} MB · {md5(out)[:10]} · {time.time()-t0:.0f}s")
             receipts.append({"id": job["id"], "file": out.name, "md5": md5(out),
                              "seconds": round(time.time() - t0, 1)})
         except torch.cuda.OutOfMemoryError:
             torch.cuda.empty_cache()
-            print("  ✖ OOM — mujhe bolo, main is shot ka size/frames kam kar dunga")
+            print("  ✖ VRAM OOM — mujhe bolo, main frames/steps aur kam kar dunga")
             receipts.append({"id": job["id"], "error": "cuda OOM"})
         except Exception as exc:
-            print("  ✖", type(exc).__name__, exc)
+            print("  ✖", type(exc).__name__, str(exc)[:200])
             receipts.append({"id": job["id"], "error": f"{type(exc).__name__}: {exc}"})
+        free_mem(f"after {job['id']}")
         (BASE / "colab_clips_receipt.json").write_text(json.dumps(receipts, indent=2))
+    del pipe
+    pipe = None
+    free_mem("Wan unloaded — upscale ke liye jagah")
 """
 
 _MOBILE_VOICE = """# ── 4 · Voice — Kokoro-82M (Apache-2.0, GPU bhi nahi chahiye) ────────────────
@@ -1870,25 +1936,40 @@ if RUN_FOLEY and FOLEY_ENGINE == "mmaudio":
     print("foley stems:", made)
 """
 
-_MOBILE_UPSCALE = """# ── 6 · Upscale 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__) ──────────
+_MOBILE_UPSCALE = """# ── 6 · Upscale 480p → __UP_W__x__UP_H__ (Real-ESRGAN ×__FACTOR__, ffmpeg fallback) ──
 if RUN_UPSCALE:
-    !pip -q install basicsr realesrgan facexlib
-    import cv2, shutil, torch
-    from basicsr.archs.rrdbnet_arch import RRDBNet
-    from realesrgan import RealESRGANer
-
-    net = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
-    enhancer = RealESRGANer(
-        scale=4, half=True, tile=0, tile_pad=10, pre_pad=0, model=net,
-        model_path="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/RealESRGAN_x4plus.pth")
+    import re as _re, shutil, subprocess, torch
+    enhancer = None
+    cv2 = None
+    try:
+        !pip -q install basicsr realesrgan facexlib
+        import cv2
+        from basicsr.archs.rrdbnet_arch import RRDBNet
+        from realesrgan import RealESRGANer
+        net = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
+        enhancer = RealESRGANer(
+            scale=4, half=True, tile=0, tile_pad=10, pre_pad=0, model=net,
+            model_path="https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/RealESRGAN_x4plus.pth")
+        print("upscaler: Real-ESRGAN ×__FACTOR__")
+    except Exception as exc:
+        enhancer = None
+        print("Real-ESRGAN install/load nahi hua (", type(exc).__name__, ") — ffmpeg lanczos se ×__FACTOR__ karunga")
 
     def fps_of(src):
-        return subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
-                               "stream=r_frame_rate", "-of", "csv=p=0", str(src)],
-                              capture_output=True, text=True).stdout.strip() or "16/1"
+        text = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(src)],
+                              capture_output=True, text=True).stderr
+        found = _re.search(r"(\\d+(?:\\.\\d+)?)\\s*fps", text)
+        return found.group(1) if found else "16"
 
     def upscale_clip(src, dst, factor=FACTOR):
-        frames_in, frames_out = pathlib.Path("/content/_in"), pathlib.Path("/content/_out")
+        if enhancer is None:
+            subprocess.run(["ffmpeg", "-y", "-i", str(src), "-vf",
+                            f"scale=iw*{factor}:ih*{factor}:flags=lanczos",
+                            "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", str(dst)],
+                           check=True, capture_output=True)
+            return dst
+        frames_in = pathlib.Path("/content/_up_in")
+        frames_out = pathlib.Path("/content/_up_out")
         for folder in (frames_in, frames_out):
             shutil.rmtree(folder, ignore_errors=True)
             folder.mkdir(parents=True)
@@ -1901,6 +1982,8 @@ if RUN_UPSCALE:
         subprocess.run(["ffmpeg", "-y", "-framerate", fps_of(src),
                         "-i", str(frames_out / "%06d.png"), "-c:v", "libx264", "-crf", "17",
                         "-pix_fmt", "yuv420p", str(dst)], check=True, capture_output=True)
+        shutil.rmtree(frames_in, ignore_errors=True)
+        shutil.rmtree(frames_out, ignore_errors=True)
         return dst
 
     made = 0
@@ -1910,9 +1993,12 @@ if RUN_UPSCALE:
         if not src.exists() or dst.exists():
             continue
         print("upscaling", src.name)
-        upscale_clip(src, dst)
-        print("  ✔", dst.name, f"{dst.stat().st_size/1e6:.1f} MB")
-        made += 1
+        try:
+            upscale_clip(src, dst)
+            print("  ✔", dst.name, f"{dst.stat().st_size/1e6:.1f} MB")
+            made += 1
+        except Exception as exc:
+            print("  ✖ upscale fail:", type(exc).__name__, str(exc)[:160], "(original clip safe hai)")
     print("upscaled:", made)
 """
 
@@ -1961,7 +2047,7 @@ else:
 """
 
 
-def build_mobile_notebook(project: dict) -> dict:
+def build_mobile_notebook(project: dict, max_frames: int | None = None) -> dict:
     """A single Run-all notebook for a phone: clips + voice + foley + upscale."""
     up = upscale_target(project, None)
     factor = max(2, int(up["factor"]))
@@ -1969,6 +2055,8 @@ def build_mobile_notebook(project: dict) -> dict:
     for shot in project["shots"]:
         seconds = float(shot["seconds"])
         frames = max(17, ((int(round(seconds * 16)) - 1) // 4) * 4 + 1)
+        if max_frames:
+            frames = min(frames, max(17, ((int(max_frames) - 1) // 4) * 4 + 1))
         width, height = free_frame_size(shot.get("ratio") or project["aspect"])
         jobs.append({"id": shot["id"], "seed": int(shot.get("seed", 42)), "frames": frames,
                      "steps": int(shot.get("steps") or 30),
@@ -2012,12 +2100,13 @@ def merge_code_cells(notebook: dict) -> dict:
             "nbformat_minor": notebook.get("nbformat_minor", 5)}
 
 
-def mobile(project_file: pathlib.Path, *, one_cell: bool = False) -> int:
+def mobile(project_file: pathlib.Path, *, one_cell: bool = False,
+           max_frames: int | None = None) -> int:
     """Write the phone-first all-in-one notebook for a project."""
     project = require_project(project_file)
     paths = project_paths(project_file)
     (paths["base"] / "mobile").mkdir(parents=True, exist_ok=True)
-    notebook = build_mobile_notebook(project)
+    notebook = build_mobile_notebook(project, max_frames=max_frames)
     if one_cell:
         notebook = merge_code_cells(notebook)
     target = paths["base"] / "mobile" / f"MOBILE_{project['project_id']}.ipynb"
@@ -2175,6 +2264,8 @@ def main(argv: list[str] | None = None) -> int:
     p_mobile = sub.add_parser("mobile", help="write the phone-first all-in-one Colab notebook")
     p_mobile.add_argument("--one-cell", action="store_true",
                           help="merge every code cell into one: a single play button on a phone")
+    p_mobile.add_argument("--max-frames", type=int, default=None,
+                          help="cap frames per shot for the free T4 (33 ~ 2s, 49 ~ 3s)")
     p_mobile.add_argument("project")
 
     p_quota = sub.add_parser("quota", help="free GPU hours ledger (weekly reset)")
@@ -2240,7 +2331,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.cmd == "status":
             return status(project_file)
         if args.cmd == "mobile":
-            return mobile(project_file, one_cell=getattr(args, "one_cell", False))
+            return mobile(project_file, one_cell=getattr(args, "one_cell", False),
+                          max_frames=getattr(args, "max_frames", None))
         if args.cmd == "audio":
             return audio(project_file)
         if args.cmd == "mix":
