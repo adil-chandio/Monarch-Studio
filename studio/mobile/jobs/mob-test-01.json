@@ -11,7 +11,7 @@
     "t01-plate"
   ],
   "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
-  "colab_url": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-01/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
   "voice_text": "",
   "foley_prompt": "ambient room tone, cinematic, subtle",
   "state": "handed_off",
@@ -64,6 +64,13 @@
       "to": "handed_off",
       "by": "agent",
       "note": "Drive rename to *.ipynb (unsupported-file-type fix)"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "handed_off",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "GitHub-tag Colab link added (Drive viewer cannot preview .ipynb on phone)"
     }
   ],
   "master": null,
@@ -106,5 +113,6 @@
     "voice": 0,
     "foley": 0,
     "minutes": "8-15"
-  }
+  },
+  "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf"
 }

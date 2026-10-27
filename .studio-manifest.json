@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T17:33:37+00:00",
+  "generated_at": "2026-10-27T17:36:52+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -60,8 +60,8 @@
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "7c0c05b8fc372ed256ef8a87e96ea03351cbea084e709ed3425402493a070980",
-      "size": 682
+      "sha256": "fbe1606f5026f33a0944a657eea875309dd6b7bebd4860ee1232b32475deae6e",
+      "size": 681
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -168,8 +168,8 @@
       "size": 4165
     },
     "docs/MOBILE_WORKFLOW.md": {
-      "sha256": "024345b5d2f9761855f1fdb1a92f9ada676f72a31a0dcc8c45f1b8536d63a505",
-      "size": 9857
+      "sha256": "658eb1ce3ecd564d88936390a05b54d92763a19cbfca914ea3bfc7836cb24ddd",
+      "size": 10624
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -586,6 +586,14 @@
     "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/checkpoint.json": {
       "sha256": "02dcfbc5d6300b046d9b477917e4d15744c5d8cab24a4bdd440f4c5104aa4e37",
       "size": 4102
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/HANDOFF.md": {
+      "sha256": "bdc7da3ce85659d89a5cb62356440d790daf5e2e8cc2d48e9005d58639078193",
+      "size": 1435
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/checkpoint.json": {
+      "sha256": "73da41aa0fcf129727f8357faca7be43dc309362a1648580c7fe3b2a9fa50ff1",
+      "size": 4007
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -1114,6 +1122,18 @@
     "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/checkpoint.json": {
       "sha256": "3bee6a7667ef46bcee2715f7424c9a41c9f4a5026becc4f9fc5408725bb229a5",
       "size": 4102
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/STATUS.md": {
+      "sha256": "6575f03c824422effa83eb2fc08d11bd9e8bf04989e9f02187bbfbb644c09c04",
+      "size": 1101
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/SYNC.json": {
+      "sha256": "564dd4915cde4b78082bdcb936be2396091c853d6facccab98c84a541c50ed39",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/checkpoint.json": {
+      "sha256": "f53e5176deddeb3b48017a6e20454e2bc1c0239d0d09ed84ac0d950c69f3c1b3",
+      "size": 4007
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -1684,8 +1704,8 @@
       "size": 0
     },
     "studio/mobile/jobs/mob-test-01.json": {
-      "sha256": "e9f317ebe8572488e156b5177971af8e9197468fb48dd1ce9ba2cf04e335201e",
-      "size": 3462
+      "sha256": "ea404787a6916152866ba497d49afdff1e1aff17f8fff2cb07e803f6002354fe",
+      "size": 3858
     },
     "studio/new_workflow_legacy.py": {
       "sha256": "3564fb7f855683259ef3439db94e4fa98695f3c87854eaf35fa10b44a772bf69",
@@ -4172,20 +4192,20 @@
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "2d3af56cd64c3f0762e10a70267b5b6ef661c8c64c2369d9581ad18d1b142057",
-      "size": 1304
+      "sha256": "0419caa928253f0d96e1466c86ae97016c747c822a996a52d54bf020ac212cfb",
+      "size": 1303
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
       "sha256": "09eb8c3d6aadf2e2bc21126e53174eeb813afc97704406db414804560a02db18",
       "size": 3373
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "6b233b5fd12cfda0657dfcc9069364cc78260820f938ebaf31db67a46acc7d4e",
-      "size": 36437
+      "sha256": "99f917eed934391c0f4e841d7153f4cb90aa2a6394b81784a5c7d51cf02d8dd4",
+      "size": 38313
     },
     "workflows/current/RESUME.md": {
-      "sha256": "5e85e99a80f55ee262a6244d1c340394b371f97ff8ec8289fbb0ed2ca6de9c80",
-      "size": 1436
+      "sha256": "bdc7da3ce85659d89a5cb62356440d790daf5e2e8cc2d48e9005d58639078193",
+      "size": 1435
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",

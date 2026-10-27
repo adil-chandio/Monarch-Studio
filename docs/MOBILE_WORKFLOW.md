@@ -124,6 +124,19 @@ Colab link `https://colab.research.google.com/drive/<file_id>` sirf tab khulta h
 - Upload ke baad `get_file` se `mimeType` confirm karo.
 - Purani ghalat-naam file: `update_file --name ...ipynb` se rename, ya delete + dobara upload; **naya link** do.
 
+### 5c. Do link, do surat-e-haal
+
+Drive ka preview `.ipynb` **kabhi** render nahi karta — phone par "**This file type is unsupported**" aana
+normal hai (file kharab nahi hoti). Is liye do link hote hain:
+
+| Link | Kab | Kya karta hai |
+|---|---|---|
+| `colab.research.google.com/drive/<id>` | jab Drive+Colab integration theek ho | Colab me seedha khulta hai |
+| `colab.research.google.com/github/<owner>/<repo>/blob/<tag>/<path>.ipynb` | **default jab Drive refuse kare** | GitHub se padh kar Colab editor me kholta hai, Drive ki zarurat nahi |
+
+GitHub link ke liye notebook repo me hona chahiye + repo public + tag (slash-free, kyunki `blob/<ref>/` me
+branch ke slash URL tod dete hain). Isi liye: `git tag colab-<job> && git push origin refs/tags/colab-<job>`.
+
 ## 6. Jab kuch atak jaye (failure matrix)
 
 | Nazar aa raha hai | Asli matlab | Kaun fix karta hai | Fix |
