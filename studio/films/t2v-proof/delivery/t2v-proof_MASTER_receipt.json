@@ -1,0 +1,22 @@
+{
+  "tool": "clipfilm-1.0",
+  "film": "t2v-proof",
+  "title": "AI video proof",
+  "master": "t2v-proof_MASTER.mp4",
+  "info": {
+    "name": "t2v-proof_MASTER.mp4",
+    "width": 1080,
+    "height": 1920,
+    "duration": 3.5,
+    "bytes": 4275947,
+    "md5": "74671d34326168185d6739b0b9dadbb9"
+  },
+  "log": [
+    "scene 1: s01 3.5s"
+  ],
+  "scenes": 1,
+  "missing": [],
+  "with_voice": 0,
+  "seconds_rendered": 11.6,
+  "engine": "cloud AnimateDiff clips + ffmpeg finish"
+}

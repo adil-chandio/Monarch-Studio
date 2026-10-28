@@ -76,6 +76,10 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
   escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
   against real ffmpeg, so these three mistakes cannot come back silently.
+- **T2V (asli AI video) CPU runner par:** AnimateDiff SD1.5 (`cloud-t2v.yml`, `tools/cloud_t2v.py`) sach me frames
+  banata hai — 14 frames @384x640 ne ~30 min liye aur motion asli tha. Lekin 24 frames @432x768 4-core runner par
+  OOM/timeout kha jata hai (12 me se 8 fail). Jo configs test hui hain: 16 frames @384x672/10 steps = reliable,
+  is se bada = risky. Failure ka log `t2verr-<job>-<scene>` branch par aata hai (blob storage yahan blocked hai).
 - **CLOUD BHI MERA KAAM HAI.** Sandbox se Google/HF/Kaggle band hain (000), lekin `github.com` khula hai — is
   liye GitHub Actions bridge hai: `cloud/jobs/<id>.json` push karo → runner render karta hai → result
   `cloud-artifacts` branch se `git fetch` hota hai (`tools/cloud_reel.py`, `docs/CLOUD_PIPELINE.md`). AI clip ke

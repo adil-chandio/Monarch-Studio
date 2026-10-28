@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-28T00:50:20+00:00",
+  "generated_at": "2026-10-28T05:05:53+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -31,6 +31,10 @@
       "sha256": "d39b70e57ea65311dc53642bbd205c36064f0cc6277b2e8310ff0d5a35f8f7d3",
       "size": 3724
     },
+    ".github/workflows/cloud-t2v.yml": {
+      "sha256": "57456cf9839ec390a4ffad6bdc63592b2f8171d589b9fdda06ffd76ece40c7e1",
+      "size": 5472
+    },
     ".github/workflows/continuity-audit.yml": {
       "sha256": "6b7bdaacf91681eda3c99b980dadd65aa617072f0236dc17b7883f44bb408f7e",
       "size": 867
@@ -44,8 +48,8 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "30cfa8ab6616a9fdbc8870a67de71a55c411cabe3c136afc40ec5d11163bad82",
-      "size": 14126
+      "sha256": "0011ee98d50f464c7b4066025020db282ac38e2d05f9d3e8e169dbe97b299d3b",
+      "size": 14583
     },
     "CHANGELOG.md": {
       "sha256": "45762c3f660a07a88f79dd27fcdbd16f21a2693d8f0847e65f3933112e39fed1",
@@ -170,6 +174,18 @@
     "cloud/scene_jobs/personality-36.json": {
       "sha256": "1d3da660d17577e683e3f046e556180b4a26c9d8afbc7b690df9df4c61a0f46a",
       "size": 3691
+    },
+    "cloud/t2v_jobs/personality-lite.json": {
+      "sha256": "f58741fe1e710202c20f2b269b71290ce455082b506a34a0bcb4ddaea13ceec5",
+      "size": 4204
+    },
+    "cloud/t2v_jobs/personality-t2v.json": {
+      "sha256": "75f4e2693b795d5412e0e358c2ddb9fdbc395cd84d731ea98124be8300f8c565",
+      "size": 3243
+    },
+    "cloud/t2v_jobs/smoke-t2v.json": {
+      "sha256": "899160ff515bf78c9caa631f0128e7057850a7cb82eb4643c74a98c331efc1ff",
+      "size": 765
     },
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
@@ -2082,6 +2098,70 @@
     "studio/films/personality-36/voice/s12.wav": {
       "sha256": "086b8df486a7d8367947668f25f6b7e6df75731b5ecb826ac8afddcaad5824e3",
       "size": 86478
+    },
+    "studio/films/personality-t2v/film_clips.json": {
+      "sha256": "f337ca9520762dab81ce084dc3ea5f2b3339cf5e665331a3c9936243d3f0263f",
+      "size": 2491
+    },
+    "studio/films/personality-t2v/voice/v01.wav": {
+      "sha256": "bd53811131fb68f71fd70bc0e080d990de257594904eac758ba283e6695ec9d7",
+      "size": 827470
+    },
+    "studio/films/personality-t2v/voice/v02.wav": {
+      "sha256": "1fe916e2cce3b3215c63f2d1f2470126d4e8baf5d31b0a6625a166b6036a4bd1",
+      "size": 285774
+    },
+    "studio/films/personality-t2v/voice/v03.wav": {
+      "sha256": "3d21563cc663876fe4054b3adab0770f0f8af4965860ad8cf25d9802309c388f",
+      "size": 251982
+    },
+    "studio/films/personality-t2v/voice/v04.wav": {
+      "sha256": "a9dbe0b908c60265bd3156c3522f6c2be6d4e829af83882b7d8fb6eac9d83c70",
+      "size": 169038
+    },
+    "studio/films/personality-t2v/voice/v05.wav": {
+      "sha256": "b3b5a6accb5250cfd425a0293053741a2bfa55a9d1b5988b241bc55a6cb5d3ac",
+      "size": 259150
+    },
+    "studio/films/personality-t2v/voice/v06.wav": {
+      "sha256": "c8b98e38af917ba981eca183b444212c7e70aba61ac146d4c7a26cbbbafb9de9",
+      "size": 195662
+    },
+    "studio/films/personality-t2v/voice/v07.wav": {
+      "sha256": "40acc6655559b1b3e9e95f1019a93195135c310246f5ceb1c359859d588eb18a",
+      "size": 184398
+    },
+    "studio/films/personality-t2v/voice/v08.wav": {
+      "sha256": "8af721d55bdb4360ad7edbd70decf362160b5348aee1896409678e281403dfb9",
+      "size": 292942
+    },
+    "studio/films/personality-t2v/voice/v09.wav": {
+      "sha256": "6eda2619b9ef93f4fd9187f0b7a5bcbc86f585d84c60bf2ac51178264fe292bd",
+      "size": 334926
+    },
+    "studio/films/personality-t2v/voice/v10.wav": {
+      "sha256": "2793f119c786b747036f68b4e0f08f416e6f915e6ec7757dabacb7572f1aa4ad",
+      "size": 123982
+    },
+    "studio/films/t2v-proof/clips/s01.mp4": {
+      "sha256": "9fe8f6d82945fd96a8ca331dcab26b4b63703cf7871b0f9752b816f26d624d69",
+      "size": 5637438
+    },
+    "studio/films/t2v-proof/clips/s01_slow.mp4": {
+      "sha256": "9273473bcc458369f68dcb5e0ec2a2c0d4a464c7f570645f3aed5aec221141ba",
+      "size": 6170323
+    },
+    "studio/films/t2v-proof/delivery/t2v-proof_MASTER.mp4": {
+      "sha256": "0e46af09359e39fd3bdcb224ec9c777c3d54fc53d75b95cfd6ef7816de14173c",
+      "size": 4275947
+    },
+    "studio/films/t2v-proof/delivery/t2v-proof_MASTER_receipt.json": {
+      "sha256": "bfa29b72eda61432a8b8f408be74646289bdafd21bef7701d7edff72b47255e3",
+      "size": 472
+    },
+    "studio/films/t2v-proof/film_clips.json": {
+      "sha256": "c84eaaccf334e28ee5cf15d03f1310e7adeb301a71fcab108b17562d55d2b3ed",
+      "size": 584
     },
     "studio/free_compute.json": {
       "sha256": "5a42059deee2c05e371ce69bb48051ee9ddb86021b74316e45cb7abc19fab6b1",
@@ -4607,6 +4687,10 @@
       "sha256": "adc6dc731bec8dda410f43b7c6d28ca5dfb634972182bbbd502e7031d051ba1b",
       "size": 20441
     },
+    "tools/clip_film.py": {
+      "sha256": "5d918326642fe2bf99e7b9dde0d4588a2e481034e77f94ecf1db087b05c49220",
+      "size": 7337
+    },
     "tools/cloud_ai_clip.py": {
       "sha256": "396b52553e64357a19134315de634dbc6421de7e33ef7903dc6bfaf046375705",
       "size": 4141
@@ -4618,6 +4702,14 @@
     "tools/cloud_scene_pack.py": {
       "sha256": "f2de504da1b6e0df4533ac3cf653d3593418cda35aea8ba8c6707adfe0c516b3",
       "size": 4741
+    },
+    "tools/cloud_t2v.py": {
+      "sha256": "32eee1299c2716641429d02e97f9851c97ae4e849ef327e76f3a9f2de9656c9c",
+      "size": 4831
+    },
+    "tools/cloud_t2v_fetch.py": {
+      "sha256": "78b58c2c87bad49dbe69c0a9127708e433e0f6e09df644afbe18edd4cbeaaffc",
+      "size": 3924
     },
     "tools/continuity.py": {
       "sha256": "5e33af5c93f2443b84a8292e3163de134c8f276064ad33fd37cf682f4044f0e2",
