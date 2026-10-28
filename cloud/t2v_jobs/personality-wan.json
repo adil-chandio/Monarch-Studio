@@ -7,7 +7,7 @@
   "width": 480,
   "height": 832,
   "frames": 49,
-  "steps": 15,
+  "steps": 12,
   "raw_fps": 16,
   "fps": 24,
   "guidance": 5.0,
@@ -18,73 +18,85 @@
       "id": "s01",
       "prompt": "a South Asian man in his thirties in a dark wool coat walks slowly toward the camera on a wet city street at night, rain falling past him, neon signs reflected in the asphalt, headlights sliding by behind, handheld camera",
       "seed": 101,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s02",
       "prompt": "rain water running down a dark window at night, city lights blurred behind the glass, droplets joining and sliding, faint reflection of a face in the pane, slow rack focus",
       "seed": 102,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s03",
       "prompt": "two men sitting across a small cafe table at night, warm lamp light, the listener leans in and nods slowly, steam rising from a cup, background out of focus, handheld",
       "seed": 103,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s04",
       "prompt": "over the shoulder shot of a man speaking quietly at a table, his hands moving slightly as he talks, warm tungsten light on his cheek, smoke drifting in the background, shallow focus",
       "seed": 104,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s05",
       "prompt": "medium close up of a man looking straight into the camera, he blinks slowly, small catchlights in his eyes, dark room lit by a single lamp from the side, natural skin, slow push in",
       "seed": 105,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s06",
       "prompt": "a man standing with his shoulders back in front of a tall window at dusk, he takes a slow breath and steadies himself, dust drifting through a shaft of light, camera drifts sideways",
       "seed": 106,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s07",
       "prompt": "a night meeting room, one man sits still at a long table while blurred colleagues argue around him, fluorescent light flickers once, papers on the table, slow camera orbit",
       "seed": 107,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s08",
       "prompt": "three friends laughing around a kitchen table at night, warm tungsten light, one of them leans back and laughs, a cup being lifted, subtle handheld movement, candid",
       "seed": 108,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s09",
       "prompt": "a man alone in an empty room at dawn practising speaking to himself calmly, pale morning light through a window, he gestures once with his hand, dust in the air, static camera",
       "seed": 109,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s10",
       "prompt": "silhouette of a man standing at a rooftop railing at sunrise, city haze below, his coat moving in the wind, camera slowly rising behind him",
       "seed": 110,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s11",
       "prompt": "a man in a dark coat walks steadily through a bright hotel lobby, people blurred on both sides, marble floor reflecting light, camera tracks backwards ahead of him",
       "seed": 111,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     },
     {
       "id": "s12",
       "prompt": "close up of a vintage chrome microphone in a dark studio, dust drifting in a beam of light, the microphone cable swaying slightly, slow drift, deep blacks",
       "seed": 112,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "frames": 49
     }
   ]
 }
