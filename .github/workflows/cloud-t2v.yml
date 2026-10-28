@@ -35,8 +35,11 @@ jobs:
           set -euo pipefail
           JOB="${{ github.event.inputs.job_id }}"
           if [ -z "$JOB" ]; then
-            JOB=$(ls -t cloud/t2v_jobs/*.json | head -1 | xargs basename | sed 's/\.json$//')
+            # push trigger: is commit me jo job file badli hai wohi chalao
+            JOB=$(git show --name-only --pretty=format: "$GITHUB_SHA" \
+                  | grep -E '^cloud/t2v_jobs/.*\.json$' | head -1 | xargs -r basename | sed 's/\.json$//' || true)
           fi
+          if [ -z "$JOB" ]; then JOB="quality-lab"; fi
           ONLY="${{ github.event.inputs.only }}"
           python3 - "$JOB" "$ONLY" <<'PY' >> "$GITHUB_OUTPUT"
           import json, pathlib, sys
