@@ -94,7 +94,9 @@ jobs:
           python3 tools/cloud_t2v.py "cloud/t2v_jobs/$JOB.json" --scene "$SCENE" --out "$OUT" \
             2>&1 | tee "$OUT/gen.log"
           ls -lh "$OUT"
-          ffmpeg -hide_banner -i "$OUT/${SCENE}.mp4" 2>&1 | tail -4
+          # NOTE: yeh probe sirf information ke liye hai — ffmpeg -i akela exit 1 deta hai,
+          # is liye `|| true`, warna step fail ho kar publish skip ho jata hai (clips zaya).
+          ffmpeg -hide_banner -i "$OUT/${SCENE}.mp4" 2>&1 | tail -4 || true
 
       - name: Publish this scene to its own branch
         env:
