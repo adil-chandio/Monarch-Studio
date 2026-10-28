@@ -102,11 +102,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |-
-          set -euo pipefail
+          exec > >(tee -a /tmp/publish.log) 2>&1
+          set -x
           JOB="${{ needs.prepare.outputs.job_id }}"
           SCENE="${{ matrix.scene }}"
           OUT="$PWD/t2v_out/${JOB}_${SCENE}"
           BRANCH="t2v-${JOB}-${SCENE}"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          set -euo pipefail
+          ls -lh "$OUT" || true
           rm -rf /tmp/pub && mkdir -p /tmp/pub
           cp "$OUT/${SCENE}.mp4" /tmp/pub/
           python3 - "$JOB" "$SCENE" "$OUT" <<'PY'
@@ -123,14 +127,24 @@ jobs:
           print(json.dumps(payload, indent=2))
           PY
           cd /tmp/pub
-          git init -q -b pub
+          git init -q
+          git symbolic-ref HEAD refs/heads/pub
           git config user.name "Monarch Cloud"
           git config user.email "cloud@monarch.local"
+          git config http.postBuffer 524288000
           git add -A
           git commit -q -m "t2v: ${JOB} ${SCENE}"
-          git push --quiet --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
-            "HEAD:refs/heads/${BRANCH}"
-          git ls-remote --heads "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${BRANCH}"
+          for attempt in 1 2 3; do
+            if git push --force "$REMOTE" "HEAD:refs/heads/${BRANCH}"; then
+              echo "pushed attempt $attempt"
+              break
+            fi
+            echo "push attempt $attempt failed, retry"
+            sleep 10
+          done
+          git ls-remote --heads "$REMOTE" "${BRANCH}" | tee /tmp/pub/lsremote.txt
+          grep -q "${BRANCH}" /tmp/pub/lsremote.txt
+          echo "PUBLISH OK ${BRANCH}"
 
       - name: Publish failure log (sandbox ke liye readable)
         if: failure()
@@ -141,18 +155,25 @@ jobs:
           JOB="${{ needs.prepare.outputs.job_id }}"
           SCENE="${{ matrix.scene }}"
           BRANCH="t2verr-${JOB}-${SCENE}"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           rm -rf /tmp/err && mkdir -p /tmp/err
           tail -c 30000 "$PWD/t2v_out/${JOB}_${SCENE}/gen.log" > /tmp/err/gen.log 2>/dev/null || echo "no log" > /tmp/err/gen.log
+          cp /tmp/publish.log /tmp/err/publish.log 2>/dev/null || true
+          ls -lh "$PWD/t2v_out/${JOB}_${SCENE}" > /tmp/err/files.txt 2>/dev/null || true
           free -g > /tmp/err/mem.txt 2>/dev/null || true
           df -h / > /tmp/err/disk.txt 2>/dev/null || true
           cd /tmp/err
-          git init -q -b pub
+          git init -q
+          git symbolic-ref HEAD refs/heads/pub
           git config user.name "Monarch Cloud"
           git config user.email "cloud@monarch.local"
+          git config http.postBuffer 524288000
           git add -A
           git commit -q -m "t2v error: ${JOB} ${SCENE}"
-          git push --quiet --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
-            "HEAD:refs/heads/${BRANCH}" || echo "error branch push fail"
+          for attempt in 1 2 3; do
+            git push --force "$REMOTE" "HEAD:refs/heads/${BRANCH}" && break
+            sleep 5
+          done || echo "error branch push fail"
 
       - uses: actions/upload-artifact@v4
         if: always()
