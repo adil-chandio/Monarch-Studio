@@ -1,0 +1,11 @@
+{
+  "job": "quality-lab",
+  "scene": "wanA",
+  "file": "wanA.mp4",
+  "bytes": 3514017,
+  "md5": "0e5b1d8daeda72a377266de489d51f55",
+  "probe": [
+    "  Duration: 00:00:02.00, start: 0.000000, bitrate: 14056 kb/s",
+    "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 14050 kb/s, 24 fps, 24 tbr, 12288 tbn (default)"
+  ]
+}
