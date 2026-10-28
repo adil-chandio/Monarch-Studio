@@ -1,14 +1,17 @@
 name: Cloud T2V scenes (agent-triggered, parallel)
 
-# Har scene ka apna parallel job. AnimateDiff sach me frames generate karta hai (slideshow nahi).
-# Har scene apni branch par publish hota hai: t2v-<job>-<scene>
+# Har scene ka apna parallel job. Har backend sach me frames generate karta hai (slideshow nahi):
+#   wan         = Wan 2.1 T2V-1.3B (2025)   -> realism
+#   ltx         = LTX-Video 2B              -> 24 fps motion
+#   animatediff = SD1.5 + motion adapter    -> sasta fallback
+# Har scene apni branch par publish hoti hai: t2v-<job>-<scene>
 
 on:
   workflow_dispatch:
     inputs:
       job_id:
         required: true
-        default: "personality-t2v"
+        default: "quality-lab"
       only:
         required: false
         default: ""
@@ -28,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: list
-        run: |
+        run: |-
           set -euo pipefail
           JOB="${{ github.event.inputs.job_id }}"
           if [ -z "$JOB" ]; then
@@ -49,7 +52,7 @@ jobs:
   scene:
     needs: prepare
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 340
     strategy:
       fail-fast: false
       max-parallel: 6
@@ -64,34 +67,41 @@ jobs:
           python-version: "3.11"
 
       - name: torch + diffusers (CPU)
-        run: |
+        run: |-
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           python3 -m pip install --quiet --upgrade pip
           python3 -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
-          python3 -m pip install --quiet diffusers transformers accelerate safetensors imageio imageio-ffmpeg
-          python3 -c "import torch; print('torch', torch.__version__)"
+          python3 -m pip install --quiet "diffusers>=0.32" "transformers>=4.49" accelerate safetensors \
+            sentencepiece protobuf ftfy imageio imageio-ffmpeg huggingface_hub
+          python3 -c "import torch, diffusers; print('torch', torch.__version__, 'diffusers', diffusers.__version__)"
+          free -g; nproc
 
       - name: Generate this scene
         env:
           HF_HUB_DISABLE_XET: "1"
           OMP_NUM_THREADS: "4"
           MALLOC_ARENA_MAX: "2"
-        run: |
-          set -euo pipefail
-          JOB="${{ needs.prepare.outputs.job_id }}"
-          SCENE="${{ matrix.scene }}"
-          mkdir -p "t2v_out/${JOB}_${SCENE}"
-          python3 tools/cloud_t2v.py "cloud/t2v_jobs/$JOB.json" --scene "$SCENE" --out "t2v_out/${JOB}_${SCENE}" 2>&1 | tee "t2v_out/${JOB}_${SCENE}/gen.log"
-          ls -lh "t2v_out/${JOB}_${SCENE}"
-
-      - name: Publish this scene to its own branch
-        run: |
+          TOKENIZERS_PARALLELISM: "false"
+        run: |-
           set -euo pipefail
           JOB="${{ needs.prepare.outputs.job_id }}"
           SCENE="${{ matrix.scene }}"
           OUT="t2v_out/${JOB}_${SCENE}"
-          git config user.name "Monarch Cloud"
-          git config user.email "cloud@monarch.local"
+          mkdir -p "$OUT"
+          python3 tools/cloud_t2v.py "cloud/t2v_jobs/$JOB.json" --scene "$SCENE" --out "$OUT" \
+            2>&1 | tee "$OUT/gen.log"
+          ls -lh "$OUT"
+          ffmpeg -hide_banner -i "$OUT/${SCENE}.mp4" 2>&1 | tail -4
+
+      - name: Publish this scene to its own branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |-
+          set -euo pipefail
+          JOB="${{ needs.prepare.outputs.job_id }}"
+          SCENE="${{ matrix.scene }}"
+          OUT="$PWD/t2v_out/${JOB}_${SCENE}"
+          BRANCH="t2v-${JOB}-${SCENE}"
           rm -rf /tmp/pub && mkdir -p /tmp/pub
           cp "$OUT/${SCENE}.mp4" /tmp/pub/
           python3 - "$JOB" "$SCENE" "$OUT" <<'PY'
@@ -103,38 +113,41 @@ jobs:
           payload = {"job": job, "scene": scene, "file": clip.name,
                      "bytes": clip.stat().st_size,
                      "md5": hashlib.md5(clip.read_bytes()).hexdigest(),
-                     "probe": probe.strip().splitlines()[-6:]}
+                     "probe": [l for l in probe.splitlines() if "Stream" in l or "Duration" in l]}
           pathlib.Path("/tmp/pub/receipt.json").write_text(json.dumps(payload, indent=2))
           print(json.dumps(payload, indent=2))
           PY
-          git checkout --orphan "pub-${SCENE}"
-          git rm -rf --cached . >/dev/null 2>&1 || true
-          find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
-          cp -r /tmp/pub/. .
+          cd /tmp/pub
+          git init -q -b pub
+          git config user.name "Monarch Cloud"
+          git config user.email "cloud@monarch.local"
           git add -A
           git commit -q -m "t2v: ${JOB} ${SCENE}"
-          git push --force origin HEAD:"t2v-${JOB}-${SCENE}"
-          echo "published t2v-${JOB}-${SCENE}"
+          git push --quiet --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "HEAD:refs/heads/${BRANCH}"
+          git ls-remote --heads "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${BRANCH}"
 
       - name: Publish failure log (sandbox ke liye readable)
         if: failure()
-        run: |
-          set -euo pipefail
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |-
+          set -uo pipefail
           JOB="${{ needs.prepare.outputs.job_id }}"
           SCENE="${{ matrix.scene }}"
+          BRANCH="t2verr-${JOB}-${SCENE}"
+          rm -rf /tmp/err && mkdir -p /tmp/err
+          tail -c 30000 "$PWD/t2v_out/${JOB}_${SCENE}/gen.log" > /tmp/err/gen.log 2>/dev/null || echo "no log" > /tmp/err/gen.log
+          free -g > /tmp/err/mem.txt 2>/dev/null || true
+          df -h / > /tmp/err/disk.txt 2>/dev/null || true
+          cd /tmp/err
+          git init -q -b pub
           git config user.name "Monarch Cloud"
           git config user.email "cloud@monarch.local"
-          rm -rf /tmp/err && mkdir -p /tmp/err
-          tail -c 20000 "t2v_out/${JOB}_${SCENE}/gen.log" > /tmp/err/gen.log 2>/dev/null || echo "no log" > /tmp/err/gen.log
-          free -g > /tmp/err/mem.txt || true
-          df -h > /tmp/err/disk.txt || true
-          git checkout --orphan "err-${SCENE}"
-          git rm -rf --cached . >/dev/null 2>&1 || true
-          find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
-          cp -r /tmp/err/. .
           git add -A
           git commit -q -m "t2v error: ${JOB} ${SCENE}"
-          git push --force origin HEAD:"t2verr-${JOB}-${SCENE}" || true
+          git push --quiet --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            "HEAD:refs/heads/${BRANCH}" || echo "error branch push fail"
 
       - uses: actions/upload-artifact@v4
         if: always()
