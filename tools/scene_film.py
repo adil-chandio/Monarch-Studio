@@ -57,8 +57,35 @@ def make_mask(depth_path: pathlib.Path, out: pathlib.Path, spec: dict) -> pathli
     return out
 
 
-def scene_graph(scene: dict, spec: dict, index: int, caption_png: pathlib.Path | None,
-                mask_png: pathlib.Path | None) -> str:
+
+def make_bokeh(size: tuple[int, int], out: pathlib.Path, seed: int = 3) -> pathlib.Path:
+    """Foreground bokeh sprite (RGBA): plate se tez chal kar depth ka ehsaas deta hai."""
+    import random
+    from PIL import Image, ImageDraw, ImageFilter
+
+    width, height = size
+    sprite = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(sprite)
+    rng = random.Random(seed)
+    for _ in range(14):
+        radius = rng.randint(width // 22, width // 9)
+        x = rng.randint(-radius, width + radius)
+        y = rng.randint(-radius, height + radius)
+        alpha = rng.randint(28, 70)
+        colour = rng.choice([(255, 214, 160, alpha), (180, 210, 255, alpha),
+                             (255, 180, 120, alpha)])
+        draw.ellipse([x - radius, y - radius, x + radius, y + radius], fill=colour)
+    sprite = sprite.filter(ImageFilter.GaussianBlur(width // 40))
+    sprite.save(out)
+    return out
+
+
+def scene_graph(scene: dict, spec: dict, index: int, has_bokeh: bool, has_caption: bool) -> str:
+    """Inputs: 0 = plate, 1 = bokeh sprite, 2 = caption PNG (jab maujood hon).
+
+    Motion: plate par eased camera move + foreground bokeh tez chalta hai (parallax),
+    upar se film grade, grain, vignette aur halka handheld shake.
+    """
     width, height = spec["size"]
     fps = int(spec.get("fps", 24))
     seconds = float(scene["seconds"])
@@ -69,47 +96,33 @@ def scene_graph(scene: dict, spec: dict, index: int, caption_png: pathlib.Path |
     zoom, xpos, ypos = base._zoom_expr(move, frames)
     grain = int(spec.get("grain", 8))
     fade = float(spec.get("fade", 0.3))
-    far_zoom = float(spec.get("parallax_far", 1.16))
-    near_zoom = float(spec.get("parallax_near", 1.28))
 
     parts = [
-        "[0:v]split=2[fars][nears]",
-        # background: dheema, thoda blur + dark (depth ka ehsaas)
-        (f"[fars]scale=iw*{far_zoom}:ih*{far_zoom}:flags=lanczos,"
-         f"zoompan=z='1.02+0.04*on/{frames}':d={frames}:"
-         f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={width}x{height}:fps={fps},"
-         f"gblur=sigma={int(spec.get('far_blur', 2))},"
-         f"eq=brightness=-0.015:saturation=0.9,setsar=1[far]"),
+        # plate: halka upscale + eased camera move
+        (f"[0:v]scale={int(width * 1.25)}:-2:flags=lanczos,"
+         f"zoompan=z='{zoom}':d={frames}:x='{xpos}':y='{ypos}':"
+         f"s={width}x{height}:fps={fps},setsar=1[plate]"),
     ]
-    if mask_png is not None:
-        # foreground subject: tez camera move, mask se alag
+    layered = "[plate]"
+    if has_bokeh:
         parts += [
-            (f"[nears]scale=iw*{near_zoom}:ih*{near_zoom}:flags=lanczos,"
-             f"zoompan=z='{zoom}':d={frames}:x='{xpos}':y='{ypos}':"
-             f"s={width}x{height}:fps={fps},setsar=1[near]"),
-            f"[1:v]scale={width}:{height},format=gray,"
-            f"loop=loop={frames - 1}:size=1:start=0,fps={fps}[alpha]",
-            "[near][alpha]alphamerge[near_a]",
-            "[far][near_a]overlay=x=0:y=0:shortest=1[layered]",
+            f"[1:v]format=rgba,fps={fps},"
+            f"zoompan=z='1.0+0.12*on/{frames}':d={frames}:"
+            f"x='(iw-iw/zoom)*on/{frames}':y='(ih-ih/zoom)*(1-on/{frames})':"
+            f"s={width}x{height}[bok]",
+            f"{layered}[bok]overlay=x=0:y=0:shortest=1[bokd]",
         ]
-        cap_index = 2
-    else:
-        parts.append(f"[nears]scale=iw*{near_zoom}:ih*{near_zoom}:flags=lanczos,"
-                     f"zoompan=z='{zoom}':d={frames}:x='{xpos}':y='{ypos}':"
-                     f"s={width}x{height}:fps={fps},setsar=1[full]")
-        parts.append("[full]null[layered]")
-        cap_index = 1
+        layered = "[bokd]"
 
-    # film grade + halation-lite + grain + vignette + handheld shake
     parts += [
-        "[layered]eq=contrast=1.06:gamma=0.99:saturation=1.03,"
+        f"{layered}eq=contrast=1.06:gamma=0.99:saturation=1.03,"
         "colorbalance=rs=-0.012:bs=0.01:rh=0.025:bh=-0.018[graded]",
         f"[graded]noise=alls={grain}:allf=t+u,vignette=PI/5.6[filmic]",
     ]
     tail = "[filmic]"
-    if caption_png is not None:
+    if has_caption:
         parts += [
-            f"[{cap_index}:v]format=rgba,"
+            f"[2:v]format=rgba,"
             f"fade=t=in:st=0:d={fade:.2f}:alpha=1,"
             f"fade=t=out:st={max(seconds - fade, 0):.2f}:d={fade:.2f}:alpha=1[cap]",
             f"{tail}[cap]overlay=x=0:y='-{int(spec.get('caption_drift', 4))}*t':shortest=1[capd]",
@@ -125,18 +138,20 @@ def scene_graph(scene: dict, spec: dict, index: int, caption_png: pathlib.Path |
 
 
 def render_scene(scene: dict, spec: dict, index: int, image: pathlib.Path,
-                 depth: pathlib.Path | None, work: pathlib.Path, ffmpeg: str) -> pathlib.Path:
+                 work: pathlib.Path, ffmpeg: str) -> pathlib.Path:
+    """Ek scene: plate + foreground bokeh + caption ko ek moving shot me jodo."""
     fps = int(spec.get("fps", 24))
     seconds = float(scene["seconds"])
-    cap = (scene.get("caption") or "").strip()
-    cap_png = base.make_caption_png(cap, spec, work / f"cap{index:02d}.png") if cap else None
-    mask = make_mask(depth, work / f"mask{index:02d}.png", spec) if depth and depth.exists() else None
-    graph = scene_graph(scene, spec, index, cap_png, mask)
+    caption = (scene.get("caption") or "").strip()
+    cap_png = base.make_caption_png(caption, spec, work / f"cap{index:02d}.png") if caption else None
+    bokeh_png = make_bokeh(tuple(spec["size"]), work / f"bok{index:02d}.png",
+                           seed=int(scene.get("seed", index))) if spec.get("bokeh", True) else None
 
+    graph = scene_graph(scene, spec, index, bokeh_png is not None, cap_png is not None)
     cmd = [ffmpeg, "-y", "-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}",
            "-i", str(image)]
-    if mask is not None:
-        cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}", "-i", str(mask)]
+    if bokeh_png is not None:
+        cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}", "-i", str(bokeh_png)]
     if cap_png is not None:
         cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}", "-i", str(cap_png)]
     out = work / f"scene{index:02d}.mp4"
@@ -255,6 +270,9 @@ def render(spec_path: pathlib.Path, out: pathlib.Path, *, keep: pathlib.Path | N
     directory = pathlib.Path(spec.get("dir", "."))
     if not directory.is_absolute():
         directory = (spec_dir / directory).resolve()
+    voice_dir = pathlib.Path(spec.get("voice_dir", spec.get("dir", ".")))
+    if not voice_dir.is_absolute():
+        voice_dir = (spec_dir / voice_dir).resolve()
     spec.setdefault("size", [1080, 1920])
     spec.setdefault("fps", 24)
     started = time.time()
@@ -270,12 +288,12 @@ def render(spec_path: pathlib.Path, out: pathlib.Path, *, keep: pathlib.Path | N
         depth = directory / f"{scene['id']}_depth.png"
         if not image.exists():
             raise RenderError(f"scene {index}: image nahi mila ({image})")
-        wav = directory / f"{scene['id']}.wav"
+        wav = voice_dir / f"{scene['id']}.wav"
         if wav.exists():
             voice_files[scene["id"]] = wav
-        parts.append(render_scene(scene, spec, index, image, depth, work, ffmpeg))
+        parts.append(render_scene(scene, spec, index, image, work, ffmpeg))
         log.append(f"scene {index}: {scene['id']} {scene['seconds']}s {scene.get('move', 'push')}"
-                   + (" +depth" if depth.exists() else "") + (" +voice" if wav.exists() else ""))
+                   + (" +voice" if wav.exists() else ""))
 
     joined = join_scenes(parts, work / "joined.mp4", ffmpeg)
     duration = round(sum(float(s["seconds"]) for s in scenes), 3)

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-27T23:43:00+00:00",
+  "generated_at": "2026-10-28T00:50:20+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -26,6 +26,10 @@
     ".github/workflows/cloud-reel.yml": {
       "sha256": "5c0246ee6155d7715bebdcee7d7e2d28a94cec7fe10037b70a58805c1a5c5989",
       "size": 4266
+    },
+    ".github/workflows/cloud-scenes.yml": {
+      "sha256": "d39b70e57ea65311dc53642bbd205c36064f0cc6277b2e8310ff0d5a35f8f7d3",
+      "size": 3724
     },
     ".github/workflows/continuity-audit.yml": {
       "sha256": "6b7bdaacf91681eda3c99b980dadd65aa617072f0236dc17b7883f44bb408f7e",
@@ -158,6 +162,14 @@
     "cloud/jobs/reel-local-01.json": {
       "sha256": "6435d18aa92f97c7d936163d38046ac631ae6e9bc0bc655162bd698b09416e62",
       "size": 146
+    },
+    "cloud/scene_jobs/README.md": {
+      "sha256": "07c60997bc2fac1116a61c39d5b1d51fe38c7258ea38b2ef161d7ae78a68ec3a",
+      "size": 302
+    },
+    "cloud/scene_jobs/personality-36.json": {
+      "sha256": "1d3da660d17577e683e3f046e556180b4a26c9d8afbc7b690df9df4c61a0f46a",
+      "size": 3691
     },
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
@@ -1934,6 +1946,142 @@
     "studio/editor-brain/brain/study.py": {
       "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
       "size": 16690
+    },
+    "studio/films/personality-36/delivery/drive_receipt.json": {
+      "sha256": "a62b570f015385ce32ce9f399280773ea41cc86577bc8bb29a8ceb2f8739df73",
+      "size": 1239
+    },
+    "studio/films/personality-36/delivery/personality-36_MASTER.mp4": {
+      "sha256": "702b9a222ad217c5dad0a72a8d92f64006e0ea23418436ccfbfcbc828da9d08e",
+      "size": 16695200
+    },
+    "studio/films/personality-36/delivery/personality-36_MASTER_receipt.json": {
+      "sha256": "054902e033912125f40ec947cfe8ed462d6f396de40a7c5a9cc11621148b71d6",
+      "size": 883
+    },
+    "studio/films/personality-36/film.json": {
+      "sha256": "c54e670eb8bb7fd7636a309525f52848c961d7be8957e71fc4eb9fe231fe8983",
+      "size": 2505
+    },
+    "studio/films/personality-36/scenes/s01.png": {
+      "sha256": "8af6654d947d4f6d04ec7dffea900a0d815c54ae967865cbc1bfb24352cc4ed1",
+      "size": 3062343
+    },
+    "studio/films/personality-36/scenes/s01_depth.png": {
+      "sha256": "5e3c9af060fa3723990253825e7c8e5a599a1e137f0df2d2b892ffd83567c88b",
+      "size": 169241
+    },
+    "studio/films/personality-36/scenes/s02.png": {
+      "sha256": "1b459ef8b1d1cd27a1c4c3585985213656972bceb3026782e860265b5f29d10e",
+      "size": 2611049
+    },
+    "studio/films/personality-36/scenes/s02_depth.png": {
+      "sha256": "b1b8cf5ec3782ba0dd4a1dfbb62dde24d7e3e8236adc1b4461b802a83d97df5c",
+      "size": 144478
+    },
+    "studio/films/personality-36/scenes/s03.png": {
+      "sha256": "0c7322605a3c756d4e13edc3bab00f2a992b9342e61b8cb9f60956147e8606c0",
+      "size": 2560464
+    },
+    "studio/films/personality-36/scenes/s03_depth.png": {
+      "sha256": "0794abe4295b89a765338a35b17cace5ce8899c3ffba3f724f06a3c8b1d8674b",
+      "size": 148702
+    },
+    "studio/films/personality-36/scenes/s04.png": {
+      "sha256": "ddceb0ae6b40ea31a423889d349bf96db8404d8f1aec0b1566ef2ac960a46676",
+      "size": 2838171
+    },
+    "studio/films/personality-36/scenes/s04_depth.png": {
+      "sha256": "29e214f0b21cd93b73902f6a53ccb0dbc9d9e51622e93b33d5b72c6d3449e799",
+      "size": 147629
+    },
+    "studio/films/personality-36/scenes/s05.png": {
+      "sha256": "d2fc8b54915d99be66552f913afaa115ac0e67130634458bc0d858042b165547",
+      "size": 2341271
+    },
+    "studio/films/personality-36/scenes/s05_depth.png": {
+      "sha256": "970dd23a47124970b3d40075cf986e144aaa1f41d98885895ff52cea75fd4406",
+      "size": 139926
+    },
+    "studio/films/personality-36/scenes/s06.png": {
+      "sha256": "380b2d2f57cbccb463c4775ff9d77c4447e15233d9017180d2f86637228bb267",
+      "size": 2634016
+    },
+    "studio/films/personality-36/scenes/s06_depth.png": {
+      "sha256": "e2692347abdc6991471d993fd58c43d3abdfe5569d46ed74d271580edef9ac16",
+      "size": 147943
+    },
+    "studio/films/personality-36/scenes/s07.png": {
+      "sha256": "8d0ab4e69314d1fe4138414abd21df579ef016b7d52683d280aec0d4c7d413cd",
+      "size": 2465964
+    },
+    "studio/films/personality-36/scenes/s07_depth.png": {
+      "sha256": "8a68bddb8999fe2c393662fa0ae0fa830752c4041d101e82b2a2583b18574517",
+      "size": 151617
+    },
+    "studio/films/personality-36/scenes/s08.png": {
+      "sha256": "b415ce6706298a1efec3ecf090e4bf84394a174e04a5c3283a38d04a3d76f53d",
+      "size": 3381573
+    },
+    "studio/films/personality-36/scenes/s08_depth.png": {
+      "sha256": "161b82ed683fa01ad6569c144361f20723723a439c0ea0ece2566a529e9c5eae",
+      "size": 174784
+    },
+    "studio/films/personality-36/scenes/s09.png": {
+      "sha256": "7ac78df787331f4c21896c6b03402c03d9d898e2a9d8838d324c686b98163635",
+      "size": 2699026
+    },
+    "studio/films/personality-36/scenes/s09_depth.png": {
+      "sha256": "e59baf1f5f610a4d464fde7e519aa7994e632688eb3286a8ba58095a05e64f65",
+      "size": 134596
+    },
+    "studio/films/personality-36/scenes/s10.png": {
+      "sha256": "04d153184ce828eb00998614065450d674192e2e9c3e67879c28287d318c398d",
+      "size": 3262342
+    },
+    "studio/films/personality-36/scenes/s10_depth.png": {
+      "sha256": "4f114a52c4956aed7288d2672a7c40eaa77632e74a8b4b523a17742259e3f995",
+      "size": 176666
+    },
+    "studio/films/personality-36/scenes/s12.png": {
+      "sha256": "5af25630d71ed5de36196b93531ac0dfa4157c48511c0cb694b3741e4e0d0437",
+      "size": 1828378
+    },
+    "studio/films/personality-36/voice/s01.wav": {
+      "sha256": "18edf0b25030100b4f003a101f0ca9f018905b33ec776e0cb9636bf512624427",
+      "size": 190158
+    },
+    "studio/films/personality-36/voice/s02.wav": {
+      "sha256": "7f75694abf3ebf0ca1ec9749602cebdc792b797f8294af2a24a9d89881d978c2",
+      "size": 161358
+    },
+    "studio/films/personality-36/voice/s03.wav": {
+      "sha256": "f9d3f45b8ce63557043ac3d227766ff1e8ad4db7361d7e2572e2f0da99598744",
+      "size": 151758
+    },
+    "studio/films/personality-36/voice/s04.wav": {
+      "sha256": "4f300b9dddc2c32b3d24f505255e8283a5213e6d25e7adf20ee2bd0eadd4e582",
+      "size": 188238
+    },
+    "studio/films/personality-36/voice/s05.wav": {
+      "sha256": "9d743b8935cb21a6b7093128f33516fe73288585f93ec87019f68e9fe1cdba39",
+      "size": 144078
+    },
+    "studio/films/personality-36/voice/s06.wav": {
+      "sha256": "6ee3240f369bad5aad725440b49c01b515d67c13465af7ac770022000f22b9fe",
+      "size": 205518
+    },
+    "studio/films/personality-36/voice/s07.wav": {
+      "sha256": "e5cee4a18fc0d96621ce70df3d934ecce13f4ca44b3e66ec73fb10579b568b90",
+      "size": 163278
+    },
+    "studio/films/personality-36/voice/s10.wav": {
+      "sha256": "432ba3b49a59457f6976f43986c4308adf080301fcf2260d171a3d2ed30b0c2a",
+      "size": 197838
+    },
+    "studio/films/personality-36/voice/s12.wav": {
+      "sha256": "086b8df486a7d8367947668f25f6b7e6df75731b5ecb826ac8afddcaad5824e3",
+      "size": 86478
     },
     "studio/free_compute.json": {
       "sha256": "5a42059deee2c05e371ce69bb48051ee9ddb86021b74316e45cb7abc19fab6b1",
@@ -4467,6 +4615,10 @@
       "sha256": "4a32abe55369a09c2f03af8b14b36d9993cc4b781753be6c6296affa9c6b37ec",
       "size": 7037
     },
+    "tools/cloud_scene_pack.py": {
+      "sha256": "f2de504da1b6e0df4533ac3cf653d3593418cda35aea8ba8c6707adfe0c516b3",
+      "size": 4741
+    },
     "tools/continuity.py": {
       "sha256": "5e33af5c93f2443b84a8292e3163de134c8f276064ad33fd37cf682f4044f0e2",
       "size": 32155
@@ -4483,6 +4635,10 @@
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
       "size": 1875
     },
+    "tools/quick_depth.py": {
+      "sha256": "c9abceae005dddb4a6576883a899aa9126f1e0fdcd61ce01d071203504aa6039",
+      "size": 2064
+    },
     "tools/reel_render.py": {
       "sha256": "c3491b3d811acd303b2a73de838e46b0db335695bc7afbb418435725bd1447c7",
       "size": 23241
@@ -4490,6 +4646,10 @@
     "tools/render_v2_parallel.sh": {
       "sha256": "0905473946f518f79f1aa091d107c08270224d45a82229cc750cd10cc3146e89",
       "size": 1645
+    },
+    "tools/scene_film.py": {
+      "sha256": "50979e72b5859e48545308fc43bc5b61278d1084663af3ab072054b071fa7df9",
+      "size": 15694
     },
     "tools/studio.py": {
       "sha256": "2d0ce2678497d2f9f9dc53ab03b02a17c44e623fa79a48a8604cafdec167acf0",
