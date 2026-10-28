@@ -1,0 +1,11 @@
+{
+  "job": "lab2",
+  "scene": "ltxB",
+  "file": "ltxB.mp4",
+  "bytes": 4433718,
+  "md5": "de7caf10bc880e28bf1e9f58e5746bf3",
+  "probe": [
+    "  Duration: 00:00:03.00, start: 0.000000, bitrate: 11823 kb/s",
+    "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 11820 kb/s, 24 fps, 24 tbr, 12288 tbn (default)"
+  ]
+}
