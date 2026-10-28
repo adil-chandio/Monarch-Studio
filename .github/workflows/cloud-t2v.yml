@@ -1,0 +1,123 @@
+name: Cloud T2V scenes (agent-triggered, parallel)
+
+# Har scene ka apna parallel job. AnimateDiff sach me frames generate karta hai (slideshow nahi).
+# Har scene apni branch par publish hota hai: t2v-<job>-<scene>
+
+on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        required: true
+        default: "personality-t2v"
+      only:
+        required: false
+        default: ""
+  push:
+    paths:
+      - "cloud/t2v_jobs/*.json"
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+      job_id: ${{ steps.list.outputs.job_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list
+        run: |
+          set -euo pipefail
+          JOB="${{ github.event.inputs.job_id }}"
+          if [ -z "$JOB" ]; then
+            JOB=$(ls -t cloud/t2v_jobs/*.json | head -1 | xargs basename | sed 's/\.json$//')
+          fi
+          ONLY="${{ github.event.inputs.only }}"
+          python3 - "$JOB" "$ONLY" <<'PY' >> "$GITHUB_OUTPUT"
+          import json, pathlib, sys
+          job_id, only = sys.argv[1], sys.argv[2]
+          data = json.loads(pathlib.Path(f"cloud/t2v_jobs/{job_id}.json").read_text())
+          ids = [s["id"] for s in data["scenes"]]
+          if only:
+              ids = [i for i in ids if i == only]
+          print(f"job_id={job_id}")
+          print("matrix=" + json.dumps({"scene": ids}))
+          PY
+
+  scene:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: torch + diffusers (CPU)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install --quiet diffusers transformers accelerate safetensors imageio imageio-ffmpeg
+          python3 -c "import torch; print('torch', torch.__version__)"
+
+      - name: Generate this scene
+        env:
+          HF_HUB_DISABLE_XET: "1"
+          OMP_NUM_THREADS: "4"
+          MALLOC_ARENA_MAX: "2"
+        run: |
+          set -euo pipefail
+          JOB="${{ needs.prepare.outputs.job_id }}"
+          SCENE="${{ matrix.scene }}"
+          python3 tools/cloud_t2v.py "cloud/t2v_jobs/$JOB.json" --scene "$SCENE" --out "t2v_out/${JOB}_${SCENE}"
+          ls -lh "t2v_out/${JOB}_${SCENE}"
+
+      - name: Publish this scene to its own branch
+        run: |
+          set -euo pipefail
+          JOB="${{ needs.prepare.outputs.job_id }}"
+          SCENE="${{ matrix.scene }}"
+          OUT="t2v_out/${JOB}_${SCENE}"
+          git config user.name "Monarch Cloud"
+          git config user.email "cloud@monarch.local"
+          rm -rf /tmp/pub && mkdir -p /tmp/pub
+          cp "$OUT/${SCENE}.mp4" /tmp/pub/
+          python3 - "$JOB" "$SCENE" "$OUT" <<'PY'
+          import hashlib, json, pathlib, subprocess, sys
+          job, scene, out = sys.argv[1], sys.argv[2], pathlib.Path(sys.argv[3])
+          clip = out / f"{scene}.mp4"
+          probe = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(clip)],
+                                 capture_output=True, text=True).stderr
+          payload = {"job": job, "scene": scene, "file": clip.name,
+                     "bytes": clip.stat().st_size,
+                     "md5": hashlib.md5(clip.read_bytes()).hexdigest(),
+                     "probe": probe.strip().splitlines()[-6:]}
+          pathlib.Path("/tmp/pub/receipt.json").write_text(json.dumps(payload, indent=2))
+          print(json.dumps(payload, indent=2))
+          PY
+          git checkout --orphan "pub-${SCENE}"
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          find . -maxdepth 1 -mindepth 1 -exec rm -rf {} + 2>/dev/null || true
+          cp -r /tmp/pub/. .
+          git add -A
+          git commit -q -m "t2v: ${JOB} ${SCENE}"
+          git push --force origin HEAD:"t2v-${JOB}-${SCENE}"
+          echo "published t2v-${JOB}-${SCENE}"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: t2v-${{ matrix.scene }}
+          path: t2v_out/**/*.mp4
+          retention-days: 7

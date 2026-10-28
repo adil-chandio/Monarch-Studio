@@ -1,0 +1,88 @@
+{
+  "id": "personality-t2v",
+  "style": "cinematic film still, teal and amber grade, 35mm, shallow depth of field, fine grain, no text",
+  "negative": "blurry, low quality, watermark, text, static image, deformed face, extra limbs, cartoon",
+  "width": 432,
+  "height": 768,
+  "frames": 24,
+  "steps": 12,
+  "raw_fps": 8,
+  "fps": 24,
+  "guidance": 7.5,
+  "threads": 4,
+  "seconds": 3.0,
+  "scenes": [
+    {
+      "id": "s01",
+      "prompt": "confident South Asian man in a long dark coat standing in heavy rain on a night city street, rain streaks falling, neon reflections shimmering on wet asphalt, slow camera push in, cinematic motion",
+      "seed": 7,
+      "seconds": 3.0
+    },
+    {
+      "id": "s02",
+      "prompt": "slow motion rain drops hammering a dark window at night, distant city lights blurred behind the glass, water running down the pane, shot on 35mm",
+      "seed": 11,
+      "seconds": 3.0
+    },
+    {
+      "id": "s03",
+      "prompt": "two men talking at a small cafe table at night, warm lamp light, one leans in listening, steam rising from a cup, subtle camera drift, cinematic",
+      "seed": 13,
+      "seconds": 3.0
+    },
+    {
+      "id": "s04",
+      "prompt": "extreme close up of a man speaking slowly, mouth and jaw in sharp focus, shallow depth of field, dark background, slight head motion, cinematic",
+      "seed": 17,
+      "seconds": 3.0
+    },
+    {
+      "id": "s05",
+      "prompt": "extreme close up of a man's eyes looking into the camera, catchlights flickering, slow blink, dark surroundings, cinematic film look",
+      "seed": 19,
+      "seconds": 3.0
+    },
+    {
+      "id": "s06",
+      "prompt": "man standing upright with shoulders back in front of a tall window at dusk, dust particles drifting through a shaft of light, slow camera rise, cinematic",
+      "seed": 23,
+      "seconds": 3.0
+    },
+    {
+      "id": "s07",
+      "prompt": "meeting room at night, one man sits still while blurred colleagues talk around him, slow camera orbit, warm overhead light, cinematic tension",
+      "seed": 29,
+      "seconds": 3.0
+    },
+    {
+      "id": "s08",
+      "prompt": "small group of friends laughing in a dim living room, warm tungsten light, subtle handheld camera motion, cinematic candid moment",
+      "seed": 31,
+      "seconds": 3.0
+    },
+    {
+      "id": "s09",
+      "prompt": "man practising speaking in front of a mirror at dawn, his reflection moving with him, cool blue window light, slow push in, cinematic",
+      "seed": 37,
+      "seconds": 3.0
+    },
+    {
+      "id": "s10",
+      "prompt": "silhouette of a man breathing calmly at a huge window during sunrise, orange light flooding in, dust motes floating, slow camera pull back, cinematic",
+      "seed": 41,
+      "seconds": 3.0
+    },
+    {
+      "id": "s11",
+      "prompt": "man walking confidently through a crowded lobby, people around him blurred with motion, camera tracks alongside him, dramatic light, cinematic",
+      "seed": 43,
+      "seconds": 3.0
+    },
+    {
+      "id": "s12",
+      "prompt": "vintage microphone under a single spotlight in a dark studio, smoke curling through the light beam, slow camera push in, cinematic, elegant",
+      "seed": 47,
+      "seconds": 3.0
+    }
+  ]
+}
