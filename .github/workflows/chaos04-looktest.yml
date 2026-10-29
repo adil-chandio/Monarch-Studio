@@ -134,5 +134,9 @@ jobs:
           git config user.name "chaos04-looktest"
           git config user.email "looktest@monarch.studio"
           git add -f "$OUT"
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
           git commit -m "look test: frames, clip and timings from run $GITHUB_RUN_ID" || true
-          git push origin HEAD:${GITHUB_REF_NAME}
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            git push origin HEAD:${GITHUB_REF_NAME} && break || sleep 10
+          done
