@@ -1,0 +1,40 @@
+{
+  "run": "example-monarch-face-L1",
+  "notes": "L1 identity + voice test. Replace the reference paths with real crops from characters/monarch (front, 3/4, profile, 2 expressions) and a 5-10 s clean voice reference. Same reference set for every shot in a scene. Run `h3_client.py estimate` before `run --yes`.",
+  "shots": [
+    {
+      "id": "shot-01-monarch-hero",
+      "model": "MiniMax-H3",
+      "resolution": "768P",
+      "duration": 5,
+      "ratio": "9:16",
+      "prompt": "subject_definitions:\n<Subject 1> is the man in <Picture 1>-<Picture 5>: late-20s South Asian man, thick swept-back black hair with volume at the crown, long side locks in front of the ears, light beard along the jaw, straight nose with a slightly dropped tip, thin lips set back, wearing a fitted black shirt with the top button open and a charcoal blazer. <Picture 1> front hero, <Picture 2> three-quarter, <Picture 3> right profile, <Picture 4> warm smile reference, <Picture 5> intense gaze reference. <Audio 1> is the voice-timbre reference for <Subject 1>.\n\nsummary:\n[single character, direct address] A 5-second 9:16 shot of <Subject 1> in a charcoal studio, lit by a soft key from upper-left with teal and amber rim lights, performing one calm, confident direct-to-camera line.\n\nretention_analysis:\n<Subject 1>: fully_preserved - same face, hair volume, side locks, beard line, nose and wardrobe as the reference pictures; only expression, head angle and hand gesture change.\n<Audio 1>: reference - the target speech follows the timbre and calm pacing of <Audio 1>.\n\ndetailed_description:\nThe target video is in realistic photographic style, vertical 9:16 framing.\n[Shot 1] A medium close-up frames <Subject 1> from the chest up, centred against a charcoal backdrop with a faint teal rim on his left shoulder and a warm amber edge on his right. Soft key light from upper-left models the cheekbone and the jaw beard. He holds eye contact with the lens, inhales once, and speaks with a low, assured voice (S1), <d>[English] I built this studio in one night.</d> As he finishes, the corner of his mouth lifts into a slow confident smirk and his chin lowers slightly. The camera pushes in with small amplitude at slow speed throughout the shot. A single loose strand of hair falls forward across his temple near the end.\n\noverall_soundscape:\nA quiet studio room tone with a very low air-conditioning hum; the faint rustle of the blazer collar as his shoulders settle after the line.\n\nnon_diegetic_music:\nA sparse, modern trap-orchestral bed at slow tempo: a single detuned 808 sub under a muted cello note, no drums, fading to silence on the smirk.",
+      "references": [
+        "styles/minimax-h3-video/assets/refs/MONARCH_REAL_FRONT.png",
+        "styles/minimax-h3-video/assets/refs/MONARCH_REAL_34.png",
+        "styles/minimax-h3-video/assets/refs/MONARCH_REAL_PROFILE.png",
+        "styles/minimax-h3-video/assets/refs/MONARCH_REAL_SMILE.png",
+        "styles/minimax-h3-video/assets/refs/MONARCH_REAL_INTENSE.png"
+      ],
+      "reference_audio": [
+        "styles/minimax-h3-video/assets/refs/monarch_voice_ref.mp3"
+      ]
+    },
+    {
+      "id": "shot-02-noir-plate",
+      "model": "MiniMax-H3",
+      "resolution": "768P",
+      "duration": 8,
+      "ratio": "16:9",
+      "prompt": "integrated_multimodal_description: [Shot 1] Cinematic, live-action noir, a low-angle wide shot frames a rain-wet cobblestone alley at 3 a.m. between shuttered shopfronts, one flickering amber neon sign, an overflowing storm drain steaming at the kerb. A lone figure in a long charcoal coat walks away from the camera, their shadow stretching ahead of them along the wet stones. The camera tracks the figure with small amplitude at slow speed.\n\noverall_soundscape: Steady rain on metal awnings, a distant tram bell, footsteps in shallow water, a low electrical buzz from the neon tube.\n\nnon_diegetic_music: Solo muted trumpet over a sustained low string drone, slow tempo, ending on an unresolved minor second."
+    },
+    {
+      "id": "shot-03-reel-insert",
+      "model": "MiniMax-H3-Lite",
+      "resolution": "480P",
+      "duration": 5,
+      "ratio": "9:16",
+      "prompt": "integrated_multimodal_description: [Shot 1] 3D CG render, a macro product shot frames a matte black object rotating on a reflective obsidian plinth, a single hard key light sweeping across its machined edge, dust motes drifting in the beam. The camera arcs around the object with small amplitude at slow speed. The lower third of the frame stays empty dark space for typography.\n\noverall_soundscape: A deep sub-bass swell, a metallic click as the object locks into place, subtle room air.\n\nnon_diegetic_music: Minimal electronic pulse at 90 BPM, one filtered saw chord that opens up at the cut."
+    }
+  ]
+}

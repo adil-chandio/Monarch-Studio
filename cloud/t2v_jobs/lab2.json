@@ -1,0 +1,28 @@
+{
+  "id": "lab2",
+  "backend": "ltx",
+  "style": "photorealistic, shot on 35mm film, Kodak Portra 400, natural skin texture, visible pores, available light, shallow depth of field, realistic, cinematic colour grade, no CGI, no illustration",
+  "negative": "worst quality, inconsistent motion, blurry, jittery, distorted, watermark, text, cartoon",
+  "width": 480,
+  "height": 832,
+  "frames": 73,
+  "steps": 20,
+  "raw_fps": 24,
+  "fps": 24,
+  "guidance": 3.0,
+  "threads": 4,
+  "scenes": [
+    {
+      "id": "ltxB",
+      "backend": "ltx",
+      "prompt": "close up of rain water running down a dark window at night, out of focus city lights behind the glass shimmering and shifting, droplets joining and sliding, a hand slowly wipes across the glass revealing the street below, photorealistic, 35mm film",
+      "seed": 54,
+      "seconds": 3.0,
+      "frames": 73,
+      "width": 480,
+      "height": 832,
+      "steps": 20,
+      "guidance": 3.0
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "tool": "mobileops-1.0",
+  "job_id": "mob-test-01",
+  "created_at": "2026-10-27T17:29:13+00:00",
+  "updated_at": "2026-10-27T22:03:13+00:00",
+  "title": "Test shot 01 (12-min trust test)",
+  "project": "studio/videogen/examples/m-test-01/project.json",
+  "project_id": "m-test-01",
+  "shots": [
+    "t01-plate"
+  ],
+  "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-09/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+  "voice_text": "",
+  "foley_prompt": "ambient room tone, cinematic, subtle",
+  "state": "delivered",
+  "gates": {
+    "plan_estimate": {
+      "ok": true,
+      "detail": "WARN            audio.bed_engine=musicgen: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye",
+      "at": "2026-10-27T17:29:13+00:00"
+    },
+    "notebook": {
+      "ok": true,
+      "detail": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+      "at": "2026-10-27T17:29:13+00:00"
+    },
+    "handoff": {
+      "ok": true,
+      "detail": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+      "at": "2026-10-27T17:29:34+00:00"
+    },
+    "clips": {
+      "ok": false,
+      "detail": "0/1",
+      "at": "2026-10-27T17:48:08+00:00"
+    },
+    "master": {
+      "ok": true,
+      "detail": "7ae6ddf5137ef0d106a9c30daaed96f1 (colab receipt)",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "mix": {
+      "ok": true,
+      "detail": "audio=aac",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "verify": {
+      "ok": true,
+      "detail": "960x1664",
+      "at": "2026-10-27T22:03:09+00:00"
+    },
+    "delivery": {
+      "ok": true,
+      "detail": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+      "at": "2026-10-27T22:03:13+00:00"
+    }
+  },
+  "next": {
+    "user": "link kholo, kaam khatam \u2705",
+    "agent": "receipt + continuity checkpoint"
+  },
+  "history": [
+    {
+      "at": "2026-10-27T17:29:13+00:00",
+      "from": null,
+      "to": "intake",
+      "by": "agent",
+      "note": "job created for m-test-01"
+    },
+    {
+      "at": "2026-10-27T17:29:13+00:00",
+      "from": "intake",
+      "to": "planned",
+      "by": "agent",
+      "note": "estimate + phone notebook ready"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "planned",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "link owner ko bheja"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "handed_off",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "Drive rename to *.ipynb (unsupported-file-type fix)"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "handed_off",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "GitHub-tag Colab link added (Drive viewer cannot preview .ipynb on phone)"
+    },
+    {
+      "at": "2026-10-27T17:29:34+00:00",
+      "from": "handed_off",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "colab-test-02: mount fallback + ZIP handoff link"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "handed_off",
+      "to": "blocked",
+      "by": "agent",
+      "note": "koi clip nahi aaya"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "agent",
+      "note": "colab-test-03: one-cell notebook (previous link never executed - all cells empty)"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "agent",
+      "note": "colab-test-04: host-RAM crash fixed (4-bit text encoder); frames 77->33"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "blocked",
+      "by": "notebook",
+      "note": "run succeeded: 2 clips, ZIP in Drive; blocked only on media transfer to the sandbox"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "blocked",
+      "to": "clip_ready",
+      "by": "agent",
+      "note": "clips confirmed from Drive (md5 match, 174892 B / 25133 B); master ab Colab me banega (viper-1.9 RUN_FINISH)"
+    },
+    {
+      "at": "2026-10-27T17:48:08+00:00",
+      "from": "clip_ready",
+      "to": "clip_ready",
+      "by": "agent",
+      "note": "colab-test-07: previous finish graph failed (Qavg nan) and !pip inside try broke upscale; both fixed and unit-tested locally"
+    },
+    {
+      "at": "2026-10-27T22:03:09+00:00",
+      "from": "verified",
+      "to": "assembled",
+      "by": "notebook",
+      "note": "master receipt adopted from Colab"
+    },
+    {
+      "at": "2026-10-27T22:03:13+00:00",
+      "from": "assembled",
+      "to": "delivered",
+      "by": "agent",
+      "note": "viper-2.1 finish-only run: 960x1664, 2.08s, aac, silent (no voice/foley in this test), Drive md5 matches receipt"
+    }
+  ],
+  "master": {
+    "path": "delivery/m-test-01_MASTER.mp4",
+    "md5": "7ae6ddf5137ef0d106a9c30daaed96f1",
+    "bytes": 161215,
+    "probe": {
+      "width": 960,
+      "height": 1664,
+      "fps": 24.0,
+      "duration": 2.08,
+      "audio_codec": "aac"
+    },
+    "drive_id": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+    "url": "https://drive.google.com/file/d/1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E/view",
+    "evidence": "colab_master_receipt.json"
+  },
+  "plan": {
+    "total_usd": 0.0,
+    "total_with_retries_usd": 0.0,
+    "paid_steps": 0,
+    "free_only": true,
+    "engines": [
+      "latentsync",
+      "mmaudio",
+      "upscale",
+      "wan"
+    ],
+    "delivery": {
+      "free_width": 480,
+      "free_height": 832,
+      "out_width": 960,
+      "out_height": 1664
+    },
+    "warnings": [
+      "t01-plate: lipsync pass has no voice_ref/audio yet",
+      "audio.foley_engine=mmaudio: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye",
+      "audio.bed_engine=musicgen: code MIT / weights CC-BY-NC 4.0 \u2014 NON-COMMERCIAL \u2014 personal/portfolio use theek, paid client work ke liye ThinkSound (Apache) ya paid licence chahiye"
+    ]
+  },
+  "handed_off_at": "2026-10-27T17:29:34+00:00",
+  "notebook_drive": {
+    "name": "TEST_01_phone_run_all.ipynb",
+    "id": "1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+    "folder": "03 \u00b7 Colab Notebooks",
+    "naming_fix": "renamed 2026-10-27: Colab rejects notebooks without the .ipynb extension"
+  },
+  "expect": {
+    "clips": [
+      "t01-plate"
+    ],
+    "upscaled": "t01-plate-2x.mp4",
+    "frames": 33,
+    "minutes": "10-20"
+  },
+  "colab_url_drive": "https://colab.research.google.com/drive/1Fc1fprDJwqcp9c1rYSx6z7sLD1bfNMaf",
+  "engine_note": "viper-2.1",
+  "media": {
+    "shots": [
+      "t01-plate"
+    ],
+    "clips": [],
+    "missing": [
+      "t01-plate"
+    ],
+    "vo": [],
+    "foley": [],
+    "clip_files": {
+      "t01-plate": []
+    }
+  },
+  "evidence": {
+    "reported_at": "2026-10-27T19:15:00-00:00",
+    "source": "owner screenshot of the single cell (DONE \u2705)",
+    "clips": [
+      "t01-plate.mp4 (0.4 MB, md5 112efff90\u2026)",
+      "t01-plate-2x.mp4 (0.2 MB, md5 39964be08e\u2026)"
+    ],
+    "render_seconds": 49,
+    "frames": 33,
+    "steps": 30,
+    "host_ram_free": "8.1-9.1 GB",
+    "upscale": "ffmpeg lanczos x2 (basicsr build failed)",
+    "zip": "05 \u00b7 Projects/m-test-01/m-test-01_outputs.zip",
+    "drive_files": {
+      "t01-plate-2x.mp4": {
+        "id": "1XZVewZnSTKq8LOgHlulUf-2p6lPjqCpW",
+        "bytes": 174892,
+        "md5": "39964be08e7bc3390636b6e0d01f873d"
+      },
+      "t01-plate.mp4": {
+        "id": "1m_QoPtLahLRK8_roEUF_85Xa-njudFUT",
+        "bytes": 25133,
+        "md5": "112effff90ab28b1bdcb8b91803d8ab3"
+      },
+      "zip": {
+        "id": "115dZLCd1X7GpKb79C3yub4Mr5RjEPKp2",
+        "bytes": 198939
+      }
+    }
+  },
+  "notes": [
+    "2026-10-28: viper-2.1 retry is finish-only (~1 min); master receipt expected at project root"
+  ],
+  "delivered_at": "2026-10-27T22:03:13+00:00",
+  "receipt": {
+    "job_id": "mob-test-01",
+    "title": "Test shot 01 (12-min trust test)",
+    "project": "studio/videogen/examples/m-test-01/project.json",
+    "notebook": "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+    "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-09/studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+    "master": {
+      "path": "delivery/m-test-01_MASTER.mp4",
+      "md5": "7ae6ddf5137ef0d106a9c30daaed96f1",
+      "bytes": 161215,
+      "probe": {
+        "width": 960,
+        "height": 1664,
+        "fps": 24.0,
+        "duration": 2.08,
+        "audio_codec": "aac"
+      },
+      "drive_id": "1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E",
+      "url": "https://drive.google.com/file/d/1vqLZUyPrqzPPRwk6jQjRXVUpjkFu6y4E/view"
+    },
+    "cost_usd": 0.0,
+    "gates": {
+      "plan_estimate": true,
+      "notebook": true,
+      "handoff": true,
+      "clips": false,
+      "master": true,
+      "mix": true,
+      "verify": true,
+      "delivery": true
+    },
+    "receipted_at": "2026-10-27T22:03:13+00:00"
+  }
+}

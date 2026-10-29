@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0005-20261027T142123Z",
+  "created_at": "2026-10-27T14:21:23Z",
+  "summary": "WF-07 Monarch AI Agent wired as the single Drive delivery home: folder 1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1 scaffolded into 6 subfolders + 13 files (engine, manual, both notebooks, 6 knowledge docs, tool registry, example project, free queue), ids in styles/monarch-ai-agent/data/drive.json; WF-07/AGENTGO registered in both registries and README/AGENTS; videogen doctor/status/assemble print the Drive destination; 94 tests OK, validate 25/1/0, manifest 986 files.",
+  "next_action": "Answer free-vs-paid honestly; then start the first real project (needs Monarch reference crops + one voice line) and promote its project/receipt files to 05 · Projects/<id>/ and the master to 06 · Masters & Receipts/.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T14:21:23Z",
+    "checkpoint_sequence": 5,
+    "event_sequence": 21,
+    "journal_head": "cc62b48ef988b99132bd2faa68a96a64777155b69369a3afa82ad45a257281c4",
+    "last_checkpoint": "2026-10-27T14:21:23Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z",
+    "next_action": "Answer free-vs-paid honestly; then start the first real project (needs Monarch reference crops + one voice line) and promote its project/receipt files to 05 · Projects/<id>/ and the master to 06 · Masters & Receipts/.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 21,
+    "timestamp": "2026-10-27T14:21:23Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "WF-07 Monarch AI Agent wired as the single Drive delivery home: folder 1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1 scaffolded into 6 subfolders + 13 files (engine, manual, both notebooks, 6 knowledge docs, tool registry, example project, free queue), ids in styles/monarch-ai-agent/data/drive.json; WF-07/AGENTGO registered in both registries and README/AGENTS; videogen doctor/status/assemble print the Drive destination; 94 tests OK, validate 25/1/0, manifest 986 files.",
+    "content_sha256": "3f98d9133324338b29555260bddaf5a39201827fe61cbe3b6bf83d3d6510a9c3",
+    "metadata": {
+      "sequence": 5,
+      "next_action": "Answer free-vs-paid honestly; then start the first real project (needs Monarch reference crops + one voice line) and promote its project/receipt files to 05 · Projects/<id>/ and the master to 06 · Masters & Receipts/.",
+      "status": "active"
+    },
+    "prev_event_sha256": "89bade885c2466ec0456379a05d563a0d0253449366bc25a0b228418630d3793",
+    "event_sha256": "cc62b48ef988b99132bd2faa68a96a64777155b69369a3afa82ad45a257281c4"
+  },
+  "journal_head": "cc62b48ef988b99132bd2faa68a96a64777155b69369a3afa82ad45a257281c4",
+  "git": {
+    "initialized": true,
+    "head": "a081bd92efa34bd4a5102ba50a40d7e1f9b56956",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M AGENTS.md",
+      " M README.md",
+      " M docs/VIDEOGEN.md",
+      " M studio/registry.json",
+      " M styles/README.md",
+      " M styles/registry.json",
+      " M tests/test_studio.py",
+      " M tests/test_videogen.py",
+      " M tools/videogen.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl",
+      "?? styles/monarch-ai-agent/README.md",
+      "?? styles/monarch-ai-agent/START_HERE.md",
+      "?? styles/monarch-ai-agent/data/drive.json",
+      "?? styles/monarch-ai-agent/knowledge/INDEX.md",
+      "?? styles/monarch-ai-agent/style.json",
+      "?? styles/monarch-ai-agent/workflow.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

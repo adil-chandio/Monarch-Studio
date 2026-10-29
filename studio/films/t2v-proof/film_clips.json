@@ -1,0 +1,35 @@
+{
+  "id": "t2v-proof",
+  "title": "AI video proof",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "clips": "clips",
+  "voice_dir": "voice",
+  "crf": 19,
+  "preset": "medium",
+  "fade": 0.3,
+  "grain": 5,
+  "caption_size": 46,
+  "caption_y": 0.8,
+  "kicker_size": 16,
+  "kicker_gap": 44,
+  "audio": {
+    "drone": 0.42,
+    "pad": 0.25,
+    "pulse": 0.22,
+    "riser": true,
+    "hiss": 0.05
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "clip": "s01_slow.mp4",
+      "seconds": 3.5,
+      "caption": "YEH AI VIDEO HAI",
+      "kicker": "ANIMATEDIFF \u00b7 CLOUD"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "tool": "reelrender-1.0",
+  "reel": "reel-local-01",
+  "title": "MONARCH \u2014 REEL 01",
+  "master": "reel-local-01_MASTER.mp4",
+  "info": {
+    "name": "reel-local-01_MASTER.mp4",
+    "width": 1080,
+    "height": 1920,
+    "duration": 17.3,
+    "bytes": 11626148,
+    "md5": "7b34bd1ce9f1c381cc23f2c2c17a7419"
+  },
+  "log": [
+    "shot 1: raw_street_dawn.png 3.2s push",
+    "shot 2: raw_facade_hero.png 3.2s pan_right",
+    "shot 3: raw_desk_window.png 3.2s pull",
+    "shot 4: raw_bedroom_amber.png 3.2s push",
+    "shot 5: raw_window_inside.png 3.2s pan_left",
+    "shot 6: raw_facade_night.png 3.6s push"
+  ],
+  "seconds_rendered": 127.2,
+  "engine": "ffmpeg-cpu (no GPU, no network)",
+  "audio": {
+    "layers": [
+      "drone",
+      "rain",
+      "impacts",
+      "riser"
+    ],
+    "loudnorm": "I=-16:TP=-1.5:LRA=11"
+  }
+}

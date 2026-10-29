@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "tool": "mobileops-1.0",
+  "job_id": "mob-reel-01",
+  "created_at": "2026-10-27T22:09:15+00:00",
+  "updated_at": "2026-10-27T22:09:21+00:00",
+  "title": "Monarch Reel 01",
+  "project": "studio/videogen/examples/m-reel-01/project.json",
+  "project_id": "m-reel-01",
+  "shots": [
+    "s01-hook",
+    "s02-plate",
+    "s03-payoff"
+  ],
+  "notebook": "studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb",
+  "colab_url": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-10/studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb",
+  "voice_text": "",
+  "foley_prompt": "ambient room tone, cinematic, subtle",
+  "state": "handed_off",
+  "gates": {
+    "plan_estimate": {
+      "ok": true,
+      "detail": "WARN            s01-hook: lipsync pass has no voice_ref/audio yet",
+      "at": "2026-10-27T22:09:17+00:00"
+    },
+    "notebook": {
+      "ok": true,
+      "detail": "studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb",
+      "at": "2026-10-27T22:09:17+00:00"
+    },
+    "handoff": {
+      "ok": true,
+      "detail": "https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/colab-test-10/studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb",
+      "at": "2026-10-27T22:09:21+00:00"
+    }
+  },
+  "next": {
+    "user": "Colab kholo -> Runtime \u25b8 Change runtime type \u25b8 T4 GPU -> Runtime \u25b8 Run all",
+    "agent": "intezaar; owner ke DONE ka wait"
+  },
+  "history": [
+    {
+      "at": "2026-10-27T22:09:15+00:00",
+      "from": null,
+      "to": "intake",
+      "by": "agent",
+      "note": "job created for m-reel-01"
+    },
+    {
+      "at": "2026-10-27T22:09:17+00:00",
+      "from": "intake",
+      "to": "planned",
+      "by": "agent",
+      "note": "estimate + phone notebook ready"
+    },
+    {
+      "at": "2026-10-27T22:09:21+00:00",
+      "from": "planned",
+      "to": "handed_off",
+      "by": "agent",
+      "note": "3 shots x 77 frames @16fps + Kokoro voice + bed; ~20 min on free T4"
+    }
+  ],
+  "master": null,
+  "blocker": null,
+  "plan": {
+    "total_usd": 0.0,
+    "total_with_retries_usd": 0.0,
+    "paid_steps": 0,
+    "free_only": true,
+    "engines": [
+      "bed",
+      "kokoro",
+      "latentsync",
+      "upscale",
+      "wan"
+    ],
+    "delivery": {
+      "free_width": 480,
+      "free_height": 832,
+      "out_width": 960,
+      "out_height": 1664
+    },
+    "warnings": [
+      "s01-hook: lipsync pass has no voice_ref/audio yet"
+    ]
+  },
+  "handed_off_at": "2026-10-27T22:09:21+00:00"
+}

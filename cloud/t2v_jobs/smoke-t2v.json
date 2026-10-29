@@ -1,0 +1,26 @@
+{
+  "id": "smoke-t2v",
+  "style": "cinematic film still, teal and amber grade, 35mm, shallow depth of field, fine grain, no text",
+  "negative": "blurry, low quality, watermark, text, static image, deformed face, extra limbs, cartoon",
+  "width": 320,
+  "height": 576,
+  "frames": 12,
+  "steps": 8,
+  "raw_fps": 6,
+  "fps": 24,
+  "guidance": 7.5,
+  "threads": 4,
+  "seconds": 2.0,
+  "scenes": [
+    {
+      "id": "s01",
+      "prompt": "confident South Asian man in a long dark coat standing in heavy rain on a night city street, rain streaks falling, neon reflections shimmering on wet asphalt, slow camera push in, cinematic motion",
+      "seed": 7,
+      "seconds": 2.0,
+      "frames": 12,
+      "width": 320,
+      "height": 576,
+      "steps": 8
+    }
+  ]
+}

@@ -25,6 +25,139 @@ If a response/process stops, query the recorded process and execute the exact ne
 - For media tasks, persist a delivery receipt with the actual master/source IDs, hashes and URLs. If a delivered task receives only another “continue,” return/recover its verified deliverable rather than regenerating its images, voice or edit.
 - Platform/service interruptions cannot be guaranteed away. The reliable promise is durable artifacts, exact resumption and truthful completion state—not unattended connector work between turns.
 
+## WF-06 / H3GO routing (MiniMax-H3 video)
+
+When the user asks for MiniMax-H3, H3 video, or `H3GO <topic or shot list>`, load
+`styles/minimax-h3-video/README.md` and `knowledge/01_COLAB_RUNBOOK.md` before answering or running anything.
+
+- **Colab is a controller, not a GPU.** H3-Base needs ~100-128 GB resident; the default route is the hosted API
+  (`POST /v2/video_generation`) from a CPU Colab runtime with `MINIMAX_API_KEY` in Colab Secrets.
+- **Price before spending.** `python3 styles/minimax-h3-video/src/h3_client.py estimate <shotlist>` first; the
+  notebook's `DRY_RUN`/`CONFIRM_SPEND` gate stays locked unless the user explicitly approves the estimate.
+- **Pick the tool with the planner, not from memory.** `python3 styles/minimax-h3-video/src/route_planner.py
+  plan --need <talking_hero|broll_plate|reel_loop|film_scene|lipsync_only|animate_still> [--free] [--duration N]`
+  reads `data/tool_registry.json` and returns model + hardware + cost + steps + licensing. Free T4 = Wan 1.3B/LTX +
+  LatentSync 1.5; 24 GB = Wan 2.2 5B / HunyuanVideo 1.5 / LatentSync 1.6; rented = Wan A14B / LTX-2.5 / H3 local;
+  API = H3 2K. A talking Monarch face does **not** require H3: silent clip + own VO + LatentSync is the free chain.
+- **2K only via API.** Local/pruned-weight runs are 768P; never promise 2K from a local deployment.
+- **Free route = different model.** A free Colab T4 cannot run H3; use `colab/MONARCH_T4_FREE_BRIDGE.ipynb`
+  (Wan 2.1 T2V 1.3B, 480p, silent, $0) for drafts/plates and keep H3 (paid) for dialogue/2K hero shots.
+  Never present a free-route Wan clip as an H3 output. Tunnel/server cells stay off unless the user accepts the
+  Colab ToS risk and rents GPU hosting instead.
+- **Monarch identity comes from the locked reference pack** (`characters/monarch`), passed as Ref2VA
+  `reference_image` items — the same 3-4 images for every shot in a scene, never prompt wording alone.
+- H3 supplies talking shots and plates; WF-01's procedural rig, WF-03's line-art hero DNA and WF-05's
+  editing/typography authority are not replaced. Hand off to WF-05 with video + separated audio + receipts.
+
+## VIPER-1 (our video engine) — use it for any generated video
+
+`tools/videogen.py` is the studio's own generator. For any request that means "generate video", work through it
+instead of hand-rolling API calls:
+
+1. `python3 tools/videogen.py doctor` — confirm this machine's reality (ffmpeg, key, registry).
+2. `new` (or reuse the payload project) → edit prompts, references and `budget_usd`.
+3. `plan` — read the engine-per-shot table and the retry-buffered estimate before anything else.
+4. `render` (dry run) → only then `render --yes`. Paid shots need `MINIMAX_API_KEY`; free shots are emitted as
+   queue files for the Colab notebook and are **not** done until the mp4 comes back.
+5. `verify` (exit 3 = not delivered) → `assemble` → receipts → continuity checkpoint.
+
+Rules: no delivery claim without `verify` passing; `budget_usd` is a hard gate; free route is the default when no
+key is present; engine knowledge stays in `styles/minimax-h3-video/`, finish stays in WF-05.
+
+## Mobile owner protocol (standing)
+
+The owner works from a **phone**, through this agent. Never hand him CLI work.
+
+- Run every command here (`plan`, `render` queue, `audio`, `upscale`, `mix`, `verify`, `assemble`, `quota`).
+  This sandbox has a static ffmpeg (imageio-ffmpeg) and `probe()` falls back to `ffmpeg -i` when ffprobe
+  is missing, so the whole finish line runs here.
+- **Never put a `!`-magic inside a `if`/`try` block** in a generated notebook: Colab runs it as
+  `/bin/bash: line 1: !pip: command not found`. Use `subprocess.run([sys.executable, "-m", "pip", ...])`.
+  Order matters too: `DELIVERY`/paths must be defined after `BASE`, and templates must avoid `"""`/`\n`
+  escapes (they close the template string). `tests/test_videogen.py` now runs the notebook's finish cell
+  against real ffmpeg, so these three mistakes cannot come back silently.
+- **T2V (asli AI video) CPU runner par:** AnimateDiff SD1.5 (`cloud-t2v.yml`, `tools/cloud_t2v.py`) sach me frames
+  banata hai — 14 frames @384x640 ne ~30 min liye aur motion asli tha. Lekin 24 frames @432x768 4-core runner par
+  OOM/timeout kha jata hai (12 me se 8 fail). Jo configs test hui hain: 16 frames @384x672/10 steps = reliable,
+  is se bada = risky. Failure ka log `t2verr-<job>-<scene>` branch par aata hai (blob storage yahan blocked hai).
+- **DRIVE LINK SIRF PUBLIC HONE KE BAAD SHARE KARO.** Naya file upload karte waqt Drive par
+  default sirf owner ka permission hota hai; us halat me owner ke phone ke in-app browser me
+  "Document lookup failed. It is possible the document was deleted." aata hai (user is ko
+  toota hua link samajhta hai). Har deliverable par `make_public` (anyone / reader) chalao aur
+  `.../file/d/<id>/preview` wala link do — `/view?usp=drivesdk` mobile in-app browser me
+  sab se kam reliable hai.
+- **CLOUD BHI MERA KAAM HAI.** Sandbox se Google/HF/Kaggle band hain (000), lekin `github.com` khula hai — is
+  liye GitHub Actions bridge hai: `cloud/jobs/<id>.json` push karo → runner render karta hai → result
+  `cloud-artifacts` branch se `git fetch` hota hai (`tools/cloud_reel.py`, `docs/CLOUD_PIPELINE.md`). AI clip ke
+  liye `cloud/ai_jobs/<id>.json` → `cloud-ai-artifacts`. Owner ko Colab link / "Run all" / upload **kabhi** na do;
+  woh sirf final video dekhta hai.
+- **Video main khud banata hoon — owner se click/link nahi maangna.** `tools/reel_render.py` (CPU, no GPU, no
+  network) asli art plates par camera moves + grain + captions + designed sound + loudnorm se 1080x1920 reel
+  banata hai; 2 cores par ~1 minute. Spec: `studio/videogen/examples/reel-local-01/reel.json`
+  (`docs/AGENT_REEL.md`). Sirf tab Colab maango jab owner *naya AI footage* chahe — edit/mix/master ke liye kabhi
+  nahi. Delivery ke waqt `present_file` se video un ke saamne kholo, link nahi.
+- **Wan 16 fps native hai — 24 par force mat karo.** Frames duplicate hote hain aur clip "stuck image" lagti
+  hai. `finish_master(fps=None)` har clip ka apna fps probe karta hai. Motion prompt se aata hai
+  ("rain hammering", "smoke curling", "wind whipping"), "slow push in" se nahi. Free T4 par 77 frames
+  (4.8 s) per shot khush-asal hai; 3 shots ≈ 6-7 min render.
+- **Finish stage ke do qatil, ab tests me pinned:** concat demuxer `file <path>` ko **space par tod deta hai**
+  (Drive folder `Wf-07 • Monarch Ai Agent`) → `list.txt` me sirf bare `segNN.mp4` naam + `cwd=<segments>`.
+  Aur `loudnorm` **silent audio par `NaN`** deta hai (`Qavg: nan`, `frames left in the queue`) → pehle
+  `volumedetect`; `mean_volume <= -70 dB` ya audio nahi → loudnorm skip + receipt me `"loudnorm": null`.
+  Master `_segments/` me stage hota hai, phir `delivery/` me copy; receipt sirf copy ke baad.
+- **This sandbox cannot reach Google hosts.** Never plan on downloading a clip or master here. The notebook's
+  `RUN_FINISH` stage builds `delivery/<project>_MASTER.mp4` inside Colab and writes
+  `colab_master_receipt.json`; read that receipt with the Drive connector and run
+  `mobile_ops.py adopt <job> --receipt <json>` → `deliver --master-id <drive id>`. Only the small receipt
+  crosses the boundary, never the video.
+- **Drive is optional in the notebook.** `drive.mount()` may fail with `credential propagation was unsuccessful`;
+  the config cell falls back to `/content/m_out/<project>` and cell 7 always builds `<project>_outputs.zip`
+  (+ `files.download()`). If the owner sends that ZIP in chat, run
+  `python3 tools/mobile_ops.py ingest <job> --zip <path>` (it unpacks into the project, refuses escapes, and
+  re-checks) then `finish` — do not ask him to re-run for a Drive problem.
+- **Drive name must end `.ipynb`** (`<project>_phone_run_all.ipynb`, mimeType `application/x-ipynb+json`) or
+  Colab answers "This file type is unsupported" — rename with `update_file` before sending any link.
+- **Measured on the owner's free T4 (2026-10-27):** 33 frames @ 480×832, 30 steps = **49 s** render after a
+  ~3 min first-time download; host RAM 8.1–9.1 GB free with the 4-bit encoder. Quote these numbers, not guesses.
+- `basicsr` / Real-ESRGAN fails to build on Colab ("Getting requirements to build wheel"): install with
+  `--no-build-isolation` and patch the `torchvision.transforms.functional_tensor` import. The notebook does
+  both and still falls back to ffmpeg lanczos, so an upscale problem never kills the run.
+- **Free Colab = 12.7 GB host RAM.** Wan's UMT5 encoder must stay 4-bit NF4 (`load_in_4bit`, `nf4`,
+  `device_map={"": 0}`), DiT fp16, VAE tiled+sliced, `HF_HUB_DISABLE_XET=1`, glibc `malloc_trim`, and the
+  pipeline `del`-ed after clips. A "session crashed after using all available RAM" is never a user error —
+  cut frames first (`--max-frames 33`), never ask him to retry the same config.
+- Default to `mobile --one-cell` for the owner: one cell, one ▶. If a screenshot shows every cell as `[ ]`,
+  nothing ran — never debug the code, just make the trigger smaller (one cell) and ask for the last cell.
+- Give him **one notebook link** (`python3 tools/videogen.py mobile <project>` → upload → Colab link) with
+  prompts baked in. He taps `Runtime ▸ T4 GPU ▸ Run all`; the last cell prints `DONE ✅`.
+- One action per message. No multi-step terminal instructions, no JSON editing, no file renaming.
+- **Drive every mobile project through `tools/mobile_ops.py` (MOBILEOPS-1), never ad-hoc.** One job file per
+  project under `studio/mobile/jobs/`; the state machine (`intake → planned → handed_off → partial/clip_ready →
+  mixed → verified → assembled → delivered`, plus `blocked`) decides who does what next:
+  `doctor` → `start` → `plan` → `handoff --colab <link>` → (owner taps) → `check` → `finish` → `deliver`.
+  Read `mobile_ops.py next <job>` before acting; a `REFUSED:` line means a gate said no — fix it, do not jump.
+- Owner-facing text comes from `mobile_ops.py card <job>`: one link, one tap, zero commands (a test enforces
+  that no `python3`/`pip`/`ffmpeg`/flag/`.json` ever reaches him).
+- After he says `DONE`: `check` first (real bytes, not promises), then `finish` = `mix --loudnorm` → `verify` →
+  `assemble`, then `deliver` with the real Drive id + md5.
+- SOP: `docs/MOBILE_WORKFLOW.md` (gates, failure matrix, turn-end checklist, definition of done).
+
+## WF-07 / AGENTGO routing (delivery home)
+
+Everything the studio *generates* lands in the user's Drive folder **`Wf-07 • Monarch Ai Agent`**
+(`1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1`, inside `MONARCH STUDIO`) — ids and conventions in
+`styles/monarch-ai-agent/data/drive.json`.
+
+- Projects → `05 · Projects/<project-id>/` (project.json, plan.json, receipts.json, shots/)
+- Masters → `06 · Masters & Receipts/`; never a master without its md5 in the receipts
+- Engine + manual → `02 · Engine (VIPER-1)`; notebooks → `03 · Colab Notebooks`; knowledge exports → `04 · Knowledge`
+- Git stays the source of truth for code and knowledge; Drive is delivery + sharing.
+- Answer the free/paid question the same way every time: the tool and the free route cost $0.
+- **Zero-spend is the default and enforced in code** (`viper-1.3`): paid steps are rewritten to the free chain
+  unless someone deliberately exports `MONARCH_ALLOW_PAID=1`. Never present a paid route as the plan.
+- Free compute: Colab free T4, **Kaggle ~30 GPU h/week**, Lightning free credits, laptop CPU. Log every GPU
+  session with `python3 tools/videogen.py quota --use <provider> <hours>`; see `docs/FREE_ONLY_PLAYBOOK.md`.
+
 ## WF-05 / MOTIONGO routing
 
 When the user requests WF-05, WF5, Premium Motion Editing or MOTIONGO, load `styles/premium-motion-editing/FRESH_CHAT.md` and `data/approved-profile.json` before production. Default: V5 clean integrated typography plus accepted V6 non-caption motion improvements; **no V6 bottom caption pills or active-word lower strip**. Historical case renderers are not the new-project default. Use the registered style, current acceptance policy and source-backed lessons rather than recreating the workflow from memory.

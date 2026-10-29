@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0014-20261027T174213Z",
+  "created_at": "2026-10-27T17:42:13Z",
+  "summary": "viper-1.5: the phone notebook no longer depends on Drive. mount() is attempted, failure falls back to /content/m_out, and the last cell always emits <project>_outputs.zip with files.download() (plus a Drive copy when mounted). Root causes fixed: a bad \\n escape in the summary template broke cell 7, and the previous config crashed on mount failure. 171 tests OK (new regression test), validate 25/0, tag colab-test-02 pushed for the Colab /github/ link. Owner's next tap: open the new link, T4, Run all.",
+  "next_action": "Owner runs colab-test-02 notebook; when it finishes (DONE or ZIP), run mobile_ops check mob-test-01 -> finish -> deliver.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T17:42:13Z",
+    "checkpoint_sequence": 14,
+    "event_sequence": 49,
+    "journal_head": "5e29e96bc176da668fe90796dd3555491e38fec165178859cdd54fa29df41417",
+    "last_checkpoint": "2026-10-27T17:42:13Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z",
+    "next_action": "Owner runs colab-test-02 notebook; when it finishes (DONE or ZIP), run mobile_ops check mob-test-01 -> finish -> deliver.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 49,
+    "timestamp": "2026-10-27T17:42:13Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "viper-1.5: the phone notebook no longer depends on Drive. mount() is attempted, failure falls back to /content/m_out, and the last cell always emits <project>_outputs.zip with files.download() (plus a Drive copy when mounted). Root causes fixed: a bad \\n escape in the summary template broke cell 7, and the previous config crashed on mount failure. 171 tests OK (new regression test), validate 25/0, tag colab-test-02 pushed for the Colab /github/ link. Owner's next tap: open the new link, T4, Run all.",
+    "content_sha256": "b05f177d65e4b26d5af3f63e929bc2c8a55161c075186e994583a79b7ccc77d9",
+    "metadata": {
+      "sequence": 14,
+      "next_action": "Owner runs colab-test-02 notebook; when it finishes (DONE or ZIP), run mobile_ops check mob-test-01 -> finish -> deliver.",
+      "status": "active"
+    },
+    "prev_event_sha256": "41236b1912fc5b0d29c85295d419b8caad86b7e5b842cb88bb19ecf187917a1a",
+    "event_sha256": "5e29e96bc176da668fe90796dd3555491e38fec165178859cdd54fa29df41417"
+  },
+  "journal_head": "5e29e96bc176da668fe90796dd3555491e38fec165178859cdd54fa29df41417",
+  "git": {
+    "initialized": true,
+    "head": "e32956dd246c82939b003e36cec566f246ce4f67",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M studio/mobile/jobs/mob-test-01.json",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

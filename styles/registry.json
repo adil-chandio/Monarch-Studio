@@ -12,7 +12,7 @@
       "contract": "styles/monarch-stickman-animation/workflow.json",
       "status": "PARKED",
       "knowledge_index": "styles/monarch-stickman-animation/knowledge/INDEX.md",
-      "latest_release": "TUMHARI RESERVED SEAT · WF-01",
+      "latest_release": "TUMHARI RESERVED SEAT \u00b7 WF-01",
       "latest_release_path": "styles/monarch-stickman-animation/films/tumhari-reserved-seat"
     },
     {
@@ -24,7 +24,7 @@
       "contract": "styles/monarch-noir-film/workflow.json",
       "status": "ACTIVE_WITH_DRIFT",
       "knowledge_index": "styles/monarch-noir-film/knowledge/INDEX.md",
-      "latest_release": "TUMHARI RESERVED SEAT · WF-03 · unnumbered",
+      "latest_release": "TUMHARI RESERVED SEAT \u00b7 WF-03 \u00b7 unnumbered",
       "latest_release_path": "styles/monarch-noir-film/films/tumhari-reserved-seat"
     },
     {
@@ -38,6 +38,31 @@
       "status": "READY_WITH_USER_POLICY",
       "latest_release": "V5 direction + accepted V6 enhancements; lower pill UI rejected",
       "latest_release_path": "styles/premium-motion-editing/projects/einstein-flow-state"
+    },
+    {
+      "style_id": "minimax-h3-video",
+      "name": "MiniMax-H3 Generative Video",
+      "path": "styles/minimax-h3-video",
+      "trigger": "H3GO <topic or shot list>",
+      "knowledge_index": "styles/minimax-h3-video/knowledge/INDEX.md",
+      "workflow_code": "WF-06",
+      "contract": "styles/minimax-h3-video/workflow.json",
+      "status": "PILOT_READY_NO_DELIVERY",
+      "latest_release": null,
+      "latest_release_path": null
+    },
+    {
+      "style_id": "monarch-ai-agent",
+      "name": "Monarch AI Agent",
+      "path": "styles/monarch-ai-agent",
+      "trigger": "AGENTGO <job or topic>",
+      "knowledge_index": "styles/monarch-ai-agent/knowledge/INDEX.md",
+      "workflow_code": "WF-07",
+      "contract": "styles/monarch-ai-agent/workflow.json",
+      "status": "ACTIVE_WITH_USER",
+      "latest_release": null,
+      "latest_release_path": null,
+      "drive_folder_id": "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1"
     }
   ]
 }

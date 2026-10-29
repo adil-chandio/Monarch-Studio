@@ -1,0 +1,34 @@
+{
+  "tool": "clipfilm-1.0",
+  "film": "personality-wan",
+  "title": "Powerful Personality \u2014 Wan 2.1 (real frames)",
+  "master": "preview_7scenes.mp4",
+  "info": {
+    "name": "preview_7scenes.mp4",
+    "width": 1080,
+    "height": 1920,
+    "duration": 21.0,
+    "bytes": 16477954,
+    "md5": "dd5ecc25e6165490da323773b1e05ebb"
+  },
+  "log": [
+    "scene 1: s01 3.0s +voice",
+    "scene 2: s02 3.0s +voice",
+    "scene 3: s03 3.0s +voice",
+    "scene 4: s04 3.0s +voice",
+    "scene 5: s05 3.0s +voice",
+    "scene 6: s06 3.0s +voice",
+    "scene 7: s07 3.0s +voice"
+  ],
+  "scenes": 7,
+  "missing": [
+    "s08",
+    "s09",
+    "s10",
+    "s11",
+    "s12"
+  ],
+  "with_voice": 7,
+  "seconds_rendered": 76.8,
+  "engine": "cloud AnimateDiff clips + ffmpeg finish"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "reel-local-01",
+  "kind": "reel",
+  "spec": "studio/videogen/examples/reel-local-01/reel.json",
+  "note": "cloud CPU render, no GPU"
+}

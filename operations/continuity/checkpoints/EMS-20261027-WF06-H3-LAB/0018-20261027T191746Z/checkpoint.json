@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0018-20261027T191746Z",
+  "created_at": "2026-10-27T19:17:46Z",
+  "summary": "Milestone: the phone-only pipeline is PROVEN end to end on the owner's free Colab T4 — 4-bit UMT5 fix worked (host RAM 8.1-9.1 GB free), one clip rendered in 49 s (33 frames, 30 steps), upscale fell back to ffmpeg lanczos because basicsr would not build, ZIP landed in Drive 05 · Projects/m-test-01/. viper-1.8 hardens that install (--no-build-isolation + functional_tensor patch) and replaces guessed timings with measured ones. Only remaining gap: the sandbox cannot reach Google hosts, so mix/verify/assemble need the 0.2 MB ZIP attached in chat.",
+  "next_action": "Owner attaches m-test-01_outputs.zip; then mobile_ops ingest mob-test-01 --zip <path> -> check -> finish -> deliver with the Drive id.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T19:17:46Z",
+    "checkpoint_sequence": 18,
+    "event_sequence": 58,
+    "journal_head": "80e9fb85d6a4448222c80bbd558f6efeb65bd46098b1b63fea23d730b92870ad",
+    "last_checkpoint": "2026-10-27T19:17:46Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z",
+    "next_action": "Owner attaches m-test-01_outputs.zip; then mobile_ops ingest mob-test-01 --zip <path> -> check -> finish -> deliver with the Drive id.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 58,
+    "timestamp": "2026-10-27T19:17:46Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Milestone: the phone-only pipeline is PROVEN end to end on the owner's free Colab T4 — 4-bit UMT5 fix worked (host RAM 8.1-9.1 GB free), one clip rendered in 49 s (33 frames, 30 steps), upscale fell back to ffmpeg lanczos because basicsr would not build, ZIP landed in Drive 05 · Projects/m-test-01/. viper-1.8 hardens that install (--no-build-isolation + functional_tensor patch) and replaces guessed timings with measured ones. Only remaining gap: the sandbox cannot reach Google hosts, so mix/verify/assemble need the 0.2 MB ZIP attached in chat.",
+    "content_sha256": "b6f4fd5d72e17fe12457b2d41b5ebb526875823f85709732abe358dc673cb20a",
+    "metadata": {
+      "sequence": 18,
+      "next_action": "Owner attaches m-test-01_outputs.zip; then mobile_ops ingest mob-test-01 --zip <path> -> check -> finish -> deliver with the Drive id.",
+      "status": "active"
+    },
+    "prev_event_sha256": "9a6bd3a30658d12a2a49c70a9973fd9bb64033b0f483159656d8a13f903bf258",
+    "event_sha256": "80e9fb85d6a4448222c80bbd558f6efeb65bd46098b1b63fea23d730b92870ad"
+  },
+  "journal_head": "80e9fb85d6a4448222c80bbd558f6efeb65bd46098b1b63fea23d730b92870ad",
+  "git": {
+    "initialized": true,
+    "head": "3d00734a46c801a0b6a1e093111667d135d11292",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/JOURNAL.jsonl"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "checkpoint_id": "0011-20261027T172943Z",
+  "created_at": "2026-10-27T17:29:43Z",
+  "summary": "Trust-test handoff: the owner is running the first real Colab pass on a one-shot notebook (clip + x2 upscale, voice/foley off) to prove Drive mount + T4 work on his phone account before a full 3-shot reel. Job mob-test-01 sits in handed_off; resolve_project now resolves bare ids and payload dirs. Awaiting his DONE, after which: check -> finish (mix/verify/assemble) -> deliver.",
+  "next_action": "When owner says DONE: python3 tools/mobile_ops.py check mob-test-01, then finish + deliver; if blocked, read the blocker and hand him exactly one re-run instruction.",
+  "active_state": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "status": "active",
+    "title": "WF-06 MiniMax-H3 generative video: Colab route + Monarch face plan",
+    "style_id": "minimax-h3-video",
+    "goal": "Document how to run MiniMax-H3 from Google Colab, deliver a runnable notebook + stdlib CLI, and plan the WF-04 Monarch-face to H3 to WF-05 pipeline",
+    "acceptance_criteria": [
+      "knowledge base (model facts, Colab runbook, prompting, routes/cost, face integration); runnable validated Colab notebook; offline-tested CLI; registries + manifest updated; studio validate green"
+    ],
+    "started_at": "2026-10-27T13:49:42Z",
+    "updated_at": "2026-10-27T17:29:43Z",
+    "checkpoint_sequence": 11,
+    "event_sequence": 43,
+    "journal_head": "f137fc2bd5f75f1194495908116ce59e1183f3a6ab1cc7ac7bfaa74bcd03777f",
+    "last_checkpoint": "2026-10-27T17:29:43Z",
+    "last_checkpoint_path": "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z",
+    "next_action": "When owner says DONE: python3 tools/mobile_ops.py check mob-test-01, then finish + deliver; if blocked, read the blocker and hand him exactly one re-run instruction.",
+    "running_processes": [],
+    "remote_sync": {
+      "github": "pending",
+      "google_docs": "pending",
+      "google_drive": "pending",
+      "linear": "pending",
+      "notion": "pending"
+    }
+  },
+  "journal_event": {
+    "schema_version": 1,
+    "task_id": "EMS-20261027-WF06-H3-LAB",
+    "seq": 43,
+    "timestamp": "2026-10-27T17:29:43Z",
+    "kind": "checkpoint",
+    "actor": "continuity",
+    "content": "Trust-test handoff: the owner is running the first real Colab pass on a one-shot notebook (clip + x2 upscale, voice/foley off) to prove Drive mount + T4 work on his phone account before a full 3-shot reel. Job mob-test-01 sits in handed_off; resolve_project now resolves bare ids and payload dirs. Awaiting his DONE, after which: check -> finish (mix/verify/assemble) -> deliver.",
+    "content_sha256": "93c03da91d6ea7832387975a536a659004f6d607c84863d98c79848ef8d504b3",
+    "metadata": {
+      "sequence": 11,
+      "next_action": "When owner says DONE: python3 tools/mobile_ops.py check mob-test-01, then finish + deliver; if blocked, read the blocker and hand him exactly one re-run instruction.",
+      "status": "active"
+    },
+    "prev_event_sha256": "ba39372fed65bf6be9a762a0f9df6dba357d338d6f665f32021fc55622a8dbfc",
+    "event_sha256": "f137fc2bd5f75f1194495908116ce59e1183f3a6ab1cc7ac7bfaa74bcd03777f"
+  },
+  "journal_head": "f137fc2bd5f75f1194495908116ce59e1183f3a6ab1cc7ac7bfaa74bcd03777f",
+  "git": {
+    "initialized": true,
+    "head": "20ea6a193e867a0ed75f59796241158f54f3eee9",
+    "branch": "arena/3d8cfad7-monarch-studio",
+    "status": [
+      " M .studio-manifest.json",
+      " M tools/mobile_ops.py",
+      " M workflows/current/ACTIVE_TASK.json",
+      " M workflows/current/CHAT_TRANSCRIPT.jsonl",
+      " M workflows/current/JOURNAL.jsonl",
+      "?? studio/mobile/jobs/mob-test-01.json",
+      "?? studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb",
+      "?? studio/videogen/examples/m-test-01/plan.json",
+      "?? studio/videogen/examples/m-test-01/project.json",
+      "?? studio/videogen/examples/m-test-01/receipts.json"
+    ],
+    "remotes": [
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (fetch)",
+      "origin\thttps://github.com/adil-chandio/Monarch-Studio.git (push)"
+    ],
+    "submodules": [
+      "-756290289742535eb0ac3817548f152e9759cc70 vendor/awesome-opus5-5-videos",
+      "-f8b2552d1c4fd1ae5051dae3786719dc5bdb3ff8 vendor/effectcraft"
+    ]
+  },
+  "payload_inventory": []
+}

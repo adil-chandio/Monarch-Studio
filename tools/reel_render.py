@@ -1,0 +1,528 @@
+#!/usr/bin/env python3
+"""reel_render — render a vertical reel on CPU, with no GPU, no network, no owner taps.
+
+This is the "agent does it himself" path. It turns existing art plates into a
+finished 1080x1920 reel: per-shot camera move (push / pull / pan), film grain,
+vignette, graded contrast, kinetic captions, designed sound (drone + rain +
+impacts + riser) and a loudnorm master.
+
+Everything is ffmpeg. A 5-shot, 18-second reel renders in well under a minute on
+two cores, so it can be produced inside the agent's own sandbox while the owner
+is asleep — no Colab, no link, no tap.
+
+Spec (JSON):
+{
+  "id": "reel-local-01",
+  "title": "MONARCH",
+  "size": [1080, 1920],
+  "fps": 24,
+  "plate_height": 608,           # 16:9 band inside the vertical frame
+  "shots": [
+    {"image": "path.png", "seconds": 3.2, "move": "push",
+     "caption": "SHEHAR SO NAHI RAHA"},
+    ...
+  ],
+  "audio": {"drone": 0.5, "rain": 0.5, "impacts": true, "riser": true, "voice": null}
+}
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import pathlib
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+
+VERSION = "reelrender-1.0"
+MOVES = ("push", "pull", "pan_left", "pan_right", "still")
+FONT_CANDIDATES = (
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+)
+
+
+class RenderError(RuntimeError):
+    """Anything that makes the reel impossible to deliver."""
+
+
+# --------------------------------------------------------------------------- helpers
+def which(binary: str) -> str | None:
+    found = shutil.which(binary)
+    return found or None
+
+
+def md5(path: pathlib.Path) -> str:
+    digest = hashlib.md5()
+    with pathlib.Path(path).open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def font_path(preferred: str | None = None) -> str:
+    for candidate in ([preferred] if preferred else []) + list(FONT_CANDIDATES):
+        if candidate and pathlib.Path(candidate).exists():
+            return candidate
+    raise RenderError("koi TTF font nahi mila — spec me 'font' de do")
+
+
+def probe(path: pathlib.Path, ffmpeg: str = "ffmpeg") -> dict:
+    text = subprocess.run([ffmpeg, "-hide_banner", "-i", str(path)],
+                          capture_output=True, text=True).stderr
+    import re
+    size = re.search(r"[,\s](\d{2,5})x(\d{2,5})(?=[\s,\[])", text)
+    dur = re.search(r"Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)", text)
+    return {"name": pathlib.Path(path).name,
+            "width": int(size.group(1)) if size else 0,
+            "height": int(size.group(2)) if size else 0,
+            "duration": round(int(dur.group(1)) * 3600 + int(dur.group(2)) * 60
+                              + float(dur.group(3)), 3) if dur else 0.0,
+            "bytes": pathlib.Path(path).stat().st_size,
+            "md5": md5(path)}
+
+
+def escape_text(text: str) -> str:
+    """drawtext me colon/comma/quote escape karna padta hai."""
+    out = str(text)
+    for bad, good in (("\\", "\\\\"), (":", "\\:"), ("'", "\u2019"),
+                      ("%", "\\%"), (",", "\\,")):
+        out = out.replace(bad, good)
+    return out.replace("\n", "\\n")
+
+
+# --------------------------------------------------------------------------- titles
+def _tracked(draw, text: str, font, tracking: int) -> tuple[int, int]:
+    """Letter-spacing ke saath text ki width/height naapo (designed typography)."""
+    width = 0
+    for index, char in enumerate(text):
+        width += draw.textlength(char, font=font) + (tracking if index < len(text) - 1 else 0)
+    box = draw.textbbox((0, 0), "Hg", font=font)
+    return int(round(width)), box[3] - box[1]
+
+
+def _draw_tracked(draw, text, font, x, y, tracking, fill, shadow=None):
+    """Text ko letter-spacing ke saath likho; `shadow` offsets ki list hai."""
+    for dx, dy in (shadow or []):
+        pen = x
+        for char in text:
+            draw.text((pen + dx, y + dy), char, font=font, fill=(0, 0, 0, 190))
+            pen += draw.textlength(char, font=font) + tracking
+    pen = x
+    for char in text:
+        draw.text((pen, y), char, font=font, fill=fill)
+        pen += draw.textlength(char, font=font) + tracking
+
+
+def make_caption_png(text: str, spec: dict, out: pathlib.Path) -> pathlib.Path:
+    """Caption + kicker ko PIL se PNG banao (har ffmpeg build me drawtext nahi hota)."""
+    from PIL import Image, ImageDraw, ImageFont
+    ss = int(spec.get("supersample", 1))
+    width, height = spec["size"][0] * ss, spec["size"][1] * ss
+    image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    label = text.upper() if spec.get("uppercase", True) else text
+    path = font_path(spec.get("font"))
+    limit = int(width * float(spec.get("caption_max_width", 0.86)))
+    tracking = int(spec.get("caption_tracking", 3) * ss)
+
+    size = int(spec.get("caption_size", 54)) * ss
+    font = ImageFont.truetype(path, size)
+    while size > 26 * ss:
+        text_w, _ = _tracked(draw, label, font, tracking)
+        if text_w <= limit:
+            break
+        size -= 2 * ss
+        font = ImageFont.truetype(path, size)
+
+    text_w, text_h = _tracked(draw, label, font, tracking)
+    x = (width - text_w) // 2
+    y = int(height * float(spec.get("caption_y", 0.79)))
+    _draw_tracked(draw, label, font, x, y, tracking, (255, 255, 255, 246),
+                  shadow=((0, 3 * ss), (2 * ss, 3 * ss)))
+
+    kicker = (spec.get("kicker") or "").strip()
+    if kicker:
+        k_size = int(spec.get("kicker_size", 20)) * ss
+        k_font = ImageFont.truetype(path, k_size)
+        k_tracking = int(spec.get("kicker_tracking", 8) * ss)
+        k_label = kicker.upper()
+        k_w, _ = _tracked(draw, k_label, k_font, k_tracking)
+        k_y = y - int(spec.get("kicker_gap", 54) * ss)
+        _draw_tracked(draw, k_label, k_font, (width - k_w) // 2, k_y, k_tracking,
+                      (214, 214, 214, 165))
+    image.save(out)
+    return out
+
+
+# --------------------------------------------------------------------------- video
+def _zoom_expr(move: str, frames: int) -> tuple[str, str, str]:
+    """zoompan ke z / x / y expressions — inme har shot ka motion banta hai."""
+    span = max(frames - 1, 1)
+    if move == "push":
+        return (f"min(1.0+0.12*on/{span},1.12)",
+                "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)")
+    if move == "pull":
+        return (f"max(1.12-0.12*on/{span},1.0)",
+                "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)")
+    if move == "pan_left":
+        return ("1.10", f"(iw-iw/zoom)*(1-0.35*on/{span})", "ih/2-(ih/zoom/2)")
+    if move == "pan_right":
+        return ("1.10", f"(iw-iw/zoom)*(0.35*on/{span})", "ih/2-(ih/zoom/2)")
+    return ("1.04", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)")
+
+
+def shot_filter(shot: dict, spec: dict, index: int, caption_png: pathlib.Path | None) -> str:
+    """Ek shot ka filtergraph: blurred bed + camera move + film grade/halation + caption."""
+    width, height = spec["size"]
+    ss = int(spec.get("supersample", 1))          # 2 = 4K supersample (kaafi RAM chahiye)
+    fps = int(spec.get("fps", 24))
+    band = int(spec.get("plate_height", 608))
+    seconds = float(shot["seconds"])
+    frames = max(int(round(seconds * fps)), 2)
+    move = shot.get("move", "push")
+    if move not in MOVES:
+        raise RenderError(f"shot {index}: move '{move}' samajh nahi aaya ({', '.join(MOVES)})")
+    zoom, xpos, ypos = _zoom_expr(move, frames)
+    work_w, work_h = width * ss, height * ss
+    band_h = band * ss
+    big_w = int(work_w * 2.6) // 2 * 2
+    big_h = int(band_h * 2.6) // 2 * 2
+    grain = int(spec.get("grain", 7))
+    y0 = (work_h - band_h) // 2
+    fade = float(spec.get("fade", 0.35))
+    premium = bool(spec.get("premium", True))
+
+    parts = [
+        "[0:v]split=2[bgs][fgs]",
+        (f"[bgs]scale={work_w}:{work_h}:force_original_aspect_ratio=increase,"
+         f"crop={work_w}:{work_h},gblur=sigma={28 * ss},"
+         f"eq=brightness={float(spec.get('bg_brightness', -0.02)):.2f}:saturation=0.7,"
+         f"noise=alls=6:allf=t,fps={fps},setsar=1[bg]"),
+        (f"[fgs]scale={big_w}:{big_h}:flags=lanczos,"
+         f"zoompan=z='{zoom}':d={frames}:x='{xpos}':y='{ypos}':"
+         f"s={work_w}x{band_h}:fps={fps},setsar=1,"
+         f"eq=contrast=1.08:saturation=0.82[fg]"),
+        f"[bg][fg]overlay=x=0:y={y0}:shortest=1[layered]",
+    ]
+
+    if premium:
+        # halation: roshni ko halka phaila kar film jaisa glow
+        parts.append("[layered]split=2[base][hot]")
+        parts.append(f"[hot]eq=brightness=0.08:saturation=1.05,gblur=sigma={12 * ss}[glow]")
+        parts.append("[base][glow]blend=all_mode=screen:all_opacity=0.14[lit]")
+        # film curve: sirf halka S + bohat subtle split tone (rang neutral rahe)
+        parts.append("[lit]eq=contrast=1.05:gamma=0.99:saturation=1.02,"
+                     "colorbalance=rs=-0.02:bs=0.015:rh=0.015:bh=-0.012,"
+                     "curves=r=0/0.01 0.5/0.51 1/0.995:g=0/0.008 0.5/0.5 1/0.99:"
+                     "b=0/0.012 0.5/0.5 1/0.985[graded]")
+        parts.append(f"[graded]noise=alls={grain}:allf=t+u,vignette=PI/4.6[filmic]")
+        base_label = "[filmic]"
+    else:
+        base_label = "[layered]"
+
+    tail = base_label
+    if caption_png is not None:
+        drift = 4 * ss if premium else 0
+        parts.append(f"[1:v]format=rgba,"
+                     f"fade=t=in:st=0:d={fade:.2f}:alpha=1,"
+                     f"fade=t=out:st={max(seconds - fade, 0):.2f}:d={fade:.2f}:alpha=1[cap]")
+        parts.append(f"{base_label}[cap]overlay=x=0:y='-{drift}*t':shortest=1[captioned]")
+        tail = "[captioned]"
+
+    if premium and spec.get("shake", True):
+        # halka handheld shake — frame kabhi bhi bilkul static na lage
+        parts.append(f"{tail}crop=w=iw-{8 * ss}:h=ih-{8 * ss}:"
+                     f"x='{4 * ss}+{3 * ss}*sin(t*7.3)+{2 * ss}*sin(t*13.1)':"
+                     f"y='{4 * ss}+{3 * ss}*cos(t*5.7)',"
+                     f"scale={work_w}:{work_h}:flags=lanczos[shaken]")
+        tail = "[shaken]"
+
+    parts.append(f"{tail}fade=t=in:st=0:d={fade:.2f},"
+                 f"fade=t=out:st={max(seconds - fade, 0):.2f}:d={fade:.2f},"
+                 f"scale={width}:{height}:flags=lanczos,setsar=1,format=yuv420p[v]")
+    return ";".join(parts)
+
+
+def render_shot(shot: dict, spec: dict, index: int, out: pathlib.Path,
+                ffmpeg: str, work: pathlib.Path) -> pathlib.Path:
+    fps = int(spec.get("fps", 24))
+    seconds = float(shot["seconds"])
+    caption = (shot.get("caption") or "").strip()
+    caption_png = (make_caption_png(caption, spec, work / f"cap{index:02d}.png")
+                   if caption else None)
+    graph = shot_filter(shot, spec, index, caption_png)
+    cmd = [ffmpeg, "-y", "-loop", "1", "-framerate", str(fps),
+           "-t", f"{seconds:.3f}", "-i", str(shot["image"])]
+    if caption_png is not None:
+        cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{seconds:.3f}",
+                "-i", str(caption_png)]
+    cmd += ["-filter_complex", graph, "-map", "[v]",
+            "-c:v", "libx264", "-crf", str(spec.get("crf", 16)),
+            "-preset", str(spec.get("preset", "slow")), "-tune", "film",
+            "-pix_fmt", "yuv420p", "-r", str(fps), str(out)]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        tail = " | ".join(proc.stderr.strip().splitlines()[-3:])
+        raise RenderError(f"shot {index} ({pathlib.Path(shot['image']).name}) render nahi hua: {tail}")
+    return out
+
+
+def concat_shots(parts: list[pathlib.Path], spec: dict, out: pathlib.Path,
+                 ffmpeg: str) -> pathlib.Path:
+    """Shots ko xfade (dissolve) se jodo — hard cut nahi, film jaisa flow."""
+    fade = float(spec.get("xfade", 0.4))
+    if len(parts) == 1:
+        shutil.copyfile(parts[0], out)
+        return out
+    lengths = [probe(p, ffmpeg)["duration"] for p in parts]
+    cmd = [ffmpeg, "-y"]
+    for part in parts:
+        cmd += ["-i", str(part)]
+    chain, previous, running = [], "[0:v]", lengths[0]
+    for index in range(1, len(parts)):
+        offset = max(running - fade, 0)
+        label = f"vx{index}"
+        chain.append(f"{previous}[{index}:v]xfade=transition=fade:"
+                     f"duration={fade}:offset={offset:.3f}[{label}]")
+        previous = f"[{label}]"
+        running = offset + lengths[index]
+    cmd += ["-filter_complex", ";".join(chain), "-map", previous,
+            "-c:v", "libx264", "-crf", str(spec.get("crf", 18)), "-preset", "veryfast",
+            "-pix_fmt", "yuv420p", str(out)]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        tail = " | ".join(proc.stderr.strip().splitlines()[-3:])
+        raise RenderError("shots jodne me masla: " + tail)
+    return out
+
+
+# --------------------------------------------------------------------------- audio
+def audio_graph(spec: dict, duration: float, cut_times: list[float]) -> str:
+    """Premium bed: stereo rain + drone + pulse + siren + hiss + impacts + riser.
+
+    Har layer ffmpeg lavfi se banti hai — koi sample, koi download, koi licence nahi.
+    Mono layers ko `pan` se stereo banaya jata hai taake amix channels na toote.
+    """
+    cfg = spec.get("audio") or {}
+    rate = 48000
+    layers: list[str] = []
+    mixin: list[str] = []
+
+    def mono(label: str, source: str, chain: str = "") -> None:
+        tail = f",{chain}" if chain else ""
+        layers.append(f"{source},pan=stereo|c0=c0|c1=c0{tail}[{label}]")
+        mixin.append(f"[{label}]")
+
+    # 1) drone — 55 + 82.5 Hz, halka tremolo (film ka "room tone")
+    if cfg.get("drone", 0.5):
+        gain = float(cfg.get("drone", 0.5))
+        layers.append(f"sine=frequency=55:duration={duration:.3f}:sample_rate={rate}[d1]")
+        layers.append(f"sine=frequency=82.5:duration={duration:.3f}:sample_rate={rate}[d2]")
+        layers.append("[d1][d2]amix=inputs=2:normalize=0,tremolo=f=0.16:d=0.35,"
+                      f"pan=stereo|c0=c0|c1=c0,volume={gain:.3f}[drone]")
+        mixin.append("[drone]")
+
+    # 2) rain — do alag noise sources L/R (asli stereo width)
+    if cfg.get("rain", 0.5):
+        gain = float(cfg.get("rain", 0.5))
+        layers.append(f"anoisesrc=color=pink:duration={duration:.3f}:sample_rate={rate}:"
+                      f"amplitude=0.18,highpass=f=320,lowpass=f=6400,volume={gain:.3f}[rl]")
+        layers.append(f"anoisesrc=color=pink:duration={duration:.3f}:sample_rate={rate}:"
+                      f"amplitude=0.18,highpass=f=280,lowpass=f=5600,volume={gain * 0.85:.3f}[rr]")
+        layers.append("[rl][rr]join=inputs=2:channel_layout=stereo[rain]")
+        mixin.append("[rain]")
+
+    # 3) hiss — 10 kHz top, sirf "tape" ka ehsaas
+    if cfg.get("hiss", 0.12):
+        gain = float(cfg.get("hiss", 0.12))
+        mono("hiss", f"anoisesrc=color=white:duration={duration:.3f}:sample_rate={rate}:"
+                     f"amplitude=0.05", f"highpass=f=7000,volume={gain:.3f}")
+
+    # 4) sub pulse — har 1.2 s par dhadkan
+    if cfg.get("pulse", 0.5):
+        gain = float(cfg.get("pulse", 0.5))
+        mono("pulse", f"aevalsrc='0.55*sin(2*PI*44*t)*exp(-6*mod(t\\,1.2))'"
+                      f":s={rate}:d={duration:.3f}", f"volume={gain:.3f}")
+
+    # 5) siren — door ki awaaz, 4 s par aati hai (shehar ka ehsaas)
+    if cfg.get("siren", 0.16) and duration > 6:
+        gain = float(cfg.get("siren", 0.16))
+        at = min(4.0, duration - 3.0)
+        mono("siren", f"sine=frequency=520:duration=3.2:sample_rate={rate}",
+             f"vibrato=f=4.5:d=0.6,tremolo=f=0.4:d=0.7,volume={gain:.3f},"
+             f"afade=t=in:st=0:d=0.9,afade=t=out:st=2.3:d=0.9,"
+             f"adelay={int(at * 1000)}|{int(at * 1000)}")
+
+    # 6) impacts — har cut par 58 Hz boom + reverb tail
+    if cfg.get("impacts", True) and cut_times:
+        for number, at in enumerate(cut_times[:6], 1):
+            layers.append(f"sine=frequency=58:duration=0.9:sample_rate={rate}[i{number}]")
+            layers.append(f"[i{number}]afade=t=out:st=0.04:d=0.85,volume=0.95,"
+                          f"aecho=0.8:0.55:60|120:0.35|0.22,"
+                          f"pan=stereo|c0=c0|c1=c0,"
+                          f"adelay={int(at * 1000)}|{int(at * 1000)}[imp{number}]")
+            mixin.append(f"[imp{number}]")
+
+    # 7) riser — aakhri cut se pehle noise swell
+    if cfg.get("riser", True):
+        start_at = max(duration - 2.2, 0.0)
+        layers.append(f"anoisesrc=color=white:duration=2.2:sample_rate={rate}:amplitude=0.12[rs]")
+        layers.append(f"[rs]highpass=f=600,lowpass=f=5200,afade=t=in:st=0:d=1.9,"
+                      f"pan=stereo|c0=c0|c1=c0,volume=0.6,"
+                      f"adelay={int(start_at * 1000)}|{int(start_at * 1000)}[riser]")
+        mixin.append("[riser]")
+
+    voice = cfg.get("voice")
+    if voice and pathlib.Path(voice).exists():
+        layers.append("[0:a]volume=1.0,pan=stereo|c0=c0|c1=c0,aresample=48000[vo]")
+        mixin.append("[vo]")
+
+    if not mixin:
+        layers.append(f"anullsrc=channel_layout=stereo:sample_rate={rate}:"
+                      f"duration={duration:.3f}[sil]")
+        mixin.append("[sil]")
+
+    layers.append("".join(mixin) + f"amix=inputs={len(mixin)}:normalize=0,"
+                                   f"loudnorm=I=-16:TP=-1.5:LRA=11,"
+                                   f"atrim=0:{duration:.3f},asetpts=N/SR/TB[aout]")
+    return ";".join(layers), 0
+
+
+def build_audio(spec: dict, duration: float, cut_times: list[float], out: pathlib.Path,
+                ffmpeg: str) -> pathlib.Path:
+    graph, _ = audio_graph(spec, duration, cut_times)
+    voice = (spec.get("audio") or {}).get("voice")
+    cmd = [ffmpeg, "-y"]
+    if voice and pathlib.Path(voice).exists():
+        cmd += ["-i", str(voice)]
+    cmd += ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000:duration=0.1",
+            "-filter_complex", graph, "-map", "[aout]",
+            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", str(out)]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        tail = " | ".join(proc.stderr.strip().splitlines()[-3:])
+        raise RenderError("audio nahi bana: " + tail)
+    return out
+
+
+# --------------------------------------------------------------------------- entry
+def load_spec(path: pathlib.Path) -> dict:
+    import re
+    spec = json.loads(pathlib.Path(path).read_text())
+    base = pathlib.Path(path).parent
+    shots = spec.get("shots") or []
+    if not shots:
+        raise RenderError("spec me koi shot nahi hai")
+    for index, shot in enumerate(shots, 1):
+        if not shot.get("image"):
+            raise RenderError(f"shot {index}: 'image' missing")
+        raw = pathlib.Path(shot["image"])
+        if raw.is_absolute():
+            image = raw
+        else:
+            # pehle spec ke folder se, phir repo root se (paths repo-relative likhna aasan hai)
+            here = (base / raw).resolve()
+            root = (pathlib.Path(__file__).resolve().parent.parent / raw).resolve()
+            image = here if here.exists() else root
+        if not image.exists():
+            raise RenderError(f"shot {index}: image nahi mila — {image}")
+        shot["image"] = str(image)
+        shot["seconds"] = float(shot.get("seconds", 3.0))
+        if shot["seconds"] <= 0.2:
+            raise RenderError(f"shot {index}: seconds bahut kam hai")
+    spec["size"] = [int(spec.get("size", [1080, 1920])[0]), int(spec.get("size", [1080, 1920])[1])]
+    spec["fps"] = int(spec.get("fps", 24))
+    spec["fade"] = float(spec.get("fade", 0.35))
+    return spec
+
+
+def render(spec_path: pathlib.Path, out: pathlib.Path, *, keep: pathlib.Path | None = None,
+           ffmpeg: str | None = None) -> dict:
+    ffmpeg = ffmpeg or which("ffmpeg")
+    if not ffmpeg:
+        raise RenderError("ffmpeg nahi mila")
+    spec = load_spec(spec_path)
+    started = time.time()
+    work = pathlib.Path(keep) if keep else pathlib.Path(tempfile.mkdtemp(prefix="reel_"))
+    work.mkdir(parents=True, exist_ok=True)
+    out = pathlib.Path(out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    parts, log = [], []
+    for index, shot in enumerate(spec["shots"], 1):
+        part = work / f"shot{index:02d}.mp4"
+        render_shot(shot, spec, index, part, ffmpeg, work)
+        parts.append(part)
+        log.append(f"shot {index}: {pathlib.Path(shot['image']).name} "
+                   f"{shot['seconds']:.1f}s {shot.get('move', 'push')}")
+
+    stitched = work / "stitched.mp4"
+    concat_shots(parts, spec, stitched, ffmpeg)
+
+    cuts, running = [], 0.0
+    fade = float(spec.get("xfade", 0.4))
+    for index, shot in enumerate(spec["shots"]):
+        running += shot["seconds"] - (fade if index else 0)
+        cuts.append(round(running, 3))
+    total = round(running, 3)
+
+    voiced = work / "bed.m4a"
+    build_audio(spec, total, cuts[:-1], voiced, ffmpeg)
+
+    master = work / "master.mp4"
+    proc = subprocess.run([ffmpeg, "-y", "-i", str(stitched), "-i", str(voiced),
+                           "-c:v", "copy", "-c:a", "copy", "-shortest",
+                           "-movflags", "+faststart", str(master)],
+                          capture_output=True, text=True)
+    if proc.returncode != 0:
+        tail = " | ".join(proc.stderr.strip().splitlines()[-3:])
+        raise RenderError("master mux nahi hua: " + tail)
+    shutil.copyfile(master, out)
+
+    info = probe(out, ffmpeg)
+    receipt = {
+        "tool": VERSION, "reel": spec.get("id", "reel"), "title": spec.get("title"),
+        "master": out.name, "info": info, "log": log,
+        "seconds_rendered": round(time.time() - started, 1),
+        "engine": "ffmpeg-cpu (no GPU, no network)",
+        "audio": {"layers": [k for k in ("drone", "rain", "impacts", "riser", "voice")
+                             if (spec.get("audio") or {}).get(k)],
+                  "loudnorm": "I=-16:TP=-1.5:LRA=11"},
+    }
+    receipt_path = out.with_name(out.stem + "_receipt.json")
+    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n")
+    if not keep:
+        shutil.rmtree(work, ignore_errors=True)
+    return receipt
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(prog="reel_render", description=__doc__)
+    parser.add_argument("spec", help="reel.json")
+    parser.add_argument("--out", required=True, help="output master.mp4")
+    parser.add_argument("--keep", help="intermediate files yahan rakho (debug)")
+    parser.add_argument("--version", action="version", version=VERSION)
+    args = parser.parse_args(argv)
+    try:
+        receipt = render(pathlib.Path(args.spec), pathlib.Path(args.out),
+                         keep=pathlib.Path(args.keep) if args.keep else None)
+    except RenderError as exc:
+        print("REEL FAIL:", exc)
+        return 1
+    info = receipt["info"]
+    print(f"REEL OK  {info['name']}  {info['bytes'] / 1e6:.2f} MB  "
+          f"{info['width']}x{info['height']}  {info['duration']}s  "
+          f"md5={info['md5']}  ({receipt['seconds_rendered']}s render)")
+    for line in receipt["log"]:
+        print("  ·", line)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

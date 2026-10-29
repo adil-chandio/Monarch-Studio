@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "algorithm": "sha256",
-  "generated_at": "2026-10-14T21:54:46+00:00",
+  "generated_at": "2026-10-28T05:05:53+00:00",
   "sparse_checkout_aware": true,
   "excludes": [
     ".git",
@@ -19,6 +19,22 @@
       "sha256": "a2d707664a09806051f23a1b63dd00a4e5cd73ddf54639d77d730137328b27c7",
       "size": 252
     },
+    ".github/workflows/cloud-ai-clip.yml": {
+      "sha256": "33420c874e6e0cdded7c08c39a22125a9409abd45061a67b51dadab2f4709def",
+      "size": 4210
+    },
+    ".github/workflows/cloud-reel.yml": {
+      "sha256": "5c0246ee6155d7715bebdcee7d7e2d28a94cec7fe10037b70a58805c1a5c5989",
+      "size": 4266
+    },
+    ".github/workflows/cloud-scenes.yml": {
+      "sha256": "d39b70e57ea65311dc53642bbd205c36064f0cc6277b2e8310ff0d5a35f8f7d3",
+      "size": 3724
+    },
+    ".github/workflows/cloud-t2v.yml": {
+      "sha256": "57456cf9839ec390a4ffad6bdc63592b2f8171d589b9fdda06ffd76ece40c7e1",
+      "size": 5472
+    },
     ".github/workflows/continuity-audit.yml": {
       "sha256": "6b7bdaacf91681eda3c99b980dadd65aa617072f0236dc17b7883f44bb408f7e",
       "size": 867
@@ -32,12 +48,12 @@
       "size": 257
     },
     "AGENTS.md": {
-      "sha256": "dd9d22655c6a7d251c43feb72a2c0dd93402c26935ec83cc25f6a41bde8de7f5",
-      "size": 3483
+      "sha256": "0011ee98d50f464c7b4066025020db282ac38e2d05f9d3e8e169dbe97b299d3b",
+      "size": 14583
     },
     "CHANGELOG.md": {
-      "sha256": "b7953c9d96dc3c12cacaec116956b7bbe6b33b11deee678c2950630e95bd0e84",
-      "size": 1173
+      "sha256": "45762c3f660a07a88f79dd27fcdbd16f21a2693d8f0847e65f3933112e39fed1",
+      "size": 7601
     },
     "CONTRIBUTING.md": {
       "sha256": "e814f35754093119bee2342be79d50b7a389e6b902e1b37c1fa6f5f3446975ad",
@@ -48,20 +64,20 @@
       "size": 759
     },
     "Makefile": {
-      "sha256": "f24a1cc3df614f7520c73317e9ecd1e5fbc4c8372ae3afd41fb7c999df2d5b7a",
-      "size": 1007
+      "sha256": "c7fc4e36e176a5fb3272b8a4a82589a9106d324172b383984302162f3cf06ce5",
+      "size": 1704
     },
     "README.md": {
-      "sha256": "eb06409b55a6f33315ece333899ec8e42b2f5a0a6e5d2cc402bae3ad24e992eb",
-      "size": 6259
+      "sha256": "073c57179cc46d0172480ebf589194a7b072b10b16f4aa432103d1ce2c6bd4f1",
+      "size": 8226
     },
     "SECURITY.md": {
       "sha256": "77e40937c8392698a8f441bc35aa669f53fed928a1be7bbe2aad513a6434c325",
       "size": 602
     },
     "START_HERE.md": {
-      "sha256": "b945020e7b1e47155a92224373a64863815f3d94b1bf24fb1f1b2229599bf295",
-      "size": 527
+      "sha256": "56c9e0f82c79083daffcfd5a545cfc0f388642f1ea9cce814c825d3402a3987e",
+      "size": 663
     },
     "THIRD_PARTY.md": {
       "sha256": "93c5c7a02c95a671fb6638364ac724d4f29c46547da6ef2940460a98cd6861ad",
@@ -143,13 +159,49 @@
       "sha256": "366addd6d1f53ae156187f1a9172d845b679da71b9c6fcfb5eaff47ce8b4077a",
       "size": 4246
     },
+    "cloud/ai_jobs/ai-clip-01.json": {
+      "sha256": "3cbe8531483f4e1e1f892cd4d1461ed6da43256f8ce2126381907ece2e4574d7",
+      "size": 392
+    },
+    "cloud/jobs/reel-local-01.json": {
+      "sha256": "6435d18aa92f97c7d936163d38046ac631ae6e9bc0bc655162bd698b09416e62",
+      "size": 146
+    },
+    "cloud/scene_jobs/README.md": {
+      "sha256": "07c60997bc2fac1116a61c39d5b1d51fe38c7258ea38b2ef161d7ae78a68ec3a",
+      "size": 302
+    },
+    "cloud/scene_jobs/personality-36.json": {
+      "sha256": "1d3da660d17577e683e3f046e556180b4a26c9d8afbc7b690df9df4c61a0f46a",
+      "size": 3691
+    },
+    "cloud/t2v_jobs/personality-lite.json": {
+      "sha256": "f58741fe1e710202c20f2b269b71290ce455082b506a34a0bcb4ddaea13ceec5",
+      "size": 4204
+    },
+    "cloud/t2v_jobs/personality-t2v.json": {
+      "sha256": "75f4e2693b795d5412e0e358c2ddb9fdbc395cd84d731ea98124be8300f8c565",
+      "size": 3243
+    },
+    "cloud/t2v_jobs/smoke-t2v.json": {
+      "sha256": "899160ff515bf78c9caa631f0128e7057850a7cb82eb4643c74a98c331efc1ff",
+      "size": 765
+    },
     "docs/ADDING_A_WORKFLOW.md": {
       "sha256": "5645859ae57a2ebade643b9464350971726dbe6149e046975a838459db66d444",
       "size": 1725
     },
+    "docs/AGENT_REEL.md": {
+      "sha256": "f6c79552965c9b0f47ad11c99249963621824b6d3447fd72dc3c88ebe89197a6",
+      "size": 2953
+    },
     "docs/ARCHITECTURE.md": {
       "sha256": "852e73a779d1bfca7f0bcb7c7092ec512dc73fe2b3380fc3e8b83feadf6ea886",
       "size": 5413
+    },
+    "docs/CLOUD_PIPELINE.md": {
+      "sha256": "eeb0cea36af1c5ef6a417fd8942f058776dd144acfa3a765fb8cf127ea90072b",
+      "size": 3535
     },
     "docs/CONTINUITY_AND_RECOVERY.md": {
       "sha256": "8f08dd66d408f3ca82840d4efa2ac9df9f77139147e8bffcd1593ace6838a2fb",
@@ -158,6 +210,18 @@
     "docs/CROSS_PLATFORM_SYNC.md": {
       "sha256": "3b2d87f8428fe48b82aeaf401253d0c1768e4148b9477be60506b163a871e291",
       "size": 1718
+    },
+    "docs/FREE_ONLY_PLAYBOOK.md": {
+      "sha256": "5e25224f496f7a35b0e144e5d50cfcfb8b47275a0f5f15bc380c16ef53920244",
+      "size": 8910
+    },
+    "docs/MOBILE.md": {
+      "sha256": "119eea07f65f4b765ff3e6e5594c85b5933bfb46c39f657217766f57de4bf8b5",
+      "size": 4165
+    },
+    "docs/MOBILE_WORKFLOW.md": {
+      "sha256": "6cdee2d7637c62244192737d21e11e885a14a81eefc9a0b34894c93cdd8455ee",
+      "size": 18005
     },
     "docs/PRIVACY_AND_ASSETS.md": {
       "sha256": "6f30af9f48c23ae621699cc1b6524afb940f9099f411c09a6ed93a92afe0eb34",
@@ -186,6 +250,10 @@
     "docs/VENDOR_INTEGRATION.md": {
       "sha256": "0c4eb914f5afe0dafe1709d8a9144bc33b2dea1d49fed899cc098dc86741d39a",
       "size": 1828
+    },
+    "docs/VIDEOGEN.md": {
+      "sha256": "861e9b0bb75d7483ba8a773e1f2d5b373834ad93135518b8f5df1f4e2dec2a19",
+      "size": 13387
     },
     "docs/productions/EMS-20261011-002/DELIVERY.json": {
       "sha256": "526c1f5ca44e21d60fe756f3ade070b5f0dab8b6e5de36eeaec36de4a48f8a90",
@@ -474,6 +542,198 @@
     "operations/continuity/checkpoints/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "860e42f431c3034bd44e00f247a75a66e4becac084c55748dfc22bbaeb4b20ce",
       "size": 6651
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/HANDOFF.md": {
+      "sha256": "087c55f440e54edae16d350141d3da8aeb64044647f3249beff395f62729beea",
+      "size": 1484
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/checkpoint.json": {
+      "sha256": "5949bce1e82807549d76f034ead665c25f8cb4863b9008df2ebbbac8523ac3c0",
+      "size": 4936
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z/HANDOFF.md": {
+      "sha256": "849e0daea277931b2e19a249c9fbfc0f930ea6b434a1f3b04dcbdeed84e6472e",
+      "size": 1445
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z/checkpoint.json": {
+      "sha256": "4e52fd0c4929439bf47d7639bf3402e8f9c206119f9aea83920fef3c032a26e3",
+      "size": 4160
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0003-20261027T140529Z/HANDOFF.md": {
+      "sha256": "33a98b8825340666c608638b5bf89bb34563df97d1983a30220781ea3e42b36d",
+      "size": 1457
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0003-20261027T140529Z/checkpoint.json": {
+      "sha256": "e8f148baeb20a98fa8ce8c16698f6c270cb613a5cff5599841a5146b1783a9d4",
+      "size": 4128
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0004-20261027T141225Z/HANDOFF.md": {
+      "sha256": "99e94fc2933feb510823e50d32cd94e73dfe46e0951fd7f9b07ccd1bba6e236d",
+      "size": 1495
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0004-20261027T141225Z/checkpoint.json": {
+      "sha256": "6567e877507bb8461f1bc82ffdc4625b140b706d9c70f4b8bef5eceeeece70af",
+      "size": 4377
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z/HANDOFF.md": {
+      "sha256": "9ac57de177a85d37949746600427dcfaf4958cb4c803f84c3539ab9254a5905c",
+      "size": 1529
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z/checkpoint.json": {
+      "sha256": "eeffde91db83ffd8e412fb026505575be07e42a08b5d12b652ca11ec6a387f72",
+      "size": 4886
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z/HANDOFF.md": {
+      "sha256": "ff27a950f340b5ce746ef9af7e1a4eaff2963abfdf702509ecfe958139e80a40",
+      "size": 1519
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z/checkpoint.json": {
+      "sha256": "5ac1c17b00b3782eea636c5688df8026e856dc29dd54220ffbde953a92381c5e",
+      "size": 5119
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z/HANDOFF.md": {
+      "sha256": "778908f3bdcf323b83a0da287b2f3356333c0733f425668ebb6836b3255d978a",
+      "size": 1572
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z/checkpoint.json": {
+      "sha256": "e1f26ebf6b4bfef6c66326f8a2a44994401b6613d46b83cd834ae3d5e7ab977c",
+      "size": 5662
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z/HANDOFF.md": {
+      "sha256": "44e815e45f83c23297ededd3e90fdbe969cfd337f931ca6e0832b7be8a44368a",
+      "size": 1567
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z/checkpoint.json": {
+      "sha256": "e14e1af78faed1f242945b453e3d3fdcb1046c12ec10062aeb8dd54a99ea858f",
+      "size": 11096
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z/HANDOFF.md": {
+      "sha256": "3924ee5536962d3cac50c02f7f6f866d32d01ce99bfcf288b3de75a4e89c9061",
+      "size": 1515
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z/checkpoint.json": {
+      "sha256": "e18e0e144a58852a11b5eb930ccbcd2c12b208b340a8a3516986479a9f47c091",
+      "size": 5026
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z/HANDOFF.md": {
+      "sha256": "d9edbbe669ac65499ec632e169455c05519f2c6dd88240f35c8e683cd47c7bee",
+      "size": 1477
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z/checkpoint.json": {
+      "sha256": "02ba9e36f12620b1e1e5c7fd347766779d0abbe150ebdd3a3f902fa50d703633",
+      "size": 4766
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z/HANDOFF.md": {
+      "sha256": "18aa8592501182e3eebd97525df4677dc9091aec331f8b793910c18b2a3b64fe",
+      "size": 1476
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z/checkpoint.json": {
+      "sha256": "bf29afea47e55b1d65da8d22d62a7da906e389219f6a4977918ed7a9d24d8652",
+      "size": 4381
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/HANDOFF.md": {
+      "sha256": "5e85e99a80f55ee262a6244d1c340394b371f97ff8ec8289fbb0ed2ca6de9c80",
+      "size": 1436
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/checkpoint.json": {
+      "sha256": "02dcfbc5d6300b046d9b477917e4d15744c5d8cab24a4bdd440f4c5104aa4e37",
+      "size": 4102
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/HANDOFF.md": {
+      "sha256": "bdc7da3ce85659d89a5cb62356440d790daf5e2e8cc2d48e9005d58639078193",
+      "size": 1435
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/checkpoint.json": {
+      "sha256": "73da41aa0fcf129727f8357faca7be43dc309362a1648580c7fe3b2a9fa50ff1",
+      "size": 4007
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/HANDOFF.md": {
+      "sha256": "92518d2446ad759d7f75e193a934fda90df43a734710ec9a9b3ea5b3f40854aa",
+      "size": 1432
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/checkpoint.json": {
+      "sha256": "034d2b7d48c79e6be102681e0a52573a66870de5dea136eace456ccbccd0a080",
+      "size": 4128
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/HANDOFF.md": {
+      "sha256": "3e3171334358ebfc93543f5a2989d3058af5f2eb60f6d63cb178c76b099708bf",
+      "size": 1454
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/checkpoint.json": {
+      "sha256": "a8144577e9b28b4cf9e570d2cc3d3a96b3eb3c08df1bb681d8deca5cf4b4b675",
+      "size": 4098
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z/HANDOFF.md": {
+      "sha256": "c53e4effc0c23c81204c07dea5ee35d178595197d5f09a507811f76776bdbfde",
+      "size": 1439
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z/checkpoint.json": {
+      "sha256": "a461a1b6a93af11c820bfd7115adc3270476cbea2ea3e94c21c83a0d8d0e212b",
+      "size": 3939
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z/HANDOFF.md": {
+      "sha256": "7b80e82780fff6f0164cf7099adc4b0bb6aaec87350f31239938db5c567288f3",
+      "size": 1461
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z/checkpoint.json": {
+      "sha256": "18d67c3141ad3070f94ac5a1778ac002012138a1a7bb0556e0b085916bb46d80",
+      "size": 4279
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z/HANDOFF.md": {
+      "sha256": "702b369cdec3e60cef847093eb7564a70c8bbbcaf4a43da3c698bb0ef27743fd",
+      "size": 1445
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z/checkpoint.json": {
+      "sha256": "32f0b8fa1c74c44d50adc3a58e25b05f88c42b88b78b1e199a03e4e386ba75fe",
+      "size": 4213
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0019-20261027T194940Z/HANDOFF.md": {
+      "sha256": "43c943924f07fb901e07deb4bace16b87d54413e6c53ad2f86804a23a37c5243",
+      "size": 1498
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0019-20261027T194940Z/checkpoint.json": {
+      "sha256": "1b9039b8f79bdc373dcad2f08fddd0381b87714fc0fa4e39ab8bf5dfa67813eb",
+      "size": 4472
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0020-20261027T204425Z/HANDOFF.md": {
+      "sha256": "822550d2c1229649eef6af3b68daa6e2c4e10c16b41e5125793c6cb6325b2087",
+      "size": 1495
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0020-20261027T204425Z/checkpoint.json": {
+      "sha256": "8c557791eee95b738b48669666664e42df0423a36fbddd8af2d3fd52962a70ab",
+      "size": 4223
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0021-20261027T220329Z/HANDOFF.md": {
+      "sha256": "4cab701e0f08e68768ccb1881301c4d87b9c3dad836422facd25fa9bf19d460e",
+      "size": 1376
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0021-20261027T220329Z/checkpoint.json": {
+      "sha256": "02b35826e710f9a0c0400be2efe6d8634f2f627307f870d7b807df1884f06962",
+      "size": 3328
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0022-20261027T220929Z/HANDOFF.md": {
+      "sha256": "5a87b47c0df1ceae0659f4e248b3e62e8bfdd9ca158762f80fb04585b3cee7b9",
+      "size": 1382
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0022-20261027T220929Z/checkpoint.json": {
+      "sha256": "40b09485595b139cf6f9d98a8bf09455e04ae232a6229a23ac08472c3c7fc1e7",
+      "size": 3312
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0023-20261027T223415Z/HANDOFF.md": {
+      "sha256": "cea4be4232f7fdf0d737fae3859b8dbd310f9229cadd71e65199bdde16142cfb",
+      "size": 1408
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0023-20261027T223415Z/checkpoint.json": {
+      "sha256": "68fe4b22be28a70b191c77d11ff3b2820e693e6c6f9d2d11e5cecede9ba7d11c",
+      "size": 3398
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z/HANDOFF.md": {
+      "sha256": "0ee0cb2af46fa240b6b7b784fcac591fb976e50bd3ea443af74a15939af679bb",
+      "size": 1417
+    },
+    "operations/continuity/checkpoints/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z/checkpoint.json": {
+      "sha256": "6a9e7228df060ff808db60a02ee83b5628a27c938af67aba7824425d5153a004",
+      "size": 3319
     },
     "operations/continuity/outbox/EMS-20261011-001/0001-20261010T212917Z/STATUS.md": {
       "sha256": "6c234adf3c1f6bee6a80b2cf301956d0d1dbf68189540ced0a49fd3158cffaae",
@@ -858,6 +1118,294 @@
     "operations/continuity/outbox/EMS-20261015-WF05-FOUNDATION/0006-20261014T215445Z/checkpoint.json": {
       "sha256": "460e5a0bfa1aa184d9b550a90f293025c80647fb96b31b959b3ac75324666862",
       "size": 6651
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/STATUS.md": {
+      "sha256": "971b8b7c71aafe393ce38490691ae6bf5aebf75e483e30ebfac7094b9a34a5a1",
+      "size": 1042
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/SYNC.json": {
+      "sha256": "7f10167544b6530fc4afc518a470cfb58a50654a2287bd5703927dfb9568c533",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0001-20261027T135033Z/checkpoint.json": {
+      "sha256": "1412b4057fd1ea06539ba6fac1c15790d352e7f60a82d69112a02c0f266620b4",
+      "size": 5014
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z/STATUS.md": {
+      "sha256": "0ee49c112df9a3dd635bf35bb145da7d4f974c9a45cc9301e1494e55e94f2f69",
+      "size": 956
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z/SYNC.json": {
+      "sha256": "d91c7dff2c14fb6fd042b3baafc0f3cc79e4997da735c6e5f1efba3e38fad970",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0002-20261027T135712Z/checkpoint.json": {
+      "sha256": "cf97b925a1bbca7cc2c02ba04d73d215fec8789995de0ccab744812df1b9d0e8",
+      "size": 4160
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0003-20261027T140529Z/STATUS.md": {
+      "sha256": "7a6a2e317ecc27eb08d659cfc9be7d146974c061b9c43d716cc5e288d7ebc2f2",
+      "size": 904
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0003-20261027T140529Z/SYNC.json": {
+      "sha256": "7022cdc96ee381c7db915b28713c012b0c14e0d18f4ac3a87bc295aadd399864",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0003-20261027T140529Z/checkpoint.json": {
+      "sha256": "c498cadaee44e7842d081be91854451e1b15dd187e236e998031681fc98fc6ba",
+      "size": 4128
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0004-20261027T141225Z/STATUS.md": {
+      "sha256": "e4079bc1985c1f85450d469b06b593f357ae9a94966cec8255517d7b9ee1ce8d",
+      "size": 1104
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0004-20261027T141225Z/SYNC.json": {
+      "sha256": "d3fbd97b0fe5c0373148a50d7395c6e899095799de4ac4a34a7f5f7ba896d791",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0004-20261027T141225Z/checkpoint.json": {
+      "sha256": "59c74006a9ac7d4f859e3d4a548662ea571cdfd079f14a69cd4da6a3f48aa971",
+      "size": 4377
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z/STATUS.md": {
+      "sha256": "057fff6ae100d94d0eecb8906468cab6435d08514b57fa15093fef7513eab37c",
+      "size": 1253
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z/SYNC.json": {
+      "sha256": "9d258b240bff37ec372dd7dc191a4e0135fae7eb1971dd990cbd4f7fd9ff68d8",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0005-20261027T142123Z/checkpoint.json": {
+      "sha256": "32d9a6c9a5175259d194c02186fec1772fe2d6f2e4672cbe85124924ffd4970e",
+      "size": 4886
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z/STATUS.md": {
+      "sha256": "9212c6fdcdd17bed3b14679fb4f8816d2a5dcab66cd2d0f6a248ed9f0b9212a8",
+      "size": 1335
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z/SYNC.json": {
+      "sha256": "98211c54b5c32ac06bc03a56c9d84ab51cdd6e83e23435c765d75f6802b8460d",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0006-20261027T143143Z/checkpoint.json": {
+      "sha256": "a05074e221fef4b93ab9f86bfbe0ed70232b22856b38993b6f5000fb99687ecf",
+      "size": 5119
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z/STATUS.md": {
+      "sha256": "53edc22419ae1a44e5cd17513ca830fe4fb338845bcc7c4f87f40ec56ee3e575",
+      "size": 1589
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z/SYNC.json": {
+      "sha256": "1a194e8808a628c43ed838e5afaa3ec815f90c61891407bc71b2c0ae1911b361",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0007-20261027T150212Z/checkpoint.json": {
+      "sha256": "d43ef34944eca19208af3964f8ff93bc70f5ab1def0165017877d71edbdeb934",
+      "size": 5662
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z/STATUS.md": {
+      "sha256": "524a7333f8f08ae95a7d9983c9c4f0e4803922aef200a3689834e2c8c311d8a6",
+      "size": 1659
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z/SYNC.json": {
+      "sha256": "ef371cc8276d31ef62cd85c4ae7725ee765689c0d8c772ebcd47104703bd69fb",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0008-20261027T160754Z/checkpoint.json": {
+      "sha256": "e06c78a381ded112c42916344f2f8288b41abcef93229e2d5064b131b216a6a2",
+      "size": 11096
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z/STATUS.md": {
+      "sha256": "8a11a5b05c5b83c668d30e92b18ced25223b9d85ed797a35b4cb9a38fe9b0e1a",
+      "size": 1392
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z/SYNC.json": {
+      "sha256": "f9169c69b3393ddd0c74713c74071473f1195427071e1c0e4fc45aa2d0abf946",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0009-20261027T162448Z/checkpoint.json": {
+      "sha256": "17ea69fca79564ddba4fbb0696bcfda502fa69f32f6a3a624f8861cc12ecfeca",
+      "size": 5026
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z/STATUS.md": {
+      "sha256": "76cb87d8bba0e8b1833d40f842d7e68d701c1ba02040661f1ec0b9c392a9d208",
+      "size": 1218
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z/SYNC.json": {
+      "sha256": "259822d1b4ec3926cd1c669856558660155f713b9acbde0f59c9f1fd6cc388d1",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0010-20261027T165559Z/checkpoint.json": {
+      "sha256": "8f8fcbe61e72019403fccac2e95ea5d26cb8a9f8c268df5dab907265df687ea3",
+      "size": 4766
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z/STATUS.md": {
+      "sha256": "db606908ba168e4a34cc96d72bce05a777a960cd4664ba0686356b1c5139baf1",
+      "size": 1116
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z/SYNC.json": {
+      "sha256": "c35238dfc8e6d241fe836d784be234a5b7452022b230c01d03f2755e07d27778",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0011-20261027T172943Z/checkpoint.json": {
+      "sha256": "2551813e660711171426e14b98d7c150420b89964efb0a784d782af8d5781b7d",
+      "size": 4381
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/STATUS.md": {
+      "sha256": "f11266294a7f8f8eaf61958245d87cb62227f1f3413fc005117c5b8745bbd4b0",
+      "size": 1111
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/SYNC.json": {
+      "sha256": "5d173297f18d7d34760dad7b5201374ccb7d5ddb09fd994600854765ce1ea205",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0012-20261027T173336Z/checkpoint.json": {
+      "sha256": "3bee6a7667ef46bcee2715f7424c9a41c9f4a5026becc4f9fc5408725bb229a5",
+      "size": 4102
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/STATUS.md": {
+      "sha256": "6575f03c824422effa83eb2fc08d11bd9e8bf04989e9f02187bbfbb644c09c04",
+      "size": 1101
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/SYNC.json": {
+      "sha256": "564dd4915cde4b78082bdcb936be2396091c853d6facccab98c84a541c50ed39",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0013-20261027T173652Z/checkpoint.json": {
+      "sha256": "f53e5176deddeb3b48017a6e20454e2bc1c0239d0d09ed84ac0d950c69f3c1b3",
+      "size": 4007
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/STATUS.md": {
+      "sha256": "755faf5962711c5f44b936585063cce3e961f5010f2555a29d0ef1e75cecc635",
+      "size": 1197
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/SYNC.json": {
+      "sha256": "f640b4723f87d6aee632f1dfe37e58db619ab37bb3f938d295fee60c7c4d1fb4",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0014-20261027T174213Z/checkpoint.json": {
+      "sha256": "c86bf68b2f47533feea7ddcb2bde3c6c28ee15203f6a7afcb453a8ba13a82768",
+      "size": 4128
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/STATUS.md": {
+      "sha256": "3ce4e888dc827e47b4b4dc5c938ddac46b1fcdeb82cf2d1e2f7fbdaf665d5dab",
+      "size": 1155
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/SYNC.json": {
+      "sha256": "7dbac747227c0a59a0f391f3c8eff8d7cab9675c5d90d11989e75a4b1b890fa9",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0015-20261027T180343Z/checkpoint.json": {
+      "sha256": "8c4355198bb1b5b52699ba59bbd254d21c1a6c65fd1a9756864750458e210baa",
+      "size": 4098
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z/STATUS.md": {
+      "sha256": "96cf376df8060d91a5ad51dddd68a922a0d59b82a02b991f8ee3f46312d1b9f9",
+      "size": 1124
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z/SYNC.json": {
+      "sha256": "ea3303c08a7db678e2dc303853c775069bf6857789480d120758f121cd302442",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0016-20261027T180947Z/checkpoint.json": {
+      "sha256": "16ff110a18fca3d5c99dd324d5d4f3a42166091d69fce6b7afbaef1150a86047",
+      "size": 3939
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z/STATUS.md": {
+      "sha256": "d05ab98eebfc832136bfbaec3d415a66b5e9d13314ff9da84e7135cae177ae2c",
+      "size": 1242
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z/SYNC.json": {
+      "sha256": "b81eb6a7be6a2015a40f71d064bca9622956f5f72d4804383339de7f555e3cf7",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0017-20261027T183031Z/checkpoint.json": {
+      "sha256": "bb5feca6994282101b501bb9ff8b4c058e15428c808e6f7ada5825769d9f1f2f",
+      "size": 4279
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z/STATUS.md": {
+      "sha256": "b81a5eac2f4c7b3aa7cf9eff6b5c2adaed55568b2c87d763a5d8d760731f8e13",
+      "size": 1258
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z/SYNC.json": {
+      "sha256": "f88456fee8eea72030f33991f0b24d185a882ee3fad15946764739b7bdde1ca1",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0018-20261027T191746Z/checkpoint.json": {
+      "sha256": "90acf27364f8542d819080c8ebf337db1d3973752bc8706762d8f2ffd7abb98e",
+      "size": 4213
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0019-20261027T194940Z/STATUS.md": {
+      "sha256": "bfc0f06fe5ae05cb42ea7caa5b954f8a8aa457424a6924802d6c015fa3c90208",
+      "size": 1320
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0019-20261027T194940Z/SYNC.json": {
+      "sha256": "9029d0e761eac996914d6ce5e388ea76939471abcd3359162901ddcb525f7289",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0019-20261027T194940Z/checkpoint.json": {
+      "sha256": "99b82e6d88db519ac8da16ccaed9dea69bb0261c77ddc0edde98c2115d0ac158",
+      "size": 4472
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0020-20261027T204425Z/STATUS.md": {
+      "sha256": "ab96d290cd703fb554aada60ee794f2f52baf2939a06ab32f5c27971c446a7ce",
+      "size": 1197
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0020-20261027T204425Z/SYNC.json": {
+      "sha256": "ce902317b5fe19eff76db8861892284c03d7b6a9dc9b4bb0beda17b25f29bbd0",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0020-20261027T204425Z/checkpoint.json": {
+      "sha256": "9f74a06c9fcb50e60a65f151455152560e23285313f2a900c389ed8202069142",
+      "size": 4223
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0021-20261027T220329Z/STATUS.md": {
+      "sha256": "28d7e80d8907fd7833b3e9ca41db905e8d0dd74777ccc0b2bf5a18e02a1eb277",
+      "size": 850
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0021-20261027T220329Z/SYNC.json": {
+      "sha256": "c186a40240fcc9c1831145f100e25ab8a08bd1f755f4a45c92d4bee09b958694",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0021-20261027T220329Z/checkpoint.json": {
+      "sha256": "1216ff86426824102d26c2f1f7db5110a77b21a4e3f5c704f12c5feceec2bf21",
+      "size": 3328
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0022-20261027T220929Z/STATUS.md": {
+      "sha256": "14a148d7bb9f5f372a32f24a3a09fe400fcebe99d809eb12a7d8918563d56fda",
+      "size": 839
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0022-20261027T220929Z/SYNC.json": {
+      "sha256": "77416bacab1986b7c7aeb3ffc702e3ba388a83328a161a928b0aca33dd2d2d61",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0022-20261027T220929Z/checkpoint.json": {
+      "sha256": "ec6fc0b55786bb0124d6100bf10b3979cc562e590f0da0ebcf1ef33f59741f9e",
+      "size": 3312
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0023-20261027T223415Z/STATUS.md": {
+      "sha256": "f9509c9757e251d2e19c675ce5fab77d1caf71f1c5cb4b839c5d64f1782cbbe5",
+      "size": 869
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0023-20261027T223415Z/SYNC.json": {
+      "sha256": "4594a92a9cd652e3eba58e249bf90e74851a35f6120a7e78a0589a51369f290a",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0023-20261027T223415Z/checkpoint.json": {
+      "sha256": "494165eb4a8d23a406fcd84780953f0f3b6fc3a534eb5c95cef073dd17d703bf",
+      "size": 3398
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z/STATUS.md": {
+      "sha256": "29198606dfbad3622b79ff66a9c07309885541125d6cd776d1a7cc3ae246a471",
+      "size": 825
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z/SYNC.json": {
+      "sha256": "cfc00e74853356591b3af10f2a4039aefde2bbc0d9d32d122e28b5500428ca5f",
+      "size": 4368
+    },
+    "operations/continuity/outbox/EMS-20261027-WF06-H3-LAB/0024-20261027T232439Z/checkpoint.json": {
+      "sha256": "cecb4054e126f0e12bcb929edd9904a540242ea387113b85b503be79718a0c04",
+      "size": 3319
     },
     "operations/continuity/receipts/EMS-20261011-003/FINAL_SYNC_RECEIPT.json": {
       "sha256": "e1dcfe80c4db25f451a21ee3d38875d4c361f4765f509a32a8283f796ee565d1",
@@ -1415,17 +1963,425 @@
       "sha256": "71adad2d142470f9a825ea11b4d2ae78902914cf85e1534c1f9ea34d7fb53754",
       "size": 16690
     },
+    "studio/films/personality-36/delivery/drive_receipt.json": {
+      "sha256": "a62b570f015385ce32ce9f399280773ea41cc86577bc8bb29a8ceb2f8739df73",
+      "size": 1239
+    },
+    "studio/films/personality-36/delivery/personality-36_MASTER.mp4": {
+      "sha256": "702b9a222ad217c5dad0a72a8d92f64006e0ea23418436ccfbfcbc828da9d08e",
+      "size": 16695200
+    },
+    "studio/films/personality-36/delivery/personality-36_MASTER_receipt.json": {
+      "sha256": "054902e033912125f40ec947cfe8ed462d6f396de40a7c5a9cc11621148b71d6",
+      "size": 883
+    },
+    "studio/films/personality-36/film.json": {
+      "sha256": "c54e670eb8bb7fd7636a309525f52848c961d7be8957e71fc4eb9fe231fe8983",
+      "size": 2505
+    },
+    "studio/films/personality-36/scenes/s01.png": {
+      "sha256": "8af6654d947d4f6d04ec7dffea900a0d815c54ae967865cbc1bfb24352cc4ed1",
+      "size": 3062343
+    },
+    "studio/films/personality-36/scenes/s01_depth.png": {
+      "sha256": "5e3c9af060fa3723990253825e7c8e5a599a1e137f0df2d2b892ffd83567c88b",
+      "size": 169241
+    },
+    "studio/films/personality-36/scenes/s02.png": {
+      "sha256": "1b459ef8b1d1cd27a1c4c3585985213656972bceb3026782e860265b5f29d10e",
+      "size": 2611049
+    },
+    "studio/films/personality-36/scenes/s02_depth.png": {
+      "sha256": "b1b8cf5ec3782ba0dd4a1dfbb62dde24d7e3e8236adc1b4461b802a83d97df5c",
+      "size": 144478
+    },
+    "studio/films/personality-36/scenes/s03.png": {
+      "sha256": "0c7322605a3c756d4e13edc3bab00f2a992b9342e61b8cb9f60956147e8606c0",
+      "size": 2560464
+    },
+    "studio/films/personality-36/scenes/s03_depth.png": {
+      "sha256": "0794abe4295b89a765338a35b17cace5ce8899c3ffba3f724f06a3c8b1d8674b",
+      "size": 148702
+    },
+    "studio/films/personality-36/scenes/s04.png": {
+      "sha256": "ddceb0ae6b40ea31a423889d349bf96db8404d8f1aec0b1566ef2ac960a46676",
+      "size": 2838171
+    },
+    "studio/films/personality-36/scenes/s04_depth.png": {
+      "sha256": "29e214f0b21cd93b73902f6a53ccb0dbc9d9e51622e93b33d5b72c6d3449e799",
+      "size": 147629
+    },
+    "studio/films/personality-36/scenes/s05.png": {
+      "sha256": "d2fc8b54915d99be66552f913afaa115ac0e67130634458bc0d858042b165547",
+      "size": 2341271
+    },
+    "studio/films/personality-36/scenes/s05_depth.png": {
+      "sha256": "970dd23a47124970b3d40075cf986e144aaa1f41d98885895ff52cea75fd4406",
+      "size": 139926
+    },
+    "studio/films/personality-36/scenes/s06.png": {
+      "sha256": "380b2d2f57cbccb463c4775ff9d77c4447e15233d9017180d2f86637228bb267",
+      "size": 2634016
+    },
+    "studio/films/personality-36/scenes/s06_depth.png": {
+      "sha256": "e2692347abdc6991471d993fd58c43d3abdfe5569d46ed74d271580edef9ac16",
+      "size": 147943
+    },
+    "studio/films/personality-36/scenes/s07.png": {
+      "sha256": "8d0ab4e69314d1fe4138414abd21df579ef016b7d52683d280aec0d4c7d413cd",
+      "size": 2465964
+    },
+    "studio/films/personality-36/scenes/s07_depth.png": {
+      "sha256": "8a68bddb8999fe2c393662fa0ae0fa830752c4041d101e82b2a2583b18574517",
+      "size": 151617
+    },
+    "studio/films/personality-36/scenes/s08.png": {
+      "sha256": "b415ce6706298a1efec3ecf090e4bf84394a174e04a5c3283a38d04a3d76f53d",
+      "size": 3381573
+    },
+    "studio/films/personality-36/scenes/s08_depth.png": {
+      "sha256": "161b82ed683fa01ad6569c144361f20723723a439c0ea0ece2566a529e9c5eae",
+      "size": 174784
+    },
+    "studio/films/personality-36/scenes/s09.png": {
+      "sha256": "7ac78df787331f4c21896c6b03402c03d9d898e2a9d8838d324c686b98163635",
+      "size": 2699026
+    },
+    "studio/films/personality-36/scenes/s09_depth.png": {
+      "sha256": "e59baf1f5f610a4d464fde7e519aa7994e632688eb3286a8ba58095a05e64f65",
+      "size": 134596
+    },
+    "studio/films/personality-36/scenes/s10.png": {
+      "sha256": "04d153184ce828eb00998614065450d674192e2e9c3e67879c28287d318c398d",
+      "size": 3262342
+    },
+    "studio/films/personality-36/scenes/s10_depth.png": {
+      "sha256": "4f114a52c4956aed7288d2672a7c40eaa77632e74a8b4b523a17742259e3f995",
+      "size": 176666
+    },
+    "studio/films/personality-36/scenes/s12.png": {
+      "sha256": "5af25630d71ed5de36196b93531ac0dfa4157c48511c0cb694b3741e4e0d0437",
+      "size": 1828378
+    },
+    "studio/films/personality-36/voice/s01.wav": {
+      "sha256": "18edf0b25030100b4f003a101f0ca9f018905b33ec776e0cb9636bf512624427",
+      "size": 190158
+    },
+    "studio/films/personality-36/voice/s02.wav": {
+      "sha256": "7f75694abf3ebf0ca1ec9749602cebdc792b797f8294af2a24a9d89881d978c2",
+      "size": 161358
+    },
+    "studio/films/personality-36/voice/s03.wav": {
+      "sha256": "f9d3f45b8ce63557043ac3d227766ff1e8ad4db7361d7e2572e2f0da99598744",
+      "size": 151758
+    },
+    "studio/films/personality-36/voice/s04.wav": {
+      "sha256": "4f300b9dddc2c32b3d24f505255e8283a5213e6d25e7adf20ee2bd0eadd4e582",
+      "size": 188238
+    },
+    "studio/films/personality-36/voice/s05.wav": {
+      "sha256": "9d743b8935cb21a6b7093128f33516fe73288585f93ec87019f68e9fe1cdba39",
+      "size": 144078
+    },
+    "studio/films/personality-36/voice/s06.wav": {
+      "sha256": "6ee3240f369bad5aad725440b49c01b515d67c13465af7ac770022000f22b9fe",
+      "size": 205518
+    },
+    "studio/films/personality-36/voice/s07.wav": {
+      "sha256": "e5cee4a18fc0d96621ce70df3d934ecce13f4ca44b3e66ec73fb10579b568b90",
+      "size": 163278
+    },
+    "studio/films/personality-36/voice/s10.wav": {
+      "sha256": "432ba3b49a59457f6976f43986c4308adf080301fcf2260d171a3d2ed30b0c2a",
+      "size": 197838
+    },
+    "studio/films/personality-36/voice/s12.wav": {
+      "sha256": "086b8df486a7d8367947668f25f6b7e6df75731b5ecb826ac8afddcaad5824e3",
+      "size": 86478
+    },
+    "studio/films/personality-t2v/film_clips.json": {
+      "sha256": "f337ca9520762dab81ce084dc3ea5f2b3339cf5e665331a3c9936243d3f0263f",
+      "size": 2491
+    },
+    "studio/films/personality-t2v/voice/v01.wav": {
+      "sha256": "bd53811131fb68f71fd70bc0e080d990de257594904eac758ba283e6695ec9d7",
+      "size": 827470
+    },
+    "studio/films/personality-t2v/voice/v02.wav": {
+      "sha256": "1fe916e2cce3b3215c63f2d1f2470126d4e8baf5d31b0a6625a166b6036a4bd1",
+      "size": 285774
+    },
+    "studio/films/personality-t2v/voice/v03.wav": {
+      "sha256": "3d21563cc663876fe4054b3adab0770f0f8af4965860ad8cf25d9802309c388f",
+      "size": 251982
+    },
+    "studio/films/personality-t2v/voice/v04.wav": {
+      "sha256": "a9dbe0b908c60265bd3156c3522f6c2be6d4e829af83882b7d8fb6eac9d83c70",
+      "size": 169038
+    },
+    "studio/films/personality-t2v/voice/v05.wav": {
+      "sha256": "b3b5a6accb5250cfd425a0293053741a2bfa55a9d1b5988b241bc55a6cb5d3ac",
+      "size": 259150
+    },
+    "studio/films/personality-t2v/voice/v06.wav": {
+      "sha256": "c8b98e38af917ba981eca183b444212c7e70aba61ac146d4c7a26cbbbafb9de9",
+      "size": 195662
+    },
+    "studio/films/personality-t2v/voice/v07.wav": {
+      "sha256": "40acc6655559b1b3e9e95f1019a93195135c310246f5ceb1c359859d588eb18a",
+      "size": 184398
+    },
+    "studio/films/personality-t2v/voice/v08.wav": {
+      "sha256": "8af721d55bdb4360ad7edbd70decf362160b5348aee1896409678e281403dfb9",
+      "size": 292942
+    },
+    "studio/films/personality-t2v/voice/v09.wav": {
+      "sha256": "6eda2619b9ef93f4fd9187f0b7a5bcbc86f585d84c60bf2ac51178264fe292bd",
+      "size": 334926
+    },
+    "studio/films/personality-t2v/voice/v10.wav": {
+      "sha256": "2793f119c786b747036f68b4e0f08f416e6f915e6ec7757dabacb7572f1aa4ad",
+      "size": 123982
+    },
+    "studio/films/t2v-proof/clips/s01.mp4": {
+      "sha256": "9fe8f6d82945fd96a8ca331dcab26b4b63703cf7871b0f9752b816f26d624d69",
+      "size": 5637438
+    },
+    "studio/films/t2v-proof/clips/s01_slow.mp4": {
+      "sha256": "9273473bcc458369f68dcb5e0ec2a2c0d4a464c7f570645f3aed5aec221141ba",
+      "size": 6170323
+    },
+    "studio/films/t2v-proof/delivery/t2v-proof_MASTER.mp4": {
+      "sha256": "0e46af09359e39fd3bdcb224ec9c777c3d54fc53d75b95cfd6ef7816de14173c",
+      "size": 4275947
+    },
+    "studio/films/t2v-proof/delivery/t2v-proof_MASTER_receipt.json": {
+      "sha256": "bfa29b72eda61432a8b8f408be74646289bdafd21bef7701d7edff72b47255e3",
+      "size": 472
+    },
+    "studio/films/t2v-proof/film_clips.json": {
+      "sha256": "c84eaaccf334e28ee5cf15d03f1310e7adeb301a71fcab108b17562d55d2b3ed",
+      "size": 584
+    },
+    "studio/free_compute.json": {
+      "sha256": "5a42059deee2c05e371ce69bb48051ee9ddb86021b74316e45cb7abc19fab6b1",
+      "size": 3822
+    },
+    "studio/mobile/README.md": {
+      "sha256": "68c807467ce388b669349c7a0fe94435cfad06771c02b0266cdaaa76ffa077d2",
+      "size": 2428
+    },
+    "studio/mobile/inbox/colab_master_receipt.json": {
+      "sha256": "c0574be2c6047c5c69095db123f89742b467df8cf495b5cb989b334361f29c6c",
+      "size": 504
+    },
+    "studio/mobile/jobs/.gitkeep": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "studio/mobile/jobs/mob-reel-01-premium.json": {
+      "sha256": "cc9a802ff6df6b884f13e5865712718e115f8b3403a60469e5c0c4748578fd59",
+      "size": 3393
+    },
+    "studio/mobile/jobs/mob-reel-01.json": {
+      "sha256": "8529742bbadb861b20306da1106507e7938e973130f2edaa767f2cf5c0a9e8e2",
+      "size": 2567
+    },
+    "studio/mobile/jobs/mob-test-01.json": {
+      "sha256": "04cf3eed4747ded0f5a5c45f89e1c9bb3101be0d2419bf5f10eb284966ca0473",
+      "size": 9221
+    },
     "studio/new_workflow_legacy.py": {
       "sha256": "3564fb7f855683259ef3439db94e4fa98695f3c87854eaf35fa10b44a772bf69",
       "size": 4939
     },
     "studio/registry.json": {
-      "sha256": "a9b826e8617170be3cbce5449ce40fc703278decac29f395f3af63efc9e7bb68",
-      "size": 5478
+      "sha256": "df47ffd2c16a5d795f0e4bdd12a8562e121f0e4edb39d9bc5134c4b6fcffc70b",
+      "size": 10425
+    },
+    "studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb": {
+      "sha256": "11c217b5dcc138cdb6ead6acba3c26c898e28850974e4297cfba0d03d015a888",
+      "size": 43474
+    },
+    "studio/videogen/examples/m-reel-01/plan.json": {
+      "sha256": "67dc3d74d0a53a2b6f89b19425cf311202dcc25e058ab3a6d4d5fc5432f8650b",
+      "size": 3836
+    },
+    "studio/videogen/examples/m-reel-01/project.json": {
+      "sha256": "7367fd849de4b19e87d54a1d8eb49e0e25248f8f7cb1366c4d4f4ace38283c0c",
+      "size": 2820
+    },
+    "studio/videogen/examples/m-reel-01/receipts.json": {
+      "sha256": "3ec12b8eb3dec405a0b503fe2dfd8e7138d8da51775e1f8c117de258e4b3c987",
+      "size": 221
+    },
+    "studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb": {
+      "sha256": "1b4d8ce02639ff2532a505ce6cd0dde729e6800b1693f9a7cfa42d3271f00fae",
+      "size": 40916
+    },
+    "studio/videogen/examples/m-test-01/plan.json": {
+      "sha256": "07e64652afad621bde5f176ad0ae753d098063dfb1f75c31e899b58af834ffe1",
+      "size": 2069
+    },
+    "studio/videogen/examples/m-test-01/project.json": {
+      "sha256": "0fa7564881e72fb777189e4c7cab4b294f254c757ce392bc619da24dbbfa9934",
+      "size": 1047
+    },
+    "studio/videogen/examples/m-test-01/receipts.json": {
+      "sha256": "d36674dfc937e954902bf9bd947d1ce5c547b0199e21fb11e1d9d5c9d9966d95",
+      "size": 195
+    },
+    "studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb": {
+      "sha256": "46d3c68d381e8b2fc676fd6e40c7543fd5c797e5a230b57226ca4f221a175297",
+      "size": 27262
+    },
+    "studio/videogen/examples/monarch-reel-01.project.json": {
+      "sha256": "109cf86418bb9a9fb4a2bfb78860dadf2d0e705c7c542779dc81b2046bf199ac",
+      "size": 4628
+    },
+    "studio/videogen/examples/plan.json": {
+      "sha256": "d6659556386cc8c8f35fa5407cce6ac87a7d4362ea7c1685126ada088c2261df",
+      "size": 2980
+    },
+    "studio/videogen/examples/receipts.json": {
+      "sha256": "3cefba5e547d76cfb21808987bf7f9ad6033dd63dda0aca6743168b20819d1ac",
+      "size": 191
+    },
+    "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER.mp4": {
+      "sha256": "6a1aa76c4f1f1ea8ce035896b6bf9aec50b1d8faf3733cd48b056d24c7839e8d",
+      "size": 11626148
+    },
+    "studio/videogen/examples/reel-local-01/delivery/reel-local-01_MASTER_receipt.json": {
+      "sha256": "5a890be48896b078cff57f9c9b4c82640b80015754c011ebbd6f02ea1426e098",
+      "size": 837
+    },
+    "studio/videogen/examples/reel-local-01/delivery_cloud/cloud_receipt.json": {
+      "sha256": "b84c87f15d6f8541fda60d2d7b623d967d86a2fc0f9e7f25c8e57ae9098748df",
+      "size": 547
+    },
+    "studio/videogen/examples/reel-local-01/delivery_cloud/reel-local-01_MASTER.mp4": {
+      "sha256": "ad79b759c2bd64c9b7a161a36c8c5740121daa012d94447c5d4beccfa27c8c27",
+      "size": 5671468
+    },
+    "studio/videogen/examples/reel-local-01/reel.json": {
+      "sha256": "53b34ee9e39d51b8f433cc7133f4c21cd16ca4515c634641aa4461f96281e334",
+      "size": 1700
     },
     "styles/README.md": {
-      "sha256": "7843e958188ebe50bb7c0ae351ef620c012d4fdd76307377ddee6778a188f59c",
-      "size": 1807
+      "sha256": "99a94199764c4e82312dbfe0fea3f56bff2bc56fc6eabe59e8cebf905fd8f861",
+      "size": 2492
+    },
+    "styles/minimax-h3-video/README.md": {
+      "sha256": "eeff2fced76fdf583fed08f073a372cd2215de4493917c69a60b2be1f296ed85",
+      "size": 7353
+    },
+    "styles/minimax-h3-video/assets/refs/README.md": {
+      "sha256": "7e7dcec7057f346717a44cff47b10c27d13ecf4c4a8249d74fdd920fe0e4202c",
+      "size": 973
+    },
+    "styles/minimax-h3-video/colab/MONARCH_H3_COLAB.ipynb": {
+      "sha256": "3816e221fcfb538d14971ac14edb4290448e1856500b151140b959dee2b9eef8",
+      "size": 29296
+    },
+    "styles/minimax-h3-video/colab/MONARCH_T4_FREE_BRIDGE.ipynb": {
+      "sha256": "81e11af5b051f639fefde0011abc89e5e53473c93289a8731b8c795d2a2c6065",
+      "size": 24054
+    },
+    "styles/minimax-h3-video/data/free_jobs.example.json": {
+      "sha256": "87b9b4950472864dd26fc2984a846b13c51bff0c6de458a3999d985f56a5a22d",
+      "size": 2000
+    },
+    "styles/minimax-h3-video/data/shotlist.example.json": {
+      "sha256": "f27c372ba931c7f3a92ba7b453bb04d3aac5ca5c622a194e307c441bf86ebeef",
+      "size": 4805
+    },
+    "styles/minimax-h3-video/data/tool_registry.json": {
+      "sha256": "fb5d156d7a422c5f5684884b1fa6fbb21de3bd09dbeb22d1240652dd15996d9e",
+      "size": 15161
+    },
+    "styles/minimax-h3-video/knowledge/00_MODEL_FACTS.md": {
+      "sha256": "7d7407efd18897e86ccba3335bd4758a29dc14c74ca1d3b629df1cb38afcebd2",
+      "size": 7604
+    },
+    "styles/minimax-h3-video/knowledge/01_COLAB_RUNBOOK.md": {
+      "sha256": "917cc76f9a5e354b5626910515ad4a69e71a61060c7dc77d88c1872e04b83dc0",
+      "size": 5873
+    },
+    "styles/minimax-h3-video/knowledge/02_PROMPTING.md": {
+      "sha256": "024db8e1a505e77ee52242726852c57ec0023edade0d1b678ee96b5964409881",
+      "size": 9171
+    },
+    "styles/minimax-h3-video/knowledge/03_ROUTES_AND_COST.md": {
+      "sha256": "94164a6cbf0484f93f9dc0ae9c3cb8392f5a7f2082e69ce866a05578d646fe9b",
+      "size": 4862
+    },
+    "styles/minimax-h3-video/knowledge/04_WF04_MONARCH_FACE_INTEGRATION.md": {
+      "sha256": "fdc305e90b45c19dc59f9a3448c305e178e5731b9c58ee3476253448b36c9167",
+      "size": 6335
+    },
+    "styles/minimax-h3-video/knowledge/05_FREE_ROUTES.md": {
+      "sha256": "a022380f637c346cb774c3112e576ea48865fab169c2b5df00bd6a35a240d2b6",
+      "size": 4930
+    },
+    "styles/minimax-h3-video/knowledge/06_NEXT_LEVEL_TOOLBOX.md": {
+      "sha256": "351d60b90115504e044371e1e3efac6a11d5f93b70ab62ec2b08bae0416a8a39",
+      "size": 7006
+    },
+    "styles/minimax-h3-video/knowledge/INDEX.md": {
+      "sha256": "60109b74c6def5ab0f73a6ecbf30e2370af394e1fa809c0880807ef14ae12c51",
+      "size": 4666
+    },
+    "styles/minimax-h3-video/records/PROVENANCE.json": {
+      "sha256": "2ccfcd3c3b31431fcad79cf3bb646631d7005ce9851a4c686c81477a63366689",
+      "size": 6870
+    },
+    "styles/minimax-h3-video/src/h3_client.py": {
+      "sha256": "225673f2246e25c4b05e5860d4e9a741118058aa6256f4e6aa071451d2b36ccb",
+      "size": 13255
+    },
+    "styles/minimax-h3-video/src/route_planner.py": {
+      "sha256": "e16e4703546bcbfd2d9a7e2e9336036f5a54763056b1a007d5955863770952a3",
+      "size": 14960
+    },
+    "styles/minimax-h3-video/style.json": {
+      "sha256": "a56dd25167918caec0f9a1927c7dd52b5d46b9d77130847e07097bc29a6327a8",
+      "size": 1598
+    },
+    "styles/minimax-h3-video/workflow.json": {
+      "sha256": "e34be95170969cae7a07d76406ea3dfb08bc16b01d677bb86e83368940ed2613",
+      "size": 5398
+    },
+    "styles/monarch-ai-agent/README.md": {
+      "sha256": "6a60879036baac2ee37200d418d825b4c204c547a7a68f8e046aa7777d18d154",
+      "size": 9892
+    },
+    "styles/monarch-ai-agent/START_HERE.md": {
+      "sha256": "10d12be0936a74024bda97b729f969603661cb87fe6bff4c0d313614ea6db173",
+      "size": 3454
+    },
+    "styles/monarch-ai-agent/data/drive.json": {
+      "sha256": "52cdae4a4c01f51a3a7a306185f74cf52aeecf3e7fe7f747154899c716448c7b",
+      "size": 9796
+    },
+    "styles/monarch-ai-agent/knowledge/AUDIO.md": {
+      "sha256": "b8c3acecb7467780dd8dba7315ef43ab715861d9b7262fb82f12a6783648aba0",
+      "size": 6258
+    },
+    "styles/monarch-ai-agent/knowledge/INDEX.md": {
+      "sha256": "3f585fd978cdbcb0a7f1f55c6dd7d84397bf504660d7e1237425273fb9647816",
+      "size": 3879
+    },
+    "styles/monarch-ai-agent/knowledge/QUALITY.md": {
+      "sha256": "90d94f18213ff8da5022ddbb3968e8a7039dd466f575379cbc066a43d1416143",
+      "size": 3623
+    },
+    "styles/monarch-ai-agent/style.json": {
+      "sha256": "d64d7341e1e27af55942d009f628628c28163bd4b5eba60e8684c5bb88735dd5",
+      "size": 1108
+    },
+    "styles/monarch-ai-agent/workflow.json": {
+      "sha256": "11d3be2701c21059fb7cecc944c6fdef4d684087eb0b38e4328883bceaa5fed5",
+      "size": 1768
     },
     "styles/monarch-noir-film/CHARSHEET_HERO_v2.jpg": {
       "sha256": "cc2fc4b155779ff1afd38a4d07744609ecb0fe35a85fb2c9f14bc0d1a52b0755",
@@ -3688,24 +4644,72 @@
       "size": 2585
     },
     "styles/registry.json": {
-      "sha256": "ade8ba0e311225300df6b5b7ee95d3be859302e8dccc5e9e31e4290fd08f2a78",
-      "size": 1807
+      "sha256": "584614f6362e6c5710f90c727236343acee6499cedea6d80423faf5555d05854",
+      "size": 2764
+    },
+    "tests/test_cloud.py": {
+      "sha256": "2b686f8eb365e675774b43c3ea0c3712615a855d582992eac29d59a03425dace",
+      "size": 5263
     },
     "tests/test_continuity.py": {
       "sha256": "dc73ed61772a334e75264fa1e435d8b798ac412b96b84628014b954ee285820a",
       "size": 4439
     },
+    "tests/test_mobile_ops.py": {
+      "sha256": "5d28bb860f1c3283dc684fa0347e178c2eec6c379e8edf59e11d81c2c38f3ca3",
+      "size": 16829
+    },
+    "tests/test_reel_render.py": {
+      "sha256": "1bec63c8b4a77f198523b6d9ce996b6b44a87324db65342f6ed1515af0ecc9d2",
+      "size": 10030
+    },
     "tests/test_studio.py": {
-      "sha256": "c1c6be8843795561669710f3d34926950220ca0469e2f01da703e4b6e32c0851",
-      "size": 6760
+      "sha256": "378683d7a66bdc9ee6b3f5447ac6a466d4487e68b84ad716249e15a9f83ce5b4",
+      "size": 7200
+    },
+    "tests/test_videogen.py": {
+      "sha256": "879e1309bd161e2ab7e9141449764c2c51da2ce3fc20b40fc595cc3d24c3e282",
+      "size": 63979
     },
     "tests/test_wf05.py": {
       "sha256": "b6cfbefff003047e16dd4ddfda1439a0a6f4bd9871bc04497b6c6ab9e6465db1",
       "size": 7671
     },
+    "tests/test_wf06_h3.py": {
+      "sha256": "198bfabf3fc9bd4883fcaba6e3c6d42ede4d035c7a24557eb85ffae54b130e37",
+      "size": 14295
+    },
     "tools/README.md": {
       "sha256": "4f356446bf7eb7f1f92fa8b69f488aec5a65cf527b32b477ca0c6a0177da8825",
       "size": 1279
+    },
+    "tools/_audio_block.txt": {
+      "sha256": "adc6dc731bec8dda410f43b7c6d28ca5dfb634972182bbbd502e7031d051ba1b",
+      "size": 20441
+    },
+    "tools/clip_film.py": {
+      "sha256": "5d918326642fe2bf99e7b9dde0d4588a2e481034e77f94ecf1db087b05c49220",
+      "size": 7337
+    },
+    "tools/cloud_ai_clip.py": {
+      "sha256": "396b52553e64357a19134315de634dbc6421de7e33ef7903dc6bfaf046375705",
+      "size": 4141
+    },
+    "tools/cloud_reel.py": {
+      "sha256": "4a32abe55369a09c2f03af8b14b36d9993cc4b781753be6c6296affa9c6b37ec",
+      "size": 7037
+    },
+    "tools/cloud_scene_pack.py": {
+      "sha256": "f2de504da1b6e0df4533ac3cf653d3593418cda35aea8ba8c6707adfe0c516b3",
+      "size": 4741
+    },
+    "tools/cloud_t2v.py": {
+      "sha256": "32eee1299c2716641429d02e97f9851c97ae4e849ef327e76f3a9f2de9656c9c",
+      "size": 4831
+    },
+    "tools/cloud_t2v_fetch.py": {
+      "sha256": "78b58c2c87bad49dbe69c0a9127708e433e0f6e09df644afbe18edd4cbeaaffc",
+      "size": 3924
     },
     "tools/continuity.py": {
       "sha256": "5e33af5c93f2443b84a8292e3163de134c8f276064ad33fd37cf682f4044f0e2",
@@ -3715,37 +4719,57 @@
       "sha256": "45e72e7f67ef14ee191525bd36ad8a885e50d3e56c7f2b96ef8c08377ae8f584",
       "size": 2806
     },
+    "tools/mobile_ops.py": {
+      "sha256": "2408cc915f350ec23c234c677ae5d9aaf297689396bbbd3f92d56e28275ba1b1",
+      "size": 32558
+    },
     "tools/package_v2_source.py": {
       "sha256": "b799aaa5600595aea4f11f1e0aef2f1ec1c8f8e5eb967a7ac481c56f4df4e8fe",
       "size": 1875
+    },
+    "tools/quick_depth.py": {
+      "sha256": "c9abceae005dddb4a6576883a899aa9126f1e0fdcd61ce01d071203504aa6039",
+      "size": 2064
+    },
+    "tools/reel_render.py": {
+      "sha256": "c3491b3d811acd303b2a73de838e46b0db335695bc7afbb418435725bd1447c7",
+      "size": 23241
     },
     "tools/render_v2_parallel.sh": {
       "sha256": "0905473946f518f79f1aa091d107c08270224d45a82229cc750cd10cc3146e89",
       "size": 1645
     },
+    "tools/scene_film.py": {
+      "sha256": "50979e72b5859e48545308fc43bc5b61278d1084663af3ab072054b071fa7df9",
+      "size": 15694
+    },
     "tools/studio.py": {
       "sha256": "2d0ce2678497d2f9f9dc53ab03b02a17c44e623fa79a48a8604cafdec167acf0",
       "size": 32882
+    },
+    "tools/videogen.py": {
+      "sha256": "288b07243e7505d6b10c05455306cecd39a1944390059e3268b38f2511643e5e",
+      "size": 123568
     },
     "workflows/README.md": {
       "sha256": "ce58ec845a4c9f943252bbeb36cba6fa5d52a8b56feca580d9d034ca875f9680",
       "size": 1025
     },
     "workflows/current/ACTIVE_TASK.json": {
-      "sha256": "d89ac16bc8297bc0e5300e0e4af87cf2330e7f58a582d83ff42bda1001bfeeb1",
-      "size": 745
+      "sha256": "f09f01b7706a67dd29616982aa4651392564c552d127fbeddd773ff4da2fefe1",
+      "size": 1285
     },
     "workflows/current/CHAT_TRANSCRIPT.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "09eb8c3d6aadf2e2bc21126e53174eeb813afc97704406db414804560a02db18",
+      "size": 3373
     },
     "workflows/current/JOURNAL.jsonl": {
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "size": 0
+      "sha256": "8f862c70c91cc715682c48677de08f88bde31251ab5d72919d1e8507a970e1f2",
+      "size": 56370
     },
     "workflows/current/RESUME.md": {
-      "sha256": "f2af4face2c406fd38de37d47be93f8d822dee96e9ffd46fda17e67d92b8bfdd",
-      "size": 874
+      "sha256": "0ee0cb2af46fa240b6b7b784fcac591fb976e50bd3ea443af74a15939af679bb",
+      "size": 1417
     },
     "workflows/templates/ACTIVE_TASK.example.json": {
       "sha256": "0fd232e4d5a48f64e175cb6c3d1c068fd94bdae9d4a867e44d0969e2ab5c201f",
