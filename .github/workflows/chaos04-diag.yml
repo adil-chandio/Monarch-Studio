@@ -1,0 +1,62 @@
+name: CHAOS 04 diagnostics
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/diag.flag"
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: libs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxrender1 libxi6 libxxf86vm1 libxfixes3 \
+            libgl1 libegl1 libsm6 libice6 libxkbcommon0 libxrandr2 libxinerama1 libgomp1
+      - name: deps
+        run: |
+          python -m pip install --upgrade pip -q
+          pip install -q "bpy==4.2.0" numpy imageio-ffmpeg pillow
+      - name: one frame per segment
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          python gpu/jobs/diag.py -- "$PWD" --samples 8
+          python - <<'PY'
+          from PIL import Image, ImageDraw, ImageFont
+          import glob, json, pathlib
+          d = pathlib.Path("render/diag")
+          fs = sorted(d.glob("*.png"))
+          ims = [(Image.open(p).convert("RGB"), p.stem) for p in fs]
+          W, H, cols = 300, 533, 7
+          rows = (len(ims) + cols - 1) // cols
+          sheet = Image.new("RGB", (W * cols, H * rows), (8, 10, 11))
+          dr = ImageDraw.Draw(sheet)
+          for i, (im, name) in enumerate(ims):
+              x, y = (i % cols) * W, (i // cols) * H
+              sheet.paste(im.resize((W, H)), (x, y))
+              dr.text((x + 6, y + H - 18), name, fill=(150, 220, 214))
+          sheet.save("render/diag/sheet.jpg", quality=88)
+          print("sheet", sheet.size, len(ims))
+          PY
+      - name: publish
+        if: always()
+        run: |
+          set -e
+          WF=workflows/current/payload/WF04-CHAOS04
+          OUT=$WF/output/diag
+          rm -rf "$OUT"; mkdir -p "$OUT"
+          cp -v "$WF"/render/diag/sheet.jpg "$OUT"/ 2>/dev/null || true
+          cp -v "$WF"/render/diag/report.json "$OUT"/ 2>/dev/null || true
+          git config user.name chaos04-diag; git config user.email diag@monarch.studio
+          git add -f "$OUT"; git commit -m "diag: one frame per segment, run $GITHUB_RUN_ID" || true
+          git push origin HEAD:${GITHUB_REF_NAME} || true
