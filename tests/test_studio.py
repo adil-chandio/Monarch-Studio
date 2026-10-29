@@ -32,15 +32,9 @@ class StudioCliTests(unittest.TestCase):
     def test_registry_preserves_existing_and_registers_wf05(self) -> None:
         proc = self.run_cli("list", "--json")
         data = json.loads(proc.stdout)
-        self.assertEqual([item["code"] for item in data["workflows"]],
-                         ["WF-01", "WF-03", "WF-05", "WF-06", "WF-07"])
+        self.assertEqual([item["code"] for item in data["workflows"]], ["WF-01", "WF-03", "WF-05"])
         self.assertEqual(data["workflows"][0]["trigger"], "SHADEGO <topic>")
         self.assertEqual(data["workflows"][1]["state"], "ACTIVE_WITH_DRIFT")
-        self.assertEqual(data["workflows"][3]["trigger"], "H3GO <topic or shot list>")
-        self.assertEqual(data["workflows"][3]["state"], "PILOT_READY_NO_DELIVERY")
-        self.assertEqual(data["workflows"][4]["trigger"], "AGENTGO <job or topic>")
-        self.assertEqual(data["workflows"][4]["authorities"]["drive_folder_id"],
-                         "1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1")
 
     def test_registered_required_paths_exist(self) -> None:
         registry = json.loads((ROOT / "studio" / "registry.json").read_text())

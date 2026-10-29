@@ -12,25 +12,6 @@ python3 tools/studio.py validate
 
 [`START_HERE.md`](START_HERE.md) and [`workflows/current/RESUME.md`](workflows/current/RESUME.md) are the authoritative recovery entry points. Never restart from the beginning while they identify an unfinished task.
 
-## Our own video engine — VIPER-1
-
-`tools/videogen.py` is the studio's first-party AI video generator: one project file, engine chosen per shot
-(paid H3 API · free Colab T4 queue · free LatentSync pass), a hard budget gate, free 480p→960p upscale stage, media verification and master
-assembly. Manual: [`docs/VIDEOGEN.md`](docs/VIDEOGEN.md). Phone-only operation: [`docs/MOBILE_WORKFLOW.md`](docs/MOBILE_WORKFLOW.md) (`tools/mobile_ops.py`). **Free-only by default** — it cannot bill unless
-`MONARCH_ALLOW_PAID=1` is exported; free-compute structure in [`docs/FREE_ONLY_PLAYBOOK.md`](docs/FREE_ONLY_PLAYBOOK.md).
-Delivery home (Drive, projects + masters + receipts): [`Wf-07 • Monarch Ai Agent`](https://drive.google.com/drive/folders/1IBgfHFdigeDzaYkJuNoelhLiWLqRZ6d1) — see `styles/monarch-ai-agent/`.
-
-```bash
-python3 tools/videogen.py doctor
-python3 tools/videogen.py quota            # free GPU hours left (Kaggle 30 h/week)
-python3 tools/videogen.py mobile <project>.json   # one phone-friendly Run-all notebook
-python3 tools/videogen.py new --id monarch-reel-01 --title "Monarch reel 01" --aspect 9:16
-python3 tools/videogen.py plan   <project>/project.json          # price + engine per shot
-python3 tools/videogen.py render <project>/project.json          # dry run
-python3 tools/videogen.py upscale <project>/project.json           # free 480p -> 960x1664 notebook
-python3 tools/videogen.py verify <project>/project.json && python3 tools/videogen.py assemble <project>/project.json
-```
-
 ## Permanent style library
 
 | Style | Trigger | State | Permanent implementation |
@@ -38,8 +19,6 @@ python3 tools/videogen.py verify <project>/project.json && python3 tools/videoge
 | **Monarch Stickman Animation** | `SHADEGO <topic>` | Parked; IZZAT v2 is current R1 delivery | [`styles/monarch-stickman-animation`](styles/monarch-stickman-animation/) |
 | **Monarch Noir Film** | `NOIRGO <topic>` | Active with explicit Film-#3 drift; films 1–2 are R1 | [`styles/monarch-noir-film`](styles/monarch-noir-film/) |
 | **WF-05 · Premium Motion Editing** | `MOTIONGO <topic or reference>` | V5 clean direction + accepted V6 motion; lower caption pills rejected | [`styles/premium-motion-editing`](styles/premium-motion-editing/) |
-| **WF-06 · MiniMax-H3 Generative Video** | `H3GO <topic or shot list>` | Pilot: knowledge + validated Colab notebook + offline-tested CLI; no live delivery yet | [`styles/minimax-h3-video`](styles/minimax-h3-video/) |
-| **WF-07 · Monarch AI Agent** | `AGENTGO <job or topic>` | Active: delivery home for all AI-generated video (Drive `Wf-07 • Monarch Ai Agent`) driven by our own engine VIPER-1 | [`styles/monarch-ai-agent`](styles/monarch-ai-agent/) |
 
 Each named style contains its implementation, assets, audio/plates, data, prompts, tools, gates, measured results, decisions, failures/fixes, source provenance and a permanent knowledge index.
 
