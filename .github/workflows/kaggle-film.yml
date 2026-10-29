@@ -58,14 +58,46 @@ jobs:
           print("TITLE=" + (d.get("title") or "Powerful Personality"))
           PY
 
-      - name: Secrets check
+      - name: Kaggle creds
+        env:
+          MONARCH: ${{ secrets.MONARCH }}
         run: |
-          if [ -z "${KAGGLE_USERNAME}" ] || [ -z "${KAGGLE_KEY}" ]; then
-            echo "::warning::Kaggle secrets nahi hain — is run me DRY RUN hoga (CPU pipeline check). Setup: repo Settings > Secrets and variables > Actions me KAGGLE_USERNAME aur KAGGLE_KEY add karo (Kaggle > Settings > API > Create New Token)."
-            echo "HAVE_SECRETS=0" >> "$GITHUB_ENV"
+          # Do shakl chalte hain: (1) KAGGLE_USERNAME + KAGGLE_KEY, (2) ek hi secret MONARCH
+          # jisme poora kaggle.json ho ya "username:key".
+          python - >> "$GITHUB_ENV" <<'PY'
+          import json, os
+
+          user = (os.environ.get("KAGGLE_USERNAME") or "").strip()
+          key = (os.environ.get("KAGGLE_KEY") or "").strip()
+          blob = (os.environ.get("MONARCH") or "").strip()
+
+          if not (user and key) and blob:
+              try:
+                  data = json.loads(blob)
+                  user = user or str(data.get("username") or "").strip()
+                  key = key or str(data.get("key") or "").strip()
+              except Exception:
+                  if ":" in blob:
+                      left, right = blob.split(":", 1)
+                      user = user or left.strip()
+                      key = key or right.strip()
+                  else:
+                      key = key or blob
+          if user and key:
+              print("HAVE_SECRETS=1")
+              print(f"KAGGLE_USERNAME={user}")
+              print(f"KAGGLE_KEY={key}")
+              print(f"KAGGLE_USER_LABEL={user[:3]}***{user[-2:] if len(user) > 5 else ''}")
+          else:
+              print("HAVE_SECRETS=0")
+          PY
+          if grep -q "^KAGGLE_KEY=" "$GITHUB_ENV"; then
+            echo "::add-mask::$(grep '^KAGGLE_KEY=' "$GITHUB_ENV" | cut -d= -f2-)"
+          fi
+          if grep -q "^HAVE_SECRETS=1" "$GITHUB_ENV"; then
+            echo "Kaggle creds mil gaye — asli GPU render hoga"
           else
-            echo "Kaggle user mil gaya"
-            echo "HAVE_SECRETS=1" >> "$GITHUB_ENV"
+            echo "::warning::Kaggle creds samajh nahi aaye — is run me DRY RUN hoga. Secret banane ka tarika: Actions secrets me KAGGLE_USERNAME (username) aur KAGGLE_KEY (kaggle.json ki key), YA ek secret MONARCH jisme poora kaggle.json paste ho."
           fi
 
       - name: Tools (ffmpeg + kaggle + deps)
