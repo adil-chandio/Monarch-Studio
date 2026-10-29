@@ -58,10 +58,12 @@ jobs:
       - name: Secrets check
         run: |
           if [ -z "${KAGGLE_USERNAME}" ] || [ -z "${KAGGLE_KEY}" ]; then
-            echo "::error::Setup baqi hai — repo Settings > Secrets and variables > Actions me KAGGLE_USERNAME aur KAGGLE_KEY add karo (Kaggle > Settings > API > Create New Token)."
-            exit 1
+            echo "::warning::Kaggle secrets nahi hain — is run me DRY RUN hoga (CPU pipeline check). Setup: repo Settings > Secrets and variables > Actions me KAGGLE_USERNAME aur KAGGLE_KEY add karo (Kaggle > Settings > API > Create New Token)."
+            echo "HAVE_SECRETS=0" >> "$GITHUB_ENV"
+          else
+            echo "Kaggle user mil gaya"
+            echo "HAVE_SECRETS=1" >> "$GITHUB_ENV"
           fi
-          echo "Kaggle user mil gaya"
 
       - name: Tools (ffmpeg + kaggle + deps)
         run: |
@@ -69,7 +71,15 @@ jobs:
           python -m pip install --disable-pip-version-check -q kaggle numpy pillow imageio-ffmpeg
 
       - name: Kaggle chunks (GPU)
+        if: env.HAVE_SECRETS == '1'
         run: bash scripts/kaggle_chunks.sh "$CHUNKS" clips
+
+      - name: Dry run clips (secrets nahi — CPU pipeline check)
+        if: env.HAVE_SECRETS != '1'
+        run: |
+          python tools/kaggle_stick_film.py --selftest --only k01,k06,k12 --out /tmp/dry
+          mkdir -p clips && cp /tmp/dry/clips/k*.mp4 clips/
+          echo "::warning::DRY RUN — yeh clips keyframes ke stills hain (asli render nahi). Secrets add karne ke baad wahi run asli GPU render karega."
 
       - name: Master + launch kit (CPU)
         run: |
@@ -86,6 +96,7 @@ jobs:
           {
             echo "## Film ready"
             echo ""
+            echo "- mode: $([ "$HAVE_SECRETS" = "1" ] && echo 'GPU render (Kaggle)' || echo 'DRY RUN — stills')"
             echo "- master: monarch_stick_36s.mp4 ($(du -h deliver/monarch_stick_36s.mp4 | cut -f1))"
             echo "- scenes: $(find clips -name 'k*.mp4' -size +20k | wc -l | tr -d ' ')"
             echo "- kit: $(ls deliver/kit | tr '\n' ' ')"
@@ -101,6 +112,7 @@ jobs:
           retention-days: 14
 
       - name: Release (owner ka download link)
+        if: env.HAVE_SECRETS == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
