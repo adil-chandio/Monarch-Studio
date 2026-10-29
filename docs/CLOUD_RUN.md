@@ -41,3 +41,23 @@ bachi hui scenes ka chunk daal dena (`chunks` input me), baqi skip.
 | GPU quota | free T4, idle disconnect | 30 GPU-h/week, session 9–12 h |
 | master + kit | notebook me | Actions par, har run same |
 | deliverable | Drive manual | Release + artifact + (agent Drive me daal deta hai) |
+
+## Trigger kaise hota hai (technical)
+
+`workflow_dispatch` sirf default branch par kaam karta hai, is liye run **push** se shuru hota hai:
+
+- `cloud/kaggle_jobs/*.json` ka naya commit (chunks + title), ya
+- pipeline file ka change (`tools/kaggle_stick_film.py`, `tools/film_factory.py`, `scripts/kaggle_chunks.sh`)
+
+Agent `gh run rerun <id>` se bhi dobara chala sakta hai — owner ko kuch nahi karna.
+
+## Bina secrets bhi green
+
+Secrets na hon to workflow **dry run** karta hai: 3 keyframes ke stills se clips banata hai,
+poora master + kit assemble karta hai, artifact upload karta hai — pipeline toota hua foran pakra
+jata hai, aur jab secrets add ho jayein tab *wahi* run asli GPU render karta hai.
+
+## Status
+
+- 2026-10-30: workflow registered + dry-run green (artifact `monarch-film-3`, 26 MB).
+- Baqi: owner ke 2 secrets (Kaggle username + key) — uske baad 12 scenes ka asli render.
