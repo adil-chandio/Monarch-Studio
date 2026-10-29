@@ -112,6 +112,8 @@ def rest_pose(rig):
 # ------------------------------------------------------------------ head
 # measured off the locked v5 sheet: chin 1.545, mouth 1.595, nose 1.622,
 # eyes 1.658, brows 1.669, hairline 1.730, crown 1.785
+HEAD_SCALE = 1.06
+HEAD_DROP = 0.010
 HEAD_RINGS = [
     (1.5450, 0.0195, 0.0300, -0.0030),
     (1.5540, 0.0300, 0.0385, -0.0025),
@@ -130,6 +132,14 @@ HEAD_RINGS = [
     (1.7700, 0.0270, 0.0340, 0.0030),
     (1.7830, 0.0100, 0.0140, 0.0030),
 ]
+
+
+HEAD_RINGS = [(z - HEAD_DROP, rx * HEAD_SCALE, ry * HEAD_SCALE, dy)
+              for (z, rx, ry, dy) in HEAD_RINGS]
+
+CHIN_Z = HEAD_RINGS[0][0]
+HAIRLINE_Z = 1.7300 + 0.004
+FACE_HALF_W = HEAD_RINGS[9][1]
 
 
 def _gauss(x, mu, sigma):
@@ -223,18 +233,18 @@ def build_head(mat_skin, mat_face):
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.006, 1.404), 0.072, 0.062),
-        ((0, 0.006, 1.432), 0.060, 0.052),
-        ((0, 0.004, 1.462), 0.050, 0.045),
-        ((0, 0.002, 1.500), 0.044, 0.041),
-        ((0, 0.000, 1.536), 0.046, 0.044),
+        ((0, 0.006, 1.406), 0.080, 0.068),
+        ((0, 0.006, 1.434), 0.068, 0.058),
+        ((0, 0.004, 1.462), 0.060, 0.052),
+        ((0, 0.002, 1.492), 0.055, 0.049),
+        ((0, 0.000, 1.518), 0.057, 0.052),
     ], mat_skin, subsurf=1, close_start=False)
     ears = []
     for s in (1, -1):
         e = bl.loft(f"Ear.{s}", [
-            ((0.0740 * s, 0.012, 1.6520), 0.006, 0.017),
-            ((0.0812 * s, 0.014, 1.6560), 0.004, 0.020),
-            ((0.0778 * s, 0.012, 1.6680), 0.003, 0.011),
+            ((0.0740 * s * HEAD_SCALE, 0.012, 1.6420), 0.006, 0.017),
+            ((0.0812 * s * HEAD_SCALE, 0.014, 1.6460), 0.004, 0.020),
+            ((0.0778 * s * HEAD_SCALE, 0.012, 1.6580), 0.003, 0.011),
         ], mat_skin, subsurf=1)
         ears.append(e)
     return ob, neck, ears
@@ -335,15 +345,15 @@ def build_beard(mat_hair):
     skin = srgb(SKIN)
     lines = []
     for _ in range(3400):
-        z = rnd.uniform(1.5410, 1.6160)
+        z = rnd.uniform(1.5310, 1.6080)
         # beard band: jaw and chin, thin up the cheeks, thicker at the chin
-        half_w = 0.070 * min(1.0, (z - 1.526) / 0.076) ** 0.6
+        half_w = 0.070 * HEAD_SCALE * min(1.0, (z - 1.516) / 0.080) ** 0.6
         if z > 1.598 and rnd.random() < 0.55:
             continue
         x = rnd.uniform(-half_w, half_w)
         if abs(x) < 0.026 and z > 1.588 and z < 1.604:
             continue                     # keep the lips clear
-        ry = 0.0780
+        ry = 0.0780 * HEAD_SCALE
         y = -math.sqrt(max(0.0, 1 - (x / max(1e-4, half_w)) ** 2)) * ry * 0.98 - 0.004
         y -= _face_relief(x, z) * 0.9
         base = Vector((x, y, z))

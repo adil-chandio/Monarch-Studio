@@ -42,9 +42,15 @@ def main(argv):
         px = np.array(img.pixels[:], dtype=np.float32).reshape(-1, 4)[:, :3]
         luma = float(px.mean()) * 255.0
         peak = float(px.max()) * 255.0
+        cam = scene.camera
+        lights = {ob.name: round(ob.data.energy, 1)
+                  for ob in bpy.data.objects if ob.type == "LIGHT"}
         rows.append(dict(id=seg["id"], name=seg["name"], frame=f,
                          luma=round(luma, 1), peak=round(peak, 1),
-                         black=luma < 3.0, blown=luma > 235.0))
+                         black=luma < 3.0, blown=luma > 235.0,
+                         cam=cam.name if cam else None,
+                         cam_loc=[round(v, 2) for v in cam.matrix_world.translation] if cam else None,
+                         lights={k: v for k, v in lights.items() if v > 0}))
         print("DIAG", json.dumps(rows[-1]), flush=True)
 
     (out / "report.json").write_text(json.dumps(rows, indent=1))
