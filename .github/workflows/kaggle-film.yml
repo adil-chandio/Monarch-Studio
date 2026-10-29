@@ -106,6 +106,10 @@ jobs:
               os.environ["KAGGLE_KEY"] = key
               lines.append("KAGGLE_KEY=" + key)
 
+          print(f"::notice::secret shape — length={len(blob)} kgat={blob.startswith('KGAT')} "
+                f"json={blob.startswith('{')} colon={':' in blob} "
+                f"user_from_secret={bool(os.environ.get('USER_SECRET'))}")
+
           if token and not user:
               try:
                   from kaggle.api.kaggle_api_extended import KaggleApi
