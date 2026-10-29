@@ -230,7 +230,8 @@ def build_head(mat_skin, mat_face):
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.006, 1.406), 0.080, 0.068),
+        ((0, 0.006, 1.368), 0.094, 0.078),
+        ((0, 0.006, 1.392), 0.082, 0.069),
         ((0, 0.006, 1.434), 0.068, 0.058),
         ((0, 0.004, 1.462), 0.060, 0.052),
         ((0, 0.002, 1.492), 0.055, 0.049),
@@ -596,8 +597,8 @@ def build_character():
                          sss=0.05, sss_scale=0.003)
     m_face_skin = bl.material("MONARCH skin · capture tone", base=SKIN_CAPTURE,
                               rough=0.50, spec=0.32, sss=0.05, sss_scale=0.003)
-    m_hair = bl.material("MONARCH hair", base="#171717", rough=0.52, spec=0.28, sheen=0.45)
-    m_sheen = bl.material("MONARCH hair sheen", base="#121212", rough=0.42, spec=0.42)
+    m_hair = bl.material("MONARCH hair", base="#141414", rough=0.62, spec=0.18, sheen=0.14)
+    m_sheen = bl.material("MONARCH hair sheen", base="#101010", rough=0.55, spec=0.26)
     m_blazer = bl.material("MONARCH blazer", base="#1E1E1D", rough=0.80, spec=0.24,
                            sheen=0.18)
     m_edge = bl.material("MONARCH blazer edge", base=BLAZER_EDGE, rough=0.62, spec=0.4,

@@ -108,8 +108,12 @@ def facing_mix(material_obj, image_path, skin_hex, front=0.62, fade=0.16):
     lw.location = (-900, -60)
     ramp = n.new("ShaderNodeValToRGB")
     ramp.location = (-700, -60)
-    ramp.color_ramp.elements[0].position = max(0.0, front - fade)
-    ramp.color_ramp.elements[1].position = min(1.0, front + fade)
+    # Facing is 0 looking straight at the face and 1 at the silhouette: keep the
+    # capture in the middle of that range and hand over to modelled skin at the edge
+    ramp.color_ramp.elements[0].position = max(0.0, 1.0 - front - fade)
+    ramp.color_ramp.elements[0].color = (1, 1, 1, 1)
+    ramp.color_ramp.elements[1].position = min(1.0, 1.0 - front + fade * 1.6)
+    ramp.color_ramp.elements[1].color = (0, 0, 0, 1)
     l.new(lw.outputs["Facing"], ramp.inputs["Fac"])
     l.new(ramp.outputs["Color"], mix.inputs[0])
     l.new(mix.outputs[0], p.inputs["Base Color"])
