@@ -1,0 +1,16 @@
+{
+  "job": "ai-clip-01",
+  "model": "Lykon/dreamshaper-8 + guoyww/animatediff-motion-adapter-v1-5-2",
+  "frames": 14,
+  "steps": 12,
+  "size": [
+    384,
+    640
+  ],
+  "prompt": "cinematic night shot of heavy rain falling on a neon lit city street, a lone figure in a black coat walking toward camera, reflections rippling in puddles, strong motion, film grain, no text",
+  "seed": 7,
+  "clip": "ai-clip-01.mp4",
+  "bytes": 5640017,
+  "seconds": 2931.3,
+  "device": "cpu"
+}

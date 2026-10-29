@@ -1,0 +1,6 @@
+[submodule "vendor/effectcraft"]
+	path = vendor/effectcraft
+	url = https://github.com/storytold/effectcraft.git
+[submodule "vendor/awesome-opus5-5-videos"]
+	path = vendor/awesome-opus5-5-videos
+	url = https://github.com/yihui-dev/awesome-opus5-5-videos.git

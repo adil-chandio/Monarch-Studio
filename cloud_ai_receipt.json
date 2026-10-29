@@ -1,0 +1,38 @@
+{
+  "job": "ai-clip-01",
+  "runner": "github-actions-cpu",
+  "kind": "ai_clip",
+  "clips": [
+    {
+      "file": "ai-clip-01.mp4",
+      "bytes": 5640017,
+      "md5": "153a4b92f338c4298325b8f127f1061a",
+      "probe": [
+        "    encoder         : Lavf60.16.100",
+        "  Duration: 00:00:01.75, start: 0.000000, bitrate: 25782 kb/s",
+        "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 25778 kb/s, 8 fps, 8 tbr, 16384 tbn (default)",
+        "    Metadata:",
+        "      handler_name    : VideoHandler",
+        "      vendor_id       : [0][0][0][0]",
+        "      encoder         : Lavc60.31.102 libx264",
+        "At least one output file must be specified"
+      ]
+    },
+    {
+      "file": "raw.mp4",
+      "bytes": 114303,
+      "md5": "61fa29bb6b932154352b478e2c39fc9b",
+      "probe": [
+        "    encoder         : Lavf61.1.100",
+        "  Duration: 00:00:01.75, start: 0.000000, bitrate: 522 kb/s",
+        "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 384x640, 517 kb/s, 8 fps, 8 tbr, 16384 tbn (default)",
+        "    Metadata:",
+        "      handler_name    : VideoHandler",
+        "      vendor_id       : [0][0][0][0]",
+        "      encoder         : Lavc61.3.100 libx264",
+        "At least one output file must be specified"
+      ]
+    }
+  ],
+  "made_at": "2026-10-29T21:46:45Z"
+}
