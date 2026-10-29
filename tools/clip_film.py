@@ -35,24 +35,36 @@ RenderError = base.RenderError
 
 
 def clip_graph(scene: dict, spec: dict, seconds: float | None) -> str:
-    """Clip ko delivery frame + grade par le aao (koi zoom trick nahi — frames asli hain)."""
+    """Clip ko delivery frame + grade par le aao (koi zoom trick nahi — frames asli hain).
+
+    Grade spec se aata hai, scene se override ho sakta hai:
+      grade="lift"  (default) — dark Wan clips ke liye shadow lift (blacks black rehte hain)
+      grade="none"            — chalk/board jaisi already-graded footage (sirf halka sharpen)
+    """
     width, height = spec["size"]
     fps = int(spec.get("fps", 24))
     grain = int(spec.get("grain", 6))
+    shrink = float(spec.get("sharpen", 0.0))
     trim = f"trim=duration={seconds:.3f},setpts=PTS-STARTPTS," if seconds else ""
-    # Wan ke clips bahut dark aate hain. Blunt brightness se blacks grey ho jate hain,
-    # is liye shadow lift + gamma (0.4/0.46 curve) use karte hain: detail khulti hai,
-    # black black rehta hai. Grain halka, vignette bhi halka.
-    return (
+    kind = scene.get("grade", spec.get("grade", "lift"))
+    head = (
         f"[0:v]{trim}"
         f"scale={width}:{height}:force_original_aspect_ratio=increase:flags=lanczos,"
         f"crop={width}:{height},setsar=1,fps={fps},"
-        f"eq=contrast=1.04:gamma=1.10:brightness=0.04:saturation=1.05,"
-        f"curves=all='0/0.0 0.35/0.42 0.7/0.76 1/1',"
-        f"colorbalance=rs=-0.008:bs=0.01:rh=0.02:bh=-0.014,"
-        f"noise=alls={grain}:allf=t,vignette=PI/8.0,"
-        f"format=yuv420p[v]"
     )
+    sharp = f"unsharp=5:5:{shrink}:5:5:0.0," if shrink > 0 else ""
+    if kind == "none":
+        # Chalkboard look: contrast waisa hi, bas thora sa punch aur halka grain.
+        colour = ("eq=contrast=1.03:gamma=1.0:saturation=1.0,"
+                  "vignette=PI/9.0,")
+    else:
+        # Wan ke photoreal clips bahut dark aate hain. Blunt brightness se blacks grey ho
+        # jate hain, is liye shadow lift + gamma (0.35/0.42 curve) use karte hain.
+        colour = ("eq=contrast=1.04:gamma=1.10:brightness=0.04:saturation=1.05,"
+                  "curves=all='0/0.0 0.35/0.42 0.7/0.76 1/1',"
+                  "colorbalance=rs=-0.008:bs=0.01:rh=0.02:bh=-0.014,"
+                  "vignette=PI/8.0,")
+    return f"{head}{sharp}{colour}noise=alls={grain}:allf=t,format=yuv420p[v]"
 
 
 def render_scene(scene: dict, spec: dict, index: int, clip: pathlib.Path,
