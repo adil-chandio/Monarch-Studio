@@ -6,8 +6,8 @@ name: Kaggle film (backend)
 #
 # Ek dafa ka setup (owner): repo Settings > Secrets and variables > Actions me
 #   KAGGLE_USERNAME  = Kaggle username
-#   KAGGLE_KEY       = Kaggle API key (kaggle.json se, sirf key wala hissa)
-# Uske baad: Actions > "Kaggle film (backend)" > Run workflow. Bas.
+#   KAGGLE_KEY       = Kaggle API key (kaggle.json se)
+# Uske baad: Actions > "Kaggle film (backend)" > Run workflow.
 
 on:
   workflow_dispatch:
@@ -20,10 +20,6 @@ on:
         description: "Film/cover title"
         required: false
         default: "Powerful Personality"
-      assemble_only:
-        description: "true = render skip, sirf master+kit banao (pehle se clips hon to)"
-        required: false
-        default: "false"
 
 permissions:
   contents: write
@@ -39,8 +35,6 @@ jobs:
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      TITLE: ${{ inputs.title }}
-      CHUNKS: ${{ inputs.chunks }}
       POLL_MAX: "70"
 
     steps:
@@ -50,13 +44,18 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Inputs
+        run: |
+          echo "CHUNKS=${{ github.event.inputs.chunks }}" >> "$GITHUB_ENV"
+          echo "TITLE=${{ github.event.inputs.title }}" >> "$GITHUB_ENV"
+
       - name: Secrets check
         run: |
           if [ -z "${KAGGLE_USERNAME}" ] || [ -z "${KAGGLE_KEY}" ]; then
             echo "::error::Setup baqi hai — repo Settings > Secrets and variables > Actions me KAGGLE_USERNAME aur KAGGLE_KEY add karo (Kaggle > Settings > API > Create New Token)."
             exit 1
           fi
-          echo "Kaggle user mil gaya: ${KAGGLE_USERNAME:0:3}***"
+          echo "Kaggle user mil gaya"
 
       - name: Tools (ffmpeg + kaggle + deps)
         run: |
@@ -64,14 +63,13 @@ jobs:
           python -m pip install --disable-pip-version-check -q kaggle numpy pillow imageio-ffmpeg
 
       - name: Kaggle chunks (GPU)
-        if: ${{ inputs.assemble_only != 'true' }}
         run: bash scripts/kaggle_chunks.sh "$CHUNKS" clips
 
       - name: Master + launch kit (CPU)
         run: |
           mkdir -p clips deliver
           python tools/kaggle_stick_film.py --assemble-only \
-            --out clips --final deliver --title "$TITLE"
+            --out clips --final deliver --title "${TITLE:-Powerful Personality}"
 
       - name: Deliverable check
         run: |
@@ -80,14 +78,11 @@ jobs:
           test -s deliver/kit/teaser_11s.mp4
           du -sh deliver deliver/kit
           {
-            echo "## 🎬 Film ready"
+            echo "## Film ready"
             echo ""
-            echo "| | |"
-            echo "|---|---|"
-            echo "| master | \`monarch_stick_36s.mp4\` |"
-            echo "| size | $(du -h deliver/monarch_stick_36s.mp4 | cut -f1) |"
-            echo "| scenes | $(find clips -name 'k*.mp4' -size +20k | wc -l | tr -d ' ') |"
-            echo "| kit | $(ls deliver/kit | tr '\n' ' ') |"
+            echo "- master: monarch_stick_36s.mp4 ($(du -h deliver/monarch_stick_36s.mp4 | cut -f1))"
+            echo "- scenes: $(find clips -name 'k*.mp4' -size +20k | wc -l | tr -d ' ')"
+            echo "- kit: $(ls deliver/kit | tr '\n' ' ')"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload deliverable
@@ -111,7 +106,3 @@ jobs:
             --notes "Master 36s 9:16 + launch kit (teaser, cover, subtitles, contact sheet, kit.md)." \
             || gh release upload "$tag" deliver/monarch_stick_36s.mp4 --clobber
           echo "Release: https://github.com/${{ github.repository }}/releases/tag/$tag"
-
-      - name: Fail if partial
-        if: ${{ hashFiles('deliver/monarch_stick_36s.mp4') == '' }}
-        run: exit 1
