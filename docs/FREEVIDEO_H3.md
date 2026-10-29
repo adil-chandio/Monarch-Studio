@@ -79,3 +79,20 @@ se captions + voice + sound ke sath 1080x1920 master, Drive par public upload.
 ### Bonus
 MiniMax H3 **audio bhi generate karta hai** (`i2va` task) — yani ambience/SFX free milta hai;
 hamari voice (`voice/v01..v10.wav`) uske oopar mix hoti hai.
+
+## Lightning AI band (PK) — naya raasta: Modal
+
+Lightning ne Pakistan me service nahi khuli ("hasn't expanded to your area"), is liye:
+
+| Platform | Free GPU | Card? | PK? | Verdict |
+|---|---|---|---|---|
+| Lightning AI | L4/A10G | nahi | **band** | out |
+| **Modal** | **L4 / A10G (24 GB)** | **nahi** ($30/month credits) | haan | **yehi** |
+| Beam | A10G (10 h) | nahi | haan | backup |
+| Colab | T4 (SM75) | nahi | haan | Wan 2.2 chalta hai, H3/FastVideo nahi |
+
+Modal par $30/month ≈ **37 GPU-hours L4** — poore 12 scenes ke liye kaafi.
+
+Files:
+- `tools/modal_monarch.py` — Modal app (`render_scene`, `files` web endpoint, `smoke`, `film`).
+- `notebooks/modal_cell_smoke.py` — Modal **Notebook** ke liye ek cell (browser, koi CLI nahi).
