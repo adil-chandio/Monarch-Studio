@@ -1,8 +1,9 @@
 name: CHAOS 04 production 1080x1920
 
-# Parallel chunks: each runner renders its frame range at 1080x1920, encodes a
-# crf-12 intermediate and hands it to the finalize job, which grades, adds the
-# measured strobe grid and our score, verifies the file and commits it.
+# 16 parallel chunks: each runner renders its frame range at 1080x1920, encodes a
+# crf-12 intermediate, publishes a small timing file so the run can be measured
+# from git alone, and hands the chunk to finalize. finalize grades, adds the
+# measured strobe grid and our score, verifies the file and commits output/final.
 
 on:
   push:
@@ -12,33 +13,40 @@ on:
     inputs:
       samples:
         description: "cycles samples"
-        default: "10"
-      chunk:
-        description: "frames per job"
-        default: "222"
+        default: "6"
 
 permissions:
   contents: write
 
 env:
-  SAMPLES: "10"
+  SAMPLES: "6"
   WF: workflows/current/payload/WF04-CHAOS04
 
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 350
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 16
       matrix:
         include:
-          - { id: 0, start: 1,    end: 222 }
-          - { id: 1, start: 223,  end: 444 }
-          - { id: 2, start: 445,  end: 666 }
-          - { id: 3, start: 667,  end: 888 }
-          - { id: 4, start: 889,  end: 1110 }
-          - { id: 5, start: 1111, end: 1332 }
+          - { id: 0,  start: 1,    end: 84 }
+          - { id: 1,  start: 85,   end: 168 }
+          - { id: 2,  start: 169,  end: 252 }
+          - { id: 3,  start: 253,  end: 336 }
+          - { id: 4,  start: 337,  end: 420 }
+          - { id: 5,  start: 421,  end: 504 }
+          - { id: 6,  start: 505,  end: 588 }
+          - { id: 7,  start: 589,  end: 672 }
+          - { id: 8,  start: 673,  end: 756 }
+          - { id: 9,  start: 757,  end: 840 }
+          - { id: 10, start: 841,  end: 924 }
+          - { id: 11, start: 925,  end: 1008 }
+          - { id: 12, start: 1009, end: 1092 }
+          - { id: 13, start: 1093, end: 1176 }
+          - { id: 14, start: 1177, end: 1260 }
+          - { id: 15, start: 1261, end: 1332 }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -49,7 +57,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq libxrender1 libxi6 libxxf86vm1 libxfixes3 \
             libgl1 libegl1 libsm6 libice6 libxkbcommon0 libxrandr2 libxinerama1 libgomp1
-          df -h / | tail -1
+          nproc; df -h / | tail -1
       - name: deps
         run: |
           python -m pip install --upgrade pip -q
@@ -58,14 +66,27 @@ jobs:
         working-directory: ${{ env.WF }}
         run: |
           python chaos04/build.py -- --out build/main.blend --width 1080 --height 1920 \
-            --samples ${{ env.SAMPLES }}
+            --samples ${{ env.SAMPLES }} --fast
       - name: render chunk ${{ matrix.id }}
         working-directory: ${{ env.WF }}
         run: |
-          /usr/bin/time -f "RENDER %e s" python chaos04/render.py -- \
+          START=$(date +%s)
+          python chaos04/render.py -- \
             --blend build/main.blend --out render/frames --samples ${{ env.SAMPLES }} \
             --start ${{ matrix.start }} --end ${{ matrix.end }}
-          ls render/frames | wc -l
+          DONE=$(date +%s)
+          N=$(ls render/frames | wc -l)
+          EL=$((DONE - START))
+          python - "$N" "$EL" "${{ matrix.id }}" "${{ matrix.start }}" "${{ matrix.end }}" <<'PY'
+          import json, sys, pathlib
+          n, elapsed, cid, s, e = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3], int(sys.argv[4]), int(sys.argv[5])
+          want = e - s + 1
+          doc = {"chunk": cid, "frames": n, "expected": want, "seconds": elapsed,
+                 "sec_per_frame": round(elapsed / max(1, n), 2)}
+          out = pathlib.Path("output/render_status"); out.mkdir(parents=True, exist_ok=True)
+          (out / ("chunk_%02d.json" % int(cid))).write_text(json.dumps(doc, indent=1))
+          print(json.dumps(doc), flush=True)
+          PY
       - name: encode chunk
         working-directory: ${{ env.WF }}
         run: |
@@ -77,12 +98,25 @@ jobs:
           subprocess.run([ff, "-y", "-hide_banner", "-loglevel", "error",
                           "-framerate", "30", "-start_number", "${{ matrix.start }}",
                           "-i", "render/frames/%04d.png",
-                          "-frames:v", "${{ matrix.end }}", "-c:v", "libx264",
-                          "-preset", "slow", "-crf", "12", "-pix_fmt", "yuv420p",
+                          "-frames:v", str(${{ matrix.end }} - ${{ matrix.start }} + 1),
+                          "-c:v", "libx264", "-preset", "slow", "-crf", "12",
+                          "-pix_fmt", "yuv420p",
                           "-x264-params", "keyint=30:min-keyint=1:scenecut=0",
                           str(dst)], check=True)
           print(dst, dst.stat().st_size)
           PY
+      - name: report timing
+        run: |
+          set -e
+          cd "$GITHUB_WORKSPACE"
+          git config user.name chaos04-render; git config user.email render@monarch.studio
+          git add -f "${{ env.WF }}/output/render_status" || true
+          for i in 1 2 3; do
+            git commit -m "render status: chunk ${{ matrix.id }}" || true
+            git pull --rebase -q origin ${GITHUB_REF_NAME} || true
+            if git push -q origin HEAD:${GITHUB_REF_NAME}; then break; fi
+            sleep 5
+          done
       - uses: actions/upload-artifact@v4
         with:
           name: chunk-${{ matrix.id }}
@@ -92,6 +126,7 @@ jobs:
 
   finalize:
     needs: render
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:
@@ -108,6 +143,8 @@ jobs:
         run: |
           sudo apt-get install -y -qq ffmpeg
           pip install -q numpy imageio-ffmpeg
+      - name: chunks we got
+        run: ls -l "${{ env.WF }}/render/chunks"
       - name: score
         working-directory: ${{ env.WF }}
         run: python chaos04/score.py --out build/score_48k.wav
@@ -131,5 +168,9 @@ jobs:
           du -sh "$OUT"
           git config user.name chaos04-master; git config user.email master@monarch.studio
           git add -f "$OUT"
-          git commit -m "master: 1080x1920, run $GITHUB_RUN_ID" || true
-          git push origin HEAD:${GITHUB_REF_NAME}
+          for i in 1 2 3; do
+            git commit -m "master: 1080x1920, run $GITHUB_RUN_ID" || true
+            git pull --rebase -q origin ${GITHUB_REF_NAME} || true
+            if git push -q origin HEAD:${GITHUB_REF_NAME}; then break; fi
+            sleep 10
+          done
