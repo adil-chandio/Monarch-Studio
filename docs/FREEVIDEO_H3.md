@@ -96,3 +96,25 @@ Modal par $30/month ≈ **37 GPU-hours L4** — poore 12 scenes ke liye kaafi.
 Files:
 - `tools/modal_monarch.py` — Modal app (`render_scene`, `files` web endpoint, `smoke`, `film`).
 - `notebooks/modal_cell_smoke.py` — Modal **Notebook** ke liye ek cell (browser, koi CLI nahi).
+
+## Modal ka nateeja (2026-10-30)
+
+- Modal **Notebooks sunset** ho gaye hain (dashboard par likha aata hai).
+- Starter plan par **$30 credits sirf payment method add karne par** milte hain; bina card
+  sirf **$1** (~1 ghanta L4) milta hai. Card nahi dena, is liye Modal se poora film nahi banega.
+- Code phir bhi ready hai (`tools/modal_monarch.py`), agar kabhi card add ho jaye to `modal run` se chalega.
+
+## Final free raasta: Kaggle (browser, 30 h/week, card nahi)
+
+`tools/kaggle_stick_film.py` ek hi run me sab karta hai:
+12 keyframes -> Wan 2.2 TI2V-5B I2V (VRAM kam pare to LTX-Video fallback, canvas auto-shrink)
+-> captions + voice + sound -> **/kaggle/working/monarch_stick_36s.mp4** + notebook me video.
+
+Cell (Kaggle notebook, Accelerator = GPU T4 x2, Internet = On):
+
+```python
+!git clone --depth 1 -b arena/3d8cfad7-monarch-studio https://github.com/adil-chandio/Monarch-Studio /kaggle/working/repo
+!python /kaggle/working/repo/tools/kaggle_stick_film.py
+```
+
+Pehla test: `--only k01` laga kar ek scene chalao, phir poora.
