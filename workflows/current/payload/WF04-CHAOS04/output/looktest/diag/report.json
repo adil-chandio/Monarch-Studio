@@ -4,8 +4,8 @@
   "name": "Halo blur",
   "frame": 777,
   "world": 1.1,
-  "luma": 76.2,
-  "peak": 238.7,
+  "luma": 74.8,
+  "peak": 239.6,
   "black": false,
   "blown": false,
   "cam": "CAM 16 Halo blur",
@@ -22,30 +22,6 @@
    "Corridor light 2": 240.0,
    "Corridor light 3": 520.0,
    "Corridor light 4": 180.0
-  }
- },
- {
-  "id": "18",
-  "name": "Tendril macro",
-  "frame": 848,
-  "world": 0.12,
-  "luma": 32.2,
-  "peak": 212.3,
-  "black": false,
-  "blown": false,
-  "cam": "CAM 18 Tendril macro",
-  "cam_loc": [
-   0.46,
-   -0.61,
-   1.61
-  ],
-  "lights": {
-   "Room \u00b7 doorway backlight": 520.0,
-   "Room \u00b7 floor bounce": 160.0,
-   "Room \u00b7 practical": 60.0,
-   "Room \u00b7 rim amber": 600.0,
-   "Room \u00b7 rim teal": 900.0,
-   "Room \u00b7 soft key": 520.0
   }
  }
 ]
