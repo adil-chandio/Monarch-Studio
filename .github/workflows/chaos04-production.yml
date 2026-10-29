@@ -65,8 +65,19 @@ jobs:
       - name: build 1080x1920
         working-directory: ${{ env.WF }}
         run: |
+          set -o pipefail
           python chaos04/build.py -- --out build/main.blend --width 1080 --height 1920 \
-            --samples ${{ env.SAMPLES }} --fast
+            --samples ${{ env.SAMPLES }} --fast 2>&1 | tee build_log.txt
+      - name: build log on failure
+        if: failure()
+        run: |
+          set -e
+          cd "$GITHUB_WORKSPACE"
+          cp "${{ env.WF }}/build_log.txt" "${{ env.WF }}/output/build_failure_chunk_${{ matrix.id }}.txt" || true
+          git config user.name chaos04-ci; git config user.email ci@monarch.studio
+          git add -f "${{ env.WF }}/output/build_failure_chunk_${{ matrix.id }}.txt" || true
+          git commit -m "build failure: chunk ${{ matrix.id }}" || true
+          git push origin HEAD:${GITHUB_REF_NAME} || true
       - name: render chunk ${{ matrix.id }}
         working-directory: ${{ env.WF }}
         run: |

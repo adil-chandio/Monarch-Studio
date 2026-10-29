@@ -35,7 +35,7 @@ def clean_scene():
                 block.remove(item)
 
 
-def configure(scene, width=1080, height=1920, samples=24, device="CPU", fps=30):
+def configure(scene, width=1080, height=1920, samples=24, device="CPU", fps=30, fast=False):
     scene.render.engine = "CYCLES"
     scene.cycles.device = device
     scene.cycles.samples = samples
@@ -44,8 +44,8 @@ def configure(scene, width=1080, height=1920, samples=24, device="CPU", fps=30):
     scene.cycles.use_adaptive_sampling = True
     scene.cycles.adaptive_threshold = 0.05
     scene.cycles.adaptive_min_samples = 0
-    scene.cycles.max_bounces = 3
-    scene.cycles.diffuse_bounces = 2
+    scene.cycles.max_bounces = 2 if fast else 3
+    scene.cycles.diffuse_bounces = 1 if fast else 2
     scene.cycles.glossy_bounces = 2
     scene.cycles.transmission_bounces = 2
     scene.cycles.transparent_max_bounces = 4
@@ -301,6 +301,8 @@ def main(argv):
     parser.add_argument("--device", default="CPU", choices=["CPU", "GPU"])
     parser.add_argument("--no-haze", action="store_true")
     parser.add_argument("--preview", action="store_true", help="360x640, 8 samples")
+    parser.add_argument("--fast", action="store_true",
+                        help="fewer bounces per path: same look at half the cost")
     args = parser.parse_args(argv)
 
     if args.preview:
@@ -308,7 +310,8 @@ def main(argv):
 
     scene = bpy.context.scene
     clean_scene()
-    configure(scene, args.width, args.height, args.samples, args.device)
+    configure(scene, args.width, args.height, args.samples, args.device,
+              fast=args.fast)
 
     world.atmosphere_world(0.030, "#0A1216")
     world.room(world.ROOM, haze=not args.no_haze)
