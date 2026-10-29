@@ -1,10 +1,321 @@
 [
  {
+  "id": "01",
+  "name": "Room, push in",
+  "frame": 29,
+  "world": 0.03,
+  "luma": 59.5,
+  "peak": 231.5,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 01 Room, push in",
+  "cam_loc": [
+   0.22,
+   -0.55,
+   1.41
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 612.0,
+   "Room \u00b7 floor bounce": 13.0,
+   "Room \u00b7 practical": 43.0,
+   "Room \u00b7 rim amber": 77.0,
+   "Room \u00b7 rim teal": 94.0,
+   "Room \u00b7 soft key": 27.0
+  }
+ },
+ {
+  "id": "02",
+  "name": "Practical / floor",
+  "frame": 84,
+  "world": 0.1,
+  "luma": 6.2,
+  "peak": 157.5,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 02 Practical / floor",
+  "cam_loc": [
+   1.84,
+   -0.12,
+   1.38
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 240.0,
+   "Room \u00b7 floor bounce": 90.0,
+   "Room \u00b7 floor pool": 2600.0,
+   "Room \u00b7 practical": 160.0,
+   "Room \u00b7 soft key": 200.0
+  }
+ },
+ {
+  "id": "03",
+  "name": "Doorway glow",
+  "frame": 140,
+  "world": 0.05,
+  "luma": 80.9,
+  "peak": 239.1,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 03 Doorway glow",
+  "cam_loc": [
+   0.22,
+   -0.83,
+   1.46
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 900.0,
+   "Room \u00b7 floor bounce": 50.0,
+   "Room \u00b7 practical": 60.0,
+   "Room \u00b7 rim amber": 70.0,
+   "Room \u00b7 rim teal": 90.0,
+   "Room \u00b7 soft key": 110.0
+  }
+ },
+ {
+  "id": "04",
+  "name": "Rack / steel macro",
+  "frame": 195,
+  "world": 0.18,
+  "luma": 40.3,
+  "peak": 100.3,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 04 Rack / steel macro",
+  "cam_loc": [
+   -2.05,
+   -0.05,
+   1.14
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 200.0,
+   "Room \u00b7 floor bounce": 60.0,
+   "Room \u00b7 practical": 90.0,
+   "Room \u00b7 rack key": 900.0,
+   "Room \u00b7 rim teal": 260.0,
+   "Room \u00b7 soft key": 160.0
+  }
+ },
+ {
+  "id": "05",
+  "name": "First silhouette",
+  "frame": 251,
+  "world": 0.03,
+  "luma": 129.0,
+  "peak": 240.9,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 05 First silhouette",
+  "cam_loc": [
+   0.06,
+   -0.2,
+   1.42
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 648.0,
+   "Room \u00b7 floor bounce": 5.0,
+   "Room \u00b7 practical": 16.0,
+   "Room \u00b7 rim amber": 45.0,
+   "Room \u00b7 rim teal": 94.0,
+   "Room \u00b7 soft key": 7.0
+  }
+ },
+ {
+  "id": "06",
+  "name": "Hand to lapel",
+  "frame": 308,
+  "world": 0.03,
+  "luma": 41.8,
+  "peak": 244.9,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 06 Hand to lapel",
+  "cam_loc": [
+   0.36,
+   1.26,
+   1.48
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 396.0,
+   "Room \u00b7 floor bounce": 7.0,
+   "Room \u00b7 practical": 27.0,
+   "Room \u00b7 rim amber": 76.0,
+   "Room \u00b7 rim teal": 137.0,
+   "Room \u00b7 soft key": 16.0
+  }
+ },
+ {
+  "id": "07",
+  "name": "Back of the head",
+  "frame": 368,
+  "world": 0.03,
+  "luma": 157.4,
+  "peak": 235.2,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 07 Back of the head",
+  "cam_loc": [
+   0.38,
+   1.14,
+   1.53
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 720.0,
+   "Room \u00b7 floor bounce": 4.0,
+   "Room \u00b7 practical": 13.0,
+   "Room \u00b7 rim amber": 115.0,
+   "Room \u00b7 rim teal": 76.0,
+   "Room \u00b7 soft key": 5.0
+  }
+ },
+ {
+  "id": "08",
+  "name": "Halo hero",
+  "frame": 444,
+  "world": 0.03,
+  "luma": 122.9,
+  "peak": 246.0,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 08 Halo hero",
+  "cam_loc": [
+   -0.1,
+   0.59,
+   1.37
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 828.0,
+   "Room \u00b7 floor bounce": 6.0,
+   "Room \u00b7 practical": 20.0,
+   "Room \u00b7 rim amber": 94.0,
+   "Room \u00b7 rim teal": 122.0,
+   "Room \u00b7 soft key": 8.0
+  }
+ },
+ {
+  "id": "09",
+  "name": "Eyes open",
+  "frame": 504,
+  "world": 0.03,
+  "luma": 117.8,
+  "peak": 240.9,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 09 Eyes open",
+  "cam_loc": [
+   0.25,
+   1.56,
+   1.62
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 324.0,
+   "Room \u00b7 floor bounce": 10.0,
+   "Room \u00b7 practical": 25.0,
+   "Room \u00b7 rim amber": 126.0,
+   "Room \u00b7 rim teal": 162.0,
+   "Room \u00b7 soft key": 31.0
+  }
+ },
+ {
+  "id": "10",
+  "name": "Six arms",
+  "frame": 530,
+  "world": 0.03,
+  "luma": 17.1,
+  "peak": 238.3,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 10 Six arms",
+  "cam_loc": [
+   0.0,
+   -1.55,
+   0.76
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 126.0,
+   "Room \u00b7 floor bounce": 5.0,
+   "Room \u00b7 practical": 11.0,
+   "Room \u00b7 rim amber": 162.0,
+   "Room \u00b7 rim teal": 270.0,
+   "Room \u00b7 soft key": 11.0
+  }
+ },
+ {
+  "id": "11",
+  "name": "Brood face",
+  "frame": 550,
+  "world": 0.03,
+  "luma": 17.7,
+  "peak": 255.0,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 11 Brood face",
+  "cam_loc": [
+   0.16,
+   -0.31,
+   1.62
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 140.0,
+   "Room \u00b7 floor bounce": 50.0,
+   "Room \u00b7 practical": 24.0,
+   "Room \u00b7 rim amber": 320.0,
+   "Room \u00b7 rim teal": 460.0,
+   "Room \u00b7 soft key": 180.0
+  }
+ },
+ {
+  "id": "12",
+  "name": "Doorway, floor pool",
+  "frame": 571,
+  "world": 0.03,
+  "luma": 35.1,
+  "peak": 242.2,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 12 Doorway, floor pool",
+  "cam_loc": [
+   0.82,
+   -2.05,
+   0.98
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 612.0,
+   "Room \u00b7 floor bounce": 11.0,
+   "Room \u00b7 practical": 47.0,
+   "Room \u00b7 rim amber": 158.0,
+   "Room \u00b7 rim teal": 76.0,
+   "Room \u00b7 soft key": 9.0
+  }
+ },
+ {
+  "id": "13",
+  "name": "Neon doorway pull",
+  "frame": 599,
+  "world": 0.03,
+  "luma": 161.1,
+  "peak": 237.5,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 13 Neon doorway pull",
+  "cam_loc": [
+   0.0,
+   0.1,
+   1.45
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 684.0,
+   "Room \u00b7 floor bounce": 8.0,
+   "Room \u00b7 practical": 25.0,
+   "Room \u00b7 rim amber": 76.0,
+   "Room \u00b7 rim teal": 148.0,
+   "Room \u00b7 soft key": 13.0
+  }
+ },
+ {
   "id": "14",
   "name": "Corridor walk",
   "frame": 674,
   "world": 1.15,
-  "luma": 70.4,
+  "luma": 52.0,
   "peak": 255.0,
   "black": false,
   "blown": false,
@@ -29,7 +340,7 @@
   "name": "Spark whip",
   "frame": 749,
   "world": 1.3,
-  "luma": 80.9,
+  "luma": 55.7,
   "peak": 255.0,
   "black": false,
   "blown": false,
@@ -54,8 +365,8 @@
   "name": "Halo blur",
   "frame": 777,
   "world": 1.1,
-  "luma": 111.3,
-  "peak": 255.0,
+  "luma": 76.7,
+  "peak": 240.7,
   "black": false,
   "blown": false,
   "cam": "CAM 16 Halo blur",
@@ -75,12 +386,235 @@
   }
  },
  {
+  "id": "17",
+  "name": "In frame",
+  "frame": 809,
+  "world": 0.14,
+  "luma": 33.1,
+  "peak": 255.0,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 17 In frame",
+  "cam_loc": [
+   0.0,
+   -2.66,
+   1.32
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 520.0,
+   "Room \u00b7 floor bounce": 220.0,
+   "Room \u00b7 practical": 60.0,
+   "Room \u00b7 rim amber": 230.0,
+   "Room \u00b7 rim teal": 300.0,
+   "Room \u00b7 soft key": 620.0
+  }
+ },
+ {
+  "id": "18",
+  "name": "Tendril macro",
+  "frame": 848,
+  "world": 0.12,
+  "luma": 26.1,
+  "peak": 173.9,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 18 Tendril macro",
+  "cam_loc": [
+   0.52,
+   -0.43,
+   1.56
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 520.0,
+   "Room \u00b7 floor bounce": 160.0,
+   "Room \u00b7 practical": 60.0,
+   "Room \u00b7 rim amber": 600.0,
+   "Room \u00b7 rim teal": 900.0,
+   "Room \u00b7 soft key": 520.0
+  }
+ },
+ {
+  "id": "19",
+  "name": "Framed wide",
+  "frame": 927,
+  "world": 0.16,
+  "luma": 38.2,
+  "peak": 168.8,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 19 Framed wide",
+  "cam_loc": [
+   -0.0,
+   1.83,
+   1.49
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 900.0,
+   "Room \u00b7 floor bounce": 220.0,
+   "Room \u00b7 practical": 140.0,
+   "Room \u00b7 rim amber": 280.0,
+   "Room \u00b7 rim teal": 360.0,
+   "Room \u00b7 soft key": 600.0
+  }
+ },
+ {
+  "id": "20a",
+  "name": "Amber close",
+  "frame": 1006,
+  "world": 0.03,
+  "luma": 112.5,
+  "peak": 243.0,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 20a Amber close",
+  "cam_loc": [
+   0.19,
+   1.53,
+   1.61
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 162.0,
+   "Room \u00b7 floor bounce": 5.0,
+   "Room \u00b7 practical": 40.0,
+   "Room \u00b7 rim amber": 288.0,
+   "Room \u00b7 rim teal": 162.0,
+   "Room \u00b7 soft key": 36.0
+  }
+ },
+ {
+  "id": "20b",
+  "name": "Hand to lens",
+  "frame": 1036,
+  "world": 0.03,
+  "luma": 84.4,
+  "peak": 245.4,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 20b Hand to lens",
+  "cam_loc": [
+   0.04,
+   0.66,
+   1.51
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 234.0,
+   "Room \u00b7 floor bounce": 5.0,
+   "Room \u00b7 practical": 29.0,
+   "Room \u00b7 rim amber": 126.0,
+   "Room \u00b7 rim teal": 216.0,
+   "Room \u00b7 soft key": 47.0
+  }
+ },
+ {
+  "id": "20c",
+  "name": "White void",
+  "frame": 1060,
+  "world": 0.03,
+  "luma": 137.9,
+  "peak": 183.6,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 20c White void",
+  "cam_loc": [
+   60.46,
+   -2.62,
+   1.25
+  ],
+  "lights": {
+   "Void key": 160.0
+  }
+ },
+ {
+  "id": "20d",
+  "name": "Wide, small figure",
+  "frame": 1085,
+  "world": 0.03,
+  "luma": 25.6,
+  "peak": 255.0,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 20d Wide, small figure",
+  "cam_loc": [
+   1.82,
+   -2.18,
+   1.56
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 540.0,
+   "Room \u00b7 floor bounce": 7.0,
+   "Room \u00b7 practical": 25.0,
+   "Room \u00b7 rim amber": 137.0,
+   "Room \u00b7 rim teal": 94.0,
+   "Room \u00b7 soft key": 11.0
+  }
+ },
+ {
+  "id": "20e",
+  "name": "Strobe close",
+  "frame": 1141,
+  "world": 0.03,
+  "luma": 122.2,
+  "peak": 241.7,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 20e Strobe close",
+  "cam_loc": [
+   0.15,
+   1.35,
+   1.59
+  ],
+  "lights": {
+   "Room \u00b7 doorway backlight": 126.0,
+   "Room \u00b7 floor bounce": 4.0,
+   "Room \u00b7 practical": 36.0,
+   "Room \u00b7 rim amber": 216.0,
+   "Room \u00b7 rim teal": 252.0,
+   "Room \u00b7 soft key": 43.0
+  }
+ },
+ {
+  "id": "21",
+  "name": "Flash out",
+  "frame": 1198,
+  "world": 0.03,
+  "luma": 169.4,
+  "peak": 205.6,
+  "black": false,
+  "blown": false,
+  "cam": "CAM 21 Flash out",
+  "cam_loc": [
+   60.0,
+   -3.19,
+   1.3
+  ],
+  "lights": {
+   "Void key": 120.0
+  }
+ },
+ {
+  "id": "22",
+  "name": "Silence, black",
+  "frame": 1220,
+  "world": 0.03,
+  "luma": 0.7,
+  "peak": 255.0,
+  "black": true,
+  "blown": false,
+  "cam": "CAM 22 Silence, black",
+  "cam_loc": [
+   0.0,
+   -160.0,
+   1.3
+  ],
+  "lights": {}
+ },
+ {
   "id": "23",
   "name": "Emblem on",
   "frame": 1246,
   "world": 0.03,
-  "luma": 3.2,
-  "peak": 244.0,
+  "luma": 3.1,
+  "peak": 244.9,
   "black": false,
   "blown": false,
   "cam": "CAM 23 Emblem on",
@@ -99,7 +633,7 @@
   "frame": 1298,
   "world": 0.03,
   "luma": 1.4,
-  "peak": 242.0,
+  "peak": 241.5,
   "black": true,
   "blown": false,
   "cam": "CAM 24 Our endcard",
