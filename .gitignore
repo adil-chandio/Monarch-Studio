@@ -1,0 +1,58 @@
+# Generated compatibility/runtime and render output
+.runtime/
+.continuity-runtime/
+.continuity.lock
+build/
+**/build/
+out/
+dist/
+coverage/
+htmlcov/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# JavaScript/tool caches
+node_modules/
+.npm/
+.next/
+.vite/
+.turbo/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.netrc
+.git-credentials
+
+# Local editor metadata
+.idea/
+.vscode/
+
+# Rebuilt delivery masters belong on Drive, not in Git
+*_FINAL.mp4
+*_master.mp4
+master_*.mp4
