@@ -1,0 +1,48 @@
+name: Film pipeline selftest
+
+# Owner ka Kaggle/Colab run fail na ho, is liye har change par yahan (GPU ke bagair) poora
+# pipeline test hota hai: keyframes -> clips -> captions + voice + sound -> master.
+# Saath hi check hota hai ke notebooks/Monarch_Film_OneTap.ipynb generator se drift na kare.
+
+on:
+  push:
+    branches: [main, arena/3d8cfad7-monarch-studio]
+    paths:
+      - "tools/kaggle_stick_film.py"
+      - "tools/clip_film.py"
+      - "tools/make_film_notebook.py"
+      - "studio/films/stick-i2v/**"
+      - "cloud/t2v_jobs/stick-i2v.json"
+      - ".github/workflows/film-selftest.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Python deps
+        run: python -m pip install --disable-pip-version-check -q numpy pillow imageio-ffmpeg
+
+      - name: Notebook drift check
+        run: python tools/make_film_notebook.py --check
+
+      - name: Pipeline (3 scenes, GPU ke bagair)
+        run: python tools/kaggle_stick_film.py --selftest --only k01,k06,k12 --out /tmp/st
+
+      - name: Master verify
+        run: |
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 /tmp/st/monarch_stick_36s.mp4
+          test -s /tmp/st/receipts.json || true
+          ls -la /tmp/st

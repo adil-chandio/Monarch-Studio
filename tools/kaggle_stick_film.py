@@ -217,27 +217,81 @@ def show(master: pathlib.Path) -> None:
         pass
 
 
+def work_root(out: pathlib.Path) -> pathlib.Path:
+    """Kaggle -> /kaggle/working, Colab -> /content, warna out ke sath."""
+    for candidate in ("/kaggle/working", "/content"):
+        if pathlib.Path(candidate).is_dir():
+            return pathlib.Path(candidate)
+    return out.parent
+
+
+# --------------------------------------------------------------------------- #
+# selftest — GPU ke bagair poora pipeline (clips -> captions -> voice -> master)
+# --------------------------------------------------------------------------- #
+
+def selftest(scenes: list[dict], out: pathlib.Path, ffmpeg: str) -> dict:
+    """Har scene ki jagah keyframe se ek dummy clip banata hai, phir asli assembly.
+
+    Maqsad sirf yeh prove karna hai ke GPU wala run jo code chalayega woh yahan bhi chalta hai
+    (spec, captions, voice, sound bed, master export). Output ko film ki tarah deliver na karo.
+    """
+    clips = out / "clips"
+    clips.mkdir(parents=True, exist_ok=True)
+    for scene in scenes:
+        kf = ROOT / scene["image"]
+        clip = clips / f"{scene['id']}.mp4"
+        if clip.exists() and clip.stat().st_size > 20000:
+            continue
+        if not kf.exists():
+            raise SystemExit(f"keyframe nahi mila: {kf}")
+        sh([ffmpeg, "-y", "-loop", "1", "-i", str(kf), "-t", f"{float(scene.get('seconds', 3.0)):.3f}",
+            "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
+            "-r", "24", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast",
+            str(clip)])
+    master = assemble(clips, out)
+    expected = round(sum(float(s.get("seconds") or 3.0) for s in scenes), 2)
+    have = round(master.stat().st_size / 1e6, 2) if master and master.exists() else 0.0
+    return {"master": str(master) if master else None,
+            "duration": expected, "mb": have, "scenes": len(scenes)}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="kaggle_stick_film")
-    ap.add_argument("--out", default="/kaggle/working/stick")
-    ap.add_argument("--only", default="")
+    ap.add_argument("--out", default="", help="clips kahan (default: <work>/stick)")
+    ap.add_argument("--final", default="", help="master kahan (default: /kaggle/working ya /content)")
+    ap.add_argument("--only", default="", help="sirf yeh scenes, e.g. k01,k02")
     ap.add_argument("--no-assemble", action="store_true")
+    ap.add_argument("--selftest", action="store_true",
+                    help="GPU ke bagair pipeline check (dummy clips, asli assembly)")
     args = ap.parse_args(argv)
 
-    ensure_deps()
     job = json.loads(JOB.read_text())
-    out = pathlib.Path(args.out)
-    out.mkdir(parents=True, exist_ok=True)
     scenes = [s for s in job["scenes"] if not args.only or s["id"] in args.only.split(",")]
 
+    out = pathlib.Path(args.out) if args.out else work_root(pathlib.Path(".")) / "stick"
+    final = pathlib.Path(args.final) if args.final else work_root(out)
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.selftest:
+        import shutil as _sh
+
+        ffmpeg = _sh.which("ffmpeg")
+        if not ffmpeg:
+            raise SystemExit("ffmpeg chahiye selftest ke liye")
+        res = selftest(scenes, out, ffmpeg)
+        log(f"SELFTEST: {res}")
+        print(json.dumps(res, indent=2))
+        return 0 if res["master"] and res["duration"] > 0 else 1
+
+    ensure_deps()
     runner = Renderer(job)
     result = render_all(runner, scenes, out)
     log(f"clips: {result['ok']}/{len(scenes)}")
 
     master = None
     if not args.no_assemble:
-        master = assemble(out, pathlib.Path("/kaggle/working"))
-    final = pathlib.Path("/kaggle/working")
+        master = assemble(out, final)
+    final.mkdir(parents=True, exist_ok=True)
     if master and master.exists():
         target = final / master.name
         if target != master:
