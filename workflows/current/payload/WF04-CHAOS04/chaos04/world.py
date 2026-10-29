@@ -184,7 +184,11 @@ def corridor(origin=CORRIDOR):
                               rot=(math.radians(180), 0, 0)))
     for i in range(12):
         y = o.y - 0.6 - 1.9 * i
-        parts.append(bl.box(f"Corridor rib {i}", (o.x, y, 1.42), (2.7, 0.10, 2.85), m_steel))
+        # hollow ribs: two posts and a beam, never a slab across the walkway
+        for sx in (-1, 1):
+            parts.append(bl.box(f"Corridor rib {i}{sx}", (o.x + 1.26 * sx, y, 1.42),
+                                (0.16, 0.12, 2.84), m_steel))
+        parts.append(bl.box(f"Corridor rib {i}t", (o.x, y, 2.70), (2.68, 0.12, 0.16), m_steel))
     parts.append(bl.box("Corridor end", (o.x, o.y - 19.6, 1.4), (2.7, 0.2, 2.9),
                         bl.emission_material("Corridor end glow", "#DCF2EF", 40.0)))
     lights = {}

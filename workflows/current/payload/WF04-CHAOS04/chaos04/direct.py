@@ -202,17 +202,18 @@ SEGMENTS = [
          exposure=-1.0, lights={}),
     dict(id="23", start=1229, end=1264, set="endcard", name="Emblem on",
          char=None,
-         cam=dict(kind="lerp", p0=(-60.0, -1.45, 1.41), p1=(-60.0, -1.28, 1.41),
-                  t0=(-60.0, 2.0, 1.41), t1=(-60.0, 2.0, 1.41),
-                  lens0=70, lens1=70, fstop=2.8, focus=(-60, 2.0, 1.45), shake=0.0),
+         cam=dict(kind="lerp", p0=(-59.94, -1.55, 1.40), p1=(-59.94, -1.36, 1.40),
+                  t0=(-60.0, 2.0, 1.44), t1=(-60.0, 2.0, 1.44),
+                  lens0=62, lens1=62, fstop=2.8, focus=(-60, 2.0, 1.45), shake=0.0),
          exposure=-0.65, lights=dict(endcard_fill=7)),
     dict(id="24", start=1264, end=1333, set="endcard", name="Our endcard",
          char=None,
-         cam=dict(kind="lerp", p0=(-60.0, -3.48, 1.44), p1=(-60.0, -3.38, 1.44),
-                  t0=(-60.0, 2.0, 1.44), t1=(-60.0, 2.0, 1.44),
-                  lens0=70, lens1=70, fstop=2.8, focus=(-60, 2.0, 1.43), shake=0.0),
-         exposure=-0.65, lights=dict(endcard_fill=7)),
+         cam=dict(kind="lerp", p0=(-60.06, -2.45, 1.42), p1=(-60.06, -2.20, 1.42),
+                  t0=(-60.0, 2.0, 1.43), t1=(-60.0, 2.0, 1.43),
+                  lens0=54, lens1=54, fstop=2.8, focus=(-60, 2.0, 1.43), shake=0.0),
+         exposure=-0.55, lights=dict(endcard_fill=9)),
 ]
+
 
 assert sum(s["end"] - s["start"] for s in SEGMENTS) == 1332, \
     sum(s["end"] - s["start"] for s in SEGMENTS)
