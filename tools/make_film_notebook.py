@@ -41,7 +41,9 @@ Yeh notebook kya karta hai:
 2. `tools/kaggle_stick_film.py` chalata hai — 12 locked stickman keyframes se **asli video model**
    (Wan 2.2 image-to-video; T4 par na chale to LTX-Video 2B) se clips banata hai,
 3. un clips par **captions + voice + sound** laga kar 1080×1920 master jodta hai,
-4. video yahin notebook me dikhata hai — `monarch_stick_36s.mp4`.
+4. video yahin notebook me dikhata hai — `monarch_stick_36s.mp4`,
+5. saath hi **launch kit** banata hai: 11s teaser (Reels/Shorts), cover/thumbnail, `.srt` subtitles,
+   12-scene contact sheet, aur copy-paste caption (`kit.md`).
 
 Session toot jaye to dobara `Run all`: jo scene ban chuki hai, woh skip ho jayegi.
 """),
@@ -103,20 +105,37 @@ cmd = [sys.executable, str(repo / "tools/kaggle_stick_film.py"),
 print(" ".join(cmd), flush=True)
 subprocess.run(cmd)
 """),
-        md("### 4 · Video dekho"),
-        code("""#@title 4 · Master dikhao
-import pathlib
-from IPython.display import Video, display
+        md("""### 4 · Film + launch kit dekho
 
-master = pathlib.Path(base) / "monarch_stick_36s.mp4"
+Master ke saath kit bhi banti hai: **teaser** (11s hook cut), **cover** (thumbnail), **subtitles.srt**,
+**contact sheet** aur **kit.md** (caption + hashtags + beat sheet)."""),
+        code("""#@title 4 · Master + teaser + cover dikhao
+import pathlib
+from IPython.display import Image, Video, display
+
+base = pathlib.Path(base)
+master = base / "monarch_stick_36s.mp4"
+kit = base / "kit"
+
 if master.exists():
-    print(master, round(master.stat().st_size / 1e6, 1), "MB")
+    print("MASTER:", master.name, round(master.stat().st_size / 1e6, 1), "MB")
     display(Video(str(master), embed=False, width=420))
 else:
-    single = sorted(pathlib.Path(base / "test").glob("*.mp4")) if (pathlib.Path(base) / "test").exists() else []
-    print("poora master nahi bana. Jo clips bani hain:", single or "abhi koi nahi")
+    print("master nahi bana — cell 3 chalao")
+
+teaser = kit / "teaser_11s.mp4"
+if teaser.exists():
+    print("TEASER:", teaser.name, round(teaser.stat().st_size / 1e6, 1), "MB")
+    display(Video(str(teaser), embed=False, width=320))
+
+cover = kit / "cover.jpg"
+if cover.exists():
+    display(Image(filename=str(cover), width=320))
+
+if (kit / "kit.md").exists():
+    print((kit / "kit.md").read_text()[:1200])
 """),
-        md("### 5 · (Colab) Drive me save"),
+        md("### 5 · (Colab) Drive me save — film + kit"),
         code("""#@title 5 · Drive me copy (Colab)
 import pathlib, shutil
 
@@ -128,11 +147,15 @@ else:
         from google.colab import drive
         drive.mount('/content/drive', force_remount=False)
         dst = pathlib.Path('/content/drive/MyDrive/Monarch-T2V'); dst.mkdir(parents=True, exist_ok=True)
+        (dst / "kit").mkdir(exist_ok=True)
         shutil.copy2(master, dst / master.name)
+        kit = pathlib.Path(base) / "kit"
+        for f in kit.glob("*") if kit.exists() else []:
+            shutil.copy2(f, dst / "kit" / f.name)
         receipts = pathlib.Path(base) / "stick" / "receipts.json"
         if receipts.exists():
             shutil.copy2(receipts, dst / "stick_receipts.json")
-        print("Drive me:", dst / master.name)
+        print("Drive me:", dst / master.name, "+ kit/")
     except Exception as exc:
         print("Drive copy skip:", type(exc).__name__, exc)
 """),

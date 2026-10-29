@@ -10,6 +10,7 @@ on:
     paths:
       - "tools/kaggle_stick_film.py"
       - "tools/clip_film.py"
+      - "tools/film_factory.py"
       - "tools/make_film_notebook.py"
       - "studio/films/stick-i2v/**"
       - "cloud/t2v_jobs/stick-i2v.json"
@@ -41,8 +42,15 @@ jobs:
       - name: Pipeline (3 scenes, GPU ke bagair)
         run: python tools/kaggle_stick_film.py --selftest --only k01,k06,k12 --out /tmp/st
 
+      - name: Factory unit tests
+        run: python -m unittest tests.test_film_factory -v
+
       - name: Master verify
         run: |
           ffprobe -v error -show_entries format=duration,size -of default=nw=1 /tmp/st/monarch_stick_36s.mp4
           test -s /tmp/st/receipts.json || true
-          ls -la /tmp/st
+          ls -la /tmp/st /tmp/st/kit
+          test -s /tmp/st/kit/cover.jpg
+          test -s /tmp/st/kit/teaser_11s.mp4
+          test -s /tmp/st/kit/subtitles.srt
+          test -s /tmp/st/kit/contact.png

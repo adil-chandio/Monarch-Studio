@@ -33,6 +33,15 @@ def log(msg: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
+def hud(done: int, total: int, eta_min: float = -1) -> None:
+    """Film-set progress: ek nazar me kitna bacha hai."""
+    filled = round(12 * done / max(total, 1))
+    bar = "▓" * filled + "░" * (12 - filled)
+    tail = f" · ETA ~{eta_min:.0f} min" if eta_min >= 0 else ""
+    print(f"\n  🎬 SCENE {done}/{total}  {bar}  {round(100 * done / max(total, 1))}%{tail}\n",
+          flush=True)
+
+
 def sh(cmd, check=True):
     proc = subprocess.run(cmd if isinstance(cmd, list) else ["bash", "-lc", cmd],
                           capture_output=True, text=True)
@@ -146,7 +155,7 @@ class Renderer:
 def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
     from diffusers.utils import export_to_video
 
-    receipts, done = [], 0
+    receipts, done, avg = [], 0, 0.0
     for n, scene in enumerate(scenes, 1):
         clip = out / f"{scene['id']}.mp4"
         if clip.exists() and clip.stat().st_size > 20000:
@@ -154,7 +163,9 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
             continue
         kf = ROOT / scene["image"]
         started = time.time()
-        log(f"[{n}/{len(scenes)}] {scene['id']}: render ({runner.kind or 'load'})")
+        hud(n - 1, len(scenes), (avg * (len(scenes) - n + 1) / 60) if avg else -1)
+        log(f"[{n}/{len(scenes)}] {scene['id']} · {scene.get('caption', '')} · "
+            f"{scene.get('seconds', 3.0)}s · backend {runner.kind or 'load'}")
         for attempt in (1, 2):
             try:
                 frames = runner.render(scene, kf, scene.get("seconds", 3.0))
@@ -166,9 +177,11 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 receipts.append({"scene": scene["id"], "state": "ok",
                                  "backend": runner.kind, "seconds": round(dt)})
                 done += 1
-                if done == 1:
-                    eta = dt * (len(scenes) - n) / 60
-                    log(f"ETA baqi scenes ke liye: ~{eta:.0f} min")
+                avg = dt if not avg else (avg + dt) / 2
+                hud(n, len(scenes))
+                if dt > 60:
+                    log(f"{scene['id']}: {dt / 60:.1f} min · baqi ~"
+                        f"{avg * (len(scenes) - n) / 60:.0f} min")
                 break
             except Exception as exc:                   # noqa: BLE001
                 msg = f"{type(exc).__name__}: {str(exc)[:200]}"
@@ -217,6 +230,21 @@ def show(master: pathlib.Path) -> None:
         pass
 
 
+def show_kit(kit_dir: pathlib.Path) -> None:
+    try:
+        from IPython.display import Image, Video, display
+
+        teaser = kit_dir / "teaser_11s.mp4"
+        if teaser.exists():
+            log(f"TEASER: {teaser} ({teaser.stat().st_size / 1e6:.1f} MB)")
+            display(Video(str(teaser), embed=False, width=320))
+        cover = kit_dir / "cover.jpg"
+        if cover.exists():
+            display(Image(filename=str(cover), width=320))
+    except Exception:                                  # noqa: BLE001
+        pass
+
+
 def work_root(out: pathlib.Path) -> pathlib.Path:
     """Kaggle -> /kaggle/working, Colab -> /content, warna out ke sath."""
     for candidate in ("/kaggle/working", "/content"):
@@ -261,6 +289,8 @@ def main(argv=None) -> int:
     ap.add_argument("--final", default="", help="master kahan (default: /kaggle/working ya /content)")
     ap.add_argument("--only", default="", help="sirf yeh scenes, e.g. k01,k02")
     ap.add_argument("--no-assemble", action="store_true")
+    ap.add_argument("--title", default="Powerful Personality", help="cover/kit ka title")
+    ap.add_argument("--no-kit", action="store_true", help="sirf film, launch kit nahi")
     ap.add_argument("--selftest", action="store_true",
                     help="GPU ke bagair pipeline check (dummy clips, asli assembly)")
     args = ap.parse_args(argv)
@@ -279,9 +309,20 @@ def main(argv=None) -> int:
         if not ffmpeg:
             raise SystemExit("ffmpeg chahiye selftest ke liye")
         res = selftest(scenes, out, ffmpeg)
+        kit_ok = False
+        try:
+            import film_factory
+
+            receipt = film_factory.build(pathlib.Path(res["master"]), out / "clips",
+                                         out / "kit", args.title)
+            film_factory.card(receipt)
+            kit_ok = bool(receipt["kit"].get("cover.jpg") and receipt["kit"].get("subtitles.srt"))
+        except Exception as exc:                       # noqa: BLE001
+            log(f"selftest kit FAIL: {type(exc).__name__}: {str(exc)[:200]}")
+        res["kit"] = kit_ok
         log(f"SELFTEST: {res}")
         print(json.dumps(res, indent=2))
-        return 0 if res["master"] and res["duration"] > 0 else 1
+        return 0 if res["master"] and res["duration"] > 0 and kit_ok else 1
 
     ensure_deps()
     runner = Renderer(job)
@@ -297,6 +338,15 @@ def main(argv=None) -> int:
         if target != master:
             target.write_bytes(master.read_bytes())
         log(f"FINAL: {target}")
+        if not args.no_kit:
+            try:
+                import film_factory
+
+                receipt = film_factory.build(target, out, final / "kit", args.title)
+                film_factory.card(receipt)
+                show_kit(final / "kit")
+            except Exception as exc:                   # noqa: BLE001
+                log(f"launch kit fail (film theek hai): {type(exc).__name__}: {str(exc)[:160]}")
         show(target)
     print(json.dumps({"clips": result["ok"], "master": str(master) if master else None,
                       "receipts": str(out / 'receipts.json')}, indent=2))

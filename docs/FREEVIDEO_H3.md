@@ -132,3 +132,18 @@ CI check: `.github/workflows/film-selftest.yml` (drift + GPU-less pipeline test,
 
 **GitHub Actions par render nahi hota**: free runners me GPU nahi hai. Actions sirf yeh
 guarantee karta hai ke owner ka run tootega nahi (pipeline + assembly green).
+
+## Launch kit (mazedar part) — 2026-10-30
+
+Ek run me film ke sath upload-ready cheezein bhi banti hain (`tools/film_factory.py`):
+
+| file | kya hai |
+|---|---|
+| `teaser_11s.mp4` | 9:16 hook cut — asli clips se (k01/k03/k07/k12), bade captions, riser |
+| `cover.jpg` | 1080x1920 thumbnail — chalk type + gold rule, art ke text ke upar plate/blur |
+| `subtitles.srt` | scene captions, asli timings ke sath |
+| `contact.png` | 12 scenes ka sheet |
+| `kit.md` | hook + copy-paste caption + hashtags + beat sheet |
+| `premiere.json` | receipt |
+
+Render ke doran notebook me film-set HUD chalta hai: `🎬 SCENE 5/12 ▓▓▓▓▓░░░░░░░ 42% · ETA ~28 min`.
