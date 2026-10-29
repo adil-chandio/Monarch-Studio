@@ -22,7 +22,7 @@ from .bl import TAU, srgb
 
 ASSETS = Path(__file__).resolve().parent / "assets"
 
-SKIN = "#958C7E"            # palette swatch (hands, ears)
+SKIN = "#8A5F46"            # same tone as the v5 capture, so neck and hands match
 SKIN_CAPTURE = "#8A5F46"     # measured off the v5 capture (core mean 133,95,72)
 HAIR = "#2B2B2A"
 BLAZER = "#2B2B2A"
@@ -218,15 +218,12 @@ def build_head(mat_skin, mat_face):
         poly.use_smooth = True
     ob = bpy.data.objects.new("HEAD · Monarch v5", me)
     bpy.context.collection.objects.link(ob)
-    me.materials.append(mat_skin)      # slot 0: our modelled skin
-    me.materials.append(mat_face)      # slot 1: the locked v5 capture, front only
+    me.materials.append(mat_face)      # v5 capture blended into our modelled skin
 
-    # keep the capture on the face front; temples, jaw line and skull stay modelled
+    # one material for the whole head: the capture is blended by facing in the
+    # shader, so there is no mask ring where the two used to be stitched together
     for poly in me.polygons:
-        cz = sum(me.vertices[i].co.z for i in poly.vertices) / len(poly.vertices)
-        ny = poly.normal.y            # -1 = facing the lens, +1 = back of the skull
-        front = ny < 0.10 and 1.5480 < cz < 1.7420
-        poly.material_index = 1 if front else 0
+        poly.material_index = 0
 
     sub = ob.modifiers.new("Subdivision", "SUBSURF")
     sub.levels = 1
@@ -590,7 +587,8 @@ def build_character():
     m_face = bl.material("MONARCH skin · v5 projected", base=SKIN_CAPTURE, rough=0.52,
                          spec=0.30, sss=0.05, sss_radius=(0.9, 0.32, 0.2),
                          sss_scale=0.0035)
-    tex = bl.image_texture(m_face, ASSETS / "face_tex.png")
+    tex = bl.facing_mix(m_face, ASSETS / "face_tex.png", SKIN_CAPTURE,
+                        front=0.66, fade=0.18)
     tex.extension = "EXTEND"
     bl.bump_material(m_face, scale=2600, strength=0.09)
 
@@ -612,7 +610,7 @@ def build_character():
                           sheen=0.15)
 
     rig = build_rig()
-    head, neck, ears = build_head(m_face_skin, m_face)
+    head, neck, ears = build_head(m_face, m_face)
     hair = build_hair(m_hair, m_sheen)
     beard = build_beard(m_hair)
     body = build_body(rig, m_blazer, m_edge, m_shirt, m_trouser, m_skin, m_shoe,
