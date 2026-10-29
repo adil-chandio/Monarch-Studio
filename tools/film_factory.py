@@ -59,6 +59,7 @@ def run(cmd: list[str], check: bool = True) -> subprocess.CompletedProcess:
 
 def base_spec(clips_dir: pathlib.Path) -> dict:
     spec = json.loads(SPEC.read_text())
+    clips_dir = pathlib.Path(clips_dir).resolve()
     spec["clips"] = str(clips_dir)
     spec["voice_dir"] = str(VOICE)
     have = {p.stem for p in clips_dir.glob("*.mp4")}
@@ -301,21 +302,27 @@ def build(master: pathlib.Path, clips: pathlib.Path, out: pathlib.Path,
         got["teaser_11s.mp4"] = f"{t.stat().st_size / 1e6:.1f} MB" if t else ""
     except Exception as exc:                                   # noqa: BLE001
         log(f"teaser FAIL: {type(exc).__name__}: {str(exc)[:160]}")
+    def size_of(path: pathlib.Path) -> str:
+        if not path.exists():
+            return ""
+        mb = path.stat().st_size / 1e6
+        return f"{mb:.1f} MB" if mb >= 0.1 else f"{path.stat().st_size / 1e3:.0f} KB"
+
     for name, fn in (("cover.jpg", lambda: cover(master, out / "cover.jpg", title)),
                      ("subtitles.srt", lambda: subtitles(spec, out / "subtitles.srt")),
                      ("contact.png", lambda: contact(spec, out / "contact.png"))):
         try:
-            got[name] = str(fn())
+            got[name] = size_of(fn())
         except Exception as exc:                               # noqa: BLE001
             log(f"{name} FAIL: {type(exc).__name__}: {str(exc)[:160]}")
     try:
-        kit(out / "kit.md", title, spec, got)
-        got["kit.md"] = str(out / "kit.md")
+        got["kit.md"] = size_of(kit(out / "kit.md", title, spec, got))
     except Exception as exc:                                   # noqa: BLE001
         log(f"kit FAIL: {type(exc).__name__}: {str(exc)[:160]}")
 
     receipt = {"title": title, "master": str(master), "scenes": len(spec["scenes"]),
-               "kit": {k: v for k, v in got.items()}, "at": time.strftime("%Y-%m-%d %H:%M:%S")}
+               "kit": {k: v for k, v in got.items()}, "dir": str(out),
+               "at": time.strftime("%Y-%m-%d %H:%M:%S")}
     (out / "premiere.json").write_text(json.dumps(receipt, indent=1, ensure_ascii=False))
     return receipt
 

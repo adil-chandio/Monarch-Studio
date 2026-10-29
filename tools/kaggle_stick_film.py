@@ -201,6 +201,7 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
 def assemble(clips_dir: pathlib.Path, work: pathlib.Path) -> pathlib.Path | None:
     sys.path.insert(0, str(ROOT / "tools"))
     spec = json.loads(SPEC.read_text())
+    clips_dir = pathlib.Path(clips_dir).resolve()      # relative path kabhi na phanse
     spec["clips"] = str(clips_dir)
     spec["voice_dir"] = str(ROOT / "studio/films/personality-t2v/voice")
     available = {p.stem for p in clips_dir.glob("k*.mp4")}
