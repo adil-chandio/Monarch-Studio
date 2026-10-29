@@ -56,6 +56,7 @@ jobs:
           d = json.load(open(sys.argv[1]))
           print("CHUNKS=" + ";".join(d.get("chunks") or ["k01,k02,k03,k04", "k05,k06,k07,k08", "k09,k10,k11,k12"]))
           print("TITLE=" + (d.get("title") or "Powerful Personality"))
+          print("SPEC_USER=" + (d.get("user") or ""))
           PY
 
       - name: Kaggle creds
@@ -71,6 +72,7 @@ jobs:
           key = (os.environ.get("KAGGLE_KEY") or "").strip()
           blob = (os.environ.get("MONARCH") or "").strip()
 
+          user = user or (os.environ.get("SPEC_USER") or "").strip()
           if not (user and key) and blob:
               try:
                   data = json.loads(blob)
