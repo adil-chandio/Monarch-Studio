@@ -22,7 +22,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build"
 
 LIGHT_NAMES = ["door_glow", "rim_teal", "rim_amber", "practical", "key", "fill",
-               "corr0", "corr1", "corr2", "corr3", "corr4", "void_key", "endcard_fill"]
+               "rack_key", "floor_pool", "corr0", "corr1", "corr2", "corr3", "corr4",
+               "corr_fill", "corr_end", "void_key", "endcard_fill"]
 
 
 def clean_scene():
@@ -307,6 +308,11 @@ def main(argv):
     ef = bpy.data.objects.get("Endcard fill")
     if ef:
         lights["endcard_fill"] = ef
+    for key, name in (("rack_key", "Room · rack key"), ("floor_pool", "Room · floor pool"),
+                      ("corr_fill", "Corridor fill"), ("corr_end", "Corridor end glow")):
+        ob = bpy.data.objects.get(name)
+        if ob:
+            lights[key] = ob
 
     monarch = character.build_character()
     rig = monarch["rig"]

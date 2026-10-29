@@ -70,6 +70,14 @@ def room_lights(origin=ROOM):
     lights["fill"] = _light(
         "Room · floor bounce", "AREA", (o.x, o.y - 0.4, 0.06), 22,
         color="#7EA6A4", size=3.0, rot=(math.radians(180), 0, 0))  # faces up at the figure
+    # a hard little key for the steel rack, and a pool of light on the wet floor
+    lights["rack_key"] = _light(
+        "Room · rack key", "AREA", (o.x - 1.55, o.y + 0.25, 2.05), 260,
+        color="#CFE4E2", size=0.9, rot=(math.radians(58), 0, math.radians(-28)))
+    lights["floor_pool"] = _light(
+        "Room · floor pool", "SPOT", (o.x + 1.15, o.y + 0.35, 2.30), 420,
+        color="#FFD3A1", size=0.25, spread=math.radians(52),
+        rot=(math.radians(8), 0, math.radians(14)))
     return lights
 
 
@@ -82,7 +90,7 @@ def room(origin=ROOM, haze=True):
     bl.bump_material(m_wall, scale=90, strength=0.3, detail=5)
     m_trim = bl.material("Room steel", base="#24282A", rough=0.42, metal=0.85)
     m_neon = bl.emission_material("Room neon", RIM_TEAL, 9.0)
-    m_door = bl.emission_material("Room doorway", "#CFEDEA", 16.0)
+    m_door = bl.emission_material("Room doorway", "#CFEDEA", 7.0)
 
     parts = []
     parts.append(bl.plane("Floor", (o.x, o.y + 0.4, 0), (7.0, 6.4), m_floor))
@@ -107,7 +115,7 @@ def room(origin=ROOM, haze=True):
     parts.append(bl.box("Front wall", (o.x, o.y - 2.8, 1.7), (7.2, 0.18, 3.4), m_wall))
     parts.append(bl.box("Ceiling", (o.x, o.y + 0.4, 3.42), (7.2, 6.6, 0.16), m_wall))
     # door reveal + light box behind it
-    parts.append(bl.box("Door light", (o.x, o.y + 4.6, 1.3), (2.6, 0.1, 2.8), m_door))
+    parts.append(bl.box("Door light", (o.x, o.y + 3.15, 1.28), (1.18, 0.08, 2.30), m_door))
     for sx in (-1, 1):
         parts.append(bl.box(f"Door jamb {sx}", (o.x + (dw / 2 + 0.06) * sx, wall_y, 1.13),
                             (0.12, 0.34, 2.26), m_trim))
@@ -177,10 +185,16 @@ def corridor(origin=CORRIDOR):
     lights = {}
     for i in range(5):
         y = o.y - 1.4 - 2.6 * i
-        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 110,
+        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 620,
                                     color=RIM_TEAL if i % 2 else "#DFF3F0",
-                                    size=1.2, size_y=0.8,
+                                    size=1.5, size_y=1.1,
                                     rot=(0, 0, 0))     # -Z is down: light the floor
+    lights["corr_fill"] = _light(
+        "Corridor fill", "AREA", (o.x - 0.9, o.y - 1.2, 1.9), 500,
+        color="#DCEFEC", size=1.6, rot=(math.radians(66), 0, math.radians(64)))
+    lights["corr_end"] = _light(
+        "Corridor end glow", "AREA", (o.x, o.y - 19.0, 1.6), 900,
+        color="#DFF7F4", size=2.2, size_y=2.4, rot=(math.radians(-90), 0, 0))
     _haze_box("Corridor haze", (o.x, o.y - 7.5, 1.4), (2.6, 23.6, 2.7), 0.024)
     return parts, lights
 
