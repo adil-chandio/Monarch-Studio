@@ -1,4 +1,4 @@
-# CHAOS 04 look test (run 40825524918)
+# CHAOS 04 look test (run 40828133092)
 
 Rendered on GitHub's Ubuntu runner with the Blender 4.2 `bpy` wheel —
 CPU only, 360 × 640, 8 samples, denoised. Not the delivery master; this
