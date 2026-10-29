@@ -10,10 +10,14 @@ on:
   push:
     branches: [arena/faa9119c-monarch-studio]
     paths:
-      - ".github/workflows/chaos04-looktest.yml"
-      - "workflows/current/payload/WF04-CHAOS04/chaos04/**"
-      - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/**"
+      - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/run.flag"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "diag = one frame per segment, look = full stills + motion run"
+        default: diag
+        type: choice
+        options: [diag, look]
 
 permissions:
   contents: write
@@ -57,12 +61,21 @@ jobs:
           ls -l render/head
 
       - name: Endcard check
+        if: ${{ github.event.inputs.mode != 'diag' }}
         working-directory: workflows/current/payload/WF04-CHAOS04
         run: |
           python gpu/jobs/endcardtest.py -- build/chaos04.blend
           ls -l render/endcard
 
+      - name: One frame per segment
+        if: ${{ github.event.inputs.mode == 'diag' || github.event_name == 'push' }}
+        working-directory: workflows/current/payload/WF04-CHAOS04
+        run: |
+          python gpu/jobs/diag.py -- "$PWD" --samples 8
+          ls render/diag | head -40
+
       - name: Stills across the film
+        if: ${{ github.event.inputs.mode != 'diag' }}
         working-directory: workflows/current/payload/WF04-CHAOS04
         env:
           SHOTS: "240,300,420,470,500,530,560,620,700,780,800,900,1000,1060,1100,1200,1220,1240,1275,1300,1332"
@@ -72,6 +85,7 @@ jobs:
           cp render/progress.jsonl build/progress_stills.jsonl || true
 
       - name: Contiguous motion run (shots 05-06, 114 frames = 3.8 s)
+        if: ${{ github.event.inputs.mode != 'diag' }}
         working-directory: workflows/current/payload/WF04-CHAOS04
         run: |
           /usr/bin/time -f "MOTION %e s" python chaos04/render.py -- \
@@ -97,7 +111,8 @@ jobs:
           cp -v "$WF"/build/looktest_clip.mp4 "$OUT"/ 2>/dev/null || true
           cp -v "$WF"/build/progress_*.jsonl "$OUT"/ 2>/dev/null || true
           cp -v "$WF"/build/chaos04.manifest.json "$OUT"/ 2>/dev/null || true
-          mkdir -p "$OUT/frames" "$OUT/head"
+          mkdir -p "$OUT/frames" "$OUT/head" "$OUT/diag"
+          cp -v "$WF"/render/diag/*.png "$WF"/render/diag/report.json "$OUT/diag"/ 2>/dev/null || true
           cp -v "$WF"/render/look/*.png "$OUT/frames"/ 2>/dev/null || true
           cp -v "$WF"/render/head/*.png "$OUT/head"/ 2>/dev/null || true
           mkdir -p "$OUT/endcard"
