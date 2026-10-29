@@ -80,6 +80,12 @@ The owner works from a **phone**, through this agent. Never hand him CLI work.
   banata hai — 14 frames @384x640 ne ~30 min liye aur motion asli tha. Lekin 24 frames @432x768 4-core runner par
   OOM/timeout kha jata hai (12 me se 8 fail). Jo configs test hui hain: 16 frames @384x672/10 steps = reliable,
   is se bada = risky. Failure ka log `t2verr-<job>-<scene>` branch par aata hai (blob storage yahan blocked hai).
+- **DRIVE LINK SIRF PUBLIC HONE KE BAAD SHARE KARO.** Naya file upload karte waqt Drive par
+  default sirf owner ka permission hota hai; us halat me owner ke phone ke in-app browser me
+  "Document lookup failed. It is possible the document was deleted." aata hai (user is ko
+  toota hua link samajhta hai). Har deliverable par `make_public` (anyone / reader) chalao aur
+  `.../file/d/<id>/preview` wala link do — `/view?usp=drivesdk` mobile in-app browser me
+  sab se kam reliable hai.
 - **CLOUD BHI MERA KAAM HAI.** Sandbox se Google/HF/Kaggle band hain (000), lekin `github.com` khula hai — is
   liye GitHub Actions bridge hai: `cloud/jobs/<id>.json` push karo → runner render karta hai → result
   `cloud-artifacts` branch se `git fetch` hota hai (`tools/cloud_reel.py`, `docs/CLOUD_PIPELINE.md`). AI clip ke
