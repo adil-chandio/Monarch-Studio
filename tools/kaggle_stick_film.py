@@ -291,6 +291,8 @@ def main(argv=None) -> int:
     ap.add_argument("--no-assemble", action="store_true")
     ap.add_argument("--title", default="Powerful Personality", help="cover/kit ka title")
     ap.add_argument("--no-kit", action="store_true", help="sirf film, launch kit nahi")
+    ap.add_argument("--assemble-only", action="store_true",
+                    help="render skip — pehle se maujood clips se master + kit banao (CPU)")
     ap.add_argument("--selftest", action="store_true",
                     help="GPU ke bagair pipeline check (dummy clips, asli assembly)")
     args = ap.parse_args(argv)
@@ -324,10 +326,17 @@ def main(argv=None) -> int:
         print(json.dumps(res, indent=2))
         return 0 if res["master"] and res["duration"] > 0 and kit_ok else 1
 
-    ensure_deps()
-    runner = Renderer(job)
-    result = render_all(runner, scenes, out)
-    log(f"clips: {result['ok']}/{len(scenes)}")
+    if args.assemble_only:
+        have = sorted(p.stem for p in out.glob("*.mp4") if p.stat().st_size > 20000)
+        log(f"assemble-only: {len(have)} clips mile ({', '.join(have) or 'none'})")
+        if not have:
+            raise SystemExit(f"koi clip nahi mila: {out}")
+        result = {"ok": len(have)}
+    else:
+        ensure_deps()
+        runner = Renderer(job)
+        result = render_all(runner, scenes, out)
+        log(f"clips: {result['ok']}/{len(scenes)}")
 
     master = None
     if not args.no_assemble:

@@ -1,0 +1,117 @@
+name: Kaggle film (backend)
+
+# Owner ko kuch nahi karna: yeh workflow Kaggle par GPU chunks khud chalata hai (API se),
+# clips download karta hai, master + launch kit GitHub ke CPU par banata hai, aur deliverable
+# Release me daal deta hai. Phone band ho jaye tab bhi kaam chalta rehta hai.
+#
+# Ek dafa ka setup (owner): repo Settings > Secrets and variables > Actions me
+#   KAGGLE_USERNAME  = Kaggle username
+#   KAGGLE_KEY       = Kaggle API key (kaggle.json se, sirf key wala hissa)
+# Uske baad: Actions > "Kaggle film (backend)" > Run workflow. Bas.
+
+on:
+  workflow_dispatch:
+    inputs:
+      chunks:
+        description: "Scenes per chunk (semicolon se alag)"
+        required: false
+        default: "k01,k02,k03,k04;k05,k06,k07,k08;k09,k10,k11,k12"
+      title:
+        description: "Film/cover title"
+        required: false
+        default: "Powerful Personality"
+      assemble_only:
+        description: "true = render skip, sirf master+kit banao (pehle se clips hon to)"
+        required: false
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kaggle-film
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      TITLE: ${{ inputs.title }}
+      CHUNKS: ${{ inputs.chunks }}
+      POLL_MAX: "70"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Secrets check
+        run: |
+          if [ -z "${KAGGLE_USERNAME}" ] || [ -z "${KAGGLE_KEY}" ]; then
+            echo "::error::Setup baqi hai — repo Settings > Secrets and variables > Actions me KAGGLE_USERNAME aur KAGGLE_KEY add karo (Kaggle > Settings > API > Create New Token)."
+            exit 1
+          fi
+          echo "Kaggle user mil gaya: ${KAGGLE_USERNAME:0:3}***"
+
+      - name: Tools (ffmpeg + kaggle + deps)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          python -m pip install --disable-pip-version-check -q kaggle numpy pillow imageio-ffmpeg
+
+      - name: Kaggle chunks (GPU)
+        if: ${{ inputs.assemble_only != 'true' }}
+        run: bash scripts/kaggle_chunks.sh "$CHUNKS" clips
+
+      - name: Master + launch kit (CPU)
+        run: |
+          mkdir -p clips deliver
+          python tools/kaggle_stick_film.py --assemble-only \
+            --out clips --final deliver --title "$TITLE"
+
+      - name: Deliverable check
+        run: |
+          test -s deliver/monarch_stick_36s.mp4
+          test -s deliver/kit/cover.jpg
+          test -s deliver/kit/teaser_11s.mp4
+          du -sh deliver deliver/kit
+          {
+            echo "## 🎬 Film ready"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| master | \`monarch_stick_36s.mp4\` |"
+            echo "| size | $(du -h deliver/monarch_stick_36s.mp4 | cut -f1) |"
+            echo "| scenes | $(find clips -name 'k*.mp4' -size +20k | wc -l | tr -d ' ') |"
+            echo "| kit | $(ls deliver/kit | tr '\n' ' ') |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload deliverable
+        uses: actions/upload-artifact@v4
+        with:
+          name: monarch-film-${{ github.run_number }}
+          path: |
+            deliver/**
+            clips/**
+          retention-days: 14
+
+      - name: Release (owner ka download link)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="film-r${{ github.run_number }}"
+          gh release create "$tag" \
+            deliver/monarch_stick_36s.mp4 deliver/kit/*.mp4 deliver/kit/*.jpg \
+            deliver/kit/*.srt deliver/kit/*.png deliver/kit/*.md \
+            --title "Monarch film — run ${{ github.run_number }}" \
+            --notes "Master 36s 9:16 + launch kit (teaser, cover, subtitles, contact sheet, kit.md)." \
+            || gh release upload "$tag" deliver/monarch_stick_36s.mp4 --clobber
+          echo "Release: https://github.com/${{ github.repository }}/releases/tag/$tag"
+
+      - name: Fail if partial
+        if: ${{ hashFiles('deliver/monarch_stick_36s.mp4') == '' }}
+        run: exit 1
