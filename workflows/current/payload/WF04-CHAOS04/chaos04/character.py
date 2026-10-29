@@ -242,9 +242,9 @@ def build_head(mat_skin, mat_face):
     ears = []
     for s in (1, -1):
         e = bl.loft(f"Ear.{s}", [
-            ((0.0740 * s * HEAD_SCALE, 0.012, 1.6420), 0.006, 0.017),
-            ((0.0812 * s * HEAD_SCALE, 0.014, 1.6460), 0.004, 0.020),
-            ((0.0778 * s * HEAD_SCALE, 0.012, 1.6580), 0.003, 0.011),
+            ((0.0620 * s * HEAD_SCALE, 0.010, 1.6400), 0.007, 0.019),
+            ((0.0690 * s * HEAD_SCALE, 0.013, 1.6440), 0.005, 0.022),
+            ((0.0662 * s * HEAD_SCALE, 0.011, 1.6560), 0.004, 0.013),
         ], mat_skin, subsurf=1)
         ears.append(e)
     return ob, neck, ears
@@ -274,7 +274,7 @@ def build_hair(mat_hair, mat_sheen):
     def hairline_z(a):
         front = max(0.0, -math.sin(a))
         back = max(0.0, math.sin(a))
-        return 1.7480 + 0.006 * front - 0.052 * back
+        return 1.7185 + 0.004 * front - 0.0335 * back
 
     verts, faces = [], []
     for i in range(rows + 1):
@@ -286,7 +286,7 @@ def build_hair(mat_hair, mat_sheen):
             z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
             # thickness: zero at the apex, full over the skull, a touch more at the nape
-            thick = (0.0085 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            thick = (0.0125 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
             x = math.cos(a) * (rx + thick)
             y = math.sin(a) * (ry + thick) + dy
             verts.append((x, y, z + 0.002))
@@ -315,7 +315,7 @@ def build_hair(mat_hair, mat_sheen):
             back = max(0.0, math.sin(a))
             z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
-            thick = (0.0098 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            thick = (0.0138 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
             sweep = 0.006 * u * u * back
             x = math.cos(a) * (rx + thick) + sweep * 0.25
             y = math.sin(a) * (ry + thick) + dy + sweep
