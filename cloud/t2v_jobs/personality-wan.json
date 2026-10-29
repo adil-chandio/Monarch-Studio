@@ -98,5 +98,6 @@
       "seconds": 3.0,
       "frames": 49
     }
-  ]
+  ],
+  "batch": 2
 }
