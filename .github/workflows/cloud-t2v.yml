@@ -40,13 +40,17 @@ jobs:
           if [ -z "$JOB" ]; then JOB="quality-lab"; fi
           echo "selected job: [$JOB]"
           ONLY="${{ github.event.inputs.only }}"
+          if [ -z "$ONLY" ] && [ -f cloud/t2v_jobs/only ]; then
+            ONLY=$(tr '\n' ' ' < cloud/t2v_jobs/only | tr -s ' ')
+          fi
           python3 - "$JOB" "$ONLY" <<'PY' >> "$GITHUB_OUTPUT"
           import json, pathlib, sys
           job_id, only = sys.argv[1], sys.argv[2]
           data = json.loads(pathlib.Path(f"cloud/t2v_jobs/{job_id}.json").read_text())
           ids = [s["id"] for s in data["scenes"]]
           if only:
-              ids = [i for i in ids if i == only]
+              wanted = set(only.replace(",", " ").split())
+              ids = [i for i in ids if i in wanted]
           print(f"job_id={job_id}")
           print("matrix=" + json.dumps({"tag": [job_id], "scene": ids}))
           PY
