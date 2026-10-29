@@ -1,0 +1,133 @@
+name: CHAOS 04 production 1080x1920
+
+# Parallel chunks: each runner renders its frame range at 1080x1920, encodes a
+# crf-12 intermediate and hands it to the finalize job, which grades, adds the
+# measured strobe grid and our score, verifies the file and commits it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: "cycles samples"
+        default: "10"
+      chunk:
+        description: "frames per job"
+        default: "222"
+
+permissions:
+  contents: write
+
+env:
+  SAMPLES: ${{ github.event.inputs.samples || '10' }}
+  CHUNK: ${{ github.event.inputs.chunk || '222' }}
+  WF: workflows/current/payload/WF04-CHAOS04
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - { id: 0, start: 1,    end: 222 }
+          - { id: 1, start: 223,  end: 444 }
+          - { id: 2, start: 445,  end: 666 }
+          - { id: 3, start: 667,  end: 888 }
+          - { id: 4, start: 889,  end: 1110 }
+          - { id: 5, start: 1111, end: 1332 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: libs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libxrender1 libxi6 libxxf86vm1 libxfixes3 \
+            libgl1 libegl1 libsm6 libice6 libxkbcommon0 libxrandr2 libxinerama1 libgomp1
+          df -h / | tail -1
+      - name: deps
+        run: |
+          python -m pip install --upgrade pip -q
+          pip install -q "bpy==4.2.0" numpy imageio-ffmpeg
+      - name: build 1080x1920
+        working-directory: ${{ env.WF }}
+        run: |
+          python chaos04/build.py -- --out build/main.blend --width 1080 --height 1920 \
+            --samples ${{ env.SAMPLES }}
+      - name: render chunk ${{ matrix.id }}
+        working-directory: ${{ env.WF }}
+        run: |
+          /usr/bin/time -f "RENDER %e s" python chaos04/render.py -- \
+            --blend build/main.blend --out render/frames --samples ${{ env.SAMPLES }} \
+            --start ${{ matrix.start }} --end ${{ matrix.end }}
+          ls render/frames | wc -l
+      - name: encode chunk
+        working-directory: ${{ env.WF }}
+        run: |
+          python - <<'PY'
+          import imageio_ffmpeg, subprocess, pathlib
+          ff = imageio_ffmpeg.get_ffmpeg_exe()
+          out = pathlib.Path("render/chunks"); out.mkdir(parents=True, exist_ok=True)
+          dst = out / ("chunk_%03d.mp4" % ${{ matrix.id }})
+          subprocess.run([ff, "-y", "-hide_banner", "-loglevel", "error",
+                          "-framerate", "30", "-start_number", "${{ matrix.start }}",
+                          "-i", "render/frames/%04d.png",
+                          "-frames:v", "${{ matrix.end }}", "-c:v", "libx264",
+                          "-preset", "slow", "-crf", "12", "-pix_fmt", "yuv420p",
+                          "-x264-params", "keyint=30:min-keyint=1:scenecut=0",
+                          str(dst)], check=True)
+          print(dst, dst.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.id }}
+          path: ${{ env.WF }}/render/chunks/chunk_*.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+  finalize:
+    needs: render
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          merge-multiple: true
+          path: ${{ env.WF }}/render/chunks
+      - name: deps
+        run: |
+          sudo apt-get install -y -qq ffmpeg
+          pip install -q numpy imageio-ffmpeg
+      - name: score
+        working-directory: ${{ env.WF }}
+        run: python chaos04/score.py --out build/score_48k.wav
+      - name: finalize + verify
+        working-directory: ${{ env.WF }}
+        run: |
+          python gpu/jobs/finalize.py --chunks render/chunks \
+            --audio build/score_48k.wav \
+            --out build/CHAOS04_MASTER_1080x1920.mp4 \
+            --preview build/CHAOS04_PREVIEW_540x960.mp4
+          ls -l build/*.mp4 build/*.report.json
+      - name: publish
+        run: |
+          set -e
+          OUT=${{ env.WF }}/output/final
+          rm -rf "$OUT"; mkdir -p "$OUT"
+          cp -v "${{ env.WF }}"/build/CHAOS04_MASTER_1080x1920.mp4 "$OUT"/ || true
+          cp -v "${{ env.WF }}"/build/CHAOS04_PREVIEW_540x960.mp4 "$OUT"/ || true
+          cp -v "${{ env.WF }}"/build/*.report.json "$OUT"/ || true
+          cp -v "${{ env.WF }}"/build/score_48k.wav "$OUT"/ || true
+          du -sh "$OUT"
+          git config user.name chaos04-master; git config user.email master@monarch.studio
+          git add -f "$OUT"
+          git commit -m "master: 1080x1920, run $GITHUB_RUN_ID" || true
+          git push origin HEAD:${GITHUB_REF_NAME}
