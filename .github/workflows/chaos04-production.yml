@@ -5,6 +5,9 @@ name: CHAOS 04 production 1080x1920
 # measured strobe grid and our score, verifies the file and commits it.
 
 on:
+  push:
+    paths:
+      - "workflows/current/payload/WF04-CHAOS04/gpu/jobs/production.flag"
   workflow_dispatch:
     inputs:
       samples:
@@ -18,8 +21,7 @@ permissions:
   contents: write
 
 env:
-  SAMPLES: ${{ github.event.inputs.samples || '10' }}
-  CHUNK: ${{ github.event.inputs.chunk || '222' }}
+  SAMPLES: "10"
   WF: workflows/current/payload/WF04-CHAOS04
 
 jobs:
