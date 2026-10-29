@@ -222,6 +222,12 @@ def plane(name, center, size, mat, rot=(0, 0, 0)):
     sx, sy = size[0] / 2, size[1] / 2
     v = [(-sx, -sy, 0), (sx, -sy, 0), (sx, sy, 0), (-sx, sy, 0)]
     ob = mesh_object(name, v, [(0, 1, 2, 3)], mat, smooth=False)
+    # a 0..1 UV map, so an image texture on a plane actually shows
+    layer = ob.data.uv_layers.new(name="UVMap")
+    flat = []
+    for li in range(len(ob.data.loops)):
+        flat.extend(((0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0))[li % 4])
+    layer.data.foreach_set("uv", flat)
     ob.location = center
     ob.rotation_euler = Euler(rot)
     return ob

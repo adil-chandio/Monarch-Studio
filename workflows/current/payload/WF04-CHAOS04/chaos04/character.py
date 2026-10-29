@@ -369,10 +369,10 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
         ((0, 0.000, 1.280), 0.176, 0.113),
         ((0, -0.002, 1.330), 0.174, 0.111),
         ((0, -0.002, 1.368), 0.172, 0.110),
-        ((0, -0.001, 1.396), 0.158, 0.104),
-        ((0, 0.001, 1.420), 0.122, 0.090),
-        ((0, 0.003, 1.444), 0.080, 0.072),
-        ((0, 0.005, 1.462), 0.056, 0.055),
+        ((0, -0.001, 1.386), 0.160, 0.105),
+        ((0, 0.001, 1.406), 0.140, 0.098),
+        ((0, 0.003, 1.422), 0.106, 0.084),
+        ((0, 0.005, 1.436), 0.070, 0.066),
     ], mat_blazer, subsurf=2, close_start=True, close_end=False)
     bl.bump_material(mat_blazer, scale=1400, strength=0.12)
     parts.append(torso)
@@ -391,10 +391,10 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     # the open blazer front, as a patch that sits just proud of the chest:
     # a V of shirt with a lapel edge either side. No wrapping maths, no flaps.
     patch = [
-        (-0.086, -0.100, 1.446), (0.086, -0.100, 1.446),      # across the shoulders
-        (0.060, -0.106, 1.386), (-0.060, -0.106, 1.386),
-        (0.030, -0.110, 1.334), (-0.030, -0.110, 1.334),
-        (0.000, -0.113, 1.286),                                # the V point
+        (-0.050, -0.094, 1.428), (0.050, -0.094, 1.428),
+        (0.036, -0.101, 1.372), (-0.036, -0.101, 1.372),
+        (0.018, -0.106, 1.320), (-0.018, -0.106, 1.320),
+        (0.000, -0.109, 1.276),                                # the V point
     ]
     v = patch
     f = [(0, 1, 2, 3), (3, 2, 4, 5), (5, 4, 6)]
@@ -403,9 +403,9 @@ def build_body(rig, mat_blazer, mat_edge, mat_shirt, mat_trouser, mat_skin,
     sol.thickness = 0.004
     parts.append(vpatch)
     for sgn in (1, -1):
-        lap_v = [(0.086 * sgn, -0.100, 1.446), (0.104 * sgn, -0.096, 1.436),
-                 (0.070 * sgn, -0.104, 1.384), (0.048 * sgn, -0.108, 1.340),
-                 (0.014 * sgn, -0.112, 1.292)]
+        lap_v = [(0.050 * sgn, -0.094, 1.428), (0.074 * sgn, -0.090, 1.412),
+                 (0.048 * sgn, -0.100, 1.372), (0.030 * sgn, -0.105, 1.322),
+                 (0.010 * sgn, -0.108, 1.278)]
         lap_f = [(0, 1, 2, 3), (3, 2, 4)]
         lap = bl.mesh_object(f"Lapel.{sgn}", lap_v, lap_f, mat_lapel, smooth=True)
         sol2 = lap.modifiers.new("Solidify", "SOLIDIFY")

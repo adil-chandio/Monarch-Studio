@@ -177,7 +177,7 @@ def corridor(origin=CORRIDOR):
     lights = {}
     for i in range(5):
         y = o.y - 1.4 - 2.6 * i
-        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 70,
+        lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 110,
                                     color=RIM_TEAL if i % 2 else "#DFF3F0",
                                     size=1.2, size_y=0.8,
                                     rot=(math.radians(180), 0, 0))
