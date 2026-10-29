@@ -1,0 +1,254 @@
+[
+ {
+  "id": "01",
+  "name": "Room, push in",
+  "frame": 29,
+  "luma": 70.0,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "02",
+  "name": "Practical / floor",
+  "frame": 84,
+  "luma": 1.8,
+  "peak": 65.3,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "03",
+  "name": "Doorway glow",
+  "frame": 140,
+  "luma": 254.3,
+  "peak": 255.0,
+  "black": false,
+  "blown": true
+ },
+ {
+  "id": "04",
+  "name": "Rack / steel macro",
+  "frame": 195,
+  "luma": 0.0,
+  "peak": 0.0,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "05",
+  "name": "First silhouette",
+  "frame": 251,
+  "luma": 144.2,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "06",
+  "name": "Hand to lapel",
+  "frame": 308,
+  "luma": 47.3,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "07",
+  "name": "Back of the head",
+  "frame": 368,
+  "luma": 180.5,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "08",
+  "name": "Halo hero",
+  "frame": 444,
+  "luma": 135.8,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "09",
+  "name": "Eyes open",
+  "frame": 504,
+  "luma": 136.1,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "10",
+  "name": "Six arms",
+  "frame": 530,
+  "luma": 20.3,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "11",
+  "name": "Brood face",
+  "frame": 550,
+  "luma": 23.3,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "12",
+  "name": "Doorway, floor pool",
+  "frame": 571,
+  "luma": 43.9,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "13",
+  "name": "Neon doorway pull",
+  "frame": 599,
+  "luma": 169.3,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "14",
+  "name": "Corridor walk",
+  "frame": 674,
+  "luma": 0.0,
+  "peak": 0.0,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "15",
+  "name": "Spark whip",
+  "frame": 749,
+  "luma": 0.0,
+  "peak": 0.8,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "16",
+  "name": "Halo blur",
+  "frame": 777,
+  "luma": 0.0,
+  "peak": 0.0,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "17",
+  "name": "In frame",
+  "frame": 809,
+  "luma": 33.2,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "18",
+  "name": "Tendril macro",
+  "frame": 848,
+  "luma": 2.0,
+  "peak": 95.1,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "19",
+  "name": "Framed wide",
+  "frame": 927,
+  "luma": 1.2,
+  "peak": 58.6,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "20a",
+  "name": "Amber close",
+  "frame": 1006,
+  "luma": 132.0,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "20b",
+  "name": "Hand to lens",
+  "frame": 1036,
+  "luma": 97.6,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "20c",
+  "name": "White void",
+  "frame": 1060,
+  "luma": 138.0,
+  "peak": 183.6,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "20d",
+  "name": "Wide, small figure",
+  "frame": 1085,
+  "luma": 31.2,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "20e",
+  "name": "Strobe close",
+  "frame": 1141,
+  "luma": 142.4,
+  "peak": 255.0,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "21",
+  "name": "Flash out",
+  "frame": 1198,
+  "luma": 169.5,
+  "peak": 205.6,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "22",
+  "name": "Silence, black",
+  "frame": 1220,
+  "luma": 0.0,
+  "peak": 196.5,
+  "black": true,
+  "blown": false
+ },
+ {
+  "id": "23",
+  "name": "Emblem on",
+  "frame": 1246,
+  "luma": 4.1,
+  "peak": 243.6,
+  "black": false,
+  "blown": false
+ },
+ {
+  "id": "24",
+  "name": "Our endcard",
+  "frame": 1298,
+  "luma": 1.5,
+  "peak": 238.7,
+  "black": true,
+  "blown": false
+ }
+]
