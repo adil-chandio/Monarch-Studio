@@ -168,6 +168,18 @@ def bake_lights(scene, lights):
         bl.bake_curve(ob.data, "energy", 0, frames, energies[name], "CONSTANT")
 
 
+def bake_world(scene, default=0.030):
+    """Enclosed sets need a little ambient; the void wants a lot."""
+    frames, values = [], []
+    for seg in direct.SEGMENTS:
+        frames.append(seg["start"])
+        values.append(float(seg.get("world", default)))
+    frames.append(1333)
+    values.append(values[-1])
+    path = 'node_tree.nodes["Background"].inputs[1].default_value'
+    bl.bake_curve(scene.world, path, 0, frames, values, "CONSTANT")
+
+
 def bake_exposure(scene):
     frames, values = [], []
     for seg in direct.SEGMENTS:
@@ -343,6 +355,7 @@ def main(argv):
     bake_character(scene, rig)
     bake_lights(scene, lights)
     bake_exposure(scene)
+    bake_world(scene)
     camera.make_cameras(scene)
     compositor(scene)
 

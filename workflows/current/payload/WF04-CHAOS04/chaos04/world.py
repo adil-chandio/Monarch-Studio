@@ -177,6 +177,11 @@ def corridor(origin=CORRIDOR):
             y = o.y - 1.0 - 2.2 * i
             parts.append(bl.box(f"Corridor strip {sx}{i}", (o.x + 1.28 * sx, y, 1.55),
                                 (0.03, 0.06, 2.2), m_neon if sx < 0 else m_neon2))
+    m_panel = bl.emission_material("Corridor ceiling panel", "#E8FBFA", 26.0)
+    for i in range(9):
+        y = o.y - 1.6 - 2.0 * i
+        parts.append(bl.plane(f"Corridor panel {i}", (o.x, y, 2.78), (1.15, 1.15), m_panel,
+                              rot=(math.radians(180), 0, 0)))
     for i in range(12):
         y = o.y - 0.6 - 1.9 * i
         parts.append(bl.box(f"Corridor rib {i}", (o.x, y, 1.42), (2.7, 0.10, 2.85), m_steel))
