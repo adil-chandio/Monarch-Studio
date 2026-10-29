@@ -40,13 +40,17 @@ def clip_graph(scene: dict, spec: dict, seconds: float | None) -> str:
     fps = int(spec.get("fps", 24))
     grain = int(spec.get("grain", 6))
     trim = f"trim=duration={seconds:.3f},setpts=PTS-STARTPTS," if seconds else ""
+    # Wan ke clips bahut dark aate hain. Blunt brightness se blacks grey ho jate hain,
+    # is liye shadow lift + gamma (0.4/0.46 curve) use karte hain: detail khulti hai,
+    # black black rehta hai. Grain halka, vignette bhi halka.
     return (
         f"[0:v]{trim}"
         f"scale={width}:{height}:force_original_aspect_ratio=increase:flags=lanczos,"
         f"crop={width}:{height},setsar=1,fps={fps},"
-        f"eq=contrast=1.05:gamma=0.995:saturation=1.05,"
-        f"colorbalance=rs=-0.01:bs=0.008:rh=0.018:bh=-0.012,"
-        f"noise=alls={grain}:allf=t,vignette=PI/6.2,"
+        f"eq=contrast=1.04:gamma=1.10:brightness=0.04:saturation=1.05,"
+        f"curves=all='0/0.0 0.35/0.42 0.7/0.76 1/1',"
+        f"colorbalance=rs=-0.008:bs=0.01:rh=0.02:bh=-0.014,"
+        f"noise=alls={grain}:allf=t,vignette=PI/8.0,"
         f"format=yuv420p[v]"
     )
 
