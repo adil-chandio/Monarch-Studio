@@ -9,17 +9,17 @@ name: Kaggle film (backend)
 #   KAGGLE_KEY       = Kaggle API key (kaggle.json se)
 # Uske baad: Actions > "Kaggle film (backend)" > Run workflow.
 
+# Trigger: cloud/kaggle_jobs/*.json ka naya commit (agent isi tarah run shuru karta hai),
+# ya workflow_dispatch (jab yeh file main par ho).
 on:
+  push:
+    branches: [main, arena/3d8cfad7-monarch-studio]
+    paths:
+      - "cloud/kaggle_jobs/*.json"
+      - "scripts/kaggle_chunks.sh"
+      - "tools/make_kaggle_kernel.py"
+      - ".github/workflows/kaggle-film.yml"
   workflow_dispatch:
-    inputs:
-      chunks:
-        description: "Scenes per chunk (semicolon se alag)"
-        required: false
-        default: "k01,k02,k03,k04;k05,k06,k07,k08;k09,k10,k11,k12"
-      title:
-        description: "Film/cover title"
-        required: false
-        default: "Powerful Personality"
 
 permissions:
   contents: write
@@ -44,10 +44,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Inputs
+      - name: Job spec (cloud/kaggle_jobs)
         run: |
-          echo "CHUNKS=${{ github.event.inputs.chunks }}" >> "$GITHUB_ENV"
-          echo "TITLE=${{ github.event.inputs.title }}" >> "$GITHUB_ENV"
+          SPEC=$(ls -t cloud/kaggle_jobs/*.json | head -1)
+          echo "spec: $SPEC"
+          python - "$SPEC" >> "$GITHUB_ENV" <<'PY'
+          import json, sys
+          d = json.load(open(sys.argv[1]))
+          print("CHUNKS=" + ";".join(d.get("chunks") or ["k01,k02,k03,k04", "k05,k06,k07,k08", "k09,k10,k11,k12"]))
+          print("TITLE=" + (d.get("title") or "Powerful Personality"))
+          PY
 
       - name: Secrets check
         run: |
