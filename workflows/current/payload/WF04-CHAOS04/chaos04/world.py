@@ -164,8 +164,8 @@ def corridor(origin=CORRIDOR):
     o = origin
     m_floor = bl.material("Corridor floor", base="#101314", rough=0.13, spec=0.7, metal=0.1)
     m_wall = bl.material("Corridor wall", base="#191B1C", rough=0.7, metal=0.15)
-    m_neon = bl.emission_material("Corridor neon", RIM_TEAL, 10.0)
-    m_neon2 = bl.emission_material("Corridor neon amber", RIM_AMBER, 7.0)
+    m_neon = bl.emission_material("Corridor neon", RIM_TEAL, 22.0)
+    m_neon2 = bl.emission_material("Corridor neon amber", RIM_AMBER, 16.0)
     m_steel = bl.material("Corridor steel", base="#26292B", rough=0.38, metal=0.9)
     parts = []
     parts.append(bl.plane("Corridor floor", (o.x, o.y - 7.5, 0), (2.6, 24.0), m_floor))
@@ -177,7 +177,7 @@ def corridor(origin=CORRIDOR):
             y = o.y - 1.0 - 2.2 * i
             parts.append(bl.box(f"Corridor strip {sx}{i}", (o.x + 1.28 * sx, y, 1.55),
                                 (0.03, 0.06, 2.2), m_neon if sx < 0 else m_neon2))
-    m_panel = bl.emission_material("Corridor ceiling panel", "#E8FBFA", 26.0)
+    m_panel = bl.emission_material("Corridor ceiling panel", "#E8FBFA", 70.0)
     for i in range(9):
         y = o.y - 1.6 - 2.0 * i
         parts.append(bl.plane(f"Corridor panel {i}", (o.x, y, 2.78), (1.15, 1.15), m_panel,
@@ -186,7 +186,7 @@ def corridor(origin=CORRIDOR):
         y = o.y - 0.6 - 1.9 * i
         parts.append(bl.box(f"Corridor rib {i}", (o.x, y, 1.42), (2.7, 0.10, 2.85), m_steel))
     parts.append(bl.box("Corridor end", (o.x, o.y - 19.6, 1.4), (2.7, 0.2, 2.9),
-                        bl.emission_material("Corridor end glow", "#DCF2EF", 12.0)))
+                        bl.emission_material("Corridor end glow", "#DCF2EF", 40.0)))
     lights = {}
     for i in range(5):
         y = o.y - 1.4 - 2.6 * i

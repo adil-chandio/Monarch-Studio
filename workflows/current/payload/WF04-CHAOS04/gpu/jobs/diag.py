@@ -31,8 +31,17 @@ def main(argv):
     scene = bpy.context.scene
     scene.cycles.samples = samples
 
+    only = None
+    only_file = work / "gpu/jobs/diag.only"
+    if only_file.exists():
+        ids = {x.strip() for x in only_file.read_text().replace(",", " ").split() if x.strip()}
+        only = ids or None
+        print("DIAG ONLY " + ",".join(sorted(only)), flush=True)
+
     rows = []
     for seg in direct.SEGMENTS:
+        if only and seg["id"] not in only:
+            continue
         f = (seg["start"] + seg["end"]) // 2
         scene.frame_set(f)
         path = out / f"{seg['id']}_{f:04d}.png"
@@ -45,7 +54,8 @@ def main(argv):
         cam = scene.camera
         lights = {ob.name: round(ob.data.energy, 1)
                   for ob in bpy.data.objects if ob.type == "LIGHT"}
-        rows.append(dict(id=seg["id"], name=seg["name"], frame=f,
+        world = scene.world.node_tree.nodes["Background"].inputs[1].default_value
+        rows.append(dict(id=seg["id"], name=seg["name"], frame=f, world=round(float(world), 3),
                          luma=round(luma, 1), peak=round(peak, 1),
                          black=luma < 3.0, blown=luma > 235.0,
                          cam=cam.name if cam else None,

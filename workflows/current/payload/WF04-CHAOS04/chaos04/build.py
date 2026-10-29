@@ -168,16 +168,26 @@ def bake_lights(scene, lights):
         bl.bake_curve(ob.data, "energy", 0, frames, energies[name], "CONSTANT")
 
 
-def bake_world(scene, default=0.030):
-    """Enclosed sets need a little ambient; the void wants a lot."""
-    frames, values = [], []
+def bake_world(scene, default=0.030, default_color="#0A1216"):
+    """Ambient bounce per set: the corridor needs real fill, the void needs a lot."""
+    frames, strengths = [], []
+    cols = {0: [], 1: [], 2: []}
     for seg in direct.SEGMENTS:
         frames.append(seg["start"])
-        values.append(float(seg.get("world", default)))
+        strengths.append(float(seg.get("world", default)))
+        hexs = seg.get("world_color", default_color).lstrip("#")
+        rgb = [int(hexs[i:i + 2], 16) / 255.0 for i in (0, 2, 4)]
+        rgb = [(c / 12.92) * 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in rgb]
+        for i in range(3):
+            cols[i].append(rgb[i])
     frames.append(1333)
-    values.append(values[-1])
-    path = 'node_tree.nodes["Background"].inputs[1].default_value'
-    bl.bake_curve(scene.world, path, 0, frames, values, "CONSTANT")
+    strengths.append(strengths[-1])
+    for i in range(3):
+        cols[i].append(cols[i][-1])
+    base = 'node_tree.nodes["Background"].inputs[%d].default_value'
+    bl.bake_curve(scene.world, base % 1, 0, frames, strengths, "CONSTANT")
+    for i in range(3):
+        bl.bake_curve(scene.world, base % 0, i, frames, cols[i], "CONSTANT")
 
 
 def bake_exposure(scene):
