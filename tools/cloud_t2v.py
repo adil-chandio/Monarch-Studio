@@ -248,7 +248,7 @@ def _load_image(scene: dict) -> "object":
 def generate_wan22_i2v(scene: dict, job: dict, work: pathlib.Path) -> pathlib.Path:
     """Wan 2.2 TI2V-5B — image-to-video (stickman keyframe se asli motion)."""
     import torch
-    from diffusers import AutoencoderKLWan, WanPipeline
+    from diffusers import AutoencoderKLWan
 
     cfg = DEFAULTS["wan22_i2v"]
     model = pick(scene, job, "model", cfg["model"])
@@ -263,8 +263,11 @@ def generate_wan22_i2v(scene: dict, job: dict, work: pathlib.Path) -> pathlib.Pa
     height -= height % 32
     log(f"wan22_i2v {model}: {width}x{height} {frames}f {steps} steps (image conditioning)")
 
+    # NOTE: WanPipeline (T2V) `image=` nahi leta — I2V ke liye WanImageToVideoPipeline lazmi hai.
+    from diffusers import WanImageToVideoPipeline
+
     vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=torch.float32)
-    pipe = WanPipeline.from_pretrained(model, vae=vae, torch_dtype=torch.bfloat16)
+    pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=torch.bfloat16)
     pipe.set_progress_bar_config(disable=True)
     pipe.vae.enable_slicing()
 
