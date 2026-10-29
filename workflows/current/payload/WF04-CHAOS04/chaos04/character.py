@@ -230,13 +230,12 @@ def build_head(mat_skin, mat_face):
     sub.render_levels = 2
 
     neck = bl.loft("Neck", [
-        ((0, 0.006, 1.368), 0.094, 0.078),
-        ((0, 0.006, 1.392), 0.082, 0.069),
-        ((0, 0.006, 1.434), 0.068, 0.058),
-        ((0, 0.004, 1.462), 0.060, 0.052),
-        ((0, 0.002, 1.492), 0.058, 0.052),
-        ((0, 0.000, 1.530), 0.062, 0.056),
-        ((0, -0.002, 1.552), 0.064, 0.058),
+        ((0, 0.006, 1.368), 0.092, 0.076),
+        ((0, 0.006, 1.402), 0.072, 0.062),
+        ((0, 0.004, 1.440), 0.058, 0.051),
+        ((0, 0.002, 1.482), 0.050, 0.045),
+        ((0, 0.000, 1.516), 0.047, 0.043),
+        ((0, -0.002, 1.548), 0.049, 0.045),
     ], mat_skin, subsurf=1, close_start=False)
     ears = []
     for s in (1, -1):
@@ -285,7 +284,7 @@ def build_hair(mat_hair, mat_sheen):
             z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
             # thickness: zero at the apex, full over the skull, a touch more at the nape
-            thick = (0.0125 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            thick = (0.0125 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8 * (1.0 - 0.62 * t ** 2.4)
             x = math.cos(a) * (rx + thick)
             y = math.sin(a) * (ry + thick) + dy
             verts.append((x, y, z + 0.002))
@@ -314,7 +313,7 @@ def build_hair(mat_hair, mat_sheen):
             back = max(0.0, math.sin(a))
             z = bl.lerp(Z_CROWN, hairline_z(a), t ** 0.92)
             rx, ry, dy = skull(z)
-            thick = (0.0138 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8
+            thick = (0.0138 + 0.0050 * back) * math.sin(min(1.0, t * 1.9) * math.pi / 2) ** 0.8 * (1.0 - 0.62 * t ** 2.4)
             sweep = 0.006 * u * u * back
             x = math.cos(a) * (rx + thick) + sweep * 0.25
             y = math.sin(a) * (ry + thick) + dy + sweep
@@ -598,8 +597,8 @@ def build_character():
                          sss=0.05, sss_scale=0.003)
     m_face_skin = bl.material("MONARCH skin · capture tone", base=SKIN_CAPTURE,
                               rough=0.50, spec=0.32, sss=0.05, sss_scale=0.003)
-    m_hair = bl.material("MONARCH hair", base="#141414", rough=0.62, spec=0.18, sheen=0.14)
-    m_sheen = bl.material("MONARCH hair sheen", base="#101010", rough=0.55, spec=0.26)
+    m_hair = bl.material("MONARCH hair", base="#101010", rough=0.78, spec=0.06, sheen=0.0)
+    m_sheen = bl.material("MONARCH hair sheen", base="#0C0C0C", rough=0.70, spec=0.10)
     m_blazer = bl.material("MONARCH blazer", base="#1E1E1D", rough=0.80, spec=0.24,
                            sheen=0.18)
     m_edge = bl.material("MONARCH blazer edge", base=BLAZER_EDGE, rough=0.62, spec=0.4,
