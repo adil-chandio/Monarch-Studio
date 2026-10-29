@@ -42,12 +42,28 @@ DEFAULTS = {
         "steps": 20,
         "guidance": 3.0,
     },
+    "wan22_i2v": {
+        "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+        "raw_fps": 24,
+        "steps": 24,
+        "guidance": 5.0,
+    },
+    "ltx_i2v": {
+        "model": "Lightricks/LTX-Video",
+        "raw_fps": 24,
+        "steps": 24,
+        "guidance": 3.0,
+    },
 }
 
 NEGATIVE = {
     "animatediff": "blurry, low quality, watermark, text, static image, deformed face, extra limbs, cartoon, anime",
     "wan": "blurry, low quality, watermark, text, static, overexposed, cartoon, anime, deformed face, extra limbs",
     "ltx": "worst quality, inconsistent motion, blurry, jittery, distorted, watermark, text, cartoon",
+    "wan22_i2v": "blurry, low quality, watermark, text, static, overexposed, deformed, extra limbs, "
+                 "wobbly lines, melting, morphing",
+    "ltx_i2v": "worst quality, inconsistent motion, blurry, jittery, distorted, watermark, text, "
+               "melting, morphing",
 }
 
 
@@ -214,7 +230,106 @@ def generate_ltx(scene: dict, job: dict, work: pathlib.Path) -> pathlib.Path:
     return export(result, work / "raw.mp4", int(pick(scene, job, "raw_fps", cfg["raw_fps"])))
 
 
+def _load_image(scene: dict) -> "object":
+    """Keyframe image (stickman PNG) — I2V ka pehla frame."""
+    from diffusers.utils import load_image
+
+    path = scene.get("image")
+    if not path:
+        raise ValueError(f"{scene['id']}: 'image' chahiye I2V ke liye")
+    p = pathlib.Path(path)
+    if not p.is_absolute():
+        p = pathlib.Path(__file__).resolve().parent.parent / p
+    if not p.exists():
+        raise FileNotFoundError(f"keyframe nahi mila: {p}")
+    return load_image(str(p))
+
+
+def generate_wan22_i2v(scene: dict, job: dict, work: pathlib.Path) -> pathlib.Path:
+    """Wan 2.2 TI2V-5B — image-to-video (stickman keyframe se asli motion)."""
+    import torch
+    from diffusers import AutoencoderKLWan, WanPipeline
+
+    cfg = DEFAULTS["wan22_i2v"]
+    model = pick(scene, job, "model", cfg["model"])
+    image = _load_image(scene)
+    width = int(pick(scene, job, "width", 480))
+    height = int(pick(scene, job, "height", 832))
+    frames = int(pick(scene, job, "frames", 49))
+    steps = int(pick(scene, job, "steps", cfg["steps"]))
+    if (frames - 1) % 4:
+        frames = ((frames - 1) // 4) * 4 + 1
+    width -= width % 32
+    height -= height % 32
+    log(f"wan22_i2v {model}: {width}x{height} {frames}f {steps} steps (image conditioning)")
+
+    vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=torch.float32)
+    pipe = WanPipeline.from_pretrained(model, vae=vae, torch_dtype=torch.bfloat16)
+    pipe.set_progress_bar_config(disable=True)
+    pipe.vae.enable_slicing()
+
+    prompt = ", ".join(x for x in (scene["prompt"], job.get("style", "")) if x)
+    t0 = time.time()
+    with torch.no_grad():
+        result = pipe(
+            prompt=prompt,
+            negative_prompt=pick(scene, job, "negative", NEGATIVE["wan22_i2v"]),
+            image=image.resize((width, height)),
+            height=height,
+            width=width,
+            num_frames=frames,
+            num_inference_steps=steps,
+            guidance_scale=float(pick(scene, job, "guidance", cfg["guidance"])),
+            generator=torch.Generator("cpu").manual_seed(int(scene.get("seed", 7))),
+        ).frames[0]
+    log(f"{scene['id']}: {len(result)} frames in {time.time() - t0:.0f}s")
+    return export(result, work / "raw.mp4", int(pick(scene, job, "raw_fps", cfg["raw_fps"])))
+
+
+def generate_ltx_i2v(scene: dict, job: dict, work: pathlib.Path) -> pathlib.Path:
+    """LTX-Video image-to-video — halka (2B), T4 par tez."""
+    import torch
+    from diffusers import LTXImageToVideoPipeline
+
+    cfg = DEFAULTS["ltx_i2v"]
+    model = pick(scene, job, "model", cfg["model"])
+    image = _load_image(scene)
+    width = int(pick(scene, job, "width", 480))
+    height = int(pick(scene, job, "height", 832))
+    frames = int(pick(scene, job, "frames", 73))
+    steps = int(pick(scene, job, "steps", cfg["steps"]))
+    if (frames - 1) % 8:
+        frames = ((frames - 1) // 8) * 8 + 1
+    width -= width % 32
+    height -= height % 32
+    log(f"ltx_i2v {model}: {width}x{height} {frames}f {steps} steps")
+
+    pipe = LTXImageToVideoPipeline.from_pretrained(model, torch_dtype=torch.bfloat16)
+    pipe.set_progress_bar_config(disable=True)
+
+    prompt = ", ".join(x for x in (scene["prompt"], job.get("style", "")) if x)
+    t0 = time.time()
+    with torch.no_grad():
+        result = pipe(
+            image=image.resize((width, height)),
+            prompt=prompt,
+            negative_prompt=pick(scene, job, "negative", NEGATIVE["ltx_i2v"]),
+            height=height,
+            width=width,
+            num_frames=frames,
+            num_inference_steps=steps,
+            guidance_scale=float(pick(scene, job, "guidance", cfg["guidance"])),
+            decode_timestep=0.03,
+            decode_noise_scale=0.025,
+            generator=torch.Generator("cpu").manual_seed(int(scene.get("seed", 7))),
+        ).frames[0]
+    log(f"{scene['id']}: {len(result)} frames in {time.time() - t0:.0f}s")
+    return export(result, work / "raw.mp4", int(pick(scene, job, "raw_fps", cfg["raw_fps"])))
+
+
 BACKENDS = {
+    "wan22_i2v": generate_wan22_i2v,
+    "ltx_i2v": generate_ltx_i2v,
     "animatediff": generate_animatediff,
     "wan": generate_wan,
     "ltx": generate_ltx,
