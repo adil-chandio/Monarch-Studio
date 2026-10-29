@@ -118,3 +118,17 @@ Cell (Kaggle notebook, Accelerator = GPU T4 x2, Internet = On):
 ```
 
 Pehla test: `--only k01` laga kar ek scene chalao, phir poora.
+
+## Ek-tap notebook (owner ke liye) — 2026-10-30
+
+Link (phone par bhi khulta hai), bas **Run all**:
+
+https://colab.research.google.com/github/adil-chandio/Monarch-Studio/blob/arena/3d8cfad7-monarch-studio/notebooks/Monarch_Film_OneTap.ipynb
+
+Wohi notebook Kaggle par bhi chalti hai (clone + `tools/kaggle_stick_film.py`).
+
+Notebook generated hai: `tools/make_film_notebook.py` -> `notebooks/Monarch_Film_OneTap.ipynb`.
+CI check: `.github/workflows/film-selftest.yml` (drift + GPU-less pipeline test, ~1 min).
+
+**GitHub Actions par render nahi hota**: free runners me GPU nahi hai. Actions sirf yeh
+guarantee karta hai ke owner ka run tootega nahi (pipeline + assembly green).
