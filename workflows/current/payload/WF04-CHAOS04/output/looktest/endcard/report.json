@@ -159,11 +159,11 @@
  "frame 1240": {
   "camera": "CAM 23 Emblem on",
   "cam_loc": [
-   -60.0,
-   -1.419,
-   1.41
+   -59.94,
+   -1.515,
+   1.4
   ],
-  "cam_lens": 70.0,
+  "cam_lens": 62.0,
   "view_layer": "ViewLayer",
   "objects": {
    "Monarch emblem": {
@@ -198,11 +198,11 @@
  "frame 1275": {
   "camera": "CAM 24 Our endcard",
   "cam_loc": [
-   -60.0,
-   -3.477,
-   1.44
+   -60.06,
+   -2.442,
+   1.42
   ],
-  "cam_lens": 70.0,
+  "cam_lens": 54.0,
   "view_layer": "ViewLayer",
   "objects": {
    "Monarch emblem": {
@@ -237,11 +237,11 @@
  "frame 1300": {
   "camera": "CAM 24 Our endcard",
   "cam_loc": [
-   -60.0,
-   -3.426,
-   1.44
+   -60.06,
+   -2.315,
+   1.42
   ],
-  "cam_lens": 70.0,
+  "cam_lens": 54.0,
   "view_layer": "ViewLayer",
   "objects": {
    "Monarch emblem": {
@@ -276,11 +276,11 @@
  "frame 1332": {
   "camera": "CAM 24 Our endcard",
   "cam_loc": [
-   -60.0,
-   -3.38,
-   1.44
+   -60.06,
+   -2.2,
+   1.42
   ],
-  "cam_lens": 70.0,
+  "cam_lens": 54.0,
   "view_layer": "ViewLayer",
   "objects": {
    "Monarch emblem": {
