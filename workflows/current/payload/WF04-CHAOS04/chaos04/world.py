@@ -69,7 +69,7 @@ def room_lights(origin=ROOM):
         color="#D8E6E4", size=2.4, rot=(math.radians(-64), 0, math.radians(-20)))
     lights["fill"] = _light(
         "Room · floor bounce", "AREA", (o.x, o.y - 0.4, 0.06), 22,
-        color="#7EA6A4", size=3.0, rot=(math.radians(180), 0, 0))
+        color="#7EA6A4", size=3.0, rot=(math.radians(180), 0, 0))  # faces up at the figure
     return lights
 
 
@@ -180,7 +180,7 @@ def corridor(origin=CORRIDOR):
         lights[f"corr{i}"] = _light(f"Corridor light {i}", "AREA", (o.x, y, 2.70), 110,
                                     color=RIM_TEAL if i % 2 else "#DFF3F0",
                                     size=1.2, size_y=0.8,
-                                    rot=(math.radians(180), 0, 0))
+                                    rot=(0, 0, 0))     # -Z is down: light the floor
     _haze_box("Corridor haze", (o.x, o.y - 7.5, 1.4), (2.6, 23.6, 2.7), 0.024)
     return parts, lights
 
