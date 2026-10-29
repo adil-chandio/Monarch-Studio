@@ -18,6 +18,9 @@ on:
       - "cloud/kaggle_jobs/*.json"
       - "scripts/kaggle_chunks.sh"
       - "tools/make_kaggle_kernel.py"
+      - "tools/kaggle_stick_film.py"
+      - "tools/film_factory.py"
+      - "tools/clip_film.py"
       - ".github/workflows/kaggle-film.yml"
   workflow_dispatch:
 
