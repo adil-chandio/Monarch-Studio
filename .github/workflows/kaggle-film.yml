@@ -62,44 +62,75 @@ jobs:
       - name: Kaggle creds
         env:
           MONARCH: ${{ secrets.MONARCH }}
+          USER_SECRET: ${{ secrets.KAGGLE_USERNAME }}
+          KEY_SECRET: ${{ secrets.KAGGLE_KEY }}
         run: |
-          # Do shakl chalte hain: (1) KAGGLE_USERNAME + KAGGLE_KEY, (2) ek hi secret MONARCH
-          # jisme poora kaggle.json ho ya "username:key".
-          python - >> "$GITHUB_ENV" <<'PY'
-          import json, os
+          # Teen shaklein chalti hain:
+          #   1) MONARCH me naya API token (KGAT_...)  -> KAGGLE_API_TOKEN
+          #   2) MONARCH me poora kaggle.json          -> username + key
+          #   3) KAGGLE_USERNAME + KAGGLE_KEY          -> username + key
+          python - <<'PY'
+          import json, os, pathlib
 
-          user = (os.environ.get("KAGGLE_USERNAME") or "").strip()
-          key = (os.environ.get("KAGGLE_KEY") or "").strip()
           blob = (os.environ.get("MONARCH") or "").strip()
+          user = (os.environ.get("USER_SECRET") or "").strip()
+          key = (os.environ.get("KEY_SECRET") or "").strip()
+          token = ""
+          lines = []
 
-          user = user or (os.environ.get("SPEC_USER") or "").strip()
-          if not (user and key) and blob:
+          def mask(value):
+              if value:
+                  print(f"::add-mask::{value}", flush=True)
+
+          if blob:
+              if blob.startswith("{"):
+                  try:
+                      data = json.loads(blob)
+                      user = user or str(data.get("username") or "").strip()
+                      key = key or str(data.get("key") or "").strip()
+                  except Exception:
+                      print("MONARCH JSON jaisa hai par parse nahi hua")
+              elif ":" in blob and not blob.startswith("KGAT"):
+                  left, right = blob.split(":", 1)
+                  user = user or left.strip()
+                  key = key or right.strip()
+              else:
+                  token = blob
+
+          mask(key)
+          mask(token)
+          if token:
+              lines.append("KAGGLE_API_TOKEN=" + token)
+              os.environ["KAGGLE_API_TOKEN"] = token
+          if key:
+              os.environ["KAGGLE_KEY"] = key
+              lines.append("KAGGLE_KEY=" + key)
+
+          if token and not user:
               try:
-                  data = json.loads(blob)
-                  user = user or str(data.get("username") or "").strip()
-                  key = key or str(data.get("key") or "").strip()
-              except Exception:
-                  if ":" in blob:
-                      left, right = blob.split(":", 1)
-                      user = user or left.strip()
-                      key = key or right.strip()
-                  else:
-                      key = key or blob
-          if user and key:
-              print("HAVE_SECRETS=1")
-              print(f"KAGGLE_USERNAME={user}")
-              print(f"KAGGLE_KEY={key}")
-              print(f"KAGGLE_USER_LABEL={user[:3]}***{user[-2:] if len(user) > 5 else ''}")
+                  from kaggle.api.kaggle_api_extended import KaggleApi
+                  api = KaggleApi(); api.authenticate()
+                  user = api.get_config_value("username") or ""
+                  print("token se username mila:", user)
+              except Exception as exc:
+                  print("token introspect fail:", type(exc).__name__, str(exc)[:200])
+
+          if user:
+              lines.append("KAGGLE_USERNAME=" + user)
+              print("mode:", "api-token" if token else "username+key", "| user:", user)
+          if token or (user and key):
+              lines.append("HAVE_SECRETS=1")
           else:
-              print("HAVE_SECRETS=0")
+              print("::warning::Kaggle creds samajh nahi aaye — is run me DRY RUN hoga.")
+              lines.append("HAVE_SECRETS=0")
+
+          with pathlib.Path(os.environ["GITHUB_ENV"]).open("a") as fh:
+              fh.write("\n".join(lines) + "\n")
           PY
-          if grep -q "^KAGGLE_KEY=" "$GITHUB_ENV"; then
-            echo "::add-mask::$(grep '^KAGGLE_KEY=' "$GITHUB_ENV" | cut -d= -f2-)"
-          fi
           if grep -q "^HAVE_SECRETS=1" "$GITHUB_ENV"; then
-            echo "Kaggle creds mil gaye — asli GPU render hoga"
+            echo "Kaggle creds ready — asli GPU render hoga"
           else
-            echo "::warning::Kaggle creds samajh nahi aaye — is run me DRY RUN hoga. Secret banane ka tarika: Actions secrets me KAGGLE_USERNAME (username) aur KAGGLE_KEY (kaggle.json ki key), YA ek secret MONARCH jisme poora kaggle.json paste ho."
+            echo "::warning::Secret ki shakl samajh nahi aayi. MONARCH me Kaggle ka naya API token (KGAT_...) ya poora kaggle.json paste karo."
           fi
 
       - name: Tools (ffmpeg + kaggle + deps)

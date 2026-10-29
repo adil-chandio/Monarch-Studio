@@ -14,8 +14,12 @@ POLL_SLEEP="${POLL_SLEEP:-60}"
 
 mkdir -p "$CLIPS_DIR" work
 
-if [ -z "${KAGGLE_USERNAME:-}" ] || [ -z "${KAGGLE_KEY:-}" ]; then
-  echo "::error::KAGGLE_USERNAME / KAGGLE_KEY secrets missing — repo Settings > Secrets and variables > Actions > New repository secret"
+if [ -z "${KAGGLE_USERNAME:-}" ]; then
+  echo "::error::Kaggle username nahi mila — secret me Kaggle API token (KGAT_...) ya KAGGLE_USERNAME+KAGGLE_KEY do."
+  exit 1
+fi
+if [ -z "${KAGGLE_KEY:-}" ] && [ -z "${KAGGLE_API_TOKEN:-}" ]; then
+  echo "::error::Kaggle credentials adhoore — KAGGLE_KEY ya KAGGLE_API_TOKEN chahiye."
   exit 1
 fi
 
