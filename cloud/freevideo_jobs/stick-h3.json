@@ -1,0 +1,98 @@
+{
+  "id": "stick-h3",
+  "engine": "freevideo",
+  "model": "minimax-h3 / vdn-h3 (8-step distilled)",
+  "style": "hand-drawn white chalk stickman on a near-black chalkboard, exactly the same chalk character as the opening image with a small gold cap, chalky organic line, faint chalk boil, dust motes, cinematic light, no text, no watermark",
+  "width": 768,
+  "height": 1344,
+  "seconds": 3.0,
+  "steps": 8,
+  "no_two_pass": false,
+  "notes": "H3 audio bhi banata hai; assembly me hum apni voice + bed use karte hain.",
+  "scenes": [
+    {
+      "id": "k01",
+      "image": "studio/films/stick-i2v/keyframes/k01.png",
+      "prompt": "the chalk stick figure walks forward toward the camera through falling rain, a natural walking cycle with swinging arms and legs, rain streaks sliding down past him, tiny chalk splashes at his feet.",
+      "seed": 901,
+      "seconds": 3.0
+    },
+    {
+      "id": "k02",
+      "image": "studio/films/stick-i2v/keyframes/k02.png",
+      "prompt": "the chalk stick figure stands at a rainy window and slowly lowers his head, his shoulders sink, rain runs down the glass behind him, slow heavy breathing.",
+      "seed": 902,
+      "seconds": 3.0
+    },
+    {
+      "id": "k03",
+      "image": "studio/films/stick-i2v/keyframes/k03.png",
+      "prompt": "the chalk stick figure leans across a cafe table toward a second figure and gestures with one hand while he speaks, the other figure nods slightly, steam curls up from a cup.",
+      "seed": 903,
+      "seconds": 3.0
+    },
+    {
+      "id": "k04",
+      "image": "studio/films/stick-i2v/keyframes/k04.png",
+      "prompt": "close on the chalk stick figure as he speaks calmly, his mouth forms words, his eyebrows move, one hand rises and falls with the rhythm of his speech.",
+      "seed": 904,
+      "seconds": 3.0
+    },
+    {
+      "id": "k05",
+      "image": "studio/films/stick-i2v/keyframes/k05.png",
+      "prompt": "extreme close on the chalk stick figure's face, his eyes blink slowly once, his jaw tightens with determination, chalk dust drifts across the frame.",
+      "seed": 905,
+      "seconds": 3.0
+    },
+    {
+      "id": "k06",
+      "image": "studio/films/stick-i2v/keyframes/k06.png",
+      "prompt": "the chalk stick figure pulls his shoulders back and stands tall, his chest opens as he takes one slow breath, golden rays pulse gently behind him.",
+      "seed": 906,
+      "seconds": 3.0
+    },
+    {
+      "id": "k07",
+      "image": "studio/films/stick-i2v/keyframes/k07.png",
+      "prompt": "the chalk stick figure sits still at a long table while blurred grey figures gesture and argue around him, papers shift on the table, he does not move.",
+      "seed": 907,
+      "seconds": 3.0
+    },
+    {
+      "id": "k08",
+      "image": "studio/films/stick-i2v/keyframes/k08.png",
+      "prompt": "the chalk stick figures laugh around a table, the hero throws his head back in laughter while the others rock with him, warm light pulses.",
+      "seed": 908,
+      "seconds": 3.0
+    },
+    {
+      "id": "k09",
+      "image": "studio/films/stick-i2v/keyframes/k09.png",
+      "prompt": "the chalk stick figure practices speaking alone in a dim room at dawn, he gestures as he talks, his dim reflection on the right side mirrors his movement, dust drifts.",
+      "seed": 909,
+      "seconds": 3.0
+    },
+    {
+      "id": "k10",
+      "image": "studio/films/stick-i2v/keyframes/k10.png",
+      "prompt": "the chalk stick figure stands steady in front of a rising golden sun, the sun pulses and its rays rotate slowly behind him, dust drifts past.",
+      "seed": 910,
+      "seconds": 3.0
+    },
+    {
+      "id": "k11",
+      "image": "studio/films/stick-i2v/keyframes/k11.png",
+      "prompt": "the chalk stick figure walks steadily forward while a crowd of grey figures moves the other way and blurs past him, his stride is confident.",
+      "seed": 911,
+      "seconds": 3.0
+    },
+    {
+      "id": "k12",
+      "image": "studio/films/stick-i2v/keyframes/k12.png",
+      "prompt": "a vintage chalk microphone in a dark studio, dust drifts slowly through a beam of light, a small green tick appears and glows.",
+      "seed": 912,
+      "seconds": 3.0
+    }
+  ]
+}

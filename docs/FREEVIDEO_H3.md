@@ -53,3 +53,29 @@ tarah kaam aata hai.
 
 - T4/Colab par FreeVideo try karke waqt zaya karna.
 - Owner ko CLI chalwane ke liye kehna — script agent chalata hai.
+
+## Kaam kaise hoga (owner ke 2 tap + 1 paste)
+
+1. **Lightning AI** → free account (phone verify, card nahi) → **New Studio → L4 GPU**.
+2. Studio ka **Terminal** kholo aur ek line paste:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/adil-chandio/Monarch-Studio/arena/3d8cfad7-monarch-studio/scripts/freevideo_start.sh | bash
+```
+
+3. Bas. Woh script khud: GPU/driver/disk check → FreeVideo install + models → 12 stickman
+   keyframes download → har scene ko animate (image → video) → receipts. ~45-70 min.
+
+Agent ka kaam: clips aane ke baad `tools/freevideo_fetch.py` se uthana (agar `GITHUB_TOKEN`
+diya ho to script khud branches `fv-stick-h3-<scene>` par bhej deta hai), `tools/clip_film.py`
+se captions + voice + sound ke sath 1080x1920 master, Drive par public upload.
+
+### Files
+- `tools/freevideo_run.py` — renderer (preflight + resume + receipts + optional branch publish)
+- `tools/freevideo_fetch.py` — branches se clips wapas
+- `scripts/freevideo_start.sh` — ek-line bootstrap (owner ke liye)
+- `cloud/freevideo_jobs/stick-h3.json` — 12 scenes, 768x1344, 3s each = 36s
+
+### Bonus
+MiniMax H3 **audio bhi generate karta hai** (`i2va` task) — yani ambience/SFX free milta hai;
+hamari voice (`voice/v01..v10.wav`) uske oopar mix hoti hai.
