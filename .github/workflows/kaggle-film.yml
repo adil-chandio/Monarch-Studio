@@ -219,8 +219,7 @@ jobs:
           echo "published: $(du -sh deliver | cut -f1)"
 
       - name: Release (owner ka download link)
-        if: env.ASSEMBLE == '1'
-        if: env.HAVE_SECRETS == '1'
+        if: env.ASSEMBLE == '1' && env.HAVE_SECRETS == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
