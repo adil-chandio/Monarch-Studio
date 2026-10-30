@@ -41,7 +41,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       POLL_MAX: "150"
-      SLUG_PREFIX: "monarch-s4"
+      SLUG_PREFIX: "monarch-s5"
       DIAG: "1"
       REPORT: "1"
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -206,13 +206,13 @@ jobs:
             echo "::warning::deliver khali — publish skip"
             exit 0
           fi
-          set -o pipefail
-          out=$(python tools/publish_delivery.py --dir deliver --branch deliveries 2>&1) || rc=$?
-          echo "$out" | tail -25
-          if [ "${rc:-0}" -ne 0 ]; then
-            echo "::error::publish fail: $(echo "$out" | tail -3 | tr '\n' ' ' | cut -c1-300)"
-            exit 1
-          fi
+          git config user.name "Monarch Agent"
+          git config user.email "agent@monarch.local"
+          git checkout -B deliveries
+          git add -f deliver
+          git commit -q -m "delivery: run ${{ github.run_number }} — $(ls deliver/kit | tr '\n' ' ')" || echo "kuch naya nahi"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deliveries
+          echo "published: $(du -sh deliver | cut -f1)"
 
       - name: Release (owner ka download link)
         if: env.HAVE_SECRETS == '1'
