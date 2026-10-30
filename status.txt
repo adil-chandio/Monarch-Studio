@@ -1,1 +1,1 @@
-16:13:47Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       8.10h  21.90h     30.00h  2026-10-31T00:00:00+00:00   TPU       0.00h  20.00h     
+16:17:48Z · fetch compali/monarch-s2-1: 2 mp4
