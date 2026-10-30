@@ -10,7 +10,8 @@
 # Har ahem baat ::notice:: se annotate hoti hai (remote se dekh sakte hain).
 set -uo pipefail
 
-CHUNKS="${1:-k01,k02,k03,k04;k05,k06,k07,k08;k09,k10,k11,k12}"
+# `${1-...}` (dash, not colon): khali string = jaan boojh kar "koi chunk nahi"
+CHUNKS="${1-k01,k02,k03,k04;k05,k06,k07,k08;k09,k10,k11,k12}"
 CLIPS_DIR="${2:-clips}"
 POLL_MAX="${POLL_MAX:-150}"
 POLL_SLEEP="${POLL_SLEEP:-60}"
