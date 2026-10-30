@@ -55,7 +55,9 @@ def ensure_deps() -> None:
 
     missing = []
     for mod, pkg in (("diffusers", "diffusers>=0.32"), ("transformers", "transformers>=4.49"),
-                     ("accelerate", "accelerate"), ("imageio_ffmpeg", "imageio-ffmpeg")):
+                     ("accelerate", "accelerate"), ("imageio_ffmpeg", "imageio-ffmpeg"),
+                     ("ftfy", "ftfy"), ("sentencepiece", "sentencepiece"),
+                     ("safetensors", "safetensors"), ("regex", "regex")):
         try:
             importlib.import_module(mod)
         except ModuleNotFoundError:
