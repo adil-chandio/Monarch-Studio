@@ -76,14 +76,18 @@ wait_kernel() {                          # 0=complete, 1=failed, 2=timeout (stil
   return 2
 }
 
-kernel_tail() {                          # logs ki aakhri lines annotations me (remote se padhne ke liye)
-  local ref="$1" line n=0
+kernel_tail() {                          # logs ki aakhri lines annotations + ci-status par
+  local ref="$1" line n=0 tail_txt=""
   while IFS= read -r line; do
     [ -z "$line" ] && continue
     n=$((n + 1))
-    [ "$n" -gt 30 ] && continue
+    case "$line" in
+      ::*|*"Figure"*|*"Saving"*) continue ;;
+    esac
     note "log $ref | ${line:0:180}"
-  done < <(kaggle kernels logs "$ref" 2>&1 | grep -viE "^(warning|traceback)" | tail -30)
+    tail_txt="$tail_txt ${line:0:120} |"
+  done < <(kaggle kernels logs "$ref" 2>&1 | grep -viE "^(warning|traceback)" | tail -25)
+  report "LOGS $ref: $(echo "$tail_txt" | cut -c1-900)"
 }
 
 QUOTA="$(kaggle quota 2>&1 | tr '\n' ' ' | cut -c1-220)"
@@ -128,6 +132,7 @@ for ONLY in "${PARTS[@]}"; do
 
     kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -3 || true
     found=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
+    report "files $REF: $(find "$DIR/out" -maxdepth 2 -type f 2>/dev/null | head -8 | tr '\n' ' ' | cut -c1-200)"
     note "output $REF: $found mp4"
     report "output $REF: $found mp4"
     find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true

@@ -2,10 +2,8 @@
   "id": "stick-film",
   "title": "Powerful Personality",
   "chunks": [
-    "k01,k02,k03,k04",
-    "k05,k06,k07,k08",
-    "k09,k10,k11,k12"
+    "k01"
   ],
-  "note": "Yeh file commit karne se Actions run shuru hota hai (workflow_dispatch default branch ke bagair nahi chalta).",
+  "note": "DIAGNOSTIC: sirf k01 (error pakadne ke liye). Kaam hone par chunks wapas 3x4 kar dena.",
   "user": ""
 }
