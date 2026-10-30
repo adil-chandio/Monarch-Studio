@@ -58,13 +58,21 @@ report() {
 kernel_status() { kaggle kernels status "$1" 2>&1 | tail -1; }
 
 wait_kernel() {                          # 0=complete, 1=failed, 2=timeout (still running)
-  local ref="$1" i=0 status
+  local ref="$1" i=0 status missing=0
   while [ "$i" -lt "$POLL_MAX" ]; do
     status=$(kernel_status "$ref")
     echo "[$(date +%H:%M:%S)] $status"
     case "$status" in
       *COMPLETE*) note "$ref complete"; return 0 ;;
       *ERROR*|*CANCEL*|*FAIL*) note "$ref failed: $status"; return 1 ;;
+      *"search <query>"*|*"not found"*|*"not Found"*)
+        missing=$((missing + 1))
+        if [ "$missing" -ge 3 ]; then
+          note "$ref kernel register hi nahi hua (push fail shak) — agla chunk/run"
+          return 1
+        fi
+        sleep 30
+        continue ;;
     esac
     if [ $((i % 5)) -eq 0 ]; then
       note "$ref · $(date +%H:%M) · $status"
