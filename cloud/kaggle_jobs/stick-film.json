@@ -9,5 +9,20 @@
     "monarch-hq-1"
   ],
   "assemble": false,
-  "note": "HQ pass A: k02-k07 (720p ladder). k01 pehle se HQ ban chuka."
+  "note": "HQ pass A: k02-k07 (720p ladder). k01 pehle se HQ ban chuka.",
+  "next": {
+    "id": "stick-film-hq-b",
+    "title": "Powerful Personality",
+    "chunks": [
+      "k08,k09,k10",
+      "k11,k12"
+    ],
+    "fetch": [
+      "monarch-hq-1",
+      "monarch-hq2-1",
+      "monarch-hq2-2"
+    ],
+    "assemble": true,
+    "note": "HQ pass B: k08-k12 + poori film ka assembly (12 scenes, 720p ladder)."
+  }
 }

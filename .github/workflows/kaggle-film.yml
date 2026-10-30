@@ -67,6 +67,13 @@ jobs:
           print("SPEC_USER=" + (d.get("user") or ""))
           print("FETCH=" + ";".join(d.get("fetch") or []))
           print("ASSEMBLE=" + ("1" if d.get("assemble", True) else "0"))
+          nxt = d.get("next") or {}
+          if nxt:
+              print("NEXT_PATH=cloud/kaggle_jobs/" + str(nxt.get("id") or "next") + ".json")
+              print("NEXT_JSON=" + json.dumps(nxt, ensure_ascii=False))
+          else:
+              print("NEXT_PATH=")
+              print("NEXT_JSON=")
           PY
 
       - name: Kaggle CLI (creds ke liye pehle)
@@ -217,6 +224,15 @@ jobs:
           git commit -q -m "delivery: run ${{ github.run_number }} — $(ls deliver/kit | tr '\n' ' ')" || echo "kuch naya nahi"
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deliveries
           echo "published: $(du -sh deliver | cut -f1)"
+
+
+      - name: Chain next pass (optional)
+        if: env.NEXT_PATH != '' && success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/push_job_spec.py --path "$NEXT_PATH" --json "$NEXT_JSON" \
+            --branch "${GITHUB_REF_NAME}"
 
       - name: Release (owner ka download link)
         if: env.ASSEMBLE == '1' && env.HAVE_SECRETS == '1'
