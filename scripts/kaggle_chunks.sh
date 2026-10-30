@@ -103,7 +103,7 @@ for ONLY in "${PARTS[@]}"; do
 
   echo "::group::chunk $n — $ONLY"
   if ! python tools/make_kaggle_kernel.py --user "$KAGGLE_USERNAME" --slug "$SLUG" \
-        --only "$ONLY" --out "$DIR"; then
+        --only "$ONLY" --title "$SLUG" --out "$DIR"; then
     echo "::error::chunk $n package fail"
     FAILED="$FAILED ${n}(package)"
     echo "::endgroup::"

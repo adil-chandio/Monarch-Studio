@@ -79,7 +79,8 @@ def main(argv=None) -> int:
     (out / "main.ipynb").write_text(json.dumps(notebook(scenes, args.branch), indent=1) + "\n")
     meta = {
         "id": f"{args.user}/{slug}",
-        "title": args.title or f"Monarch film {slug}",
+        # Kaggle niyam: title ka slug hi kernel id ka slug hona chahiye, warna 409 Conflict.
+        "title": args.title or slug,
         "code_file": "main.ipynb",
         "language": "python",
         "kernel_type": "notebook",
