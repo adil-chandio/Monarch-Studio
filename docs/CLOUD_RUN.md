@@ -105,3 +105,24 @@ GPU: 12.9 h / 30 h (weekly) used.
 - `gh release` cross-workflow cancel ho jata hai → deliver `deliveries` branch se lo.
 - `${1-...}` vs `${1:-...}`: khali chunks ka matlab "kuch nahi" (warna default 12 scenes chal pade).
 - s3-1 par do parallel workers ne same clip names likhe (k05 overwrite) → aage se sirf sequential.
+
+## HQ pass (720p) — chal raha hai (raat)
+
+Masla jo mila v1 me:
+- render **480x832** tha (final me upscale) — quality bar ke liye kam;
+- k01 me figure bigad gaya, k08 me chehra mit gaya, k07 ka mooh ajeeb, k12 ka mic ladder jaisa.
+
+Fix (branch me):
+- `Renderer` me **resolution ladder**: 720x1280 -> 576x1024 -> 480x832 (OOM par khud neeche),
+  probe me k01 720p par ban gaya (~55 min/scene, T4 + sequential offload);
+- `cloud/t2v_jobs/stick-i2v-hq.json`: wohi 12 scenes, **tightened prompts** (chehra clean rahe:
+  "two dot eyes, small straight mouth, no scribbles"), k01/k07/k08/k12 ke liye;
+- `--job` override (kernel ko alternate job json pass hota hai), `--size` receipts me.
+
+Passes:
+- A: k02-k07 (kernels `monarch-hq2-1`, `monarch-hq2-2`) — k01 pehle `monarch-hq-1` me.
+- B (chain, apne aap): k08-k12 + **poori 12-scene assembly** -> `deliveries` branch + Release.
+
+**Sabak:** `cloud/kaggle_jobs/*.json` ya workflow file ka push **naya run trigger** karta hai aur
+`concurrency: cancel-in-progress: true` purana chal raha run **cancel** kar deta hai. Is liye jab
+tak koi run chal raha ho, in paths ko chhuna nahi.
