@@ -131,15 +131,47 @@ def _wrap(draw, text: str, font, width: int) -> list[str]:
     return lines
 
 
+
+def _best_frame(master: pathlib.Path, work: pathlib.Path, ff: str) -> pathlib.Path:
+    """Cover ke liye master ke kai frames me se sabse "bhara" frame chuno.
+
+    Heuristic: luminance ka standard deviation (jitna zyada, utna zyada chalk/content) +
+    center band me content ho (character frame ke bahar na ho).
+    """
+    import numpy as np
+    from PIL import Image
+
+    best, best_score = None, -1.0
+    for i, t in enumerate([1.2 + 3.0 * k for k in range(12)]):
+        shot = work / f"_cv{i:02d}.png"
+        run([ff, "-y", "-ss", f"{t:.1f}", "-i", str(master), "-frames:v", "1",
+             "-vf", "scale=216:384", str(shot)], check=False)
+        if not shot.exists():
+            continue
+        lum = np.asarray(Image.open(shot).convert("L"), dtype=np.float32)
+        centre = lum[100:300, 40:180]
+        score = float(centre.std()) * 1.0 + float(lum.std()) * 0.4
+        if score > best_score:
+            best, best_score = (t, shot), score
+    for k in range(12):
+        p = work / f"_cv{k:02d}.png"
+        if best and p != best[1]:
+            p.unlink(missing_ok=True)
+    if not best:
+        raise SystemExit("cover ke liye frame nahi mila")
+    out = work / "_cover_frame.png"
+    run([ff, "-y", "-ss", f"{best[0]:.1f}", "-i", str(master), "-frames:v", "1", str(out)])
+    best[1].unlink(missing_ok=True)
+    log(f"cover frame: {best[0]:.1f}s")
+    return out
+
 def cover(master: pathlib.Path, out: pathlib.Path, title: str, sub: str = "36s · 9:16 · AI film") -> pathlib.Path:
     """Master ke ek asli frame par chalk+gold type — thumbnail jo feed me rukta hai."""
     from PIL import Image, ImageDraw, ImageFilter
 
     ff = ffmpeg_bin()
-    frame = out.parent / "_cover_frame.png"
     out.parent.mkdir(parents=True, exist_ok=True)
-    run([ff, "-y", "-ss", "1.2", "-i", str(master), "-frames:v", "1", str(frame)])
-
+    frame = _best_frame(master, out.parent, ff)
     img = Image.open(frame).convert("RGB")
     w, h = img.size
 
@@ -162,11 +194,11 @@ def cover(master: pathlib.Path, out: pathlib.Path, title: str, sub: str = "36s �
     # title — hand type, 2-3 lines, gold underline
     size = 118
     font = _font("PermanentMarker.ttf", size)
-    lines = _wrap(draw, title.upper(), font, w - 200)
+    lines = _wrap(draw, title.upper(), font, w - 240)
     while len(lines) > 3 and size > 64:
         size -= 12
         font = _font("PermanentMarker.ttf", size)
-        lines = _wrap(draw, title.upper(), font, w - 200)
+        lines = _wrap(draw, title.upper(), font, w - 240)
 
     line_h = int(size * 1.12)
     y = h - 400 - (len(lines) - 1) * line_h
@@ -190,12 +222,12 @@ def cover(master: pathlib.Path, out: pathlib.Path, title: str, sub: str = "36s �
     draw = ImageDraw.Draw(img)
 
     for line in lines:
-        draw.text((70, y), line, font=font, fill=chalk)
+        draw.text((96, y), line, font=font, fill=chalk)
         y += line_h
 
-    draw.rectangle([70, y + 8, 70 + 150, y + 18], fill=gold)
+    draw.rectangle([96, y + 8, 96 + 150, y + 18], fill=gold)
     meta = _font("Montserrat-VF.ttf", 30)
-    draw.text((70, y + 40), sub, font=meta, fill=(212, 208, 198))
+    draw.text((96, y + 40), sub, font=meta, fill=(212, 208, 198))
 
     # halka vignette + grain, taake feed me flat na lage
     vig = Image.new("L", (w, h), 0)
