@@ -1,1 +1,1 @@
-06:01:06Z · compali/monarch-s3-2 · compali/monarch-s3-2 has status "KernelWorkerStatus.RUNNING"
+06:12:24Z · files compali/monarch-s3-2: work/monarch-s3-2/out/film_clips.json work/monarch-s3-2/out/stick-w1/receipts.json work/monarch-s3-2/out/stick-w1/k09.mp4 work/monarch-s3-2/out/stick-w1/k08.mp4 work/monarch-s3-2/out/stick-w0/receipts
