@@ -17,19 +17,38 @@ import os
 import pathlib
 import subprocess
 import sys
+import tempfile
 
 API = "https://api.github.com"
 
 
 def gh(method: str, path: str, payload: dict | None = None) -> dict:
-    cmd = ["gh", "api", "-X", method, f"{API}{path}", "-H", "Accept: application/vnd.github+json"]
+    """curl se (gh CLI ka input size limit 50 MB+ blobs par choke karta hai)."""
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
+    cmd = ["curl", "-sS", "-X", method, f"{API}{path}",
+           "-H", "Accept: application/vnd.github+json",
+           "-H", f"Authorization: Bearer {token}"]
+    tmp = None
     if payload is not None:
-        cmd += ["--input", "-"]
-    proc = subprocess.run(cmd, input=json.dumps(payload) if payload else None,
-                          capture_output=True, text=True)
+        tmp = tempfile.NamedTemporaryFile("w", suffix=".json", delete=False)
+        json.dump(payload, tmp)
+        tmp.close()
+        cmd += ["-H", "Content-Type: application/json", "--data-binary", f"@{tmp.name}"]
+    try:
+        proc = subprocess.run(cmd, capture_output=True, text=True)
+    finally:
+        if tmp:
+            pathlib.Path(tmp.name).unlink(missing_ok=True)
     if proc.returncode != 0:
         raise RuntimeError(f"{method} {path} fail: {proc.stderr.strip()[:400]}")
-    return json.loads(proc.stdout or "{}")
+    body = proc.stdout.strip()
+    try:
+        data = json.loads(body or "{}")
+    except json.JSONDecodeError:
+        raise RuntimeError(f"{method} {path} bad response: {body[:300]}")
+    if isinstance(data, dict) and data.get("message") and "sha" not in data:
+        raise RuntimeError(f"{method} {path} fail: {data.get('message')[:300]}")
+    return data
 
 
 def main(argv=None) -> int:
