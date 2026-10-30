@@ -61,3 +61,17 @@ jata hai, aur jab secrets add ho jayein tab *wahi* run asli GPU render karta hai
 
 - 2026-10-30: workflow registered + dry-run green (artifact `monarch-film-3`, 26 MB).
 - Baqi: owner ke 2 secrets (Kaggle username + key) — uske baad 12 scenes ka asli render.
+
+## 2026-10-30 raat — asli render chal raha hai (state)
+
+- Kaggle user: `compali` (verified). GPU quota: 30 h/week, ~0.2 h used at start.
+- **k01 render ho gaya** (kernel `compali/monarch-s2-1`, Wan 2.2 I2V, T4).
+- Seekhe hue sabak (sab fix ho chuke):
+  1. kernel title ka slug = kernel id ka slug warna `409 Conflict`;
+  2. `ftfy` (aur sentencepiece/safetensors/regex) chahiye — warna `NameError: ftfy`;
+  3. T4 16 GB par Wan 2.2 5B + umt5 **model_cpu_offload se OOM** → `enable_sequential_cpu_offload`
+     + VAE tiling; phir bhi OOM ho to canvas 384×672, phir LTX-Video 2B.
+- Live status branch: `ci-status` (`status.txt`) — har kernel event wahan likha jata hai.
+- Chunk 1 kernel me **2 GPU parallel** (Kaggle T4 x2): scenes aadhe ho kar dono GPU par.
+- Ab chal raha: k02–k12 (3 chunks), ~5 ghante. Uske baad master + teaser + cover + srt + sheet,
+  artifact + Release (`film-r<N>`) khud ban jate hain.
