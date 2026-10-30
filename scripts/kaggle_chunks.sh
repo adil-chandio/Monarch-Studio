@@ -30,6 +30,30 @@ fi
 note() { echo "::notice::$*"; }          # annotation (remote diagnosis ke liye)
 diag() { [ "${DIAG:-1}" = "1" ] && note "$*"; }
 
+# Live status file `ci-status` branch par (remote se turant padha ja sakta hai).
+# Har call fail-safe hai — kabhi job nahi girata.
+report() {
+  [ "${REPORT:-1}" = "1" ] || return 0
+  [ -n "${GITHUB_REPOSITORY:-}" ] || return 0
+  local msg body sha
+  msg="$(date -u +%H:%M:%SZ) · $*"
+  body=$(printf '%s' "$msg" | base64 -w0)
+  if ! gh api "/repos/$GITHUB_REPOSITORY/git/ref/heads/ci-status" >/dev/null 2>&1; then
+    local base_sha
+    base_sha=$(gh api "/repos/$GITHUB_REPOSITORY/git/ref/heads/$GITHUB_REF_NAME" --jq '.object.sha' 2>/dev/null)
+    [ -n "$base_sha" ] && gh api -X POST "/repos/$GITHUB_REPOSITORY/git/refs" \
+      -f ref="refs/heads/ci-status" -f sha="$base_sha" >/dev/null 2>&1 || true
+  fi
+  sha=$(gh api "/repos/$GITHUB_REPOSITORY/contents/status.txt?ref=ci-status" --jq '.sha' 2>/dev/null || true)
+  if [ -n "$sha" ]; then
+    gh api -X PUT "/repos/$GITHUB_REPOSITORY/contents/status.txt" \
+      -f message="ci: status" -f content="$body" -f branch="ci-status" -f sha="$sha" >/dev/null 2>&1 || true
+  else
+    gh api -X PUT "/repos/$GITHUB_REPOSITORY/contents/status.txt" \
+      -f message="ci: status" -f content="$body" -f branch="ci-status" >/dev/null 2>&1 || true
+  fi
+}
+
 kernel_status() { kaggle kernels status "$1" 2>&1 | tail -1; }
 
 wait_kernel() {                          # 0=complete, 1=failed, 2=timeout (still running)
@@ -41,7 +65,10 @@ wait_kernel() {                          # 0=complete, 1=failed, 2=timeout (stil
       *COMPLETE*) note "$ref complete"; return 0 ;;
       *ERROR*|*CANCEL*|*FAIL*) note "$ref failed: $status"; return 1 ;;
     esac
-    if [ $((i % 10)) -eq 0 ]; then note "$ref · $(date +%H:%M) · $status"; fi
+    if [ $((i % 5)) -eq 0 ]; then
+      note "$ref · $(date +%H:%M) · $status"
+      report "$ref · $status"
+    fi
     i=$((i + 1))
     sleep "$POLL_SLEEP"
   done
@@ -59,7 +86,9 @@ kernel_tail() {                          # logs ki aakhri lines annotations me (
   done < <(kaggle kernels logs "$ref" 2>&1 | grep -viE "^(warning|traceback)" | tail -30)
 }
 
-note "quota: $(kaggle quota 2>&1 | tr '\n' ' ' | cut -c1-220)"
+QUOTA="$(kaggle quota 2>&1 | tr '\n' ' ' | cut -c1-220)"
+note "quota: $QUOTA"
+report "quota: $QUOTA"
 note "chunks: $CHUNKS | prefix: $SLUG_PREFIX | poll_max: ${POLL_MAX}m"
 
 FAILED=""
@@ -87,6 +116,7 @@ for ONLY in "${PARTS[@]}"; do
       note "push fail $REF (try $try)"; sleep 30; continue
     fi
     note "pushed $REF ($ONLY)"
+    report "pushed $REF ($ONLY)"
 
     rc=0
     wait_kernel "$REF" || rc=$?
@@ -94,6 +124,7 @@ for ONLY in "${PARTS[@]}"; do
     kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -3 || true
     found=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
     note "output $REF: $found mp4"
+    report "output $REF: $found mp4"
     find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
 
     missing=""
@@ -122,6 +153,7 @@ echo "--- clips ---"
 ls -la "$CLIPS_DIR" || true
 count=$(find "$CLIPS_DIR" -name '*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
 note "clips total: $count"
+report "clips total: $count"
 if [ "$count" -eq 0 ]; then
   echo "::error::koi clip download nahi hui — upar ke log annotations dekho (verify? GPU quota? model download?)"
   exit 1

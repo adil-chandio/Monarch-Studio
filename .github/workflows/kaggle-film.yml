@@ -26,9 +26,10 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
-  group: kaggle-film-${{ github.run_id }}
+  group: kaggle-film
   cancel-in-progress: true
 
 jobs:
@@ -41,6 +42,8 @@ jobs:
       POLL_MAX: "150"
       SLUG_PREFIX: "monarch-s2"
       DIAG: "1"
+      REPORT: "1"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
