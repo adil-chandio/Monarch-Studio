@@ -40,8 +40,8 @@ jobs:
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      POLL_MAX: "150"
-      SLUG_PREFIX: "monarch-hq"
+      POLL_MAX: "300"
+      SLUG_PREFIX: "monarch-hq2"
       DIAG: "1"
       JOB: ${{ vars.KAGGLE_JOB || 'cloud/t2v_jobs/stick-i2v-hq.json' }}
       REPORT: "1"

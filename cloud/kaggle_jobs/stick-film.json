@@ -1,10 +1,13 @@
 {
-  "id": "probe-hq",
+  "id": "stick-film-hq-a",
   "title": "Powerful Personality",
   "chunks": [
-    "k01"
+    "k02,k03,k04",
+    "k05,k06,k07"
   ],
-  "fetch": [],
+  "fetch": [
+    "monarch-hq-1"
+  ],
   "assemble": false,
-  "note": "PROBE: k01 720p ladder par \u2014 T4 kitna sambhalta hai, aur kitna waqt lagta hai."
+  "note": "HQ pass A: k02-k07 (720p ladder). k01 pehle se HQ ban chuka."
 }

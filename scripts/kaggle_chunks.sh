@@ -116,6 +116,10 @@ for slug in "${FETCHES[@]}"; do
   kaggle kernels output "$ref" -p "$DIR/out" 2>&1 | tail -3 || true
   got=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
   find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+  find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$slug.json" \; 2>/dev/null || true
+  if [ -f "$CLIPS_DIR/receipts_$slug.json" ]; then
+    report "receipts $slug: $(tr -d '\n ' < "$CLIPS_DIR/receipts_$slug.json" | cut -c1-600)"
+  fi
   note "fetch $ref: $got mp4"
   report "fetch $ref: $got mp4"
   echo "::endgroup::"
@@ -189,6 +193,20 @@ for ONLY in "${PARTS[@]}"; do
 
   echo "::endgroup::"
 done
+
+# har clip ka asli resolution + size (quality proof, ci-status par)
+if command -v ffprobe >/dev/null 2>&1; then
+  for f in "$CLIPS_DIR"/*.mp4; do
+    [ -s "$f" ] || continue
+    dims=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height,nb_frames \
+           -of csv=p=0 "$f" 2>/dev/null | head -1)
+    note "clip $(basename "$f"): ${dims} $(du -h "$f" | cut -f1)"
+    report "clip $(basename "$f"): ${dims}"
+  done
+  if [ -f "$CLIPS_DIR/receipts.json" ]; then
+    report "receipts: $(tr -d '\n ' < "$CLIPS_DIR/receipts.json" | cut -c1-700)"
+  fi
+fi
 
 echo "--- clips ---"
 ls -la "$CLIPS_DIR" || true
