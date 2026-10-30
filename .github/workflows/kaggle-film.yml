@@ -41,8 +41,9 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       POLL_MAX: "150"
-      SLUG_PREFIX: "monarch-s5"
+      SLUG_PREFIX: "monarch-hq"
       DIAG: "1"
+      JOB: ${{ vars.KAGGLE_JOB || 'cloud/t2v_jobs/stick-i2v-hq.json' }}
       REPORT: "1"
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -65,6 +66,7 @@ jobs:
           print("TITLE=" + (d.get("title") or "Powerful Personality"))
           print("SPEC_USER=" + (d.get("user") or ""))
           print("FETCH=" + ";".join(d.get("fetch") or []))
+          print("ASSEMBLE=" + ("1" if d.get("assemble", True) else "0"))
           PY
 
       - name: Kaggle CLI (creds ke liye pehle)
@@ -165,6 +167,7 @@ jobs:
           echo "::warning::DRY RUN — yeh clips keyframes ke stills hain (asli render nahi). Secrets add karne ke baad wahi run asli GPU render karega."
 
       - name: Master + launch kit (CPU)
+        if: env.ASSEMBLE == '1'
         run: |
           mkdir -p clips deliver
           echo "::notice::clips in hand: $(ls clips | tr '\n' ' ')"
@@ -172,6 +175,7 @@ jobs:
             --out clips --final deliver --title "${TITLE:-Powerful Personality}"
 
       - name: Deliverable check
+        if: env.ASSEMBLE == '1'
         run: |
           test -s deliver/monarch_stick_36s.mp4
           test -s deliver/kit/cover.jpg
@@ -188,6 +192,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload deliverable
+        if: env.ASSEMBLE == '1'
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -198,6 +203,7 @@ jobs:
           retention-days: 14
 
       - name: Publish delivery branch (agent ke liye)
+        if: always()
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -215,6 +221,7 @@ jobs:
           echo "published: $(du -sh deliver | cut -f1)"
 
       - name: Release (owner ka download link)
+        if: env.ASSEMBLE == '1'
         if: env.HAVE_SECRETS == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

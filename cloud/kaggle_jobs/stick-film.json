@@ -1,15 +1,10 @@
 {
-  "id": "stick-film",
+  "id": "probe-hq",
   "title": "Powerful Personality",
   "chunks": [
-    "k05"
+    "k01"
   ],
-  "note": "sirf k05 baqi hai (baqi 11 clips fetch se aayengi).",
-  "user": "",
-  "fetch": [
-    "monarch-s2-1",
-    "monarch-s3-1",
-    "monarch-s3-2",
-    "monarch-s3-3"
-  ]
+  "fetch": [],
+  "assemble": false,
+  "note": "PROBE: k01 720p ladder par \u2014 T4 kitna sambhalta hai, aur kitna waqt lagta hai."
 }

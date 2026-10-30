@@ -16,6 +16,7 @@ CLIPS_DIR="${2:-clips}"
 POLL_MAX="${POLL_MAX:-150}"
 POLL_SLEEP="${POLL_SLEEP:-60}"
 SLUG_PREFIX="${SLUG_PREFIX:-monarch-stick}"
+JOB="${JOB:-}"
 
 mkdir -p "$CLIPS_DIR" work
 
@@ -136,7 +137,7 @@ for ONLY in "${PARTS[@]}"; do
 
   echo "::group::chunk $n — $ONLY"
   if ! python tools/make_kaggle_kernel.py --user "$KAGGLE_USERNAME" --slug "$SLUG" \
-        --only "$ONLY" --title "$SLUG" --out "$DIR"; then
+        --only "$ONLY" --title "$SLUG" --out "$DIR" ${JOB:+--job "$JOB"}; then
     echo "::error::chunk $n package fail"
     FAILED="$FAILED ${n}(package)"
     echo "::endgroup::"

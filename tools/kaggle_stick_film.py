@@ -93,6 +93,9 @@ class Renderer:
         self.kind = None
         self.width = int(job.get("width", 480))
         self.height = int(job.get("height", 832))
+        # resolution ladder: OOM par neeche, quality bar 720p par shuru
+        ladder = job.get("ladder") or [[720, 1280], [576, 1024], [480, 832]]
+        self.ladder = [(int(w), int(h)) for w, h in ladder]
         self.frames = int(job.get("frames", 49))
         self.steps = int(job.get("steps", 16))
         log(f"GPU: {torch.cuda.get_device_name(0)} | dtype {self.dtype}")
@@ -179,11 +182,13 @@ class Renderer:
         return out
 
     def downshift(self) -> bool:
-        """VRAM kam pare to chhota canvas, phir LTX-Video."""
-        if self.width <= 320:
+        """OOM par ladder me agla (chhota) canvas. Sabse chhota bhi fail ho to LTX."""
+        current = (self.width, self.height)
+        smaller = [(w, h) for w, h in self.ladder if w * h < current[0] * current[1]]
+        if not smaller:
             return False
-        self.width, self.height = 384, 672
-        log(f"canvas chhota kar diya: {self.width}x{self.height}")
+        self.width, self.height = max(smaller, key=lambda s: s[0] * s[1])
+        log(f"canvas chhota: {self.width}x{self.height}")
         return True
 
 
@@ -201,7 +206,7 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
         hud(n - 1, len(scenes), (avg * (len(scenes) - n + 1) / 60) if avg else -1)
         log(f"[{n}/{len(scenes)}] {scene['id']} · {scene.get('caption', '')} · "
             f"{scene.get('seconds', 3.0)}s · backend {runner.kind or 'load'}")
-        for attempt in (1, 2):
+        for attempt in range(1, 5):
             try:
                 frames = runner.render(scene, kf, scene.get("seconds", 3.0))
                 tmp = out / f"{scene['id']}_raw.mp4"
@@ -210,7 +215,9 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 dt = time.time() - started
                 log(f"{scene['id']}: OK {len(frames)}f in {dt / 60:.1f} min")
                 receipts.append({"scene": scene["id"], "state": "ok",
-                                 "backend": runner.kind, "seconds": round(dt)})
+                                 "backend": runner.kind, "seconds": round(dt),
+                                 "size": f"{runner.width}x{runner.height}",
+                                 "steps": runner.steps})
                 done += 1
                 avg = dt if not avg else (avg + dt) / 2
                 hud(n, len(scenes))
@@ -331,6 +338,7 @@ def main(argv=None) -> int:
     ap.add_argument("--out", default="", help="clips kahan (default: <work>/stick)")
     ap.add_argument("--final", default="", help="master kahan (default: /kaggle/working ya /content)")
     ap.add_argument("--only", default="", help="sirf yeh scenes, e.g. k01,k02")
+    ap.add_argument("--job", default="", help="alternate job json (prompts/size override)")
     ap.add_argument("--no-assemble", action="store_true")
     ap.add_argument("--title", default="Powerful Personality", help="cover/kit ka title")
     ap.add_argument("--no-kit", action="store_true", help="sirf film, launch kit nahi")
@@ -340,7 +348,10 @@ def main(argv=None) -> int:
                     help="GPU ke bagair pipeline check (dummy clips, asli assembly)")
     args = ap.parse_args(argv)
 
-    job = json.loads(JOB.read_text())
+    job_path = pathlib.Path(args.job) if args.job else JOB
+    if not job_path.is_absolute():
+        job_path = ROOT / job_path
+    job = json.loads(job_path.read_text())
     scenes = [s for s in job["scenes"] if not args.only or s["id"] in args.only.split(",")]
 
     out = pathlib.Path(args.out) if args.out else work_root(pathlib.Path(".")) / "stick"

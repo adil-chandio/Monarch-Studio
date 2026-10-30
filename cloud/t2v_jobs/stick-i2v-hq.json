@@ -1,0 +1,115 @@
+{
+ "id": "stick-i2v-hq",
+ "backend": "wan22_i2v",
+ "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+ "style": "hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+ "negative": "photorealistic, 3d render, cgi, colored skin, extra limbs, melting lines, morphing, blurry, watermark, text, frozen static frame",
+ "width": 720,
+ "height": 1280,
+ "frames": 49,
+ "steps": 24,
+ "raw_fps": 24,
+ "fps": 24,
+ "guidance": 5.0,
+ "scenes": [
+  {
+   "id": "k01",
+   "image": "studio/films/stick-i2v/keyframes/k01.png",
+   "prompt": "the chalk stick figure walks forward toward the camera through falling rain, natural walking cycle, arms swinging loosely, his face stays exactly the same as the first frame: two round dot eyes and a small straight mouth, head stays round and clean, rain streaks slide past him, tiny chalk splashes at his feet",
+   "seed": 201,
+   "seconds": 3.0
+  },
+  {
+   "id": "k02",
+   "image": "studio/films/stick-i2v/keyframes/k02.png",
+   "prompt": "the chalk stick figure stands at a rainy window and slowly lowers his head, his shoulders sink, rain runs down the glass behind him, slow heavy breathing. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 202,
+   "seconds": 3.0
+  },
+  {
+   "id": "k03",
+   "image": "studio/films/stick-i2v/keyframes/k03.png",
+   "prompt": "the chalk stick figure leans across a cafe table toward a second figure and gestures with one hand while he speaks, the other figure nods slightly, steam curls up from a cup. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 203,
+   "seconds": 3.0
+  },
+  {
+   "id": "k04",
+   "image": "studio/films/stick-i2v/keyframes/k04.png",
+   "prompt": "close on the chalk stick figure as he speaks calmly, his mouth forms words, his eyebrows move, one hand rises and falls with the rhythm of his speech. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 204,
+   "seconds": 3.0
+  },
+  {
+   "id": "k05",
+   "image": "studio/films/stick-i2v/keyframes/k05.png",
+   "prompt": "extreme close on the chalk stick figure's face, his eyes blink slowly once, his jaw tightens with determination, chalk dust drifts across the frame. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 205,
+   "seconds": 2.4
+  },
+  {
+   "id": "k06",
+   "image": "studio/films/stick-i2v/keyframes/k06.png",
+   "prompt": "the chalk stick figure pulls his shoulders back and stands tall, his chest opens as he takes one slow breath, golden rays pulse gently behind him. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 206,
+   "seconds": 3.0
+  },
+  {
+   "id": "k07",
+   "image": "studio/films/stick-i2v/keyframes/k07.png",
+   "prompt": "the chalk stick figure sits calmly at a long table while blurred grey figures at the edges gesture and argue, papers shift on the table, he stays still with a simple neutral face (two dot eyes, closed straight mouth, no teeth, no open mouth), tiny dust motes",
+   "seed": 207,
+   "seconds": 3.0
+  },
+  {
+   "id": "k08",
+   "image": "studio/films/stick-i2v/keyframes/k08.png",
+   "prompt": "the chalk stick figure laughs, head tilted back just slightly, simple smile and two dot eyes stay clean and unchanged (no scribbles or extra marks on the face), the two grey figures beside him rock with laughter, warm gold light pulses behind them",
+   "seed": 208,
+   "seconds": 3.0
+  },
+  {
+   "id": "k09",
+   "image": "studio/films/stick-i2v/keyframes/k09.png",
+   "prompt": "the chalk stick figure practices speaking alone in a dim room at dawn, he gestures as he talks, his dim reflection on the right side mirrors his movement, dust drifts. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 209,
+   "seconds": 3.0
+  },
+  {
+   "id": "k10",
+   "image": "studio/films/stick-i2v/keyframes/k10.png",
+   "prompt": "the chalk stick figure stands steady in front of a rising golden sun, the sun pulses and its rays rotate slowly behind him, dust drifts past. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 210,
+   "seconds": 3.0
+  },
+  {
+   "id": "k11",
+   "image": "studio/films/stick-i2v/keyframes/k11.png",
+   "prompt": "the chalk stick figure walks steadily forward while a crowd of grey figures moves the other way and blurs past him, his stride is confident. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+   "seed": 211,
+   "seconds": 3.0
+  },
+  {
+   "id": "k12",
+   "image": "studio/films/stick-i2v/keyframes/k12.png",
+   "prompt": "a vintage chalk microphone with a round mesh head on a thin slim stand, centered, dust drifts slowly through a beam of light, a small green chalk tick at the bottom right glows gently",
+   "seed": 212,
+   "seconds": 2.6
+  }
+ ],
+ "ladder": [
+  [
+   720,
+   1280
+  ],
+  [
+   576,
+   1024
+  ],
+  [
+   480,
+   832
+  ]
+ ],
+ "note": "HQ retake pass: 720p ladder (T4 par OOM ho to khud 576p/480p). k01/k07/k08/k12 ke prompts tighten kiye — chehra saaf rehna chahiye."
+}
