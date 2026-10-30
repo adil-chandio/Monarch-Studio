@@ -28,8 +28,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: kaggle-film
-  cancel-in-progress: false
+  group: kaggle-film-${{ github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   render:
@@ -38,7 +38,9 @@ jobs:
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      POLL_MAX: "70"
+      POLL_MAX: "150"
+      SLUG_PREFIX: "monarch-s2"
+      DIAG: "1"
 
     steps:
       - uses: actions/checkout@v4
