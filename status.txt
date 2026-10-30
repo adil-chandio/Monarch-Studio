@@ -1,1 +1,1 @@
-04:54:55Z · files compali/monarch-s3-1: work/monarch-s3-1/out/film_clips.json work/monarch-s3-1/out/stick-w1/k05.mp4 work/monarch-s3-1/out/stick-w1/receipts.json work/monarch-s3-1/out/stick-w1/k04.mp4 work/monarch-s3-1/out/stick-w0/receipts
+04:54:57Z · output compali/monarch-s3-1: 8 mp4
