@@ -1,1 +1,1 @@
-18:35:05Z · compali/monarch-s5-1 · compali/monarch-s5-1 has status "KernelWorkerStatus.RUNNING"
+18:41:33Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       9.42h  20.58h     30.00h  2026-10-31T00:00:00+00:00   TPU       0.00h  20.00h     
