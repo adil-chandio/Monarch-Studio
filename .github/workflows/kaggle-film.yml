@@ -194,6 +194,23 @@ jobs:
             clips/**
           retention-days: 14
 
+      - name: Publish delivery branch (agent ke liye)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -d deliver ] || [ -z "$(ls -A deliver 2>/dev/null)" ]; then
+            echo "::warning::deliver khali — publish skip"
+            exit 0
+          fi
+          git config user.name "Monarch Agent"
+          git config user.email "agent@monarch.local"
+          git checkout -B deliveries origin/${GITHUB_REF_NAME} 2>/dev/null || git checkout -B deliveries
+          git add -f deliver
+          git commit -q -m "delivery: run ${{ github.run_number }} ($(ls deliver/kit | tr '\n' ' '))" || echo "kuch naya nahi"
+          git push -f origin deliveries
+          git ls-tree -r --long deliveries deliver | tail -12
+
       - name: Release (owner ka download link)
         if: env.HAVE_SECRETS == '1'
         env:

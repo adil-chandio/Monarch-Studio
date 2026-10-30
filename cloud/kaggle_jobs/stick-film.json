@@ -1,14 +1,13 @@
 {
   "id": "stick-film",
   "title": "Powerful Personality",
-  "chunks": [
-    "k02,k03,k04,k05",
-    "k06,k07,k08,k09",
-    "k10,k11,k12"
-  ],
-  "note": "k01 pehle se bana (fetch), baqi 11 scenes 3 chunks me.",
+  "chunks": [],
+  "note": "Assembly-only: pehle se bane kernels se clips, phir master + kit + delivery branch.",
   "user": "",
   "fetch": [
-    "monarch-s2-1"
+    "monarch-s2-1",
+    "monarch-s3-1",
+    "monarch-s3-2",
+    "monarch-s3-3"
   ]
 }

@@ -113,6 +113,10 @@ done
 
 FAILED=""
 n=0
+if [ -z "$(echo "$CHUNKS" | tr -d ' ;,')" ]; then
+  note "koi render chunk nahi — sirf fetch + assembly"
+  CHUNKS=""
+fi
 IFS=';' read -ra PARTS <<< "$CHUNKS"
 for ONLY in "${PARTS[@]}"; do
   [ -z "$ONLY" ] && continue
