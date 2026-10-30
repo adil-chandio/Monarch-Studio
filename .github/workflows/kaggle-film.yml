@@ -204,7 +204,12 @@ jobs:
             echo "::warning::deliver khali — publish skip"
             exit 0
           fi
-          python tools/publish_delivery.py --dir deliver --branch deliveries
+          set -o pipefail
+          out=$(python tools/publish_delivery.py --dir deliver --branch deliveries 2>&1) || rc=$?
+          echo "$out" | tail -25
+          if [ "${rc:-0}" -ne 0 ]; then
+            echo "::error::publish fail: $(echo "$out" | tail -3 | tr '\n' ' ' | cut -c1-300)"
+          fi
 
       - name: Release (owner ka download link)
         if: env.HAVE_SECRETS == '1'
