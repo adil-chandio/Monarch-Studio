@@ -95,6 +95,22 @@ note "quota: $QUOTA"
 report "quota: $QUOTA"
 note "chunks: $CHUNKS | prefix: $SLUG_PREFIX | poll_max: ${POLL_MAX}m"
 
+# Pehle se bane kernels se clips (dobara render kiye bagair)
+IFS=';' read -ra FETCHES <<< "${FETCH:-}"
+for slug in "${FETCHES[@]}"; do
+  [ -z "$slug" ] && continue
+  ref="$KAGGLE_USERNAME/$slug"
+  DIR="work/fetch-$slug"
+  mkdir -p "$DIR/out"
+  echo "::group::fetch $ref"
+  kaggle kernels output "$ref" -p "$DIR/out" 2>&1 | tail -3 || true
+  got=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
+  find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+  note "fetch $ref: $got mp4"
+  report "fetch $ref: $got mp4"
+  echo "::endgroup::"
+done
+
 FAILED=""
 n=0
 IFS=';' read -ra PARTS <<< "$CHUNKS"

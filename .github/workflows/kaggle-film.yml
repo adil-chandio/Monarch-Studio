@@ -40,7 +40,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       POLL_MAX: "150"
-      SLUG_PREFIX: "monarch-s2"
+      SLUG_PREFIX: "monarch-s3"
       DIAG: "1"
       REPORT: "1"
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,6 +62,7 @@ jobs:
           print("CHUNKS=" + ";".join(d.get("chunks") or ["k01,k02,k03,k04", "k05,k06,k07,k08", "k09,k10,k11,k12"]))
           print("TITLE=" + (d.get("title") or "Powerful Personality"))
           print("SPEC_USER=" + (d.get("user") or ""))
+          print("FETCH=" + ";".join(d.get("fetch") or []))
           PY
 
       - name: Kaggle CLI (creds ke liye pehle)
@@ -171,7 +172,8 @@ jobs:
         run: |
           test -s deliver/monarch_stick_36s.mp4
           test -s deliver/kit/cover.jpg
-          test -s deliver/kit/teaser_11s.mp4
+          # teaser 2+ scenes par banta hai — adhoora run is par fail nahi hona chahiye
+          test -s deliver/kit/teaser_11s.mp4 || echo "::warning::teaser nahi bana (kam scenes)"
           du -sh deliver deliver/kit
           {
             echo "## Film ready"
@@ -183,6 +185,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload deliverable
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: monarch-film-${{ github.run_number }}
