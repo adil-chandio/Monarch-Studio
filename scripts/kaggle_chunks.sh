@@ -112,8 +112,13 @@ for ONLY in "${PARTS[@]}"; do
 
   for try in 1 2; do
     echo "→ push (try $try): $REF"
-    if ! kaggle kernels push -p "$DIR" 2>&1 | tail -3; then
-      note "push fail $REF (try $try)"; sleep 30; continue
+    push_out=$(kaggle kernels push -p "$DIR" 2>&1); push_rc=$?
+    echo "$push_out" | tail -5
+    if [ "$push_rc" -ne 0 ]; then
+      note "push fail $REF (try $try, rc=$push_rc): $(echo "$push_out" | tr '\n' ' ' | cut -c1-200)"
+      report "PUSH FAIL $REF: $(echo "$push_out" | tr '\n' ' ' | cut -c1-260)"
+      sleep 30
+      continue
     fi
     note "pushed $REF ($ONLY)"
     report "pushed $REF ($ONLY)"
