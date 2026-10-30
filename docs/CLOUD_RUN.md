@@ -75,3 +75,33 @@ jata hai, aur jab secrets add ho jayein tab *wahi* run asli GPU render karta hai
 - Chunk 1 kernel me **2 GPU parallel** (Kaggle T4 x2): scenes aadhe ho kar dono GPU par.
 - Ab chal raha: k02–k12 (3 chunks), ~5 ghante. Uske baad master + teaser + cover + srt + sheet,
   artifact + Release (`film-r<N>`) khud ban jate hain.
+
+## DELIVERED — 2026-10-30 (final)
+
+**Final master:** 12/12 scenes, 35.6 s, 1080x1920, audio (voice + sound bed), Wan 2.2 I2V, Kaggle T4.
+
+Drive folder (Wf-07 → `06 · Masters & Receipts` → *Stick film · Powerful Personality (final 36s)*):
+
+https://drive.google.com/drive/folders/1VrxbjxZ47sUKAK5RKCWekpRUHkd93MaL
+
+| file | Drive id |
+|---|---|
+| master `POWERFUL_PERSONALITY_stick_36s_1080x1920.mp4` (53 MB) | `1qQRaHa7R93OcQuGMXUHbcy4mBtkZX1CP` |
+| `teaser_11s_reels.mp4` (4.2 MB) | `1oXD5LBjSzQgIDiihsDYjRNSI9wtlOcBi` |
+| `cover_thumbnail.jpg` | `1HY3ZLb6gzYkqDtRTsu8xrve0LWb_Kyd0` |
+| `subtitles.srt` | `1xrqTK5KAm2196Wy0PVlhERTLBTh93MjM` |
+| `contact_sheet_12scenes.png` | `1rRwRBQx_5tpZbsD-VvML2gMWAe4sbcUo` |
+| `CAPTION_and_kit.md` | `1oBXxwn-0sBKjT1-gliCn6ZA8RY8Ar7JQ` |
+
+Release (backup link): https://github.com/adil-chandio/Monarch-Studio/releases/tag/film-r23
+Delivery branch (agent ke liye): `deliveries` → `deliver/` (git push se publish, API 100 MB limit bypass).
+
+**Quality evidence:** frame-diff 15.4 (0.2 s vs 2.8 s) → asli motion, stills nahi. Contact sheet me 12 scenes.
+GPU: 12.9 h / 30 h (weekly) used.
+
+### Seekhe (dobara na ho)
+- Kaggle kernel title ka slug = id ka slug (409).
+- `gh api` 100 MB body par fail → publish `git push` (https + token) se.
+- `gh release` cross-workflow cancel ho jata hai → deliver `deliveries` branch se lo.
+- `${1-...}` vs `${1:-...}`: khali chunks ka matlab "kuch nahi" (warna default 12 scenes chal pade).
+- s3-1 par do parallel workers ne same clip names likhe (k05 overwrite) → aage se sirf sequential.
