@@ -101,26 +101,59 @@ class Renderer:
         if self.pipe is not None:
             return
         torch = self.torch
-        try:
+        # T4 (16 GB) par Wan 2.2 5B + umt5 text encoder ek sath GPU par nahi aate.
+        # Sequential offload har layer ko zarurat par GPU le jata hai (dheema, magar chalta hai).
+        self.offload = "sequential"
+
+        def _wan():
             from diffusers import AutoencoderKLWan, WanImageToVideoPipeline
 
             model = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
-            log(f"loading {model} (pehli baar ~10 GB download)")
-            vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=torch.float32)
+            log(f"loading {model} (~10 GB download, T4 par pehli baar 5-8 min)")
+            vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=self.dtype)
             pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=self.dtype)
-            pipe.enable_model_cpu_offload()
+            pipe.enable_sequential_cpu_offload()
+            pipe.vae.enable_tiling()
+            pipe.vae.enable_slicing()
             pipe.set_progress_bar_config(disable=True)
-            self.pipe, self.kind = pipe, "wan22_i2v"
-        except Exception as exc:                       # noqa: BLE001
-            log(f"Wan 2.2 fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
+            return pipe
+
+        def _ltx():
             from diffusers import LTXImageToVideoPipeline
 
+            log("loading LTX-Video 2B (halka, T4 par aaram se)")
             pipe = LTXImageToVideoPipeline.from_pretrained(
                 "Lightricks/LTX-Video", torch_dtype=self.dtype)
-            pipe.enable_model_cpu_offload()
+            pipe.enable_sequential_cpu_offload()
             pipe.set_progress_bar_config(disable=True)
-            self.pipe, self.kind = pipe, "ltx_i2v"
+            return pipe
+
+        try:
+            self.pipe, self.kind = _wan(), "wan22_i2v"
+        except Exception as exc:                       # noqa: BLE001
+            log(f"Wan 2.2 load fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
+            self.pipe, self.kind = _ltx(), "ltx_i2v"
         log(f"backend: {self.kind}")
+
+    def switch_to_ltx(self) -> bool:
+        """Wan 2.2 T4 par OOM hi deta rahe to LTX-Video par (asli video, halka model)."""
+        if self.kind == "ltx_i2v":
+            return False
+        log("Wan 2.2 OOM -> LTX-Video 2B par switch")
+        self.pipe = None
+        import gc
+
+        gc.collect()
+        self.torch.cuda.empty_cache()
+        from diffusers import LTXImageToVideoPipeline
+
+        self.pipe = LTXImageToVideoPipeline.from_pretrained(
+            "Lightricks/LTX-Video", torch_dtype=self.dtype)
+        self.pipe.enable_sequential_cpu_offload()
+        self.pipe.set_progress_bar_config(disable=True)
+        self.kind = "ltx_i2v"
+        self.width, self.height = 480, 832
+        return True
 
     def render(self, scene: dict, keyframe: pathlib.Path, seconds: float):
         from diffusers.utils import load_image
@@ -146,8 +179,8 @@ class Renderer:
         return out
 
     def downshift(self) -> bool:
-        """VRAM kam pare to chhota canvas."""
-        if self.width <= 384:
+        """VRAM kam pare to chhota canvas, phir LTX-Video."""
+        if self.width <= 320:
             return False
         self.width, self.height = 384, 672
         log(f"canvas chhota kar diya: {self.width}x{self.height}")
@@ -191,8 +224,11 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 msg = f"{type(exc).__name__}: {str(exc)[:300]}"
                 tb = traceback.format_exc()[-900:]
                 log(f"{scene['id']}: try {attempt} FAIL {msg}")
-                if "out of memory" in msg.lower() and runner.downshift():
-                    continue
+                if "out of memory" in msg.lower():
+                    if runner.downshift():
+                        continue
+                    if runner.switch_to_ltx():
+                        continue
                 if attempt == 2:
                     receipts.append({"scene": scene["id"], "state": "fail", "error": msg,
                                      "trace": tb})
