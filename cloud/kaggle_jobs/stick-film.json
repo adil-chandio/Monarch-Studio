@@ -1,12 +1,13 @@
 {
   "id": "stick-film",
   "title": "Powerful Personality",
-  "chunks": [],
-  "note": "Assembly-only: pehle se bane kernels se clips, phir master + kit + delivery branch.",
+  "chunks": [
+    "k02,k03,k04,k05"
+  ],
+  "note": "k02-k05 re-render (s3-1 overwrite ho gaya tha), baqi fetch; poora master 12 scenes.",
   "user": "",
   "fetch": [
     "monarch-s2-1",
-    "monarch-s3-1",
     "monarch-s3-2",
     "monarch-s3-3"
   ]
