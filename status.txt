@@ -1,1 +1,1 @@
-02:22:10Z · files compali/monarch-s2-1: work/monarch-s2-1/out/monarch-s2-1.log work/monarch-s2-1/out/stick/receipts.json work/monarch-s2-1/out/repo/.editorconfig work/monarch-s2-1/out/repo/LICENSE work/monarch-s2-1/out/repo/START_HERE.md wo
+02:22:12Z · output compali/monarch-s2-1: 0 mp4
