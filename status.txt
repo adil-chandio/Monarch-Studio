@@ -1,1 +1,1 @@
-21:43:49Z · files compali/monarch-hq2-1: work/monarch-hq2-1/out/film_clips.json work/monarch-hq2-1/out/stick-w1/receipts.json work/monarch-hq2-1/out/stick-w1/k04.mp4 work/monarch-hq2-1/out/stick-w0/receipts.json work/monarch-hq2-1/out/stick-
+21:43:51Z · output compali/monarch-hq2-1: 6 mp4
