@@ -23,6 +23,8 @@ API = "https://api.github.com"
 
 def gh(method: str, path: str, payload: dict | None = None) -> dict:
     cmd = ["gh", "api", "-X", method, f"{API}{path}", "-H", "Accept: application/vnd.github+json"]
+    if payload is not None:
+        cmd += ["--input", "-"]
     proc = subprocess.run(cmd, input=json.dumps(payload) if payload else None,
                           capture_output=True, text=True)
     if proc.returncode != 0:
@@ -65,7 +67,8 @@ def main(argv=None) -> int:
             "content": base64.b64encode(data).decode(),
             "encoding": "base64",
         })
-        entries.append({"path": str(path).replace("\\", "/"), "mode": "100644",
+        rel = path.relative_to(root).as_posix()
+        entries.append({"path": f"{root.name}/{rel}", "mode": "100644",
                         "type": "blob", "sha": blob["sha"]})
         print(f"  blob {path} {len(data) / 1e6:.1f} MB")
 
