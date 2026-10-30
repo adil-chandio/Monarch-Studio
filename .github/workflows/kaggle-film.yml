@@ -20,6 +20,7 @@ on:
       - "tools/make_kaggle_kernel.py"
       - "tools/kaggle_stick_film.py"
       - "tools/film_factory.py"
+      - "tools/publish_delivery.py"
       - "tools/clip_film.py"
       - ".github/workflows/kaggle-film.yml"
   workflow_dispatch:
@@ -166,6 +167,7 @@ jobs:
       - name: Master + launch kit (CPU)
         run: |
           mkdir -p clips deliver
+          echo "::notice::clips in hand: $(ls clips | tr '\n' ' ')"
           python tools/kaggle_stick_film.py --assemble-only \
             --out clips --final deliver --title "${TITLE:-Powerful Personality}"
 
