@@ -192,7 +192,6 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload deliverable
-        if: env.ASSEMBLE == '1'
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -203,8 +202,7 @@ jobs:
           retention-days: 14
 
       - name: Publish delivery branch (agent ke liye)
-        if: always()
-        if: always()
+        if: env.ASSEMBLE == '1'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
