@@ -1,1 +1,1 @@
-22:29:58Z · quota: resource  used    remaining  total   refreshAt                   --------  ------  ---------  ------  -------------------------   GPU       12.87h  17.13h     30.00h  2026-10-31T00:00:00+00:00   TPU       0.00h   20.00h 
+22:32:54Z · receipts monarch-hq-1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
