@@ -1,1 +1,1 @@
-22:24:39Z · compali/monarch-hq2-2 · compali/monarch-hq2-2 has status "KernelWorkerStatus.RUNNING"
+22:29:58Z · quota: resource  used    remaining  total   refreshAt                   --------  ------  ---------  ------  -------------------------   GPU       12.87h  17.13h     30.00h  2026-10-31T00:00:00+00:00   TPU       0.00h   20.00h 
