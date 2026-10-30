@@ -59,7 +59,8 @@ jobs:
           python - "$SPEC" >> "$GITHUB_ENV" <<'PY'
           import json, sys
           d = json.load(open(sys.argv[1]))
-          print("CHUNKS=" + ";".join(d.get("chunks") or ["k01,k02,k03,k04", "k05,k06,k07,k08", "k09,k10,k11,k12"]))
+          chunks = d["chunks"] if "chunks" in d else ["k01,k02,k03,k04", "k05,k06,k07,k08", "k09,k10,k11,k12"]
+          print("CHUNKS=" + ";".join(chunks))
           print("TITLE=" + (d.get("title") or "Powerful Personality"))
           print("SPEC_USER=" + (d.get("user") or ""))
           print("FETCH=" + ";".join(d.get("fetch") or []))
