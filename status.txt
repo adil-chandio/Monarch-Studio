@@ -1,1 +1,1 @@
-14:41:01Z · compali/monarch-s4-1 · To search for one, try 'kaggle search <query>'.
+14:43:18Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       7.62h  22.38h     30.00h  2026-10-31T00:00:00+00:00   TPU       0.00h  20.00h     
