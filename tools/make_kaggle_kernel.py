@@ -38,6 +38,11 @@ repo = pathlib.Path("/kaggle/working/repo")
 if not (repo / "tools/kaggle_stick_film.py").exists():
     subprocess.run(["git", "clone", "--depth", "1", "-b", BRANCH, REPO, str(repo)], check=True)
 
+subprocess.run([sys.executable, "-m", "pip", "install", "-q", "diffusers>=0.32",
+                "transformers>=4.49", "accelerate", "ftfy", "sentencepiece", "safetensors",
+                "regex", "imageio-ffmpeg"], check=False)
+print("deps installed", flush=True)
+
 cmd = [sys.executable, str(repo / "tools/kaggle_stick_film.py"),
        "--out", "/kaggle/working/stick", "--no-kit", "--only", ONLY]
 print("$", " ".join(cmd), flush=True)

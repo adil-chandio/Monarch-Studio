@@ -186,12 +186,16 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                         f"{avg * (len(scenes) - n) / 60:.0f} min")
                 break
             except Exception as exc:                   # noqa: BLE001
-                msg = f"{type(exc).__name__}: {str(exc)[:200]}"
+                import traceback
+
+                msg = f"{type(exc).__name__}: {str(exc)[:300]}"
+                tb = traceback.format_exc()[-900:]
                 log(f"{scene['id']}: try {attempt} FAIL {msg}")
                 if "out of memory" in msg.lower() and runner.downshift():
                     continue
                 if attempt == 2:
-                    receipts.append({"scene": scene["id"], "state": "fail", "error": msg})
+                    receipts.append({"scene": scene["id"], "state": "fail", "error": msg,
+                                     "trace": tb})
         (out / "receipts.json").write_text(json.dumps(receipts, indent=2))
     return {"receipts": receipts, "ok": sum(1 for r in receipts if r["state"] == "ok")}
 

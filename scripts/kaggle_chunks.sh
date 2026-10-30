@@ -147,6 +147,7 @@ for ONLY in "${PARTS[@]}"; do
     fi
     note "chunk $n incomplete — missing:$missing (kernel rc=$rc)"
     kernel_tail "$REF"
+    report "RECEIPT $REF: $(find "$DIR/out" -name receipts.json -exec cat {} \; 2>/dev/null | tr -d '\n' | cut -c1-900)"
     if [ "$rc" -eq 2 ]; then
       note "kernel chal raha tha — dobara push nahi (waste). Agli run me wohi chunk."
       FAILED="$FAILED ${n}(timeout)"
