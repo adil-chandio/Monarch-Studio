@@ -1,0 +1,48 @@
+{
+  "id": "bench-offload",
+  "backend": "wan22_i2v",
+  "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+  "style": "hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+  "negative": "photorealistic, 3d render, cgi, colored skin, extra limbs, melting lines, morphing, blurry, watermark, text, frozen static frame",
+  "width": 720,
+  "height": 1280,
+  "frames": 49,
+  "steps": 24,
+  "raw_fps": 24,
+  "fps": 24,
+  "guidance": 5.0,
+  "ladder": [
+    [
+      720,
+      1280
+    ],
+    [
+      576,
+      1024
+    ],
+    [
+      480,
+      832
+    ]
+  ],
+  "offload": "model",
+  "note": "SPEED BENCH: wohi scene k07 do configs par — bench24 (model-offload, 24 steps) aur bench16 (model-offload, 16 steps). Maqsad: offload fix se ~2x milta hai ya nahi, aur 16 steps par chalk line-art ki quality barqarar rehti hai ya nahi. Koi assembly nahi.",
+  "scenes": [
+    {
+      "id": "bench24",
+      "image": "studio/films/stick-i2v/keyframes/k07.png",
+      "prompt": "the chalk stick figure sits calmly at a long table while blurred grey figures at the edges gesture and argue, papers shift on the table, he stays still with a simple neutral face (two dot eyes, closed straight mouth, no teeth, no open mouth), tiny dust motes",
+      "seed": 207,
+      "seconds": 3.0,
+      "steps": 24
+    },
+    {
+      "id": "bench16",
+      "image": "studio/films/stick-i2v/keyframes/k07.png",
+      "prompt": "the chalk stick figure sits calmly at a long table while blurred grey figures at the edges gesture and argue, papers shift on the table, he stays still with a simple neutral face (two dot eyes, closed straight mouth, no teeth, no open mouth), tiny dust motes",
+      "seed": 207,
+      "seconds": 3.0,
+      "steps": 16
+    }
+  ]
+}

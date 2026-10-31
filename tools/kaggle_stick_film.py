@@ -98,16 +98,18 @@ class Renderer:
         self.ladder = [(int(w), int(h)) for w, h in ladder]
         self.frames = int(job.get("frames", 49))
         self.steps = int(job.get("steps", 16))
+        # offload: "sequential" (safe, dheema, har layer) | "model" (module-wise, ~2x tez)
+        #          | "none" (sab GPU par — sirf bare GPU par). Bench se decide hota hai.
+        self.offload = str(job.get("offload") or "sequential").lower()
         log(f"GPU: {torch.cuda.get_device_name(0)} | dtype {self.dtype}")
 
     def load(self) -> None:
         if self.pipe is not None:
             return
         torch = self.torch
-        # T4 (16 GB) par Wan 2.2 5B + umt5 text encoder ek sath GPU par nahi aate.
-        # Sequential offload har layer ko zarurat par GPU le jata hai (dheema, magar chalta hai).
-        self.offload = "sequential"
-
+        # T4 (16 GB) par Wan 2.2 5B (bf16 ~10 GB) + umt5 encoder ek sath nahi aate.
+        # "sequential": har layer alag GPU jati hai — chalta hai magar ~2x dheema.
+        # "model": poora module ek dafa GPU (encoder -> transformer -> vae) — tez.
         def _wan():
             from diffusers import AutoencoderKLWan, WanImageToVideoPipeline
 
@@ -115,10 +117,9 @@ class Renderer:
             log(f"loading {model} (~10 GB download, T4 par pehli baar 5-8 min)")
             vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=self.dtype)
             pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=self.dtype)
-            pipe.enable_sequential_cpu_offload()
-            pipe.vae.enable_tiling()
-            pipe.vae.enable_slicing()
+            self._apply_offload(pipe)
             pipe.set_progress_bar_config(disable=True)
+            log(f"offload: {self.offload}")
             return pipe
 
         def _ltx():
@@ -141,6 +142,41 @@ class Renderer:
                 log(f"Wan 2.2 load fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
                 self.pipe, self.kind = _ltx(), "ltx_i2v"
         log(f"backend: {self.kind}")
+
+    def _apply_offload(self, pipe) -> None:
+        """offload mode lagao (pipeline hooks pehle hata kar)."""
+        try:
+            if hasattr(pipe, "remove_all_hooks"):
+                pipe.remove_all_hooks()
+        except Exception:                              # noqa: BLE001
+            pass
+        if self.offload == "none":
+            pipe.to("cuda")
+        elif self.offload == "model":
+            pipe.enable_model_cpu_offload()
+        else:
+            self.offload = "sequential"
+            pipe.enable_sequential_cpu_offload()
+        try:
+            pipe.vae.enable_tiling()
+            pipe.vae.enable_slicing()
+        except Exception:                              # noqa: BLE001
+            pass
+
+    def set_offload(self, mode: str) -> bool:
+        """OOM par: quality girane se pehle sasta offload try karo (resolution wohi)."""
+        mode = str(mode).lower()
+        if self.pipe is None or mode == self.offload:
+            return False
+        log(f"offload {self.offload} -> {mode} (resolution barqarar)")
+        self.offload = mode
+        try:
+            self.pipe.to("cpu")
+        except Exception:                              # noqa: BLE001
+            pass
+        self.torch.cuda.empty_cache()
+        self._apply_offload(self.pipe)
+        return True
 
     def switch_to_ltx(self) -> bool:
         """Wan 2.2 T4 par OOM hi deta rahe to LTX-Video par (asli video, halka model)."""
@@ -171,16 +207,18 @@ class Renderer:
         gen = torch.Generator("cpu").manual_seed(int(scene.get("seed", 7)))
         prompt = f"{scene['prompt']} {self.job.get('style', '')}".strip()
         neg = self.job.get("negative", "blurry, low quality, text, watermark")
+        steps = int(scene.get("steps", self.steps))
+        self.last_steps = steps
         with torch.no_grad():
             if self.kind == "wan22_i2v":
                 out = self.pipe(image=img, prompt=prompt, negative_prompt=neg,
                                 height=self.height, width=self.width, num_frames=self.frames,
-                                num_inference_steps=self.steps, guidance_scale=5.0,
+                                num_inference_steps=steps, guidance_scale=5.0,
                                 generator=gen).frames[0]
             else:
                 out = self.pipe(image=img, prompt=prompt, negative_prompt=neg,
                                 height=self.height, width=self.width, num_frames=self.frames,
-                                num_inference_steps=self.steps,
+                                num_inference_steps=steps,
                                 guidance_scale=float(self.job.get("guidance", 3.0)),
                                 decode_timestep=0.03, decode_noise_scale=0.025,
                                 generator=gen).frames[0]
@@ -222,7 +260,8 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 receipts.append({"scene": scene["id"], "state": "ok",
                                  "backend": runner.kind, "seconds": round(dt),
                                  "size": f"{runner.width}x{runner.height}",
-                                 "steps": runner.steps})
+                                 "steps": getattr(runner, "last_steps", runner.steps),
+                                 "offload": runner.offload})
                 done += 1
                 avg = dt if not avg else (avg + dt) / 2
                 hud(n, len(scenes))
@@ -237,6 +276,9 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 tb = traceback.format_exc()[-900:]
                 log(f"{scene['id']}: try {attempt} FAIL {msg}")
                 if "out of memory" in msg.lower():
+                    # pehle sasta offload (720p barqarar), phir resolution, aakhir me LTX
+                    if runner.set_offload("sequential"):
+                        continue
                     if runner.downshift():
                         continue
                     if runner.switch_to_ltx():
