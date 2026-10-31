@@ -1,1 +1,1 @@
-21:25:11Z · clip HERO_v2_motion_test.mp4: 1280,720,192
+21:25:13Z · clip bench16.mp4: 576,1024,49
