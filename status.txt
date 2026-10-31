@@ -1,1 +1,1 @@
-20:58:48Z · fetch compali/monarch-bench-2: 20 mp4
+20:58:49Z · clip HERO_v2_motion_test.mp4: 1280,720,192
