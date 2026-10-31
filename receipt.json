@@ -1,0 +1,11 @@
+{
+  "job": "personality-wan",
+  "scene": "s10",
+  "file": "s10.mp4",
+  "bytes": 9174432,
+  "md5": "4364bfeac085745a535b19df432f930d",
+  "probe": [
+    "  Duration: 00:00:03.00, start: 0.000000, bitrate: 24465 kb/s",
+    "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1080x1920, 24460 kb/s, 24 fps, 24 tbr, 12288 tbn (default)"
+  ]
+}
