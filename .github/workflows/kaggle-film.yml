@@ -213,7 +213,7 @@ jobs:
           retention-days: 14
 
       - name: Publish delivery branch (agent ke liye)
-        if: env.ASSEMBLE == '1'
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -225,7 +225,8 @@ jobs:
           git config user.email "agent@monarch.local"
           git checkout -B deliveries
           git add -f deliver
-          git commit -q -m "delivery: run ${{ github.run_number }} — $(ls deliver/kit | tr '\n' ' ')" || echo "kuch naya nahi"
+          [ -d clips ] && git add -f clips/k*.mp4 || true
+          git commit -q -m "delivery: run ${{ github.run_number }} — $(ls deliver/kit 2>/dev/null | tr '\n' ' ')" || echo "kuch naya nahi"
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deliveries
           echo "published: $(du -sh deliver | cut -f1)"
 

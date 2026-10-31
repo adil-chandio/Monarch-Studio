@@ -1,11 +1,10 @@
 {
-  "id": "probe-ltx",
+  "id": "ltx-review",
   "title": "Powerful Personality",
-  "chunks": [
-    "k07"
+  "chunks": [],
+  "fetch": [
+    "monarch-ltx-1"
   ],
-  "fetch": [],
-  "assemble": false,
-  "job": "cloud/t2v_jobs/stick-i2v-ltx.json",
-  "note": "SPEED PROBE: k07 LTX-Video 2B, 704x1216, 8 steps \u2014 waqt aur quality check."
+  "assemble": true,
+  "note": "LTX k07 ka review build \u2014 clip + cover inspect karne ke liye."
 }
