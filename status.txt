@@ -1,1 +1,1 @@
-21:20:54Z · R monarch-bench-1 repo/studio/videogen/examples/receipts.json: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
+21:20:55Z · R monarch-bench-1 repo/studio/videogen/examples/m-reel-01/receipts.json: {"shots":{},"mobile":{"notebook":"/home/user/Monarch-Studio/studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb","created_at":1793138957,"shots":3,"mode":"phone_run_all"}}
