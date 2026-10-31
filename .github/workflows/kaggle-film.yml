@@ -43,6 +43,7 @@ jobs:
       POLL_MAX: "300"
       SLUG_PREFIX: "monarch-ltx"
       DIAG: "1"
+      PARALLEL: "1"
       JOB: ${{ vars.KAGGLE_JOB || 'cloud/t2v_jobs/stick-i2v-hq.json' }}
       REPORT: "1"
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

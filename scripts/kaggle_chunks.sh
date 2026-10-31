@@ -127,6 +127,50 @@ done
 
 FAILED=""
 n=0
+PARALLEL="${PARALLEL:-1}"
+if [ "$PARALLEL" = "1" ]; then
+  # Phase 1 — har chunk ka kernel push (sab ek sath GPU le lete hain = 2 sessions x 2 T4)
+  IDX=0
+  IFS=';' read -ra PARTS0 <<< "$CHUNKS"
+  for ONLY in "${PARTS0[@]}"; do
+    [ -z "$ONLY" ] && continue
+    IDX=$((IDX + 1))
+    SLUG="${SLUG_PREFIX}-${IDX}"
+    DIR="work/$SLUG"
+    REF="$KAGGLE_USERNAME/$SLUG"
+    python tools/make_kaggle_kernel.py --user "$KAGGLE_USERNAME" --slug "$SLUG" \
+      --only "$ONLY" --title "$SLUG" --out "$DIR" ${JOB:+--job "$JOB"} || {
+        note "package fail $REF"; continue; }
+    echo "::group::push $REF ($ONLY)"
+    push_out=$(kaggle kernels push -p "$DIR" 2>&1); push_rc=$?
+    echo "$push_out" | tail -3
+    [ "$push_rc" -ne 0 ] && report "PUSH FAIL $REF: $(echo "$push_out" | tr '\n' ' ' | cut -c1-200)"
+    note "pushed $REF ($ONLY)"
+    report "pushed $REF ($ONLY)"
+    echo "::endgroup::"
+    sleep 20
+  done
+  # Phase 2 — sab ka intezaar + output
+  IDX=0
+  for ONLY in "${PARTS0[@]}"; do
+    [ -z "$ONLY" ] && continue
+    IDX=$((IDX + 1))
+    SLUG="${SLUG_PREFIX}-${IDX}"; DIR="work/$SLUG"; REF="$KAGGLE_USERNAME/$SLUG"
+    echo "::group::wait $REF"
+    rc=0; wait_kernel "$REF" || rc=$?
+    kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -2 || true
+    got=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
+    find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+    find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$SLUG.json" \; 2>/dev/null || true
+    note "output $REF: $got mp4 (rc=$rc)"
+    report "output $REF: $got mp4"
+    for id in $(echo "$ONLY" | tr ',' ' '); do
+      [ -s "$CLIPS_DIR/$id.mp4" ] || FAILED="$FAILED $id"
+    done
+    echo "::endgroup::"
+  done
+  CHUNKS=""
+fi
 if [ -z "$(echo "$CHUNKS" | tr -d ' ;,')" ]; then
   note "koi render chunk nahi — sirf fetch + assembly"
   CHUNKS=""

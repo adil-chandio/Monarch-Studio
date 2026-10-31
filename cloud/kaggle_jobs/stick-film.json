@@ -1,10 +1,16 @@
 {
-  "id": "ltx-review",
+  "id": "hq-final-6",
   "title": "Powerful Personality",
-  "chunks": [],
+  "chunks": [
+    "k07,k08,k09",
+    "k10,k11,k12"
+  ],
   "fetch": [
-    "monarch-ltx-1"
+    "monarch-hq2-1",
+    "monarch-hq2-2",
+    "monarch-hq-1"
   ],
   "assemble": true,
-  "note": "LTX k07 ka review build \u2014 clip + cover inspect karne ke liye."
+  "job": "cloud/t2v_jobs/stick-i2v-hq.json",
+  "note": "FINAL HQ: k07-k12 do sessions me parallel (4 T4), assembly 12 scenes ke sath."
 }
