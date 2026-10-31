@@ -220,15 +220,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ ! -d deliver ] || [ -z "$(ls -A deliver 2>/dev/null)" ]; then
+          HAVE=0
+          [ -d deliver ] && [ -n "$(ls -A deliver 2>/dev/null)" ] && HAVE=1
+          ls clips/bench*.mp4 >/dev/null 2>&1 && HAVE=1
+          if [ "$HAVE" = "0" ]; then
             echo "::warning::deliver khali — publish skip"
             exit 0
           fi
           git config user.name "Monarch Agent"
           git config user.email "agent@monarch.local"
           git checkout -B deliveries
-          git add -f deliver
+          [ -d deliver ] && git add -f deliver || true
           [ -d clips ] && git add -f clips/k*.mp4 || true
+          [ -d clips ] && git add -f clips/bench*.mp4 clips/receipts_*.json || true
           git commit -q -m "delivery: run ${{ github.run_number }} — $(ls deliver/kit 2>/dev/null | tr '\n' ' ')" || echo "kuch naya nahi"
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" deliveries
           echo "published: $(du -sh deliver | cut -f1)"
