@@ -1,0 +1,28 @@
+{
+  "tool": "clipfilm-1.0",
+  "film": "stick-i2v",
+  "title": "Powerful Personality \u2014 stickman (image to video)",
+  "master": "monarch_stick_36s.mp4",
+  "info": {
+    "name": "monarch_stick_36s.mp4",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.92,
+    "bytes": 34883485,
+    "md5": "f4f4ffea5023d011a28c7a526725cb34"
+  },
+  "log": [
+    "scene 1: k01 3.0s +voice",
+    "scene 2: k02 3.0s +voice",
+    "scene 3: k03 3.0s +voice",
+    "scene 4: k04 3.0s +voice",
+    "scene 5: k07 3.0s +voice",
+    "scene 6: k08 3.0s +voice",
+    "scene 7: k09 3.0s +voice"
+  ],
+  "scenes": 7,
+  "missing": [],
+  "with_voice": 7,
+  "seconds_rendered": 54.5,
+  "engine": "cloud AnimateDiff clips + ffmpeg finish"
+}

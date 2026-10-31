@@ -1,0 +1,88 @@
+{
+  "id": "stick-i2v",
+  "title": "Powerful Personality — stickman (image to video)",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "clips": "/home/runner/work/Monarch-Studio/Monarch-Studio/clips",
+  "voice_dir": "/home/runner/work/Monarch-Studio/Monarch-Studio/studio/films/personality-t2v/voice",
+  "crf": 18,
+  "preset": "medium",
+  "fade": 0.22,
+  "grain": 3,
+  "grade": "none",
+  "sharpen": 0.4,
+  "caption_size": 50,
+  "caption_y": 0.79,
+  "caption_tracking": 2,
+  "kicker_size": 17,
+  "kicker_tracking": 8,
+  "kicker_gap": 48,
+  "audio": {
+    "drone": 0.34,
+    "pad": 0.24,
+    "pulse": 0.22,
+    "riser": true,
+    "hiss": 0.05
+  },
+  "scenes": [
+    {
+      "id": "k01",
+      "clip": "k01.mp4",
+      "seconds": 3.0,
+      "caption": "POWERFUL PERSONALITY",
+      "kicker": "AI · T2V",
+      "voice": "v01.wav"
+    },
+    {
+      "id": "k02",
+      "clip": "k02.mp4",
+      "seconds": 3.0,
+      "caption": "5 AADATEIN",
+      "kicker": "SETUP",
+      "voice": "v02.wav"
+    },
+    {
+      "id": "k03",
+      "clip": "k03.mp4",
+      "seconds": 3.0,
+      "caption": "1 · PEHLE SUNO",
+      "kicker": "SUNNA",
+      "voice": "v02.wav"
+    },
+    {
+      "id": "k04",
+      "clip": "k04.mp4",
+      "seconds": 3.0,
+      "caption": "2 · DHEERE, SAAF",
+      "kicker": "AWAZ",
+      "voice": "v03.wav"
+    },
+    {
+      "id": "k07",
+      "clip": "k07.mp4",
+      "seconds": 3.0,
+      "caption": "5 · SIRF VALUE PAR",
+      "kicker": "SAYAM",
+      "voice": "v06.wav"
+    },
+    {
+      "id": "k08",
+      "clip": "k08.mp4",
+      "seconds": 3.0,
+      "caption": "ROZ 10 MINUTE",
+      "kicker": "PRACTICE",
+      "voice": "v07.wav"
+    },
+    {
+      "id": "k09",
+      "clip": "k09.mp4",
+      "seconds": 3.0,
+      "caption": "21 DIN",
+      "kicker": "AADAT",
+      "voice": "v08.wav"
+    }
+  ]
+}

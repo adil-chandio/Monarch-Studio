@@ -1,0 +1,24 @@
+{
+  "tool": "clipfilm-1.0",
+  "film": "stick-i2v",
+  "title": "Powerful Personality \u2014 stickman (image to video)",
+  "master": "teaser_11s.mp4",
+  "info": {
+    "name": "teaser_11s.mp4",
+    "width": 1080,
+    "height": 1920,
+    "duration": 8.18,
+    "bytes": 3442847,
+    "md5": "e44984b33343b58816859242e323dfa0"
+  },
+  "log": [
+    "scene 1: k01 2.2s +voice",
+    "scene 2: k03 3.0s +voice",
+    "scene 3: k07 3.0s +voice"
+  ],
+  "scenes": 3,
+  "missing": [],
+  "with_voice": 3,
+  "seconds_rendered": 16.6,
+  "engine": "cloud AnimateDiff clips + ffmpeg finish"
+}
