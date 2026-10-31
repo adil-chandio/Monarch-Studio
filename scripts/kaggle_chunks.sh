@@ -118,7 +118,11 @@ for slug in "${FETCHES[@]}"; do
   kaggle kernels output "$ref" -p "$DIR/out" 2>&1 | tail -3 || true
   got=$(find "$DIR/out" -name "$CLIP_GLOB" -size +20k 2>/dev/null | wc -l | tr -d ' ')
   find "$DIR/out" -name "$CLIP_GLOB" -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
-  find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$slug.json" \; 2>/dev/null || true
+  # receipts: kernel output me repo ki purani copies bhi hoti hain — sab report karo
+  for f in $(find "$DIR/out" -name 'receipts.json' -size -8k 2>/dev/null | head -6); do
+    report "R $slug ${f#*/out/}: $(tr -d '\n ' < "$f" | cut -c1-350)"
+  done
+  find "$DIR/out" -name 'receipts.json' -newer "$DIR" -exec cp -f {} "$CLIPS_DIR/receipts_$slug.json" \; 2>/dev/null || true
   if [ -f "$CLIPS_DIR/receipts_$slug.json" ]; then
     report "receipts $slug: $(tr -d '\n ' < "$CLIPS_DIR/receipts_$slug.json" | cut -c1-600)"
   fi
