@@ -1,1 +1,1 @@
-21:25:08Z · R monarch-bench-2 repo/studio/videogen/examples/m-test-01/receipts.json: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
+21:25:10Z · fetch compali/monarch-bench-2: 20 mp4
