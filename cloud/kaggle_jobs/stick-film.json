@@ -1,11 +1,13 @@
 {
-  "id": "bench-offload",
+  "id": "bench-fetch",
   "title": "Speed bench (k07)",
-  "chunks": [
-    "bench24;bench16"
+  "chunks": [],
+  "fetch": [
+    "monarch-bench-1",
+    "monarch-bench-2"
   ],
-  "fetch": [],
   "assemble": false,
+  "clip_glob": "*.mp4",
   "job": "cloud/t2v_jobs/bench-offload.json",
-  "note": "Speed bench: 2 configs parallel (2 sessions x 2 T4). Koi assembly/release nahi — sirf timings + clips."
+  "note": "Bench kernels (24 steps + 16 steps) se clips + receipts wapas — koi render nahi, sirf fetch."
 }

@@ -16,6 +16,8 @@ CLIPS_DIR="${2:-clips}"
 POLL_MAX="${POLL_MAX:-150}"
 POLL_SLEEP="${POLL_SLEEP:-60}"
 SLUG_PREFIX="${SLUG_PREFIX:-monarch-stick}"
+# clip pattern (bench clips k* nahi hote — spec se override ho sakta hai)
+CLIP_GLOB="${CLIP_GLOB:-k*.mp4}"
 JOB="${JOB:-}"
 
 mkdir -p "$CLIPS_DIR" work
@@ -114,8 +116,8 @@ for slug in "${FETCHES[@]}"; do
   mkdir -p "$DIR/out"
   echo "::group::fetch $ref"
   kaggle kernels output "$ref" -p "$DIR/out" 2>&1 | tail -3 || true
-  got=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
-  find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+  got=$(find "$DIR/out" -name "$CLIP_GLOB" -size +20k 2>/dev/null | wc -l | tr -d ' ')
+  find "$DIR/out" -name "$CLIP_GLOB" -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
   find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$slug.json" \; 2>/dev/null || true
   if [ -f "$CLIPS_DIR/receipts_$slug.json" ]; then
     report "receipts $slug: $(tr -d '\n ' < "$CLIPS_DIR/receipts_$slug.json" | cut -c1-600)"
@@ -159,8 +161,8 @@ if [ "$PARALLEL" = "1" ]; then
     echo "::group::wait $REF"
     rc=0; wait_kernel "$REF" || rc=$?
     kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -2 || true
-    got=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
-    find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+    got=$(find "$DIR/out" -name "$CLIP_GLOB" -size +20k 2>/dev/null | wc -l | tr -d ' ')
+    find "$DIR/out" -name "$CLIP_GLOB" -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
     find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$SLUG.json" \; 2>/dev/null || true
     note "output $REF: $got mp4 (rc=$rc)"
     report "output $REF: $got mp4"
@@ -209,11 +211,11 @@ for ONLY in "${PARTS[@]}"; do
     wait_kernel "$REF" || rc=$?
 
     kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -3 || true
-    found=$(find "$DIR/out" -name 'k*.mp4' -size +20k 2>/dev/null | wc -l | tr -d ' ')
+    found=$(find "$DIR/out" -name "$CLIP_GLOB" -size +20k 2>/dev/null | wc -l | tr -d ' ')
     report "files $REF: $(find "$DIR/out" -maxdepth 2 -type f 2>/dev/null | head -8 | tr '\n' ' ' | cut -c1-200)"
     note "output $REF: $found mp4"
     report "output $REF: $found mp4"
-    find "$DIR/out" -name 'k*.mp4' -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
+    find "$DIR/out" -name "$CLIP_GLOB" -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
 
     missing=""
     for id in $(echo "$ONLY" | tr ',' ' '); do

@@ -69,6 +69,7 @@ jobs:
           print("FETCH=" + ";".join(d.get("fetch") or []))
           print("ASSEMBLE=" + ("1" if d.get("assemble", True) else "0"))
           print("JOB_PATH=" + (d.get("job") or ""))
+          print("CLIP_GLOB=" + (d.get("clip_glob") or ""))
           nxt = d.get("next") or {}
           if nxt:
               print("NEXT_PATH=cloud/kaggle_jobs/" + str(nxt.get("id") or "next") + ".json")
@@ -168,6 +169,7 @@ jobs:
         if: env.HAVE_SECRETS == '1'
         run: |
           export JOB="${JOB_PATH:-$JOB}"
+          export CLIP_GLOB="${CLIP_GLOB:-}"
           echo "::notice::job spec: ${JOB:-default}"
           bash scripts/kaggle_chunks.sh "$CHUNKS" clips
 
