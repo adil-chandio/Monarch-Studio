@@ -1,1 +1,1 @@
-21:20:59Z · fetch compali/monarch-bench-1: 20 mp4
+21:25:04Z · R monarch-bench-2 stick-w0/receipts.json: [{"scene":"bench16","state":"ok","backend":"wan22_i2v","seconds":2410,"size":"576x1024","steps":16,"offload":"sequential"}]
