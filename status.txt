@@ -1,1 +1,1 @@
-01:03:27Z · files compali/monarch-ltx-1: work/monarch-ltx-1/out/monarch-ltx-1.log work/monarch-ltx-1/out/film_clips.json work/monarch-ltx-1/out/stick-w0/receipts.json work/monarch-ltx-1/out/stick-w0/k07.mp4 work/monarch-ltx-1/out/clips/k07.m
+01:03:29Z · output compali/monarch-ltx-1: 2 mp4
