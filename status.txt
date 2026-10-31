@@ -1,1 +1,1 @@
-01:20:02Z · receipts monarch-hq2-1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
+01:20:04Z · fetch compali/monarch-hq2-1: 6 mp4
