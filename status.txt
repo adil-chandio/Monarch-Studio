@@ -1,1 +1,1 @@
-21:29:39Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       5.29h  24.71h     30.00h  2026-11-07T00:00:00+00:00   TPU       0.00h  20.00h     
+21:35:08Z · R monarch-hq-1 stick-w0/receipts.json: [{"scene":"k01","state":"ok","backend":"wan22_i2v","seconds":3460,"size":"576x1024","steps":24}]
