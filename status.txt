@@ -1,1 +1,1 @@
-21:40:41Z · R monarch-hq2-1 stick-w1/receipts.json: [{"scene":"k04","state":"ok","backend":"wan22_i2v","seconds":3581,"size":"576x1024","steps":24}]
+21:40:43Z · R monarch-hq2-1 stick-w0/receipts.json: [{"scene":"k02","state":"ok","backend":"wan22_i2v","seconds":3666,"size":"576x1024","steps":24},{"scene":"k03","state":"ok","backend":"wan22_i2v","seconds":3298,"size":"576x1024","steps":24}]
