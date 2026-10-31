@@ -1,1 +1,1 @@
-21:09:50Z · receipts monarch-bench-1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
+21:09:52Z · fetch compali/monarch-bench-1: 20 mp4
