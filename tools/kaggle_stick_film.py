@@ -131,11 +131,15 @@ class Renderer:
             pipe.set_progress_bar_config(disable=True)
             return pipe
 
-        try:
-            self.pipe, self.kind = _wan(), "wan22_i2v"
-        except Exception as exc:                       # noqa: BLE001
-            log(f"Wan 2.2 load fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
+        engine = str(self.job.get("engine") or "auto").lower()
+        if engine == "ltx":
             self.pipe, self.kind = _ltx(), "ltx_i2v"
+        else:
+            try:
+                self.pipe, self.kind = _wan(), "wan22_i2v"
+            except Exception as exc:                   # noqa: BLE001
+                log(f"Wan 2.2 load fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
+                self.pipe, self.kind = _ltx(), "ltx_i2v"
         log(f"backend: {self.kind}")
 
     def switch_to_ltx(self) -> bool:
@@ -176,7 +180,8 @@ class Renderer:
             else:
                 out = self.pipe(image=img, prompt=prompt, negative_prompt=neg,
                                 height=self.height, width=self.width, num_frames=self.frames,
-                                num_inference_steps=24, guidance_scale=3.0,
+                                num_inference_steps=self.steps,
+                                guidance_scale=float(self.job.get("guidance", 3.0)),
                                 decode_timestep=0.03, decode_noise_scale=0.025,
                                 generator=gen).frames[0]
         return out

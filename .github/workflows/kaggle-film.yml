@@ -41,7 +41,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       POLL_MAX: "300"
-      SLUG_PREFIX: "monarch-hq2"
+      SLUG_PREFIX: "monarch-ltx"
       DIAG: "1"
       JOB: ${{ vars.KAGGLE_JOB || 'cloud/t2v_jobs/stick-i2v-hq.json' }}
       REPORT: "1"
@@ -67,6 +67,7 @@ jobs:
           print("SPEC_USER=" + (d.get("user") or ""))
           print("FETCH=" + ";".join(d.get("fetch") or []))
           print("ASSEMBLE=" + ("1" if d.get("assemble", True) else "0"))
+          print("JOB_PATH=" + (d.get("job") or ""))
           nxt = d.get("next") or {}
           if nxt:
               print("NEXT_PATH=cloud/kaggle_jobs/" + str(nxt.get("id") or "next") + ".json")
@@ -164,7 +165,10 @@ jobs:
 
       - name: Kaggle chunks (GPU)
         if: env.HAVE_SECRETS == '1'
-        run: bash scripts/kaggle_chunks.sh "$CHUNKS" clips
+        run: |
+          export JOB="${JOB_PATH:-$JOB}"
+          echo "::notice::job spec: ${JOB:-default}"
+          bash scripts/kaggle_chunks.sh "$CHUNKS" clips
 
       - name: Dry run clips (secrets nahi — CPU pipeline check)
         if: env.HAVE_SECRETS != '1'
