@@ -1,1 +1,1 @@
-21:35:15Z · fetch compali/monarch-hq-1: 2 mp4
+21:40:41Z · R monarch-hq2-1 stick-w1/receipts.json: [{"scene":"k04","state":"ok","backend":"wan22_i2v","seconds":3581,"size":"576x1024","steps":24}]
