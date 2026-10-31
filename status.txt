@@ -1,1 +1,1 @@
-21:35:08Z · R monarch-hq-1 stick-w0/receipts.json: [{"scene":"k01","state":"ok","backend":"wan22_i2v","seconds":3460,"size":"576x1024","steps":24}]
+21:35:10Z · R monarch-hq-1 repo/studio/videogen/examples/receipts.json: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
