@@ -1,1 +1,1 @@
-02:00:59Z · R monarch-t720-1 stick-w0/receipts.json: []
+02:01:01Z · R monarch-t720-1 repo/studio/videogen/examples/receipts.json: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
