@@ -552,7 +552,9 @@ def main(argv=None) -> int:
             raise SystemExit(f"koi clip nahi mila: {out}")
         result = {"ok": len(have)}
     else:
-        ensure_deps(str(job.get("quant") or ""))
+        # quant scene-level bhi ho sakta hai — kisi bhi scene ko int8 chahiye to bnb upgrade karo
+        wants_int8 = any(str(s.get("quant", "")).lower() == "int8" for s in scenes)
+        ensure_deps("int8" if wants_int8 or str(job.get("quant", "")).lower() == "int8" else "")
         runner = Renderer(job)
         result = render_all(runner, scenes, out)
         log(f"clips: {result['ok']}/{len(scenes)}")

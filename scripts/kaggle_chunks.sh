@@ -96,12 +96,13 @@ kernel_tail() {                          # logs ki aakhri lines annotations + ci
     case "$line" in
       ::*|*"Figure"*|*"Saving"*) continue ;;
     esac
-    note "log $ref | ${line:0:180}"
-    tail_txt="$tail_txt ${line:0:120} |"
+    note "log $ref | ${line:0:400}"
+    tail_txt="$tail_txt ${line:0:300} |"
+    printf '%s\n' "$line" >> "$CLIPS_DIR/log_$(basename "$ref").txt"
   done < <(kaggle kernels logs "$ref" 2>&1 | python3 tools/kernel_logs.py 2>/dev/null \
              | grep -iE "fail|error|oom|out of memory|int8|offload|retune|quant|backend|clips:|retry|Traceback|Exception" \
              | tail -40)
-  report "LOGS $ref: $(echo "$tail_txt" | cut -c1-900)"
+  report "LOGS $ref: $(echo "$tail_txt" | cut -c1-2500)"
 }
 
 QUOTA="$(kaggle quota 2>&1 | tr '\n' ' ' | cut -c1-220)"
@@ -238,7 +239,7 @@ for ONLY in "${PARTS[@]}"; do
     fi
     note "chunk $n incomplete — missing:$missing (kernel rc=$rc)"
     kernel_tail "$REF"
-    report "RECEIPT $REF: $(find "$DIR/out" -name receipts.json -exec cat {} \; 2>/dev/null | tr -d '\n' | cut -c1-900)"
+    report "RECEIPT $REF: $(find "$DIR/out" -name receipts.json -exec cat {} \; 2>/dev/null | tr -d '\n' | cut -c1-2500)"
     if [ "$rc" -eq 2 ]; then
       note "kernel chal raha tha — dobara push nahi (waste). Agli run me wohi chunk."
       FAILED="$FAILED ${n}(timeout)"

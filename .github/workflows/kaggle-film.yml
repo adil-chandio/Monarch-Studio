@@ -41,7 +41,7 @@ jobs:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       POLL_MAX: "300"
-      SLUG_PREFIX: "monarch-t720b"
+      SLUG_PREFIX: "monarch-t720c"
       DIAG: "1"
       PARALLEL: "1"
       JOB: ${{ vars.KAGGLE_JOB || 'cloud/t2v_jobs/stick-i2v-hq.json' }}
