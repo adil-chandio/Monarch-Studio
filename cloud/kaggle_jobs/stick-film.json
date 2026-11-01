@@ -1,13 +1,13 @@
 {
-  "id": "test-720",
+  "id": "test-720-fetch",
   "title": "720p vs 576p test",
-  "chunks": [
-    "t720",
-    "t576,k06"
+  "chunks": [],
+  "fetch": [
+    "monarch-t720-1",
+    "monarch-t720-2"
   ],
-  "fetch": [],
   "assemble": false,
   "clip_glob": "*.mp4",
   "job": "cloud/t2v_jobs/test-720.json",
-  "note": "A/B: t720 (int8, 720p) vs t576 (bf16, 576p) + k06. 2 sessions x 2 T4. Koi assembly nahi."
+  "note": "Test kernels se clips wapas (koi render nahi)."
 }
