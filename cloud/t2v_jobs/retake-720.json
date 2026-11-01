@@ -1,0 +1,48 @@
+{
+  "id": "retake-720",
+  "backend": "wan22_i2v",
+  "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+  "style": "hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text, continuous fluid motion from the first frame to the last, the camera slowly pushes in, chalk dust drifting through the frame, subtle chalk boil",
+  "negative": "photorealistic, 3d render, cgi, colored skin, extra limbs, melting lines, morphing, blurry, watermark, text, frozen static frame, still image, frozen frame, motionless, static pose, slideshow, duplicate frames, melting face, smeared lines, distorted face, morphing head, ghostly double image",
+  "width": 704,
+  "height": 1280,
+  "frames": 25,
+  "steps": 16,
+  "raw_fps": 16,
+  "fps": 16,
+  "guidance": 5.0,
+  "ladder": [
+    [
+      704,
+      1280
+    ],
+    [
+      576,
+      1024
+    ],
+    [
+      480,
+      832
+    ]
+  ],
+  "note": "Retake: k08 (chehra melt ho raha tha) + k02 (static) — 720p/25f/16 steps, wohi baqi settings.",
+  "offload": "sequential",
+  "attn": "slice",
+  "interp": 32,
+  "scenes": [
+    {
+      "id": "k02",
+      "image": "studio/films/stick-i2v/keyframes/k02.png",
+      "prompt": "the chalk stick figure turns his head slowly toward the window, then looks back at the camera, his shoulders rise and fall with a deep breath, rain streaks slide down the glass behind him, camera slowly drifting sideways, he is standing in place among the other grey figures, ",
+      "seed": 202,
+      "seconds": 3.0
+    },
+    {
+      "id": "k08",
+      "image": "studio/films/stick-i2v/keyframes/k08.png",
+      "prompt": "the chalk stick figure gives a small closed-mouth smile, his head tilts only slightly and returns level, his shoulders move a little as he breathes, the face stays clean: two round dot eyes and a simple line mouth, no scribbles, no melting, no smearing, he is standing in place among the other grey figures, ",
+      "seed": 208,
+      "seconds": 3.0
+    }
+  ]
+}

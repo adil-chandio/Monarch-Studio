@@ -1,13 +1,12 @@
 {
-  "id": "film-720",
+  "id": "retake-720",
   "title": "Powerful Personality",
   "chunks": [
-    "k01,k02,k03,k04,k05,k06",
-    "k07,k08,k09,k10,k11,k12"
+    "k02,k08"
   ],
   "fetch": [],
-  "assemble": true,
+  "assemble": false,
   "clip_glob": "k*.mp4",
-  "job": "cloud/t2v_jobs/film-720.json",
-  "note": "720p asli pass: 12 scenes, 2 sessions x 2 T4 (3 scenes/GPU), 25f/16 steps + interp 32. Assembly + master + kit end me."
+  "job": "cloud/t2v_jobs/retake-720.json",
+  "note": "Retake k02/k08 (720p). Koi assembly nahi — clips deliveries par aa jayenge."
 }
