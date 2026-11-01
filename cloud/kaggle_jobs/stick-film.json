@@ -1,13 +1,13 @@
 {
-  "id": "test-720b",
-  "title": "720p round 2",
-  "chunks": [
-    "t720,t720q",
-    "t576,k06"
+  "id": "diag-t720b",
+  "title": "720p round 2 (diag)",
+  "chunks": [],
+  "fetch": [
+    "monarch-t720b-1",
+    "monarch-t720b-2"
   ],
-  "fetch": [],
   "assemble": false,
   "clip_glob": "*.mp4",
   "job": "cloud/t2v_jobs/test-720b.json",
-  "note": "Round 2: int8 (bnb upgrade) + attention slicing. 2 sessions x 2 T4 = 4 configs parallel."
+  "note": "Round-2 kernels se clips + logs (kya fail hua, kyun)."
 }
