@@ -1,1 +1,1 @@
-01:45:10Z · output compali/monarch-t720-2: 18 mp4
+01:45:11Z · clip HERO_v2_motion_test.mp4: 1280,720,192
