@@ -98,7 +98,19 @@ kernel_tail() {                          # logs ki aakhri lines annotations + ci
     esac
     note "log $ref | ${line:0:180}"
     tail_txt="$tail_txt ${line:0:120} |"
-  done < <(kaggle kernels logs "$ref" 2>&1 | grep -viE "^(warning|traceback)" | tail -25)
+  done < <(kaggle kernels logs "$ref" 2>&1 \
+             | python3 -c '
+import sys, json
+for line in sys.stdin:
+    s = line.strip().rstrip(",")
+    if not s:
+        continue
+    try:
+        d = json.loads(s)
+        sys.stdout.write(str(d.get("data", "")))
+    except Exception:
+        sys.stdout.write(line)
+' 2>/dev/null | grep -iE "fail|error|oom|out of memory|int8|offload|retune|quant|backend|load|clips:|min$|retry" | tail -30)
   report "LOGS $ref: $(echo "$tail_txt" | cut -c1-900)"
 }
 
@@ -128,6 +140,10 @@ for slug in "${FETCHES[@]}"; do
   fi
   note "fetch $ref: $got mp4"
   report "fetch $ref: $got mp4"
+  for rf in $(find "$DIR/out" -name 'receipts.json' -size -16k 2>/dev/null); do
+    report "R $slug: $(tr -d '\n ' < "$rf" | cut -c1-700)"
+    cp -f "$rf" "$CLIPS_DIR/receipts_$slug.json" 2>/dev/null || true
+  done
   [ "${DIAG:-1}" = "1" ] && kernel_tail "$ref"
   echo "::endgroup::"
 done
