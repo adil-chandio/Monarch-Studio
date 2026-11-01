@@ -98,19 +98,9 @@ kernel_tail() {                          # logs ki aakhri lines annotations + ci
     esac
     note "log $ref | ${line:0:180}"
     tail_txt="$tail_txt ${line:0:120} |"
-  done < <(kaggle kernels logs "$ref" 2>&1 \
-             | python3 -c '
-import sys, json
-for line in sys.stdin:
-    s = line.strip().rstrip(",")
-    if not s:
-        continue
-    try:
-        d = json.loads(s)
-        sys.stdout.write(str(d.get("data", "")))
-    except Exception:
-        sys.stdout.write(line)
-' 2>/dev/null | grep -iE "fail|error|oom|out of memory|int8|offload|retune|quant|backend|load|clips:|min$|retry" | tail -30)
+  done < <(kaggle kernels logs "$ref" 2>&1 | python3 tools/kernel_logs.py 2>/dev/null \
+             | grep -iE "fail|error|oom|out of memory|int8|offload|retune|quant|backend|clips:|retry|Traceback|Exception" \
+             | tail -40)
   report "LOGS $ref: $(echo "$tail_txt" | cut -c1-900)"
 }
 
