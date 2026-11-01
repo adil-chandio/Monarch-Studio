@@ -1,1 +1,1 @@
-03:46:27Z · R monarch-t720b-1 repo/studio/videogen/examples/m-test-01/receipts.json: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
+03:46:28Z · fetch compali/monarch-t720b-1: 20 mp4
