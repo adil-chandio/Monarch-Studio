@@ -1,1 +1,1 @@
-03:46:33Z · R monarch-t720b-1: {"shots":{},"mobile":{"notebook":"/home/user/Monarch-Studio/studio/videogen/examples/m-reel-01/mobile/MOBILE_m-reel-01.ipynb","created_at":1793138957,"shots":3,"mode":"phone_run_all"}}
+03:46:34Z · R monarch-t720b-1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/m-test-01/mobile/MOBILE_m-test-01.ipynb","created_at":1793138943,"shots":1,"mode":"phone_run_all"}}
