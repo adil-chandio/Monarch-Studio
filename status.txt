@@ -1,1 +1,1 @@
-21:26:27Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       7.59h  22.41h     30.00h  2026-11-07T00:00:00+00:00   TPU       0.00h  20.00h     
+21:26:31Z · pushed compali/monarch-720-1 (k01,k02,k03,k04,k05,k06)
