@@ -1,15 +1,13 @@
 {
-  "id": "hq-verify",
-  "title": "HQ clips verify (k01-k12)",
-  "chunks": [],
-  "fetch": [
-    "monarch-hq-1",
-    "monarch-hq2-1",
-    "monarch-ltx-1",
-    "monarch-ltx-2"
+  "id": "test-720",
+  "title": "720p vs 576p test",
+  "chunks": [
+    "t720",
+    "t576,k06"
   ],
+  "fetch": [],
   "assemble": false,
-  "clip_glob": "k*.mp4",
-  "job": "cloud/t2v_jobs/stick-i2v-hq.json",
-  "note": "Purane HQ kernels se clips + receipts wapas — asli resolution/steps/offload verify (koi render nahi)."
+  "clip_glob": "*.mp4",
+  "job": "cloud/t2v_jobs/test-720.json",
+  "note": "A/B: t720 (int8, 720p) vs t576 (bf16, 576p) + k06. 2 sessions x 2 T4. Koi assembly nahi."
 }

@@ -55,6 +55,7 @@ def ensure_deps() -> None:
 
     missing = []
     for mod, pkg in (("diffusers", "diffusers>=0.32"), ("transformers", "transformers>=4.49"),
+                     ("bitsandbytes", "bitsandbytes"),
                      ("accelerate", "accelerate"), ("imageio_ffmpeg", "imageio-ffmpeg"),
                      ("ftfy", "ftfy"), ("sentencepiece", "sentencepiece"),
                      ("safetensors", "safetensors"), ("regex", "regex")):
@@ -101,6 +102,9 @@ class Renderer:
         # offload: "sequential" (safe, dheema, har layer) | "model" (module-wise, ~2x tez)
         #          | "none" (sab GPU par — sirf bare GPU par). Bench se decide hota hai.
         self.offload = str(job.get("offload") or "sequential").lower()
+        # quant: "" (bf16) | "int8" (bitsandbytes — T4 par 720p fit karane ke liye)
+        self.quant = str(job.get("quant") or "").lower()
+        self.transformer = None
         log(f"GPU: {torch.cuda.get_device_name(0)} | dtype {self.dtype}")
 
     def load(self) -> None:
@@ -116,7 +120,25 @@ class Renderer:
             model = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
             log(f"loading {model} (~10 GB download, T4 par pehli baar 5-8 min)")
             vae = AutoencoderKLWan.from_pretrained(model, subfolder="vae", torch_dtype=self.dtype)
-            pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=self.dtype)
+            if self.quant == "int8":
+                # 720p par attention 16 GB se zyada maangta hai — weights int8 (aadhe) karo.
+                # Transformer + text encoder dono int8 => dono GPU par aa jate hain (offload ki zarurat nahi).
+                from diffusers import WanTransformer3DModel
+                from transformers import BitsAndBytesConfig, UMT5EncoderModel
+
+                qcfg = BitsAndBytesConfig(load_in_8bit=True)
+                tf = WanTransformer3DModel.from_pretrained(
+                    model, subfolder="transformer", quantization_config=qcfg,
+                    torch_dtype=self.dtype, device_map={"": 0})
+                te = UMT5EncoderModel.from_pretrained(
+                    model, subfolder="text_encoder", quantization_config=qcfg,
+                    torch_dtype=self.dtype, device_map={"": 0})
+                log("int8 (bitsandbytes): transformer + text encoder — 720p ke liye")
+                pipe = WanImageToVideoPipeline.from_pretrained(
+                    model, vae=vae, transformer=tf, text_encoder=te, torch_dtype=self.dtype)
+                self.offload = "none"
+            else:
+                pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=self.dtype)
             self._apply_offload(pipe)
             pipe.set_progress_bar_config(disable=True)
             log(f"offload: {self.offload}")
@@ -139,7 +161,18 @@ class Renderer:
             try:
                 self.pipe, self.kind = _wan(), "wan22_i2v"
             except Exception as exc:                   # noqa: BLE001
-                log(f"Wan 2.2 load fail ({type(exc).__name__}: {str(exc)[:160]}) -> LTX-Video")
+                msg = f"{type(exc).__name__}: {str(exc)[:200]}"
+                if self.quant == "int8":
+                    log(f"int8 load fail ({msg}) -> bf16 + sequential")
+                    self.quant, self.offload = "", "sequential"
+                    try:
+                        self.pipe, self.kind = _wan(), "wan22_i2v"
+                        log(f"backend: {self.kind} (bf16 fallback)")
+                        return
+                    except Exception as exc2:          # noqa: BLE001
+                        log(f"bf16 bhi fail ({type(exc2).__name__}) -> LTX-Video")
+                else:
+                    log(f"Wan 2.2 load fail ({msg}) -> LTX-Video")
                 self.pipe, self.kind = _ltx(), "ltx_i2v"
         log(f"backend: {self.kind}")
 
@@ -151,7 +184,10 @@ class Renderer:
         except Exception:                              # noqa: BLE001
             pass
         if self.offload == "none":
-            pipe.to("cuda")
+            try:
+                pipe.to("cuda")
+            except Exception as exc:                   # noqa: BLE001
+                log(f"pipe.to(cuda) fail ({type(exc).__name__}: {str(exc)[:120]}) — device_map par bharosa")
         elif self.offload == "model":
             pipe.enable_model_cpu_offload()
         else:
@@ -178,6 +214,48 @@ class Renderer:
         self._apply_offload(self.pipe)
         return True
 
+    def retune(self, quant: str | None = None, offload: str | None = None) -> bool:
+        """Quant/offload badalne ke liye pipeline dobara load karo. Fail ho to False."""
+        if quant is not None:
+            self.quant = quant
+        if offload is not None:
+            self.offload = offload
+        log(f"retune -> quant={self.quant or 'bf16'} offload={self.offload}")
+        self.pipe = None
+        self.kind = None
+        import gc
+
+        gc.collect()
+        try:
+            self.torch.cuda.empty_cache()
+        except Exception:                              # noqa: BLE001
+            pass
+        try:
+            self.load()
+            return True
+        except Exception as exc:                       # noqa: BLE001
+            log(f"retune fail: {type(exc).__name__}: {str(exc)[:160]}")
+            return False
+
+    def next_fallback(self) -> str:
+        """OOM par tarteeb: sasta offload -> int8 -> chhota canvas -> LTX. Quality pehle."""
+        if self.kind == "wan22_i2v":
+            if self.offload in ("model", "none"):
+                if self.set_offload("sequential"):
+                    return "offload:sequential"
+                return ""
+            if self.quant != "int8":
+                if self.retune(quant="int8", offload="none"):
+                    return "quant:int8"
+                if self.retune(quant="", offload="sequential"):
+                    return "offload:sequential"
+                return ""
+            if self.downshift():
+                return "downshift"
+        if self.switch_to_ltx():
+            return "ltx"
+        return ""
+
     def switch_to_ltx(self) -> bool:
         """Wan 2.2 T4 par OOM hi deta rahe to LTX-Video par (asli video, halka model)."""
         if self.kind == "ltx_i2v":
@@ -198,6 +276,24 @@ class Renderer:
         self.width, self.height = 480, 832
         return True
 
+    def prepare(self, scene: dict) -> None:
+        """Scene ke apne overrides lagao (ek hi run me 720p vs 576p test ho sake)."""
+        want_w = int(scene.get("width", self.width))
+        want_h = int(scene.get("height", self.height))
+        if not hasattr(self, "ceiling"):               # OOM ke baad upar wapas na jao
+            self.ceiling = (int(self.job.get("width", want_w)), int(self.job.get("height", want_h)))
+        cw, ch = self.ceiling
+        if want_w * want_h > cw * ch:
+            want_w, want_h = cw, ch
+        self.width, self.height = want_w, want_h
+        self.frames = int(scene.get("frames", self.job.get("frames", self.frames)))
+        want_q = str(scene.get("quant", self.job.get("quant") or "")).lower()
+        want_o = str(scene.get("offload", self.job.get("offload") or "sequential")).lower()
+        if self.pipe is not None and (want_q != self.quant or want_o != self.offload):
+            self.retune(quant=want_q, offload=want_o)
+        else:
+            self.quant, self.offload = want_q, want_o
+
     def render(self, scene: dict, keyframe: pathlib.Path, seconds: float):
         from diffusers.utils import load_image
 
@@ -208,6 +304,7 @@ class Renderer:
         prompt = f"{scene['prompt']} {self.job.get('style', '')}".strip()
         neg = self.job.get("negative", "blurry, low quality, text, watermark")
         steps = int(scene.get("steps", self.steps))
+        self.frames = int(scene.get("frames", self.frames))
         self.last_steps = steps
         with torch.no_grad():
             if self.kind == "wan22_i2v":
@@ -231,6 +328,7 @@ class Renderer:
         if not smaller:
             return False
         self.width, self.height = max(smaller, key=lambda s: s[0] * s[1])
+        self.ceiling = (self.width, self.height)
         log(f"canvas chhota: {self.width}x{self.height}")
         return True
 
@@ -251,6 +349,7 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
             f"{scene.get('seconds', 3.0)}s · backend {runner.kind or 'load'}")
         for attempt in range(1, 5):
             try:
+                runner.prepare(scene)
                 frames = runner.render(scene, kf, scene.get("seconds", 3.0))
                 tmp = out / f"{scene['id']}_raw.mp4"
                 export_to_video(frames, str(tmp), fps=16)
@@ -261,7 +360,9 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                                  "backend": runner.kind, "seconds": round(dt),
                                  "size": f"{runner.width}x{runner.height}",
                                  "steps": getattr(runner, "last_steps", runner.steps),
-                                 "offload": runner.offload})
+                                 "offload": runner.offload,
+                                 "quant": runner.quant or "bf16",
+                                 "frames": runner.frames})
                 done += 1
                 avg = dt if not avg else (avg + dt) / 2
                 hud(n, len(scenes))
@@ -276,12 +377,9 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 tb = traceback.format_exc()[-900:]
                 log(f"{scene['id']}: try {attempt} FAIL {msg}")
                 if "out of memory" in msg.lower():
-                    # pehle sasta offload (720p barqarar), phir resolution, aakhir me LTX
-                    if runner.set_offload("sequential"):
-                        continue
-                    if runner.downshift():
-                        continue
-                    if runner.switch_to_ltx():
+                    step = runner.next_fallback()
+                    log(f"{scene['id']}: OOM -> {step or 'koi fallback nahi'}")
+                    if step:
                         continue
                 if attempt == 2:
                     receipts.append({"scene": scene["id"], "state": "fail", "error": msg,
