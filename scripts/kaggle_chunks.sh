@@ -128,6 +128,7 @@ for slug in "${FETCHES[@]}"; do
   fi
   note "fetch $ref: $got mp4"
   report "fetch $ref: $got mp4"
+  [ "${DIAG:-1}" = "1" ] && kernel_tail "$ref"
   echo "::endgroup::"
 done
 
