@@ -1,1 +1,1 @@
-22:07:10Z · clips total: 7
+01:04:03Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       5.29h  24.71h     30.00h  2026-11-07T00:00:00+00:00   TPU       0.00h  20.00h     
