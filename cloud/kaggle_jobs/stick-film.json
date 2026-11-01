@@ -1,13 +1,13 @@
 {
-  "id": "test-720c",
-  "title": "720p round 3",
-  "chunks": [
-    "t720q",
-    "t576,k06"
+  "id": "diag-t720c",
+  "title": "720p round 3 (diag)",
+  "chunks": [],
+  "fetch": [
+    "monarch-t720c-1",
+    "monarch-t720c-2"
   ],
-  "fetch": [],
   "assemble": false,
   "clip_glob": "*.mp4",
   "job": "cloud/t2v_jobs/test-720c.json",
-  "note": "Round 3: int8 fix + 576p baseline + k06. 2 sessions x 2 T4."
+  "note": "Round-3 kernels se receipts + logs (kaunsi config kyun fail hui)."
 }

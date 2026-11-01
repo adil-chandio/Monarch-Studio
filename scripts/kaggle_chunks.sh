@@ -131,10 +131,13 @@ for slug in "${FETCHES[@]}"; do
   fi
   note "fetch $ref: $got mp4"
   report "fetch $ref: $got mp4"
-  for rf in $(find "$DIR/out" -name 'receipts.json' -size -16k 2>/dev/null); do
-    report "R $slug: $(tr -d '\n ' < "$rf" | cut -c1-700)"
-    cp -f "$rf" "$CLIPS_DIR/receipts_$slug.json" 2>/dev/null || true
-  done
+  i=0
+  while IFS= read -r rf; do
+    [ -z "$rf" ] && continue
+    i=$((i + 1))
+    report "R $slug#$i: $(tr -d '\n ' < "$rf" | cut -c1-900)"
+    cp -f "$rf" "$CLIPS_DIR/receipts_${slug}_$i.json" 2>/dev/null || true
+  done < <(find "$DIR/out" -name 'receipts.json' -size -32k 2>/dev/null)
   [ "${DIAG:-1}" = "1" ] && kernel_tail "$ref"
   echo "::endgroup::"
 done
@@ -175,7 +178,12 @@ if [ "$PARALLEL" = "1" ]; then
     kaggle kernels output "$REF" -p "$DIR/out" 2>&1 | tail -2 || true
     got=$(find "$DIR/out" -name "$CLIP_GLOB" -size +20k 2>/dev/null | wc -l | tr -d ' ')
     find "$DIR/out" -name "$CLIP_GLOB" -size +20k -exec cp -f {} "$CLIPS_DIR"/ \; 2>/dev/null || true
-    find "$DIR/out" -name 'receipts.json' -exec cp -f {} "$CLIPS_DIR/receipts_$SLUG.json" \; 2>/dev/null || true
+    i=0
+  while IFS= read -r rf; do
+    [ -z "$rf" ] && continue
+    i=$((i + 1))
+    cp -f "$rf" "$CLIPS_DIR/receipts_${SLUG}_$i.json" 2>/dev/null || true
+  done < <(find "$DIR/out" -name 'receipts.json' 2>/dev/null)
     note "output $REF: $got mp4 (rc=$rc)"
     report "output $REF: $got mp4"
     for id in $(echo "$ONLY" | tr ',' ' '); do
