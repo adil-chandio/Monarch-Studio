@@ -1,1 +1,1 @@
-02:17:02Z · quota: resource  used   remaining  total   refreshAt                   --------  -----  ---------  ------  -------------------------   GPU       5.87h  24.13h     30.00h  2026-11-07T00:00:00+00:00   TPU       0.00h  20.00h     
+02:19:43Z · R monarch-t720-1 stick-w0/receipts.json: []
