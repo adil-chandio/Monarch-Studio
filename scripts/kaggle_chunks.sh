@@ -24,12 +24,15 @@ mkdir -p "$CLIPS_DIR" work
 
 if [ -z "${KAGGLE_USERNAME:-}" ]; then
   echo "::error::Kaggle username nahi mila — secret me Kaggle API token (KGAT_...) ya KAGGLE_USERNAME+KAGGLE_KEY do."
+  report "GUARD: username khali (user='${KAGGLE_USERNAME:-}' key='${KAGGLE_KEY:+set}' token='${KAGGLE_API_TOKEN:+set}')"
   exit 1
 fi
 if [ -z "${KAGGLE_KEY:-}" ] && [ -z "${KAGGLE_API_TOKEN:-}" ]; then
   echo "::error::Kaggle credentials adhoore — KAGGLE_KEY ya KAGGLE_API_TOKEN chahiye."
+  report "GUARD: key/token dono khali (user='${KAGGLE_USERNAME:-}' key='${KAGGLE_KEY:+set}' token='${KAGGLE_API_TOKEN:+set}')"
   exit 1
 fi
+report "start: user='${KAGGLE_USERNAME:-}' key='${KAGGLE_KEY:+set}' token='${KAGGLE_API_TOKEN:+set}' batch='${CHUNKS:0:60}'"
 
 note() { echo "::notice::$*"; }          # annotation (remote diagnosis ke liye)
 diag() { [ "${DIAG:-1}" = "1" ] && note "$*"; }
