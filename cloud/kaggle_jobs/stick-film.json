@@ -1,13 +1,13 @@
 {
-  "id": "test-720-fetch",
-  "title": "720p vs 576p test",
-  "chunks": [],
-  "fetch": [
-    "monarch-t720-1",
-    "monarch-t720-2"
+  "id": "test-720b",
+  "title": "720p round 2",
+  "chunks": [
+    "t720,t720q",
+    "t576,k06"
   ],
+  "fetch": [],
   "assemble": false,
   "clip_glob": "*.mp4",
-  "job": "cloud/t2v_jobs/test-720.json",
-  "note": "Test kernels se clips wapas (koi render nahi)."
+  "job": "cloud/t2v_jobs/test-720b.json",
+  "note": "Round 2: int8 (bnb upgrade) + attention slicing. 2 sessions x 2 T4 = 4 configs parallel."
 }

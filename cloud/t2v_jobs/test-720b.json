@@ -1,0 +1,87 @@
+{
+  "id": "test-720b",
+  "backend": "wan22_i2v",
+  "model": "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+  "style": "hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+  "negative": "photorealistic, 3d render, cgi, colored skin, extra limbs, melting lines, morphing, blurry, watermark, text, frozen static frame",
+  "width": 720,
+  "height": 1280,
+  "frames": 25,
+  "steps": 16,
+  "raw_fps": 24,
+  "fps": 24,
+  "guidance": 5.0,
+  "ladder": [
+    [
+      720,
+      1280
+    ],
+    [
+      576,
+      1024
+    ],
+    [
+      480,
+      832
+    ]
+  ],
+  "note": "Round 2 (int8 fix + attention slicing). t720 = bf16 + sequential + attn slice @720p/25f; t720q = int8 bnb @720p/33f; t576 = bf16 + model offload @576p/25f; k06 = film ka missing scene @576p/25f. Assembly nahi — sirf faisla.",
+  "scenes": [
+    {
+      "image": "studio/films/stick-i2v/keyframes/k05.png",
+      "prompt": "extreme close on the chalk stick figure's face, his eyes blink slowly once, his jaw tightens with determination, chalk dust drifts across the frame. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+      "seed": 205,
+      "id": "t720",
+      "seconds": 1.6,
+      "width": 720,
+      "height": 1280,
+      "quant": "",
+      "offload": "sequential",
+      "attn": "slice",
+      "steps": 16,
+      "frames": 25
+    },
+    {
+      "image": "studio/films/stick-i2v/keyframes/k05.png",
+      "prompt": "extreme close on the chalk stick figure's face, his eyes blink slowly once, his jaw tightens with determination, chalk dust drifts across the frame. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+      "seed": 205,
+      "id": "t720q",
+      "seconds": 1.6,
+      "width": 720,
+      "height": 1280,
+      "quant": "int8",
+      "offload": "none",
+      "attn": "",
+      "steps": 16,
+      "frames": 33
+    },
+    {
+      "image": "studio/films/stick-i2v/keyframes/k05.png",
+      "prompt": "extreme close on the chalk stick figure's face, his eyes blink slowly once, his jaw tightens with determination, chalk dust drifts across the frame. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+      "seed": 205,
+      "id": "t576",
+      "seconds": 1.6,
+      "width": 576,
+      "height": 1024,
+      "quant": "",
+      "offload": "model",
+      "attn": "slice",
+      "steps": 16,
+      "frames": 25
+    },
+    {
+      "image": "studio/films/stick-i2v/keyframes/k06.png",
+      "prompt": "the chalk stick figure pulls his shoulders back and stands tall, his chest opens as he takes one slow breath, golden rays pulse gently behind him. hand-drawn white chalk stickman animation on a near-black chalkboard, exactly the same chalk character as the first frame with a small gold cap, chalky organic line quality, gentle chalk boil, drifting dust motes, cinematic lighting, no text",
+      "seed": 206,
+      "id": "k06",
+      "seconds": 1.6,
+      "width": 576,
+      "height": 1024,
+      "quant": "",
+      "offload": "model",
+      "attn": "slice",
+      "steps": 16,
+      "frames": 25
+    }
+  ]
+}

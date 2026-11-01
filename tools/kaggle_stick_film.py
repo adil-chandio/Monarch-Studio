@@ -50,7 +50,7 @@ def sh(cmd, check=True):
     return proc
 
 
-def ensure_deps() -> None:
+def ensure_deps(quant: str = "") -> None:
     import importlib
 
     missing = []
@@ -66,6 +66,17 @@ def ensure_deps() -> None:
     if missing:
         log(f"pip install: {' '.join(missing)}")
         sh([sys.executable, "-m", "pip", "install", "-q", *missing])
+    if str(quant).lower() == "int8":
+        # Kaggle par purana bnb hota hai — int8 quantization ke liye taza chahiye
+        log("int8: bitsandbytes + accelerate upgrade")
+        sh([sys.executable, "-m", "pip", "install", "-q", "-U", "bitsandbytes", "accelerate"],
+           check=False)
+        try:
+            import bitsandbytes as _bnb
+
+            log(f"bitsandbytes {_bnb.__version__}")
+        except Exception as exc:                       # noqa: BLE001
+            log(f"bitsandbytes import FAIL: {type(exc).__name__}: {str(exc)[:200]}")
     if not shutil_which("ffmpeg"):
         log("ffmpeg apt se")
         sh("apt-get -qq update && apt-get -qq install -y ffmpeg", check=False)
@@ -104,6 +115,8 @@ class Renderer:
         self.offload = str(job.get("offload") or "sequential").lower()
         # quant: "" (bf16) | "int8" (bitsandbytes — T4 par 720p fit karane ke liye)
         self.quant = str(job.get("quant") or "").lower()
+        # attn: "slice" => attention slicing (720p par activation memory ~30% kam, thoda dheema)
+        self.attn = str(job.get("attn") or "").lower()
         self.transformer = None
         log(f"GPU: {torch.cuda.get_device_name(0)} | dtype {self.dtype}")
 
@@ -140,8 +153,14 @@ class Renderer:
             else:
                 pipe = WanImageToVideoPipeline.from_pretrained(model, vae=vae, torch_dtype=self.dtype)
             self._apply_offload(pipe)
+            if self.attn == "slice":
+                try:
+                    pipe.enable_attention_slicing("max")
+                    log("attention slicing: max")
+                except Exception as exc:               # noqa: BLE001
+                    log(f"attention slicing fail: {type(exc).__name__}")
             pipe.set_progress_bar_config(disable=True)
-            log(f"offload: {self.offload}")
+            log(f"offload: {self.offload} | quant: {self.quant or 'bf16'}")
             return pipe
 
         def _ltx():
@@ -161,7 +180,7 @@ class Renderer:
             try:
                 self.pipe, self.kind = _wan(), "wan22_i2v"
             except Exception as exc:                   # noqa: BLE001
-                msg = f"{type(exc).__name__}: {str(exc)[:200]}"
+                msg = f"{type(exc).__name__}: {str(exc)[:600]}"
                 if self.quant == "int8":
                     log(f"int8 load fail ({msg}) -> bf16 + sequential")
                     self.quant, self.offload = "", "sequential"
@@ -287,6 +306,7 @@ class Renderer:
             want_w, want_h = cw, ch
         self.width, self.height = want_w, want_h
         self.frames = int(scene.get("frames", self.job.get("frames", self.frames)))
+        self.attn = str(scene.get("attn", self.job.get("attn") or "")).lower()
         want_q = str(scene.get("quant", self.job.get("quant") or "")).lower()
         want_o = str(scene.get("offload", self.job.get("offload") or "sequential")).lower()
         if self.pipe is not None and (want_q != self.quant or want_o != self.offload):
@@ -532,7 +552,7 @@ def main(argv=None) -> int:
             raise SystemExit(f"koi clip nahi mila: {out}")
         result = {"ok": len(have)}
     else:
-        ensure_deps()
+        ensure_deps(str(job.get("quant") or ""))
         runner = Renderer(job)
         result = render_all(runner, scenes, out)
         log(f"clips: {result['ok']}/{len(scenes)}")
