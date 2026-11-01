@@ -373,7 +373,29 @@ def render_all(runner: Renderer, scenes: list[dict], out: pathlib.Path) -> dict:
                 frames = runner.render(scene, kf, scene.get("seconds", 3.0))
                 tmp = out / f"{scene['id']}_raw.mp4"
                 export_to_video(frames, str(tmp), fps=16)
-                tmp.replace(clip)
+                # interp: kam frames (720p par 25 hi fit hote hain) ko doubla karo taake
+                # scene ki asli cadence (3s) bani rahe. ffmpeg CPU par, GPU quota free.
+                interp = int(runner.job.get("interp") or 0)
+                if interp and len(frames) < interp and shutil_which("ffmpeg"):
+                    doubled = out / f"{scene['id']}_interp.mp4"
+                    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(tmp),
+                           "-vf", f"minterpolate=fps={interp}:mi_mode=mci",
+                           "-r", str(int(runner.job.get("fps", 16))),
+                           "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", str(doubled)]
+                    try:
+                        sh(cmd)
+                        if doubled.exists() and doubled.stat().st_size > 20000:
+                            doubled.replace(clip)
+                            tmp.unlink(missing_ok=True)
+                            log(f"{scene['id']}: interp {len(frames)}f -> fps {interp} "
+                                f"(scene {int(runner.job.get('fps', 16))}fps cadence)")
+                        else:
+                            tmp.replace(clip)
+                    except Exception as exc:               # noqa: BLE001
+                        log(f"{scene['id']}: interp fail ({type(exc).__name__}) — asli clip")
+                        tmp.replace(clip)
+                else:
+                    tmp.replace(clip)
                 dt = time.time() - started
                 log(f"{scene['id']}: OK {len(frames)}f in {dt / 60:.1f} min")
                 receipts.append({"scene": scene["id"], "state": "ok",
