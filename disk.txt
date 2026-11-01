@@ -1,0 +1,2 @@
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/cow-root   72G   70G  2.2G  97% /

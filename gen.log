@@ -1,0 +1,68 @@
+[02:33:08] s12: backend=wan
+[02:33:10] wan Wan-AI/Wan2.1-T2V-1.3B-Diffusers: 480x832 49f 12 steps
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files:  37%|███▋      | 7/19 [00:00<00:00, 53.42it/s]Fetching 19 files:  63%|██████▎   | 12/19 [00:19<00:00, 53.42it/s]Fetching 19 files:  68%|██████▊   | 13/19 [00:25<00:14,  2.38s/it]Fetching 19 files:  68%|██████▊   | 13/19 [02:12<01:01, 10.19s/it]
+Traceback (most recent call last):
+  File "/home/runner/work/Monarch-Studio/Monarch-Studio/tools/cloud_t2v.py", line 412, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/runner/work/Monarch-Studio/Monarch-Studio/tools/cloud_t2v.py", line 405, in main
+    raw = BACKENDS[name](scene, job, work)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Monarch-Studio/Monarch-Studio/tools/cloud_t2v.py", line 162, in generate_wan
+    pipe = WanPipeline.from_pretrained(model, torch_dtype=torch.bfloat16)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/diffusers/pipelines/pipeline_utils.py", line 871, in from_pretrained
+    cached_folder = cls.download(
+                    ^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/diffusers/pipelines/pipeline_utils.py", line 1787, in download
+    cached_folder = snapshot_download(
+                    ^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 464, in http_get
+    temp_file.write(chunk)
+OSError: [Errno 28] No space left on device
