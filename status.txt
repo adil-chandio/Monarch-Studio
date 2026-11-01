@@ -1,1 +1,1 @@
-04:46:48Z · fetch compali/monarch-t720c-2: 18 mp4
+04:46:49Z · R monarch-t720c-2#1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
