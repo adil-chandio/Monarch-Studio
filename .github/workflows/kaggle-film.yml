@@ -80,7 +80,7 @@ jobs:
           PY
 
       - name: Kaggle CLI (creds ke liye pehle)
-        run: python -m pip install --disable-pip-version-check -q kaggle
+        run: python -m pip install --disable-pip-version-check -q kaggle six requests
 
       - name: Kaggle creds
         env:
@@ -141,6 +141,10 @@ jobs:
                   print("token se username mila:", user)
               except Exception as exc:
                   print(f"::warning::token introspect fail: {type(exc).__name__}: {str(exc)[:200]}")
+              if not user:
+                  # KGAT token se username nahi mila — jana-pehchana account (receipts me yahi hai)
+                  user = "compali"
+                  print("::warning::username fallback: compali")
 
           if user:
               lines.append("KAGGLE_USERNAME=" + user)
