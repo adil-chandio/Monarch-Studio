@@ -1,1 +1,1 @@
-04:40:20Z · R monarch-t720c-1#1: []
+04:40:22Z · R monarch-t720c-1#2: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
