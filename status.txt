@@ -1,1 +1,1 @@
-03:46:30Z · R monarch-t720b-1: [{"scene":"t720","state":"ok","backend":"wan22_i2v","seconds":3005,"size":"720x1280","steps":16,"offload":"sequential","quant":"bf16","frames":25}]
+03:46:31Z · R monarch-t720b-1: {"shots":{},"mobile":{"notebook":"studio/videogen/examples/mobile/MOBILE_monarch-reel-01.ipynb","created_at":1793125807,"shots":3,"mode":"phone_run_all"}}
