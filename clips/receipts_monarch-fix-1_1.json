@@ -1,0 +1,13 @@
+[
+  {
+    "scene": "k02",
+    "state": "ok",
+    "backend": "wan22_i2v",
+    "seconds": 2132,
+    "size": "704x1280",
+    "steps": 16,
+    "offload": "sequential",
+    "quant": "bf16",
+    "frames": 25
+  }
+]
